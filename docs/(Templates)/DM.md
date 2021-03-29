@@ -22,7 +22,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Product/Service related to a Transaction or Transaction Line Item**
 
-*  
+* Lab Order
+* Tests
+*
 
 ---
 
@@ -36,6 +38,12 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Roles of People or Organizations**
 
+* Receptionist
+* Medical Lab Technician
+* Client
+* Clinical Chemistry Technologist
+* Doctor 
+* Laboratoty Coordinator
 * 
 
 
@@ -64,7 +72,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Descriptions of Things**
 
-*  
+* Lab Order
+* Tests
+*
 
 
 ---
