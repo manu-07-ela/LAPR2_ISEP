@@ -6,10 +6,11 @@ The teams consists of students identified in the following table.
 
 | Student Number	| Name |
 |--------------|----------------------------|
-| **1190001**  | Name of student 1          |
-| **1190002**  | Name of student 2          |
-| **1190003**  | Name of student 3          |
-| **1190004**  | Name of student 4          |
+| **1200720**  | Manuela Leite          |
+| **1211001**  | Carlos Rodrigues          |
+| **1201007**  | José Pessoa          |
+| **1201382**  | Pedro Rocha         |
+| **1201386**  | Rita Ariana Sobral         |
 
 
 
