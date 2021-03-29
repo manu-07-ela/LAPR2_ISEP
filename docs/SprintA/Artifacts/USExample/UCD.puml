@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+actor "Administrator" as Adm
+actor "Recepcionist" as Recp
+actor "Med lab technician" as MedLab
+actor "Doctor" as Doc
+actor "Chemical Analyst" as chemAna
+actor "Laboratory Coordinator" as LabCod
+
+
+rectangle System{
+usecase "Specify a new type of test and its collecting methods" as UC1
+usecase "Specify a new test parameter and categorize it" as UC2
+usecase "Specify a new parameter category" as UC3
+usecase "Register a test to be performed to a registered client" as UC4
+usecase "Register a new client" as UC6
+usecase "Record the samples collected in the scope of a given test" as UC5
+usecase "Record the samples of chemistry analysis" as UC7
+usecase "Write a report" as UC8
+usecase "Validation of clinical analysis" as UC9
+usecase "Report Covid-19 data" as UC10
+}
+Adm --- UC1
+Adm --- UC2
+Adm --- UC3
+UC4 --- Recp
+UC6 --- Recp
+MedLab --- UC5
+Doc --- UC8
+UC7  --- chemAna
+UC9 --- LabCod
+
+
+
+
+
+
+@enduml
