@@ -15,7 +15,7 @@ However, be aware, this is a pedagogical simplification. On further projects and
 | UC/US  | Description                                                               |                   
 |:----|:------------------------------------------------------------------------|
 | US01 | [Register a new client](US01.md)|
-| US02 | |
+| US02 | [Register the test to be performed](US02.md)|
 | US03 | |
 | US04 | [Register a test](US04.md)   |
 | US05 | [Record samples collected](US05.md)  |
@@ -27,9 +27,9 @@ However, be aware, this is a pedagogical simplification. On further projects and
 | US11 | [Specify a new parameter category](US11.md)|
 | US12 | [Write a report](US12.md)|
 | US13 | [Validation of clinical analysis](US13.md)|
-| US14 | [Report Covid-19 data](US14.md)|
-| US15 | [Sort the clients](US15.md)|
-| US16 | [Assess the internal process](US16.md)|
+| US14 | |
+| US15 | |
+| US16 | [Access the internal process](US16.md)|
 | US17 ||
 | US18 ||
 | US19 ||
