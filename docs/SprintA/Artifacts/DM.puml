@@ -10,17 +10,43 @@ class Receptionist {
 }
 
 class Client {
- - name
- - email
- - phone number
- - sex
- - Tax Identification Number
- - birth date
- - NHS number
- - citizen card number
+ - Name
+ - Email
+ - Phone Number
+ - Sex
+ - TIF
+ - Birth Date
+ - NHS Number
+ - Citizen Card Number
 
 }
 
-Client "*" -- "*" Receptionist: registered  by >
+class LabOrder {
 
+}
+
+class Category {
+
+}
+
+class TestType {
+- Blood
+- Covid 19
+}
+
+class Sample {
+
+}
+
+class Doctor {
+
+}
+
+class Report {
+}
+
+Client "*" -- "1" Receptionist: registers the <
+LabOrder "*" -- "1" TestType: contain the >
+Client "1" -- "*" LabOrder: has a >
+Doctor "1" -- "*" Report: write a >
 @enduml
