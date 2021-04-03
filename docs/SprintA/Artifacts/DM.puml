@@ -86,10 +86,14 @@ class ClinicalAnalysisLaboratory{
 
 }
 
+class application{
+
+}
+
 Client "*" -- "1" Receptionist: registers the <
 LabOrder "*" -- "1" TestType: contain the >
 Client "1" -- "*" LabOrder: has a >
-Doctor "1" -- "*" Report: write a >
+Report "1" -- "*" Doctor: write a <
 Receptionist "*" -- "*" Test: registers the >
 Test "*" -- "1" TestType: is of >
 Parameter "*" -- "1" Category: present under >
@@ -106,6 +110,7 @@ LabOrder "*" -- "*" Parameter: contain the <
 MedicalLabTechnician "1" -- "*" Test: registers the >
 MedicalLabTechnician "1" -- "*" Sample: collect the >
 Doctor "1" -- "*" ChemicalAnalysis: analyzes the results of >
+Report "1" -- "*" Client: delivered to >
 
 
 @enduml
