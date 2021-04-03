@@ -45,7 +45,7 @@ class TestType {
 }
 
 class Sample {
-
+- Barcode
 }
 
 class Report {
@@ -70,7 +70,7 @@ class Company {
 
 }
 
-class ChemicalLaboratoty{
+class ChemicalLaboratory{
 
 }
 
@@ -95,12 +95,17 @@ Test "*" -- "1" TestType: is of >
 Parameter "*" -- "1" Category: present under >
 Category "*" -- "1" Administrator: created by >
 Company "1" -- "*" Test: performs >
-Sample "*" -- "1" ChemicalLaboratoty: sent to >
+Sample "*" -- "1" ChemicalLaboratory: sent to >
 Company "1" -- "*" TestType: conducts >
 MedicalLabTechnician "1" -- "*" Client: calls >
-ChemicalLaboratoty "1" -- "*" ChemicalAnalysis: performs the >
-ClinicalAnalysisLaboratory "1" -- "*" Sample: collect the >
+ChemicalLaboratory "1" -- "*" ChemicalAnalysis: performs the >
+MedicalLabTechnician "1" -- "*" Sample: records the >
 Company "1" -- "*" ClinicalAnalysisLaboratory: owns >
-Company "1" -- "*" ChemicalLaboratoty: owns >
+ChemicalLaboratory "*" -- "1" Company: owns <
+LabOrder "*" -- "*" Parameter: contain the <
+MedicalLabTechnician "1" -- "*" Test: registers the >
+MedicalLabTechnician "1" -- "*" Sample: collect the >
+Doctor "1" -- "*" ChemicalAnalysis: analyzes the results of >
+
 
 @enduml

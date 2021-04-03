@@ -170,19 +170,22 @@ An association is a relationship between instances of objects that indicates a r
 
 | Concept (A) 		|  Association   	| Concept (B) |
 |----------	   		|:-------------:		|---------:       |
-| Category  	| created by    		 	| Administrator  |
 | Parameter  	| presented under   		 	| Category |
+| Category  	| created by    		 	| Administrator  |
 | Company  	| performs    		 	| Test |
 | Company  	| conducts    		 	| TestType |
 | Test  	| requested by   		 	| Client |
 | Test  	| is of	 	| TestType |
 | Receptionist 	| registers the   		 	| client  |
 | Receptionist 	| registers the   		 	| Test  |
-| ChemicalAnalysisLaboratory  	| collect the | Sample |
+| MedicalLabTechnician 	| calls  		 	| client |
+| MedicalLabTechnician 	| registers the  		 	|test|
+| MedicalLabTechnician 	| collect the 		 	| Sample |
+| MedicalLabTechnician 	| record the 		 	| Sample |
 | Sample 	| sent to   		 	| ChemicalLaboratory  |
 | ChemicalLaboratory 	| perform the  	| ChemicalAnalysis |
-| MedicalLabTechnician 	| calls  		 	| client |
-| ...  	| ...    		 	| ...  |
+| LabOrder	| contains the   		 	| TestType |
+| LabOrder	| contains the   		 	| Parameter |
 
 
 
