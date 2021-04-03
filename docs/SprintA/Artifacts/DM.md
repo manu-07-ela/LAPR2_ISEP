@@ -10,13 +10,15 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Business Transactions**
 
+* Test
 *
 
 ---
 
 **Transaction Line Itemss**
 
-* Sample 
+* Sample
+* Chemical Test
 *
 
 ---
@@ -24,7 +26,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 **Product/Service related to a Transaction or Transaction Line Item**
 
 * Lab Order
-* Test
+* Parameter
 *
 
 ---
@@ -32,7 +34,10 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Transaction Records**
 
-*  
+* Lab Order
+* Report
+* Covid 19 data
+*
 
 ---  
 
@@ -46,6 +51,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 * Doctor 
 * Laboratory Coordinator
 * Courier
+* Administrator
+* Specialist Doctor
+*
 
 
 ---
@@ -56,18 +64,21 @@ To identify domain conceptual classes, start by making a list of candidate conce
 * Headquarter
 * Chemical Laboratory
 * Clinical Analysis laboratory 
+*
 
 ---
 
 ** Noteworthy Events**
 
-* 
+* Chemical Analysis
+*
 
 ---
 
 
 **Physical Objects**
 
+* Lab Order
 *
 
 ---
@@ -76,9 +87,10 @@ To identify domain conceptual classes, start by making a list of candidate conce
 **Descriptions of Things**
 
 * Lab Order
-* Test
 * Category
-* 
+* Type of test
+* Report
+*
 
 
 ---
@@ -108,14 +120,14 @@ To identify domain conceptual classes, start by making a list of candidate conce
 **Organizations**
 
 * Company
-* Headquarter
 * 
 
 ---
 
 **Other External/Collaborating Systems**
 
-*  
+* External API
+* External module
 
 
 ---
@@ -142,7 +154,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 
 
-###**Rationale to identify associations between conceptual classes**###
+###**Rationale to identify associations between conceptual classes**
 
 An association is a relationship between instances of objects that indicates a relevant connection and that is worth of remembering, or it is derivable from the List of Common Associations: 
 
@@ -156,9 +168,20 @@ An association is a relationship between instances of objects that indicates a r
 
 
 
-| Concept (A) 		|  Association   	|  Concept (B) |
-|----------	   		|:-------------:		|------:       |
-| C1  	| verb1    		 	| C2  |
+| Concept (A) 		|  Association   	| Concept (B) |
+|----------	   		|:-------------:		|---------:       |
+| Category  	| created by    		 	| Administrator  |
+| Parameter  	| presented under   		 	| Category |
+| Company  	| performs    		 	| Test |
+| Company  	| conducts    		 	| TestType |
+| Test  	| requested by   		 	| Client |
+| Test  	| is of	 	| TestType |
+| Receptionist 	| registers the   		 	| client  |
+| Receptionist 	| registers the   		 	| Test  |
+| ChemicalAnalysisLaboratory  	| collect the | Sample |
+| Sample 	| sent to   		 	| ChemicalLaboratory  |
+| ChemicalLaboratory 	| perform the  	| ChemicalAnalysis |
+| MedicalLabTechnician 	| calls  		 	| client |
 | ...  	| ...    		 	| ...  |
 
 
