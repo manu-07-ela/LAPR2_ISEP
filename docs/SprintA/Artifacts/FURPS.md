@@ -32,7 +32,7 @@ among them: error prevention; interface aesthetics and design; help and
 documentation; consistency and standards._
 
 
-(fill in here )
+- The system will instruct the user to enter the data correctly, and it will display a message if the user has entered the data incorrectly.
 
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
@@ -51,9 +51,9 @@ _The supportability requirements gathers several characteristics, such as:
 testability, adaptability, maintainability, compatibility,
 configurability, installability, scalability and more._ 
 
-
-
-(fill in here )
+### Testability
+- The system need to have unit tests for all methods except methods that implement Input or Output Operations , using the JUnit 4 framework."The development team must implement unit tests for all methods except methods that implement
+    Input/Output operations. The unit tests should be implemented using the JUnit 4 framework."
 
 
 ## +
@@ -65,11 +65,10 @@ _Specifies or constraints the system design process. Examples may include: progr
 - The system must be coded in java using Intellij IDE or Netbeans and the graphical interface must be developed in JavaFX 11."The application must be developed in Java language using the IntelliJ IDE or Netbeans. The
 application graphical interface is to be developed in JavaFX 11."
   
-- The system need to have unit tests for all methods except methods that implement Input or Output Operations , using the JUnit 4 framework."The development team must implement unit tests for all methods except methods that implement
-  Input/Output operations. The unit tests should be implemented using the JUnit 4 framework."
-  
 - All images or figures should be recorded in SVG format."All the images/figures produced during the software development process should be recorded in
   SVG format."
+  
+- We must use Javadoc to generate documentation for Java code. "use Javadoc to generate useful documentation for Java code."
 
 
 ### Implementation Constraints
@@ -78,8 +77,9 @@ _Specifies or constraints the code or construction of a system such
 such as: mandatory standards/patterns, implementation languages,
 database integrity, resource limits, operating system._
 
-
-(fill in here )
+- The system must be coded in java adopting the best practices of OO software analysis and design."During system development, the team must: (i) adopt best practices for identifying requirements
+  and for OO software analysis and design","The application should use object serialization to ensure data persistence between two runs of the
+  application."
 
 
 ### Interface Constraints
@@ -87,7 +87,7 @@ _Specifies or constraints the features inherent to the interaction of the
 system being developed with other external systems._
 
 
-The program has to comunicate with external aplications or API'S."...and identifying each sample with a barcode that is
+- The program has to comunicate with external aplications or API'S."...and identifying each sample with a barcode that is
 automatically generated using an external API."
 
 ### Physical Constraints
