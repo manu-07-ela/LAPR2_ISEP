@@ -14,22 +14,22 @@ However, be aware, this is a pedagogical simplification. On further projects and
 # Use Cases / User Stories
 | UC/US  | Description                                                               |                   
 |:----|:------------------------------------------------------------------------|
-| US01 | [Register a new client](US01.md)|
-| US02 | [Register the test to be performed](US02.md)|
-| US03 | |
-| US04 | [Register a test](US04.md)   |
-| US05 | [Record samples collected](US05.md)  |
-| US06 | [Record the result of chemistry analysis](US.06)|
-| US07 | |
+| US01 | [As a Receptionist, I want register a new client.](US01.md)|
+| US02 | [As a Receptionist, I want to verified if a client already exist in the System.](US02.md)|
+| US03 | [As a Receptionist, I intend to register the test to be performed to a client.](US03.md)|
+| US04 | |
+| US05 | [As a medical lab technician, I want to record samples collected in the test.](US05.md)  |
+| US06 | [As a medical lab technician, I want to associate a barcode to each sample collected.](US.06.md)|
+| US07 | [As a clinical chemistry technologist, I intend to record the result of chemistry analysis.](US07.md)|
 | US08 | |
-| US09 | [Specify a new type of test](US09.md)|
-| US10 | [Specify a new test parameter](US10.md)|
-| US11 | [Specify a new parameter category](US11.md)|
-| US12 | [Write a report](US12.md)|
-| US13 | [Validation of clinical analysis](US13.md)|
+| US09 | [As an administrator, I want to specify a new type of test.](US09.md)|
+| US10 | [As an administrator, I want to specify a new test parameter.](US10.md)|
+| US11 | [As an administrator , I want to specify a new parameter category.](US11.md)|
+| US12 | [As a Doctor, I intend write a report.](US12.md)|
+| US13 | [As the laboratory coordinator, I intend to validate the clinical analysis.](US13.md)|
 | US14 | |
 | US15 | |
-| US16 | [Access the internal process](US16.md)|
+| US16 | [As a Administrator, I intend to access the internal process of a client.](US16.md)|
 | US17 ||
 | US18 ||
 | US19 ||

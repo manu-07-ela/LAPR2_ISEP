@@ -49,6 +49,7 @@ class Sample {
 }
 
 class Report {
+-Diagnosis
 
 }
 
@@ -60,9 +61,13 @@ class Test {
 - time samples collected
 - date chemical analysis
 - time chemical analysis
+- date diagnosis made
+- time diagnosis made
+- date of validation by laboratory coordinator
+- time of validation by laboratory coordinator
 }
-
 class Parameter {
+
 
 }
 
@@ -89,6 +94,7 @@ class ClinicalAnalysisLaboratory{
 class application{
 
 }
+
 
 Client "*" -- "1" Receptionist: registers the <
 LabOrder "*" -- "1" TestType: contain the >

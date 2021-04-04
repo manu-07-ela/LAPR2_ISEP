@@ -13,7 +13,7 @@ _Specifies functionalities that:_
 - The aplication can only support English language." The application must support the English language only."
 
 ### _Email_ ###
-- When the results are available, the cliente receives a notification via SMS and e-mail."The client receives the notification by SMS and e-mail"
+- When the results are available, the client receives a notification via SMS and e-mail."The client receives the notification by SMS and e-mail"
 
 ### _Security_ ###
 - All users have a password to access the aplication."All those who wish to use the
@@ -22,7 +22,7 @@ _Specifies functionalities that:_
   
 ### _Workflow_ ###
 - Before sending a notification to a client, the system has to check that everything is ready and verified.11th paragraph of the enunciated.
-- The system has to have an algorithm that calculates the difference between the number of new tests and the number of tesults available.13th paragraph of enunciated.
+- The system has to have an algorithm that calculates the difference between the number of new tests, and the number of results available.13th paragraph of enunciated.
 
 
 ## Usability 
@@ -74,7 +74,7 @@ application graphical interface is to be developed in JavaFX 11."
 
 ### Implementation Constraints
 
-_Specifies or constraints the code or construction of a system such
+_Specifies or constraints the code or construction of a system
 such as: mandatory standards/patterns, implementation languages,
 database integrity, resource limits, operating system._
 
