@@ -7,6 +7,7 @@
 | **Categories** | **Categorias** | Refers to clinical categories.    |
 | **CAL**  | **CAL** | Acronym for _Clinical Analyses Laboratories_.   |
 | **CCL**  | **CCL** | Acronym for _Clinical Chemical Laboratories_.   |
+|**Doctor** | **Doutor**| Specialist doctor who works in ManyLabs and interacts with the System.|
 | **HQ**   | **HQ**  | Acronym for _Headquarters_.                     |
 | **Lab**  | **Lab** | Acronym for _Laboratory_.                       |
 | **NHS**  | **SNS** | Acronym for _National Health Care_.             |

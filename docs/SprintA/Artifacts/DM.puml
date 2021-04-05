@@ -28,7 +28,8 @@ class Doctor {
 class Administrator{
 
 }
-
+class LabCoordinator{
+}
 
 
 class LabOrder {
@@ -63,8 +64,8 @@ class Test {
 - time chemical analysis
 - date diagnosis made
 - time diagnosis made
-- date of validation by laboratory coordinator
-- time of validation by laboratory coordinator
+- date of validation
+- time of validation
 }
 class Parameter {
 
@@ -117,6 +118,7 @@ MedicalLabTechnician "1" -- "*" Test: registers the >
 MedicalLabTechnician "1" -- "*" Sample: collect the >
 Doctor "1" -- "*" ChemicalAnalysis: analyzes the results of >
 Report "1" -- "*" Client: delivered to >
-
+Report "*" -- "1" API: verified by >
+Report "1" -- "1" LabCoordinator : verified by >
 
 @enduml
