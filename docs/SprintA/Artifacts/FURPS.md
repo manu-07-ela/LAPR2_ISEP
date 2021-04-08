@@ -102,7 +102,7 @@ automatically generated using an external API."
 - The program communicates with an external module to validate the work performed by specialist doctor."To facilitate and simplify the validation work performed by the specialist doctor, the application
   uses an external module that is responsible for doing an automatic validation using test reference
   values."
-
+- The program has to send automatic daily reports with all the information required by the NHS using the NHS API.
 ### Physical Constraints
 
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
