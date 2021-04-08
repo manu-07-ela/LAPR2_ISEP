@@ -135,7 +135,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Records of finance, work, contracts, legal matters**
 
-* 
+* NHS
+* Courier Company
 
 ---
 
@@ -183,6 +184,7 @@ An association is a relationship between instances of objects that indicates a r
 | MedicalLabTechnician 	| collect the 		 	| Sample |
 | MedicalLabTechnician 	| record the 		 	| Sample |
 | Sample 	| sent to   		 	| ChemicalLaboratory  |
+| Courier 	| delievers at		 	| ChemicalLaboratory |
 | ChemicalLaboratory 	| perform the  	| ChemicalAnalysis |
 | LabOrder	| contains the   		 	| TestType |
 | LabOrder	| contains the   		 	| Parameter |
