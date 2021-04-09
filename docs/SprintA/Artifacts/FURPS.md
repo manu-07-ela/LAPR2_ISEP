@@ -16,7 +16,9 @@ _Specifies functionalities that:_
 - When the results are available, the client receives a notification via SMS and e-mail."The client receives the notification by SMS and e-mail"
 
 ### _Help_ ###
-- All algorithms implemented should be documented in the annexes of user manual.
+- All algorithms implemented should be documented in the annexes of user manual."The time
+  complexity analysis of the algorithms should be properly documented in the application user
+  manual (in the annexes) that must be delivered with the application."
 
 ### _Printing_ ###
 - At the same time that the client receives a notification about his test results, this information becomes available for the medical lab technicians, the clinical chemistry technologist, the specialist doctor, and the laboratory
@@ -30,8 +32,6 @@ _Specifies functionalities that:_
 ### _Workflow_ ###
 - Before sending a notification to a client, the system has to check that everything is ready and verified.11th paragraph of the enunciated.
 - The system has to have an algorithm that calculates the difference between the number of new tests, and the number of results available.13th paragraph of enunciated.
-
-
 
 ## Usability 
 
@@ -65,7 +65,10 @@ configurability, installability, scalability and more._
 - The system need to have unit tests for all methods except methods that implement Input or Output Operations , using the JUnit 4 framework."The development team must implement unit tests for all methods except methods that implement
     Input/Output operations. The unit tests should be implemented using the JUnit 4 framework."
 
-
+### Configurability
+- Some algorithms must be defined through a the configuration file, for example, the algorithm to order the clients by TIF and by name."The ordering algorithm to be used by the application must be defined through a configuration
+  file."
+  
 ## +
 
 ### Design Constraints
