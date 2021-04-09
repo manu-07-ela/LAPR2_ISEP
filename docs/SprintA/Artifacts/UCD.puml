@@ -4,32 +4,41 @@ left to right direction
 actor "Administrator" as Adm
 actor "Recepcionist" as Recp
 actor "Med lab technician" as MedLab
+actor "Clinical chemistry technologist" as ClinTec
 actor "Doctor" as Doc
-actor "Chemical Analyst" as chemAna
 actor "Laboratory Coordinator" as LabCod
 
 
 rectangle System{
+
+usecase "Register a new client" as UC1
+usecase "Check if a client already exist in the System" as UC2
+usecase "Register a test to be performed" as UC3
+usecase "Record the samples collected" as UC5
+usecase "Associate a barcode with each sample" as UC6
+usecase "Record the result of chemistry analysis" as UC7
 usecase "Specify a new type of test" as UC9
 usecase "Specify a new test parameter" as UC10
 usecase "Specify a new parameter category" as UC11
-usecase "Register a test" as UC4
-usecase "Register a new client" as UC1
-usecase "Record the samples collected" as UC5
-usecase "Record the result of chemistry analysis" as UC6
 usecase "Write a report" as UC12
 usecase "Validation of clinical analysis" as UC13
-usecase "Report Covid-19 data" as UC14
+usecase "Access a internal process of a client" as UC16
+
 }
-Adm --- UC9
-Adm --- UC10
-Adm --- UC11
-UC4 --- Recp
-UC1 --- Recp
-MedLab --- UC5
-Doc --- UC12
-UC6  --- chemAna
+
+Recp -- UC1
+Recp -- UC2
+Recp -- UC3
+MedLab -- UC5
+MedLab -- UC6
+ClinTec -- UC7
+UC9 --- Adm
+UC10 --- Adm
+UC11 --- Adm
+UC16 --- Adm
+UC12 --- Doc
 UC13 --- LabCod
+
 
 
 
