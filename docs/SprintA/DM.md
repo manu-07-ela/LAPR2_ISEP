@@ -174,20 +174,20 @@ An association is a relationship between instances of objects that indicates a r
 | Parameter  	| presented under   		 	| Category |
 | Category  	| created by    		 	| Administrator  |
 | Company  	| performs    		 	| Test |
-| Company  	| conducts    		 	| TestType |
+| | conducts    		 	| TestType |
 | Test  	| requested by   		 	| Client |
-| Test  	| is of	 	| TestType |
+| | is of	 	| TestType |
 | Receptionist 	| registers the   		 	| client  |
-| Receptionist 	| registers the   		 	| Test  |
+| | registers the   		 	| Test  |
 | MedicalLabTechnician 	| calls  		 	| client |
-| MedicalLabTechnician 	| registers the  		 	|test|
-| MedicalLabTechnician 	| collect the 		 	| Sample |
-| MedicalLabTechnician 	| record the 		 	| Sample |
+| | registers the  		 	|test|
+| | collect the 		 	| Sample |
+| | record the 		 	| Sample |
 | Sample 	| sent to   		 	| ChemicalLaboratory  |
 | Courier 	| delievers at		 	| ChemicalLaboratory |
 | ChemicalLaboratory 	| perform the  	| ChemicalAnalysis |
 | LabOrder	| contains the   		 	| TestType |
-| LabOrder	| contains the   		 	| Parameter |
+| | contains the   		 	| Parameter |
 
 
 
