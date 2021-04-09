@@ -5,6 +5,10 @@ hide methods
 left to right direction
 skinparam classAttributeIconSize 0
 
+class Company {
+
+}
+
 class Receptionist {
 
 }
@@ -49,6 +53,10 @@ class Sample {
 - Barcode
 }
 
+class ChemicalLaboratory{
+
+}
+
 class Report {
 -Diagnosis
 
@@ -72,13 +80,6 @@ class Parameter {
 
 }
 
-class Company {
-
-}
-
-class ChemicalLaboratory{
-
-}
 
 class MedicalLabTechnician {
 
@@ -92,33 +93,29 @@ class ClinicalAnalysisLaboratory{
 
 }
 
-class application{
-
-}
-
-
-Client "*" -- "1" Receptionist: registers the <
-LabOrder "*" -- "1" TestType: contain the >
-Client "1" -- "*" LabOrder: has a >
-Report "1" -- "*" Doctor: write a <
-Receptionist "*" -- "*" Test: registers the >
-Test "*" -- "1" TestType: is of >
-Parameter "*" -- "1" Category: present under >
-Category "*" -- "1" Administrator: created by >
-Company "1" -- "*" Test: performs >
-Sample "*" -- "1" ChemicalLaboratory: sent to >
-Company "1" -- "*" TestType: conducts >
-MedicalLabTechnician "1" -- "*" Client: calls >
-ChemicalLaboratory "1" -- "*" ChemicalAnalysis: performs the >
-MedicalLabTechnician "1" -- "*" Sample: records the >
+ChemicalLaboratory "*" --- "1" Company: owns <
 Company "1" -- "*" ClinicalAnalysisLaboratory: owns >
-ChemicalLaboratory "*" -- "1" Company: owns <
-LabOrder "*" -- "*" Parameter: contain the <
+Company "1" -- "*" Test: performs >
+Company "1" -- "*" TestType: conducts >
+Test "*" --- "1" TestType: is of >
+Receptionist "*" -- "*" Test: registers the >
+LabOrder "*" ------ "1" TestType: contain the >
 MedicalLabTechnician "1" -- "*" Test: registers the >
-MedicalLabTechnician "1" -- "*" Sample: collect the >
-Doctor "1" -- "*" ChemicalAnalysis: analyzes the results of >
-Report "1" -- "*" Client: delivered to >
+Client "1" -- "*" LabOrder: has a >
+LabOrder "*" -- "*" Parameter: contain the >
+Client "*" -- "1" Receptionist: registers the <
+MedicalLabTechnician "1" --- "*" Client: calls >
+Client "*" -- "1" Report: delivered to <
+Report "1" -- "*" Doctor: write a <
 Report "*" -- "1" API: verified by >
 Report "1" -- "1" LabCoordinator : verified by >
+Parameter "*" -- "1" Category: present under >
+Category "*" -- "1" Administrator: created by >
+Doctor "1" -- "*" ChemicalAnalysis: analyzes the results of >
+ChemicalLaboratory "1" -- "*" ChemicalAnalysis: performs the >
+MedicalLabTechnician "1" -- "*" Sample: records the >
+MedicalLabTechnician "1" ---- "*" Sample: collect the >
+Sample "*" --- "1" ChemicalLaboratory: sent to >
+
 
 @enduml
