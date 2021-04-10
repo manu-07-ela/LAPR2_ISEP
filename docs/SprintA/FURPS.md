@@ -25,10 +25,7 @@ _Specifies functionalities that:_
 
 > The application must support the English language only.
 
-### _Printing_ 
-
-- At the same time that the client receives a notification about his test results, this information becomes available for the medical lab technicians, the clinical chemistry technologist, the specialist doctor, and the laboratory
-  coordinator.
+### _Printing_
   
 ### _System Management_
   
@@ -123,6 +120,8 @@ _Specifies or constraints the system design process. Examples may include: progr
 >The JaCoCo plugin should be used to generate the coverage report.
 
 >All the images/figures produced during the software development process should be recorded in SVG format.
+
+>Use Javadoc to generate useful documentation for Java code.
   
 ### Implementation Constraints
 
@@ -130,9 +129,19 @@ _Specifies or constraints the code or construction of a system
 such as: mandatory standards/patterns, implementation languages,
 database integrity, resource limits, operating system._
 
-- The system must be coded in java adopting the best practices of OO software analysis and design."During system development, the team must: (i) adopt best practices for identifying requirements
-  and for OO software analysis and design","The application should use object serialization to ensure data persistence between two runs of the
-  application."
+>The application must be developed in Java language using the IntelliJ IDE or Netbeans.
+
+>The application graphical interface is to be developed in JavaFX 11.
+
+>The unit tests should be implemented using the JUnit 4 framework.
+
+>The JaCoCo plugin should be used to generate the coverage report.
+
+>All the images/figures produced during the software development process should be recorded in SVG format.
+
+>Use Javadoc to generate useful documentation for Java code.
+
+
   
 ### Interface Constraints
 
@@ -145,7 +154,6 @@ system being developed with other external systems._
 
 >Identifying each sample with a barcode that is automatically generated using an external API.
 
->Use Javadoc to generate useful documentation for Java code
 
 ### Physical Constraints
 
@@ -154,6 +162,10 @@ _________
 
 Requisitos que ainda estamos a ver onde se enquadram:
 
-> Only the specialist doctor is allowed to access all client data.
+>Only the specialist doctor is allowed to access all client data.
 
 >The application should use object serialization to ensure data persistence between two runs of the application.
+
+>At the same time that the client receives a notification about his test results, this information becomes available for the medical lab technicians, the clinical chemistry technologist, the specialist doctor, and the laboratory coordinator.
+
+>The NHS required that both simple linear and multiple linear regression algorithms should be evaluated to select the best model.
