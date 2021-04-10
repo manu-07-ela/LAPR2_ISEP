@@ -112,7 +112,7 @@ Client "*" -- "1" Report: delivered to <
 Report "1" -- "*" Doctor: write a <
 Report "*" -- "1" API: verified by >
 Report "1" -- "1" LabCoordinator : verified by >
-Parameter "*" -- "1" Category: present under >
+Parameter "*" -- "1" Category: organized into >
 Category "*" -- "1" Administrator: created by >
 Doctor "1" -- "*" ChemicalAnalysis: analyzes the results of >
 ChemistryTechnologist "1" -- "*" ChemicalAnalysis: performs the >

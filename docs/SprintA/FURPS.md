@@ -36,7 +36,7 @@ _Specifies functionalities that:_
 
 - Before sending a notification to a client, the system has to check that everything is ready and verified.11th paragraph of the enunciated.
 - The system has to have an algorithm that calculates the difference between the number of new tests, and the number of results available.13th paragraph of enunciated.
-
+________
 ## Usability 
 
 _Evaluates the **user interface**. It has several subcategories,
@@ -50,7 +50,7 @@ documentation; consistency and standards._
 ### _Help and Documentation_
 
 ### _Interface Asthetics and Desing_
-
+______
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
 
@@ -63,12 +63,15 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 ### _Frequency and Severity of Failure_
 
 ### _Recoverability_
+______
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
 - "The complexity analysis must be accompanied by the observation of the execution time of the
 algorithms for inputs of variable size in order to observe the asymptotic behaviour."
   
+_______
+
 ## Supportability
 
 _The supportability requirements gathers several characteristics, such as:
@@ -104,6 +107,7 @@ configurability, installability, scalability and more._
 
 - The aplication must order clients by TIF and name.
 
+________
 ## +
 
 ### Design Constraints
@@ -149,3 +153,5 @@ _________
 Requisitos que ainda estamos a ver onde se enquadram:
 
 > Only the specialist doctor is allowed to access all client data.
+
+>The application should use object serialization to ensure data persistence between two runs of the application.
