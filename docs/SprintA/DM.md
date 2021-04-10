@@ -170,7 +170,7 @@ An association is a relationship between instances of objects that indicates a r
 
 
 | Concept (A) 		|  Association   	| Concept (B) |
-|----------	   		|:-------------:		|---------:       |
+|:----------:	   		|:-------------:		|:---------:       |
 | Parameter  	| presented under   		 	| Category |
 | Category  	| created by    		 	| Administrator  |
 | Company  	| performs    		 	| Test |

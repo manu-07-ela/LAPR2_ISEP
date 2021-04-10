@@ -1,7 +1,7 @@
 # Glossary
 
 | **_TEA_** (EN)  | **_TEA_** (PT) | **_Description_** (EN)           |                                       
-|:----------------|:--------------------|:---------------------------------|
+|:----------------:|:--------------------:|:---------------------------------:|
 |**AC** | **AC** | Acronym for _Acceptance Criteria_.|
 | **API** | **API** | Acronym for _Application Programming Interface_.|
 | **Categories** | **Categorias** | Refers to clinical categories.    |
