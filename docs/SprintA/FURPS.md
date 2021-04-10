@@ -51,9 +51,6 @@ documentation; consistency and standards._
 
 ### _Interface Asthetics and Desing_
 
-- The system will instruct the user to enter the data correctly, and it will display a message if the user has entered the data incorrectly.
-- We must use Javadoc to generate documentation for Java code. "use Javadoc to generate useful documentation for Java code."
-
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
 
@@ -103,13 +100,10 @@ configurability, installability, scalability and more._
 
 ### _Testability_
 
-- The system need to have unit tests for all methods except methods that implement Input or Output Operations , using the JUnit 4 framework."The development team must implement unit tests for all methods except methods that implement
-  Input/Output operations. The unit tests should be implemented using the JUnit 4 framework."
+>Implement unit tests for all methods except methods that implement Input/Output operations.
 
-- The aplication must support another types of test besides Covid-19 and Blood Tests.
 - The aplication must order clients by TIF and name.
 
-  
 ## +
 
 ### Design Constraints
@@ -120,12 +114,11 @@ _Specifies or constraints the system design process. Examples may include: progr
 
 >The application graphical interface is to be developed in JavaFX 11.
 
-- "All those who wish to use the application must be authenticated with a password holding seven alphanumeric characters,
-  including three capital letters and two digits."
-  
-- All images or figures should be recorded in SVG format."All the images/figures produced during the software development process should be recorded in
-  SVG format."
-  
+>The unit tests should be implemented using the JUnit 4 framework. 
+
+> The JaCoCo plugin should be used to generate the coverage report.
+
+>All the images/figures produced during the software development process should be recorded in SVG format.
   
 ### Implementation Constraints
 
@@ -151,7 +144,8 @@ system being developed with other external systems._
 ### Physical Constraints
 
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
-
 _________
 
 Requisitos que ainda estamos a ver onde se enquadram:
+
+> Only the specialist doctor is allowed to access all client data.
