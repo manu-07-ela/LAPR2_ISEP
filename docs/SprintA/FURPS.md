@@ -88,6 +88,10 @@ configurability, installability, scalability and more._
 
 ### _Installability_
 
+### _Localizability_
+
+> The application must support the English language only.
+
 ### _Maintainability_
 
 ### _Scalability_
@@ -117,10 +121,13 @@ _Specifies or constraints the system design process. Examples may include: progr
   
   
 ### Implementation Constraints
-
 _Specifies or constraints the code or construction of a system
 such as: mandatory standards/patterns, implementation languages,
 database integrity, resource limits, operating system._
+
+>The application must be developed in Java language using the IntelliJ IDE or Netbeans.
+
+>The application graphical interface is to be developed in JavaFX 11
 
 - The system must be coded in java adopting the best practices of OO software analysis and design."During system development, the team must: (i) adopt best practices for identifying requirements
   and for OO software analysis and design","The application should use object serialization to ensure data persistence between two runs of the
@@ -131,14 +138,18 @@ database integrity, resource limits, operating system._
 _Specifies or constraints the features inherent to the interaction of the
 system being developed with other external systems._
 
+>The company is also required to generate daily (automatic) reports
+with all the information demanded by the NHS and should send them to the NHS using their API.
+
 - "The application graphical interface is to be developed in JavaFX 11."
 
 - The program has to comunicate with API'S."...and identifying each sample with a barcode that is
 automatically generated using an external API."
+  
 - The program communicates with an external module to validate the work performed by specialist doctor."To facilitate and simplify the validation work performed by the specialist doctor, the application
   uses an external module that is responsible for doing an automatic validation using test reference
   values."
-- The program has to send automatic daily reports with all the information required by the NHS using the NHS API.
+
 ### Physical Constraints
 
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
