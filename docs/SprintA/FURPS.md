@@ -120,7 +120,7 @@ _Specifies or constraints the system design process. Examples may include: progr
 
 >The unit tests should be implemented using the JUnit 4 framework. 
 
-> The JaCoCo plugin should be used to generate the coverage report.
+>The JaCoCo plugin should be used to generate the coverage report.
 
 >All the images/figures produced during the software development process should be recorded in SVG format.
   
@@ -144,6 +144,8 @@ system being developed with other external systems._
 >The application uses an external module that is responsible for doing an automatic validation using test reference values.
 
 >Identifying each sample with a barcode that is automatically generated using an external API.
+
+>Use Javadoc to generate useful documentation for Java code
 
 ### Physical Constraints
 
