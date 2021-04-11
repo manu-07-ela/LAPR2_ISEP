@@ -17,6 +17,10 @@ _Specifies functionalities that:_
 
 ### _Help_
 
+>The accuracy of the prediction models should be analysed and
+documented in the application user manual (in the annexes) that must be delivered with the
+application.
+
 ### _Licensing_
 
 ### _Localization_ 
@@ -71,13 +75,21 @@ configurability, installability, scalability and more._
 
 ### _Adaptability_
 
->The system should be developed having in mind the need to easily support other kinds of tests
+>The system should be developed having in mind the need to easily support other kinds of tests.
+
+>The application must allow ordering the clients by TIF and by
+name. 
 
 ### _Auditability_
 
 ### _Compatibility_
 
 ### _Configurability_
+
+>The ordering algorithm to be used by the application must be defined through a configuration
+file. 
+
+>The brute-force algorithm to be used by the application must be defined through a configuration file.
 
 ### _Installability_
 
@@ -149,23 +161,20 @@ Requisitos que ainda estamos a ver onde se enquadram:
 
 >Only the specialist doctor is allowed to access all client data.
 
->The application should use object serialization to ensure data persistence between two runs of the application.
-
 >At the same time that the client receives a notification about his test results, this information becomes available for the medical lab technicians, the clinical chemistry technologist, the specialist doctor, and the laboratory coordinator.
 
 >The NHS required that both simple linear and multiple linear regression algorithms should be evaluated to select the best model.
 
->To make the predictions, the NHS contract defines that a linear regression algorithm should be used. 
+>To make the predictions, the NHS contract defines that a linear regression algorithm should be used.
 
->The aplication must order clients by TIF and name.
-
->All algorithms implemented should be documented in the annexes of user manual.The time complexity analysis of the algorithms should be properly documented in the application user manual (in the annexes) that must be delivered with the application. 
-
->Some algorithms must be defined through a the configuration file, for example, the algorithm to order the clients by TIF and by name."The ordering algorithm to be used by the application must be defined through a configuration file."
+>All algorithms implemented should be documented in the annexes of user manual.The time complexity analysis of the algorithms should be properly documented in the application user manual (in the annexes) that must be delivered with the application.
 
 >The complexity analysis must be accompanied by the observation of the execution time of the
 algorithms for inputs of variable size in order to observe the asymptotic behaviour.
 
->Before sending a notification to a client, the system has to check that everything is ready and verified.11th paragraph of the enunciated.
+>Once the laboratory coordinator confirms that everything was done correctly, the client receives a notification alerting that the
+results are already available in the central application and informing that he/she must access the
+application to view those results.
 
->The system has to have an algorithm that calculates the difference between the number of new tests, and the number of results available.13th paragraph of enunciated. 
+>At least two sorting algorithms should be evaluated and
+documented in the application user manual.
