@@ -17,8 +17,6 @@ _Specifies functionalities that:_
 
 ### _Help_
 
-- All algorithms implemented should be documented in the annexes of user manual."The time complexity analysis of the algorithms should be properly documented in the application user manual (in the annexes) that must be delivered with the application."
-
 ### _Licensing_
 
 ### _Localization_ 
@@ -29,10 +27,8 @@ _Specifies functionalities that:_
   
 ### _System Management_
   
-### _Workflow_ 
+### _Workflow_
 
-- Before sending a notification to a client, the system has to check that everything is ready and verified.11th paragraph of the enunciated.
-- The system has to have an algorithm that calculates the difference between the number of new tests, and the number of results available.13th paragraph of enunciated.
 ________
 ## Usability 
 
@@ -64,8 +60,6 @@ ______
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
-- "The complexity analysis must be accompanied by the observation of the execution time of the
-algorithms for inputs of variable size in order to observe the asymptotic behaviour."
   
 _______
 
@@ -85,9 +79,6 @@ configurability, installability, scalability and more._
 
 ### _Configurability_
 
-- Some algorithms must be defined through a the configuration file, for example, the algorithm to order the clients by TIF and by name."The ordering algorithm to be used by the application must be defined through a configuration
-  file."
-
 ### _Installability_
 
 ### _Localizability_
@@ -101,8 +92,6 @@ configurability, installability, scalability and more._
 ### _Testability_
 
 >Implement unit tests for all methods except methods that implement Input/Output operations.
-
-- The aplication must order clients by TIF and name.
 
 ________
 ## +
@@ -122,6 +111,8 @@ _Specifies or constraints the system design process. Examples may include: progr
 >All the images/figures produced during the software development process should be recorded in SVG format.
 
 >Use Javadoc to generate useful documentation for Java code.
+
+>Adopt best practices for identifying requirements and for OO software analysis and design.
   
 ### Implementation Constraints
 
@@ -133,15 +124,9 @@ database integrity, resource limits, operating system._
 
 >The application graphical interface is to be developed in JavaFX 11.
 
->The unit tests should be implemented using the JUnit 4 framework.
+>Adopt recognized coding standards (e.g., CamelCase).
 
->The JaCoCo plugin should be used to generate the coverage report.
-
->All the images/figures produced during the software development process should be recorded in SVG format.
-
->Use Javadoc to generate useful documentation for Java code.
-
-
+>The application should use object serialization to ensure data persistence between two runs of the application 
   
 ### Interface Constraints
 
@@ -169,3 +154,18 @@ Requisitos que ainda estamos a ver onde se enquadram:
 >At the same time that the client receives a notification about his test results, this information becomes available for the medical lab technicians, the clinical chemistry technologist, the specialist doctor, and the laboratory coordinator.
 
 >The NHS required that both simple linear and multiple linear regression algorithms should be evaluated to select the best model.
+
+>To make the predictions, the NHS contract defines that a linear regression algorithm should be used. 
+
+>The aplication must order clients by TIF and name.
+
+>All algorithms implemented should be documented in the annexes of user manual.The time complexity analysis of the algorithms should be properly documented in the application user manual (in the annexes) that must be delivered with the application. 
+
+>Some algorithms must be defined through a the configuration file, for example, the algorithm to order the clients by TIF and by name."The ordering algorithm to be used by the application must be defined through a configuration file."
+
+>The complexity analysis must be accompanied by the observation of the execution time of the
+algorithms for inputs of variable size in order to observe the asymptotic behaviour.
+
+>Before sending a notification to a client, the system has to check that everything is ready and verified.11th paragraph of the enunciated.
+
+>The system has to have an algorithm that calculates the difference between the number of new tests, and the number of results available.13th paragraph of enunciated. 
