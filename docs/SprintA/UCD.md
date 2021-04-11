@@ -17,11 +17,11 @@ However, be aware, this is a pedagogical simplification. On further projects and
 | US01   | [As a Receptionist, I want register a new client.](US01.md)                                                  |
 | US02   | [As a Receptionist, I want to verified if a client already exist in the System.](US02.md)                    |
 | US03   | [As a Receptionist, I intend to register the test to be performed to a client.](US03.md)                     |
-| US04   |                                                                                                              |
+| US04   | [As a medical lab technician , I want to associate the samples to the client/test.](US04.md)                 |
 | US05   | [As a medical lab technician, I want to record samples collected in the test.](US05.md)                      |
-| US06   | [As a medical lab technician, I want to associate a barcode to each sample collected.](US.06.md)             |
-| US07   | [As a clinical chemistry technologist, I intend to record the result of chemistry analysis.](US07.md)        |
-| US08   |                                                                                                              |
+| US06   | [As a medical lab technician, I want to associate a barcode to each sample collected.](US06.md)              |
+| US07   | [As a medical lab technician, I want to register the tests perfomed locally.](US07.md)                       |
+| US08   | [As a clinical chemistry technologist, I intend to record the result of chemistry analysis.](US08.md)        |
 | US09   | [As an administrator, I want to specify a new type of test.](US09.md)                                        |
 | US10   | [As an administrator, I want to specify a new test parameter.](US10.md)                                      |
 | US11   | [As an administrator , I want to specify a new parameter category.](US11.md)                                 |

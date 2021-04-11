@@ -14,9 +14,11 @@ rectangle System{
 usecase "UC1: Register a new client" as UC1
 usecase "UC2: Check if a client already exist in the System" as UC2
 usecase "UC3: Register a test to be performed" as UC3
+usecase "UC4: Associate the samples to the client/test" as UC4
 usecase "UC5: Record the samples collected" as UC5
 usecase "UC6: Associate a barcode with each sample" as UC6
-usecase "UC7: Record the result of chemistry analysis" as UC7
+usecase "UC7: Register the tests performed locally" as UC7
+usecase "UC8: Record the result of chemistry analysis" as UC8
 usecase "UC9: Specify a new type of test" as UC9
 usecase "UC10: Specify a new test parameter" as UC10
 usecase "UC11: Specify a new parameter category" as UC11
@@ -29,9 +31,11 @@ usecase "UC16: Access a internal process of a client" as UC16
 Recp -- UC1
 Recp -- UC2
 Recp -- UC3
+MedLab -- UC4
 MedLab -- UC5
 MedLab -- UC6
-ClinTec -- UC7
+MedLab -- UC7
+ClinTec -- UC8
 UC9 --- Adm
 UC10 --- Adm
 UC11 --- Adm
