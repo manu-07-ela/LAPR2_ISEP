@@ -7,6 +7,7 @@ actor "Med lab technician" as MedLab
 actor "Clinical chemistry technologist" as ClinTec
 actor "Doctor" as Doc
 actor "Laboratory Coordinator" as LabCod
+actor "Time" as Time
 
 
 rectangle System{
@@ -25,6 +26,7 @@ usecase "UC11: Specify a new parameter category" as UC11
 usecase "UC12: Write a report" as UC12
 usecase "UC13: Validation of clinical analysis" as UC13
 usecase "UC16: Access a internal process of a client" as UC16
+usecase "UC19: Send daily Covid-19 data" as UC19
 
 }
 
@@ -42,6 +44,7 @@ UC11 --- Adm
 UC16 --- Adm
 UC12 --- Doc
 UC13 --- LabCod
+Time -- UC19
 
 
 
