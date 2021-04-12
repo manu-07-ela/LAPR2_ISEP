@@ -27,7 +27,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 * Lab Order
 * Parameter
-*
+* Category
 
 ---
 
@@ -169,25 +169,25 @@ An association is a relationship between instances of objects that indicates a r
 
 
 
-| Concept (A) 		|  Association   	| Concept (B) |
-|----------	   		|:-------------:		|---------:       |
-| Parameter  	| presented under   		 	| Category |
-| Category  	| created by    		 	| Administrator  |
-| Company  	| performs    		 	| Test |
-| Company  	| conducts    		 	| TestType |
-| Test  	| requested by   		 	| Client |
-| Test  	| is of	 	| TestType |
-| Receptionist 	| registers the   		 	| client  |
-| Receptionist 	| registers the   		 	| Test  |
-| MedicalLabTechnician 	| calls  		 	| client |
-| MedicalLabTechnician 	| registers the  		 	|test|
-| MedicalLabTechnician 	| collect the 		 	| Sample |
-| MedicalLabTechnician 	| record the 		 	| Sample |
-| Sample 	| sent to   		 	| ChemicalLaboratory  |
-| Courier 	| delievers at		 	| ChemicalLaboratory |
-| ChemicalLaboratory 	| perform the  	| ChemicalAnalysis |
-| LabOrder	| contains the   		 	| TestType |
-| LabOrder	| contains the   		 	| Parameter |
+| Concept (A) 	    	|  Association   	| Concept (B)         |
+|:----------:	        |:-------------:	|:---------:          |
+| Parameter  	        | organized into   	| Category            |
+| Category  	        | created by    	| Administrator       |
+| Company  	            | performs    		| Test                |
+|                       | conducts    		| TestType            |
+| Test  	            | requested by      | Client              |
+|                       | is of	 	        | TestType            |
+| Receptionist 	        | registers the   	| Client              |
+|                       | registers the   	| Test                |
+| MedicalLabTechnician 	| calls  		 	| Client              |
+|                       | registers the  	| Test                |
+|                       | collect the 		| Sample              |
+|                       | record the 		| Sample              |
+| Sample 	            | sent to   	 	| ChemicalLaboratory  |
+| Courier 	            | delievers at		| ChemicalLaboratory  |
+| ChemicalLaboratory 	| perform the    	| ChemicalAnalysis    |
+| LabOrder          	| contains the  	| TestType            |
+|                       | contains the   	| Parameter           |
 
 
 

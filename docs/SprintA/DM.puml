@@ -1,0 +1,123 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+class Company
+class Headquarter
+class Clinical_Analysis_Laboratory
+class Receptionist
+class Test
+class TestType
+class Category
+class Parameters
+class Sample
+class Medical_Lab_Technician
+class Doctor
+class Report
+class Chemical_Analyses
+class Chemical_Laboratory
+class Clinical_Chemistry_Technologist
+class LabOrder
+class Client
+class Laboratory_Coordinator
+class Administrator
+
+class Company{
+-name
+-designation
+-category
+}
+class Headquarter{
+-address
+}
+class Chemical_Laboratory{
+-phoneNumber
+}
+class Clinical_Chemistry_Technologist{
+-name
+-email
+-password
+}
+class Doctor{
+-name
+-email
+-password
+}
+class Report{
+-diagnosis
+}
+class Laboratory_Coordinator{
+-name
+-email
+-password
+}
+class Sample{
+-barcode
+-collection date
+}
+class Medical_Lab_Technician{
+-name
+-email
+-password
+}
+class Test{
+-code
+-nhsCode
+-createdAt
+}
+class TestType{
+-designation
+}
+class Administrator{
+-name
+-email
+-password
+}
+class Clinical_Analysis_Laboratory{
+-address
+-phoneNumber
+}
+class Receptionist{
+-name
+-email
+-password
+}
+class Client{
+ - Name
+ - Email
+ - Phone Number
+ - Sex
+ - TIF
+ - Birth Date
+ - NHS Number
+ - Citizen Card Number
+
+}
+
+Company "1" - "1..*" Clinical_Analysis_Laboratory : owns >
+Company "1" ---- "*" Headquarter : has a >
+Headquarter "1" --- "1" Chemical_Laboratory : contain >
+Clinical_Analysis_Laboratory "1" --"1..*" Receptionist : < work for
+Receptionist "1" - "*" Client : register >
+Receptionist "*" - "*" Test : register >
+Client "1" -- "1..*" LabOrder : has >
+LabOrder "1" --- "1..*" Test : request >
+Test "*" - "1" TestType : is of >
+Test "1" ---- "1..*" Sample : need >
+Sample "1..*" - "1" Medical_Lab_Technician : collected by >
+Medical_Lab_Technician "1" ------- "*" Client : call >
+TestType "*" - "1..*" Parameters : has >
+Parameters "*" -- "1" Category : present under >
+Category "*" - "1" Administrator : created by >
+Sample "*" -- "1" Chemical_Laboratory : sent >
+Chemical_Laboratory "1" -- "1..*" Clinical_Chemistry_Technologist : < employee of
+Clinical_Chemistry_Technologist "1" -- "*" Chemical_Analyses : perform >
+Chemical_Analyses "*" - "1" Doctor : analyzed by >
+Doctor "1" - "*" Report : write >
+Laboratory_Coordinator "1" - "*" Chemical_Analyses : validate >
+Laboratory_Coordinator "1" -- "*" Report : validate >
+Administrator "1" -- "*" Parameters : < created by
+
+
+
+
+@enduml
