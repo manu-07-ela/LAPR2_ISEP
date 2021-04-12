@@ -30,9 +30,6 @@ documented in the application user manual.
 
 >All algorithms implemented should be documented in the annexes of user manual.The time complexity analysis of the algorithms should be properly documented in the application user manual (in the annexes) that must be delivered with the application.
 
->The complexity analysis must be accompanied by the observation of the execution time of the
-algorithms for inputs of variable size in order to observe the asymptotic behaviour.
-
 ### _Licensing_
 
 ### _Localization_ 
@@ -93,6 +90,9 @@ ______
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
+
+>The complexity analysis must be accompanied by the observation of the execution time of the
+algorithms for inputs of variable size in order to observe the asymptotic behaviour.
   
 _______
 
