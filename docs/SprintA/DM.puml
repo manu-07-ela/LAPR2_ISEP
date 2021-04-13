@@ -44,6 +44,8 @@ class Barcode{
 
 class Report{
 -diagnosis
+-date
+-time
 }
 
 class Sample{
@@ -81,20 +83,11 @@ class ChemicalAnalyses{
 -time
 }
 
-class Report{
--date
--time
-}
-
-class ReferenceValues{
+class ReferenceValue{
 
 }
 
-class Barcode{
-
-}
-
-class Parameters{
+class Parameter{
 
 }
 
@@ -130,7 +123,7 @@ class External_API{
 
 }
 
-class API {
+class External_API2 {
 
 }
 
@@ -169,7 +162,7 @@ Laboratory_Coordinator "1"--"1" Employee : is a >
 Laboratory_Coordinator "1"--"*" Report : validates >
 Laboratory_Coordinator "1"---"*" ChemicalAnalyses : validates >
 ChemicalAnalyses "*"--"*" ReferenceValues : compared with >
-Report "*" -- "1" API: verified by >
+Report "*" -- "1" External_API2: verified by >
 
 
 

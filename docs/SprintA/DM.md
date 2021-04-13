@@ -11,15 +11,14 @@ To identify domain conceptual classes, start by making a list of candidate conce
 **Business Transactions**
 
 * Test
-*
+
 
 ---
 
 **Transaction Line Itemss**
 
 * Sample
-* Chemical Test
-*
+
 
 ---
 
@@ -28,6 +27,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 * Lab Order
 * Parameter
 * Category
+* Barcode
+* Reference Value
 
 ---
 
@@ -36,8 +37,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 * Lab Order
 * Report
-* Covid 19 data
-*
+
 
 ---  
 
@@ -53,7 +53,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 * Courier
 * Administrator
 * Specialist Doctor
-*
+
 
 
 ---
@@ -64,14 +64,14 @@ To identify domain conceptual classes, start by making a list of candidate conce
 * Headquarter
 * Chemical Laboratory
 * Clinical Analysis laboratory 
-*
+
 
 ---
 
-** Noteworthy Events**
+**Noteworthy Events**
 
 * Chemical Analysis
-*
+
 
 ---
 
@@ -79,7 +79,6 @@ To identify domain conceptual classes, start by making a list of candidate conce
 **Physical Objects**
 
 * Lab Order
-*
 
 ---
 
@@ -88,9 +87,10 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 * Lab Order
 * Category
-* Type of test
+* Test Type 
 * Report
-*
+* Barcode
+* Reference Value
 
 
 ---
@@ -120,7 +120,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 **Organizations**
 
 * Company
-* 
+
 
 ---
 
@@ -128,6 +128,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 * External API
 * External module
+* External API 2
 
 
 ---
