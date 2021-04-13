@@ -32,7 +32,10 @@ class Doctor{
 }
 
 class Laboratory{
-
+-name
+-address
+-phoneNumber
+-TIN
 }
 
 class Barcode{
@@ -58,7 +61,7 @@ class Client{
  - Email
  - Phone Number
  - Sex
- - TIF
+ - TIN
  - Birth Date
  - NHS Number
  - Citizen Card Number
@@ -70,7 +73,7 @@ class Receptionist{
 }
 
 class ClinicalAnalysisLaboratory{
-
+-laboratoryId
 }
 
 class ChemicalAnalyses{
