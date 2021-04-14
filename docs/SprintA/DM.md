@@ -15,7 +15,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 ---
 
-**Transaction Line Itemss**
+**Transaction Line Items**
 
 * Sample
 
@@ -37,6 +37,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 * Lab Order
 * Report
+* Covid-19 Test
+* Blood Test
 
 
 ---  
@@ -64,6 +66,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 * Headquarter
 * Chemical Laboratory
 * Clinical Analysis laboratory 
+* Laboratory
 
 
 ---
@@ -71,6 +74,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 **Noteworthy Events**
 
 * Chemical Analysis
+* Covid-19 Test
+* Blood Test
 
 
 ---
@@ -198,6 +203,8 @@ An association is a relationship between instances of objects that indicates a r
 |                   	          | order a     	    | Test                |
 |                                 | contains the    	| Parameter           |
 | Clinical Analysis Laboratory    | is a  	            | Laboratory          |
+|                   	          | perform      	    | Covid-19 Test       |
+|                   	          | perform      	    | Blood Test          |
 | Chemical Laboratory             | is a            	| Laboratory          |
 | Administrator                   | is a             	| Employee            |
 | Clinical Chemistry Technologist | is a  	            | Employee            |
@@ -215,6 +222,8 @@ An association is a relationship between instances of objects that indicates a r
 |                   	          | validates        	| Report              |
 | Chemical Analyses               | compared with     	| Reference Values    |
 | Report             	          | verified by  	    | External API 2      |
+| Covid-19 Test                   | is a        	    | Test Type           |
+| Blood Test                      | is a        	    | Test Type           |
 
 
 

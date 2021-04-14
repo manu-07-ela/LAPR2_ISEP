@@ -161,7 +161,7 @@ Doctor "1"---"*" Report : write >
 Laboratory_Coordinator "1"--"1" Employee : is a >
 Laboratory_Coordinator "1"--"*" Report : validates >
 Laboratory_Coordinator "1"---"*" ChemicalAnalyses : validates >
-ChemicalAnalyses "*"--"*" ReferenceValues : compared with >
+ChemicalAnalyses "*"--"*" ReferenceValue : compared with >
 Report "*" -- "1" External_API2: verified by >
 
 
