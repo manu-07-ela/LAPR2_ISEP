@@ -1,8 +1,8 @@
 # Glossary
 
 | **_TEA_** (EN)  | **_TEA_** (PT) | **_Description_** (EN)           |                                       
-|:----------------:|:--------------------:|:---------------------------------|
-|**AC** | **CA** | Acronym for _Acceptance Criteria_.|
+|:---------------:|:--------------------:|:---------------------------|
+| **AC** | **CA** | Acronym for _Acceptance Criteria_.|
 | **API** | **API** | Acronym for _Application Programming Interface_.|
 | **Application Programming Interface** | **Interface de Programação de Aplicações** | A set of functions established by a software that allow the creation of application in a simpler and more practical way for developers.|
 | **Benchmark**   | **Marca de referência** | A point of reference against which things may be compared.|
@@ -11,7 +11,6 @@
 | **CCL**  | **CCL** | Acronym for _Clinical Chemical Laboratories_.|
 | **Company**  | **Empresa** | Many Labs (A commercial business).|
 | **Diagnosis**  | **Diagnóstico** | A chemical analysis of the cause or nature of a condition, situation, or problem made by the doctor.|
-| **Doctor** | **Doutor**| Specialist doctor who works in ManyLabs and interacts with the System.|
 | **HQ**   | **HQ**  | Acronym for _Headquarters_.|
 | **IDE**  | **IDE** | Acronym for _Integrated Development Environment_.|
 | **Integrated Development Environment**  | **Ambiente de Desenvolvimento Integrado** | A software for building applications that combines common developer tools into a single graphical user interface.|
@@ -25,6 +24,8 @@
 | **Sample**  | **Amostra** | Biological Material Collected.|
 | **SE**   | **ES** | Acronym for _Software Engineer_.|
 | **SMS**   | **SMS** | Acronym for _Short Message Service_.|
+| **SOC**   | **SOC** | Acronym for _Standard Occupational Classification_.|
+| **Specialist Doctor** | **Doutor Especialista**| Specialist doctor who works in ManyLabs and interacts with the System.|
 | **SW**  | **SW** | Acronym for _Software_.|
 | **Swab** | **Zaragatoa** | Wad of absorbent material usually around one end of a small stick. |
 | **Test** | **Exame clínico** | Procedure performed to establish the quality of material collected. |
