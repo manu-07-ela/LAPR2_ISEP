@@ -91,6 +91,7 @@ ______
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
 
+
 >The complexity analysis must be accompanied by the observation of the execution time of the
 algorithms for inputs of variable size in order to observe the asymptotic behaviour.
   
@@ -185,4 +186,17 @@ system being developed with other external systems._
 
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
 
+_________
+
+>Any interface between a user and the system shall have a maximum response time of 3 seconds.
+
+>The system should start up in less than 10 seconds.
+
+>The application should run on all platforms for which there exists a Java Virtual Machine.
+
+>The system should not fail more than 5 days in one year. Whenever the system fails, there should be no data loss.
+
+>The user interface must be simple, intuitive and consistent.
+
+>The application will be deployed to a machine with 8GB of RAM.
 

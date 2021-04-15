@@ -26,9 +26,9 @@ However, be aware, this is a pedagogical simplification. On further projects and
 | US10   | [As an administrator, I want to specify a new test parameter.](US10.md)                                      |
 | US11   | [As an administrator , I want to specify a new parameter category.](US11.md)                                 |
 | US12   | [As a Doctor, I intend write a report.](US12.md)                                                             |
-| US13   | [As the laboratory coordinator, I want to validate the clinical analysis.](US13.md)                        |
-| US14   | [As the laboratory coordinator, I want to know the company response efficiency.](US14.md)|
-| US15   |                                                                                                              |
+| US13   | [As the Laboratory Coordinator, I want to validate the clinical analysis.](US13.md)                        |
+| US14   | [As the Laboratory Coordinator, I want to know the company response efficiency.](US14.md)|
+| US15   | [As a Administrator, I want to create a new employee account.](US15.md)                                                                                                             |
 | US16   | [As a Administrator, I want to access the internal process of a client.](US16.md)                          |
 | US17   |                                                                                                              |
 | US18   |                                                                                                              |
