@@ -93,11 +93,12 @@ ______
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
 
->The application will be deployed to a machine with 8GB of RAM.
-
 >The complexity analysis must be accompanied by the observation of the execution time of the
 algorithms for inputs of variable size in order to observe the asymptotic behaviour.
-  
+###_Start-up Time_
+>The system should start up in less than 10 seconds.
+###_Response Time_
+>Any interface between a user and the system shall have a maximum response time of 3 seconds.
 _______
 
 ## Supportability
@@ -113,9 +114,11 @@ configurability, installability, scalability and more._
 >The application must allow ordering the clients by TIN and by
 name. 
 
+>The application should run on all platforms for which there exists a Java Virtual Machine.
 ### _Auditability_
 
 ### _Compatibility_
+
 
 ### _Configurability_
 
@@ -125,6 +128,7 @@ file.
 >The brute-force algorithm to be used by the application must be defined through a configuration file.
 
 ### _Installability_
+>The application will be deployed to a machine with 8GB of RAM.
 
 ### _Localizability_
 
@@ -172,7 +176,9 @@ database integrity, resource limits, operating system._
 >Adopt recognized coding standards (e.g., CamelCase).
 
 >The application should use object serialization to ensure data persistence between two runs of the application 
-  
+
+>The system should not fail more than 5 days in one year. Whenever the system fails, there should be no data loss.
+
 ### Interface Constraints
 
 _Specifies or constraints the features inherent to the interaction of the
@@ -191,13 +197,13 @@ _Specifies a limitation or physical requirement regarding the hardware used to h
 
 _________
 
->Any interface between a user and the system shall have a maximum response time of 3 seconds.
 
->The system should start up in less than 10 seconds.
 
->The application should run on all platforms for which there exists a Java Virtual Machine.
 
->The system should not fail more than 5 days in one year. Whenever the system fails, there should be no data loss.
+
+
+
+
 
 
 
