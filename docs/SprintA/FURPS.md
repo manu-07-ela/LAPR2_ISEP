@@ -69,6 +69,8 @@ documentation; consistency and standards._
 ### _Help and Documentation_
 
 ### _Interface Asthetics and Design_
+>The user interface must be simple, intuitive and consistent.
+
 ______
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
@@ -91,6 +93,7 @@ ______
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
 
+>The application will be deployed to a machine with 8GB of RAM.
 
 >The complexity analysis must be accompanied by the observation of the execution time of the
 algorithms for inputs of variable size in order to observe the asymptotic behaviour.
@@ -196,7 +199,7 @@ _________
 
 >The system should not fail more than 5 days in one year. Whenever the system fails, there should be no data loss.
 
->The user interface must be simple, intuitive and consistent.
 
->The application will be deployed to a machine with 8GB of RAM.
+
+
 
