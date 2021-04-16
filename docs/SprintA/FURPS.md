@@ -74,9 +74,9 @@ _Evaluates the performance requirements of the software, namely: response time, 
 
 - The complexity analysis must be accompanied by the observation of the execution time of the
 algorithms for inputs of variable size in order to observe the asymptotic behaviour.
-###_Start-up Time_
+### _Start-up Time_
 - The system should start up in less than 10 seconds.
-###_Response Time_
+### _Response Time_
 - Any interface between a user and the system shall have a maximum response time of 3 seconds.
 _______
 
@@ -127,10 +127,13 @@ ________
 ### Design Constraints
 
 _Specifies or constraints the system design process. Examples may include: programming languages, software process, mandatory standards/patterns, use of development tools, class library, etc._
-####_Programming languages_
+
+#### _Programming languages_
+
 - Adopt best practices for identifying requirements and for OO software analysis and design.
 
-####_Use of development tools_
+#### _Use of development tools_
+
 - The unit tests should be implemented using the JUnit 4 framework. 
 
 - The JaCoCo plugin should be used to generate the coverage report.
@@ -147,13 +150,15 @@ _Specifies or constraints the code or construction of a system
 such as: mandatory standards/patterns, implementation languages,
 database integrity, resource limits, operating system._
 
-####_Implementation languages_
+#### _Implementation languages_
+
 - The application must be developed in Java language using the IntelliJ IDE or Netbeans.
 
 - The application graphical interface is to be developed in JavaFX 11.
 
-####_Mandatory standards/patterns_
+#### _Mandatory standards/patterns_
 - Adopt recognized coding standards (e.g., CamelCase).
+
 
 - The application should use object serialization to ensure data persistence between two runs of the application 
 
