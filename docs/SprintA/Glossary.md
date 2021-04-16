@@ -9,7 +9,7 @@
 | **CAL**  | **CAL** | Acronym for _Clinical Analyses Laboratories_.|
 | **Categorie** | **Categoria** | Refers to a clinical categorie.|
 | **CCL**  | **CCL** | Acronym for _Clinical Chemical Laboratories_.|
-| **Company**  | **Empresa** | Many Labs (A commercial business).|
+| **Company**  | **Empresa** | A commercial business.|
 | **Diagnosis**  | **Diagnóstico** | A chemical analysis of the cause or nature of a condition, situation, or problem made by the doctor.|
 | **HQ**   | **HQ**  | Acronym for _Headquarters_.|
 | **IDE**  | **IDE** | Acronym for _Integrated Development Environment_.|

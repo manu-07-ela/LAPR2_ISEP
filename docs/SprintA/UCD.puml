@@ -10,7 +10,7 @@ actor "Laboratory Coordinator" as LabCod
 actor "Time" as Time
 
 
-rectangle System{
+rectangle ManyLabs{
 
 usecase "UC1: Register a new client" as UC1
 usecase "UC2: Check if a client already exist in the System" as UC2
