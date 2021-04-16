@@ -14,25 +14,13 @@ _Specifies functionalities that:_
 - The accuracy of the prediction models should be analysed and
 documented in the application user manual (in the annexes) that must be delivered with the
 application.
+  
+- All algorithms implemented should be documented in the annexes of user manual.
 
-- At least two sorting algorithms should be evaluated and
-documented in the application user manual.
-
-- All algorithms implemented should be documented in the annexes of user manual.The time complexity analysis of the algorithms should be properly documented in the application user manual (in the annexes) that must be delivered with the application.
+- The time complexity analysis of the algorithms should be properly documented in the application user manual (in the annexes) that must be delivered with the application.
 
 ### _Localization_
 - The application must support the English language only.
-
-### _Workflow_
-
-- Only the specialist doctor is allowed to access all client data.
-
-- At the same time that the client receives a notification about his test results, this information becomes available for the medical lab technicians, the clinical chemistry technologist, the specialist doctor, and the laboratory coordinator.
-
-- Once the laboratory coordinator confirms that everything was done correctly, the client receives a notification alerting that the
-results are already available in the central application and informing that he/she must access the
-application to view those results.
-
 
 ________
 ## Usability 
@@ -60,6 +48,8 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 
 - The NHS required that both simple linear and multiple linear regression algorithms should be evaluated to select the best model.
 
+- At least two sorting algorithms should be evaluated.
+
 ### _Availability_
 
 ### _Average Time Between Failures_
@@ -75,8 +65,10 @@ _Evaluates the performance requirements of the software, namely: response time, 
 - The complexity analysis must be accompanied by the observation of the execution time of the
 algorithms for inputs of variable size in order to observe the asymptotic behaviour.
 ### _Start-up Time_
+
 - The system should start up in less than 10 seconds.
 ### _Response Time_
+
 - Any interface between a user and the system shall have a maximum response time of 3 seconds.
 _______
 
@@ -90,24 +82,23 @@ configurability, installability, scalability and more._
 
 - The system should be developed having in mind the need to easily support other kinds of tests.
 
-- The application must allow ordering the clients by TIN and by
-name. 
-
-- The application should run on all platforms for which there exists a Java Virtual Machine.
 ### _Auditability_
 
 ### _Compatibility_
 
+- The application should run on all platforms for which there exists a Java Virtual Machine.
 
 ### _Configurability_
 
 - The ordering algorithm to be used by the application must be defined through a configuration
 file. 
 
+- The application must allow ordering the clients by TIN and by
+  name.
+
 - The brute-force algorithm to be used by the application must be defined through a configuration file.
 
 ### _Installability_
-- The application will be deployed to a machine with 8GB of RAM.
 
 ### _Localizability_
 
@@ -128,7 +119,7 @@ ________
 
 _Specifies or constraints the system design process. Examples may include: programming languages, software process, mandatory standards/patterns, use of development tools, class library, etc._
 
-#### _Programming languages_
+#### _Software process_
 
 - Adopt best practices for identifying requirements and for OO software analysis and design.
 
@@ -159,9 +150,10 @@ database integrity, resource limits, operating system._
 #### _Mandatory standards/patterns_
 - Adopt recognized coding standards (e.g., CamelCase).
 
-
 - The application should use object serialization to ensure data persistence between two runs of the application 
 
+#### _Resource limits_
+- The application will be deployed to a machine with 8GB of RAM.
 
 
 ### Interface Constraints
@@ -181,6 +173,10 @@ system being developed with other external systems._
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
 
 _________
+
+
+
+
 
 
 
