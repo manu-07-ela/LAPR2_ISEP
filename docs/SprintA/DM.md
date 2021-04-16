@@ -141,7 +141,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 **Records of finance, work, contracts, legal matters**
 
 * NHS
-* Courier Company
+* Courier 
 
 ---
 
@@ -155,12 +155,13 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Documents mentioned/used to perform some work/**
 
-* 
+*  
+
 ---
 
 
 
-###**Rationale to identify associations between conceptual classes**
+### **Rationale to identify associations between conceptual classes**
 
 An association is a relationship between instances of objects that indicates a relevant connection and that is worth of remembering, or it is derivable from the List of Common Associations: 
 

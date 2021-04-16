@@ -3,7 +3,6 @@
 ## Functionality
 
 _Specifies functionalities that:_
-
 - _are common across several US/UC;_
 - _are not related to US/UC, namely: Audit, Reporting and Security._
 
@@ -28,12 +27,6 @@ ________
 _Evaluates the **user interface**. It has several subcategories,
 among them: error prevention; interface aesthetics and design; help and
 documentation; consistency and standards._
-
-### _Consistency and Standards_
-
-### _Error Prevention_
-
-### _Help and Documentation_
 
 ### _Interface Asthetics and Design_
 - The user interface must be simple, intuitive and consistent.
@@ -82,10 +75,6 @@ configurability, installability, scalability and more._
 
 - The system should be developed having in mind the need to easily support other kinds of tests.
 
-### _Auditability_
-
-### _Compatibility_
-
 - The application should run on all platforms for which there exists a Java Virtual Machine.
 
 ### _Configurability_
@@ -98,15 +87,7 @@ file.
 
 - The brute-force algorithm to be used by the application must be defined through a configuration file.
 
-### _Installability_
-
-### _Localizability_
-
 - The application must support the English language only.
-
-### _Maintainability_
-
-### _Scalability_
 
 ### _Testability_
 
