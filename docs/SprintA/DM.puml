@@ -139,6 +139,12 @@ class Covid19Report{
 }
 class Courier{
 }
+class SMS{
+-message
+}
+class Email{
+-message
+}
 
 
 Company "1"----"*" Employee : knows >
@@ -191,4 +197,9 @@ ClinicalChemistryTechnologist ---- Sample : receives >
 Courier "1"---"1..*" Sample : deliveries >
 LaboratoryCoordinator "1"---"*" TestType : validates >
 MedicalLabTechnician "1"----"1..*" Sample : records >
+Client "*"--"1" SMS : receives >
+Client "*"--"1" Email : receives >
+
+
+
 @enduml
