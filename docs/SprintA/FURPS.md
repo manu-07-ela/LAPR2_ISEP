@@ -43,25 +43,22 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 
 - At least two sorting algorithms should be evaluated.
 
-### _Availability_
-
-### _Average Time Between Failures_
-
 ### _Frequency and Severity of Failure_
 - The system should not fail more than 5 days in one year. Whenever the system fails, there should be no data loss.
-### _Recoverability_
 ______
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
 
-- The complexity analysis must be accompanied by the observation of the execution time of the
-algorithms for inputs of variable size in order to observe the asymptotic behaviour.
 ### _Start-up Time_
 
 - The system should start up in less than 10 seconds.
-### _Response Time_
 
+### _Throughput_
+- The complexity analysis must be accompanied by the observation of the execution time of the
+  algorithms for inputs of variable size in order to observe the asymptotic behaviour.
+
+### _Response Time_
 - Any interface between a user and the system shall have a maximum response time of 3 seconds.
 _______
 

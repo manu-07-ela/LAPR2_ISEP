@@ -25,6 +25,7 @@ class Employee{
 
 class TestType{
 -designation
+-collectingMethod
 }
 
 class SpecialistDoctor  {
