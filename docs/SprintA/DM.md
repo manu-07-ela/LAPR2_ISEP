@@ -95,6 +95,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 * Report
 * Barcode
 * Covid19 Report
+* SMS
+* E-mail
 
 
 ---
@@ -187,6 +189,8 @@ An association is a relationship between instances of objects that indicates a r
 | Chemical Laboratory 	          | is a             	  | Laboratory                   |
 | Client                          | has a  	              | Lab Order                    |
 |                   	          | provides     	      | Sample                       |
+|                   	          | receives     	      | SMS                          |
+|                   	          | receives     	      | E-mail                       |
 | Clinical Analysis Laboratory    | is a  	              | Laboratory                   |
 |                   	          | perform      	      | Test                         |
 | Clinical Chemistry Technologist | is a  	              | Employee                     |
