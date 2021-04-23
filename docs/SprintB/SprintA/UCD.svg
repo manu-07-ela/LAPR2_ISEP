@@ -1,28 +1,29 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2448px" preserveAspectRatio="none" style="width:1429px;height:2448px;" version="1.1" viewBox="0 0 1429 2448" width="1429.5px" zoomAndPan="magnify"><defs><filter height="300%" id="f18gz049fqt0uc" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[cf1651d31d5f33993ae35e66637ebfa8]
-cluster ManyLabs--><rect fill="#FFFFFF" filter="url(#f18gz049fqt0uc)" height="2419.5" style="stroke:#000000;stroke-width:2.25;" width="681" x="358.5" y="10.5"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="105" x="646.5" y="35.2998">ManyLabs</text><ellipse cx="698.6892" cy="98.7878" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="153.4392" ry="34.2878" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="249" x="574.1892" y="104.3806">UC1: Register a new client</text><ellipse cx="698.9892" cy="236.9978" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="233.2392" ry="50.2478" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="420" x="488.9892" y="242.5906">UC4: Associate the samples to the client/test</text><ellipse cx="699.3111" cy="406.7122" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="316.8111" ry="66.9622" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="592.5" x="403.0611" y="412.305">UC5: Record the samples collected in the scope of a given test</text><ellipse cx="699.1186" cy="576.1737" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="230.3686" ry="49.6737" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="414" x="492.1186" y="581.7665">UC6: Associate a barcode with each sample</text><ellipse cx="698.9951" cy="725.849" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="217.4951" ry="47.099" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="387" x="505.4951" y="731.4418">UC7: Register the tests performed locally</text><ellipse cx="698.7706" cy="1032.2541" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="238.2706" ry="51.2541" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="430.5" x="483.5206" y="1037.8469">UC17: Record the result of chemistry analysis</text><ellipse cx="698.8631" cy="877.3226" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="236.1131" ry="50.8226" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="426" x="485.8631" y="882.9154">UC8 : Associate the samples to the client/test</text><ellipse cx="699.1483" cy="1198.5297" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="293.3983" ry="62.2797" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="544.5" x="426.8983" y="1204.1224">UC9: Specify a new type of test and its collecting methods</text><ellipse cx="699.0202" cy="1371.304" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="272.2702" ry="58.054" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="501" x="448.5202" y="1376.8968">UC10: Specify a new test parameter and categorize it</text><ellipse cx="698.9951" cy="1528.349" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="217.4951" ry="47.099" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="387" x="505.4951" y="1533.9418">UC11: Specify a new parameter category</text><ellipse cx="699.0612" cy="1801.8122" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="129.8112" ry="29.5622" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="195" x="601.5612" y="1807.405">UC12: Write a report</text><ellipse cx="699.2573" cy="2074.5515" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="188.5073" ry="41.3015" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="325.5" x="536.5073" y="2080.1442">UC13: Validation of test performed</text><ellipse cx="699.1674" cy="2221.2335" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="246.9174" ry="52.9835" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="448.5" x="474.9174" y="2226.8263">UC14: Access the company response efficiency</text><ellipse cx="698.7076" cy="1673.6415" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="208.9576" ry="45.3915" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="369" x="514.2076" y="1679.2343">UC15: Create a new employee account</text><ellipse cx="699.3192" cy="1932.0638" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="226.0692" ry="48.8138" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="405" x="496.8192" y="1937.6566">UC16: Access a internal process of a client</text><ellipse cx="699.3037" cy="2367.2107" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="178.0537" ry="39.2107" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="303" x="547.8037" y="2372.8035">UC19: Send daily Covid-19 data</text><!--MD5=[dadd680571e2ee7a6b53223d26ce7e08]
-entity Adm--><ellipse cx="1308" cy="1402.5" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M1308,1414.5 L1308,1455 M1288.5,1426.5 L1327.5,1426.5 M1308,1455 L1288.5,1477.5 M1308,1455 L1327.5,1477.5 " fill="none" filter="url(#f18gz049fqt0uc)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="124.5" x="1245.75" y="1507.5498">Administrator</text><!--MD5=[2ea11ae4ce5c16c166fd50507fbf8cc8]
-entity Recp--><ellipse cx="150.75" cy="120" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M150.75,132 L150.75,172.5 M131.25,144 L170.25,144 M150.75,172.5 L131.25,195 M150.75,172.5 L170.25,195 " fill="none" filter="url(#f18gz049fqt0uc)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="121.5" x="90" y="225.0498">Recepcionist</text><!--MD5=[55accfb37448cdfd161546e1b52567fc]
-entity MedLab--><ellipse cx="150.75" cy="603" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M150.75,615 L150.75,655.5 M131.25,627 L170.25,627 M150.75,655.5 L131.25,678 M150.75,655.5 L170.25,678 " fill="none" filter="url(#f18gz049fqt0uc)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="177" x="62.25" y="708.0498">Med lab technician</text><!--MD5=[cba89c66b8afe94abf191ea3442b3e28]
-entity ClinTec--><ellipse cx="150.75" cy="984" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M150.75,996 L150.75,1036.5 M131.25,1008 L170.25,1008 M150.75,1036.5 L131.25,1059 M150.75,1036.5 L170.25,1059 " fill="none" filter="url(#f18gz049fqt0uc)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="283.5" x="9" y="1089.0498">Clinical chemistry technologist</text><!--MD5=[f138531b5c7ec98bcba2d29a7db668a7]
-entity Doc--><ellipse cx="1308" cy="1848" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M1308,1860 L1308,1900.5 M1288.5,1872 L1327.5,1872 M1308,1900.5 L1288.5,1923 M1308,1900.5 L1327.5,1923 " fill="none" filter="url(#f18gz049fqt0uc)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="63" x="1276.5" y="1953.0498">Doctor</text><!--MD5=[8658c2df0a90172a5e5afb4523fad7ef]
-entity LabCod--><ellipse cx="1308" cy="2074.5" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M1308,2086.5 L1308,2127 M1288.5,2098.5 L1327.5,2098.5 M1308,2127 L1288.5,2149.5 M1308,2127 L1327.5,2149.5 " fill="none" filter="url(#f18gz049fqt0uc)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="222" x="1197" y="2179.5498">Laboratory Coordinator</text><!--MD5=[52244217770951987a130bd5b09c96eb]
-entity Time--><ellipse cx="150.75" cy="2319" fill="#FEFECE" filter="url(#f18gz049fqt0uc)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M150.75,2331 L150.75,2371.5 M131.25,2343 L170.25,2343 M150.75,2371.5 L131.25,2394 M150.75,2371.5 L170.25,2394 " fill="none" filter="url(#f18gz049fqt0uc)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="46.5" x="127.5" y="2424.0498">Time</text><!--MD5=[e9932c564dd83838e58413d99c1498cf]
-link Recp to UC1--><path d="M211.635,160.485 C295.68,149.85 451.605,130.11 564.195,115.875 " fill="none" id="Recp-UC1" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[7c6b5feb0998f6533b9c55e54c3dd61e]
-link Recp to UC4--><path d="M211.635,175.515 C279.945,184.155 395.76,198.81 497.175,211.65 " fill="none" id="Recp-UC4" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[16449f63211c141f44d31497dda81844]
-link MedLab to UC5--><path d="M218.22,588.615 C253.83,557.895 299.955,522.6 346.5,499.5 C384.75,480.51 427.35,465.06 469.305,452.61 " fill="none" id="MedLab-UC5" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[c979d2e2c5b3751b61054ac9da656de0]
-link MedLab to UC6--><path d="M239.85,638.955 C311.055,629.16 414.12,614.985 504.42,602.565 " fill="none" id="MedLab-UC6" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[b3d1bc6deb1b0e10edf1072661a5dd1f]
-link MedLab to UC7--><path d="M239.85,663.045 C313.755,673.215 422.01,688.11 514.68,700.845 " fill="none" id="MedLab-UC7" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[a919ab86e418ffc585c44327c83902ef]
-link MedLab to UC8--><path d="M218.925,713.625 C254.37,743.745 300.12,777.915 346.5,799.5 C394.605,821.895 449.46,838.02 501.285,849.555 " fill="none" id="MedLab-UC8" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[f7a43284c38ba382e153af7aea5f6845]
-link ClinTec to UC17--><path d="M292.665,1032 C343.785,1032 403.08,1032 460.26,1032 " fill="none" id="ClinTec-UC17" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[fffe6a2bb5afa75fb07c87fe3aea20b1]
-link UC9 to Adm--><path d="M914.835,1240.83 C960.855,1253.13 1008.54,1268.4 1051.5,1287 C1122.195,1317.615 1195.5,1366.725 1245.255,1403.145 " fill="none" id="UC9-Adm" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[8b07bcf36cc90be05b424967ae6a97c1]
-link UC15 to Adm--><path d="M876.525,1649.775 C933.51,1638.825 996.24,1623.375 1051.5,1602 C1122.09,1574.685 1195.695,1528.785 1245.57,1494.645 " fill="none" id="UC15-Adm" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[5aac09697fb824f9866b5be33762b3ed]
-link UC11 to Adm--><path d="M886.845,1504.515 C1009.635,1488.705 1162.59,1469.025 1245.75,1458.315 " fill="none" id="UC11-Adm" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[23123a33b00b822e3bf4c0e0c14ab9af]
-link UC10 to Adm--><path d="M931.335,1401.285 C1044.39,1416.12 1171.68,1432.815 1245.135,1442.445 " fill="none" id="UC10-Adm" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[142e52e4a8bff3eab2ba4a5052d3cbe5]
-link UC16 to Doc--><path d="M917.145,1919.13 C1051.695,1911.135 1211.025,1901.67 1276.32,1897.8 " fill="none" id="UC16-Doc" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[5caf6ff7cd4f60a445838b2cadf8eaf8]
-link UC12 to Doc--><path d="M806.745,1818.075 C948.645,1840.2 1191.945,1878.135 1276.5,1891.32 " fill="none" id="UC12-Doc" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[cecf7b7aa912f740ca8d438768f74bf9]
-link UC13 to LabCod--><path d="M876.6,2088.45 C980.04,2096.64 1107.555,2106.735 1196.745,2113.8 " fill="none" id="UC13-LabCod" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[7e27adae0bf6917fee426e0c4fa07483]
-link UC14 to LabCod--><path d="M896.415,2189.49 C996,2173.23 1113.315,2154.06 1196.895,2140.41 " fill="none" id="UC14-LabCod" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[f19de024861fabf8b4b02df9362be530]
-link Time to UC19--><path d="M174.3,2367 C232.17,2367 392.805,2367 520.965,2367 " fill="none" id="Time-UC19" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[b9a159a759b0d41a1289b84107d71bc1]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2710.5px" preserveAspectRatio="none" style="width:1668px;height:2710px;" version="1.1" viewBox="0 0 1668 2710" width="1668px" zoomAndPan="magnify"><defs><filter height="300%" id="fqmr32vh58h49" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[cf1651d31d5f33993ae35e66637ebfa8]
+cluster ManyLabs--><rect fill="#FFFFFF" filter="url(#fqmr32vh58h49)" height="2682" style="stroke:#000000;stroke-width:2.25;" width="919.5" x="358.5" y="10.5"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="105" x="765.75" y="35.2998">ManyLabs</text><ellipse cx="818.0902" cy="280.618" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="158.8402" ry="35.368" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="261" x="687.5902" y="286.2108">UC03: Register a new client</text><ellipse cx="818.2047" cy="128.9909" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="300.7047" ry="63.7409" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="559.5" x="538.4547" y="134.5837">UC04: Register a test to be performed to a registered client</text><ellipse cx="818.4279" cy="592.3856" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="322.6779" ry="68.1356" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="604.5" x="516.1779" y="597.9784">UC12: Record the samples collected in the scope of a given test</text><ellipse cx="818.1131" cy="764.8226" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="236.1131" ry="50.8226" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="426" x="605.1131" y="770.4154">UC13: Associate a barcode with each sample</text><ellipse cx="817.9573" cy="916.7415" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="223.2073" ry="48.2415" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="399" x="618.4573" y="922.3342">UC15: Register the tests performed locally</text><ellipse cx="818.0206" cy="1068.2541" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="238.2706" ry="51.2541" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="430.5" x="602.7706" y="1073.8469">UC16: Record the result of chemistry analysis</text><ellipse cx="818.6203" cy="420.2241" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="241.8703" ry="51.9741" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="438" x="599.6203" y="425.8168">UC14 : Associate the samples to the client/test</text><ellipse cx="818.2426" cy="1235.6985" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="299.2426" ry="63.4485" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="556.5" x="539.9926" y="1241.2913">UC09: Specify a new type of test and its collecting methods</text><ellipse cx="818.2702" cy="1410.304" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="272.2702" ry="58.054" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="501" x="567.7702" y="1415.8968">UC10: Specify a new test parameter and categorize it</text><ellipse cx="818.2451" cy="1567.349" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="217.4951" ry="47.099" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="387" x="624.7451" y="1572.9418">UC11: Specify a new parameter category</text><ellipse cx="818.3112" cy="2062.8122" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="129.8112" ry="29.5622" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="195" x="720.8112" y="2068.405">UC06: Write a report</text><ellipse cx="818.5073" cy="2467.5515" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="188.5073" ry="41.3015" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="325.5" x="655.7573" y="2473.1442">UC01: Validation of test performed</text><ellipse cx="818.4174" cy="2614.2335" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="246.9174" ry="52.9835" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="448.5" x="594.1674" y="2619.8263">UC02: Access the company response efficiency</text><ellipse cx="818.5692" cy="2193.0638" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="226.0692" ry="48.8138" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="405" x="616.0692" y="2198.6566">UC05: Access a internal process of a client</text><ellipse cx="818.5537" cy="2334.2107" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="178.0537" ry="39.2107" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="303" x="667.0537" y="2339.8035">UC17: Send daily Covid-19 data</text><ellipse cx="818.5537" cy="1707.2107" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="178.0537" ry="39.2107" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="303" x="667.0537" y="1712.8035">UC07: Register a new employee</text><ellipse cx="818.0877" cy="1889.9675" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="435.5877" ry="90.7175" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="834" x="401.0877" y="1895.5603">UC08: Register a new clinical analysis laboratory stating which kind of test(s) it operates.</text><!--MD5=[dadd680571e2ee7a6b53223d26ce7e08]
+entity Adm--><ellipse cx="1546.5" cy="1519.5" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M1546.5,1531.5 L1546.5,1572 M1527,1543.5 L1566,1543.5 M1546.5,1572 L1527,1594.5 M1546.5,1572 L1566,1594.5 " fill="none" filter="url(#fqmr32vh58h49)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="124.5" x="1484.25" y="1624.5498">Administrator</text><!--MD5=[2ea11ae4ce5c16c166fd50507fbf8cc8]
+entity Recp--><ellipse cx="150.75" cy="157.5" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M150.75,169.5 L150.75,210 M131.25,181.5 L170.25,181.5 M150.75,210 L131.25,232.5 M150.75,210 L170.25,232.5 " fill="none" filter="url(#fqmr32vh58h49)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="121.5" x="90" y="262.5498">Recepcionist</text><!--MD5=[55accfb37448cdfd161546e1b52567fc]
+entity MedLab--><ellipse cx="150.75" cy="631.5" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M150.75,643.5 L150.75,684 M131.25,655.5 L170.25,655.5 M150.75,684 L131.25,706.5 M150.75,684 L170.25,706.5 " fill="none" filter="url(#fqmr32vh58h49)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="177" x="62.25" y="736.5498">Med lab technician</text><!--MD5=[cba89c66b8afe94abf191ea3442b3e28]
+entity ClinTec--><ellipse cx="150.75" cy="1020" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M150.75,1032 L150.75,1072.5 M131.25,1044 L170.25,1044 M150.75,1072.5 L131.25,1095 M150.75,1072.5 L170.25,1095 " fill="none" filter="url(#fqmr32vh58h49)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="283.5" x="9" y="1125.0498">Clinical chemistry technologist</text><!--MD5=[f138531b5c7ec98bcba2d29a7db668a7]
+entity Doc--><ellipse cx="1546.5" cy="2083.5" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M1546.5,2095.5 L1546.5,2136 M1527,2107.5 L1566,2107.5 M1546.5,2136 L1527,2158.5 M1546.5,2136 L1566,2158.5 " fill="none" filter="url(#fqmr32vh58h49)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="159" x="1467" y="2188.5498">Specialist Doctor</text><!--MD5=[8658c2df0a90172a5e5afb4523fad7ef]
+entity LabCod--><ellipse cx="1546.5" cy="2497.5" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M1546.5,2509.5 L1546.5,2550 M1527,2521.5 L1566,2521.5 M1546.5,2550 L1527,2572.5 M1546.5,2550 L1566,2572.5 " fill="none" filter="url(#fqmr32vh58h49)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="222" x="1435.5" y="2602.5498">Laboratory Coordinator</text><!--MD5=[52244217770951987a130bd5b09c96eb]
+entity Time--><ellipse cx="150.75" cy="2286" fill="#FEFECE" filter="url(#fqmr32vh58h49)" rx="12" ry="12" style="stroke:#A80036;stroke-width:2.25;"/><path d="M150.75,2298 L150.75,2338.5 M131.25,2310 L170.25,2310 M150.75,2338.5 L131.25,2361 M150.75,2338.5 L170.25,2361 " fill="none" filter="url(#fqmr32vh58h49)" style="stroke:#A80036;stroke-width:2.25;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="46.5" x="127.5" y="2391.0498">Time</text><!--MD5=[47c651df76582352f6f708c2cea9a95d]
+link Recp to UC03--><path d="M211.8,212.22 C315.495,223.92 531.84,248.34 675.705,264.585 " fill="none" id="Recp-UC03" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[0f559b412adc8294a9195663bf9995d1]
+link Recp to UC04--><path d="M211.8,198.645 C288.81,189.78 427.965,173.76 553.41,159.315 " fill="none" id="Recp-UC04" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[b8b0263acaa3647937cb335a5934648a]
+link MedLab to UC12--><path d="M239.805,668.04 C317.34,657.885 434.76,642.51 543.48,628.275 " fill="none" id="MedLab-UC12" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[7f0446d28f84bf76a1bf1356d3c9fd1d]
+link MedLab to UC13--><path d="M239.805,690.765 C334.605,702.96 489.045,722.835 614.295,738.945 " fill="none" id="MedLab-UC13" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[2fb2bb255c87d59222e6e20f8e0f6f98]
+link MedLab to UC15--><path d="M209.745,741.84 C245.625,776.79 294.735,817.965 346.5,841.5 C424.965,877.17 517.5,896.22 599.64,906.285 " fill="none" id="MedLab-UC15" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[99d3378329eb7e99fb134e4d980426fb]
+link MedLab to UC14--><path d="M201.99,616.875 C237.765,576.33 289.575,526.05 346.5,498 C418.875,462.33 504.33,442.515 582.405,431.655 " fill="none" id="MedLab-UC14" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[8d0545fa6799cf9e878afd6dc3b04cef]
+link ClinTec to UC16--><path d="M292.77,1068 C375.99,1068 483.615,1068 579.645,1068 " fill="none" id="ClinTec-UC16" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[bc99a29a871b08f910f9f176f44eb02e]
+link UC07 to Adm--><path d="M979.08,1690.305 C1070.61,1679.31 1187.4,1662.87 1290,1641 C1357.14,1626.69 1432.515,1604.13 1483.785,1587.78 " fill="none" id="UC07-Adm" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[7de9a4cf86b0d77fa4a5be267a1f0b31]
+link UC08 to Adm--><path d="M1140.69,1828.785 C1191.975,1813.47 1243.44,1794.615 1290,1771.5 C1363.38,1735.065 1435.17,1674.765 1483.77,1629.15 " fill="none" id="UC08-Adm" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[273d6e302cb43ec969b5a5f2253a8d1a]
+link UC09 to Adm--><path d="M1093.335,1261.365 C1160.145,1274.745 1229.715,1295.1 1290,1326 C1374.375,1369.245 1450.335,1449.06 1496.97,1505.055 " fill="none" id="UC09-Adm" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[5aac09697fb824f9866b5be33762b3ed]
+link UC11 to Adm--><path d="M1035.87,1567.5 C1189.92,1567.5 1386.375,1567.5 1484.085,1567.5 " fill="none" id="UC11-Adm" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[23123a33b00b822e3bf4c0e0c14ab9af]
+link UC10 to Adm--><path d="M1038.45,1444.215 C1118.01,1457.925 1208.415,1475.01 1290,1494 C1357.08,1509.615 1432.785,1532.055 1484.16,1548.03 " fill="none" id="UC10-Adm" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[8f014f6c12d29ed45303d24bdb7aff4a]
+link UC05 to Doc--><path d="M1029.03,2175.255 C1175.475,2162.835 1362.81,2146.95 1466.7,2138.145 " fill="none" id="UC05-Doc" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[ac4564d9e2bafaff1976d49cea13716d]
+link UC06 to Doc--><path d="M939.855,2072.985 C1046.445,2082.42 1206.39,2096.835 1345.5,2110.5 C1385.535,2114.43 1430.055,2119.095 1466.865,2123.025 " fill="none" id="UC06-Doc" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[0725ad20adb8553ed76c3206589c91f9]
+link UC01 to LabCod--><path d="M987.96,2485.59 C1125.63,2500.395 1316.385,2520.915 1435.14,2533.68 " fill="none" id="UC01-LabCod" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[0c42e0649cb66b5bb2b021ebc896ce4b]
+link UC02 to LabCod--><path d="M1044.75,2593.095 C1174.515,2580.75 1331.895,2565.78 1435.035,2555.955 " fill="none" id="UC02-LabCod" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[85332af12e0e492ace1e904655a1a265]
+link Time to UC17--><path d="M174.36,2334 C245.91,2334 476.07,2334 640.41,2334 " fill="none" id="Time-UC17" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[37f2cbfdcc2d00f89368407e3bd5e2c9]
 @startuml
 'https://plantuml.com/use-case-diagram
 left to right direction
@@ -30,50 +31,50 @@ actor "Administrator" as Adm
 actor "Recepcionist" as Recp
 actor "Med lab technician" as MedLab
 actor "Clinical chemistry technologist" as ClinTec
-actor "Doctor" as Doc
+actor "Specialist Doctor" as Doc
 actor "Laboratory Coordinator" as LabCod
 actor "Time" as Time
 
 
 rectangle ManyLabs{
 
-usecase "UC1: Register a new client" as UC1
-usecase "UC4: Register a test to be performed to a registered client" as UC4
-usecase "UC4: Associate the samples to the client/test" as UC4
-usecase "UC5: Record the samples collected in the scope of a given test" as UC5
-usecase "UC6: Associate a barcode with each sample" as UC6
-usecase "UC7: Register the tests performed locally" as UC7
-usecase "UC17: Record the result of chemistry analysis" as UC17
-usecase "UC8 : Associate the samples to the client/test" as UC8
-usecase "UC9: Specify a new type of test and its collecting methods" as UC9
+usecase "UC03: Register a new client" as UC03
+usecase "UC04: Register a test to be performed to a registered client" as UC04
+usecase "UC12: Record the samples collected in the scope of a given test" as UC12
+usecase "UC13: Associate a barcode with each sample" as UC13
+usecase "UC15: Register the tests performed locally" as UC15
+usecase "UC16: Record the result of chemistry analysis" as UC16
+usecase "UC14 : Associate the samples to the client/test" as UC14
+usecase "UC09: Specify a new type of test and its collecting methods" as UC09
 usecase "UC10: Specify a new test parameter and categorize it" as UC10
 usecase "UC11: Specify a new parameter category" as UC11
-usecase "UC12: Write a report" as UC12
-usecase "UC13: Validation of test performed" as UC13
-usecase "UC14: Access the company response efficiency" as UC14
-usecase "UC15: Create a new employee account" as UC15
-usecase "UC16: Access a internal process of a client" as UC16
-usecase "UC19: Send daily Covid-19 data" as UC19
-
+usecase "UC06: Write a report" as UC06
+usecase "UC01: Validation of test performed" as UC01
+usecase "UC02: Access the company response efficiency" as UC02
+usecase "UC05: Access a internal process of a client" as UC05
+usecase "UC17: Send daily Covid-19 data" as UC17
+usecase "UC07: Register a new employee" as UC07
+usecase "UC08: Register a new clinical analysis laboratory stating which kind of test(s) it operates." as UC08
 
 }
 
-Recp - - UC1
-Recp - - UC4
-MedLab - - UC5
-MedLab - - UC6
-MedLab - - UC7
-MedLab - - UC8
-ClinTec - - UC17
-UC9 - - - Adm
-UC15 - - - Adm
+Recp - - UC03
+Recp - - UC04
+MedLab - - UC12
+MedLab - - UC13
+MedLab - - UC15
+MedLab - - UC14
+ClinTec - - UC16
+UC07 - - - Adm
+UC08 - - - Adm
+UC09 - - - Adm
 UC11 - - - Adm
 UC10 - - - Adm
-UC16 - - - Doc
-UC12 - - - Doc
-UC13 - - - LabCod
-UC14 - - - LabCod
-Time - - UC19
+UC05 - - - Doc
+UC06 - - - Doc
+UC01 - - - LabCod
+UC02 - - - LabCod
+Time - - UC17
 
 
 
@@ -89,50 +90,50 @@ actor "Administrator" as Adm
 actor "Recepcionist" as Recp
 actor "Med lab technician" as MedLab
 actor "Clinical chemistry technologist" as ClinTec
-actor "Doctor" as Doc
+actor "Specialist Doctor" as Doc
 actor "Laboratory Coordinator" as LabCod
 actor "Time" as Time
 
 
 rectangle ManyLabs{
 
-usecase "UC1: Register a new client" as UC1
-usecase "UC4: Register a test to be performed to a registered client" as UC4
-usecase "UC4: Associate the samples to the client/test" as UC4
-usecase "UC5: Record the samples collected in the scope of a given test" as UC5
-usecase "UC6: Associate a barcode with each sample" as UC6
-usecase "UC7: Register the tests performed locally" as UC7
-usecase "UC17: Record the result of chemistry analysis" as UC17
-usecase "UC8 : Associate the samples to the client/test" as UC8
-usecase "UC9: Specify a new type of test and its collecting methods" as UC9
+usecase "UC03: Register a new client" as UC03
+usecase "UC04: Register a test to be performed to a registered client" as UC04
+usecase "UC12: Record the samples collected in the scope of a given test" as UC12
+usecase "UC13: Associate a barcode with each sample" as UC13
+usecase "UC15: Register the tests performed locally" as UC15
+usecase "UC16: Record the result of chemistry analysis" as UC16
+usecase "UC14 : Associate the samples to the client/test" as UC14
+usecase "UC09: Specify a new type of test and its collecting methods" as UC09
 usecase "UC10: Specify a new test parameter and categorize it" as UC10
 usecase "UC11: Specify a new parameter category" as UC11
-usecase "UC12: Write a report" as UC12
-usecase "UC13: Validation of test performed" as UC13
-usecase "UC14: Access the company response efficiency" as UC14
-usecase "UC15: Create a new employee account" as UC15
-usecase "UC16: Access a internal process of a client" as UC16
-usecase "UC19: Send daily Covid-19 data" as UC19
-
+usecase "UC06: Write a report" as UC06
+usecase "UC01: Validation of test performed" as UC01
+usecase "UC02: Access the company response efficiency" as UC02
+usecase "UC05: Access a internal process of a client" as UC05
+usecase "UC17: Send daily Covid-19 data" as UC17
+usecase "UC07: Register a new employee" as UC07
+usecase "UC08: Register a new clinical analysis laboratory stating which kind of test(s) it operates." as UC08
 
 }
 
-Recp - - UC1
-Recp - - UC4
-MedLab - - UC5
-MedLab - - UC6
-MedLab - - UC7
-MedLab - - UC8
-ClinTec - - UC17
-UC9 - - - Adm
-UC15 - - - Adm
+Recp - - UC03
+Recp - - UC04
+MedLab - - UC12
+MedLab - - UC13
+MedLab - - UC15
+MedLab - - UC14
+ClinTec - - UC16
+UC07 - - - Adm
+UC08 - - - Adm
+UC09 - - - Adm
 UC11 - - - Adm
 UC10 - - - Adm
-UC16 - - - Doc
-UC12 - - - Doc
-UC13 - - - LabCod
-UC14 - - - LabCod
-Time - - UC19
+UC05 - - - Doc
+UC06 - - - Doc
+UC01 - - - LabCod
+UC02 - - - LabCod
+Time - - UC17
 
 
 
@@ -142,10 +143,10 @@ Time - - UC19
 
 @enduml
 
-PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+PlantUML version 1.2021.2(Sun Mar 07 11:10:27 GMT 2021)
 (GPL source distribution)
 Java Runtime: OpenJDK Runtime Environment
-JVM: Dynamic Code Evolution 64-Bit Server VM
+JVM: OpenJDK 64-Bit Server VM
 Default Encoding: Cp1252
 Language: pt
 Country: PT

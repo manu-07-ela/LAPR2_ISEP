@@ -12,43 +12,43 @@ actor "Time" as Time
 
 rectangle ManyLabs{
 
-usecase "UC3: Register a new client" as UC3
-usecase "UC4: Register a test to be performed to a registered client" as UC4
-usecase "UC5: Record the samples collected in the scope of a given test" as UC5
-usecase "UC6: Associate a barcode with each sample" as UC6
-usecase "UC20: Register the tests performed locally" as UC20
-usecase "UC17: Record the result of chemistry analysis" as UC17
-usecase "UC18 : Associate the samples to the client/test" as UC18
-usecase "UC9: Specify a new type of test and its collecting methods" as UC9
+usecase "UC03: Register a new client" as UC03
+usecase "UC04: Register a test to be performed to a registered client" as UC04
+usecase "UC12: Record the samples collected in the scope of a given test" as UC12
+usecase "UC13: Associate a barcode with each sample" as UC13
+usecase "UC15: Register the tests performed locally" as UC15
+usecase "UC16: Record the result of chemistry analysis" as UC16
+usecase "UC14 : Associate the samples to the client/test" as UC14
+usecase "UC09: Specify a new type of test and its collecting methods" as UC09
 usecase "UC10: Specify a new test parameter and categorize it" as UC10
 usecase "UC11: Specify a new parameter category" as UC11
-usecase "UC12: Write a report" as UC12
-usecase "UC13: Validation of test performed" as UC13
-usecase "UC14: Access the company response efficiency" as UC14
-usecase "UC16: Access a internal process of a client" as UC16
-usecase "UC19: Send daily Covid-19 data" as UC19
-usecase "UC7: Register a new employee" as UC7
-usecase "UC8: Register a new clinical analysis laboratory stating which kind of test(s) it operates." as UC8
+usecase "UC06: Write a report" as UC06
+usecase "UC01: Validation of test performed" as UC01
+usecase "UC02: Access the company response efficiency" as UC02
+usecase "UC05: Access a internal process of a client" as UC05
+usecase "UC17: Send daily Covid-19 data" as UC17
+usecase "UC07: Register a new employee" as UC07
+usecase "UC08: Register a new clinical analysis laboratory stating which kind of test(s) it operates." as UC08
 
 }
 
-Recp -- UC3
-Recp -- UC4
-MedLab -- UC5
-MedLab -- UC6
-MedLab -- UC20
-MedLab -- UC18
-ClinTec -- UC17
-UC7 --- Adm
-UC8 --- Adm
-UC9 --- Adm
+Recp -- UC03
+Recp -- UC04
+MedLab -- UC12
+MedLab -- UC13
+MedLab -- UC15
+MedLab -- UC14
+ClinTec -- UC16
+UC07 --- Adm
+UC08 --- Adm
+UC09 --- Adm
 UC11 --- Adm
 UC10 --- Adm
-UC16 --- Doc
-UC12 --- Doc
-UC13 --- LabCod
-UC14 --- LabCod
-Time -- UC19
+UC05 --- Doc
+UC06 --- Doc
+UC01 --- LabCod
+UC02 --- LabCod
+Time -- UC17
 
 
 
