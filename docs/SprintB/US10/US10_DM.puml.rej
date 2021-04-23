@@ -1,0 +1,30 @@
+diff a/docs/SprintB/US10/US10_DM.puml b/docs/SprintB/US10/US10_DM.puml	(rejected hunks)
+@@ -0,0 +1,27 @@
++@startuml
++'https://plantuml.com/class-diagram
++
++abstract class AbstractList
++abstract AbstractCollection
++interface List
++interface Collection
++
++List <|-- AbstractList
++Collection <|-- AbstractCollection
++
++Collection <|- List
++AbstractCollection <|- AbstractList
++AbstractList <|-- ArrayList
++
++class ArrayList {
++Object[] elementData
++size()
++}
++
++enum TimeUnit {
++DAYS
++HOURS
++MINUTES
++}
++
++@enduml
+\ No newline at end of file
