@@ -6,8 +6,7 @@
 ### 1.1. User Story Description
 
 
-As an administrator, I want to specify a new type of test and its collecting methods.
-
+As a receptionist of the laboratory, I want to register a client.
 
 
 ### 1.2. Customer Specifications and Clarifications 
@@ -38,10 +37,8 @@ As an administrator, I want to specify a new type of test and its collecting met
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** All required fiels must be filled in.
-* **AC2:** Task reference must have at least 5 alphanumeric chars.
-* **AC3:** When creating a task with an already existing reference, the system must reject such operation and the user must have the change to modify the typed reference.
-
+* **AC1:** The client must become a system user. The "auth" component available on the repository must be reused (without modifications).
+ 
 
 ### 1.4. Found out Dependencies
 

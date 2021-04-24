@@ -3,5 +3,28 @@ hide methods
 left to right direction
 skinparam classAttributeIconSize 0
 
+class Company{
+-name
+-designation
+-category
+-address
+-headquarters
+}
+
+class TestType{
+-designation
+}
+
+class CollectingMethod {
+}
+
+class Test{
+-internalCode
+-nhsCode
+-description
+}
+
+Test "*"----"1" TestType : < is a
+
 
 @enduml

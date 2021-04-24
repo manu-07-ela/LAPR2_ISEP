@@ -6,7 +6,8 @@
 ### 1.1. User Story Description
 
 
-As an administrator, I want to specify a new type of test and its collecting methods.
+As an administrator, I want to register a new clinical analysis laboratory stating which
+kind of test(s) it operates.
 
 
 
@@ -15,38 +16,44 @@ As an administrator, I want to specify a new type of test and its collecting met
 
 **From the specifications document:**
 
->	Each task is characterized by having a unique reference per organization, a designation, an informal and a technical description, an estimated duration and cost as well as the its classifying task category. 
+>	All Many Labs clinical analysis laboratories perform clinical blood tests, and a subset of
+these laboratories also performs Covid-19 tests.
 
+> The set of Many Labs clinical analysis laboratories form a network that covers all England, and it is
+responsible for collecting samples and interacting with clients.
 
->	As long as it is not published, access to the task is exclusive to the employees of the respective organization. 
+>The samples collected by the
+network of laboratories are then sent to the chemical laboratory located in the company's
+headquarters and the chemical analysis are performed there.
+ 
 
 
 
 **From the client clarifications:**
 
-> **Question:** Which is the unit of measurement used to estimate duration?
+> **Question:** 
 >  
-> **Answer:** Duration is estimated in days.
+> **Answer:** 
 
 -
 
-> **Question:** Monetary data is expressed in any particular currency?
+> **Question:** 
 >  
-> **Answer:** Monetary data (e.g. estimated cost of a task) is indicated in POTs (virtual currency internal to the platform).
+> **Answer:** 
 
 
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** All required fiels must be filled in.
-* **AC2:** Task reference must have at least 5 alphanumeric chars.
-* **AC3:** When creating a task with an already existing reference, the system must reject such operation and the user must have the change to modify the typed reference.
+* **AC1:** Every Clinical Analysis Laboratory must perform blood tests
+* **AC2:** 
+* **AC3:** 
 
 
 ### 1.4. Found out Dependencies
 
 
-* There is a dependency to "US003 Create a task category" since at least a task category must exist to classify the task being created.
+* 
 
 
 ### 1.5 Input and Output Data
@@ -55,20 +62,19 @@ As an administrator, I want to specify a new type of test and its collecting met
 **Input Data:**
 
 * Typed data:
-	* a reference, 
-	* a designation, 
-	* an informal description
-	* a technical description
-	* an estimated duration
-	* an estimated cost
+	* name 
+	*  address
+	*  phoneNumber
+	*  tin
+	*  laboratoryId
 	
 * Selected data:
-	* Classifying task category 
+	* 
 
 
 **Output Data:**
 
-* List of existing task categories
+* 
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
