@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Company
+class Parameter
+class ParameterCategory
+class Administrator
+
+Company -- Parameter : capable of analyzing >
+Company -- ParameterCategory : adopts >
+Company -- Administrator : knows >
+
+Parameter -- ParameterCategory : presented under >
+
+ParameterCategory -- Administrator : created by >
+
+@enduml
