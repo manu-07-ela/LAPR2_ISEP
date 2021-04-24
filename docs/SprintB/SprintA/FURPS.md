@@ -9,18 +9,6 @@ _Specifies functionalities that:_
 ### _Authentication_
 - All those who wish to use the application must be authenticated with a password holding seven alphanumeric characters, including three capital letters and two digits.
 
-### _Help_
-- The accuracy of the prediction models should be analysed and
-documented in the application user manual (in the annexes) that must be delivered with the
-application.
-  
-- All algorithms implemented should be documented in the annexes of user manual.
-
-- The time complexity analysis of the algorithms should be properly documented in the application user manual (in the annexes) that must be delivered with the application.
-
-### _Localization_
-- The application must support the English language only.
-
 ________
 ## Usability 
 
@@ -84,12 +72,13 @@ file.
 
 - The brute-force algorithm to be used by the application must be defined through a configuration file.
 
-- The application must support the English language only.
-
 ### _Testability_
 
-- Implement unit tests for all methods except methods that implement Input/Output operations.
+- Implement unit tests for all methods except methods that implement Input/Output operations. 
+  
+### _Localizability_
 
+- The application must support the English language only.
 ________
 ## +
 
