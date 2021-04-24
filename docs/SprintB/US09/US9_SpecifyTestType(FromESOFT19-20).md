@@ -6,7 +6,7 @@
 ### 1.1. User Story Description
 
 
-As an organization employee, I want to create a new task in order to be further published.
+As an administrator, I want to specify a new type of test and its collecting methods.
 
 
 
