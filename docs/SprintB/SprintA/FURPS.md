@@ -9,15 +9,6 @@ _Specifies functionalities that:_
 ### _Authentication_
 - All those who wish to use the application must be authenticated with a password holding seven alphanumeric characters, including three capital letters and two digits.
 
-### _Help_
-- The accuracy of the prediction models should be analysed and
-documented in the application user manual (in the annexes) that must be delivered with the
-application.
-  
-- All algorithms implemented should be documented in the annexes of user manual.
-
-- The time complexity analysis of the algorithms should be properly documented in the application user manual (in the annexes) that must be delivered with the application.
-
 ________
 ## Usability 
 
@@ -80,7 +71,6 @@ file.
   name.
 
 - The brute-force algorithm to be used by the application must be defined through a configuration file.
-
 
 ### _Testability_
 
