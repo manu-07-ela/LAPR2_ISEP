@@ -39,6 +39,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 * Report
 * Covid-19 Test
 * Blood Test
+* Collection Method
 
 
 ---  
@@ -233,7 +234,7 @@ An association is a relationship between instances of objects that indicates a r
 | Test Type 	                  | measure               | Parameter                    |
 |                                 | is a	 	          | Test                         |
 |                                 | needs	 	          | Sample                       |
-
+|                                 | contains              | Collection Method            |
 
 
 
