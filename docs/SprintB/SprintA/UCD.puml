@@ -7,18 +7,17 @@ actor "Med lab technician" as MedLab
 actor "Clinical chemistry technologist" as ClinTec
 actor "Specialist Doctor" as Doc
 actor "Laboratory Coordinator" as LabCod
-actor "Time" as Time
+actor "Timer" as Timer
+actor "Client" as Client
 
 
 rectangle ManyLabs{
 
 usecase "UC03: Register a new client" as UC03
+usecase "UC20: View the results of the test" as UC20
 usecase "UC04: Register a test to be performed to a registered client" as UC04
-usecase "UC12: Record the samples collected in the scope of a given test" as UC12
-usecase "UC13: Associate a barcode with each sample" as UC13
 usecase "UC15: Register the tests performed locally" as UC15
 usecase "UC16: Record the result of chemistry analysis" as UC16
-usecase "UC14 : Associate the samples to the client/test" as UC14
 usecase "UC09: Specify a new type of test and its collecting methods" as UC09
 usecase "UC10: Specify a new test parameter and categorize it" as UC10
 usecase "UC11: Specify a new parameter category" as UC11
@@ -34,10 +33,10 @@ usecase "UC08: Register a new clinical analysis laboratory stating which kind of
 
 Recp -- UC03
 Recp -- UC04
-MedLab -- UC12
-MedLab -- UC13
+Client --- UC20
 MedLab -- UC15
-MedLab -- UC14
+MedLab --- UC20
+ClinTec --- UC20
 ClinTec -- UC16
 UC07 --- Adm
 UC08 --- Adm
@@ -46,9 +45,11 @@ UC11 --- Adm
 UC10 --- Adm
 UC05 --- Doc
 UC06 --- Doc
+UC20 --- Doc
 UC01 --- LabCod
 UC02 --- LabCod
-Time -- UC17
+UC20 -- LabCod
+Timer -- UC17
 
 
 
