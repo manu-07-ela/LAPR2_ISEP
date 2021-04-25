@@ -1,4 +1,4 @@
-# US 006 - To create a Task 
+# US 09 - To specify a Type of Test
 
 ## 1. Requirements Engineering
 
@@ -15,38 +15,64 @@ As an administrator, I want to specify a new type of test and its collecting met
 
 **From the specifications document:**
 
->	Each task is characterized by having a unique reference per organization, a designation, an informal and a technical description, an estimated duration and cost as well as the its classifying task category. 
+>	
 
 
->	As long as it is not published, access to the task is exclusive to the employees of the respective organization. 
+>	
 
 
 
 **From the client clarifications:**
 
-> **Question:** Which is the unit of measurement used to estimate duration?
+> **Question:** Is there a feature where you add collection methods or is there an already existent list where you choose from not having the option to add another?
 >  
-> **Answer:** Duration is estimated in days.
+> **Answer:** .
 
--
-
-> **Question:** Monetary data is expressed in any particular currency?
+> **Question:** What other type of input does a test type need besides its designation and sample collection method?
 >  
-> **Answer:** Monetary data (e.g. estimated cost of a task) is indicated in POTs (virtual currency internal to the platform).
+> **Answer:** .
+
+> **Question:** Does the admin select the sample collection method from a pre-existent list or does he write it?
+>
+> **Answer:** .
+
+> **Question:** Is there any kind of rules that the admin should be restricted to, when he is creating a new test type? 
+>
+> **Answer:** .
+
+> **Question:** What attributes should a Test Type have, when the administrator is creating a new one?
+>
+> **Answer:** .
+
+> **Question:** Are there any different collecting methods other than the ones currently known? Which ones?
+>
+> **Answer:** .
+
+> **Question:** Does a type of test holds any atributte besides it's name and collecting methods?
+>
+> **Answer:** .
+
+> **Question:** Are the collecting methods stored simpled as a word or a sentence, or does it also must contain it's description, and/or another attributes?
+>
+> **Answer:** .
+
+> **Question:**
+>
+> **Answer:** .
+
 
 
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** All required fiels must be filled in.
-* **AC2:** Task reference must have at least 5 alphanumeric chars.
-* **AC3:** When creating a task with an already existing reference, the system must reject such operation and the user must have the change to modify the typed reference.
+* **AC1:** 
+* **AC2:** 
 
 
 ### 1.4. Found out Dependencies
 
 
-* There is a dependency to "US003 Create a task category" since at least a task category must exist to classify the task being created.
+* 
 
 
 ### 1.5 Input and Output Data
@@ -55,32 +81,27 @@ As an administrator, I want to specify a new type of test and its collecting met
 **Input Data:**
 
 * Typed data:
-	* a reference, 
-	* a designation, 
-	* an informal description
-	* a technical description
-	* an estimated duration
-	* an estimated cost
+	* 
+	
 	
 * Selected data:
-	* Classifying task category 
+	* 
 
 
 **Output Data:**
 
-* List of existing task categories
-* (In)Success of the operation
+*
 
 ### 1.6. System Sequence Diagram (SSD)
 
 **Alternative 1**
 
-![US006_SSD](US006_SSD.svg)
+![US09_SSD](US09_SSD.svg)
 
 
 **Alternative 2**
 
-![US006_SSD_v2](US006_SSD_v2.svg)
+![US09_SSD_v2](US09_SSD_v2.svg)
 
 
 **Other alternatives might exist.**
@@ -94,7 +115,7 @@ As an administrator, I want to specify a new type of test and its collecting met
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![US006_MD](US006_MD.svg)
+![US09_DM](US09_DM.svg)
 
 ### 2.2. Other Remarks
 
@@ -110,20 +131,20 @@ n/a
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1  		 |	... interacting with the actor? | CreateTaskUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			  		 |	... coordinating the US? | CreateTaskController | Controller                             |
-| 			  		 |	... instantiating a new Task? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
-| 			  		 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
-| 			  		 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
-| 			  		 |							 | Organization   | IE: knows/has its own Employees|
-| 			  		 |							 | Employee  | IE: knows its own data (e.g. email) |
+| 			  	 |	... coordinating the US? | CreateTaskController | Controller                             |
+| 			  	 |	... instantiating a new Task? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
+| 			  	 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
+| 			  	 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
+| 			  	 |							 | Organization   | IE: knows/has its own Employees|
+| 			  	 |							 | Employee  | IE: knows its own data (e.g. email) |
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |	...saving the inputted data? | Task  | IE: object created in step 1 has its own data.  |
 | Step 4  		 |	...knowing the task categories to show? | Platform  | IE: Task Categories are defined by the Platform. |
 | Step 5  		 |	... saving the selected category? | Task  | IE: object created in step 1 is classified in one Category.  |
 | Step 6  		 |							 |             |                              |              
 | Step 7  		 |	... validating all data (local validation)? | Task | IE: owns its data.| 
-| 			  		 |	... validating all data (global validation)? | Organization | IE: knows all its tasks.| 
-| 			  		 |	... saving the created task? | Organization | IE: owns all its tasks.| 
+| 			  	 |	... validating all data (global validation)? | Organization | IE: knows all its tasks.| 
+| 			  	 |	... saving the created task? | Organization | IE: owns all its tasks.| 
 | Step 8  		 |	... informing operation success?| CreateTaskUI  | IE: is responsible for user interactions.  | 
 
 ### Systematization ##
@@ -144,17 +165,17 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **Alternative 1**
 
-![US006_SD](US006_SD.svg)
+![US09_SD](US09_SD.svg)
 
 **Alternative 2**
 
-![US006_SD](US006_SD_v2.svg)
+![US09_SD](US09_SD_v2.svg)
 
 ## 3.3. Class Diagram (CD)
 
 **From alternative 1**
 
-![US006_CD](US006_CD.svg)
+![US09_CD](US09_CD.svg)
 
 # 4. Tests 
 
