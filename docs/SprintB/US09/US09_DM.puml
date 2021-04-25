@@ -1,6 +1,6 @@
 @startuml
 hide methods
-left to right direction
+'left to right direction
 skinparam classAttributeIconSize 0
 
 class Company{
@@ -41,7 +41,7 @@ class CollectionMethod{
 Company "1"--"*" Employee : knows >
 Administrator --|> Employee
 Administrator "1"--"*" TestType : specify a >
-Test "*"--"1" TestType : < is a
+TestType --|> Test
 TestType "*"--"1" CollectionMethod : contains >
 
 

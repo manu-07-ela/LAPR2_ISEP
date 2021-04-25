@@ -15,10 +15,22 @@ As an administrator, I want to specify a new type of test and its collecting met
 
 **From the specifications document:**
 
->	
+> Many Labs performs two types of tests. Each test is characterized by an internal code, an NHS
+code, a description that identifies the sample collection method, the date and time when the samples
+were collected, the date and time of the chemical analysis, the date and time of the diagnosis made
+by the specialist doctor, the date and time when the laboratory coordinator validated the test, and the
+test type (whether it is blood test or Covid test).
 
+> Blood tests are frequently characterized by measuring several parameters which for
+presentation/reporting purposes are organized by categories. For example, parameters such
+as the number of Red Blood Cells (RBC), White Blood Cells (WBC) and Platelets (PLT) are
+usually presented under the blood count (Hemogram) category.
 
->	
+> Covid tests are characterized by measuring a single parameter stating whether it is a positive
+or a negative result.
+
+> Despite being out of scope, the system should be developed having in mind the need to
+easily support other kinds of tests (e.g., urine).
 
 
 
@@ -65,12 +77,12 @@ As an administrator, I want to specify a new type of test and its collecting met
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** 
+* **AC1:** Despite being out of scope, the system should be developed having in mind the need to
+  easily support other kinds of tests (e.g., urine).
 * **AC2:** 
 
 
 ### 1.4. Found out Dependencies
-
 
 * 
 
@@ -81,7 +93,10 @@ As an administrator, I want to specify a new type of test and its collecting met
 **Input Data:**
 
 * Typed data:
-	* 
+	* designation
+	* internalCode
+	* nhsCode
+	* description
 	
 	
 * Selected data:
