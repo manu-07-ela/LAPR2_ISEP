@@ -31,9 +31,11 @@ headquarters and the chemical analysis are performed there.
 
 **From the client clarifications:**
 
-> **Question:** 
+> **Question:** What kind of information does the company store about about their clinical analysis laboratory
 >  
-> **Answer:** 
+> **Answer:** The clinical analysis laboratory is caracterized by its name, address , phone number and its TIN number
+>
+> https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126
 
 -
 
@@ -53,7 +55,7 @@ headquarters and the chemical analysis are performed there.
 ### 1.4. Found out Dependencies
 
 
-* 
+* No dependencies found
 
 
 ### 1.5 Input and Output Data
@@ -62,26 +64,25 @@ headquarters and the chemical analysis are performed there.
 **Input Data:**
 
 * Typed data:
-	* name 
+	*  name 
 	*  address
 	*  phoneNumber
 	*  tin
 	*  laboratoryId
 	
 * Selected data:
-	* 
+	* (none)
 
 
 **Output Data:**
 
-* 
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
 **Alternative 1**
 
-![US006_SSD](US006_SSD.svg)
+![US08_SSD](US08_SSD.svg)
 
 
 **Alternative 2**
@@ -100,7 +101,7 @@ headquarters and the chemical analysis are performed there.
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![US006_MD](US006_MD.svg)
+![US08_MD](US08_MD.svg)
 
 ### 2.2. Other Remarks
 
