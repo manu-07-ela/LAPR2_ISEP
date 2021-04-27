@@ -2,7 +2,7 @@
 
 | **_TEA_** (EN)  | **_TEA_** (PT) | **_Description_** (EN)           |                                       
 |:---------------:|:--------------------:|:---------------------------|
-| **AC** | **CA** | Acronym for _Acceptance Criteria_.|
+| **AC** | **-** | Acronym for _Acceptance Criteria_.|
 | **Administrator** | **Administrador** | The person responsible for carrying out the administration of Many Labs.|
 | **API** | **-** | Acronym for _Application Programming Interface_.|
 | **Application Programming Interface** | **Interface de Programação de Aplicações** | A set of functions established by a software that allow the creation of application in a simpler and more practical way for developers.|
@@ -10,6 +10,7 @@
 | **Benchmark**   | **Marca de referência** | A point of reference against which things may be compared.|
 | **Category** | **Categoria** | Refers to a clinical categorie.|
 | **Client**   | **Cliente** | A person using the services of Manylabs.|
+| **Clinical Analysis Laboratory**  | **Laboratório de Análises Clínicas** |Laboratory that performs blood tests and tests of covid-19.|
 | **Clinical Chemistry Technologist**  | **Técnico Químico** |  Performs the chemical analysis.|
 | **Company**  | **Empresa** | A commercial business.|
 | **Courier**  | **Mensageiro** | A employee of Many labs who transports the samples.|
@@ -32,8 +33,8 @@
 | **Parameter**  | **Parâmetro** | Parameter evaluated in a clinical examination.|
 | **PLT**   | **-** | Acronym for _Platelets_.|
 | **RBC**  | **-** | Acronym for _Red Blood Cells_.|
-| **Receptionist**  | **Rececionista** | Registers in the application the test to be performed to a client.|
-| **Reference Value**  | **Valor de Referência** | A value that is used for comparison during measurement system analysis.|
+| **Receptionist**  | **Rececionista** | Works in the Clinical Analysis Laboratory and records in the application the test to be performed on a client or the client. |
+| **Reference Value** | **Valor de Referência** | A value that is used for comparison during measurement system analysis.|
 | **Report**  | **Relatório** | A medical document written about the diagnosis.|
 | **Sample**  | **Amostra** | Biological Material Collected.|
 | **SE**   | **ES** | Acronym for _Software Engineer_.|
