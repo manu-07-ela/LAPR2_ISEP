@@ -3,7 +3,9 @@ autonumber
 'hide footbox
 actor "Administrator" as Adm
 
-participant ":CreateTaskUI" as UI
+participant ":CreateTestTypeUI" as UI
+participant ":CreateTestTypeController" as CTRL
+participant ":Company" as Comp
 
 activate Adm
 Adm -> UI : asks to create a new type of test
@@ -13,6 +15,16 @@ deactivate UI
 
 Adm -> UI : types requested data
 activate UI
+UI --> Adm : shows all data and requests confirmation
+deactivate UI
+
+Adm -> UI : confirms the data
+activate UI
+UI --> Adm : informs operation success
+deactivate UI
+
+deactivate Adm
+
 
 
 

@@ -127,9 +127,9 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | CreateTaskUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			  	 |	... coordinating the US? | CreateTaskController | Controller                             |
-| 			  	 |	... instantiating a new Task? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
+| Step 1  		 |	... interacting with the actor? | CreateTestTypeUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
+| 			  	 |	... coordinating the US? | CreateTestTypeController | Controller                             |
+| 			  	 |	... instantiating a new Test Type? | Company  | Creator (Rule 1): in the DM Organization has a Task.   |
 | 			  	 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
 | 			  	 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
 | 			  	 |							 | Organization   | IE: knows/has its own Employees|
@@ -148,14 +148,13 @@ n/a
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Organization
- * Platform
- * Task
+ * Company
+ 
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * CreateTaskUI  
- * CreateTaskController
+ * CreateTestTypeUI  
+ * CreateTestTypeController
 
 
 ## 3.2. Sequence Diagram (SD)
