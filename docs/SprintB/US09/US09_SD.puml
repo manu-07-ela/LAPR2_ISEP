@@ -1,0 +1,19 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as Adm
+
+participant ":CreateTaskUI" as UI
+
+activate Adm
+Adm -> UI : asks to create a new type of test
+activate UI
+UI --> Adm : requests data (designation)
+deactivate UI
+
+Adm -> UI : types requested data
+activate UI
+
+
+
+@enduml
