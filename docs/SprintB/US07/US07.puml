@@ -6,6 +6,10 @@ actor Administrator
 activate Administrator
 Administrator -> System: starts the creation of a new employee
 activate System
+System --> Administrator : show the employees categories
+deactivate System
+Administrator -> System : inserts the desired category
+activate System
 System --> Administrator : request data (name, address, phoneNumber, email, employee, organizationRole, socCode)
 deactivate System
 Administrator -> System: types requested data
