@@ -1,17 +1,12 @@
-# US 09 - To specify a Type of Test
+# US 09 - Specify a Type of Test
 
 ## 1. Requirements Engineering
 
-
 ### 1.1. User Story Description
-
 
 As an administrator, I want to specify a new type of test and its collecting methods.
 
-
-
 ### 1.2. Customer Specifications and Clarifications 
-
 
 **From the specifications document:**
 
@@ -31,8 +26,6 @@ or a negative result.
 
 > Despite being out of scope, the system should be developed having in mind the need to
 easily support other kinds of tests (e.g., urine).
-
-
 
 **From the client clarifications:**
 
@@ -72,23 +65,16 @@ easily support other kinds of tests (e.g., urine).
 >
 > **Answer:** .
 
-
-
 ### 1.3. Acceptance Criteria
 
-
-* **AC1:** Despite being out of scope, the system should be developed having in mind the need to
-  easily support other kinds of tests (e.g., urine).
+* **AC1:** 
 * **AC2:** 
-
 
 ### 1.4. Found out Dependencies
 
 * 
 
-
 ### 1.5 Input and Output Data
-
 
 **Input Data:**
 
@@ -98,11 +84,9 @@ easily support other kinds of tests (e.g., urine).
 	* nhsCode
 	* description
 	
-	
 * Selected data:
 	* 
-
-
+	
 **Output Data:**
 
 *
@@ -125,7 +109,6 @@ easily support other kinds of tests (e.g., urine).
 
 * The created task stays in a "not published" state in order to distinguish from "published" tasks.
 
-
 ## 2. OO Analysis
 
 ### 2.1. Relevant Domain Model Excerpt 
@@ -135,7 +118,6 @@ easily support other kinds of tests (e.g., urine).
 ### 2.2. Other Remarks
 
 n/a
-
 
 ## 3. Design - User Story Realization 
 
