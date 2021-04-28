@@ -10,17 +10,13 @@ As an administrator, I want to specify a new type of test and its collecting met
 
 **From the specifications document:**
 
-> Many Labs performs two types of tests. Each test is characterized by an internal code, an NHS
-code, a description that identifies the sample collection method, the date and time when the samples
-were collected, the date and time of the chemical analysis, the date and time of the diagnosis made
-by the specialist doctor, the date and time when the laboratory coordinator validated the test, and the
-test type (whether it is blood test or Covid test).
+>
 
 **From the client clarifications:**
 
 > **Question:**  What do you mean by the collecting methods?
 >
-> **Answer:** The administrator introduces a brief description for each collecting method. [Forum](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7752#p10120)
+> **[Answer:](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7752#p10120)** The administrator introduces a brief description for each collecting method.
 
 > **Question:**
 >
