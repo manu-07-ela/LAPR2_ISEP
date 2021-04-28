@@ -33,11 +33,8 @@ headquarters and the chemical analysis are performed there.
 
 > **Question:** What kind of information does the company store about about their clinical analysis laboratory
 >  
-> **Answer:** The clinical analysis laboratory is caracterized by its name, address , phone number and its TIN number
->
-> https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126) The clinical analysis laboratory is caracterized by its name, address , phone number and its TIN number
 
--
 
 > **Question:** 
 >  

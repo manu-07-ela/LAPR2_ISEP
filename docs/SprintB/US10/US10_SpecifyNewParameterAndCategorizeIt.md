@@ -25,9 +25,8 @@
 > **Question:** What is the data that characterize a parameter? Should we follow the same data as the parameter category, for example, would each parameter have its own code, description and NHS identifier?
 Each parameter is associated with one category. Each parameter has a Code, a Short Name and a Description.
 > 
-> **Awnser:** The Code are five alphanumeric characters. The Short Name is a String with no more than 8 characters. The Description is a String with no more than 20 characters.
-> 
-> https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7507&parent=9763#p10106
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7507&parent=9763#p10106) The Code are five alphanumeric characters. The Short Name is a String with no more than 8 characters. The Description is a String with no more than 20 characters.
+
 
 
 
