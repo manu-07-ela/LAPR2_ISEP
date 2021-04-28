@@ -9,6 +9,7 @@
 | **Barcode**   | **Código de Barras** | A machine-readable code in the form of numbers and a pattern of parallel lines of varying widths, printed on a commodity and used to identify each sample.|
 | **Benchmark**   | **Marca de referência** | A point of reference against which things may be compared.|
 | **Category** | **Categoria** | Refers to a clinical categorie.|
+| **Chemical Laboratory** | **Laboratório Químico** | |
 | **Client**   | **Cliente** | A person using the services of Manylabs.|
 | **Clinical Analysis Laboratory**  | **Laboratório de Análises Clínicas** |Laboratory that performs blood tests and tests of covid-19.|
 | **Clinical Chemistry Technologist**  | **Técnico Químico** |  Performs the chemical analysis.|
@@ -36,16 +37,18 @@
 | **Receptionist**  | **Rececionista** | Works in the Clinical Analysis Laboratory and records in the application the test to be performed on a client or the client. |
 | **Reference Value** | **Valor de Referência** | A value that is used for comparison during measurement system analysis.|
 | **Report**  | **Relatório** | A medical document written about the diagnosis.|
-| **Sample**  | **Amostra** | Biological Material Collected.|
+| **Sample**  | **Amostra** | Biological Material Collected to aid in diagnosis|
 | **SE**   | **ES** | Acronym for _Software Engineer_.|
 | **SMS**   | **-** | Acronym for _Short Message Service_.|
 | **SOC**   | **-** | Acronym for _Standard Occupational Classification_.|
-| **Specialist Doctor** | **Doutor Especialista**| Specialist doctor who works in ManyLabs and interacts with the System.|
+| **Specialist Doctor** | **Médico especialista**| Specialist doctor who works in ManyLabs and interacts with the System.|
 | **SW**  | **-** | Acronym for _Software_.|
 | **Swab** | **Zaragatoa** | Wad of absorbent material usually around one end of a small stick. |
-| **Test** | **Exame clínico** | Procedure performed to establish the quality of material collected. |
+| **Test** | **Exame clínico** | Sample collection so that an analysis can be carried out by a specialist doctor that allows understanding which treatments the patient may need|
+| **Test Type** | **Tipo de Teste**| A type of clinical examination that Many Labs conducts.|
 | **TIN**  | **NIF** | Acronym for _Tax Identification Number_.|
 | **UC**   | **-** | Acronym for _User Cases_. |
 | **UCD**  | **-** | Acronym for _Use Cases Diagrams_.|
+| **UI**   | **-** | Acronym for _User Interface_. |
 | **US**   | **-** | Acronym for _User Stories_.|
 | **WBC**  | **-** | Acronym for _White Bloods Cells_.|
