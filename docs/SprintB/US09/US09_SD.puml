@@ -15,6 +15,7 @@ deactivate UI
 
 Adm -> UI : types requested data
 activate UI
+UI -> CTRL : createTestType
 UI --> Adm : shows all data and requests confirmation
 deactivate UI
 

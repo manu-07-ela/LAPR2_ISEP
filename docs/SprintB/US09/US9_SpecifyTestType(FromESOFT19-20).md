@@ -16,50 +16,11 @@ were collected, the date and time of the chemical analysis, the date and time of
 by the specialist doctor, the date and time when the laboratory coordinator validated the test, and the
 test type (whether it is blood test or Covid test).
 
-> Blood tests are frequently characterized by measuring several parameters which for
-presentation/reporting purposes are organized by categories. For example, parameters such
-as the number of Red Blood Cells (RBC), White Blood Cells (WBC) and Platelets (PLT) are
-usually presented under the blood count (Hemogram) category.
-
-> Covid tests are characterized by measuring a single parameter stating whether it is a positive
-or a negative result.
-
-> Despite being out of scope, the system should be developed having in mind the need to
-easily support other kinds of tests (e.g., urine).
-
 **From the client clarifications:**
 
-> **Question:** Is there a feature where you add collection methods or is there an already existent list where you choose from not having the option to add another?
->  
-> **Answer:** .
-
-> **Question:** What other type of input does a test type need besides its designation and sample collection method?
->  
-> **Answer:** .
-
-> **Question:** Does the admin select the sample collection method from a pre-existent list or does he write it?
+> **Question:**  What do you mean by the collecting methods?
 >
-> **Answer:** .
-
-> **Question:** Is there any kind of rules that the admin should be restricted to, when he is creating a new test type? 
->
-> **Answer:** .
-
-> **Question:** What attributes should a Test Type have, when the administrator is creating a new one?
->
-> **Answer:** .
-
-> **Question:** Are there any different collecting methods other than the ones currently known? Which ones?
->
-> **Answer:** .
-
-> **Question:** Does a type of test holds any atributte besides it's name and collecting methods?
->
-> **Answer:** .
-
-> **Question:** Are the collecting methods stored simpled as a word or a sentence, or does it also must contain it's description, and/or another attributes?
->
-> **Answer:** .
+> **Answer:** The administrator introduces a brief description for each collecting method. [Forum](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7752#p10120)
 
 > **Question:**
 >
@@ -89,7 +50,7 @@ easily support other kinds of tests (e.g., urine).
 	
 **Output Data:**
 
-*
+* (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 

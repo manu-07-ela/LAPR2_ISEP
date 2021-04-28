@@ -9,5 +9,18 @@ class Company{
 -headquarters
 }
 
+class CreateTestTypeUI{
+}
+
+class CreateTestTypeController{
+}
+
+class TestType{
+}
+
+CreateTestTypeUI ..> CreateTestTypeController
+CreateTestTypeController ..> Company
+Company --> TestType
+
 
 @enduml
