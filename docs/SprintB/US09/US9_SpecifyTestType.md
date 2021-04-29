@@ -10,39 +10,57 @@ As an administrator, I want to specify a new type of test and its collecting met
 
 **From the specifications document:**
 
->
+>Many Labs performs two types of tests.
 
 **From the client clarifications:**
 
-> **Question:**  What do you mean by the collecting methods?
+> **Question:** <br />Does a type of test holds any attribute besides it's name and collecting methods?
 >
-> **[Answer:](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7752#p10120)** The administrator introduces a brief description for each collecting method.
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7512#p10171) <br />The attributes for a new test type are:
+> * Code; 
+> * Description;
+> * Collecting Method;
+> * Set of categories;
 
-> **Question:**
+> **Question:**<br /> Are the collecting methods stored simpled as a word or a sentence, or does it also must contain it's description, and/or another attributes?
 >
-> **Answer:** .
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7512#p10171) <br />The administrator introduces a brief description for specifying the collecting method and there exists only one collection method per test type.
+
+> **Question:** <br /> What do you mean by the collecting methods and  what collecting methods  are available?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7752#p10120) <br /> To make a Covid test you need a swab to collect a sample. To make a blood test you need sample tubes and a syringe. 
+
+> **Question:** <br /> Are there any different collecting methods other than the ones currently known? Which ones?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7514#p10172) <br /> Each collecting method is associated with a test type. Whenever a test type is created a collecting method should be defined.
+
 
 ### 1.3. Acceptance Criteria
 
-* **AC1:** 
-* **AC2:** 
+* **AC1:** The code is not automatically generated and has five alphanumeric characters.
+* **AC2:** The description is a string with a maximum of 15 characters.
+* **AC3:** The collecting Method is a string with no more than 20 characters.
+* **AC4:** Each category should be chosen from a list of categories.
+* **AC5:** 
 
 ### 1.4. Found out Dependencies
 
-* 
+* *Identify here any found out dependency to other US and/or requirements.*
+
+* **Depends on US11** - The categories that the test will have have to be created previously
+
 
 ### 1.5 Input and Output Data
 
 **Input Data:**
 
 * Typed data:
-	* designation
-	* internalCode
-	* nhsCode
-	* description
+	* code
+    * description
+	* collecting method
 	
 * Selected data:
-	* 
+	* categorie
 	
 **Output Data:**
 
@@ -64,8 +82,6 @@ As an administrator, I want to specify a new type of test and its collecting met
 
 ### 1.7 Other Relevant Remarks
 
-* The created task stays in a "not published" state in order to distinguish from "published" tasks.
-
 ## 2. OO Analysis
 
 ### 2.1. Relevant Domain Model Excerpt 
@@ -82,30 +98,26 @@ n/a
 
 **SSD - Alternative 1 is adopted.**
 
-| Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
-|:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | CreateTestTypeUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			  	 |	... coordinating the US? | CreateTestTypeController | Controller                             |
-| 			  	 |	... instantiating a new Test Type? | Company  | Creator (Rule 1): in the DM Organization has a Task.   |
-| 			  	 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
-| 			  	 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
-| 			  	 |							 | Organization   | IE: knows/has its own Employees|
-| 			  	 |							 | Employee  | IE: knows its own data (e.g. email) |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |	...saving the inputted data? | Task  | IE: object created in step 1 has its own data.  |
-| Step 4  		 |	...knowing the task categories to show? | Platform  | IE: Task Categories are defined by the Platform. |
-| Step 5  		 |	... saving the selected category? | Task  | IE: object created in step 1 is classified in one Category.  |
-| Step 6  		 |							 |             |                              |              
-| Step 7  		 |	... validating all data (local validation)? | Task | IE: owns its data.| 
-| 			  	 |	... validating all data (global validation)? | Organization | IE: knows all its tasks.| 
-| 			  	 |	... saving the created task? | Organization | IE: owns all its tasks.| 
-| Step 8  		 |	... informing operation success?| CreateTaskUI  | IE: is responsible for user interactions.  | 
+| Interaction ID | Question: Which class is responsible for... | Answer      | Justification (with patterns)  |
+|:-------------  |:------------------------------------------- |:------------|:------------------------------ |
+| Step 1  		 |                                             |             |                                |
+| Step 2  		 |                                             |             |                                |
+| Step 3  		 |                                             |             |                                |
+| Step 4  		 |                                             |             |                                |
+| Step 5  		 |                                             |             |                                |
+| Step 6  		 |                                             |             |                                |
+| Step 7  		 |                                             |             |                                |
+| Step 8  		 |                                             |             |                                |
+| Step 9  		 |                                             |             |                                |
+| Step 10  		 |                                             |             |                                |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  * Company
+ * Test
+ * Category
  
 
 Other software classes (i.e. Pure Fabrication) identified: 
@@ -132,22 +144,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 4. Tests 
 
-**Test 1:** Check that it is not possible to create an instance of the Task class with null values. 
-
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Task instance = new Task(null, null, null, null, null, null, null);
-	}
-	
-
-**Test 2:** Check that it is not possible to create an instance of the Task class with a reference containing less than five chars - AC2. 
-
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureReferenceMeetsAC2() {
-		Category cat = new Category(10, "Category 10");
-		
-		Task instance = new Task("Ab1", "Task Description", "Informal Data", "Technical Data", 3, 3780, cat);
-	}
+**Test 1:** 
 
 
 *It is also recommended to organize this content by subsections.* 
@@ -155,49 +152,18 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 5. Construction (Implementation)
 
 
-## Class CreateTaskController 
-
-		public boolean createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Integer catId)() {
-		
-			Category cat = this.platform.getCategoryById(catId);
-			
-			Organization org;
-			// ... (omitted)
-			
-			this.task = org.createTask(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			
-			return (this.task != null);
-		}
+## Class CreateTestTypeController 
 
 
-## Class Organization
-
-
-		public Task createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Category cat)() {
-		
-	
-			Task task = new Task(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			if (this.validateTask(task))
-				return task;
-			return null;
-		}
+## Class Company
 
 
 
 # 6. Integration and Demo 
 
-* A new option on the Employee menu options was added.
-
-* Some demo purposes some tasks are bootstrapped while system starts.
-
 
 # 7. Observations
 
-Platform and Organization classes are getting too many responsibilities due to IE pattern and, therefore, they are becoming huge and harder to maintain. 
-
-Is there any way to avoid this to happen?
 
 
 
