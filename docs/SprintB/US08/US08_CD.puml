@@ -1,5 +1,30 @@
 @startuml
 skinparam classAttributeIconSize 0
 
+class CreateChemicalAnalysisLaboratoryUI{
+}
+
+class CreateChemicalAnalysisLaboratoryController{
+}
+
+class Company{
+-String name
+-String designation
+-category
+-address
+-headquarters
+}
+
+class Laboratory {
+  -String name
+  -String address
+  -int phoneNumber
+  -int tin
+}
+
+
+
+CreateChemicalAnalysisLaboratoryUI ..> CreateChemicalAnalysisLaboratoryController
+Company "1" --> "*"  : owns
 
 @enduml

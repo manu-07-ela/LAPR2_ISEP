@@ -39,6 +39,14 @@ class Employee {
   -socCode
 }
 
+class TestType{
+-designation
+-collectingMethod
+}
+
+class ChemicalLaboratory{
+
+}
 
 class Administrator {
 
@@ -47,8 +55,10 @@ class Administrator {
 Company "1"---- "1..*" Laboratory : owns >
 ClinicalAnalysisLaboratory ----|> Laboratory
 ClinicalAnalysisLaboratory "1..*"----"*" Test : performs >
+TestType "1"----"*" Test : is a >
 Administrator "1"---"1..*"ClinicalAnalysisLaboratory : creates >
 Administrator --|> Employee
+ChemicalLaboratory ----|> Laboratory
 
 
 

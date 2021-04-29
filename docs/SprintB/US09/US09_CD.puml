@@ -18,9 +18,22 @@ class CreateTestTypeController{
 class TestType{
 }
 
+class ClinicalAnalysisLaboratory{
+-laboratoryId
+}
+
+class Laboratory{
+-String name
+-String address
+-int phoneNumber
+-int TIN
+}
+
 CreateTestTypeUI ..> CreateTestTypeController
 CreateTestTypeController ..> Company
 Company --> TestType
+ClinicalAnalysisLaboratory ---|> Laboratory
+
 
 
 @enduml
