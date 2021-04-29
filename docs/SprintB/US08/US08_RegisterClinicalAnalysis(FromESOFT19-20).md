@@ -45,9 +45,12 @@ headquarters and the chemical analysis are performed there.
 
 
 * **AC1:** Every Clinical Analysis Laboratory must perform blood tests
-* **AC2:** 
-* **AC3:** 
-
+* **AC2:** The laboratoryId has 5 alphanumeric characteres
+* **AC3:** The name must have no more than 20 characters
+* **AC4:** The address must have no more than 30 characters
+* **AC5:** The phone number is a 11 digit number
+* **AC6:** TIN is a 10 digit number
+* **AC6:** Every field is required
 
 ### 1.4. Found out Dependencies
 
@@ -64,11 +67,11 @@ headquarters and the chemical analysis are performed there.
 	*  name 
 	*  address
 	*  phoneNumber
-	*  tin
+	*  TIN
 	*  laboratoryId
 	
 * Selected data:
-	* (none)
+	* Test Types
 
 
 **Output Data:**

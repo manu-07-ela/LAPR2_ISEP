@@ -1,10 +1,10 @@
 @startuml
 autonumber
 'hide footbox
-actor "Organization Employee" as ADM
+actor "Administrator" as ADM
 
-participant ":CreateTaskUI" as UI
-participant ":CreateTaskController" as CTRL
+participant ":CreateChemicalAnalysisLaboratoryUI" as UI
+participant ":CreateChemicalAnalysisLaboratoryController" as CTRL
 participant "ApplicationPOT" as _APP
 participant "app\n:ApplicationPOT" as APP
 participant "session\n:UserSession" as SESSAO
