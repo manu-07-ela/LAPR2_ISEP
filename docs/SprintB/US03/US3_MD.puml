@@ -4,30 +4,23 @@ left to right direction
 skinparam classAttributeIconSize 0
 
 
-class Platform {
-  -designation
+class Receptionist {
+
 }
 
-class Organization {
+class Client {
+  -citizen card number
+  -NHS number
+  -birth date
+  -sex
+  -TIF
+  -phone number
+  -e-mail
   -name
-  -VatNumber
-  -website
-  -phoneNumber
-  -email
 }
 
-class Task {
-  -reference
-  -designation
-  -informalDesc
-  -technicalDesc
-  -duration
-  -cost
-}
-
-class Category {
-  -id
-  -description
+class Email {
+  -password
 }
 
 class Employee {
@@ -37,20 +30,10 @@ class Employee {
   -email
 }
 
-class User {
-  -name
-  -email
-  -password
-}
 
-Platform "1" -- "*" Organization : has registered >
-Platform "1" -- "*" Category : defines >
-Organization "1" -- "1..*" Employee : has >
-Organization "1" -- "*" Task: owns >
-Task "*" -- "1" Employee: created by >
-Employee "0..1" -- "1" User: acts as >
-Task "*" -- "1" Category: classified as >
-
+Receptionist "1" -- "*" Client : has registered >
+Client "*" -- "1*" Email: receives >
+Receptionist --|> Employee
 
 
 @enduml

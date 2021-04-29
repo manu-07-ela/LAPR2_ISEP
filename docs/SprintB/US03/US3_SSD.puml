@@ -1,19 +1,14 @@
 @startuml
 autonumber
-actor "Organization Employee" as OE
+actor "Receptionist" as OE
 
 activate OE
-OE -> ":System" : asks to create a new task
+OE -> ":System" : asks to register the client in the application
 activate ":System"
-":System" --> OE : requests data (reference, designation,  informal \n description, technical description, duration, cost)
+":System" --> OE : requests data (citizen card number, NHS number, birth date, sex, TIF, phone number, e-mail, name)
 deactivate ":System"
 
 OE -> ":System" : types requested data
-activate ":System"
-":System" --> OE : shows task categories list and ask to select one
-deactivate ":System"
-
-OE -> ":System" : selects a task category
 activate ":System"
 ":System" --> OE : shows all data and requests confirmation
 deactivate ":System"

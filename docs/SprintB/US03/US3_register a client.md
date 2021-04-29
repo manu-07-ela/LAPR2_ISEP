@@ -14,24 +14,21 @@ As a receptionist of the laboratory, I want to register a client.
 
 **From the specifications document:**
 
->	Each task is characterized by having a unique reference per organization, a designation, an informal and a technical description, an estimated duration and cost as well as the its classifying task category. 
+>	In case of a new client, the receptionist registers the client in the application.
 
-
->	As long as it is not published, access to the task is exclusive to the employees of the respective organization. 
-
-
+>	To register a client, the receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number, birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 **From the client clarifications:**
 
-> **Question:** Which is the unit of measurement used to estimate duration?
+> **Question:** After being registered by the receptionist, should the client receive some kind of confirmation e-mail in order to finish his registration?
 >  
-> **Answer:** Duration is estimated in days.
-
+> **Answer:** The client only receives an e-mail informing that the registration was successful and that he can start to use the system. The e-mail includes the client password.
+> https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7736
 -
 
-> **Question:** Monetary data is expressed in any particular currency?
+> **Question:**
 >  
-> **Answer:** Monetary data (e.g. estimated cost of a task) is indicated in POTs (virtual currency internal to the platform).
+> **Answer:**
 
 
 ### 1.3. Acceptance Criteria
