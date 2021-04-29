@@ -28,4 +28,5 @@ public class Company {
     public AuthFacade getAuthFacade() {
         return authFacade;
     }
+
 }

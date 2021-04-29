@@ -6,30 +6,60 @@
 
 
 ### 1.1. User Story Description
-*As an Administrator, I want to specify a new parameter.*
+
+*As an administrator, I want to specify a new parameter and categorize it.S*
 
 ### 1.2. Customer Specifications and Clarifications 
 
 *Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
 
+**From the specifications document:**
+
+> Blood tests are frequently characterized by measuring several parameters which for presentation/reporting purposes are organized by categories. For example, parameters such as the number of Red Blood Cells (RBC), White Blood Cells (RBC) and Platelets (PLT) are usually presented under the blood count (Hemogram) category.
+> 
+> Regardless, such tests rely on measuring one or more parameters that can be grouped/organized by categories.
+
+
+**From the client clarifications:**
+
+> **Question:** What is the data that characterize a parameter? Should we follow the same data as the parameter category, for example, would each parameter have its own code, description and NHS identifier?
+Each parameter is associated with one category. Each parameter has a Code, a Short Name and a Description.
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7507&parent=9763#p10106) The Code are five alphanumeric characters. The Short Name is a String with no more than 8 characters. The Description is a String with no more than 20 characters.
+
+
+
+
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
+
+* **AC1:** The Code are five alphanumeric characters. 
+* **AC2:** The Short Name is a String with no more than 8 characters.
+* **AC3:** The Description is a String with no more than 20 characters.
 
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
 
+* **Depends on US11 - The categories where the parameters will be inserted were created in US11.** 
+
 ### 1.5 Input and Output Data
 
 *Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
+**Input Data:**
+
+* Typed data:
+    *  code
+    *  short name
+    *  description
 
 ### 1.6. System Sequence Diagram (SSD)
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US10_SSD](US10_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks

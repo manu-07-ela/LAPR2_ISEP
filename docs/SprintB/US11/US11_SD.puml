@@ -8,25 +8,17 @@ participant ":CreateTestTypeController" as CTRL
 participant ":Company" as Comp
 
 activate Adm
-Adm -> UI : asks to create a new type of test
+Adm-> UI: starts new parameter category
 activate UI
-UI --> Adm : requests data (designation)
+UI --> Adm : request data (i.e., cide, description, nhsld)
 deactivate UI
-
-Adm -> UI : types requested data
+Adm -> UI: types requested data
 activate UI
-UI -> CTRL : createTestType
-UI --> Adm : shows all data and requests confirmation
+UI --> Adm : shows the data and requests a confirmation
 deactivate UI
-
-Adm -> UI : confirms the data
+Adm -> UI: confirms the data
 activate UI
 UI --> Adm : informs operation success
 deactivate UI
-
 deactivate Adm
-
-
-
-
 @enduml

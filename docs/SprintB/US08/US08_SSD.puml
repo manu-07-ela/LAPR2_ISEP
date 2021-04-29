@@ -11,12 +11,24 @@ deactivate ":System"
 
 Adm -> ":System" : types requested data
 activate ":System"
-":System" --> Adm : shows all data and requests confirmation
+":System" --> Adm : shows data and requests confirmation
 deactivate ":System"
 
 Adm -> ":System" : confirms the data
 activate ":System"
-":System" --> Adm : informs operation success
+":System" --> Adm : request data (TestType)
+deactivate ":System"
+
+Adm -> ":System" : select the requested data
+activate ":System"
+":System" --> Adm : shows data and requests confirmation
+deactivate ":System"
+
+
+
+Adm -> ":System" : confirms the data
+activate ":System"
+":System" --> Adm : informs the operation success
 deactivate ":System"
 
 deactivate Adm

@@ -24,25 +24,23 @@ class Employee{
 class Administrator{
 }
 
-class Test{
--internalCode
--nhsCode
--description
-}
-
 class TestType{
--designation
+-code
+-description
+-collectingMethod
 }
 
-class CollectionMethod{
+
+class Category{
+-name
+-code
 }
 
 
 Company "1"--"*" Employee : knows >
+Company "1"--"*" TestType : conducts >
 Administrator --|> Employee
 Administrator "1"--"*" TestType : specify a >
-TestType --|> Test
-TestType "*"--"1" CollectionMethod : contains >
-
+TestType "*"--"*" Category : have a >
 
 @enduml

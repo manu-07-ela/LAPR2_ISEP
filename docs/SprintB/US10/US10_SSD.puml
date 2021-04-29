@@ -2,10 +2,33 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
+actor Administrator
+activate Administrator
+Administrator -> System: starts new parameter
+activate System
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+System --> Administrator : request data (code, shortName, description)
+deactivate System
+Administrator -> System: types requested data
+activate System
+System --> Administrator : shows the data and requests a confirmation
+deactivate System
+Administrator -> System: confirms the data
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+activate System
+System --> Administrator : request data (category)
+deactivate System
+Administrator -> System: types requested the data
+activate System
+System --> Administrator : shows the data and requests a confirmation
+deactivate System
+Administrator -> System: confirms the data
+
+
+activate System
+System --> Administrator : informs the operation success
+deactivate System
+deactivate Administrator
+
+
 @enduml
