@@ -3,4 +3,22 @@ autonumber
 'hide footbox
 actor "Administrator" as Adm
 
+participant ":CreateTestTypeUI" as UI
+participant ":CreateTestTypeController" as CTRL
+participant ":Company" as Comp
+
+activate Adm
+Adm-> UI: starts new parameter category
+activate UI
+UI --> Adm : request data (i.e., cide, description, nhsld)
+deactivate UI
+Adm -> UI: types requested data
+activate UI
+UI --> Adm : shows the data and requests a confirmation
+deactivate UI
+Adm -> UI: confirms the data
+activate UI
+UI --> Adm : informs operation success
+deactivate UI
+deactivate Adm
 @enduml
