@@ -3,9 +3,10 @@ autonumber
 'hide footbox
 actor "Administrator" as Adm
 
-participant ":CreateTestTypeUI" as UI
-participant ":CreateTestTypeController" as CTRL
-participant ":Company" as Comp
+participant ": CreateTestTypeUI" as UI
+participant ": CreateTestTypeController" as CTRL
+participant ": Company" as Comp
+participant "store: TestTypeStore" as str
 
 activate Adm
 Adm -> UI : asks to create a new type of test

@@ -7,6 +7,7 @@ class Company{
 -category
 -address
 -headquarters
++getTypeTestStore()
 }
 
 class CreateTestTypeUI{
@@ -20,11 +21,15 @@ class TestType{
 
 class Category{
 -name
+-code
+}
+
+class TestTypeStore{
 }
 
 CreateTestTypeUI ..> CreateTestTypeController
 CreateTestTypeController ..> Company
-Company --> TestType
-
+Company"1"--> "1" TestTypeStore : uses
+TestTypeStore "1"-->"*" TestType : conducts
 
 @enduml
