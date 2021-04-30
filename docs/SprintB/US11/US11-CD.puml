@@ -12,6 +12,10 @@ class Company{
 +getTestTypeStore()
 }
 
+class CreateParameterCategoryUI {
++createParameterCategory()
+}
+
 
 class ParameterStore{
 +createParameter(name, parameterValue, category)

@@ -22,11 +22,7 @@ Administrator --|> Employee
 
 
 class Company{
--name
 -designation
--category
--address
--headquarters
 }
 
 class Parameter{

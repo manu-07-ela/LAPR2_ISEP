@@ -31,9 +31,9 @@ class Role{
 -description
 }
 Administrator --|> Employee
-Administrator "*"-"1" Company : works for >
+Administrator "*"--"1" Company : works for >
 Employee --|> User
 Company "1"--"*" Employee : knows >
 Administrator "1"--"*" Employee : register >
-User "*"-"1" Role : plays >
+User "*"--"1" Role : plays >
 @enduml
