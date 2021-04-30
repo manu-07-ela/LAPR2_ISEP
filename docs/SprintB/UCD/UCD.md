@@ -14,24 +14,24 @@ However, be aware, this is a pedagogical simplification. On further projects and
 # Use Cases / User Stories
 | UC/US  | Description                                                                                                  |                   
 |:------:|:-------------------------------------------------------------------------------------------------------------|
-| US01   | [As the laboratory coordinator, I want to validate the test performed.](US01.md)|
-| US02   | [As the laboratory coordinator, I want to know the company response efficiency.](US02.md)|
-| US03   | |
-| US04   | [As a receptionist of the laboratory, I want to register a client.](US04.md)|
-| US05   | [As a receptionist of the laboratory, I intend to register a test to be performed to a registered client.](US05.md)             |
-| US06   | [As a specialist doctor, I want to access the internal process of a client.](US06.md)|
-| US07   | [As a specialist doctor, I intend write a report.](US07.md)|
-| US08   | |
-| US09   | [As an administrator, I want to register a new employee.](US09.md) |
-| US10   | [As an administrator, I want to register a new clinical analysis laboratory stating which kind of test(s) it operates.](US10.md)|
-| US11   | [As an administrator, I want to specify a new type of test and its collecting methods.](US11.md)                                        |
-| US12   | [As an administrator, I want to specify a new test parameter and categorize it.](US12.md)
-| US13   | [As an administrator , I want to specify a new parameter category.](US13.md)                                 |
-| US14   | [As a medical lab technician, I want to register the tests perfomed locally.](US14.md) |
-| US15   | |
+| US01   | [I want to validate the test performed.](US01.md)|
+| US02   | [I want to know the company response efficiency.](US02.md)|
+| US03   | [I want to register a client.](US03.md)|
+| US04   | [I intend to register a test to be performed to a registered client.](US04.md)|
+| US05   | [I want to record the samples collected in a scope of a given Test.](US05.md)|
+| US06   | [I want to access the internal process of a client.](US06.md)|
+| US07   | [I want to register a new employee.](US07.md)|
+| US08   | [I want to register a new clinical analysis laboratory stating which kind of test(s) it operates.](US.08)|
+| US09   | [I want to specify a new type of test and its collecting methods.](US09.md) |
+| US10   | [I want to specify a new test parameter and categorize it.](US10.md)|
+| US11   | [I want to specify a new parameter category.](US11.md)                                        |
+| US12   | [](US12.md)
+| US13   | [](US13.md)|
+| US14   | [I want to register the tests perfomed locally.](US14.md) |
+| US15   | [I intend write a report.](US15.md)|
 | US16   | |
-| US17   | [As a clinical chemistry technologist, I intend to record the result of chemistry analysis.](US17.md)  |
+| US17   | [I intend to record the result of chemistry analysis.](US17.md)  |
 | US18   | |
-| US19   | [As a timer, I want to send daily Covid-19 data.](US19.md) |
-| US20   | [As a Client, a specialist doctor, a medical lab technician, a clinical chemistry technologist, the laboratory coordinator, we want to view the results of the test](US20.md)|
+| US19   | [I want to send daily Covid-19 data.](US19.md) |
+| US20   | [We want to view the results of the test](US20.md)|
 
