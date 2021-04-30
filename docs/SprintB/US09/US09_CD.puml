@@ -15,7 +15,7 @@ class CreateTestTypeController{
 }
 
 class TestType{
--int code
+-String code
 -String collectingMethods
 -String description
 +create(code,description,collecting method,selectedParameterCategoriesList)
