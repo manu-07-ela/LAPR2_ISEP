@@ -22,9 +22,17 @@ class Laboratory {
   -int tin
 }
 
+class ClinicalAnalysisLaboratory {
+  -laboratoryId
+}
+
+
+
+
 
 
 CreateChemicalAnalysisLaboratoryUI ..> CreateChemicalAnalysisLaboratoryController
-Company "1" --> "*"  : owns
+Company "1" --> "*" Laboratory  : owns
+ClinicalAnalysisLaboratory -|> Laboratory
 
 @enduml

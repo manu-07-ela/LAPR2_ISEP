@@ -29,16 +29,6 @@ class ClinicalAnalysisLaboratory {
   -laboratoryId
 }
 
-class Employee {
-  -name
-  -address
-  -phoneNumber
-  -email
-  -employeeId
-  -organizationRole
-  -socCode
-}
-
 class TestType{
 -designation
 -collectingMethod
@@ -57,7 +47,6 @@ ClinicalAnalysisLaboratory ----|> Laboratory
 ClinicalAnalysisLaboratory "1..*"----"*" Test : performs >
 TestType "1"----"*" Test : is a >
 Administrator "1"---"1..*"ClinicalAnalysisLaboratory : creates >
-Administrator --|> Employee
 ChemicalLaboratory ----|> Laboratory
 
 

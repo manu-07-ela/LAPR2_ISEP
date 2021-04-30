@@ -36,20 +36,20 @@ headquarters and the chemical analysis are performed there.
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126) The clinical analysis laboratory is caracterized by its name, address , phone number and its TIN number
 
 
-> **Question:** 
+> **Question:** "Which type/format has LaboratoryID, address, name, phone number, and TIN number on Clinical Analysis Laboratory?"
 >  
-> **Answer:** 
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7636)
 
 
 ### 1.3. Acceptance Criteria
 
 
 * **AC1:** Every Clinical Analysis Laboratory must perform blood tests
-* **AC2:** The laboratoryId has 5 alphanumeric characteres
+* **AC2:** The laboratoryId has 5 alphanumeric characters
 * **AC3:** The name must have no more than 20 characters
 * **AC4:** The address must have no more than 30 characters
-* **AC5:** The phone number is a 11 digit number
-* **AC6:** TIN is a 10 digit number
+* **AC5:** The phone number is an 11-digit number
+* **AC6:** TIN is a 10-digit number
 * **AC6:** Every field is required
 
 ### 1.4. Found out Dependencies
