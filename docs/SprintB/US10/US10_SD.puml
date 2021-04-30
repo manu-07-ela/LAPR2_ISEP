@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Administrator" as Adm
+
+participant ": CreateParameterUI" as UI
+participant ": crateParameterController" as CTRL
+participant ": Company" as Comp
+participant ": store: ParameterStore" as str
+
+activate Adm
+Adm -> UI: starts new parameter
+activate UI
+
+UI --> Adm : request data (code, shortName, description)
+deactivate UI
+Adm -> UI: types requested data
+activate UI
+UI --> Adm : shows the categories available
+deactivate UI
+Adm -> UI: inserts the category
+
+activate UI
+UI --> Adm : shows all data and asks for confirmation
+deactivate UI
+
+Adm -> UI: confirms the data
+
+
+activate UI
+UI --> Adm : informs the operation success
+deactivate UI
+deactivate Adm
+
+@enduml
