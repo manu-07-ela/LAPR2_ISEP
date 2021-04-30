@@ -21,7 +21,6 @@ deactivate System
 
 Administrator -> System: confirms the data
 
-
 activate System
 System --> Administrator : informs the operation success
 deactivate System
