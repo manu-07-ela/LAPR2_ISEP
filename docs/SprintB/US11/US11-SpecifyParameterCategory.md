@@ -14,13 +14,14 @@ usually presented under the blood count (Hemogram) category.
 
 ***From the client clarifications:***
 
-- *Question:* What are the data that characterize a parameter category?
+> *Question:* What are the information related to a Parameter Category?
+> 
+> [*Answer:*](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7318#p9859) Each category has a name and a unique code. There are no subcategories.
 
-- *Answer:* Simply consider a code, a description and an NHS identifier
 ### 1.3. Acceptance Criteria
+
 - AC1: Code must be unique having 4 to 8 chars.
-- AC2: Description cannot be empty and has, at maximum, 40 chars.
-- AC3: NHS identifier is not mandatory.
+
 
 ### 1.4. Found out Dependencies
 
@@ -28,7 +29,7 @@ usually presented under the blood count (Hemogram) category.
 
 ### 1.5 Input and Output Data
 ***Input Data***
-- _Typed data:_ code, description and NHS identified
+- _Typed data:_ a name and a unique code
 - _Selected data:_ (none)
 
 ***Output Data***
