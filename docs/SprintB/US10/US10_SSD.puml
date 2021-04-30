@@ -11,17 +11,14 @@ System --> Administrator : request data (code, shortName, description)
 deactivate System
 Administrator -> System: types requested data
 activate System
-System --> Administrator : shows the data and requests a confirmation
+System --> Administrator : shows the categories available
 deactivate System
-Administrator -> System: confirms the data
+Administrator -> System: inserts the category
 
 activate System
-System --> Administrator : request data (category)
+System --> Administrator : shows all data and asks for confirmation
 deactivate System
-Administrator -> System: types requested the data
-activate System
-System --> Administrator : shows the data and requests a confirmation
-deactivate System
+
 Administrator -> System: confirms the data
 
 

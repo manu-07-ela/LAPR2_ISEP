@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US 10 - I want to specify a new test parameter and categorize it.
 
 ## 1. Requirements Engineering
 
@@ -30,6 +30,10 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 > **Question:** Can a parameter be classified in more than one parameter category?
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7749) No. Each parameter has only one category. There are no subcategories.
+>
+> **Question:** When a new parameter is specified, should there always be a category it falls under prior to its specification and subsequent categorization?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) Each parameter is associated with one category.
 
 > **Question:** Is the categorization of a parameter mandatory or optional?
 > 
@@ -61,12 +65,15 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 * **AC1:** The Code are five alphanumeric characters. 
 * **AC2:** The Short Name is a String with no more than 8 characters.
 * **AC3:** The Description is a String with no more than 20 characters.
+* **AC4:** Each parameter has only one category.
+* **AC5:** The administrator has to be logged in, in order to create a new parameter and categorize it.
+
 
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
 
-* **Depends on US11 - The categories where the parameters will be inserted were created in US11.** 
+* **Depends on US11 - The categories where the parameters will be inserted are created in US11** 
 
 ### 1.5 Input and Output Data
 
@@ -78,6 +85,13 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
     *  code
     *  short name
     *  description
+  
+* Selected data:
+    *  category
+
+**Output Data:**
+
+* (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
