@@ -3,21 +3,52 @@ autonumber
 'hide footbox
 actor "Administrator" as Adm
 
-participant ":CreateTestTypeUI" as UI
-participant ":CreateTestTypeController" as CTRL
-participant ":Company" as Comp
+participant ": CreateParameterCategoryUI" as UI
+participant ": CreateParameterCategoryController" as CTRL
+participant ": Company" as Comp
+participant "store: ParameterCategoryStore" as str
+participant "pc: ParameterCategory" as Cat
 
 activate Adm
 Adm-> UI: starts new parameter category
 activate UI
-UI --> Adm : request data (i.e., cide, description, nhsld)
+UI --> Adm : request data (name, code)
 deactivate UI
 Adm -> UI: types requested data
 activate UI
+
+UI -> CTRL : createCategory(name,code)
+activate CTRL
+CTRL -> Comp : store = createCategoryStory()
+activate Comp
+deactivate Comp
+CTRL -> str : c = createCategory(name,code)
+activate str
+str -> Cat** : create(name,code)
+deactivate str
+
+CTRL -> str : validateCategory(pc)
+activate str
+deactivate str
+deactivate CTRL
+
 UI --> Adm : shows the data and requests a confirmation
 deactivate UI
 Adm -> UI: confirms the data
 activate UI
+
+UI -> CTRL: saveCategory()
+activate CTRL
+CTRL -> str: validateCategory(pc)
+activate str
+str -> str : validateCategory(pc)
+activate str
+deactivate str
+str ->str : addCategory(pc)
+activate str
+deactivate str
+deactivate str
+deactivate CTRL
 UI --> Adm : informs operation success
 deactivate UI
 deactivate Adm
