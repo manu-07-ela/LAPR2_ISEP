@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class CreateParameterUI{
+}
+
+class CreateParameterController{
++getParameterCategories()
++createParameter(code,shortName,description,selectedCategory)
++saveParameter()
+}
+
+class Parameter{
+- int code
+- String shortName
+- String description
++ create(code,shortName,description,selectedCategory)
+
+}
+
+CreateParameterUI ..> CreateParameterController
+
+@enduml
