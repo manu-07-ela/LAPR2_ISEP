@@ -5,10 +5,15 @@ actor "Administrator" as Adm
 activate Adm
 Adm -> ":System" : asks to create a new type of test
 activate ":System"
-":System" --> Adm : requests data (designation)
+":System" --> Adm : requests data (code,description,collecting method)
 deactivate ":System"
 
 Adm -> ":System" : types requested data
+activate ":System"
+":System" --> Adm : shows the existing categories in the system
+deactivate ":System"
+
+Adm -> ":System" : insert the desired category
 activate ":System"
 ":System" --> Adm : shows all data and requests confirmation
 deactivate ":System"
