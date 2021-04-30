@@ -92,10 +92,10 @@ n/a
 **SSD - Alternative 1 is adopted.**
 
 | Interaction ID | Question: Which class is responsible for... | Answer                   | Justification (with patterns)                                                                                             |
-|:-------------  |:------------------------------------------- |:-------------------------:|:------------------------------------------------------------------------------------------------------------------------- |
+|:-------------  |:------------------------------------------- |:-------------------------:|:------------------------------------------------------------------------------------------------------------------------ |
 | Step 1  		 | ... interacting with the actor?             | CreateTestTypeUI         | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
 |                | ... coordinating the US?                    | CreateTestTypeController | Controller                                                                                                                |
-|                | ... creates Task instance?                  | TestTypeStore            | Controller                                                                                                                |
+|                | ... creates Test Type instance?             | TestTypeStore            | Creator (rule 1) and HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore.      |
 | Step 2  		 |                                             |                          |                                                                                                                           |
 | Step 3  		 |                                             |                          |                                                                                                                           |
 | Step 4  		 |                                             |                          |                                                                                                                           |
