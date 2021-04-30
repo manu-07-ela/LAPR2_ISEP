@@ -18,9 +18,9 @@ deactivate UI
 
 Adm -> UI : Introduce the requested data
 activate UI
-UI -> CTRL : lc=getParameterCategories
+UI -> CTRL : lc=getParameterCategories()
 activate CTRL
-CTRL -> PC : lc=getTaskCategories()
+CTRL -> PC : lc=getParameterCategories()
 activate PC
 deactivate PC
 deactivate CTRL
@@ -29,14 +29,14 @@ deactivate UI
 
 Adm -> UI : Select the desired parameter categories
 activate UI
-UI -> CTRL : createTestType(code,description,collecting method,categoryCode)
+UI -> CTRL : createTestType(code,description,collecting method,selectedParameterCategoriesList)
 activate CTRL
-CTRL -> Comp : store = createTestTypeStore()
+CTRL -> Comp : store = getTestTypeStore()
 activate Comp
 deactivate Comp
-CTRL -> str : t = createTestType(code,description,collecting method,categoryCode)
+CTRL -> str : t = createTestType(code,description,collecting method,selectedParameterCategoriesList)
 activate str
-str -> TT** : create(code,description,collecting method,categoryCode)
+str -> TT** : create(code,description,collecting method,selectedParameterCategoriesList)
 deactivate str
 CTRL -> str : validateTestType(t)
 activate str

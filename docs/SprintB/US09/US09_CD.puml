@@ -2,11 +2,6 @@
 skinparam classAttributeIconSize 0
 
 class Company{
--String name
--String designation
--category
--address
--headquarters
 +getTypeTestStore()
 }
 
@@ -14,21 +9,27 @@ class CreateTestTypeUI{
 }
 
 class CreateTestTypeController{
++getParameterCategories()
++createTestType(code,description,collecting method,selectedParameterCategoriesList)
++saveTestType()
 }
 
 class TestType{
-}
-
-class Category{
--name
--code
+-int code
+-String collectingMethods
+-String description
++create(code,description,collecting method,selectedParameterCategoriesList)
 }
 
 class TestTypeStore{
++createTestType(code,description,collecting method,selectedParameterCategoriesList)
++validateTestType(t)
++addTestType(t)
 }
 
 CreateTestTypeUI ..> CreateTestTypeController
 CreateTestTypeController ..> Company
+CreateTestTypeController ..> TestTypeStore
 Company"1"--> "1" TestTypeStore : uses
 TestTypeStore "1"-->"*" TestType : conducts
 

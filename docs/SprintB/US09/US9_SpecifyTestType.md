@@ -110,13 +110,13 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Company
  * Test
- * ParameterCategory
  
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
  * CreateTestTypeUI  
  * CreateTestTypeController
+ * TestTypeStore
 
 
 ## 3.2. Sequence Diagram (SD)
