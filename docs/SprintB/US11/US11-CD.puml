@@ -1,5 +1,65 @@
 @startuml
-skinparam classAttributeIconSize 0
+class Company
+class TestTypeStore
+class ParameterStore
+class ParameterCategoryStore
+class TestType
+class Parameter
+class ParameterCategory
+
+class Company{
+-designation
++getParameterStore()
++getParameterCategoryStore()
++getTestTypeStore()
+}
+
+class TestTypeStore{
++createTestType(designation)
++validateTestType(tt)
++saveTestType(tt)
+}
+
+class ParameterStore{
++createParameter(id, designation, category)
++validateParameter(pc)
++saveParameter(pc)
++getParameterById(id)
++getParametersByCategory(category)
+}
+
+class ParameterCategoryStore{
++createCategory(code, designation, nhsId)
++validateCategory(c)
++saveCategory(c)
++getParameterCategoryStore(code)
+}
+
+class Parameter {
+-id
+-designation
++Parameter(id, designation, category)
+}
+
+class ParameterCategory {
+-code
+-designation
+-nhsId
++ParameterCategory(code, designation, nhsId)
+}
+
+class TestType{
+-designation
++TestType(designation)
+}
+
+Company "1"-->"1" ParameterStore : uses
+Company "1"-->"1" ParameterCategoryStore : uses
+Company "1"-->"1" TestTypeStore : uses
+TestTypeStore "1"-->"1" TestType : conducts
+ParameterCategoryStore "1"-->"1" ParameterCategory: adopts
+ParameterStore "1"-->"*" Parameter: capable of analysing
+Parameter "*"-->"1" ParameterCategory : presented under
 
 
 
