@@ -19,7 +19,7 @@ activate UI
 
 UI -> CTRL : createParameterCategory(name,code)
 activate CTRL
-CTRL -> Comp : store = createParameterCategoryStory()
+CTRL -> Comp : store = getParameterCategoryStory()
 activate Comp
 deactivate Comp
 CTRL -> str : c = createParameterCategory(name,code)
