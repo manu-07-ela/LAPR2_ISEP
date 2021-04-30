@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US 11 - Specify a new parameter category. 
 
 ## 1. Requirements Engineering
 
@@ -39,7 +39,7 @@ usually presented under the blood count (Hemogram) category.
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US11-SSD](US11-SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -52,7 +52,7 @@ usually presented under the blood count (Hemogram) category.
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US11-MD](US11-MD.svg)
 
 ### 2.2. Other Remarks
 
