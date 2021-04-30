@@ -3,24 +3,24 @@ autonumber
 actor "Administrator" as Adm
 
 activate Adm
-Adm -> ":System" : asks to create a new type of test
+Adm -> ":System" : Initiates the test type creation
 activate ":System"
-":System" --> Adm : requests data (code,description,collecting method)
+":System" --> Adm : Request the necessary data to create a\n type of test (code,description,collecting method)
 deactivate ":System"
 
-Adm -> ":System" : types requested data
+Adm -> ":System" : Introduce the requested data
 activate ":System"
-":System" --> Adm : shows the existing categories in the system
+":System" --> Adm : Show the existing parameter categories
 deactivate ":System"
 
-Adm -> ":System" : insert the desired category
+Adm -> ":System" : Select the desired parameter categories
 activate ":System"
-":System" --> Adm : shows all data and requests confirmation
+":System" --> Adm : Presents all data and requests confirmation
 deactivate ":System"
 
-Adm -> ":System" : confirms the data
+Adm -> ":System" : Confirms the data
 activate ":System"
-":System" --> Adm : informs operation success
+":System" --> Adm : Informs operation success
 deactivate ":System"
 
 deactivate Adm
