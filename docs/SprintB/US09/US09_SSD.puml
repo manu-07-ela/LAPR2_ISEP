@@ -10,7 +10,7 @@ deactivate ":System"
 
 Adm -> ":System" : Introduce the requested data
 activate ":System"
-":System" --> Adm : Show the existing parameter categories and ask to select one or more
+":System" --> Adm : Show the existing parameter categories and ask\n to select one or more
 deactivate ":System"
 
 Adm -> ":System" : Select the desired parameter categories
