@@ -1,9 +1,7 @@
 @startuml
 class Company
-class TestTypeStore
 class ParameterStore
 class ParameterCategoryStore
-class TestType
 class Parameter
 class ParameterCategory
 
@@ -14,11 +12,6 @@ class Company{
 +getTestTypeStore()
 }
 
-class TestTypeStore{
-+createTestType(code, description, collectionMethod)
-+validateTestType(tt)
-+saveTestType(tt)
-}
 
 class ParameterStore{
 +createParameter(name, parameterValue, category)
@@ -47,17 +40,10 @@ class ParameterCategory {
 +ParameterCategory(code, name)
 }
 
-class TestType{
--code
--description
--collectionMethod
-+TestType(code, description, collectionMethod)
-}
+
 
 Company "1"-->"1" ParameterStore : uses
 Company "1"-->"1" ParameterCategoryStore : uses
-Company "1"-->"1" TestTypeStore : uses
-TestTypeStore "1"-->"1" TestType : conducts
 ParameterCategoryStore "1"-->"1" ParameterCategory: adopts
 ParameterStore "1"-->"*" Parameter: capable of analysing
 Parameter "*"-->"1" ParameterCategory : presented under
