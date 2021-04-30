@@ -34,9 +34,14 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 > **Question:** When a new parameter is specified, should there always be a category it falls under prior to its specification and subsequent categorization?
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) Each parameter is associated with one category.
-
-> **Question:** Is the categorization of a parameter mandatory or optional?
 > 
+>
+>**Question:** Can a parameter have more than one category? or is it limited to one?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649&parent=10196#p10297)
+ 
+>**Question:** Is the categorization of a parameter mandatory or optional?
+>
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649) Yes.
 
 > **Question:** How does the assignment of a parameter category works? Does he have to select the category or he have the option to create in the moment?
@@ -55,9 +60,22 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) Yes.
 
-> **Question:** When a new parameter is specified, should there always be a category it falls under prior to its specification and subsequent categorization?
+> **Question:** Regarding the recommended fields, which one are unique and mandatory?
+Unique = for example, two parameters cannot have the same code.
 > 
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) Each parameter is associated with one category.
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7507) 
+
+> **Question:**  In case the category doesn't exist in the system, would be possible for the admin to create directly when creating the parameters or does he/she needs to create first the category and only after the parameters?
+for the second option this would mean that the Admin will have duplicate work: (A)  starts to create a parameter and he notices that the category does not exist - needs to exit and create category
+(B) start creating the parameter again, now that the category exists.
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649&parent=10196#p10297)
+
+
+> **Question:**
+>
+> [**Awnser:**]()
+
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
@@ -126,24 +144,25 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Step 1   		 | ... interacting with the user| CreateParameterUI | Pure Fabrication: there is no justification for assigning this responsability to any existing class in the Domain Model.|
+|  		         | ... coordinating the US | CreateParameterController | Controller |
+|  		         | ... instantiating a new Parameter |              |     
+|                | ... creates new Parameter |              |
+| Step   		 |							 |             |                              |
+| Step  		 |							 |             |                              |
+| Step   		 | ... saving the selected category |              |                              |
+| Step  		 |							 |             |                              |
+| Step  		 | ... informing operation sucess |  CreateParameterUI | IE: is responsible for user interactions |              
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * CreateParameterUI  
+ * CreateParameterController
 
 ## 3.2. Sequence Diagram (SD)
 
