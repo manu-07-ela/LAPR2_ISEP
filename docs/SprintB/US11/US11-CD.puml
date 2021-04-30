@@ -15,42 +15,43 @@ class Company{
 }
 
 class TestTypeStore{
-+createTestType(designation)
++createTestType(code, description, collectionMethod)
 +validateTestType(tt)
 +saveTestType(tt)
 }
 
 class ParameterStore{
-+createParameter(id, designation, category)
++createParameter(name, parameterValue, category)
 +validateParameter(pc)
 +saveParameter(pc)
-+getParameterById(id)
++getParameterByName(name)
 +getParametersByCategory(category)
 }
 
 class ParameterCategoryStore{
-+createCategory(code, designation, nhsId)
++createCategory(code, name)
 +validateCategory(c)
 +saveCategory(c)
 +getParameterCategoryStore(code)
 }
 
 class Parameter {
--id
--designation
-+Parameter(id, designation, category)
+-name
+-parameterValue
++Parameter(name, parameterValue, category)
 }
 
 class ParameterCategory {
 -code
--designation
--nhsId
-+ParameterCategory(code, designation, nhsId)
+-name
++ParameterCategory(code, name)
 }
 
 class TestType{
--designation
-+TestType(designation)
+-code
+-description
+-collectionMethod
++TestType(code, description, collectionMethod)
 }
 
 Company "1"-->"1" ParameterStore : uses
