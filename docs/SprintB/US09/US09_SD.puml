@@ -7,22 +7,59 @@ participant ": CreateTestTypeUI" as UI
 participant ": CreateTestTypeController" as CTRL
 participant ": Company" as Comp
 participant "store: TestTypeStore" as str
+participant ": ParameterCategoryStore" as PC
+participant "t: TestType" as TT
 
 activate Adm
-Adm -> UI : asks to create a new type of test
+Adm -> UI : Initiates the test type creation
 activate UI
-UI --> Adm : requests data (designation)
+UI --> Adm : Request the necessary data to create a\n type of test (code,description,collecting method)
 deactivate UI
 
-Adm -> UI : types requested data
+Adm -> UI : Introduce the requested data
 activate UI
-UI -> CTRL : createTestType
-UI --> Adm : shows all data and requests confirmation
+UI -> CTRL : lc=getParameterCategories
+activate CTRL
+CTRL -> PC : lc=getTaskCategories()
+activate PC
+deactivate PC
+deactivate CTRL
+UI --> Adm : Show the existing parameter categories and ask\n to select one or more
 deactivate UI
 
-Adm -> UI : confirms the data
+Adm -> UI : Select the desired parameter categories
 activate UI
-UI --> Adm : informs operation success
+UI -> CTRL : createTestType(code,description,collecting method,categoryCode)
+activate CTRL
+CTRL -> Comp : store = createTestTypeStore()
+activate Comp
+deactivate Comp
+CTRL -> str : t = createTestType(code,description,collecting method,categoryCode)
+activate str
+str -> TT** : create(code,description,collecting method,categoryCode)
+deactivate str
+CTRL -> str : validateTestType(t)
+activate str
+deactivate str
+deactivate CTRL
+UI --> Adm : Presents all data and requests confirmation
+deactivate UI
+
+Adm -> UI: Confirms the data
+activate UI
+UI -> CTRL: saveTestType()
+activate CTRL
+CTRL -> str : validateTestType(t)
+activate str
+str -> str : validateTestType(t)
+activate str
+deactivate str
+str ->str : addTestType(t)
+activate str
+deactivate str
+deactivate str
+deactivate CTRL
+UI --> Adm : Informs operation success
 deactivate UI
 
 deactivate Adm

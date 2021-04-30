@@ -41,7 +41,6 @@ As an administrator, I want to specify a new type of test and its collecting met
 * **AC2:** The description is a string with a maximum of 15 characters.
 * **AC3:** The collecting Method is a string with no more than 20 characters.
 * **AC4:** Each category should be chosen from a list of categories.
-* **AC5:** 
 
 ### 1.4. Found out Dependencies
 
@@ -60,7 +59,7 @@ As an administrator, I want to specify a new type of test and its collecting met
 	* collecting method
 	
 * Selected data:
-	* categorie
+	* category
 	
 **Output Data:**
 
@@ -71,12 +70,6 @@ As an administrator, I want to specify a new type of test and its collecting met
 **Alternative 1**
 
 ![US09_SSD](US09_SSD.svg)
-
-
-**Alternative 2**
-
-![US09_SSD_v2](US09_SSD_v2.svg)
-
 
 **Other alternatives might exist.**
 
@@ -117,7 +110,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Company
  * Test
- * Category
+ * ParameterCategory
  
 
 Other software classes (i.e. Pure Fabrication) identified: 
@@ -131,10 +124,6 @@ Other software classes (i.e. Pure Fabrication) identified:
 **Alternative 1**
 
 ![US09_SD](US09_SD.svg)
-
-**Alternative 2**
-
-![US09_SD](US09_SD_v2.svg)
 
 ## 3.3. Class Diagram (CD)
 
