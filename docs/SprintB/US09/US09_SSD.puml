@@ -10,11 +10,14 @@ deactivate ":System"
 
 Adm -> ":System" : Introduce the requested data
 activate ":System"
-":System" --> Adm : Show the existing parameter categories and ask\n to select one or more
-deactivate ":System"
+ loop *parameter categories
+    ":System" --> Adm : Show the existing parameter\n categories and ask to select one
+    deactivate ":System"
 
-Adm -> ":System" : Select the desired parameter categories
-activate ":System"
+    Adm -> ":System" : Select the desired parameter category
+    activate ":System"
+
+ end
 ":System" --> Adm : Presents all data and requests confirmation
 deactivate ":System"
 

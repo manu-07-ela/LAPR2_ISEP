@@ -23,8 +23,8 @@ class TestType{
 
 class TestTypeStore{
 +createTestType(code,description,collecting method,selectedParameterCategoriesList)
-+validateTestType(t)
-+addTestType(t)
++validateTestType(testType)
++addTestType(testType)
 }
 
 CreateTestTypeUI ..> CreateTestTypeController

@@ -91,18 +91,20 @@ n/a
 
 **SSD - Alternative 1 is adopted.**
 
-| Interaction ID | Question: Which class is responsible for... | Answer      | Justification (with patterns)  |
-|:-------------  |:------------------------------------------- |:------------|:------------------------------ |
-| Step 1  		 |                                             |             |                                |
-| Step 2  		 |                                             |             |                                |
-| Step 3  		 |                                             |             |                                |
-| Step 4  		 |                                             |             |                                |
-| Step 5  		 |                                             |             |                                |
-| Step 6  		 |                                             |             |                                |
-| Step 7  		 |                                             |             |                                |
-| Step 8  		 |                                             |             |                                |
-| Step 9  		 |                                             |             |                                |
-| Step 10  		 |                                             |             |                                |
+| Interaction ID | Question: Which class is responsible for... | Answer                   | Justification (with patterns)                                                                                             |
+|:-------------  |:------------------------------------------- |:-------------------------:|:------------------------------------------------------------------------------------------------------------------------- |
+| Step 1  		 | ... interacting with the actor?             | CreateTestTypeUI         | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
+|                | ... coordinating the US?                    | CreateTestTypeController | Controller                                                                                                                |
+|                | ... creates Task instance?                  | TestTypeStore            | Controller                                                                                                                |
+| Step 2  		 |                                             |                          |                                                                                                                           |
+| Step 3  		 |                                             |                          |                                                                                                                           |
+| Step 4  		 |                                             |                          |                                                                                                                           |
+| Step 5  		 |                                             |                          |                                                                                                                           |
+| Step 6  		 |                                             |                          |                                                                                                                           |
+| Step 7  		 |                                             |                          |                                                                                                                           |
+| Step 8  		 |                                             |                          |                                                                                                                           |
+| Step 9  		 |                                             |                          |                                                                                                                           |
+| Step 10  		 |                                             |                          |                                                                                                                           |
 
 ### Systematization ##
 

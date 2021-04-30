@@ -24,21 +24,21 @@ CTRL -> PC : lc=getParameterCategories()
 activate PC
 deactivate PC
 deactivate CTRL
-UI --> Adm : Show the existing parameter categories and ask\n to select one or more
+UI --> Adm : Show the existing parameter\n categories and ask to select one
 deactivate UI
 
-Adm -> UI : Select the desired parameter categories
+Adm -> UI : Select the desired parameter category
 activate UI
 UI -> CTRL : createTestType(code,description,collecting method,selectedParameterCategoriesList)
 activate CTRL
 CTRL -> Comp : store = getTestTypeStore()
 activate Comp
 deactivate Comp
-CTRL -> str : t = createTestType(code,description,collecting method,selectedParameterCategoriesList)
+CTRL -> str : testType = createTestType(code,description,collecting method,selectedParameterCategoriesList)
 activate str
 str -> TT** : create(code,description,collecting method,selectedParameterCategoriesList)
 deactivate str
-CTRL -> str : validateTestType(t)
+CTRL -> str : validateTestType(testType)
 activate str
 deactivate str
 deactivate CTRL
@@ -49,12 +49,12 @@ Adm -> UI: Confirms the data
 activate UI
 UI -> CTRL: saveTestType()
 activate CTRL
-CTRL -> str : validateTestType(t)
+CTRL -> str : validateTestType(testType)
 activate str
-str -> str : validateTestType(t)
+str -> str : validateTestType(testType)
 activate str
 deactivate str
-str ->str : addTestType(t)
+str ->str : addTestType(testType)
 activate str
 deactivate str
 deactivate str
