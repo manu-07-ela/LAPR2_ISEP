@@ -11,7 +11,8 @@ class Company{
 -headquarters
 }
 
-class Employee{
+
+class Administrator{
 -name
 -address
 -phoneNumber
@@ -19,9 +20,6 @@ class Employee{
 -employeeId
 -organizationRole
 -socCode
-}
-
-class Administrator{
 }
 
 class TestType{
@@ -37,9 +35,8 @@ class Category{
 }
 
 
-Company "1"--"*" Employee : knows >
+Company "1"--"*" Administrator : knows >
 Company "1"--"*" TestType : conducts >
-Administrator --|> Employee
 Administrator "1"--"*" TestType : specify a >
 TestType "*"--"*" Category : have a >
 
