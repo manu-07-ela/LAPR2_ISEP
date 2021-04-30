@@ -27,9 +27,33 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7507&parent=9763#p10106) The Code are five alphanumeric characters. The Short Name is a String with no more than 8 characters. The Description is a String with no more than 20 characters.
 
+> **Question:** Can a parameter be classified in more than one parameter category?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7749) No. Each parameter has only one category. There are no subcategories.
 
+> **Question:** Is the categorization of a parameter mandatory or optional?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649) Yes.
 
+> **Question:** How does the assignment of a parameter category works? Does he have to select the category or he have the option to create in the moment?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649) There exists a user story to specify a new parameter category. Therefore, the administrator should select one category when creating a parameter.
 
+> **Question:** Does the administrator need to log in order to create a parameter and categorize it?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7639) Yes.
+
+> **Question:**  Which information will the client provide for the addition of a new parameter and its categorization?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) A: I already answered this question.
+
+> **Question:** Does the client want to specify more than one new parameter at a time?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) Yes.
+
+> **Question:** When a new parameter is specified, should there always be a category it falls under prior to its specification and subsequent categorization?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) Each parameter is associated with one category.
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*

@@ -1,7 +1,56 @@
 @startuml
 hide methods
-'left to right direction
+left to right direction
 skinparam classAttributeIconSize 0
+
+class Company
+class Parameter
+class ParameterCategory
+class Administrator
+class Employee
+
+Company "1"--"*" Parameter : capable of analyzing >
+Company "1"--"*" ParameterCategory : adopts >
+Company "1"--"*" Employee : knows >
+
+Parameter "*"--"1" ParameterCategory : presented under >
+
+ParameterCategory "*"--"1" Administrator : created by >
+
+
+Administrator --|> Employee
+
+
+class Company{
+-name
+-designation
+-category
+-address
+-headquarters
+}
+
+class Parameter{
+-code
+-shortName
+-description
+}
+
+class ParameterCategory{
+-code
+-description
+-nhsid
+}
+
+class Employee {
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-organizationRole
+-socCode
+}
+
 
 
 @enduml
