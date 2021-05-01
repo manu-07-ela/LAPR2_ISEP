@@ -7,7 +7,7 @@
 
 ### 1.1. User Story Description
 
-*As an administrator, I want to specify a new parameter and categorize it.S*
+*As an administrator, I want to specify a new parameter and categorize it.*
 
 ### 1.2. Customer Specifications and Clarifications 
 
@@ -96,7 +96,7 @@ for the second option this would mean that the Admin will have duplicate work: (
 
 *Identify here any found out dependency to other US and/or requirements.*
 
-* **Depends on US11 - The categories where the parameters will be inserted are created in US11** 
+* *There is a dependency to "US11 - Specify a new parameter category" since at least a parameter category must exist to classify the parameter being created.*
 
 ### 1.5 Input and Output Data
 
@@ -106,14 +106,14 @@ for the second option this would mean that the Admin will have duplicate work: (
 
 * Typed data:
     *  code
-    *  short name
+    *  designation
     *  description
   
 * Selected data:
     *  category
 
 **Output Data:**
-
+* List of existing Parameter Categories
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -133,7 +133,7 @@ for the second option this would mean that the Admin will have duplicate work: (
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US10_MD](US10_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -149,38 +149,46 @@ for the second option this would mean that the Admin will have duplicate work: (
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1   		 | ... interacting with the user| CreateParameterUI | Pure Fabrication: there is no justification for assigning this responsability to any existing class in the Domain Model.|
-|  		         | ... coordinating the US | CreateParameterController | Controller |
-|  		         | ... instantiating a new Parameter |              |     
-|                | ... creates new Parameter | ParameterStore |
-|                | ... saves the Parameter   | ParameterStore |                  |
-| Step   		 |							 |             |                              |
-| Step  		 |							 |             |                              |
-| Step   		 | ... saving the selected category |              |                              |
-| Step  		 |							 |             |                              |
-| Step  		 | ... informing operation sucess |  CreateParameterUI | IE: is responsible for user interactions |              
+| Step 1  		 |	... interacting with the user? | CreateParameterUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
+| 			     |	... coordinating the US? | CreateParameterController | Controller                             |
+|                |  ... knowing who is responsible for creating the Parameter? | Company | Creator (R1) |
+| 			  	 |	... instantiating a new Parameter? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
+| 			  	 |	... showing the existing parameter categories? | ParameterCategoryStore | IE: has registed all Organizations |
+|                | ... knowing the user using the system? | UserSession |            |
+| Step 2  		 |							 |             |                              |
+| Step 3  		 |	...saving the inputted data? | Parameter  | IE: object created in step 1 has its own data.  |
+| Step 4  		 | ... knowing the parameter categories to show?                   | ParameterCategoryStore   | IE: knows all the categories of parameters.                                                                               |
+| Step 5  		 | ... saving the selected categories?                             | Parameter                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
+| Step 6  		 |                                                                 |                          |                                                                                                                           |
+| Step 7  		 | ... validating all data (local validation)?                     | Parameter                 | IE: owns its data.                                                                                                        |
+|                | ... validating all data (global validation)?                    | ParameterStore            | IE: knows all types of tests.                                                                                             |
+|                | ... saving the created task?                                    | ParameterStore            | IE: owns all types of tests.                                                                                              |
+| Step 8  		 | ... informing operation success?                                | CreateParameterUI         | IE: is responsible for user interactions.                                                                                 |             
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  * Company
+ * Parameter
+ * ParameterStore
 
 Other software classes (i.e. Pure Fabrication) identified: 
  * CreateParameterUI  
  * CreateParameterController
+ * ParameterStore
 
 ## 3.2. Sequence Diagram (SD)
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US10_SD](US10_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US10_CD](US10_CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 

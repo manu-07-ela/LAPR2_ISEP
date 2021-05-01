@@ -1,6 +1,14 @@
 @startuml
-left to right direction
 skinparam classAttributeIconSize 0
+
+class CreateParameterUI{
+}
+
+class CreateParameterController{
++getParameterCategories()
++createParameter(code,designation,description,selectedCategory)
++saveParameter()
+}
 
 class Company{
 -String name
@@ -8,28 +16,13 @@ class Company{
 -category
 -address
 -headquarters
-}
-
-
-class CreateParameterUI{
-}
-
-class CreateParameterController{
-+getParameterCategories()
-+createParameter(code,shortName,description,selectedCategory)
-+saveParameter()
-}
-
-class Parameter{
-- int code
-- String shortName
-- String description
-+ create(code,shortName,description,selectedCategory)
-
+--
++getParameterStore()
++getParameterCategoryStore()
 }
 
 class ParameterStore {
-+createParameter(code,shotName,description,selectedCategory)
++createParameter(code,designation,description,selectedCategory)
 +validateParameter(p)
 +saveParameter(p)
 +getParameterByCode(p)
@@ -37,13 +30,30 @@ class ParameterStore {
 }
 
 class ParameterCategoryStore {
-+getCategory(selectedCategory)
++getParameterCategories()
++getParameterCategoryByCode()
 }
 
-CreateParameterUI ..> CreateParameterController
-CreateParameterController ..> Company
-ParameterStore ..> Parameter : Capable of analyzing
-Parameter ..> ParameterCategoryStore
+class Parameter{
+- int code
+- String designation
+- String description
++ create(code,designation,description,selectedCategory)
+}
+
+class ParameterCategory{
+- code
+- designation
+- nhsid
+}
+
+
+CreateParameterUI --> CreateParameterController
+CreateParameterController --> Company
 Company "1" --> "1" ParameterStore : uses
+Company "1" --> "1" ParameterCategoryStore : uses
+ParameterStore --> Parameter : Capable of analyzing
+ParameterCategoryStore "1" --> "*" ParameterCategory : adopts
+Parameter "1" --> "*" ParameterCategory : presented under
 
 @enduml

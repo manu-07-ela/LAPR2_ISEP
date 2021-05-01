@@ -7,7 +7,7 @@ activate Administrator
 Administrator -> System: starts new parameter
 activate System
 
-System --> Administrator : request data (code, shortName, description)
+System --> Administrator : request data (code,designation,description)
 deactivate System
 Administrator -> System: types requested data
 activate System
