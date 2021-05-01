@@ -22,9 +22,6 @@ class ClinicalAnalysisLaboratory{
 class ChemicalLaboratory{
 }
 
-'class ClinicalAnalysis{
-'}
-
 class Administrator{
 }
 
@@ -137,7 +134,6 @@ Company "1"----"1..*" Administrator : has >
 Company "1"----"*" Employee : knows >
 ClinicalAnalysisLaboratory ----|> Laboratory
 ChemicalLaboratory ---|> Laboratory
-'Laboratory "*"---"1" ClinicalAnalysis : perform >
 Administrator "1"----"*" Employee : register the >
 Receptionist -----|> Employee
 Receptionist "1"----"*" Client : register the >
@@ -156,7 +152,7 @@ Administrator "*"----"*" ParameterCategory : specifies the >
 Parameter "*"----"1" ParameterCategory : under >
 Test "*"----"1..*" Parameter : measure >
 Test "*"----"1" TestType : is of >
-ParameterCategory "*"----"*" TestType : associated with >
+ParameterCategory "*"--"*" TestType : has a set of <
 Company "1"----"*" Test : performs >
 Company "1"----------"*" TestType : conducts >
 MedicalLabTechnician "1"----"*" Sample : collects >

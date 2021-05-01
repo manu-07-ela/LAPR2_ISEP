@@ -5,10 +5,6 @@ skinparam classAttributeIconSize 0
 
 class Company{
 -name
--designation
--category
--address
--headquarters
 }
 
 
@@ -29,15 +25,15 @@ class TestType{
 }
 
 
-class Category{
+class ParameterCategory{
 -name
 -code
 }
 
 
-Company "1"--"*" Administrator : knows >
+Company "1"--"1..*" Administrator : has >
 Company "1"--"*" TestType : conducts >
-Administrator "1"--"*" TestType : specify a >
-TestType "*"--"*" Category : have a >
+Administrator "*"--"*" TestType : specifies the >
+ParameterCategory "*"--"*" TestType : has a set of <
 
 @enduml
