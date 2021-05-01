@@ -30,7 +30,7 @@ class Role{
 -id
 -description
 }
-Administrator --|> Employee
+
 Administrator "*"--"1" Company : works for >
 Employee --|> User
 Company "1"--"*" Employee : knows >
