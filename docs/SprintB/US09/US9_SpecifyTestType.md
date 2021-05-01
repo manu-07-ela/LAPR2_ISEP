@@ -59,7 +59,7 @@ As an administrator, I want to specify a new type of test and its collecting met
 	* collecting method
 	
 * Selected data:
-	* category
+	* parameter category
 	
 **Output Data:**
 
@@ -95,23 +95,25 @@ n/a
 |:-------------  |:------------------------------------------- |:-------------------------:|:------------------------------------------------------------------------------------------------------------------------ |
 | Step 1  		 | ... interacting with the actor?             | CreateTestTypeUI         | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
 |                | ... coordinating the US?                    | CreateTestTypeController | Controller                                                                                                                |
-|                | ... creates Test Type instance?             | TestTypeStore            | Creator (rule 1) and HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore.      |
+|                | ... creates Test Type instance?             | TestTypeStore            | Creator (R1) and HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore.          |
+|                | ... knowing the user using the system?      |                          |                                                                                                                           |
 | Step 2  		 |                                             |                          |                                                                                                                           |
-| Step 3  		 |                                             |                          |                                                                                                                           |
-| Step 4  		 |                                             |                          |                                                                                                                           |
-| Step 5  		 |                                             |                          |                                                                                                                           |
+| Step 3  		 | ... saving the inputted data?               | TestType                 | IE: object created in step 1 has its own data.                                                                            |
+| Step 4  		 | ... knowing the task categories to show?    | ParameterCategoryStore   | IE: knows all the categories of parameters.                                                                               |
+| Step 5  		 | ... saving the selected categories?         | TestType                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
 | Step 6  		 |                                             |                          |                                                                                                                           |
-| Step 7  		 |                                             |                          |                                                                                                                           |
-| Step 8  		 |                                             |                          |                                                                                                                           |
-| Step 9  		 |                                             |                          |                                                                                                                           |
-| Step 10  		 |                                             |                          |                                                                                                                           |
+| Step 7  		 | ... validating all data (local validation)? | TestType                 | IE: owns its data.                                                                                                        |
+|                | ... validating all data (global validation)?| TestTypeStore            | IE: knows all types of tests.                                                                                             |
+|                | ... saving the created task?                | TestTypeStore            | IE: owns all types of tests.                                                                                              |
+| Step 8  		 | ... informing operation success?            | CreateTestTypeUI         | IE: is responsible for user interactions.                                                                                 |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  * Company
- * Test
+ * TestType
+ * ParameterCategory
  
 
 Other software classes (i.e. Pure Fabrication) identified: 
