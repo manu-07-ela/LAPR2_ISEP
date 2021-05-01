@@ -91,21 +91,22 @@ n/a
 
 **SSD - Alternative 1 is adopted.**
 
-| Interaction ID | Question: Which class is responsible for... | Answer                   | Justification (with patterns)                                                                                             |
-|:-------------  |:------------------------------------------- |:-------------------------:|:------------------------------------------------------------------------------------------------------------------------ |
-| Step 1  		 | ... interacting with the actor?             | CreateTestTypeUI         | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
-|                | ... coordinating the US?                    | CreateTestTypeController | Controller                                                                                                                |
-|                | ... creates Test Type instance?             | TestTypeStore            | Creator (R1) and HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore.          |
-|                | ... knowing the user using the system?      |                          |                                                                                                                           |
-| Step 2  		 |                                             |                          |                                                                                                                           |
-| Step 3  		 | ... saving the inputted data?               | TestType                 | IE: object created in step 1 has its own data.                                                                            |
-| Step 4  		 | ... knowing the task categories to show?    | ParameterCategoryStore   | IE: knows all the categories of parameters.                                                                               |
-| Step 5  		 | ... saving the selected categories?         | TestType                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
-| Step 6  		 |                                             |                          |                                                                                                                           |
-| Step 7  		 | ... validating all data (local validation)? | TestType                 | IE: owns its data.                                                                                                        |
-|                | ... validating all data (global validation)?| TestTypeStore            | IE: knows all types of tests.                                                                                             |
-|                | ... saving the created task?                | TestTypeStore            | IE: owns all types of tests.                                                                                              |
-| Step 8  		 | ... informing operation success?            | CreateTestTypeUI         | IE: is responsible for user interactions.                                                                                 |
+| Interaction ID | Question: Which class is responsible for...                     | Answer                   | Justification (with patterns)                                                                                             |
+|:-------------  |:--------------------------------------------------------------- |:------------------------:|:------------------------------------------------------------------------------------------------------------------------- |
+| Step 1  		 | ... interacting with the actor?                                 | CreateTestTypeUI         | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
+|                | ... coordinating the US?                                        | CreateTestTypeController | Controller                                                                                                                |
+|                | ...knowing who is responsible for creating test type instances? | Company                  | Creator (R1)                                                                                                              |
+|                | ... creates Test Type instance?                                 | TestTypeStore            | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore.                           |
+|                | ... knowing the user using the system?                          | UserSession              |                                                                                                                           |
+| Step 2  		 |                                                                 |                          |                                                                                                                           |
+| Step 3  		 | ... saving the inputted data?                                   | TestType                 | IE: object created in step 1 has its own data.                                                                            |
+| Step 4  		 | ... knowing the parameter categories to show?                   | ParameterCategoryStore   | IE: knows all the categories of parameters.                                                                               |
+| Step 5  		 | ... saving the selected categories?                             | TestType                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
+| Step 6  		 |                                                                 |                          |                                                                                                                           |
+| Step 7  		 | ... validating all data (local validation)?                     | TestType                 | IE: owns its data.                                                                                                        |
+|                | ... validating all data (global validation)?                    | TestTypeStore            | IE: knows all types of tests.                                                                                             |
+|                | ... saving the created task?                                    | TestTypeStore            | IE: owns all types of tests.                                                                                              |
+| Step 8  		 | ... informing operation success?                                | CreateTestTypeUI         | IE: is responsible for user interactions.                                                                                 |
 
 ### Systematization ##
 
