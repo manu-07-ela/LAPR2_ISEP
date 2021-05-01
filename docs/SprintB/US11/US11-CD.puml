@@ -1,43 +1,28 @@
 @startuml
 class Company
-class ParameterStore
 class ParameterCategoryStore
-class Parameter
 class ParameterCategory
+class CreateParameterCategoryController
+class CreateParameterCategoryUI
 
 class Company{
 -designation
-+getParameterStore()
 +getParameterCategoryStore()
-+getTestTypeStore()
 }
 
-class CreateParameterCategoryUI {
-+createParameterCategory()
+class CreateParameterCategoryController{
++createParameterCategory(code, name)
++saveParameterCategory()
 
-}
-
-
-class ParameterStore{
-+createParameter(name, parameterValue, category)
-+validateParameter(pc)
-+saveParameter(pc)
-+getParameterByName(name)
-+getParametersByCategory(category)
 }
 
 class ParameterCategoryStore{
-+createCategory(code, name)
-+validateCategory(c)
-+saveCategory(c)
-+getParameterCategoryStore(code)
++createParameterCategory(code, name)
++validateParameterCategory(c)
++addParameterCategory(c)
+-saveParameterCategory(c)
 }
 
-class Parameter {
--name
--parameterValue
-+Parameter(name, parameterValue, category)
-}
 
 class ParameterCategory {
 -code
@@ -45,13 +30,13 @@ class ParameterCategory {
 +ParameterCategory(code, name)
 }
 
-
-
-Company "1"-->"1" ParameterStore : uses
 Company "1"-->"1" ParameterCategoryStore : uses
-ParameterCategoryStore "1"-->"1" ParameterCategory: adopts
-ParameterStore "1"-->"*" Parameter: capable of analysing
-Parameter "*"-->"1" ParameterCategory : presented under
+CreateParameterCategoryUI ..> CreateParameterCategoryController
+CreateParameterCategoryController ..> ParameterCategory
+ParameterCategoryStore "1"-->"*" ParameterCategory : adopts
+CreateParameterCategoryController ..> ParameterCategoryStore
+
+
 
 
 
