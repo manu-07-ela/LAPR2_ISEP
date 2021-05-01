@@ -32,11 +32,11 @@
 
 ### 1.3. Acceptance Criteria
 - *_AC1:_* Each user must have a single role defined in the System. 
-- *_AC2:_* The "auth" component available on the repository must be reused (without modifications)
-
+- *_AC2:_* The "auth" component available on the repository must be reused (without modifications).
+- *_AC3:_* Every employee must be a user of the system.
+- *_AC4:_* The employeeId must be generated automatically.
 ### 1.4. Found out Dependencies
-* All employees created need to be a user of System
-
+- The "Auth" component
 ### 1.5 Input and Output Data
 
 **Input Data:**
@@ -51,6 +51,7 @@
 
 * Selected data:
     * user role
+  
 
 
 **Output Data:**
@@ -70,8 +71,7 @@
 
 ## 2. OO Analysis
 
-### 2.1. Relevant Domain Model Excerpt 
-*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
+### 2.1. Relevant Domain Model Excerpt
 
 ![US07-MD](US07-MD.svg)
 
@@ -100,13 +100,13 @@
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * Company
+ * Employee
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * CreateEmployeeUI  
+ * CreateEmployeeController
+ * EmployeeStore
 
 ## 3.2. Sequence Diagram (SD)
 

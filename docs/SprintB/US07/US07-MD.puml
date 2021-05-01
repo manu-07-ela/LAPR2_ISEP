@@ -26,12 +26,16 @@ class Employee{
 -socCode
 }
 
+class Company{
+-designation
+}
+
 class Role{
 -id
 -description
 }
 
-Administrator "*"--"1" Company : works for >
+Administrator "*"--"1" Company : < knows
 Employee --|> User
 Company "1"--"*" Employee : knows >
 Administrator "1"--"*" Employee : register >
