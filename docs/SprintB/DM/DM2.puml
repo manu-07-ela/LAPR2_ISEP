@@ -152,7 +152,7 @@ Administrator "*"----"*" ParameterCategory : specifies the >
 Parameter "*"----"1" ParameterCategory : under >
 Test "*"----"1..*" Parameter : measure >
 Test "*"----"1" TestType : is of >
-ParameterCategory "*"----"*" TestType : associated with >
+ParameterCategory "*"--"*" TestType : has a set of <
 Company "1"----"*" Test : performs >
 Company "1"----------"*" TestType : conducts >
 MedicalLabTechnician "1"----"*" Sample : collects >
