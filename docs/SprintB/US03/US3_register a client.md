@@ -25,8 +25,6 @@
 >  
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7736#p10133) The client only receives an e-mail informing that the registration was successful and that he can start to use the system. The e-mail includes the client password.
 
--
-
 > **Question:** To register a Client which is the format of each attribute?
 >  
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7563#p10179) 
@@ -37,6 +35,10 @@
 > * Sex - should only be Male/Female or include more options.
 > * Phone number: 11 digit number.
 > * The sex is opcional. All other fields are required.
+
+> **Question:** What parameter (asked by the receptionist) should the system use to create the password of the new client?
+> 
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7462#p9872) The password should be randomly generated. It should have ten alphanumeric characters.
 
 ### 1.3. Acceptance Criteria
 
@@ -109,7 +111,7 @@
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |... interacting with the actor? |CreateEmployeeUI| Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.|
+| Step 1  		 |							 |			   |                              |
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |							 |             |                              |
 | Step 4  		 |							 |             |                              |
