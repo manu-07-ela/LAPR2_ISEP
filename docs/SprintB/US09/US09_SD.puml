@@ -20,6 +20,9 @@ Adm -> UI : Introduce the requested data
 activate UI
 UI -> CTRL : lc=getParameterCategories()
 activate CTRL
+CTRL -> Comp : store = getParameterCategoryStore()
+activate Comp
+deactivate Comp
 CTRL -> PC : lc=getParameterCategories()
 activate PC
 deactivate PC
@@ -34,13 +37,19 @@ activate CTRL
 CTRL -> Comp : store = getTestTypeStore()
 activate Comp
 deactivate Comp
+loop
+CTRL -> PC : selectedParameterCategoriesList=getParameterCategorybyCode()
+activate PC
+deactivate PC
+end
 CTRL -> str : testType = createTestType(code,description,collecting method,selectedParameterCategoriesList)
 activate str
 str -> TT** : create(code,description,collecting method,selectedParameterCategoriesList)
 deactivate str
-CTRL -> str : validateTestType(testType)
-activate str
-deactivate str
+TT -> TT : validateTestType(testType)
+activate TT
+deactivate TT
+CTRL --> UI: result
 deactivate CTRL
 UI --> Adm : Presents all data and requests confirmation
 deactivate UI
@@ -49,7 +58,7 @@ Adm -> UI: Confirms the data
 activate UI
 UI -> CTRL: saveTestType()
 activate CTRL
-CTRL -> str : validateTestType(testType)
+CTRL -> str : saveTestType(testType)
 activate str
 str -> str : validateTestType(testType)
 activate str
@@ -58,6 +67,7 @@ str ->str : addTestType(testType)
 activate str
 deactivate str
 deactivate str
+CTRL --> UI: result
 deactivate CTRL
 UI --> Adm : Informs operation success
 deactivate UI

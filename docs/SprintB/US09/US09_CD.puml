@@ -25,11 +25,18 @@ class TestTypeStore{
 +createTestType(code,description,collecting method,selectedParameterCategoriesList)
 +validateTestType(testType)
 +addTestType(testType)
++saveTestType((testType)
+}
+
+class ParameterCategoryStore{
++getParameterCategories()
++getParameterCategorybyCode()
 }
 
 CreateTestTypeUI ..> CreateTestTypeController
 CreateTestTypeController ..> Company
 CreateTestTypeController ..> TestTypeStore
+CreateTestTypeController ..> ParameterCategoryStore
 Company"1"--> "1" TestTypeStore : uses
 TestTypeStore "1"-->"*" TestType : conducts
 

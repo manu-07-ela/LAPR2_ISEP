@@ -27,7 +27,7 @@ public class TestType {
     /**
      * List of parameter categories that the test type has associated.
      */
-    private List<ParameterCategory> listOfParameterCategories = new ArrayList();
+    private List<ParameterCategory> listOfParameterCategories;
 
     /**
      *
