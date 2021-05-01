@@ -22,8 +22,8 @@ As a receptionist of the laboratory, I want to register a client.
 
 > **Question:** After being registered by the receptionist, should the client receive some kind of confirmation e-mail in order to finish his registration?
 >  
-> **Answer:** The client only receives an e-mail informing that the registration was successful and that he can start to use the system. The e-mail includes the client password.
-> https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7736
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7736) The client only receives an e-mail informing that the registration was successful and that he can start to use the system. The e-mail includes the client password.
+
 -
 
 > **Question:**
@@ -39,56 +39,45 @@ As a receptionist of the laboratory, I want to register a client.
 
 ### 1.4. Found out Dependencies
 
-
-* There is a dependency to "US003 Create a task category" since at least a task category must exist to classify the task being created.
-
+* No dependencies found
 
 ### 1.5 Input and Output Data
 
 
 **Input Data:**
-
+      
 * Typed data:
-	* a reference, 
-	* a designation, 
-	* an informal description
-	* a technical description
-	* an estimated duration
-	* an estimated cost
+	* citizen card number, 
+	* NHS number,
+	* birth date,
+	* sex,
+	* TIF,
+	* phone number,
+	* e-mail,
+	* name,
 	
 * Selected data:
-	* Classifying task category 
-
-
+	* None
+	
 **Output Data:**
 
-* List of existing task categories
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
 **Alternative 1**
 
-![US006_SSD](US006_SSD.svg)
-
-
-**Alternative 2**
-
-![US006_SSD_v2](US006_SSD_v2.svg)
-
-
-**Other alternatives might exist.**
+![US3_SSD](US3_SSD.svg)
 
 ### 1.7 Other Relevant Remarks
 
 * The created task stays in a "not published" state in order to distinguish from "published" tasks.
 
-
 ## 2. OO Analysis
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![US006_MD](US006_MD.svg)
+![US3_MD](US3_MD.svg)
 
 ### 2.2. Other Remarks
 

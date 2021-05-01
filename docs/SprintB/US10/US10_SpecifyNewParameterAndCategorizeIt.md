@@ -72,9 +72,14 @@ for the second option this would mean that the Admin will have duplicate work: (
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649&parent=10196#p10297)
 
 
+> **Question:** When specifying more than one parameter at the same time, all that parameters will be categorized to one single category or should I ask the category to each parameter?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7888) 
+
 > **Question:**
 >
 > [**Awnser:**]()
+
 
 ### 1.3. Acceptance Criteria
 
@@ -147,7 +152,8 @@ for the second option this would mean that the Admin will have duplicate work: (
 | Step 1   		 | ... interacting with the user| CreateParameterUI | Pure Fabrication: there is no justification for assigning this responsability to any existing class in the Domain Model.|
 |  		         | ... coordinating the US | CreateParameterController | Controller |
 |  		         | ... instantiating a new Parameter |              |     
-|                | ... creates new Parameter |              |
+|                | ... creates new Parameter | ParameterStore |
+|                | ... saves the Parameter   | ParameterStore |                  |
 | Step   		 |							 |             |                              |
 | Step  		 |							 |             |                              |
 | Step   		 | ... saving the selected category |              |                              |
