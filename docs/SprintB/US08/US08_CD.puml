@@ -5,14 +5,13 @@ class CreateChemicalAnalysisLaboratoryUI{
 }
 
 class CreateChemicalAnalysisLaboratoryController{
+  +createClinicalAnalysisLaboratory(name, address, phoneNumber , TIN,\n laboratoryId,selectedTestTypesList)
+  +saveClinicalAnalysisLaboratory()
+  +getTestType()
 }
 
 class Company{
--String name
--String designation
--category
--address
--headquarters
++getClinicalAnalysisLaboratoryStore()
 }
 
 class Laboratory {
@@ -23,7 +22,21 @@ class Laboratory {
 }
 
 class ClinicalAnalysisLaboratory {
+  -String name
+  -String address
+  -int phoneNumber
+  -int tin
   -laboratoryId
+  +create (name, address, phoneNumber , TIN ,\nlaboratoryId,selectedTestTypesList)
+
+
+}
+
+class ClinicalAnalysisLaboratoryStore {
+  +create (name, address, phoneNumber , TIN ,\n laboratoryId,selectedTestTypesList)
+  +validateClinicalAnalysisLaboratory(cal)
+  +addClinicalAnalysisLaboratory(cal)
+  +saveClinicalAnalysisLaboratory(cal)
 }
 
 
@@ -32,7 +45,10 @@ class ClinicalAnalysisLaboratory {
 
 
 CreateChemicalAnalysisLaboratoryUI ..> CreateChemicalAnalysisLaboratoryController
-Company "1" --> "*" Laboratory  : owns
-ClinicalAnalysisLaboratory -|> Laboratory
+CreateChemicalAnalysisLaboratoryController ..> Company
+CreateChemicalAnalysisLaboratoryController ...> ClinicalAnalysisLaboratoryStore
+Company "1" --> "1" ClinicalAnalysisLaboratoryStore : uses
+ClinicalAnalysisLaboratoryStore "1" --> "*" ClinicalAnalysisLaboratory : adopts
+
 
 @enduml
