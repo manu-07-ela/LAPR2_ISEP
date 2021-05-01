@@ -5,7 +5,7 @@ actor "Receptionist" as OE
 activate OE
 OE -> ":System" : asks to register the client in the application
 activate ":System"
-":System" --> OE : requests data (citizen card number, NHS number, birth date, sex, TIF, phone number, e-mail, name)
+":System" --> OE : requests data (citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
 deactivate ":System"
 
 OE -> ":System" : types requested data

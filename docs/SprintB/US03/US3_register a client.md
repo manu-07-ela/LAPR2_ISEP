@@ -1,12 +1,13 @@
-# US 006 - To create a Task 
+# US 03 - To register a client
 
 ## 1. Requirements Engineering
 
+*In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.*
 
 ### 1.1. User Story Description
 
 
-As a receptionist of the laboratory, I want to register a client.
+*As a receptionist of the laboratory, I want to register a client.*
 
 
 ### 1.2. Customer Specifications and Clarifications 
@@ -22,27 +23,39 @@ As a receptionist of the laboratory, I want to register a client.
 
 > **Question:** After being registered by the receptionist, should the client receive some kind of confirmation e-mail in order to finish his registration?
 >  
-> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7736) The client only receives an e-mail informing that the registration was successful and that he can start to use the system. The e-mail includes the client password.
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7736#p10133) The client only receives an e-mail informing that the registration was successful and that he can start to use the system. The e-mail includes the client password.
 
 -
 
-> **Question:**
+> **Question:** To register a Client which is the format of each attribute?
 >  
-> **Answer:**
-
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7563#p10179) 
+> * Citizen Card: 16 digit.
+> * number NHS: 10 digit number.
+> * TIN: 10 digit number.
+> * Birth day - in which format: DD/MM/YY.
+> * Sex - should only be Male/Female or include more options.
+> * Phone number: 11 digit number.
+> * The sex is opcional. All other fields are required.
 
 ### 1.3. Acceptance Criteria
 
+*Insert here the client acceptance criteria.*
 
 * **AC1:** The client must become a system user. The "auth" component available on the repository must be reused (without modifications).
- 
+* **AC2:** All fields are required (excluding sex).
+* **AC3:** The Client's password must be generated randomly and sent in the e-mail informing that the registration was successful.
+* **AC4:** The password has ten alphanumeric characters.
 
 ### 1.4. Found out Dependencies
+
+*Identify here any found out dependency to other US and/or requirements.*
 
 * No dependencies found
 
 ### 1.5 Input and Output Data
 
+*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
 **Input Data:**
       
@@ -65,49 +78,43 @@ As a receptionist of the laboratory, I want to register a client.
 
 ### 1.6. System Sequence Diagram (SSD)
 
-**Alternative 1**
+*Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
 ![US3_SSD](US3_SSD.svg)
 
 ### 1.7 Other Relevant Remarks
 
-* The created task stays in a "not published" state in order to distinguish from "published" tasks.
+*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.*
 
 ## 2. OO Analysis
 
-### 2.1. Relevant Domain Model Excerpt 
+### 2.1. Relevant Domain Model Excerpt
+
+*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.*
 
 ![US3_MD](US3_MD.svg)
 
 ### 2.2. Other Remarks
 
-n/a
+*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).*
 
 
 ## 3. Design - User Story Realization 
 
 ### 3.1. Rationale
 
+**The rationale grounds on the SSD interactions and the identified input/output data.**
+
 **SSD - Alternative 1 is adopted.**
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | CreateTaskUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			  		 |	... coordinating the US? | CreateTaskController | Controller                             |
-| 			  		 |	... instantiating a new Task? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
-| 			  		 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
-| 			  		 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
-| 			  		 |							 | Organization   | IE: knows/has its own Employees|
-| 			  		 |							 | Employee  | IE: knows its own data (e.g. email) |
+| Step 1  		 |... interacting with the actor? |CreateEmployeeUI| Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.|
 | Step 2  		 |							 |             |                              |
-| Step 3  		 |	...saving the inputted data? | Task  | IE: object created in step 1 has its own data.  |
-| Step 4  		 |	...knowing the task categories to show? | Platform  | IE: Task Categories are defined by the Platform. |
-| Step 5  		 |	... saving the selected category? | Task  | IE: object created in step 1 is classified in one Category.  |
+| Step 3  		 |							 |             |                              |
+| Step 4  		 |							 |             |                              |
+| Step 5  		 |							 |             |                              |
 | Step 6  		 |							 |             |                              |              
-| Step 7  		 |	... validating all data (local validation)? | Task | IE: owns its data.| 
-| 			  		 |	... validating all data (global validation)? | Organization | IE: knows all its tasks.| 
-| 			  		 |	... saving the created task? | Organization | IE: owns all its tasks.| 
-| Step 8  		 |	... informing operation success?| CreateTaskUI  | IE: is responsible for user interactions.  | 
 
 ### Systematization ##
 
