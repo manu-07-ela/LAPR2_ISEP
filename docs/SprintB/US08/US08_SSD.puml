@@ -11,19 +11,13 @@ deactivate ":System"
 
 Adm -> ":System" : types requested data
 activate ":System"
-":System" --> Adm : shows data and requests confirmation
+":System" --> Adm : shows a TestType list and ask to choose the ones intended
 deactivate ":System"
 
-Adm -> ":System" : confirms the data
+Adm -> ":System" : selects the TestTypes intended
 activate ":System"
-":System" --> Adm : request data (TestType)
+":System" --> Adm : shows all data and requests confirmation
 deactivate ":System"
-
-Adm -> ":System" : select the requested data
-activate ":System"
-":System" --> Adm : shows data and requests confirmation
-deactivate ":System"
-
 
 
 Adm -> ":System" : confirms the data
