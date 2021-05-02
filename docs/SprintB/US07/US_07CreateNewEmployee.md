@@ -35,6 +35,8 @@
 - *_AC2:_* The "auth" component available on the repository must be reused (without modifications).
 - *_AC3:_* Every employee must be a user of the system.
 - *_AC4:_* The employeeId must be generated automatically.
+- *_AC5:_* The phone number must have 11 digits.
+
 ### 1.4. Found out Dependencies
 - The "Auth" component
 ### 1.5 Input and Output Data
@@ -50,7 +52,7 @@
     * the doctor index number
 
 * Selected data:
-    * user role
+    * organization role
   
 
 
@@ -66,7 +68,9 @@
 
 ### 1.7 Other Relevant Remarks
 
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
+* All employees need to become a user of the system.
+* This US will be used more frequently in the first use of the system, then it will only be necessary in the case of a new contract.
+
 
 
 ## 2. OO Analysis
@@ -89,10 +93,10 @@
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |... interacting with the actor? |CreateEmployeeUI| Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.|
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
+| Step 1  		 |... interacting with the actor? |RegisterEmployeeUI| Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.|
+| Step 2  		 |... coordinating the US?|RegisterEmployeeController| Controller|
+| Step 3  		 |...knowing who is responsible for creating employee instances?|Company|Creator(R1)|
+| Step 4  		 |... creates Employee instances?|EmployeeStore|HC+LC on the Company. By HC / LC the Company delegates these responsibilities in EmployeeStore.                              |
 | Step 5  		 |							 |             |                              |
 | Step 6  		 |							 |             |                              |              
 
@@ -112,7 +116,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US07-SD](US07-SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
