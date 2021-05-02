@@ -27,7 +27,7 @@ CTRL -> PC : lc=getParameterCategories()
 activate PC
 deactivate PC
 deactivate CTRL
-UI --> Adm : Show the existing parameter\n categories and ask to select one
+UI --> Adm : Show the existing parameter categories\n and ask to select one or more
 deactivate UI
 
 Adm -> UI : Select the desired parameter category
