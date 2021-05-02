@@ -21,7 +21,7 @@ public class User {
     {
         if ( (!ObjectUtils.allNotNull(id, pwd)) || StringUtils.isBlank(name))
             throw new IllegalArgumentException("User cannot have an id, password or name as null/blank.");
-
+        
         this.id = id;
         this.password = pwd;
         this.name = name.trim();

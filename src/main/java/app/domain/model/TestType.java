@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import app.domain.store.TestTypeStore;
+
 import java.util.ArrayList;
 import java.util.List;
 
