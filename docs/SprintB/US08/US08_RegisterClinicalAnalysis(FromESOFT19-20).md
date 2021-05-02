@@ -1,4 +1,4 @@
-# US 006 - To create a Task 
+# US 08 - Register a new clinical analysis laboratory 
 
 ## 1. Requirements Engineering
 
@@ -55,7 +55,7 @@ headquarters and the chemical analysis are performed there.
 ### 1.4. Found out Dependencies
 
 
-* No dependencies found
+* There is a dependency to "US09 Specify a new type of test" since at least the types of test must exist to associate them to the Clinical Analysis Laboratory.
 
 
 ### 1.5 Input and Output Data
@@ -87,14 +87,15 @@ headquarters and the chemical analysis are performed there.
 
 **Alternative 2**
 
-![US006_SSD_v2](US006_SSD_v2.svg)
+![US08_SSD_v2](US08_SSD_v2.svg)
 
 
 **Other alternatives might exist.**
 
 ### 1.7 Other Relevant Remarks
 
-* The created task stays in a "not published" state in order to distinguish from "published" tasks.
+* This Us is going to be used frequently in the beggining to register the Clinical Analysis Laboratories 
+  that they have but later its use will become rarer.
 
 
 ## 2. OO Analysis
@@ -116,13 +117,13 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | CreateTaskUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			  		 |	... coordinating the US? | CreateTaskController | Controller                             |
-| 			  		 |	... instantiating a new Task? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
-| 			  		 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
-| 			  		 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
-| 			  		 |							 | Organization   | IE: knows/has its own Employees|
-| 			  		 |							 | Employee  | IE: knows its own data (e.g. email) |
+| Step 1  		 |	... interacting with the actor? | CreateChemicalAnalysisLaboratoryUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
+| 			     |	... coordinating the US? | CreateChemicalAnalysisLaboratoryController | Controller                             |
+| 			     |	... instantiating a new Task? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
+| 			  	 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
+| 			  	 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
+| 			  	 |							 | Organization   | IE: knows/has its own Employees|
+| 			  	 |							 | Employee  | IE: knows its own data (e.g. email) |
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |	...saving the inputted data? | Task  | IE: object created in step 1 has its own data.  |
 | Step 4  		 |	...knowing the task categories to show? | Platform  | IE: Task Categories are defined by the Platform. |
@@ -151,7 +152,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **Alternative 1**
 
-![US006_SD](US006_SD.svg)
+![US08_SD](US08_SD.svg)
 
 **Alternative 2**
 
@@ -161,7 +162,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **From alternative 1**
 
-![US006_CD](US006_CD.svg)
+![US08_CD](US08_CD.svg)
 
 # 4. Tests 
 

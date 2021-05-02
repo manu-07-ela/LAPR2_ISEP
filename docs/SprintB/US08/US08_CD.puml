@@ -1,10 +1,10 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class CreateChemicalAnalysisLaboratoryUI{
+class CreateClinicalAnalysisLaboratoryUI{
 }
 
-class CreateChemicalAnalysisLaboratoryController{
+class CreateClinicalAnalysisLaboratoryController{
   +createClinicalAnalysisLaboratory(name, address, phoneNumber , TIN,\n laboratoryId,selectedTestTypesList)
   +saveClinicalAnalysisLaboratory()
   +getTestType()
@@ -14,25 +14,19 @@ class Company{
 +getClinicalAnalysisLaboratoryStore()
 }
 
-class Laboratory {
-  -String name
-  -String address
-  -int phoneNumber
-  -int tin
-}
 
 class ClinicalAnalysisLaboratory {
-  -String name
-  -String address
-  -int phoneNumber
-  -int tin
-  -laboratoryId
+  -String laboratoryId
   +create (name, address, phoneNumber , TIN ,\nlaboratoryId,selectedTestTypesList)
 
 
 }
 
-class ClinicalAnalysisLaboratoryStore {
+class Laboratory {
+  -String name
+  -String address
+  -int phoneNumber
+  -int tin
   +create (name, address, phoneNumber , TIN ,\n laboratoryId,selectedTestTypesList)
   +validateClinicalAnalysisLaboratory(cal)
   +addClinicalAnalysisLaboratory(cal)
@@ -44,11 +38,11 @@ class ClinicalAnalysisLaboratoryStore {
 
 
 
-CreateChemicalAnalysisLaboratoryUI ..> CreateChemicalAnalysisLaboratoryController
-CreateChemicalAnalysisLaboratoryController ..> Company
-CreateChemicalAnalysisLaboratoryController ...> ClinicalAnalysisLaboratoryStore
-Company "1" --> "1" ClinicalAnalysisLaboratoryStore : uses
-ClinicalAnalysisLaboratoryStore "1" --> "*" ClinicalAnalysisLaboratory : adopts
+CreateClinicalAnalysisLaboratoryUI ..> CreateClinicalAnalysisLaboratoryController
+CreateClinicalAnalysisLaboratoryController ..> Company
+CreateClinicalAnalysisLaboratoryController ...> Laboratory
+Company "1" --> "1" Laboratory : uses
+Laboratory "1" --> "*" ClinicalAnalysisLaboratory : adopts
 
 
 @enduml

@@ -1,17 +1,16 @@
 @startuml
 autonumber
-'hide footbox
 actor "Administrator" as ADM
 
-participant ":CreateChemicalAnalysisLaboratoryUI" as UI
-participant ":CreateChemicalAnalysisLaboratoryController" as CTRL
+participant ":CreateClinicalAnalysisLaboratoryUI" as UI
+participant ":CreateClinicalAnalysisLaboratoryController" as CTRL
 participant ": Company" as Comp
 participant "store: TestTypeStore" as TTS
-participant "store: ClinicalAnalysisLaboratoryStore" as CALS
+participant "store: Laboratory" as LAB
 participant "cal: ClinicalAnalysisLaboratory" as CAL
 
 activate ADM
-ADM -> UI : asks to create a new Chemical Analysis Laboratory
+ADM -> UI : asks to create a new Clinical Analysis Laboratory
 activate UI
 UI --> ADM : requests data to create a new Clinical Analysis Laboratory \n (name, address, phoneNumber , TIN, laboratoryId)
 deactivate UI
@@ -37,19 +36,19 @@ activate UI
 UI -> CTRL : createClinicalAnalysisLaboratory(name, address, phoneNumber , TIN, laboratoryId,selectedTestTypesList)
 activate CTRL
 
-CTRL -> Comp : store = getClinicalAnalysisLaboratoryStore()
+CTRL -> Comp : store = getLaboratory()
 activate Comp
 |||
 deactivate Comp
 
-CTRL -> CALS: cal = createClinicalAnalysisLaboratory\n(name, address, phoneNumber , TIN, laboratoryId,selectedTestTypesList)
-activate CALS
+CTRL -> LAB: cal = createClinicalAnalysisLaboratory\n(name, address, phoneNumber , TIN, laboratoryId,selectedTestTypesList)
+activate LAB
 |||
-CALS -> CAL**: create (name, address, phoneNumber , TIN ,\n laboratoryId,selectedTestTypesList)
-deactivate CALS
-CTRL -> CALS : validateClinicalAnalysisLaboratory(cal)
-activate CALS
-deactivate CALS
+LAB -> CAL**: create (name, address, phoneNumber , TIN ,\n laboratoryId,selectedTestTypesList)
+deactivate LAB
+CTRL -> LAB : validateClinicalAnalysisLaboratory(cal)
+activate LAB
+deactivate LAB
 deactivate CTRL
 
 UI --> ADM: shows all data and requests confirmation
@@ -61,16 +60,16 @@ activate UI
 UI -> CTRL : saveClinicalAnalysisLaboratory()
 activate CTRL
 
-CTRL -> CALS : saveClinicalAnalysisLaboratory(cal)
-activate CALS
+CTRL -> LAB : saveClinicalAnalysisLaboratory(cal)
+activate LAB
 
-CALS -> CALS: validateClinicalAnalysisLaboratory(cal)
-activate CALS
-deactivate CALS
-CALS -> CALS: addClinicalAnalysisLaboratory(cal)
-activate CALS
-deactivate CALS
-deactivate CALS
+LAB -> LAB: validateClinicalAnalysisLaboratory(cal)
+activate LAB
+deactivate LAB
+LAB -> LAB: addClinicalAnalysisLaboratory(cal)
+activate LAB
+deactivate LAB
+deactivate LAB
 
 UI --> ADM : informs operation success
 deactivate CTRL

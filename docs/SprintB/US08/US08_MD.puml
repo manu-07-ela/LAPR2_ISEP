@@ -4,11 +4,6 @@ left to right direction
 skinparam classAttributeIconSize 0
 
 
-class Test{
--internalCode
--nhsCode
--description
-}
 
 class Company{
 -name
@@ -44,8 +39,7 @@ class Administrator {
 
 Company "1"---- "1..*" Laboratory : owns >
 ClinicalAnalysisLaboratory ----|> Laboratory
-ClinicalAnalysisLaboratory "1..*"----"*" Test : performs >
-TestType "1"----"*" Test : is a >
+ClinicalAnalysisLaboratory "1..*"----"*" TestType : performs >
 Administrator "1"---"1..*"ClinicalAnalysisLaboratory : creates >
 ChemicalLaboratory ----|> Laboratory
 

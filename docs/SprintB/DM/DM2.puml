@@ -145,7 +145,7 @@ MedicalLabTechnician ----|> Employee
 MedicalLabTechnician "*"----"1" ClinicalAnalysisLaboratory : work in >
 MedicalLabTechnician "1"----"*" Sample : record the >
 Test "*"----"*" Sample : request  >
-ClinicalAnalysisLaboratory "1.."----"1..*" Test : perform >
+ClinicalAnalysisLaboratory "1.."----"1..*" TestType : perform >
 Administrator "*"----"*" TestType : specifies the >
 Administrator "*"----"*" Parameter : specifies the >
 Administrator "*"----"*" ParameterCategory : specifies the >
