@@ -43,10 +43,10 @@ activate CTRL
 CTRL -> COMP : saveClient(cl)
 activate COMP
 
-COMP -> COMP: validateClient(pc)
+COMP -> COMP: validateClient(cl)
 activate COMP
 deactivate COMP
-COMP -> COMP: addClient(pc)
+COMP -> COMP: addClient(cl)
 activate COMP
 deactivate COMP
 deactivate COMP
