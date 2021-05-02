@@ -16,7 +16,7 @@ activate Adm
 
 Adm -> UI: starts new parameter
 activate UI
-UI --> Adm : request data (code, shortName, description)
+UI --> Adm : request data (code, designation, description)
 deactivate UI
 Adm -> UI: types requested data
 activate UI
@@ -31,14 +31,14 @@ deactivate UI
 
 Adm -> UI: inserts the category
 activate UI
-UI -> CTRL : createParameter(code, shortName, description, selectedCategory)
+UI -> CTRL : createParameter(code, designation, description, selectedCategory)
 activate CTRL
 CTRL -> Comp : store = createParameterStore()
 activate Comp
 deactivate Comp
-CTRL -> str : t = createParameter(code,shortName, description, selectedCategory)
+CTRL -> str : t = createParameter(code,designation,description,selectedCategory)
 activate str
-str -> PRMT** : create(code, shortName, description, categoryCode)
+str -> PRMT** : create(code,designation,description,categoryCode)
 deactivate str
 CTRL -> str : validateParameter(p)
 activate str
