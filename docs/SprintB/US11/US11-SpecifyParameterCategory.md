@@ -3,9 +3,11 @@
 ## 1. Requirements Engineering
 
 ### 1.1. User Story Description
+
 *As an administrator, I want to specify a new parameter category.*
 
 ### 1.2. Customer Specifications and Clarifications 
+
 >Blood tests are frequently characterized by measuring several parameters which for presentation/reporting purposes are organized
 by categories. For example, parameters such as the number of Red Blood Cells (RBC), White Blood Cells (RBC) and Platelets (PLT) are
 usually presented under the blood count (Hemogram) category.
@@ -20,7 +22,7 @@ usually presented under the blood count (Hemogram) category.
 
 ### 1.3. Acceptance Criteria
 
-- AC1: Code must be unique having 4 to 8 chars.
+- AC1:
 
 
 ### 1.4. Found out Dependencies
@@ -29,10 +31,16 @@ usually presented under the blood count (Hemogram) category.
 
 ### 1.5 Input and Output Data
 ***Input Data***
-- _Typed data:_ a name and a unique code
-- _Selected data:_ (none)
+
+* Typed data:
+    * name
+    * unique code
+
+* Selected data:
+    *
 
 ***Output Data***
+
 - (In)Success of the operation
 
 

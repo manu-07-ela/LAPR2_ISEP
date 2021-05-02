@@ -23,6 +23,13 @@ class ChemicalLaboratory{
 }
 
 class Administrator{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-organizationRole
+-socCode
 }
 
 class Employee{
@@ -132,6 +139,8 @@ class SMS{
 Company "1"----"1..*" Laboratory : owns >
 Company "1"----"1..*" Administrator : has >
 Company "1"----"*" Employee : knows >
+Company "1"--"*" Parameter : capable of analyzing >
+Company "1"--"*" ParameterCategory : adopts >
 ClinicalAnalysisLaboratory ----|> Laboratory
 ChemicalLaboratory ---|> Laboratory
 Administrator "1"----"*" Employee : register the >
@@ -149,7 +158,7 @@ ClinicalAnalysisLaboratory "1.."----"1..*" TestType : perform >
 Administrator "*"----"*" TestType : specifies the >
 Administrator "*"----"*" Parameter : specifies the >
 Administrator "*"----"*" ParameterCategory : specifies the >
-Parameter "*"----"1" ParameterCategory : under >
+Parameter "*"--"1" ParameterCategory : presented under >
 Test "*"----"1..*" Parameter : measure >
 Test "*"----"1" TestType : is of >
 ParameterCategory "*"--"*" TestType : has a set of <

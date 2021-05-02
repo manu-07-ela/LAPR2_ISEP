@@ -1,28 +1,11 @@
 @startuml
 hide methods
-left to right direction
+'left to right direction
 skinparam classAttributeIconSize 0
-
-class Company
-class Parameter
-class ParameterCategory
-class Administrator
-class Employee
-
-Company "1"--"*" Parameter : capable of analyzing >
-Company "1"--"*" ParameterCategory : adopts >
-Company "1"--"*" Employee : knows >
-
-Parameter "*"--"1" ParameterCategory : presented under >
-
-ParameterCategory "*"--"1" Administrator : created by >
-
-
-Administrator --|> Employee
 
 
 class Company{
--designation
+-name
 }
 
 class Parameter{
@@ -32,12 +15,11 @@ class Parameter{
 }
 
 class ParameterCategory{
+-name
 -code
--description
--nhsid
 }
 
-class Employee {
+class Administrator{
 -name
 -address
 -phoneNumber
@@ -46,6 +28,14 @@ class Employee {
 -organizationRole
 -socCode
 }
+
+Company "1"--"*" Parameter : capable of analyzing >
+Company "1"--"*" ParameterCategory : adopts >
+Company "1"--"1..*" Administrator : has >
+Parameter "*"--"1" ParameterCategory : presented under >
+Administrator "*"--"*" ParameterCategory : specifies the >
+
+
 
 
 

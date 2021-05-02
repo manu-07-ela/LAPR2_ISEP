@@ -6,7 +6,7 @@ actor "Administrator" as Adm
 activate Adm
 Adm -> ":System": starts new parameter category
 activate ":System"
-":System" --> Adm : request data (i.e., cide, description, nhsld)
+":System" --> Adm : request data (name, code)
 deactivate ":System"
 Adm -> ":System": types requested data
 activate ":System"
