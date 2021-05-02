@@ -87,7 +87,7 @@ usually presented under the blood count (Hemogram) category.
 | Step 4  		 |                                                                 |                                   |                                                                                                                           |
 | Step 5  		 | ... validating all data (local validation)?                     | ParameterCategory                 | IE: owns its data.                                                                                                        |
 |                | ... validating all data (global validation)?                    | ParameterCategoryStore            | IE: knows all parameter categories.                                                                                       |
-|                | ... saving the created task?                                    | ParameterCategoryStore            | IE: owns all parameter categories.                                                                                        |
+|                | ... saving the created parameter category?                      | ParameterCategoryStore            | IE: owns all parameter categories.                                                                                        |
 | Step 6  		 | ... informing operation success?                                | CreateParameterCategoryUI         | IE: is responsible for user interactions.                                                                                 |
            
 
