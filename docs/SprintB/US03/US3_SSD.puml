@@ -1,23 +1,23 @@
 @startuml
 autonumber
-actor "Receptionist" as OE
+actor "Receptionist" as REP
 
-activate OE
-OE -> ":System" : asks to register the client in the application
+activate REP
+REP -> ":System" : asks to register a client in the application
 activate ":System"
-":System" --> OE : requests data (citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+":System" --> REP : requests data (citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
 deactivate ":System"
 
-OE -> ":System" : types requested data
+REP -> ":System" : types requested data
 activate ":System"
-":System" --> OE : shows all data and requests confirmation
+":System" --> REP : shows all data and requests confirmation
 deactivate ":System"
 
-OE -> ":System" : confirms the data
+REP -> ":System" : confirms the data
 activate ":System"
-":System" --> OE : informs operation success
+":System" --> REP : informs operation success
 deactivate ":System"
 
-deactivate OE
+deactivate REP
 
 @enduml
