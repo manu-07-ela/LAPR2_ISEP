@@ -159,7 +159,8 @@ MedicalLabTechnician "1"----"*" Sample : collects >
 Sample "*"----"1" ChemicalLaboratory : sent to >
 ChemicalLaboratory "*"----"*" ChemicalAnalysis : perform >
 Client "1"-----"1..*" LabOrder : has a >
-LabOrder "*"----"1" TestType : orders a >
+LabOrder "*"----"1" Test : orders a >
+LabOrder "*"----"1" TestType : contains the >
 LabOrder "*"----"1..*" Parameter : contains the >
 MedicalLabTechnician "1"----"*" Test : register locally the >
 ChemicalAnalysis "1"----"1" ChemicalResult : generates >
