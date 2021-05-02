@@ -53,11 +53,11 @@ class CreateTaskController {
   +saveTask()
 }
 
-class CreateTaskUI {
+class RegisterClientUI {
 
 }
 
-CreateTaskUI ..> CreateTaskController
+RegisterClientUI ..> CreateTaskController
 CreateTaskController ..> Platform
 CreateTaskController ..> Category
 CreateTaskController ..> Task
