@@ -6,7 +6,7 @@ participant ":CreateClinicalAnalysisLaboratoryUI" as UI
 participant ":CreateClinicalAnalysisLaboratoryController" as CTRL
 participant ": Company" as Comp
 participant "store: TestTypeStore" as TTS
-participant " Laboratory" as LAB
+participant "store: Laboratory" as LAB
 participant "cal: ClinicalAnalysisLaboratory" as CAL
 
 activate ADM
@@ -41,7 +41,11 @@ activate Comp
 |||
 deactivate Comp
 
-CTRL -> TTS : selectedTestTypesList=getTestTypesbyCode()
+loop
+CTRL -> TTS : selectedTestTypesList=getTestTypebyCode()
+activate TTS
+deactivate TTS
+end
 
 CTRL -> LAB: cal = createClinicalAnalysisLaboratory\n(name, address, phoneNumber , TIN, laboratoryId,selectedTestTypesList)
 activate LAB
@@ -54,6 +58,7 @@ CAL -> CAL: validateClinicalAnalysisLaboratory()
 activate CAL
 deactivate CAL
 deactivate CAL
+
 
 CTRL -> LAB : validateClinicalAnalysisLaboratory(cal)
 activate LAB

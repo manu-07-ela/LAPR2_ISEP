@@ -39,7 +39,15 @@ headquarters and the chemical analysis are performed there.
 > **Question:** "Which type/format has LaboratoryID, address, name, phone number, and TIN number on Clinical Analysis Laboratory?"
 >  
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7636)
+>Each Clinical Analysis Laboratory is characterized by the following attributes:
+> * Laboratory ID: five alphanumeric characters;
+> * Name: A string with no more than 20 characters;
+> * Address: A string with no more than 30 characters;
+> * Phone Number: 11 digit number;
+> * TIN number: 10 digit number;
+> * Type of tests performed by the lab.
 
+All information is required.
 
 ### 1.3. Acceptance Criteria
 
@@ -117,35 +125,33 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | CreateChemicalAnalysisLaboratoryUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			     |	... coordinating the US? | CreateChemicalAnalysisLaboratoryController | Controller                             |
-| 			     |	... instantiating a new Task? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
-| 			  	 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
-| 			  	 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
-| 			  	 |							 | Organization   | IE: knows/has its own Employees|
-| 			  	 |							 | Employee  | IE: knows its own data (e.g. email) |
+| Step 1  		 |	... interacting with the actor? | CreateClinicalAnalysisLaboratoryUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
+| 			     |	... coordinating the US? | CreateClinicalAnalysisLaboratoryController | Controller                             |
+| 			     |	... knowing who is responsible for creating Clinical Analysis Laboratory instances? | Company   | Creator (R1)   |
+| 			  	 | ... knowing the user using the system?  | UserSession  |   |
+| 			  	 |	... creaates Cinical Analysis Laboatory instance? | Laboratory  | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore. |
 | Step 2  		 |							 |             |                              |
-| Step 3  		 |	...saving the inputted data? | Task  | IE: object created in step 1 has its own data.  |
-| Step 4  		 |	...knowing the task categories to show? | Platform  | IE: Task Categories are defined by the Platform. |
-| Step 5  		 |	... saving the selected category? | Task  | IE: object created in step 1 is classified in one Category.  |
+| Step 3  		 |	...saving the inputted data? | ClinicalAnalysisLaboratory  | IE: object created in step 1 has its own data.  |
+| Step 4  		 |	...knowing the TestType to show? | TestTypeStore  | IE: knows all the TestTypes. |
+| Step 5  		 |	... saving the selected TestTypes? | ClinicalAnalysisLaboratory  | IE: the object created contains one or more TestTypes.  |
 | Step 6  		 |							 |             |                              |              
-| Step 7  		 |	... validating all data (local validation)? | Task | IE: owns its data.| 
-| 			  		 |	... validating all data (global validation)? | Organization | IE: knows all its tasks.| 
-| 			  		 |	... saving the created task? | Organization | IE: owns all its tasks.| 
-| Step 8  		 |	... informing operation success?| CreateTaskUI  | IE: is responsible for user interactions.  | 
+| Step 7  		 |	... validating all data (local validation)? | ClinicalAnalysisLaboratory | IE: owns its data.| 
+| 			  		 |	... validating all data (global validation)? | Laboratory | IE: knows all its Clinical Analysis Laboratories.| 
+| 			  		 |	... saving the created task? | Laboratory | IE: owns all its Clinical Analysis Laboratories.| 
+| Step 8  		 |	... informing operation success?| CreateClinicalAnalysisLaboratoryUI  | IE: is responsible for user interactions.  | 
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Organization
- * Platform
- * Task
+ * Company
+ * ClinicalAnalysisLaboratory
+ * TestTypeStore
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * CreateTaskUI  
- * CreateTaskController
+ * CreateClinicalAnalysisLaboratoryUI  
+ * CreateClinicalAnalysisLaboratoryController
 
 
 ## 3.2. Sequence Diagram (SD)
@@ -156,7 +162,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **Alternative 2**
 
-![US006_SD](US006_SD_v2.svg)
+![US08_SD](US08_SD_v2.svg)
 
 ## 3.3. Class Diagram (CD)
 
@@ -189,49 +195,15 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 5. Construction (Implementation)
 
 
-## Class CreateTaskController 
-
-		public boolean createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Integer catId)() {
-		
-			Category cat = this.platform.getCategoryById(catId);
-			
-			Organization org;
-			// ... (omitted)
-			
-			this.task = org.createTask(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			
-			return (this.task != null);
-		}
+## Class CreateClinicalAnalysisLaboratoryController 
 
 
-## Class Organization
+## Class Company
 
 
-		public Task createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Category cat)() {
-		
-	
-			Task task = new Task(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			if (this.validateTask(task))
-				return task;
-			return null;
-		}
-
-
-
-# 6. Integration and Demo 
-
-* A new option on the Employee menu options was added.
-
-* Some demo purposes some tasks are bootstrapped while system starts.
-
+# 6. Integration and Demo
 
 # 7. Observations
-
-Platform and Organization classes are getting too many responsibilities due to IE pattern and, therefore, they are becoming huge and harder to maintain. 
-
-Is there any way to avoid this to happen?
 
 
 
