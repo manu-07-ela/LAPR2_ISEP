@@ -9,7 +9,11 @@ class Company
 class Employee
 class User
 class Role
+class OrganizationRole
 
+class OrganizationRole{
+-description
+}
 
 class User{
 -name
@@ -22,7 +26,6 @@ class Employee{
 -phoneNumber
 -email
 -employeeId
--organizationRole
 -socCode
 }
 
@@ -35,9 +38,16 @@ class Role{
 -description
 }
 
+class SpecialistDoctor{
+-doctorIndexNumber
+}
+
 Administrator "*"--"1" Company : < knows
 Employee --|> User
 Company "1"--"*" Employee : knows >
 Administrator "1"--"*" Employee : register >
 User "*"--"1" Role : plays >
+Employee "*"--"1" OrganizationRole: plays >
+SpecialistDoctor --|> Employee
+Company -- OrganizationRole : comprehend >
 @enduml
