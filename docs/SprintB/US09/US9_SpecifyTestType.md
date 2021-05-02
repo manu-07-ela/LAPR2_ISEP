@@ -121,6 +121,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
  * CreateTestTypeUI  
  * CreateTestTypeController
+ * ParameterCategoryStore  
  * TestTypeStore
 
 
@@ -137,6 +138,9 @@ Other software classes (i.e. Pure Fabrication) identified:
 ![US09_CD](US09_CD.svg)
 
 # 4. Tests 
+*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.*
+
+**_DO NOT COPY ALL DEVELOPED TESTS HERE_**
 
 **Test 1:** 
 
@@ -144,6 +148,9 @@ Other software classes (i.e. Pure Fabrication) identified:
 *It is also recommended to organize this content by subsections.* 
 
 # 5. Construction (Implementation)
+*In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
+
+*It is also recommended to organize this content by subsections.*
 
 
 ## Class CreateTestTypeController 
@@ -155,9 +162,12 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 6. Integration and Demo 
 
+*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
+
 
 # 7. Observations
 
+*In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
 
 
 

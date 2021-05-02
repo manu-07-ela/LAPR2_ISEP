@@ -95,13 +95,14 @@ usually presented under the blood count (Hemogram) category.
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+* Company
+* ParameterCategory
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+
+ * CreateParameterCategoryUI  
+ * CreateParameterCategoryController
+ * ParameterCategoryStore
 
 ## 3.2. Sequence Diagram (SD)
 
