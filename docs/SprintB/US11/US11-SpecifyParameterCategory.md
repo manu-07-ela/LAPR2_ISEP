@@ -75,14 +75,21 @@ usually presented under the blood count (Hemogram) category.
 
 **The rationale grounds on the SSD interactions and the identified input/output data.**
 
-| Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
-|:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Interaction ID | Question: Which class is responsible for...                     | Answer                            | Justification (with patterns)                                                                                             |
+|:-------------  |:--------------------------------------------------------------- |:---------------------------------:|:------------------------------------------------------------------------------------------------------------------------- |
+| Step 1  		 | ... interacting with the actor?                                 | CreateParameterCategoryUI         | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
+|                | ... coordinating the US?                                        | CreateParameterCategoryController | Controller                                                                                                                |
+|                | ... knowing who is responsible for creating test type instances?| Company                           | Creator (R1)                                                                                                              |
+|                | ... creates Parameter Category instance?                        | ParameterCategoryStore            | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in ParameterCategoryStore.                  |
+|                | ... knowing the user using the system?                          | UserSession                       |                                                                                                                           |
+| Step 2  		 |                                                                 |                                   |                                                                                                                           |
+| Step 3  		 | ... saving the inputted data?                                   | ParameterCategory                 | IE: object created in step 1 has its own data.                                                                            |
+| Step 4  		 |                                                                 |                                   |                                                                                                                           |
+| Step 5  		 | ... validating all data (local validation)?                     | ParameterCategory                 | IE: owns its data.                                                                                                        |
+|                | ... validating all data (global validation)?                    | ParameterCategoryStore            | IE: knows all parameter categories.                                                                                       |
+|                | ... saving the created task?                                    | ParameterCategoryStore            | IE: owns all parameter categories.                                                                                        |
+| Step 6  		 | ... informing operation success?                                | CreateParameterCategoryUI         | IE: is responsible for user interactions.                                                                                 |
+           
 
 ### Systematization ##
 
