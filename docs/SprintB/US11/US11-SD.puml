@@ -22,7 +22,7 @@ activate CTRL
 CTRL -> Comp : store = getParameterCategoryStory()
 activate Comp
 deactivate Comp
-CTRL -> str : c = createParameterCategory(name,code)
+CTRL -> str : pc = createParameterCategory(name,code)
 activate str
 str -> Cat** : create(name,code)
 deactivate str

@@ -18,9 +18,9 @@ class CreateParameterCategoryController{
 
 class ParameterCategoryStore{
 +createParameterCategory(code, name)
-+validateParameterCategory(c)
-+addParameterCategory(c)
--saveParameterCategory(c)
++validateParameterCategory(pc)
++addParameterCategory(pc)
+-saveParameterCategory(pc)
 }
 
 
@@ -31,6 +31,7 @@ class ParameterCategory {
 }
 
 Company "1"-->"1" ParameterCategoryStore : uses
+CreateParameterCategoryController ..> Company
 CreateParameterCategoryUI ..> CreateParameterCategoryController
 CreateParameterCategoryController ..> ParameterCategory
 ParameterCategoryStore "1"-->"*" ParameterCategory : adopts
