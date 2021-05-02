@@ -1,8 +1,8 @@
 @startuml
-skinparam classAttributeIconSize 0
 
 class Company{
 +getTypeTestStore()
++getParameterCategoryStore()
 }
 
 class CreateTestTypeUI{
@@ -16,9 +16,11 @@ class CreateTestTypeController{
 
 class TestType{
 -String code
--String collectingMethods
 -String description
-+create(code,description,collecting method,selectedParameterCategoriesList)
+-String collectingMethod
+-List<ParameterCategories> listOfParameterCategories
++TestType(code,description,collectingMethod,listOfParameterCategories)
++validateTestType(testType)
 }
 
 class TestTypeStore{

@@ -32,19 +32,19 @@ deactivate UI
 
 Adm -> UI : Select the desired parameter category
 activate UI
-UI -> CTRL : createTestType(code,description,collecting method,selectedParameterCategoriesList)
+UI -> CTRL : createTestType(code,description,collectingMethod,listOfParameterCategories)
 activate CTRL
 CTRL -> Comp : store = getTestTypeStore()
 activate Comp
 deactivate Comp
 loop
-CTRL -> PC : selectedParameterCategoriesList=getParameterCategorybyCode()
+CTRL -> PC : listOfParameterCategories=getParameterCategorybyCode()
 activate PC
 deactivate PC
 end
-CTRL -> str : testType = createTestType(code,description,collecting method,selectedParameterCategoriesList)
+CTRL -> str : testType = createTestType(code,description,collectingMethod,listOfParameterCategories)
 activate str
-str -> TT** : create(code,description,collecting method,selectedParameterCategoriesList)
+str -> TT** : create(code,description,collectingMethod,listOfParameterCategories)
 deactivate str
 TT -> TT : validateTestType(testType)
 activate TT
