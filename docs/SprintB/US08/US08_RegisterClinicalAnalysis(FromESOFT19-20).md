@@ -33,7 +33,8 @@ headquarters and the chemical analysis are performed there.
 
 > **Question:** What kind of information does the company store about about their clinical analysis laboratory
 >  
-> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126) The clinical analysis laboratory is caracterized by its name, address , phone number and its TIN number
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126) 
+> The clinical analysis laboratory is caracterized by its name, address , phone number and its TIN number
 
 
 > **Question:** "Which type/format has LaboratoryID, address, name, phone number, and TIN number on Clinical Analysis Laboratory?"
@@ -58,7 +59,7 @@ All information is required.
 * **AC4:** The address must have no more than 30 characters
 * **AC5:** The phone number is an 11-digit number
 * **AC6:** TIN is a 10-digit number
-* **AC6:** Every field is required
+* **AC7:** Every field is required
 
 ### 1.4. Found out Dependencies
 
@@ -129,7 +130,7 @@ n/a
 | 			     |	... coordinating the US? | CreateClinicalAnalysisLaboratoryController | Controller                             |
 | 			     |	... knowing who is responsible for creating Clinical Analysis Laboratory instances? | Company   | Creator (R1)   |
 | 			  	 | ... knowing the user using the system?  | UserSession  |   |
-| 			  	 |	... creaates Cinical Analysis Laboatory instance? | Laboratory  | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore. |
+| 			  	 |	... creates Clinical Analysis Laboratory instance? | Laboratory  | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore. |
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |	...saving the inputted data? | ClinicalAnalysisLaboratory  | IE: object created in step 1 has its own data.  |
 | Step 4  		 |	...knowing the TestType to show? | TestTypeStore  | IE: knows all the TestTypes. |
