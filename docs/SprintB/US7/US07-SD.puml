@@ -73,9 +73,9 @@ end
 ADM -> UI : types requested data
 activate UI
 alt orgRole = specialist doctor
-UI -> CTRL : createEmployee(empDto)
+UI -> CTRL : createSpecialistDoctor(empDto)
 activate CTRL
-CTRL -> COMP : emp = createEmployee(empDto)
+CTRL -> COMP : emp = createSpecialistDoctor(empDto)
 deactivate CTRL
 activate COMP
 COMP -> STORE : store = getEmployeeStore()

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1635px" preserveAspectRatio="none" style="width:1381px;height:1635px;" version="1.1" viewBox="0 0 1381 1635" width="1381.5px" zoomAndPan="magnify"><defs><filter height="300%" id="f6b2l9j8kbhbw" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><rect codeLine="14" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="113.5078" id="Company" style="stroke:#A80036;stroke-width:2.25;" width="181.5" x="927" y="585.75"/><ellipse cx="973.8" cy="609.75" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M976.8,604.5 Q977.1047,603.75 977.4563,603.375 Q977.8078,603 978.2063,603 Q978.9094,603 979.3547,603.4219 Q979.8,603.8438 979.8,604.8281 L979.8,607.1719 Q979.8,608.1563 979.3781,608.5781 Q978.9563,609 978.3,609 Q977.7141,609 977.3391,608.7422 Q976.9641,608.4844 976.8,607.8047 Q976.7297,607.3359 976.4719,607.0781 Q976.0031,606.5859 975.1594,606.3047 Q974.3156,606 973.4719,606 Q972.4172,606 971.5266,606.4219 Q970.6594,606.8438 969.9797,607.7813 Q969.3,608.7188 969.3,610.0078 L969.3,611.3906 Q969.3,612.9375 970.5656,613.9688 Q971.8313,615 974.0813,615 Q975.4172,615 976.3547,614.6953 Q976.8938,614.5313 977.5031,613.9922 Q977.9016,613.6875 978.1125,613.5938 Q978.3234,613.5 978.5813,613.5 Q979.0734,613.5 979.425,613.8984 Q979.8,614.2734 979.8,614.8125 Q979.8,615.3281 979.2844,615.9375 Q978.5344,616.8281 977.3391,617.3203 Q975.7688,618 973.8469,618 Q971.5969,618 969.7922,617.1094 Q968.3391,616.4063 967.3078,614.8828 Q966.3,613.3594 966.3,611.5547 L966.3,609.9141 Q966.3,608.0391 967.1906,606.3984 Q968.1047,604.7578 969.675,603.8906 Q971.2688,603 973.05,603 Q974.1281,603 975.0656,603.375 Q976.0031,603.75 976.8,604.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="79.5" x="1000.2" y="617.1152">Company</text><line style="stroke:#A80036;stroke-width:2.25;" x1="928.5" x2="1107" y1="633.75" y2="633.75"/><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="939" y="645.75"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="82.5" x="957" y="656.8784">designation</text><line style="stroke:#A80036;stroke-width:2.25;" x1="928.5" x2="1107" y1="666.5039" y2="666.5039"/><ellipse cx="943.5" cy="683.0039" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="142.5" x="957" y="689.6323">getEmployeeStore()</text><!--MD5=[7421f545a0d8420c5bec41e74b387d9c]
+class Employee--><rect codeLine="20" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="217.2773" id="Employee" style="stroke:#A80036;stroke-width:2.25;" width="442.5" x="384" y="1192.5"/><ellipse cx="557.625" cy="1216.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M560.625,1211.25 Q560.9297,1210.5 561.2813,1210.125 Q561.6328,1209.75 562.0313,1209.75 Q562.7344,1209.75 563.1797,1210.1719 Q563.625,1210.5938 563.625,1211.5781 L563.625,1213.9219 Q563.625,1214.9063 563.2031,1215.3281 Q562.7813,1215.75 562.125,1215.75 Q561.5391,1215.75 561.1641,1215.4922 Q560.7891,1215.2344 560.625,1214.5547 Q560.5547,1214.0859 560.2969,1213.8281 Q559.8281,1213.3359 558.9844,1213.0547 Q558.1406,1212.75 557.2969,1212.75 Q556.2422,1212.75 555.3516,1213.1719 Q554.4844,1213.5938 553.8047,1214.5313 Q553.125,1215.4688 553.125,1216.7578 L553.125,1218.1406 Q553.125,1219.6875 554.3906,1220.7188 Q555.6563,1221.75 557.9063,1221.75 Q559.2422,1221.75 560.1797,1221.4453 Q560.7188,1221.2813 561.3281,1220.7422 Q561.7266,1220.4375 561.9375,1220.3438 Q562.1484,1220.25 562.4063,1220.25 Q562.8984,1220.25 563.25,1220.6484 Q563.625,1221.0234 563.625,1221.5625 Q563.625,1222.0781 563.1094,1222.6875 Q562.3594,1223.5781 561.1641,1224.0703 Q559.5938,1224.75 557.6719,1224.75 Q555.4219,1224.75 553.6172,1223.8594 Q552.1641,1223.1563 551.1328,1221.6328 Q550.125,1220.1094 550.125,1218.3047 L550.125,1216.6641 Q550.125,1214.7891 551.0156,1213.1484 Q551.9297,1211.5078 553.5,1210.6406 Q555.0938,1209.75 556.875,1209.75 Q557.9531,1209.75 558.8906,1210.125 Q559.8281,1210.5 560.625,1211.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="82.5" x="588.375" y="1223.8652">Employee</text><line style="stroke:#A80036;stroke-width:2.25;" x1="385.5" x2="825" y1="1240.5" y2="1240.5"/><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="396" y="1252.5"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="39" x="414" y="1263.6284">name</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="396" y="1273.2539"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="60" x="414" y="1284.3823">address</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="396" y="1294.0078"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="100.5" x="414" y="1305.1362">phoneNumber</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="396" y="1314.7617"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="36" x="414" y="1325.8901">email</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="396" y="1335.5156"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="81" x="414" y="1346.644">employeeId</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="396" y="1356.2695"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="64.5" x="414" y="1367.3979">socCode</text><line style="stroke:#A80036;stroke-width:2.25;" x1="385.5" x2="825" y1="1377.0234" y2="1377.0234"/><ellipse cx="400.5" cy="1393.5234" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="403.5" x="414" y="1400.1519">Employee(name adress, phoneNumber, email, socCode)</text><!--MD5=[829fb52c07ade3ad64ef85b99d1fca10]
+class EmployeeStore--><rect codeLine="43" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="113.5078" id="EmployeeStore" style="stroke:#A80036;stroke-width:2.25;" width="687" x="674.25" y="961.5"/><ellipse cx="948.375" cy="985.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M951.375,980.25 Q951.6797,979.5 952.0313,979.125 Q952.3828,978.75 952.7813,978.75 Q953.4844,978.75 953.9297,979.1719 Q954.375,979.5938 954.375,980.5781 L954.375,982.9219 Q954.375,983.9063 953.9531,984.3281 Q953.5313,984.75 952.875,984.75 Q952.2891,984.75 951.9141,984.4922 Q951.5391,984.2344 951.375,983.5547 Q951.3047,983.0859 951.0469,982.8281 Q950.5781,982.3359 949.7344,982.0547 Q948.8906,981.75 948.0469,981.75 Q946.9922,981.75 946.1016,982.1719 Q945.2344,982.5938 944.5547,983.5313 Q943.875,984.4688 943.875,985.7578 L943.875,987.1406 Q943.875,988.6875 945.1406,989.7188 Q946.4063,990.75 948.6563,990.75 Q949.9922,990.75 950.9297,990.4453 Q951.4688,990.2813 952.0781,989.7422 Q952.4766,989.4375 952.6875,989.3438 Q952.8984,989.25 953.1563,989.25 Q953.6484,989.25 954,989.6484 Q954.375,990.0234 954.375,990.5625 Q954.375,991.0781 953.8594,991.6875 Q953.1094,992.5781 951.9141,993.0703 Q950.3438,993.75 948.4219,993.75 Q946.1719,993.75 944.3672,992.8594 Q942.9141,992.1563 941.8828,990.6328 Q940.875,989.1094 940.875,987.3047 L940.875,985.6641 Q940.875,983.7891 941.7656,982.1484 Q942.6797,980.5078 944.25,979.6406 Q945.8438,978.75 947.625,978.75 Q948.7031,978.75 949.6406,979.125 Q950.5781,979.5 951.375,980.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="126" x="979.125" y="992.8652">EmployeeStore</text><line style="stroke:#A80036;stroke-width:2.25;" x1="675.75" x2="1359.75" y1="1009.5" y2="1009.5"/><line style="stroke:#A80036;stroke-width:2.25;" x1="675.75" x2="1359.75" y1="1021.5" y2="1021.5"/><ellipse cx="690.75" cy="1038" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="450" x="704.25" y="1044.6284">createEmployee(name adress, phoneNumber, email, socCode)</text><ellipse cx="690.75" cy="1058.7539" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="648" x="704.25" y="1065.3823">createSpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)</text><!--MD5=[a126dd63c8621c017159ae62771fbe54]
+class RegisterEmployeeUI--><rect codeLine="6" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="72" id="RegisterEmployeeUI" style="stroke:#A80036;stroke-width:2.25;" width="219" x="908.25" y="10.5"/><ellipse cx="930.75" cy="34.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M933.75,29.25 Q934.0547,28.5 934.4063,28.125 Q934.7578,27.75 935.1563,27.75 Q935.8594,27.75 936.3047,28.1719 Q936.75,28.5938 936.75,29.5781 L936.75,31.9219 Q936.75,32.9063 936.3281,33.3281 Q935.9063,33.75 935.25,33.75 Q934.6641,33.75 934.2891,33.4922 Q933.9141,33.2344 933.75,32.5547 Q933.6797,32.0859 933.4219,31.8281 Q932.9531,31.3359 932.1094,31.0547 Q931.2656,30.75 930.4219,30.75 Q929.3672,30.75 928.4766,31.1719 Q927.6094,31.5938 926.9297,32.5313 Q926.25,33.4688 926.25,34.7578 L926.25,36.1406 Q926.25,37.6875 927.5156,38.7188 Q928.7813,39.75 931.0313,39.75 Q932.3672,39.75 933.3047,39.4453 Q933.8438,39.2813 934.4531,38.7422 Q934.8516,38.4375 935.0625,38.3438 Q935.2734,38.25 935.5313,38.25 Q936.0234,38.25 936.375,38.6484 Q936.75,39.0234 936.75,39.5625 Q936.75,40.0781 936.2344,40.6875 Q935.4844,41.5781 934.2891,42.0703 Q932.7188,42.75 930.7969,42.75 Q928.5469,42.75 926.7422,41.8594 Q925.2891,41.1563 924.2578,39.6328 Q923.25,38.1094 923.25,36.3047 L923.25,34.6641 Q923.25,32.7891 924.1406,31.1484 Q925.0547,29.5078 926.625,28.6406 Q928.2188,27.75 930,27.75 Q931.0781,27.75 932.0156,28.125 Q932.9531,28.5 933.75,29.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="171" x="951.75" y="41.8652">RegisterEmployeeUI</text><line style="stroke:#A80036;stroke-width:2.25;" x1="909.75" x2="1125.75" y1="58.5" y2="58.5"/><line style="stroke:#A80036;stroke-width:2.25;" x1="909.75" x2="1125.75" y1="70.5" y2="70.5"/><!--MD5=[6a4e699b59c2ecf8286aba2faa72e4bd]
+class RegisterEmployeeController--><rect codeLine="48" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="175.7695" id="RegisterEmployeeController" style="stroke:#A80036;stroke-width:2.25;" width="282" x="876.75" y="174"/><ellipse cx="899.25" cy="198" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M902.25,192.75 Q902.5547,192 902.9063,191.625 Q903.2578,191.25 903.6563,191.25 Q904.3594,191.25 904.8047,191.6719 Q905.25,192.0938 905.25,193.0781 L905.25,195.4219 Q905.25,196.4063 904.8281,196.8281 Q904.4063,197.25 903.75,197.25 Q903.1641,197.25 902.7891,196.9922 Q902.4141,196.7344 902.25,196.0547 Q902.1797,195.5859 901.9219,195.3281 Q901.4531,194.8359 900.6094,194.5547 Q899.7656,194.25 898.9219,194.25 Q897.8672,194.25 896.9766,194.6719 Q896.1094,195.0938 895.4297,196.0313 Q894.75,196.9688 894.75,198.2578 L894.75,199.6406 Q894.75,201.1875 896.0156,202.2188 Q897.2813,203.25 899.5313,203.25 Q900.8672,203.25 901.8047,202.9453 Q902.3438,202.7813 902.9531,202.2422 Q903.3516,201.9375 903.5625,201.8438 Q903.7734,201.75 904.0313,201.75 Q904.5234,201.75 904.875,202.1484 Q905.25,202.5234 905.25,203.0625 Q905.25,203.5781 904.7344,204.1875 Q903.9844,205.0781 902.7891,205.5703 Q901.2188,206.25 899.2969,206.25 Q897.0469,206.25 895.2422,205.3594 Q893.7891,204.6563 892.7578,203.1328 Q891.75,201.6094 891.75,199.8047 L891.75,198.1641 Q891.75,196.2891 892.6406,194.6484 Q893.5547,193.0078 895.125,192.1406 Q896.7188,191.25 898.5,191.25 Q899.5781,191.25 900.5156,191.625 Q901.4531,192 902.25,192.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="234" x="920.25" y="205.3652">RegisterEmployeeController</text><line style="stroke:#A80036;stroke-width:2.25;" x1="878.25" x2="1157.25" y1="222" y2="222"/><line style="stroke:#A80036;stroke-width:2.25;" x1="878.25" x2="1157.25" y1="234" y2="234"/><ellipse cx="893.25" cy="250.5" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="192" x="906.75" y="257.1284">getListOrganizationRoles()</text><ellipse cx="893.25" cy="271.2539" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="181.5" x="906.75" y="277.8823">createOrganizationRole()</text><ellipse cx="893.25" cy="292.0078" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="175.5" x="906.75" y="298.6362">createSpecialistDoctor()</text><ellipse cx="893.25" cy="312.7617" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="127.5" x="906.75" y="319.3901">createEmployee()</text><ellipse cx="893.25" cy="333.5156" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="117" x="906.75" y="340.144">saveEmployee()</text><!--MD5=[12e90e92236ca84f203192a07d84ec5e]
+class OrganizationRole--><rect codeLine="36" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="113.5078" id="OrganizationRole" style="stroke:#A80036;stroke-width:2.25;" width="253.5" x="24" y="1501.5"/><ellipse cx="74.85" cy="1525.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M77.85,1520.25 Q78.1547,1519.5 78.5063,1519.125 Q78.8578,1518.75 79.2563,1518.75 Q79.9594,1518.75 80.4047,1519.1719 Q80.85,1519.5938 80.85,1520.5781 L80.85,1522.9219 Q80.85,1523.9063 80.4281,1524.3281 Q80.0063,1524.75 79.35,1524.75 Q78.7641,1524.75 78.3891,1524.4922 Q78.0141,1524.2344 77.85,1523.5547 Q77.7797,1523.0859 77.5219,1522.8281 Q77.0531,1522.3359 76.2094,1522.0547 Q75.3656,1521.75 74.5219,1521.75 Q73.4672,1521.75 72.5766,1522.1719 Q71.7094,1522.5938 71.0297,1523.5313 Q70.35,1524.4688 70.35,1525.7578 L70.35,1527.1406 Q70.35,1528.6875 71.6156,1529.7188 Q72.8813,1530.75 75.1313,1530.75 Q76.4672,1530.75 77.4047,1530.4453 Q77.9438,1530.2813 78.5531,1529.7422 Q78.9516,1529.4375 79.1625,1529.3438 Q79.3734,1529.25 79.6313,1529.25 Q80.1234,1529.25 80.475,1529.6484 Q80.85,1530.0234 80.85,1530.5625 Q80.85,1531.0781 80.3344,1531.6875 Q79.5844,1532.5781 78.3891,1533.0703 Q76.8188,1533.75 74.8969,1533.75 Q72.6469,1533.75 70.8422,1532.8594 Q69.3891,1532.1563 68.3578,1530.6328 Q67.35,1529.1094 67.35,1527.3047 L67.35,1525.6641 Q67.35,1523.7891 68.2406,1522.1484 Q69.1547,1520.5078 70.725,1519.6406 Q72.3188,1518.75 74.1,1518.75 Q75.1781,1518.75 76.1156,1519.125 Q77.0531,1519.5 77.85,1520.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="142.5" x="102.15" y="1532.8652">OrganizationRole</text><line style="stroke:#A80036;stroke-width:2.25;" x1="25.5" x2="276" y1="1549.5" y2="1549.5"/><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="36" y="1561.5"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="79.5" x="54" y="1572.6284">description</text><line style="stroke:#A80036;stroke-width:2.25;" x1="25.5" x2="276" y1="1582.2539" y2="1582.2539"/><ellipse cx="40.5" cy="1598.7539" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="214.5" x="54" y="1605.3823">OrganizationRole(description)</text><!--MD5=[7d96fd15f3014691d2fcaf89c5791e2a]
+class SpecialistDoctor--><rect codeLine="30" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="113.5078" id="SpecialistDoctor" style="stroke:#A80036;stroke-width:2.25;" width="640.5" x="330" y="1501.5"/><ellipse cx="576.375" cy="1525.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M579.375,1520.25 Q579.6797,1519.5 580.0313,1519.125 Q580.3828,1518.75 580.7813,1518.75 Q581.4844,1518.75 581.9297,1519.1719 Q582.375,1519.5938 582.375,1520.5781 L582.375,1522.9219 Q582.375,1523.9063 581.9531,1524.3281 Q581.5313,1524.75 580.875,1524.75 Q580.2891,1524.75 579.9141,1524.4922 Q579.5391,1524.2344 579.375,1523.5547 Q579.3047,1523.0859 579.0469,1522.8281 Q578.5781,1522.3359 577.7344,1522.0547 Q576.8906,1521.75 576.0469,1521.75 Q574.9922,1521.75 574.1016,1522.1719 Q573.2344,1522.5938 572.5547,1523.5313 Q571.875,1524.4688 571.875,1525.7578 L571.875,1527.1406 Q571.875,1528.6875 573.1406,1529.7188 Q574.4063,1530.75 576.6563,1530.75 Q577.9922,1530.75 578.9297,1530.4453 Q579.4688,1530.2813 580.0781,1529.7422 Q580.4766,1529.4375 580.6875,1529.3438 Q580.8984,1529.25 581.1563,1529.25 Q581.6484,1529.25 582,1529.6484 Q582.375,1530.0234 582.375,1530.5625 Q582.375,1531.0781 581.8594,1531.6875 Q581.1094,1532.5781 579.9141,1533.0703 Q578.3438,1533.75 576.4219,1533.75 Q574.1719,1533.75 572.3672,1532.8594 Q570.9141,1532.1563 569.8828,1530.6328 Q568.875,1529.1094 568.875,1527.3047 L568.875,1525.6641 Q568.875,1523.7891 569.7656,1522.1484 Q570.6797,1520.5078 572.25,1519.6406 Q573.8438,1518.75 575.625,1518.75 Q576.7031,1518.75 577.6406,1519.125 Q578.5781,1519.5 579.375,1520.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="135" x="607.125" y="1532.8652">SpecialistDoctor</text><line style="stroke:#A80036;stroke-width:2.25;" x1="331.5" x2="969" y1="1549.5" y2="1549.5"/><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="342" y="1561.5"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="141" x="360" y="1572.6284">doctorIndexNumber</text><line style="stroke:#A80036;stroke-width:2.25;" x1="331.5" x2="969" y1="1582.2539" y2="1582.2539"/><ellipse cx="346.5" cy="1598.7539" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="601.5" x="360" y="1605.3823">SpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)</text><!--MD5=[892631efaf0abed3c7818dfb737e9f4c]
+class OrganizationRoleMapper--><rect codeLine="79" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="113.5078" id="OrganizationRoleMapper" style="stroke:#A80036;stroke-width:2.25;" width="267" x="17.25" y="1244.25"/><ellipse cx="46.5" cy="1268.25" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M49.5,1263 Q49.8047,1262.25 50.1563,1261.875 Q50.5078,1261.5 50.9063,1261.5 Q51.6094,1261.5 52.0547,1261.9219 Q52.5,1262.3438 52.5,1263.3281 L52.5,1265.6719 Q52.5,1266.6563 52.0781,1267.0781 Q51.6563,1267.5 51,1267.5 Q50.4141,1267.5 50.0391,1267.2422 Q49.6641,1266.9844 49.5,1266.3047 Q49.4297,1265.8359 49.1719,1265.5781 Q48.7031,1265.0859 47.8594,1264.8047 Q47.0156,1264.5 46.1719,1264.5 Q45.1172,1264.5 44.2266,1264.9219 Q43.3594,1265.3438 42.6797,1266.2813 Q42,1267.2188 42,1268.5078 L42,1269.8906 Q42,1271.4375 43.2656,1272.4688 Q44.5313,1273.5 46.7813,1273.5 Q48.1172,1273.5 49.0547,1273.1953 Q49.5938,1273.0313 50.2031,1272.4922 Q50.6016,1272.1875 50.8125,1272.0938 Q51.0234,1272 51.2813,1272 Q51.7734,1272 52.125,1272.3984 Q52.5,1272.7734 52.5,1273.3125 Q52.5,1273.8281 51.9844,1274.4375 Q51.2344,1275.3281 50.0391,1275.8203 Q48.4688,1276.5 46.5469,1276.5 Q44.2969,1276.5 42.4922,1275.6094 Q41.0391,1274.9063 40.0078,1273.3828 Q39,1271.8594 39,1270.0547 L39,1268.4141 Q39,1266.5391 39.8906,1264.8984 Q40.8047,1263.2578 42.375,1262.3906 Q43.9688,1261.5 45.75,1261.5 Q46.8281,1261.5 47.7656,1261.875 Q48.7031,1262.25 49.5,1263 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="204" x="69" y="1275.6152">OrganizationRoleMapper</text><line style="stroke:#A80036;stroke-width:2.25;" x1="18.75" x2="282.75" y1="1292.25" y2="1292.25"/><line style="stroke:#A80036;stroke-width:2.25;" x1="18.75" x2="282.75" y1="1304.25" y2="1304.25"/><ellipse cx="33.75" cy="1320.75" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="112.5" x="47.25" y="1327.3784">toDTO(orgRole)</text><ellipse cx="33.75" cy="1341.5039" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="228" x="47.25" y="1348.1323">toOrganizationRole(orgRoleDto)</text><!--MD5=[00f5a8d890e3e1ee187254d4d2c6b7cb]
+class EmployeeDTO--><rect codeLine="56" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="404.0625" id="EmployeeDTO" style="stroke:#A80036;stroke-width:2.25;" width="628.5" x="193.5" y="441"/><ellipse cx="441.375" cy="465" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M444.375,459.75 Q444.6797,459 445.0313,458.625 Q445.3828,458.25 445.7813,458.25 Q446.4844,458.25 446.9297,458.6719 Q447.375,459.0938 447.375,460.0781 L447.375,462.4219 Q447.375,463.4063 446.9531,463.8281 Q446.5313,464.25 445.875,464.25 Q445.2891,464.25 444.9141,463.9922 Q444.5391,463.7344 444.375,463.0547 Q444.3047,462.5859 444.0469,462.3281 Q443.5781,461.8359 442.7344,461.5547 Q441.8906,461.25 441.0469,461.25 Q439.9922,461.25 439.1016,461.6719 Q438.2344,462.0938 437.5547,463.0313 Q436.875,463.9688 436.875,465.2578 L436.875,466.6406 Q436.875,468.1875 438.1406,469.2188 Q439.4063,470.25 441.6563,470.25 Q442.9922,470.25 443.9297,469.9453 Q444.4688,469.7813 445.0781,469.2422 Q445.4766,468.9375 445.6875,468.8438 Q445.8984,468.75 446.1563,468.75 Q446.6484,468.75 447,469.1484 Q447.375,469.5234 447.375,470.0625 Q447.375,470.5781 446.8594,471.1875 Q446.1094,472.0781 444.9141,472.5703 Q443.3438,473.25 441.4219,473.25 Q439.1719,473.25 437.3672,472.3594 Q435.9141,471.6563 434.8828,470.1328 Q433.875,468.6094 433.875,466.8047 L433.875,465.1641 Q433.875,463.2891 434.7656,461.6484 Q435.6797,460.0078 437.25,459.1406 Q438.8438,458.25 440.625,458.25 Q441.7031,458.25 442.6406,458.625 Q443.5781,459 444.375,459.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="120" x="472.125" y="472.3652">EmployeeDTO</text><line style="stroke:#A80036;stroke-width:2.25;" x1="195" x2="820.5" y1="489" y2="489"/><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="205.5" y="501"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="39" x="223.5" y="512.1284">name</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="205.5" y="521.7539"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="60" x="223.5" y="532.8823">address</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="205.5" y="542.5078"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="100.5" x="223.5" y="553.6362">phoneNumber</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="205.5" y="563.2617"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="36" x="223.5" y="574.3901">email</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="205.5" y="584.0156"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="81" x="223.5" y="595.144">employeeId</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="205.5" y="604.7695"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="64.5" x="223.5" y="615.8979">socCode</text><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="205.5" y="625.5234"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="141" x="223.5" y="636.6519">doctorIndexNumber</text><line style="stroke:#A80036;stroke-width:2.25;" x1="195" x2="820.5" y1="646.2773" y2="646.2773"/><ellipse cx="210" cy="662.7773" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="589.5" x="223.5" y="669.4058">EmployeeDTO(name, adress, phoneNumber, email, socCode, doctorIndexNumber)</text><ellipse cx="210" cy="683.5313" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="439.5" x="223.5" y="690.1597">EmployeeDTO(name, adress, phoneNumber, email, socCode)</text><ellipse cx="210" cy="704.2852" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="75" x="223.5" y="710.9136">getName()</text><ellipse cx="210" cy="725.0391" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="88.5" x="223.5" y="731.6675">getAdress()</text><ellipse cx="210" cy="745.793" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="135" x="223.5" y="752.4214">getphoneNumber()</text><ellipse cx="210" cy="766.5469" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="70.5" x="223.5" y="773.1753">getEmail()</text><ellipse cx="210" cy="787.3008" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="115.5" x="223.5" y="793.9292">getEmployeeId()</text><ellipse cx="210" cy="808.0547" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="100.5" x="223.5" y="814.6831">getSocCode()</text><ellipse cx="210" cy="828.8086" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="177" x="223.5" y="835.437">getDoctorIndexNumber()</text><!--MD5=[4543091c387f147fceabade6c180ba98]
+class EmployeeMapper--><rect codeLine="75" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="92.7539" id="EmployeeMapper" style="stroke:#A80036;stroke-width:2.25;" width="226.5" x="394.5" y="972"/><ellipse cx="432.525" cy="996" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M435.525,990.75 Q435.8297,990 436.1813,989.625 Q436.5328,989.25 436.9313,989.25 Q437.6344,989.25 438.0797,989.6719 Q438.525,990.0938 438.525,991.0781 L438.525,993.4219 Q438.525,994.4063 438.1031,994.8281 Q437.6813,995.25 437.025,995.25 Q436.4391,995.25 436.0641,994.9922 Q435.6891,994.7344 435.525,994.0547 Q435.4547,993.5859 435.1969,993.3281 Q434.7281,992.8359 433.8844,992.5547 Q433.0406,992.25 432.1969,992.25 Q431.1422,992.25 430.2516,992.6719 Q429.3844,993.0938 428.7047,994.0313 Q428.025,994.9688 428.025,996.2578 L428.025,997.6406 Q428.025,999.1875 429.2906,1000.2188 Q430.5563,1001.25 432.8063,1001.25 Q434.1422,1001.25 435.0797,1000.9453 Q435.6188,1000.7813 436.2281,1000.2422 Q436.6266,999.9375 436.8375,999.8438 Q437.0484,999.75 437.3063,999.75 Q437.7984,999.75 438.15,1000.1484 Q438.525,1000.5234 438.525,1001.0625 Q438.525,1001.5781 438.0094,1002.1875 Q437.2594,1003.0781 436.0641,1003.5703 Q434.4938,1004.25 432.5719,1004.25 Q430.3219,1004.25 428.5172,1003.3594 Q427.0641,1002.6563 426.0328,1001.1328 Q425.025,999.6094 425.025,997.8047 L425.025,996.1641 Q425.025,994.2891 425.9156,992.6484 Q426.8297,991.0078 428.4,990.1406 Q429.9938,989.25 431.775,989.25 Q432.8531,989.25 433.7906,989.625 Q434.7281,990 435.525,990.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="144" x="456.975" y="1003.3652">EmployeeMapper</text><line style="stroke:#A80036;stroke-width:2.25;" x1="396" x2="619.5" y1="1020" y2="1020"/><line style="stroke:#A80036;stroke-width:2.25;" x1="396" x2="619.5" y1="1032" y2="1032"/><ellipse cx="411" cy="1048.5" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="187.5" x="424.5" y="1055.1284">toEmployee(employeeDto)</text><!--MD5=[9648088c85fe5e84aaaca2b12eb7f67f]
+class OrganizationRoleDto--><rect codeLine="84" fill="#FEFECE" filter="url(#f6b2l9j8kbhbw)" height="113.5078" id="OrganizationRoleDto" style="stroke:#A80036;stroke-width:2.25;" width="280.5" x="10.5" y="961.5"/><ellipse cx="60.675" cy="985.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M63.675,980.25 Q63.9797,979.5 64.3313,979.125 Q64.6828,978.75 65.0813,978.75 Q65.7844,978.75 66.2297,979.1719 Q66.675,979.5938 66.675,980.5781 L66.675,982.9219 Q66.675,983.9063 66.2531,984.3281 Q65.8313,984.75 65.175,984.75 Q64.5891,984.75 64.2141,984.4922 Q63.8391,984.2344 63.675,983.5547 Q63.6047,983.0859 63.3469,982.8281 Q62.8781,982.3359 62.0344,982.0547 Q61.1906,981.75 60.3469,981.75 Q59.2922,981.75 58.4016,982.1719 Q57.5344,982.5938 56.8547,983.5313 Q56.175,984.4688 56.175,985.7578 L56.175,987.1406 Q56.175,988.6875 57.4406,989.7188 Q58.7063,990.75 60.9563,990.75 Q62.2922,990.75 63.2297,990.4453 Q63.7688,990.2813 64.3781,989.7422 Q64.7766,989.4375 64.9875,989.3438 Q65.1984,989.25 65.4563,989.25 Q65.9484,989.25 66.3,989.6484 Q66.675,990.0234 66.675,990.5625 Q66.675,991.0781 66.1594,991.6875 Q65.4094,992.5781 64.2141,993.0703 Q62.6438,993.75 60.7219,993.75 Q58.4719,993.75 56.6672,992.8594 Q55.2141,992.1563 54.1828,990.6328 Q53.175,989.1094 53.175,987.3047 L53.175,985.6641 Q53.175,983.7891 54.0656,982.1484 Q54.9797,980.5078 56.55,979.6406 Q58.1438,978.75 59.925,978.75 Q61.0031,978.75 61.9406,979.125 Q62.8781,979.5 63.675,980.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="171" x="87.825" y="992.8652">OrganizationRoleDto</text><line style="stroke:#A80036;stroke-width:2.25;" x1="12" x2="289.5" y1="1009.5" y2="1009.5"/><rect fill="none" height="9" style="stroke:#C82930;stroke-width:1.5;" width="9" x="22.5" y="1021.5"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="82.5" x="40.5" y="1032.6284">designation</text><line style="stroke:#A80036;stroke-width:2.25;" x1="12" x2="289.5" y1="1042.2539" y2="1042.2539"/><ellipse cx="27" cy="1058.7539" fill="#84BE84" rx="4.5" ry="4.5" style="stroke:#038048;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="241.5" x="40.5" y="1065.3823">OrganizationRoleDto(designation)</text><!--MD5=[232dddeb8ed1c921ef01022c786a20ff]
+link EmployeeMapper to Employee--><path codeLine="89" d="M523.635,1065.57 C534.9,1097.91 550.56,1142.85 565.155,1184.73 " fill="none" id="EmployeeMapper-to-Employee" style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="567.675,1191.96,568.8983,1177.2374,565.2069,1184.8777,557.5667,1181.1864,567.675,1191.96" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[b3b4f33f45301bf7dc26d02dbbdf24d8]
+link EmployeeDTO to EmployeeMapper--><path codeLine="90" d="M507.75,844.815 C507.75,888.975 507.75,932.07 507.75,964.095 " fill="none" id="EmployeeDTO-to-EmployeeMapper" style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="507.75,972,513.75,958.5,507.75,964.5,501.75,958.5,507.75,972" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[ce859576cba61219b3cb4d2d23fdcd81]
+link Company to EmployeeStore--><path codeLine="91" d="M1017.75,700.05 C1017.75,768.045 1017.75,882.645 1017.75,953.82 " fill="none" id="Company-to-EmployeeStore" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#A80036" points="1017.75,961.425,1023.75,947.925,1017.75,953.925,1011.75,947.925,1017.75,961.425" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="42" x="1019.25" y="911.2427">uses</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="10.5" x="1006.4133" y="731.4186">1</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="10.5" x="1006.282" y="945.026">1</text><!--MD5=[372bd27a178b4208a6d241b4516ac7e6]
+reverse link Employee to SpecialistDoctor--><path codeLine="92" d="M629.67,1440.72 C633.435,1462.035 637.14,1482.93 640.335,1501.005 " fill="none" id="Employee-backto-SpecialistDoctor" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="none" points="619.23,1441.95,624.33,1410.57,639.9,1438.29,619.23,1441.95" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[969ee03aa52aee79b0e607297418cbd4]
+link RegisterEmployeeController to Company--><path codeLine="93" d="M1017.75,349.965 C1017.75,419.37 1017.75,515.085 1017.75,577.56 " fill="none" id="RegisterEmployeeController-to-Company" style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1017.75,585.39,1023.75,571.89,1017.75,577.89,1011.75,571.89,1017.75,585.39" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[241b49406f7a05442b1e788ffaf3787c]
+link Employee to OrganizationRole--><path codeLine="94" d="M413.16,1410.21 C363.75,1437.84 312.075,1466.76 267.765,1491.54 " fill="none" id="Employee-to-OrganizationRole" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#A80036" points="250.545,1501.17,261.3287,1502.0142,266.2555,1492.3848,255.4718,1491.5406,250.545,1501.17" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[3fd241ca11f270f6bde54c00b8a8581a]
+link RegisterEmployeeUI to RegisterEmployeeController--><path codeLine="95" d="M1017.75,82.575 C1017.75,105.42 1017.75,136.56 1017.75,166.38 " fill="none" id="RegisterEmployeeUI-to-RegisterEmployeeController" style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1017.75,173.925,1023.75,160.425,1017.75,166.425,1011.75,160.425,1017.75,173.925" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[2f3bac1bdf76f0b867b8cadb6fadb6bc]
+link EmployeeStore to Employee--><path codeLine="96" d="M935.76,1075.605 C888.27,1107.81 826.755,1149.525 769.71,1188.225 " fill="none" id="EmployeeStore-to-Employee" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#A80036" points="763.485,1192.44,778.0298,1189.8516,769.6989,1188.2403,771.3102,1179.9094,763.485,1192.44" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="55.5" x="861.75" y="1142.2427">knows</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="10.5" x="910.8109" y="1107.3776">1</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="7.5" x="771.9163" y="1176.2628">*</text><!--MD5=[fbcb59efe238b8cbac26feb5594228e1]
+link OrganizationRoleMapper to OrganizationRole--><path codeLine="98" d="M150.75,1358.55 C150.75,1398.45 150.75,1452.225 150.75,1493.73 " fill="none" id="OrganizationRoleMapper-to-OrganizationRole" style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="150.75,1501.335,156.75,1487.835,150.75,1493.835,144.75,1487.835,150.75,1501.335" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[7e79e002aa8f1fb01b5f5ce09b972382]
+link OrganizationRoleDto to OrganizationRoleMapper--><path codeLine="99" d="M150.75,1075.935 C150.75,1122.255 150.75,1188.045 150.75,1236.315 " fill="none" id="OrganizationRoleDto-to-OrganizationRoleMapper" style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="150.75,1243.905,156.75,1230.405,150.75,1236.405,144.75,1230.405,150.75,1243.905" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[8c4de6c5f806ce511e405ee389ee3f46]
+@startuml
+'https://plantuml.com/class-diagram
+
+class Company
+class Employee
+class EmployeeStore
+class RegisterEmployeeUI
+class RegisterEmployeeController
+class OrganizationRole
+class SpecialistDoctor
+class OrganizationRoleMapper
+class EmployeeDTO
+class EmployeeMapper
+
+class Company{
+-designation
++getEmployeeStore()
+
+}
+
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-socCode
++Employee(name adress, phoneNumber, email, socCode)
+
+}
+class SpecialistDoctor{
+-doctorIndexNumber
++SpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)
+
+}
+
+class OrganizationRole{
+-description
++OrganizationRole(description)
+}
+
+
+
+class EmployeeStore{
++createEmployee(name adress, phoneNumber, email, socCode)
++createSpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)
+}
+
+class RegisterEmployeeController{
++getListOrganizationRoles()
++createOrganizationRole()
++createSpecialistDoctor()
++createEmployee()
++saveEmployee()
+
+}
+class EmployeeDTO{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-socCode
+-doctorIndexNumber
++EmployeeDTO(name, adress, phoneNumber, email, socCode, doctorIndexNumber)
++EmployeeDTO(name, adress, phoneNumber, email, socCode)
++getName()
++getAdress()
++getphoneNumber()
++getEmail()
++getEmployeeId()
++getSocCode()
++getDoctorIndexNumber()
+}
+
+class EmployeeMapper{
++toEmployee(employeeDto)
+}
+
+class OrganizationRoleMapper{
++toDTO(orgRole)
++toOrganizationRole(orgRoleDto)
+}
+
+class OrganizationRoleDto{
+-designation
++OrganizationRoleDto(designation)
+}
+
+EmployeeMapper..>Employee
+EmployeeDTO..>EmployeeMapper
+Company "1"- ->"1" EmployeeStore : uses
+Employee<|- -SpecialistDoctor
+RegisterEmployeeController ..>Company
+Employee - -* OrganizationRole
+RegisterEmployeeUI ..> RegisterEmployeeController
+EmployeeStore "1"- ->"*" Employee  : knows
+
+OrganizationRoleMapper..>OrganizationRole
+OrganizationRoleDto..>OrganizationRoleMapper
+@enduml
+
+@startuml
+
+class Company
+class Employee
+class EmployeeStore
+class RegisterEmployeeUI
+class RegisterEmployeeController
+class OrganizationRole
+class SpecialistDoctor
+class OrganizationRoleMapper
+class EmployeeDTO
+class EmployeeMapper
+
+class Company{
+-designation
++getEmployeeStore()
+
+}
+
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-socCode
++Employee(name adress, phoneNumber, email, socCode)
+
+}
+class SpecialistDoctor{
+-doctorIndexNumber
++SpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)
+
+}
+
+class OrganizationRole{
+-description
++OrganizationRole(description)
+}
+
+
+
+class EmployeeStore{
++createEmployee(name adress, phoneNumber, email, socCode)
++createSpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)
+}
+
+class RegisterEmployeeController{
++getListOrganizationRoles()
++createOrganizationRole()
++createSpecialistDoctor()
++createEmployee()
++saveEmployee()
+
+}
+class EmployeeDTO{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-socCode
+-doctorIndexNumber
++EmployeeDTO(name, adress, phoneNumber, email, socCode, doctorIndexNumber)
++EmployeeDTO(name, adress, phoneNumber, email, socCode)
++getName()
++getAdress()
++getphoneNumber()
++getEmail()
++getEmployeeId()
++getSocCode()
++getDoctorIndexNumber()
+}
+
+class EmployeeMapper{
++toEmployee(employeeDto)
+}
+
+class OrganizationRoleMapper{
++toDTO(orgRole)
++toOrganizationRole(orgRoleDto)
+}
+
+class OrganizationRoleDto{
+-designation
++OrganizationRoleDto(designation)
+}
+
+EmployeeMapper..>Employee
+EmployeeDTO..>EmployeeMapper
+Company "1"- ->"1" EmployeeStore : uses
+Employee<|- -SpecialistDoctor
+RegisterEmployeeController ..>Company
+Employee - -* OrganizationRole
+RegisterEmployeeUI ..> RegisterEmployeeController
+EmployeeStore "1"- ->"*" Employee  : knows
+
+OrganizationRoleMapper..>OrganizationRole
+OrganizationRoleDto..>OrganizationRoleMapper
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

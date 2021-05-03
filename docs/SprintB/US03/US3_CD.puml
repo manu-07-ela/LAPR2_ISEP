@@ -1,7 +1,6 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-
 class Client {
   -int citizen card number
   -int NHS number
@@ -15,10 +14,14 @@ class Client {
 }
 
 class Company {
+  +getClientStore()
+}
+
+class ClientStore {
   +createClient(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
   +validateClient(cl)
   +saveClient(cl)
-  -addClient(cl)
+  +addClient(cl)
 }
 
 class CreateClientController {
@@ -31,8 +34,12 @@ class CreateClientUI {
 }
 
 CreateClientUI ..> CreateClientController
-CreateClientController ..> Client
 CreateClientController ..> Company
-Company "1" -> "*" Client : register the
+CreateClientController ..> Client
+CreateClientController ..> ClientStore
+Company "1" -> "1" ClientStore : uses
+ClientStore "1" -> "*" Client : register the
+
+
 
 @enduml
