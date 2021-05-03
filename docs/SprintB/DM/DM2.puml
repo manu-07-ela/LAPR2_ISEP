@@ -101,9 +101,6 @@ class ChemicalAnalysis{
 class LabOrder{
 }
 
-class ChemicalResult{
-}
-
 class Barcode{
 -code
 }
@@ -212,21 +209,20 @@ LabOrder "*"----"1" Test : orders a >
 LabOrder "*"----"1" TestType : contains the >
 LabOrder "*"----"1..*" Parameter : contains the >
 
-ChemicalAnalysis "1"----"1" ChemicalResult : generates >
+ChemicalAnalysis "1"----"1..*" ParameterResult: generates >
 
-ChemicalResult "1"----"1..*" ParameterResult : contains >
 
 ClinicalChemistryTechnologist ----|> Employee
 ClinicalChemistryTechnologist "*"----"1" ChemicalLaboratory : works in >
 ClinicalChemistryTechnologist "1"----"*" ChemicalAnalysis : performs >
-ClinicalChemistryTechnologist "1"----"*" ChemicalResult : register the >
+ClinicalChemistryTechnologist "1"----"1..*" ParameterResult: register the >
 
 SpecialistDoctor ----|> Employee
-SpecialistDoctor "1"----"*" ChemicalResult : analyzes
+SpecialistDoctor "1"----"1..*" ParameterResult : analyzes
 SpecialistDoctor "1"----"*" MedicalReport: write the >
 
 MedicalReport "1..*"----"*" Client : delivered to >
-MedicalReport "*"----"*" ChemicalResult : contains >
+MedicalReport "*"----"1..*" ParameterResult : contains >
 
 ExternalModule "1"----"*" MedicalReport : validates >
 ExternalModule "1"----"1..*" ReferenceValue : contains >
@@ -234,7 +230,7 @@ ExternalModule "1"----"1..*" ReferenceValue : contains >
 LaboratoryCoordinator ----|> Employee
 LaboratoryCoordinator "1"----"*" MedicalReport : validates >
 LaboratoryCoordinator "1"----"*" ChemicalAnalysis : validates >
-LaboratoryCoordinator "1"----"*" ChemicalResult : validates >
+LaboratoryCoordinator "1"----"1..*" ParameterResult : validates >
 
 NhsApi "1"----"*" Covid19Report : send the >
 
