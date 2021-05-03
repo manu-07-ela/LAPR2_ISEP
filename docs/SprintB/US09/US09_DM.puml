@@ -4,7 +4,7 @@ hide methods
 skinparam classAttributeIconSize 0
 
 class Company{
--name
+-designation
 }
 
 

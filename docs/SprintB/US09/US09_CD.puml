@@ -20,7 +20,6 @@ class TestType{
 -String collectingMethod
 -List<ParameterCategories> listOfParameterCategories
 +TestType(code,description,collectingMethod,listOfParameterCategories)
-+validateTestType(testType)
 }
 
 class TestTypeStore{

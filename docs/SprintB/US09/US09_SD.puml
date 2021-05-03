@@ -46,9 +46,9 @@ CTRL -> str : testType = createTestType(code,description,collectingMethod,listOf
 activate str
 str -> TT** : create(code,description,collectingMethod,listOfParameterCategories)
 deactivate str
-TT -> TT : validateTestType(testType)
-activate TT
-deactivate TT
+str-> str : validateTestType(testType)
+activate str
+deactivate str
 CTRL --> UI: result
 deactivate CTRL
 UI --> Adm : Presents all data and requests confirmation
