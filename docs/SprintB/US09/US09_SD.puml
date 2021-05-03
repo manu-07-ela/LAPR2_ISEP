@@ -9,6 +9,7 @@ participant ": Company" as Comp
 participant "store: TestTypeStore" as str
 participant ": ParameterCategoryStore" as PC
 participant "t: TestType" as TT
+participant ": ParameterCategoryMapper" as MAPPER
 
 activate Adm
 Adm -> UI : Initiates the test type creation
