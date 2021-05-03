@@ -109,14 +109,22 @@
 
 **SSD - Alternative 1 is adopted.**
 
-| Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
-|:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |			   |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Interaction ID | Question: Which class is responsible for...                     | Answer                   | Justification (with patterns)                                                                                             |
+|:-------------  |:--------------------------------------------------------------- |:------------------------:|:------------------------------------------------------------------------------------------------------------------------- |
+| Step 1  		 | ... interacting with the actor?                                 | CreateClientUI           | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
+|                | ... coordinating the US?                                        | CreateClientController   | Controller                                                                                                                |
+|                | ... knowing who is responsible for creating Client instances?   | Company                  | Creator (Rule 1)                                                                                                          |
+|                | ... creates Client instance?                                    | ClientStore              | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore.                           |
+|                | ... knowing the user using the system?                          | UserSession              |                                                                                                                           |
+| Step 2  		 |                                                                 |                          |                                                                                                                           |
+| Step 3  		 | ... saving the inputted data?                                   | TestType                 | IE: object created in step 1 has its own data.                                                                            |
+| Step 4  		 | ... knowing the parameter categories to show?                   | ParameterCategoryStore   | IE: knows all the categories of parameters.                                                                               |
+| Step 5  		 | ... saving the selected categories?                             | TestType                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
+| Step 6  		 |                                                                 |                          |                                                                                                                           |
+| Step 7  		 | ... validating all data (local validation)?                     | TestType                 | IE: owns its data.                                                                                                        |
+|                | ... validating all data (global validation)?                    | TestTypeStore            | IE: knows all types of tests.                                                                                             |
+|                | ... saving the created test type?                               | TestTypeStore            | IE: owns all types of tests.                                                                                              |
+| Step 8  		 | ... informing operation success?                                | CreateTestTypeUI         | IE: is responsible for user interactions.                                                                                 |
 
 ### Systematization ##
 

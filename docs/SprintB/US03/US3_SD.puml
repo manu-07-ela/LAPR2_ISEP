@@ -6,7 +6,8 @@ actor "Receptionist" as REP
 participant ":CreateClientUI" as UI
 participant ":CreateClientController" as CTRL
 participant ":Company" as COMP
-participant "pc: Client" as PC
+participant "store: ClientStore" as CS
+participant "cl: Client" as CL
 
 activate REP
 REP -> UI : asks to register a client in the application
@@ -17,18 +18,21 @@ deactivate UI
 REP -> UI : types requested data
 activate UI
 
-UI -> CTRL : createClient()
+UI -> CTRL : createClient(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
 activate CTRL
 
-CTRL -> COMP : cl=createClient(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+CTRL -> COMP : store =getClientStore()
 activate COMP
-|||
+deactivate COMP
 
-COMP -> PC** : cl=createClient(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
-deactivate COMP
-CTRL -> COMP : validateClient(cl)
-activate COMP
-deactivate COMP
+CTRL -> CS : cl=createClient(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+activate CS
+
+CS -> CL** : create(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+deactivate CS
+CTRL -> CS : validateClient(cl)
+activate CS
+deactivate CS
 deactivate CTRL
 
 UI --> REP : shows all data and requests confirmation
@@ -40,16 +44,16 @@ activate UI
 UI -> CTRL : saveClient()
 activate CTRL
 
-CTRL -> COMP : saveClient(cl)
-activate COMP
+CTRL -> CS : saveClient(cl)
+activate CS
 
-COMP -> COMP: validateClient(cl)
-activate COMP
-deactivate COMP
-COMP -> COMP: addClient(cl)
-activate COMP
-deactivate COMP
-deactivate COMP
+CS -> CS: validateClient(cl)
+activate CS
+deactivate CS
+CS -> CS: addClient(cl)
+activate CS
+deactivate CS
+deactivate CS
 
 UI --> REP : informs operation success
 deactivate COMP
