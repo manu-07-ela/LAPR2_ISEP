@@ -13,7 +13,14 @@ public class ParameterCategoryStore {
     /**
      * List containing all categories of parameters existing in the Company.
      */
-    List<ParameterCategory> parameterCategoryList = new ArrayList();
+    List<ParameterCategory> parameterCategoryList;
+
+    /**
+     *
+     */
+    public ParameterCategoryStore(){
+        parameterCategoryList=new ArrayList();
+    }
 
     /**
      * New parameter category.

@@ -14,7 +14,14 @@ public class TestTypeStore {
     /**
      * List containing all types of tests that exist in a company.
      */
-    List<TestType> testTypeList = new ArrayList();
+    List<TestType> testTypeList;
+
+    /**
+     * Instantiates a new TestTypeStore.
+     */
+    public TestTypeStore(){
+        testTypeList=new ArrayList();
+    }
 
     /**
      * New test type.
@@ -52,7 +59,7 @@ public class TestTypeStore {
      * @param testType The type of test we intend to save
      * @return true if the test type was saved. Otherwise, false.
      */
-    public boolean saveParameterCategory(TestType testType) {
+    public boolean saveTestType(TestType testType) {
         if (!validateTestType(testType))
             return false;
         return this.testTypeList.add(testType);
