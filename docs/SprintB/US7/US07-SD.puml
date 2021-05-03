@@ -6,24 +6,42 @@ actor "Administrator" as ADM
 participant ":RegisterEmployeeUI" as UI
 participant ":RegisterEmployeeController" as CTRL
 participant ":Company" as COMP
-participant "store : OrganizationRoleStore" as ORGSTORE
-
+participant ":OrganizationRoleMapper" as MAPPER
 participant "store : EmployeeStore" as STORE
-participant "AuthFacade" as FCD
-
+participant "empDto : EmployeeDto" as EMPDTO
 
 
 activate ADM
 ADM -> UI : starts the creation of a new employee
 activate UI
-UI -> CTRL: or = getOrganizationRoles()
+UI -> CTRL: getListOfOrganizationRoles()
 activate CTRL
-CTRL -> COMP : store = getOrganizationRoleList()
+CTRL -> COMP : getListOfOrganizationRoles()
 activate COMP
-COMP -> ORGSTORE : or = getOrganizationRoles()
-activate ORGSTORE
+COMP --> "listOrgRoles : List<OrganizationRole>"** : create()
+note over "listOrgRoles : List<OrganizationRole>": loop to populate listOrganizationRoles is omitted
+COMP -->CTRL : listOrgRoles
+deactivate COMP
+CTRL -> MAPPER : toDTO(listOrgRoles)
+activate MAPPER
+MAPPER --> "listOrgRolesDTO : List<OrganizationRoleDTO>"** : create()
+loop for each object in listOrgRoles
+MAPPER ->"listOrgRoles : List<OrganizationRole>" : orgRole = getOrganizationRoles(i)
+activate "listOrgRoles : List<OrganizationRole>"
+deactivate "listOrgRoles : List<OrganizationRole>"
+
+MAPPER->MAPPER : orgRoleDto = toDto(organizationRole)
+activate MAPPER
+deactivate MAPPER
+MAPPER --> "orgRoleDto: organizationRoleDto"** : create()
+MAPPER -> "listOrgRolesDTO : List<OrganizationRoleDTO>" : addOrgRole(orgRoleDto)
+activate "listOrgRolesDTO : List<OrganizationRoleDTO>"
+deactivate "listOrgRolesDTO : List<OrganizationRoleDTO>"
+end
+MAPPER-->CTRL : listOrgRolesDto
+CTRL-->UI : listOrgRolesDto
 UI-->ADM : show the employees roles
-deactivate ORGSTORE
+deactivate MAPPER
 deactivate COMP
 deactivate CTRL
 deactivate UI
@@ -32,23 +50,20 @@ deactivate UI
 
 ADM -> UI : select the desired role
 activate UI
-UI -> CTRL : createOrganizationRole(selectedRole)
+UI -> CTRL : createOrganizationRole(orgRoleDto)
 activate CTRL
-CTRL -> COMP : store = getOrganizationRolesStore()
+CTRL -> COMP: orgRole = createOrganizationRole(orgRoleDto)
 activate COMP
-CTRL -> ORGSTORE : or = createOrganizationRole(selectedRole)
+COMP -> "orgRoleDto: organizationRoleDto" : designation = getDesignation()
+activate "orgRoleDto: organizationRoleDto"
 
-activate ORGSTORE
+"orgRoleDto: organizationRoleDto"-->"orgRole : OrganizationRole"** : create(designation)
 
-ORGSTORE --> "or : Organization Role"** : createOrganizationRole(selectedRole)
-deactivate ORGSTORE
-
-
-alt or = specialist doctor
+alt orgRole = specialist doctor
 UI --> ADM : request data (name, address, phoneNumber, email,socCode, doctorIndexNumber)
 else
 UI --> ADM : request data (name, adress, phoneNumber, email, socCode)
-
+deactivate "orgRoleDto: organizationRoleDto"
 deactivate COMP
 deactivate CTRL
 deactivate UI
@@ -57,31 +72,46 @@ end
 
 ADM -> UI : types requested data
 activate UI
-alt or = specialist doctor
-UI -> CTRL : createEmployee(name, adress, phoneNumber, email, socCode, or, doctorIndexNumber)
+alt orgRole = specialist doctor
+UI -> CTRL : createEmployee(empDto)
 activate CTRL
-CTRL -> COMP : e = createEmployee(name, adress, phoneNumber, email, socCode, or, doctorIndexNumber)
+CTRL -> COMP : emp = createEmployee(empDto)
 deactivate CTRL
 activate COMP
 COMP -> STORE : store = getEmployeeStore()
-deactivate COMP
 activate STORE
-STORE -> "emp : specialistDoctor"** : create(name, adress, phoneNumber, email, socCode, or, doctorIndexNumber)
+
+STORE ->EMPDTO : name = getname()
+activate EMPDTO
+STORE->EMPDTO : adress = getAdress()
+STORE->EMPDTO : phoneNumber = getPhoneNumber()
+STORE->EMPDTO : socCode = getSocCode()
+STORE->EMPDTO : doctorIndexNumber = getDoctorIndexNumber()
+deactivate EMPDTO
+deactivate COMP
+STORE -> "emp : specialistDoctor"** : create(name, adress, phoneNumber, email, socCode, orgRole, doctorIndexNumber)
 deactivate STORE
 else
-UI -> CTRL : createEmployee(name, adress, phoneNumber, email, socCode, or)
+UI -> CTRL : createEmployee(empDto)
 activate CTRL
-CTRL -> COMP : e = createEmployee(name, adress, phoneNumber, email, socCode, or)
+CTRL -> COMP : emp = createEmployee(empDto)
 deactivate CTRL
 activate COMP
 COMP -> STORE : store = getEmployeeStore()
 deactivate COMP
 activate STORE
-STORE -> "emp : Employee"** : create(name, adress, phoneNumber, email, socCode, or)
+STORE ->EMPDTO : name = getname()
+activate EMPDTO
+STORE->EMPDTO : adress = getAdress()
+STORE->EMPDTO : phoneNumber = getPhoneNumber()
+STORE->EMPDTO : socCode = getSocCode()
+deactivate EMPDTO
+STORE -> "emp : Employee"** : create(name, adress, phoneNumber, email, socCode, orgRole)
+
 deactivate STORE
 end
 
-UI --> ADM : show the data and request comfimation
+UI --> ADM : show the data and request confirmation
 deactivate UI
 
 ADM ->UI : confirms the data

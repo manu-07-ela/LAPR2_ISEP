@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Company
+class Employee
+class EmployeeStore
+class RegisterEmployeeUI
+class RegisterEmployeeController
+class OrganizationRole
+class SpecialistDoctor
+class OrganizationRoleMapper
+
+class Company{
+-designation
++getEmployeeStore()
++getOrganizationRoleStore()
+}
+
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-socCode
++Employee(name adress, phoneNumber, email, socCode)
+
+}
+class SpecialistDoctor{
+-doctorIndexNumber
++SpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)
+
+}
+
+class OrganizationRole{
+-description
++OrganizationRole(description)
+}
+
+
+
+class EmployeeStore{
++createEmployee(name adress, phoneNumber, email, socCode)
++createEmployee(name adress, phoneNumber, email, socCode, doctorIndexNumber)
+
+}
+
+Employee<|--SpecialistDoctor
+@enduml
