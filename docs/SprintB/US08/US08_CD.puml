@@ -42,7 +42,7 @@ CreateClinicalAnalysisLaboratoryUI ..> CreateClinicalAnalysisLaboratoryControlle
 CreateClinicalAnalysisLaboratoryController ..> Company
 CreateClinicalAnalysisLaboratoryController ...> Laboratory
 Company "1" --> "1" Laboratory : uses
-Laboratory "1" --> "*" ClinicalAnalysisLaboratory : adopts
+Laboratory  <|--  ClinicalAnalysisLaboratory
 
 
 @enduml

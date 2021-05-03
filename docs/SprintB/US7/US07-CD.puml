@@ -1,0 +1,101 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Company
+class Employee
+class EmployeeStore
+class RegisterEmployeeUI
+class RegisterEmployeeController
+class OrganizationRole
+class SpecialistDoctor
+class OrganizationRoleMapper
+class EmployeeDTO
+class EmployeeMapper
+
+class Company{
+-designation
++getEmployeeStore()
+
+}
+
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-socCode
++Employee(name adress, phoneNumber, email, socCode)
+
+}
+class SpecialistDoctor{
+-doctorIndexNumber
++SpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)
+
+}
+
+class OrganizationRole{
+-description
++OrganizationRole(description)
+}
+
+
+
+class EmployeeStore{
++createEmployee(name adress, phoneNumber, email, socCode)
++createSpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)
+}
+
+class RegisterEmployeeController{
++getListOrganizationRoles()
++createOrganizationRole()
++createSpecialistDoctor()
++createEmployee()
++saveEmployee()
+
+}
+class EmployeeDTO{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-socCode
+-doctorIndexNumber
++EmployeeDTO(name, adress, phoneNumber, email, socCode, doctorIndexNumber)
++EmployeeDTO(name, adress, phoneNumber, email, socCode)
++getName()
++getAdress()
++getphoneNumber()
++getEmail()
++getEmployeeId()
++getSocCode()
++getDoctorIndexNumber()
+}
+
+class EmployeeMapper{
++toEmployee(employeeDto)
+}
+
+class OrganizationRoleMapper{
++toDTO(orgRole)
++toOrganizationRole(orgRoleDto)
+}
+
+class OrganizationRoleDto{
+-designation
++OrganizationRoleDto(designation)
+}
+
+EmployeeMapper..>Employee
+EmployeeDTO..>EmployeeMapper
+Company "1"-->"1" EmployeeStore : uses
+Employee<|--SpecialistDoctor
+RegisterEmployeeController ..>Company
+Employee --* OrganizationRole
+RegisterEmployeeUI ..> RegisterEmployeeController
+EmployeeStore "1"-->"*" Employee  : knows
+
+OrganizationRoleMapper..>OrganizationRole
+OrganizationRoleDto..>OrganizationRoleMapper
+@enduml

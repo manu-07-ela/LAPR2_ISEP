@@ -37,7 +37,7 @@ usually presented under the blood count (Hemogram) category.
     * unique code
 
 * Selected data:
-    *
+    * (none)
 
 ***Output Data***
 
