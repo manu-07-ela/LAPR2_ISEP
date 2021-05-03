@@ -19,7 +19,7 @@ public class ClinicalAnalysisLaboratory {
     private float phoneNumber;
 
     /**
-     * Clinical Analysis Laboratory's tax indentification number
+     * Clinical Analysis Laboratory's tax identification number
      */
     private float tin;
 
@@ -42,7 +42,7 @@ public class ClinicalAnalysisLaboratory {
      * @param laboratoryId
      * @param listOfTestTypes
      */
-    public ClinicalAnalysisLaboratory(String name, String address, int phoneNumber , int tin, String laboratoryId,List<TestType> listOfTestTypes){
+    public ClinicalAnalysisLaboratory(String name, String address, float phoneNumber , float tin, String laboratoryId,List<TestType> listOfTestTypes){
         nameValidation(name);
         AddressValidation(address);
         phoneNumberValidation(phoneNumber);
@@ -82,7 +82,8 @@ public class ClinicalAnalysisLaboratory {
      * @param phoneNumber
      */
     private void phoneNumberValidation(float phoneNumber){
-        if (phoneNumber<10000000000f || phoneNumber>=99999999999f){
+        String la = ""+phoneNumber;
+        if (la.length()!=11){
             throw  new IllegalArgumentException("Phone number has to have 11 digits");
         }
     }
@@ -91,8 +92,9 @@ public class ClinicalAnalysisLaboratory {
      *
      * @param tin
      */
-    private void tinValidation(int tin){
-        if (tin<1000000000 ||tin > 9999999999f){
+    private void tinValidation(float tin){
+        String la = ""+tin;
+        if (la.length()!=10){
             throw  new IllegalArgumentException("Tin has to have 10 digits");
         }
     }

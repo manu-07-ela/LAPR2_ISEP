@@ -27,6 +27,12 @@ activate str
 str -> Cat** : create(name,code)
 deactivate str
 
+activate Cat
+Cat -> Cat : validateParameterCategory()
+activate Cat
+deactivate Cat
+deactivate Cat
+
 CTRL -> str : validateParameterCategory(pc)
 activate str
 deactivate str
