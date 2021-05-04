@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * The different types of tests that exist in a company.
+ *
+ * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
 public class TestTypeStore {
 
@@ -55,13 +57,35 @@ public class TestTypeStore {
     }
 
     /**
-     * Save the type of test case it is in a valid state
-     * @param testType The type of test we intend to save
+     * Save the type of test case it is in a valid state.
+     * @param testType The type of test we intend to save.
      * @return true if the test type was saved. Otherwise, false.
      */
     public boolean saveTestType(TestType testType) {
         if (!validateTestType(testType))
             return false;
         return this.testTypeList.add(testType);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<TestType> getTestTypeListList(){
+        return testTypeList;
+    }
+
+    /**
+     * Get test type through code.
+     * @param code The code of the type of test we want to get.
+     * @return The type of test associated with that code. If there is no type of test that has that code it returns null.
+     */
+    public TestType getTestTypeByCode(String code) {
+        for (TestType testType : testTypeList) {
+            if (testType.getCode().equals(code)) {
+                return testType;
+            }
+        }
+        return null;
     }
 }
