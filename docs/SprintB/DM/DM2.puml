@@ -153,11 +153,11 @@ class EmailLogin {
 
 Company "1"----"1..*" Laboratory : owns >
 Company "1"----"1..*" Administrator : has >
-Company "1"----"*" Employee : knows >
-Company "1"----"*" Parameter : capable of analyzing >
-Company "1"----"*" ParameterCategory : adopts >
-Company "1"----"*" Test : performs >
-Company "1"----"*" TestType : conducts >
+Company "1"----"1..*" Employee : knows >
+Company "1"----"1..*" Parameter : capable of analyzing >
+Company "1"----"1..*" ParameterCategory : adopts >
+Company "1"----"1..*" Test : performs >
+Company "1"----"1..*" TestType : conducts >
 Company "1"----"1" ExternalApi : resort to >
 Company "1"-----"1" ExternalModule : resort to >
 Company "1"----"1" NhsApi : resort to >

@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * Represents a type of test.
+ *
+ * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
 
 public class TestType {
@@ -54,7 +56,7 @@ public class TestType {
     private void checkCodeRules (String code) {
         if (StringUtils.isBlank(code))
             throw new IllegalArgumentException("Code cannot be blank.");
-        if (code.length() > 5 )
+        if ( !StringUtils.isAlphanumeric(code) || code.length() != 5 )
             throw new IllegalArgumentException("The code must be 5 alphanumeric characters.");
     }
 
