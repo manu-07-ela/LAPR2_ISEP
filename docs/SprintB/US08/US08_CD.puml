@@ -11,7 +11,10 @@ class CreateClinicalAnalysisLaboratoryController{
 }
 
 class Company{
-+getLaboratory()
++create (name, address, phoneNumber , TIN ,\n laboratoryId,selectedTestTypesList)
+  +validateClinicalAnalysisLaboratory(cal)
+  +addClinicalAnalysisLaboratory(cal)
+  +saveClinicalAnalysisLaboratory(cal)
 }
 
 
@@ -27,10 +30,12 @@ class Laboratory {
   -String address
   -int phoneNumber
   -int tin
-  +create (name, address, phoneNumber , TIN ,\n laboratoryId,selectedTestTypesList)
-  +validateClinicalAnalysisLaboratory(cal)
-  +addClinicalAnalysisLaboratory(cal)
-  +saveClinicalAnalysisLaboratory(cal)
+
+}
+
+class TestTypeStore{
++getTestType()
++getTestTypebyCode()
 }
 
 
@@ -40,9 +45,9 @@ class Laboratory {
 
 CreateClinicalAnalysisLaboratoryUI ..> CreateClinicalAnalysisLaboratoryController
 CreateClinicalAnalysisLaboratoryController ..> Company
-CreateClinicalAnalysisLaboratoryController ...> Laboratory
-Company "1" --> "1" Laboratory : uses
-Laboratory  <|--  ClinicalAnalysisLaboratory
+CreateClinicalAnalysisLaboratoryController ...> TestTypeStore
+Company "1" --> "1" ClinicalAnalysisLaboratory : conducts
+Laboratory  <|- ClinicalAnalysisLaboratory
 
 
 @enduml

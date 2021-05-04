@@ -5,6 +5,8 @@ import app.domain.store.TestTypeStore;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
+
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
@@ -75,6 +77,28 @@ public class Company {
      */
     public ParameterCategoryStore getParameterCategoryStore(){
         return parameterCategoryStore;
+    }
+
+    public boolean validateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal){
+        return true;
+    }
+
+    /**
+     *
+     * @param name                    Clinical Analysis Laboratory's name
+     * @param address                 Clinical Analysis Laboratory's address
+     * @param phoneNumber             Clinical Analysis Laboratory's phone number
+     * @param tin                     Clinical Analysis Laboratory's tax identification number
+     * @param laboratoryId            Clinical Analysis Laboratory's ID
+     * @param listOfTestTypes         List of Test Type that the Clinical Analysis Laboratory does
+     * @return
+     */
+    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory (String name, String address, int phoneNumber , int tin, String laboratoryId, List<TestType> listOfTestTypes){
+        return new ClinicalAnalysisLaboratory(name,address,phoneNumber,tin,laboratoryId,listOfTestTypes);
+    }
+
+    public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal){
+        return true;
     }
 
 }
