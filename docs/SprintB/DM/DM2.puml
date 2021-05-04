@@ -163,7 +163,7 @@ Company "1"-----"1" ExternalModule : resort to >
 Company "1"----"1" NhsApi : resort to >
 
 ClinicalAnalysisLaboratory ----|> Laboratory
-ClinicalAnalysisLaboratory "1.."----"1..*" TestType : perform >
+ClinicalAnalysisLaboratory "1.."----"1..*" Test : perform >
 
 ChemicalLaboratory ----|> Laboratory
 ChemicalLaboratory "*"----"*" ChemicalAnalysis : perform >
@@ -196,7 +196,7 @@ MedicalLabTechnician "1"----"*" Client : call >
 Parameter "*"----"1" ParameterCategory : presented under >
 Parameter "1" ---- "1" ChemicalAnalysis : analyze by >
 
-ParameterCategory "*"----"*" TestType : has a set of <
+TestType "*"----"1..*" ParameterCategory : has a set of >
 
 ParameterResult "1..*" ---- "1" Test : associated >
 ParameterResult "1" ---- "1" Parameter : associated >
@@ -221,6 +221,7 @@ ChemicalAnalysis "1" ---- "1..*" Sample : analyzes >
 ChemicalAnalysis "1"----"1..*" ParameterResult: generates >
 
 ClinicalChemistryTechnologist ----|> Employee
+ClinicalChemistryTechnologist "1"----"*" Sample : receives >
 ClinicalChemistryTechnologist "*"----"1" ChemicalLaboratory : works in >
 ClinicalChemistryTechnologist "1"----"*" ChemicalAnalysis : performs >
 ClinicalChemistryTechnologist "1"----"1..*" ParameterResult: register the >
