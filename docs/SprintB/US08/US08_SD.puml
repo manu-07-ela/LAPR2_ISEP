@@ -6,7 +6,6 @@ participant ":CreateClinicalAnalysisLaboratoryUI" as UI
 participant ":CreateClinicalAnalysisLaboratoryController" as CTRL
 participant ": Company" as Comp
 participant "store: TestTypeStore" as TTS
-participant " Laboratory" as LAB
 participant "cal: ClinicalAnalysisLaboratory" as CAL
 
 activate ADM
@@ -36,18 +35,14 @@ activate UI
 UI -> CTRL : createClinicalAnalysisLaboratory(name, address, phoneNumber , TIN, laboratoryId,selectedTestTypesList)
 activate CTRL
 
-CTRL -> Comp : store = getLaboratory()
-activate Comp
-|||
-deactivate Comp
 
 CTRL -> TTS : selectedTestTypesList=getTestTypesbyCode()
 
-CTRL -> LAB: cal = createClinicalAnalysisLaboratory\n(name, address, phoneNumber , TIN, laboratoryId,selectedTestTypesList)
-activate LAB
+CTRL -> Comp: cal = createClinicalAnalysisLaboratory\n(name, address, phoneNumber , TIN, laboratoryId,selectedTestTypesList)
+activate Comp
 |||
-LAB -> CAL**: create (name, address, phoneNumber , TIN ,\n laboratoryId,selectedTestTypesList)
-deactivate LAB
+Comp -> CAL**: create (name, address, phoneNumber , TIN ,\n laboratoryId,selectedTestTypesList)
+deactivate Comp
 
 activate CAL
 CAL -> CAL: validateClinicalAnalysisLaboratory()
@@ -55,9 +50,9 @@ activate CAL
 deactivate CAL
 deactivate CAL
 
-CTRL -> LAB : validateClinicalAnalysisLaboratory(cal)
-activate LAB
-deactivate LAB
+CTRL -> Comp : validateClinicalAnalysisLaboratory(cal)
+activate Comp
+deactivate Comp
 deactivate CTRL
 
 UI --> ADM: shows all data and requests confirmation
@@ -69,16 +64,16 @@ activate UI
 UI -> CTRL : saveClinicalAnalysisLaboratory()
 activate CTRL
 
-CTRL -> LAB : saveClinicalAnalysisLaboratory(cal)
-activate LAB
+CTRL -> Comp : saveClinicalAnalysisLaboratory(cal)
+activate Comp
 
-LAB -> LAB: validateClinicalAnalysisLaboratory(cal)
-activate LAB
-deactivate LAB
-LAB -> LAB: addClinicalAnalysisLaboratory(cal)
-activate LAB
-deactivate LAB
-deactivate LAB
+Comp -> Comp: validateClinicalAnalysisLaboratory(cal)
+activate Comp
+deactivate Comp
+Comp -> Comp: addClinicalAnalysisLaboratory(cal)
+activate Comp
+deactivate Comp
+deactivate Comp
 
 CTRL --> UI : result
 
