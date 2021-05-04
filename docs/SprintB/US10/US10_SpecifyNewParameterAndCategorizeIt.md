@@ -74,7 +74,7 @@ for the second option this would mean that the Admin will have duplicate work: (
 
 > **Question:** When specifying more than one parameter at the same time, all that parameters will be categorized to one single category or should I ask the category to each parameter?
 >
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7888) 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7888) You should always ask the category of each parameter.
 
 > **Question:**
 >
@@ -171,7 +171,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Company
  * Parameter
- * ParameterStore
+ * ParameterCategory
 
 Other software classes (i.e. Pure Fabrication) identified: 
  * CreateParameterUI  
