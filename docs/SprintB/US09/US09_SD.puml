@@ -6,11 +6,12 @@ actor "Administrator" as Adm
 participant ": CreateTestTypeUI" as UI
 participant ": CreateTestTypeController" as CTRL
 participant ": Company" as Comp
-participant "storeParameterCategory:\nParameterCategoryStore" as PC
+participant "storeParameterCategory:\nParameterCategoryStore" as PCS
 participant ": ParameterCategoryMapper" as MAPPER
 participant "lParameterCategories: List<ParameterCategory>" as LPC
 participant "listParameterCategoryDto :\nList<ParameterCategoryDto> " as LPCDto
 participant ": ParameterCategoryDto" as PCDto
+participant "obj:ParameterCategory" as PC
 participant "storeTestType:\nTestTypeStore" as str
 participant "t: TestType" as TT
 
@@ -27,9 +28,9 @@ activate CTRL
 CTRL -> Comp : storeParameterCategory = getParameterCategoryStore()
 activate Comp
 deactivate Comp
-CTRL -> PC : lParameterCategories=getParameterCategories()
-activate PC
-deactivate PC
+CTRL -> PCS : lParameterCategories=getParameterCategories()
+activate PCS
+deactivate PCS
 CTRL -> MAPPER : listParameterCategoryDto = toDto(lParameterCategories)
 activate MAPPER
 
@@ -47,9 +48,9 @@ UI -> CTRL : createTestType(code,description,collectingMethod,listOfParameterCat
 activate CTRL
 
 loop *parameter categories
-CTRL -> PC : listOfParameterCategories=getParameterCategorybyCode()
-activate PC
-deactivate PC
+CTRL -> PCS : listOfParameterCategories=getParameterCategorybyCode()
+activate PCS
+deactivate PCS
 end
 CTRL -> Comp : storeTestType = getTestTypeStore()
 activate Comp
