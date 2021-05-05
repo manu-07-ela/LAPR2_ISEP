@@ -6,10 +6,13 @@ actor "Administrator" as Adm
 participant ": CreateTestTypeUI" as UI
 participant ": CreateTestTypeController" as CTRL
 participant ": Company" as Comp
-participant "store: TestTypeStore" as str
-participant ": ParameterCategoryStore" as PC
-participant "t: TestType" as TT
+participant "storeParameterCategory:\nParameterCategoryStore" as PC
 participant ": ParameterCategoryMapper" as MAPPER
+participant "lParameterCategories: List<ParameterCategory>" as LPC
+participant "listParameterCategoryDto :\nList<ParameterCategoryDto> " as LPCDto
+participant ": ParameterCategoryDto" as PCDto
+participant "storeTestType:\nTestTypeStore" as str
+participant "t: TestType" as TT
 
 activate Adm
 Adm -> UI : Initiates the test type creation
@@ -19,30 +22,38 @@ deactivate UI
 
 Adm -> UI : Introduce the requested data
 activate UI
-UI -> CTRL : lc=getParameterCategories()
+UI -> CTRL : listParameterCategoryDto=getParameterCategories()
 activate CTRL
-CTRL -> Comp : store = getParameterCategoryStore()
+CTRL -> Comp : storeParameterCategory = getParameterCategoryStore()
 activate Comp
 deactivate Comp
-CTRL -> PC : lc=getParameterCategories()
+CTRL -> PC : lParameterCategories=getParameterCategories()
 activate PC
 deactivate PC
+CTRL -> MAPPER : listParameterCategoryDto = toDto(lParameterCategories)
+activate MAPPER
+
+deactivate MAPPER
+CTRL --> UI : listParameterCategoryDto
 deactivate CTRL
 UI --> Adm : Show the existing parameter categories\n and ask to select one or more
 deactivate UI
 
-Adm -> UI : Select the desired parameter category
-activate UI
+loop *while user adds parameter categories
+ Adm -> UI : Select the desired parameter category
+ activate UI
+end
 UI -> CTRL : createTestType(code,description,collectingMethod,listOfParameterCategories)
 activate CTRL
-CTRL -> Comp : store = getTestTypeStore()
-activate Comp
-deactivate Comp
-loop
+
+loop *parameter categories
 CTRL -> PC : listOfParameterCategories=getParameterCategorybyCode()
 activate PC
 deactivate PC
 end
+CTRL -> Comp : storeTestType = getTestTypeStore()
+activate Comp
+deactivate Comp
 CTRL -> str : testType = createTestType(code,description,collectingMethod,listOfParameterCategories)
 activate str
 str -> TT** : create(code,description,collectingMethod,listOfParameterCategories)
