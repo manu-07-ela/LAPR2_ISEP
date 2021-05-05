@@ -79,6 +79,11 @@ public class Company {
         return parameterCategoryStore;
     }
 
+    /**
+     *
+     * @param cal
+     * @return
+     */
     public boolean validateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal){
         return true;
     }
@@ -97,6 +102,11 @@ public class Company {
         return new ClinicalAnalysisLaboratory(name,address,phoneNumber,tin,laboratoryId,listOfTestTypes);
     }
 
+    /**
+     *
+     * @param cal
+     * @return
+     */
     public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal){
         return true;
     }
