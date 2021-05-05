@@ -6,48 +6,32 @@ autonumber
 actor "Administrator" as ADM
 
 participant ": CreateParameterUI" as UI
-participant ": CrateParameterController" as CTRL
+participant ": CreateParameterController" as CTRL
 participant ": Company" as COMP
+participant "parameterCategoryDto : ParameterCategoryDto" as PARCATDTO
+participant "listParameterCategory : List<ParameterCategory>" as LISTCAT
+participant "listParameterCategoryDto : List<ParameterCategoryDto>" as LISTCATDTO
 participant ": store: ParameterStore" as STORE
 participant ": ParameterCategoryMapper" as MAPPER
 participant ": ParameterCategoryStore" as PC
 participant "p: Parameter" as PRMT
 
 
+
+
+
 activate ADM
 ADM -> UI: starts new parameter
 activate UI
-UI --> ADM : request data (code, shortName, description)
-deactivate UI
-ADM -> UI: types requested data
-activate UI
-UI -> CTRL : lc=getParameterCategories
+UI -> CTRL : listParameterCategoryDto = getListParameterCategoryDto()
 activate CTRL
-CTRL -> STORE : transformInParameterCategoryDto()
+CTRL -> COMP : store = getParameterCategoriesStore()
+CTRL -> STORE : listOrgRoles = getListOfOrganizationRoles()
 activate STORE
-STORE --> "listParameterCategory : List<ParameterCategory>"** : create()
-STORE -> MAPPER : toDTO(listParameterCategory)
-activate MAPPER
-MAPPER -> PC : getParameterCategories()
-activate PC
-deactivate PC
-loop for each object in listParameterCategory
-MAPPER ->"listParameterCategory : List<ParameterCategory>" : ParameterCategory = getParameterCategories(i)
-activate "listParameterCategory : List<ParameterCategory>"
-deactivate "listParameterCategory : List<ParameterCategory>"
-MAPPER->MAPPER : ParameterCategoriesDto = toParameterCategory(ParameterCategoryDto)
-activate MAPPER
-deactivate MAPPER
-MAPPER-> "listParameterCategoryDto : List<ParameterCategoryDto>" : addParameterCategory(ParameterCategoryDto)
-activate "listParameterCategoryDto : List<ParameterCategoryDto>"
-deactivate "listParameterCategoryDto : List<ParameterCategoryDto>"
-end
-MAPPER --> STORE : listParameterCategoryDto
-deactivate MAPPER
-STORE --> CTRL : listParameterCategory
-deactivate STORE
-CTRL --> UI : listParameterCategory
 deactivate CTRL
+deactivate STORE
+
+
 UI --> ADM : shows the categories available
 deactivate UI
 
@@ -56,11 +40,16 @@ deactivate UI
 
 
 
-ADM -> UI: inserts the category
+ADM -> UI: inserts the category(selectedCategory)
+activate UI
+UI--> ADM : request data (code, shortName, description)
+deactivate UI
+ADM -> UI : types request data
+
 activate UI
 UI -> CTRL : createParameter(code, shortName, description, selectedCategory)
 activate CTRL
-CTRL -> COMP : store = createParameterStore()
+CTRL -> COMP : toDTO()
 activate COMP
 COMP -> MAPPER : toDTO(listParameterCategory)
 deactivate COMP
