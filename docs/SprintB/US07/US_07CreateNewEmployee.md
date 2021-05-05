@@ -7,7 +7,7 @@
 ### 1.2. Customer Specifications and Clarifications
 >_**Question:**_ What data characterizes a Manylabs employee?
 > 
-> [_**Aswer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126#p9455) All the roles that exist in the Many Labs company are characterized by the following attributes:
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126#p9455) All the roles that exist in the Many Labs company are characterized by the following attributes:
 > * Employee ID;
 > * Organization Role;
 > * Name;
@@ -21,14 +21,32 @@
 
 > _**Question:**_ What format should the phone number be?
 >
-> [_**Aswer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7153#p9462) Phone number : 11 digits number
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7153#p9462) Phone number : 11 digits number
 
 >_**Question:**_ When creating a new employee, the attributes "Employee ID" and "Doctor Index Number", are implemented by the administrator or incremented by the system?
 > 
-> [_**Aswer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7547#p10159) Only the employee ID should be generated from the initials of the employee name and should include a number. The number has 5 digits and is increases automatically when a new employee is registered in the system.
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7547#p10159) Only the employee ID should be generated from the initials of the employee name and should include a number. The number has 5 digits and is increases automatically when a new employee is registered in the system.
 > The Doctor Index Number should be introduced by the administrator.
 
+>[The Doctor index number has 6 digits and it´s introduced by the Administrator.](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7854#p10407)
 
+> [Soc Number has 4 digits and it´s introduced by the administrator.](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7854#p10407)
+
+> _**Question:**_ How should the password be generated?
+> 
+>  [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7872#p10396) The password should be randomly generated. It should have ten alphanumeric characters.
+
+>_**Question:**_  Which is the organization role's format?
+> 
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7928#p10387) Organization Role: a string with no more than 15 characters.
+
+> _**Question:**_ When the application is delivered, should it have default employees, ex: administrator, etc.., or should be completely empty (without any user or employee).
+> 
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7668#p10201) One Administrator must be registered before starting the application for the first time.
+
+> _**Question:**_ The application can add new employees but can it remove them, for example when one of them is fired?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7668#p10201) For now, I do not want such a feature.
 
 ### 1.3. Acceptance Criteria
 - *_AC1:_* Each user must have a single role defined in the System. 
@@ -36,6 +54,11 @@
 - *_AC3:_* Every employee must be a user of the system.
 - *_AC4:_* The employeeId must be generated automatically.
 - *_AC5:_* The phone number must have 11 digits.
+- *_AC6:_* Doctor index number has 6 digits.
+- *_AC7:_* Soc number must have 4 digits.
+- *_AC7:_* The Organization role must have maximum 15 characters.
+- *_AC8:_* When the application is used for the first time, it must contain at least one administrator registered in the system.
+
 
 ### 1.4. Found out Dependencies
 - The "Auth" component
@@ -53,6 +76,10 @@
 
 * Selected data:
     * organization role
+  
+* Automatically generated data:
+  * employee id 
+  * password
   
 
 
@@ -81,7 +108,7 @@
 
 ### 2.2. Other Remarks
 
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
+*Use this section to capture some additional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
 
 
 
