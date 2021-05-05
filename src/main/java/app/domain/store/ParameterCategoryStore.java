@@ -87,4 +87,18 @@ public class ParameterCategoryStore {
         return null;
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public ParameterCategory getParameterCategoryByName(String name){
+        for (ParameterCategory pc : parameterCategoryList) {
+            if (pc.getCode().equals(name)) {
+                return pc;
+            }
+        }
+        return null;
+    }
+
 }
