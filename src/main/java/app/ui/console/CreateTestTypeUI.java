@@ -6,7 +6,7 @@ import app.controller.CreateTestTypeController;
  *
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
-public class CreateTestTypeUI {
+public class CreateTestTypeUI implements Runnable {
 
     /**
      *
@@ -24,6 +24,8 @@ public class CreateTestTypeUI {
      *
      */
     public void run(){
+
+        System.out.printf("\nEnter the following data:\n");
 
     }
 
