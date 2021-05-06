@@ -20,7 +20,7 @@ class ParameterCategoryStore{
 +createParameterCategory(code, name)
 +validateParameterCategory(pc)
 +addParameterCategory(pc)
--saveParameterCategory(pc)
++saveParameterCategory(pc)
 }
 
 

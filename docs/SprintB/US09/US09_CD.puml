@@ -58,6 +58,9 @@ CreateTestTypeController ..> Company
 CreateTestTypeController ..> TestTypeStore
 CreateTestTypeController ..> ParameterCategoryStore
 CreateTestTypeController ..> ParameterCategoryDto
+CreateTestTypeController ..> ParameterCategory
+CreateTestTypeController ..> TestType
+CreateTestTypeController ..> ParameterCategoryMapper
 Company"1"--> "1" TestTypeStore : uses
 Company"1"--> "1" ParameterCategoryStore : uses
 TestTypeStore "1"-->"*" TestType : conducts
