@@ -5,22 +5,20 @@ class CreateClinicalAnalysisLaboratoryUI{
 }
 
 class CreateClinicalAnalysisLaboratoryController{
-  +createClinicalAnalysisLaboratory(name, address, phoneNumber , TIN,\n laboratoryId,selectedTestTypesList)
-  +saveClinicalAnalysisLaboratory()
-  +getTestType()
+  +createClinicalAnalysisLaboratory(calDTO))
+  +getTestTypeList()
+  +saveClinicalAnalysisLaboratory(cal)
 }
 
 class Company{
-+create (name, address, phoneNumber , TIN ,\n laboratoryId,selectedTestTypesList)
-  +validateClinicalAnalysisLaboratory(cal)
-  +addClinicalAnalysisLaboratory(cal)
-  +saveClinicalAnalysisLaboratory(cal)
+  +getClinicalAnalysisLaboratoryStore()
 }
 
 
 class ClinicalAnalysisLaboratory {
   -String laboratoryId
-  +create (name, address, phoneNumber , TIN ,\nlaboratoryId,selectedTestTypesList)
+  +IfNotBloodTest(obj)
+  +create (calDTO))
 
 
 }
@@ -34,20 +32,44 @@ class Laboratory {
 }
 
 class TestTypeStore{
-+getTestType()
-+getTestTypebyCode()
++getTestTypeList()
+}
+
+class ClinicalAnalysisLaboratoryStore{
+  +getClinicalAnalysisLaboratory()
+  +createClinicalAnalysisLaboratory(calDTO)
+  +validateClinicalAnalysisLaboratory(cal)
+  +addClinicalAnalysisLaboratory(cal)
+}
+
+class ClinicalAnalysisLaboratoryMapper {
+   +toDTO(listTestType)
+}
+
+
+class ClinicalAnalysisLaboratoryDTO {
+  -String name
+  -String address
+  -int phoneNumber
+  -int tin
+  -String laboratoryId
+  +create (name, address, phoneNumber , TIN ,\nlaboratoryId,selectedTestTypesList)
+
+
 }
 
 
 
-
-
-
 CreateClinicalAnalysisLaboratoryUI ..> CreateClinicalAnalysisLaboratoryController
+CreateClinicalAnalysisLaboratoryUI ..> ClinicalAnalysisLaboratoryDTO
+CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryDTO
 CreateClinicalAnalysisLaboratoryController ..> Company
 CreateClinicalAnalysisLaboratoryController ...> TestTypeStore
-Company "1" --> "1" ClinicalAnalysisLaboratory : conducts
+CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryMapper
+ClinicalAnalysisLaboratoryStore"1" --> "1" ClinicalAnalysisLaboratory : conducts
 Laboratory  <|- ClinicalAnalysisLaboratory
-
+ClinicalAnalysisLaboratoryMapper ..> ClinicalAnalysisLaboratoryDTO
+ClinicalAnalysisLaboratoryMapper ...> ClinicalAnalysisLaboratory
+Company "1" --> "1" ClinicalAnalysisLaboratoryStore : uses
 
 @enduml

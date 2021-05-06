@@ -5,7 +5,7 @@ actor "Receptionist" as REP
 activate REP
 REP -> ":System" : asks to register a client in the application
 activate ":System"
-":System" --> REP : requests data (citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+":System" --> REP : requests data (name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
 deactivate ":System"
 
 REP -> ":System" : types requested data

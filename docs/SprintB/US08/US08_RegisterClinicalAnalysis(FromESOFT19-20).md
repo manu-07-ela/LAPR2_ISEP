@@ -37,6 +37,14 @@ headquarters and the chemical analysis are performed there.
 > The clinical analysis laboratory is caracterized by its name, address , phone number and its TIN number
 
 
+> **Question:** Are two Clinical Analysis Laboratories with the same,Laboratory ID OR name OR address OR phone Number OR TIN number allowed to exist?
+> 
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7911)
+> Only the name of two CAL can be same.
+
+
+
+
 > **Question:** "Which type/format has LaboratoryID, address, name, phone number, and TIN number on Clinical Analysis Laboratory?"
 >  
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7636)
@@ -60,6 +68,7 @@ All information is required.
 * **AC5:** The phone number is an 11-digit number
 * **AC6:** TIN is a 10-digit number
 * **AC7:** Every field is required
+* **AC8:** Only the name of two Clinical Analysis Laboratory can be same.
 
 ### 1.4. Found out Dependencies
 
