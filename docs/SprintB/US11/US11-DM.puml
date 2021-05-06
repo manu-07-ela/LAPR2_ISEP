@@ -19,7 +19,7 @@ class ParameterCategory{
 -code
 }
 
-class Administrator{
+class Employee{
 -name
 -address
 -phoneNumber
@@ -31,9 +31,9 @@ class Administrator{
 
 Company "1"--"*" Parameter : capable of analyzing >
 Company "1"--"*" ParameterCategory : adopts >
-Company "1"--"1..*" Administrator : has >
+Company "1"---"1..*" Employee : employ >
 Parameter "*"--"1" ParameterCategory : presented under >
-Administrator "*"--"*" ParameterCategory : specifies the >
+ParameterCategory "*"--"1" Employee : specified by >
 
 
 

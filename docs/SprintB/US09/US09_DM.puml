@@ -1,6 +1,6 @@
 @startuml
 hide methods
-left to right direction
+'left to right direction
 skinparam classAttributeIconSize 0
 
 class Company{
@@ -8,7 +8,7 @@ class Company{
 }
 
 
-class Administrator{
+class Employee{
 -name
 -address
 -phoneNumber
@@ -31,10 +31,10 @@ class ParameterCategory{
 }
 
 
-Company "1"--"1..*" Administrator : has >
+Company "1"---"1..*" Employee : employ >
 Company "1"--"1..*" TestType : conducts >
 Company "1"--"1..*" ParameterCategory : adopts >
-Administrator "1"--"*" TestType : specifies the >
+TestType "*"---"1" Employee : specified by >
 TestType "*"--"1..*" ParameterCategory : has a set of >
 
 @enduml
