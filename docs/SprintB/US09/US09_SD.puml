@@ -6,8 +6,13 @@ actor "Administrator" as Adm
 participant ": CreateTestTypeUI" as UI
 participant ": CreateTestTypeController" as CTRL
 participant ": Company" as Comp
-participant "store: TestTypeStore" as str
-participant ": ParameterCategoryStore" as PC
+participant "storeParameterCategory:\nParameterCategoryStore" as PCS
+participant ": ParameterCategoryMapper" as MAPPER
+participant "lParameterCategories: List<ParameterCategory>" as LPC
+participant "listParameterCategoryDto :\nList<ParameterCategoryDto> " as LPCDto
+participant ": ParameterCategoryDto" as PCDto
+participant "obj:ParameterCategory" as PC
+participant "storeTestType:\nTestTypeStore" as str
 participant "t: TestType" as TT
 
 activate Adm
@@ -18,37 +23,45 @@ deactivate UI
 
 Adm -> UI : Introduce the requested data
 activate UI
-UI -> CTRL : lc=getParameterCategories()
+UI -> CTRL : listParameterCategoryDto=getParameterCategories()
 activate CTRL
-CTRL -> Comp : store = getParameterCategoryStore()
+CTRL -> Comp : storeParameterCategory = getParameterCategoryStore()
 activate Comp
 deactivate Comp
-CTRL -> PC : lc=getParameterCategories()
-activate PC
-deactivate PC
+CTRL -> PCS : lParameterCategories=getParameterCategories()
+activate PCS
+deactivate PCS
+CTRL -> MAPPER : listParameterCategoryDto = toDto(lParameterCategories)
+activate MAPPER
+
+deactivate MAPPER
+CTRL --> UI : listParameterCategoryDto
 deactivate CTRL
 UI --> Adm : Show the existing parameter categories\n and ask to select one or more
 deactivate UI
 
-Adm -> UI : Select the desired parameter category
-activate UI
+loop *while user adds parameter categories
+ Adm -> UI : Select the desired parameter category
+ activate UI
+end
 UI -> CTRL : createTestType(code,description,collectingMethod,listOfParameterCategories)
 activate CTRL
-CTRL -> Comp : store = getTestTypeStore()
+
+loop *parameter categories
+CTRL -> PCS : listOfParameterCategories=getParameterCategorybyCode()
+activate PCS
+deactivate PCS
+end
+CTRL -> Comp : storeTestType = getTestTypeStore()
 activate Comp
 deactivate Comp
-loop
-CTRL -> PC : listOfParameterCategories=getParameterCategorybyCode()
-activate PC
-deactivate PC
-end
 CTRL -> str : testType = createTestType(code,description,collectingMethod,listOfParameterCategories)
 activate str
 str -> TT** : create(code,description,collectingMethod,listOfParameterCategories)
 deactivate str
-TT -> TT : validateTestType(testType)
-activate TT
-deactivate TT
+str-> str : validateTestType(testType)
+activate str
+deactivate str
 CTRL --> UI: result
 deactivate CTRL
 UI --> Adm : Presents all data and requests confirmation

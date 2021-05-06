@@ -6,6 +6,9 @@ actor "Administrator" as ADM
 participant ":RegisterEmployeeUI" as UI
 participant ":RegisterEmployeeController" as CTRL
 participant ":Company" as COMP
+participant "store : \n OrganizationRoleStore" as ORGSTORE
+participant "listOrgRoles : \n List<OrganizationRole>" as LISTORGROLE
+participant "listOrgRolesDto : \n  List<OrganizationRoleDto>" as LISTORGROLEDTO
 participant ":OrganizationRoleMapper" as MAPPER
 participant "store : EmployeeStore" as STORE
 participant "empDto : EmployeeDto" as EMPDTO
@@ -14,32 +17,14 @@ participant "empDto : EmployeeDto" as EMPDTO
 activate ADM
 ADM -> UI : starts the creation of a new employee
 activate UI
-UI -> CTRL: getListOfOrganizationRoles()
+UI -> CTRL: listOrgRolesDto = getListOfOrgRoles()
 activate CTRL
-CTRL -> COMP : getListOfOrganizationRoles()
+CTRL -> COMP : store = getOrgRolesStore()
 activate COMP
-COMP --> "listOrgRoles : List<OrganizationRole>"** : create()
-note over "listOrgRoles : List<OrganizationRole>": loop to populate listOrganizationRoles is omitted
-COMP -->CTRL : listOrgRoles
+CTRL->ORGSTORE : listOrgRoles = getListOfOrgRoles()
+activate ORGSTORE
 deactivate COMP
-CTRL -> MAPPER : toDTO(listOrgRoles)
-activate MAPPER
-MAPPER --> "listOrgRolesDTO : List<OrganizationRoleDTO>"** : create()
-loop for each object in listOrgRoles
-MAPPER ->"listOrgRoles : List<OrganizationRole>" : orgRole = getOrganizationRoles(i)
-activate "listOrgRoles : List<OrganizationRole>"
-deactivate "listOrgRoles : List<OrganizationRole>"
-
-MAPPER->MAPPER : orgRoleDto = toDto(organizationRole)
-activate MAPPER
-deactivate MAPPER
-MAPPER --> "orgRoleDto: organizationRoleDto"** : create()
-MAPPER -> "listOrgRolesDTO : List<OrganizationRoleDTO>" : addOrgRole(orgRoleDto)
-activate "listOrgRolesDTO : List<OrganizationRoleDTO>"
-deactivate "listOrgRolesDTO : List<OrganizationRoleDTO>"
-end
-MAPPER-->CTRL : listOrgRolesDto
-CTRL-->UI : listOrgRolesDto
+deactivate ORGSTORE
 UI-->ADM : show the employees roles
 deactivate MAPPER
 deactivate COMP
@@ -52,19 +37,20 @@ ADM -> UI : select the desired role
 activate UI
 UI -> CTRL : createOrganizationRole(orgRoleDto)
 activate CTRL
-CTRL -> COMP: orgRole = createOrganizationRole(orgRoleDto)
-activate COMP
-COMP -> "orgRoleDto: organizationRoleDto" : designation = getDesignation()
-activate "orgRoleDto: organizationRoleDto"
+CTRL -> ORGSTORE: orgRole = createOrganizationRole(orgRoleDto)
+activate ORGSTORE
+ORGSTORE ->
+activate "orgRoleDto : \n organizationRoleDto"
+deactivate "orgRoleDto: \n organizationRoleDto"
 
-"orgRoleDto: organizationRoleDto"-->"orgRole : OrganizationRole"** : create(designation)
+"orgRoleDto : \n organizationRoleDto"-->"orgRole : \n OrganizationRole"** : create(designation)
 
 alt orgRole = specialist doctor
 UI --> ADM : request data (name, address, phoneNumber, email,socCode, doctorIndexNumber)
 else
 UI --> ADM : request data (name, adress, phoneNumber, email, socCode)
-deactivate "orgRoleDto: organizationRoleDto"
-deactivate COMP
+deactivate "orgRoleDto : \n organizationRoleDto"
+deactivate ORGSTORE
 deactivate CTRL
 deactivate UI
 end

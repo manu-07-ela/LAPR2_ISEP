@@ -1,19 +1,29 @@
 package app.domain.store;
 
 import app.domain.model.ParameterCategory;
+import app.domain.model.TestType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The different categories of parameters existing in a company.
+ *
+ * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
 public class ParameterCategoryStore {
 
     /**
      * List containing all categories of parameters existing in the Company.
      */
-    List<ParameterCategory> parameterCategoryList = new ArrayList();
+    List<ParameterCategory> parameterCategoryList;
+
+    /**
+     * Instantiates a new ParameterCategoryStore.
+     */
+    public ParameterCategoryStore(){
+        parameterCategoryList=new ArrayList();
+    }
 
     /**
      * New parameter category.
@@ -45,9 +55,9 @@ public class ParameterCategoryStore {
     }
 
     /**
-     *
-     * @param pc
-     * @return
+     * Save the parameter category case it is in a valid state.
+     * @param pc The parameter category we intend to save.
+     * @return true if the parameter category was saved. Otherwise, false.
      */
     public boolean saveParameterCategory(ParameterCategory pc) {
         if (!validateParameterCategory(pc))
@@ -65,13 +75,30 @@ public class ParameterCategoryStore {
 
     /**
      *
-     * @param pc
+     * @param code
      * @return
      */
-/*
-    public ParameterCategory getParameterCategoryByCode(ParameterCategory pc){
-
+    public ParameterCategory getParameterCategoryByCode(String code){
+        for (ParameterCategory pc : parameterCategoryList) {
+            if (pc.getCode().equals(code)) {
+                return pc;
+            }
+        }
+        return null;
     }
 
- */
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public ParameterCategory getParameterCategoryByName(String name){
+        for (ParameterCategory pc : parameterCategoryList) {
+            if (pc.getCode().equals(name)) {
+                return pc;
+            }
+        }
+        return null;
+    }
+
 }

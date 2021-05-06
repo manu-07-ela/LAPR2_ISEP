@@ -9,9 +9,9 @@ class CreateTestTypeUI{
 }
 
 class CreateTestTypeController{
-+getParameterCategories()
 +createTestType(code,description,collecting method,selectedParameterCategoriesList)
 +saveTestType()
++List<ParameterCategoryDto> getParameterCategories()
 }
 
 class TestType{
@@ -20,7 +20,6 @@ class TestType{
 -String collectingMethod
 -List<ParameterCategories> listOfParameterCategories
 +TestType(code,description,collectingMethod,listOfParameterCategories)
-+validateTestType(testType)
 }
 
 class TestTypeStore{
@@ -35,11 +34,29 @@ class ParameterCategoryStore{
 +getParameterCategorybyCode()
 }
 
+class ParameterCategoryMapper{
+}
+
+
+class ParameterCategoryDto{
++ String name
+}
+
+class ParameterCategory{
++ String name
++ String code
+}
+
 CreateTestTypeUI ..> CreateTestTypeController
+CreateTestTypeUI ..> ParameterCategoryDto
 CreateTestTypeController ..> Company
 CreateTestTypeController ..> TestTypeStore
 CreateTestTypeController ..> ParameterCategoryStore
+CreateTestTypeController ..> ParameterCategoryDto
 Company"1"--> "1" TestTypeStore : uses
 TestTypeStore "1"-->"*" TestType : conducts
+ParameterCategoryMapper ..> ParameterCategoryDto
+ParameterCategoryMapper ..> ParameterCategory
+ParameterCategoryStore "1"--> "1..*"ParameterCategory : contains
 
 @enduml

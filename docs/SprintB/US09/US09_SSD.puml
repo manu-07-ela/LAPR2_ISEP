@@ -12,7 +12,7 @@ Adm -> ":System" : Introduce the requested data
 activate ":System"
 ":System" --> Adm : Show the existing parameter categories\n and ask to select one or more
 deactivate ":System"
- loop *parameter categories
+ loop *while user adds parameter categories
     Adm -> ":System" : Select the desired parameter category
     activate ":System"
 

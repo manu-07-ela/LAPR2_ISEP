@@ -20,10 +20,21 @@ usually presented under the blood count (Hemogram) category.
 > 
 > [*Answer:*](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7318#p9859) Each category has a name and a unique code. There are no subcategories.
 
+> *Question:* Regarding the creation of a new category, what should be the format of the code in terms of length, should it be alphanumeric or numbers only?
+>
+> [*Answer:*](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7899#p10415) The format of the attributes of one category are:
+> * Name: is a string with no more than 10 characters;
+> * Code: are five alphanumeric characters. The code is unique and is not automatically generated.
+
+> *Question:* Can we assume that both attributes are mandatory?
+>
+> [*Answer:*](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7899#p10415) Both attributes are mandatory.
+
 ### 1.3. Acceptance Criteria
 
-- AC1:
-
+- AC1: The name is a string with a maximum of 10 characters.
+- AC2: The code is unique, is not automatically generated and are five alphanumeric characters.
+- AC3: There are no subcategories.
 
 ### 1.4. Found out Dependencies
 
@@ -34,7 +45,7 @@ usually presented under the blood count (Hemogram) category.
 
 * Typed data:
     * name
-    * unique code
+    * code
 
 * Selected data:
     * (none)

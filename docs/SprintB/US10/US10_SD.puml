@@ -3,67 +3,116 @@
 
 autonumber
 
-actor "Administrator" as Adm
+actor "Administrator" as ADM
 
 participant ": CreateParameterUI" as UI
-participant ": crateParameterController" as CTRL
-participant ": Company" as Comp
-participant ": store: ParameterStore" as str
-participant ": ParameterCategoryStore" as PC
+participant ": CreateParameterController" as CTRL
+participant ": Company" as COMP
+participant ": store: ParameterStore" as STORE
+participant ": ParameterCategoryMapper" as MAPPER
+participant ": ParameterCategoryStore" as PCSTORE
 participant "p: Parameter" as PRMT
+participant "listParameterCategory : \n List<ParameterCategory>" as LISTPC
+participant "parameterCategoryDto : \n ParameterCategoryDto" as PCDTO
+participant "listParameterCategoryDto : \n List<ParameterCategoryDto>" as LISTPCDTO
 
-activate Adm
 
-Adm -> UI: starts new parameter
+
+activate ADM
+ADM -> UI: starts new parameter
 activate UI
-UI --> Adm : request data (code, designation, description)
-deactivate UI
-Adm -> UI: types requested data
-activate UI
-UI -> CTRL : lc=getParameterCategories
+UI -> CTRL : listParameterCategoryDto = getListParameterCategoryDto()
 activate CTRL
-CTRL -> PC : lc=getParameterCategories()
-activate PC
-deactivate PC
+CTRL -> COMP : store = getParameterCategoriesStore()
+activate COMP
+deactivate COMP
+CTRL -> PCSTORE : listParameterCategory = getListOfParameterCategory()
+activate PCSTORE
+deactivate PCSTORE
+CTRL -> COMP : toDTO()
+activate COMP
+COMP -> MAPPER : toDTO(listParameterCategory)
+deactivate COMP
+activate MAPPER
+
+loop for each object in listParameterCategory
+MAPPER -> LISTPC : ParameterCategory = getParameterCategories(i)
+activate LISTPC
+deactivate LISTPC
+MAPPER-> PCDTO : ParameterCategoriesDto = toParameterCategoryDto(ParameterCategory)
+activate PCDTO
+deactivate PCDTO
+MAPPER-> LISTPCDTO : addParameterCategoryDto(ParameterCategoryDto)
+activate LISTPCDTO
+deactivate LISTPCDTO
+end
+MAPPER --> CTRL : listParameterCategoryDto
+deactivate MAPPER
 deactivate CTRL
-UI --> Adm : shows the categories available
+
+
+
+UI --> ADM : shows the categories available
 deactivate UI
 
-Adm -> UI: inserts the category
+
+
+
+
+
+ADM -> UI: inserts the category(selectedCategory)
 activate UI
-UI -> CTRL : createParameter(code, designation, description, selectedCategory)
+UI--> ADM : request data (code, shortName, description)
+deactivate UI
+ADM -> UI : types request data
+
+activate UI
+UI -> CTRL : createParameter(code, shortName, description, selectedCategory)
 activate CTRL
-CTRL -> Comp : store = createParameterStore()
-activate Comp
-deactivate Comp
-CTRL -> str : t = createParameter(code,designation,description,selectedCategory)
-activate str
-str -> PRMT** : create(code,designation,description,categoryCode)
-deactivate str
-CTRL -> str : validateParameter(p)
-activate str
-deactivate str
+
+CTRL -> STORE : t = createParameter(code,shortName,description,selectedCategory)
+activate STORE
+STORE -> PRMT** : createParameter(code,shortName,description,categoryCode)
+deactivate STORE
+CTRL -> STORE : ValidateParameter(p)
+activate STORE
+STORE -> STORE : validateParameter(p)
+activate STORE
+deactivate STORE
+
+CTRL -> STORE : getParameterData(p)
+STORE -> PRMT : code = getParameterByCode(p)
+activate PRMT
+STORE -> PRMT : category = getParameterByCategory(p)
+deactivate PRMT
+
 deactivate CTRL
-UI --> Adm : shows all data and asks for confirmation
+deactivate STORE
+UI --> ADM : shows all data and asks for confirmation
 deactivate UI
 
-Adm -> UI: confirms the data
+
+
+
+
+
+
+
+ADM -> UI: confirms the data
 activate UI
-activate CTRL
 UI -> CTRL : saveParameter()
-activate str
-CTRL -> str : saveParameter(p)
-str -> str : validateParameter(p)
-activate str
-deactivate str
-str ->str : addParameter(p)
-activate str
-deactivate str
-deactivate str
-deactivate str
-UI --> Adm : informs the operation success
+activate CTRL
+CTRL -> STORE : saveParameter(p)
+activate STORE
+STORE ->STORE : addParameter(p)
+activate STORE
+deactivate STORE
+deactivate STORE
+deactivate STORE
+CTRL --> UI : result
 deactivate CTRL
+UI --> ADM : informs the operation success
 deactivate UI
-deactivate Adm
+deactivate ADM
 
 @enduml

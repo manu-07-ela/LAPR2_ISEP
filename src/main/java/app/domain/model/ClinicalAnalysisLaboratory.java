@@ -1,28 +1,9 @@
 package app.domain.model;
 
 import java.util.List;
+import java.util.Objects;
 
-public class ClinicalAnalysisLaboratory {
-    /**
-     * Clinical Analysis Laboratory's name
-     */
-    private String name;
-
-    /**
-     * Clinical Analysis Laboratory's address
-     */
-    private String address;
-
-    /**
-     * Clinical Analysis Laboratory's phone number
-     */
-    private float phoneNumber;
-
-    /**
-     * Clinical Analysis Laboratory's tax identification number
-     */
-    private float tin;
-
+public class ClinicalAnalysisLaboratory extends Laboratory {
     /**
      * Clinical Analysis Laboratory's ID
      */
@@ -33,75 +14,40 @@ public class ClinicalAnalysisLaboratory {
      */
     private List<TestType> listOfTestTypes;
 
+
     /**
      *
-     * @param name
-     * @param address
-     * @param phoneNumber
-     * @param tin
-     * @param laboratoryId
-     * @param listOfTestTypes
+     * @param name                    Clinical Analysis Laboratory's name
+     * @param address                 Clinical Analysis Laboratory's address
+     * @param phoneNumber             Clinical Analysis Laboratory's phone number
+     * @param tin                     Clinical Analysis Laboratory's tax identification number
+     * @param laboratoryId            Clinical Analysis Laboratory's ID
+     * @param listOfTestTypes         List of Test Type that the Clinical Analysis Laboratory does
      */
-    public ClinicalAnalysisLaboratory(String name, String address, float phoneNumber , float tin, String laboratoryId,List<TestType> listOfTestTypes){
-        nameValidation(name);
-        AddressValidation(address);
-        phoneNumberValidation(phoneNumber);
-        tinValidation(tin);
+    public ClinicalAnalysisLaboratory(String name, String address, float phoneNumber , float tin, String laboratoryId, List<TestType> listOfTestTypes){
+        super(name, address, phoneNumber, tin);
         laboratoryIdValidation(laboratoryId);
-        this.name=name;
-        this.address=address;
-        this.phoneNumber=phoneNumber;
-        this.tin=tin;
         this.laboratoryId=laboratoryId;
         this.listOfTestTypes=listOfTestTypes;
     }
-
     /**
      *
-     * @param name
+     * @return
      */
-    private void nameValidation(String name){
-        if (name.length()>20){
-            throw  new IllegalArgumentException("The name mustn't have more than 20 characters");
-        }
-
+    public String getLaboratoryId() {
+        return laboratoryId;
+    }
+    /**
+     *
+     * @return
+     */
+    public List<TestType> getListOfTestTypes() {
+        return listOfTestTypes;
     }
 
     /**
      *
-     * @param address
-     */
-    private void AddressValidation(String address){
-        if (address.length()>30){
-            throw  new IllegalArgumentException("The address mustn't have more than 30 characters");
-        }
-    }
-
-    /**
-     *
-     * @param phoneNumber
-     */
-    private void phoneNumberValidation(float phoneNumber){
-        String la = ""+phoneNumber;
-        if (la.length()!=11){
-            throw  new IllegalArgumentException("Phone number has to have 11 digits");
-        }
-    }
-
-    /**
-     *
-     * @param tin
-     */
-    private void tinValidation(float tin){
-        String la = ""+tin;
-        if (la.length()!=10){
-            throw  new IllegalArgumentException("Tin has to have 10 digits");
-        }
-    }
-
-    /**
-     *
-     * @param laboratoryId
+     * @param laboratoryId Clinical Analysis Laboratory's ID
      */
     private void laboratoryIdValidation(String laboratoryId){
         if (laboratoryId.length()>5){
@@ -109,10 +55,29 @@ public class ClinicalAnalysisLaboratory {
         }
     }
 
-    public ClinicalAnalysisLaboratory create (String name, String address, int phoneNumber , int tin, String laboratoryId,List<TestType> listOfTestTypes){
-        return new ClinicalAnalysisLaboratory(name,address,phoneNumber,tin,laboratoryId,listOfTestTypes);
+
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ClinicalAnalysisLaboratory that = (ClinicalAnalysisLaboratory) o;
+        return this.getAddress().equals((that).getAddress()) || this.getLaboratoryId().equals((that).getLaboratoryId()) || this.getTin()==(that).getTin() || this.getPhoneNumber()==(that).getPhoneNumber();
     }
-
-
-
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "ClinicalAnalysisLaboratory{" +
+                "laboratoryId='" + laboratoryId + '\'' +
+                ", listOfTestTypes=" + listOfTestTypes +
+                '}';
+    }
 }
