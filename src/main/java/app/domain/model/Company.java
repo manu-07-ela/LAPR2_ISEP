@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.TestTypeStore;
 import auth.AuthFacade;
@@ -35,6 +36,11 @@ public class Company {
 
     /**
      *
+     */
+    private ClinicalAnalysisLaboratoryStore clinicalnAlysisLaboratoryStore;
+
+    /**
+     *
      * @param designation
      */
 
@@ -46,11 +52,12 @@ public class Company {
         this.authFacade = new AuthFacade();
         this.testTypeStore = new TestTypeStore();
         this.parameterCategoryStore = new ParameterCategoryStore();
+        this.clinicalnAlysisLaboratoryStore = new ClinicalAnalysisLaboratoryStore();
     }
 
     /**
-     *
-     * @return
+     * Get the company designation.
+     * @return The company designation.
      */
     public String getDesignation() {
         return designation;
@@ -80,14 +87,10 @@ public class Company {
         return parameterCategoryStore;
     }
 
-    /**
-     *
-     * @param cal
-     * @return
-     */
-    public boolean validateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal){
-        return true;
+    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){
+        return clinicalnAlysisLaboratoryStore;
     }
+
 
     /**
      *
@@ -103,13 +106,5 @@ public class Company {
         return new ClinicalAnalysisLaboratory(name,address,phoneNumber,tin,laboratoryId,listOfTestTypes);
     }
 
-    /**
-     *
-     * @param cal
-     * @return
-     */
-    public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal){
-        return true;
-    }
 
 }

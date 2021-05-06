@@ -147,7 +147,7 @@ public class TestType {
             parameterCategories.append("\n");
         }
 
-        return String.format("Test Type: %s\nCode: %s\nCollecting Method: %s\nParameter Categories:\n%s",description,code,collectingMethod,parameterCategories);
+        return String.format("Test Type: %s%nCode: %s%nCollecting Method: %s%nParameter Categories:%n%s",description,code,collectingMethod,parameterCategories);
     }
 
 

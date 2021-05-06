@@ -17,7 +17,6 @@ class Company{
 
 class ClinicalAnalysisLaboratory {
   -String laboratoryId
-  +IfNotBloodTest(obj)
   +create (calDTO))
 
 
@@ -46,6 +45,10 @@ class ClinicalAnalysisLaboratoryMapper {
    +toDTO(listTestType)
 }
 
+class TestTypeMapper {
+   +toDTO(listTestType)
+}
+
 
 class ClinicalAnalysisLaboratoryDTO {
   -String name
@@ -54,9 +57,26 @@ class ClinicalAnalysisLaboratoryDTO {
   -int tin
   -String laboratoryId
   +create (name, address, phoneNumber , TIN ,\nlaboratoryId,selectedTestTypesList)
-
-
 }
+
+class TestType{
+  -String code
+  -String description
+  -String collectingMethod
+  -List<ParameterCategories> listOfParameterCategories
+  +TestType(code,description,collectingMethod,listOfParameterCategories)
+}
+
+class TestTypeDTO{
+  -String code
+  -String description
+  -String collectingMethod
+  -List<ParameterCategories> listOfParameterCategories
+  +TestType(code,description,collectingMethod,listOfParameterCategories)
+}
+
+
+
 
 
 
@@ -66,10 +86,13 @@ CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryDTO
 CreateClinicalAnalysisLaboratoryController ..> Company
 CreateClinicalAnalysisLaboratoryController ...> TestTypeStore
 CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryMapper
+CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryStore
+CreateClinicalAnalysisLaboratoryController ..> TestTypeMapper
 ClinicalAnalysisLaboratoryStore"1" --> "1" ClinicalAnalysisLaboratory : conducts
 Laboratory  <|- ClinicalAnalysisLaboratory
 ClinicalAnalysisLaboratoryMapper ..> ClinicalAnalysisLaboratoryDTO
 ClinicalAnalysisLaboratoryMapper ...> ClinicalAnalysisLaboratory
 Company "1" --> "1" ClinicalAnalysisLaboratoryStore : uses
-
+TestTypeStore "1" --> "*" TestType : conducts
+TestTypeMapper --> TestTypeDTO
 @enduml

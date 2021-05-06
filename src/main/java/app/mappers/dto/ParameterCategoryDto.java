@@ -41,4 +41,13 @@ public class ParameterCategoryDto {
     public String getName() {
         return name;
     }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString(){
+        return String.format("<Parameter Category> %s - <Code> %s",name,code);
+    }
 }
