@@ -1,11 +1,9 @@
 package app.ui.console;
 
 import app.controller.CreateParameterCategoryController;
-import app.controller.CreateTestTypeController;
-import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;
 
-import java.lang.reflect.Parameter;
+
 
 /**
  *
@@ -30,14 +28,14 @@ public class CreateParameterCategoryUI implements Runnable {
      */
     @Override
     public void run() {
-        System.out.printf("\nCreating a new Parameter Category\n");
+        System.out.printf("%nCreating a new Parameter Category%n");
         createParameterCategory();
 
     }
 
     public void createParameterCategory(){
 
-        System.out.printf("\nEnter the following data about the parameter category you want to create\n");
+        System.out.printf("%nEnter the following data about the parameter category you want to create%n");
 
         String code = Utils.readLineFromConsole("Code: ");
         String name = Utils.readLineFromConsole("Name: ");

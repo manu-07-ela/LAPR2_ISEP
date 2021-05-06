@@ -28,7 +28,7 @@ public class CreateTestTypeUI implements Runnable {
     @Override
     public void run(){
 
-        System.out.printf("\nCreating a new test type\n");
+        System.out.printf("%nCreating a new test type%n");
         createTestType();
 
     }
@@ -38,7 +38,7 @@ public class CreateTestTypeUI implements Runnable {
      */
     public void createTestType(){
 
-        System.out.printf("\nEnter the following data about the type of test you want to create\n");
+        System.out.printf("%nEnter the following data about the type of test you want to create%n");
         String code = Utils.readLineFromConsole("Code: ");
         String description = Utils.readLineFromConsole("Description: ");
         String collectingMethod = Utils.readLineFromConsole("Collecting Method: ");

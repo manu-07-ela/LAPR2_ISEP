@@ -28,9 +28,23 @@ public class ParameterCategoryTest {
     }
 
     @Test
-    public void ensureCodeMeetsAC2_4() {
-        ParameterCategory pc = new ParameterCategory("1f5dc", "Category");
+    public void ensureCodeAndNameMeetsAC() {
+        ParameterCategory pc = new ParameterCategory("1f5dc", "CategoryPa");
         Assert.assertNotNull(pc);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureNameMeetsAC1_1() {
+        ParameterCategory pc = new ParameterCategory("aB3d5", "Parameter Category");
+    }
+
+    @Test
+    public void equalParameterCategories(){
+        ParameterCategory pc1 = new ParameterCategory("1f5dc", "CategoryPa");
+        ParameterCategory pc2 = new ParameterCategory("1f5dc", "Category");
+        Assert.assertEquals(pc1,pc2);
+    }
+
+
 
 }

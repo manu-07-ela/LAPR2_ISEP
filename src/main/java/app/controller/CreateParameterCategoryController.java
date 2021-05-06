@@ -4,8 +4,6 @@ import app.domain.model.Company;
 import app.domain.model.ParameterCategory;
 import app.domain.store.ParameterCategoryStore;
 
-import java.util.List;
-
 /**
  * The Create Parameter Category Controller.
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
