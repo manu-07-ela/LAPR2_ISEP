@@ -2,10 +2,11 @@ package app.domain.model;
 import auth.domain.model.Email;
 import auth.domain.model.Password;
 public class Employee {
+
     String name;
     Email email;
     Password id;
-    String adress;
+    String address;
     float phoneNumber;
     String employeeId;
     String socCode;
@@ -28,7 +29,7 @@ public class Employee {
         this.name = name;
         this.email = email;
         this.id = id;
-        this.adress = adress;
+        this.address = adress;
         this.phoneNumber = phoneNumber;
         //how to get the inicials of employee
         this.socCode = socCode;
@@ -61,12 +62,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public float getPhoneNumber() {

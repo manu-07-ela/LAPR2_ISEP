@@ -48,6 +48,14 @@
 >
 > [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7668#p10201) For now, I do not want such a feature.
 
+>_**Question:**_  Is there any size limit to the employee's name?
+> 
+> [_**Answer**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7973#p10536) Employee Name: "a string with no more than 35 characters".
+
+> _**Question:**_ When registering a new employee should the administrator write or select his role?
+> 
+> [_**Answer**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7863#p10541) The administrator should write the role when he is registering a new employee.
+
 ### 1.3. Acceptance Criteria
 - *_AC1:_* Each user must have a single role defined in the System. 
 - *_AC2:_* The "auth" component available on the repository must be reused (without modifications).
@@ -58,7 +66,7 @@
 - *_AC7:_* Soc number must have 4 digits.
 - *_AC7:_* The Organization role must have maximum 15 characters.
 - *_AC8:_* When the application is used for the first time, it must contain at least one administrator registered in the system.
-
+- *_AC9:_* The Employee name has maximum 35 characters.
 
 ### 1.4. Found out Dependencies
 - The "Auth" component
@@ -72,10 +80,9 @@
     * a phone number,
     * an email,
     * a SOC code,
-    * the doctor index number
-
-* Selected data:
-    * organization role
+    * the doctor index number,
+    * the organization role
+   
   
 * Automatically generated data:
   * employee id 
@@ -120,12 +127,12 @@
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |... interacting with the actor? |RegisterEmployeeUI| Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.|
-| Step 2  		 |... coordinating the US?|RegisterEmployeeController| Controller|
-| Step 3  		 |...knowing who is responsible for creating employee instances?|Company|Creator(R1)|
-| Step 4  		 |... creates Employee instances?|EmployeeStore|HC+LC on the Company. By HC / LC the Company delegates these responsibilities in EmployeeStore.                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Step 1 |... interacting with the actor? |RegisterEmployeeUI| Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.|
+|		 |... coordinating the US?|RegisterEmployeeController| Controller|
+|		 |...knowing who is responsible for creating employee instances?|Company|Creator(R1)|
+| 		 |... creates Employee instances?|EmployeeStore|HC+LC on the Company. By HC / LC the Company delegates these responsibilities in EmployeeStore.                              |
+|  		 |							 |             |                              |
+|  		 |							 |             |                              |              
 
 ### Systematization ##
 

@@ -11,10 +11,15 @@ class SpecialistDoctor
 class OrganizationRoleMapper
 class EmployeeDTO
 class EmployeeMapper
+class OrganizationRoleStore
+class EmployeeDTO
+class EmployeeMapper
+
 
 class Company{
 -designation
 +getEmployeeStore()
++getOrgRolesStore()
 
 }
 
@@ -25,12 +30,12 @@ class Employee{
 -email
 -employeeId
 -socCode
-+Employee(name adress, phoneNumber, email, socCode)
++Employee(name address, phoneNumber, email, socCode)
 
 }
 class SpecialistDoctor{
 -doctorIndexNumber
-+SpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)
++SpecialistDoctor(name address, phoneNumber, email, socCode, doctorIndexNumber)
 
 }
 
@@ -42,15 +47,18 @@ class OrganizationRole{
 
 
 class EmployeeStore{
-+createEmployee(name adress, phoneNumber, email, socCode)
-+createSpecialistDoctor(name adress, phoneNumber, email, socCode, doctorIndexNumber)
++createEmployee(empDto)
++createSpecialistDoctor(empDto)
++validateEmployee(emp)
++addEmployee(emp)
++saveEmployee(emp)
 }
 
 class RegisterEmployeeController{
-+getListOrganizationRoles()
-+createOrganizationRole()
-+createSpecialistDoctor()
-+createEmployee()
++getListOfOrgRoles()
++createOrganizationRole(orgRoleDto)
++createSpecialistDoctor(empDto)
++createEmployee(empDto)
 +saveEmployee()
 
 }
@@ -74,19 +82,43 @@ class EmployeeDTO{
 }
 
 class EmployeeMapper{
-+toEmployee(employeeDto)
++createSpecialistDoctor(empDto)
++createEmployee(empDto)
+}
+
+
+class EmployeeDto{
++getName()
++getAddress()
++getPhoneNumber()
++getSocCode()
++getDoctorIndexNumber()
 }
 
 class OrganizationRoleMapper{
-+toDTO(orgRole)
-+toOrganizationRole(orgRoleDto)
++toOrgRole(orgRoleDto)
+
 }
 
 class OrganizationRoleDto{
 -designation
-+OrganizationRoleDto(designation)
++getDesignationDto()
+}
+class OrganizationRoleDto{
++getDesignationSto()
+
 }
 
+class OrganizationRoleMapper{
+-listOrgRolesDto
++toOrganizationRole(orgRoleDto)
+}
+
+class OrganizationRoleStore{
+-listOrgRole
++getListOfOrgRoles()
++createOrganizationRole(orgRoleDto)
+}
 EmployeeMapper..>Employee
 EmployeeDTO..>EmployeeMapper
 Company "1"-->"1" EmployeeStore : uses
@@ -95,7 +127,8 @@ RegisterEmployeeController ..>Company
 Employee --* OrganizationRole
 RegisterEmployeeUI ..> RegisterEmployeeController
 EmployeeStore "1"-->"*" Employee  : knows
-
+Company "1"-->"1" OrganizationRoleStore : uses
+OrganizationRoleStore "1"---->"1..*" OrganizationRole : adopts
 OrganizationRoleMapper..>OrganizationRole
 OrganizationRoleDto..>OrganizationRoleMapper
 @enduml
