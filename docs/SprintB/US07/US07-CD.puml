@@ -73,10 +73,8 @@ class EmployeeDTO{
 +EmployeeDTO(name, adress, phoneNumber, email, socCode, doctorIndexNumber)
 +EmployeeDTO(name, adress, phoneNumber, email, socCode)
 +getName()
-+getAdress()
-+getphoneNumber()
-+getEmail()
-+getEmployeeId()
++getAddress()
++getPhoneNumber()
 +getSocCode()
 +getDoctorIndexNumber()
 }
@@ -87,13 +85,7 @@ class EmployeeMapper{
 }
 
 
-class EmployeeDto{
-+getName()
-+getAddress()
-+getPhoneNumber()
-+getSocCode()
-+getDoctorIndexNumber()
-}
+
 
 class OrganizationRoleMapper{
 +toOrgRole(orgRoleDto)

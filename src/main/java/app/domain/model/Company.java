@@ -37,6 +37,7 @@ public class Company {
      *
      * @param designation
      */
+
     public Company(String designation) {
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
