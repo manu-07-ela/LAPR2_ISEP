@@ -30,6 +30,13 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
         this.laboratoryId=laboratoryId;
         this.listOfTestTypes=listOfTestTypes;
     }
+
+    public ClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory obj){
+        super(obj.getName(), obj.getAddress(), obj.getPhoneNumber(), obj.getTin());
+        laboratoryIdValidation(obj.getLaboratoryId());
+        this.laboratoryId= obj.getLaboratoryId();
+        this.listOfTestTypes= obj.getListOfTestTypes();
+    }
     /**
      *
      * @return
