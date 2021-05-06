@@ -6,8 +6,9 @@ participant ":CreateClinicalAnalysisLaboratoryUI" as UI
 participant ":CreateClinicalAnalysisLaboratoryController" as CTRL
 participant ": Company" as Comp
 participant "store: TestTypeStore" as TTS
-participant "cal: ClinicalAnalysisLaboratory" as CAL
 participant ":ClinicalAnalysisLaboratoryMapper" as Mapper
+participant "store: ClinicalAnalysisLaboratoryStore" as CALStore
+participant "cal: ClinicalAnalysisLaboratory" as CAL
 participant "DTO:ClinicalAnalysisLaboratoryDTO" as CALDTO
 
 activate ADM
@@ -32,6 +33,8 @@ loop for each object in TestTypeList
 Mapper -> "listTestType:List<TestType>" : obj= get(i)
 activate "listTestType:List<TestType>"
 deactivate "listTestType:List<TestType>"
+Mapper -> CAL : c = IfNotBloodTest(obj)
+alt c==true
 Mapper -> Mapper : objDTO = toDTO(obj)
 activate Mapper
 Mapper -> "objDTO : TestTypeDTO"** : create()
@@ -40,7 +43,8 @@ Mapper -> "TestTypeListDTO:List<TestTypeDTO>" : add(objDTO)
 activate "TestTypeListDTO:List<TestTypeDTO>"
 deactivate "TestTypeListDTO:List<TestTypeDTO>"
 end
-Mapper --> CTRL : TestTypeListDTODTO
+end
+Mapper --> CTRL : TestTypeListDTO
 deactivate Mapper
 CTRL --> UI : TestTypeListDTO
 deactivate CTRL
@@ -62,11 +66,14 @@ activate CTRL
 
 
 
-
-CTRL -> Comp: cal = createClinicalAnalysisLaboratory(calDTO)
+CTRL -> Comp : store = getClinicalAnalysisLaboratoryStore()
 activate Comp
 |||
-Comp -> CAL**: create (calDTO)
+deactivate Comp
+CTRL -> CALStore: cal = createClinicalAnalysisLaboratory(calDTO)
+activate CALStore
+CALStore -> CAL : create(calDTO)
+deactivate CALStore
 deactivate Comp
 activate CAL
 CAL -> CALDTO : name=getname()
@@ -98,9 +105,9 @@ deactivate CAL
 
 
 
-CTRL -> Comp : validateClinicalAnalysisLaboratory(cal)
-activate Comp
-deactivate Comp
+CTRL -> CALStore : validateClinicalAnalysisLaboratory(cal)
+activate CALStore
+deactivate CALStore
 deactivate CTRL
 
 UI --> ADM: shows all data and requests confirmation
@@ -112,16 +119,17 @@ activate UI
 UI -> CTRL : saveClinicalAnalysisLaboratory()
 activate CTRL
 
-CTRL -> Comp : saveClinicalAnalysisLaboratory(cal)
-activate Comp
+CTRL -> CALStore : saveClinicalAnalysisLaboratory(cal)
+activate CALStore
 
-Comp -> Comp: validateClinicalAnalysisLaboratory(cal)
-activate Comp
-deactivate Comp
-Comp -> Comp: addClinicalAnalysisLaboratory(cal)
-activate Comp
-deactivate Comp
-deactivate Comp
+CALStore -> CALStore: validateClinicalAnalysisLaboratory(cal)
+activate CALStore
+deactivate CALStore
+
+CALStore -> CALStore: addClinicalAnalysisLaboratory(cal)
+activate CALStore
+deactivate CALStore
+deactivate CALStore
 
 CTRL --> UI : result
 
