@@ -30,8 +30,8 @@ class TestTypeStore{
 }
 
 class ParameterCategoryStore{
-+getParameterCategories()
-+getParameterCategorybyCode()
++List<ParameterCategory> getParameterCategoryList()
++ParameterCategory getParameterCategorybyCode()
 }
 
 class ParameterCategoryMapper{
@@ -40,6 +40,7 @@ class ParameterCategoryMapper{
 
 class ParameterCategoryDto{
 + String name
++ String code
 }
 
 class ParameterCategory{
@@ -54,7 +55,8 @@ CreateTestTypeController ..> TestTypeStore
 CreateTestTypeController ..> ParameterCategoryStore
 CreateTestTypeController ..> ParameterCategoryDto
 Company"1"--> "1" TestTypeStore : uses
-TestTypeStore "1"-->"*" TestType : conducts
+Company"1"--> "1" ParameterCategoryStore : uses
+TestTypeStore "1"-->"*" TestType : contains
 ParameterCategoryMapper ..> ParameterCategoryDto
 ParameterCategoryMapper ..> ParameterCategory
 ParameterCategoryStore "1"--> "1..*"ParameterCategory : contains

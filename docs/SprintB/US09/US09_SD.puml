@@ -28,7 +28,7 @@ activate CTRL
 CTRL -> Comp : storeParameterCategory = getParameterCategoryStore()
 activate Comp
 deactivate Comp
-CTRL -> PCS : lParameterCategories=getParameterCategories()
+CTRL -> PCS : lParameterCategories= getParameterCategoryList()
 activate PCS
 deactivate PCS
 CTRL -> MAPPER : listParameterCategoryDto = toDto(lParameterCategories)

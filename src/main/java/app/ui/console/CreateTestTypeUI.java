@@ -25,7 +25,7 @@ public class CreateTestTypeUI implements Runnable {
      */
     public void run(){
 
-        System.out.printf("\nEnter the following data:\n");
+        System.out.printf("\nCreating a new test type\n");
 
     }
 
