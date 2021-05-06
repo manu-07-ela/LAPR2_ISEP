@@ -131,7 +131,7 @@ public class TestType {
 
         TestType otherTestType = (TestType) o;
 
-        return this.getCode().equals(otherTestType.getCode());
+        return this.getCode().equals(otherTestType.getCode()) || (this.getDescription().equalsIgnoreCase(otherTestType.getDescription()) && !this.getCode().equals(otherTestType.getCode()) );
     }
 
     /**
@@ -143,7 +143,7 @@ public class TestType {
 
         StringBuilder parameterCategories = new StringBuilder();
         for (ParameterCategory pc : listOfParameterCategories) {
-            parameterCategories.append(pc);
+            parameterCategories.append(pc.getName());
             parameterCategories.append("\n");
         }
 

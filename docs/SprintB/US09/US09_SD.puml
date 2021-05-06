@@ -28,7 +28,7 @@ activate CTRL
 CTRL -> Comp : storeParameterCategory = getParameterCategoryStore()
 activate Comp
 deactivate Comp
-CTRL -> PCS : lParameterCategories=getParameterCategories()
+CTRL -> PCS : lParameterCategories= getParameterCategoryList()
 activate PCS
 deactivate PCS
 CTRL -> MAPPER : listParameterCategoryDto = toDto(lParameterCategories)
@@ -57,7 +57,7 @@ activate Comp
 deactivate Comp
 CTRL -> str : testType = createTestType(code,description,collectingMethod,listOfParameterCategories)
 activate str
-str -> TT** : create(code,description,collectingMethod,listOfParameterCategories)
+str --> TT** : create(code,description,collectingMethod,listOfParameterCategories)
 deactivate str
 str-> str : validateTestType(testType)
 activate str

@@ -65,22 +65,16 @@ UI -> CTRL : createParameter(code, shortName, description, selectedCategory)
 activate CTRL
 CTRL -> STORE : t = createParameter(code,shortName,description,selectedCategory)
 activate STORE
-STORE -> PRMT** : createParameter(code,shortName,description,categoryCode)
+STORE -> PRMT** : createParameter(code,shortName,description,selectedCategory)
 deactivate STORE
 CTRL -> STORE : validateParameterData(p)
 activate STORE
-STORE -> STORE : validateParameterExistence(p)
+STORE -> STORE : validateParameterData(p)
 activate STORE
 deactivate STORE
 deactivate STORE
 
-CTRL -> STORE : getParameterData(p)
-activate STORE
-STORE -> PRMT : shortName = getParameterByShortName(p)
-activate PRMT
-STORE -> PRMT : code = getParameterByCode(p)
-STORE -> PRMT : category = getParameterByCategory(p)
-deactivate PRMT
+
 deactivate CTRL
 deactivate STORE
 UI --> ADM : shows all data and asks for confirmation

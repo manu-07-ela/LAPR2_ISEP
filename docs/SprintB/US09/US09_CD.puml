@@ -1,7 +1,8 @@
 @startuml
 
 class Company{
-+getTypeTestStore()
+-String designation
++getTestTypeStore()
 +getParameterCategoryStore()
 }
 
@@ -9,8 +10,8 @@ class CreateTestTypeUI{
 }
 
 class CreateTestTypeController{
-+createTestType(code,description,collecting method,selectedParameterCategoriesList)
-+saveTestType()
++boolean createTestType(code,description,collecting method,selectedParameterCategoriesList)
++boolean saveTestType()
 +List<ParameterCategoryDto> getParameterCategories()
 }
 
@@ -30,16 +31,20 @@ class TestTypeStore{
 }
 
 class ParameterCategoryStore{
-+getParameterCategories()
-+getParameterCategorybyCode()
++List<ParameterCategory> getParameterCategoryList()
++ParameterCategory getParameterCategorybyCode()
 }
 
 class ParameterCategoryMapper{
++List<ParameterCategoryDto> toDto (List<ParameterCategory> parameterCategories)
++ParameterCategoryDto toDto(ParameterCategory parameterCategory
 }
 
 
 class ParameterCategoryDto{
 + String name
++ String code
++ ParameterCategoryDto(code,name)
 }
 
 class ParameterCategory{
@@ -54,9 +59,10 @@ CreateTestTypeController ..> TestTypeStore
 CreateTestTypeController ..> ParameterCategoryStore
 CreateTestTypeController ..> ParameterCategoryDto
 Company"1"--> "1" TestTypeStore : uses
+Company"1"--> "1" ParameterCategoryStore : uses
 TestTypeStore "1"-->"*" TestType : conducts
 ParameterCategoryMapper ..> ParameterCategoryDto
 ParameterCategoryMapper ..> ParameterCategory
-ParameterCategoryStore "1"--> "1..*"ParameterCategory : contains
-
+ParameterCategoryStore "1"--> "*"ParameterCategory : adopts
+TestType "*"--"1..*" ParameterCategory : has a set of >
 @enduml
