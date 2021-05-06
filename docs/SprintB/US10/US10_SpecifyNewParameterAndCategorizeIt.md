@@ -76,6 +76,14 @@ for the second option this would mean that the Admin will have duplicate work: (
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7888) You should always ask the category of each parameter.
 
+> **Question:** Is the code of a parameter the same as its respective category? Or can they be different?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041)
+
+> **Question:** Will the administrator give the reference values for the new parameter?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041)
+
 > **Question:**
 >
 > [**Awnser:**]()

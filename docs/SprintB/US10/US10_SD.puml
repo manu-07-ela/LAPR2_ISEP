@@ -23,7 +23,7 @@ ADM -> UI: starts new parameter
 activate UI
 UI -> CTRL : listParameterCategoryDto = getListParameterCategoryDto()
 activate CTRL
-CTRL -> COMP : store = getParameterCategoriesStore()
+CTRL -> COMP : store = getParameterCategoryStore()
 activate COMP
 deactivate COMP
 CTRL -> PCSTORE : listParameterCategory = getListOfParameterCategory()
@@ -34,7 +34,6 @@ activate COMP
 COMP -> MAPPER : toDTO(listParameterCategory)
 deactivate COMP
 activate MAPPER
-
 loop for each object in listParameterCategory
 MAPPER -> LISTPC : ParameterCategory = getParameterCategories(i)
 activate LISTPC
@@ -49,14 +48,8 @@ end
 MAPPER --> CTRL : listParameterCategoryDto
 deactivate MAPPER
 deactivate CTRL
-
-
-
 UI --> ADM : shows the categories available
 deactivate UI
-
-
-
 
 
 
@@ -64,37 +57,34 @@ ADM -> UI: inserts the category(selectedCategory)
 activate UI
 UI--> ADM : request data (code, shortName, description)
 deactivate UI
-ADM -> UI : types request data
 
+
+ADM -> UI : types request data
 activate UI
 UI -> CTRL : createParameter(code, shortName, description, selectedCategory)
 activate CTRL
-
 CTRL -> STORE : t = createParameter(code,shortName,description,selectedCategory)
 activate STORE
 STORE -> PRMT** : createParameter(code,shortName,description,categoryCode)
 deactivate STORE
-CTRL -> STORE : ValidateParameter(p)
+CTRL -> STORE : validateParameterData(p)
 activate STORE
-STORE -> STORE : validateParameter(p)
+STORE -> STORE : validateParameterExistence(p)
 activate STORE
+deactivate STORE
 deactivate STORE
 
 CTRL -> STORE : getParameterData(p)
-STORE -> PRMT : code = getParameterByCode(p)
+activate STORE
+STORE -> PRMT : shortName = getParameterByShortName(p)
 activate PRMT
+STORE -> PRMT : code = getParameterByCode(p)
 STORE -> PRMT : category = getParameterByCategory(p)
 deactivate PRMT
-
 deactivate CTRL
 deactivate STORE
 UI --> ADM : shows all data and asks for confirmation
 deactivate UI
-
-
-
-
-
 
 
 
@@ -104,6 +94,9 @@ UI -> CTRL : saveParameter()
 activate CTRL
 CTRL -> STORE : saveParameter(p)
 activate STORE
+STORE -> STORE : validateParameterExistence(p)
+activate STORE
+deactivate STORE
 STORE ->STORE : addParameter(p)
 activate STORE
 deactivate STORE
