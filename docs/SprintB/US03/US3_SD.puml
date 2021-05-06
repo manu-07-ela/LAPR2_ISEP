@@ -12,23 +12,23 @@ participant "cl: Client" as CL
 activate REP
 REP -> UI : asks to register a client in the application
 activate UI
-UI --> REP : requests data (citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+UI --> REP : requests data (name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
 deactivate UI
 
 REP -> UI : types requested data
 activate UI
 
-UI -> CTRL : createClient(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+UI -> CTRL : createClient(dto)
 activate CTRL
 
 CTRL -> COMP : store =getClientStore()
 activate COMP
 deactivate COMP
 
-CTRL -> CS : cl=createClient(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+CTRL -> CS : cl=createClient(dto)
 activate CS
 
-CS -> CL** : create(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+CS -> CL** : create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
 deactivate CS
 CTRL -> CS : validateClient(cl)
 activate CS
@@ -38,6 +38,7 @@ deactivate CTRL
 UI --> REP : shows all data and requests confirmation
 deactivate COMP
 deactivate UI
+note over COMP: dto has all the required data(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
 
 REP -> UI : confirms the data
 activate UI

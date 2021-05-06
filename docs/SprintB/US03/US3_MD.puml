@@ -9,14 +9,14 @@ class Receptionist {
 }
 
 class Client {
-  -citizen card number
-  -NHS number
-  -birth date
-  -sex
-  -TIF
-  -phone number
-  -e-mail
   -name
+  -citizencardnumber
+  -nhs
+  -date
+  -sex
+  -tin
+  -phonenumber
+  -email
 }
 
 class Email {

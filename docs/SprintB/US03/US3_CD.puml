@@ -10,7 +10,7 @@ class Client {
   -int phone number
   -String e-mail
   -String name
-  +Client(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+  +Client(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
 }
 
 class Company {
@@ -18,7 +18,7 @@ class Company {
 }
 
 class ClientStore {
-  +createClient(citizen card number, NHS number,\n birth date, sex, TIF, phone number, e-mail, name)
+  +createClient(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
   +validateClient(cl)
   +saveClient(cl)
   +addClient(cl)
