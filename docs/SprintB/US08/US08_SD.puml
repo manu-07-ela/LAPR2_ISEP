@@ -6,10 +6,12 @@ participant ":CreateClinicalAnalysisLaboratoryUI" as UI
 participant ":CreateClinicalAnalysisLaboratoryController" as CTRL
 participant ": Company" as Comp
 participant "store: TestTypeStore" as TTS
-participant ":ClinicalAnalysisLaboratoryMapper" as Mapper
+participant ":TestTypeMapper" as MapperTT
 participant "store: ClinicalAnalysisLaboratoryStore" as CALStore
-participant "cal: ClinicalAnalysisLaboratory" as CAL
+participant ":ClinicalAnalysisLaboratoryMapper" as MapperCal
 participant "DTO:ClinicalAnalysisLaboratoryDTO" as CALDTO
+participant "cal: ClinicalAnalysisLaboratory" as CAL
+participant "t: TestType" as TT
 
 activate ADM
 ADM -> UI : asks to create a new Clinical Analysis Laboratory
@@ -17,6 +19,7 @@ activate UI
 UI -> CTRL : getTestTypeList()
 activate CTRL
 
+CTRL -> Comp : store=getClinicalAnalysisLaboratoryStore
 CTRL -> TTS : getTestTypeList()
 activate TTS
 TTS -> "listTestType:List<TestType>"** : get()
@@ -26,35 +29,32 @@ TTS -> "listTestType:List<TestType>"** : get()
 TTS --> CTRL : listTestType
 deactivate TTS
 
-CTRL -> Mapper :toDTO(listTestType)
-activate Mapper
-Mapper --> "TestTypeListDTO:List<TestTypeDTO>"** :create()
+CTRL -> MapperTT :toDTO(listTestType)
+activate MapperTT
+MapperTT --> "TestTypeListDTO:List<TestTypeDTO>"** :create()
 loop for each object in TestTypeList
-Mapper -> "listTestType:List<TestType>" : obj= get(i)
+MapperTT -> "listTestType:List<TestType>" : obj= get(i)
 activate "listTestType:List<TestType>"
 deactivate "listTestType:List<TestType>"
-Mapper -> CAL : c = IfNotBloodTest(obj)
-alt c==true
-Mapper -> Mapper : objDTO = toDTO(obj)
-activate Mapper
-Mapper -> "objDTO : TestTypeDTO"** : create()
-deactivate Mapper
-Mapper -> "TestTypeListDTO:List<TestTypeDTO>" : add(objDTO)
+MapperTT -> MapperTT : objDTO = toDTO(obj)
+activate MapperTT
+MapperTT -> "objDTO : TestTypeDTO"** : create()
+deactivate MapperTT
+MapperTT -> "TestTypeListDTO:List<TestTypeDTO>" : add(objDTO)
 activate "TestTypeListDTO:List<TestTypeDTO>"
 deactivate "TestTypeListDTO:List<TestTypeDTO>"
 end
-end
-Mapper --> CTRL : TestTypeListDTO
-deactivate Mapper
+MapperTT --> CTRL : TestTypeListDTO
+deactivate MapperTT
 CTRL --> UI : TestTypeListDTO
 deactivate CTRL
-
+loop while user selects TestTypes
 UI --> ADM : shows a TestType list and ask to choose the ones intended
 deactivate UI
 
-ADM -> UI : selects the TestTypes intended
+ADM -> UI : select a TestType
 activate UI
-
+end
 UI --> ADM : requests data (name, address, phoneNumber , TIN, laboratoryId)
 deactivate UI
 
@@ -72,36 +72,37 @@ activate Comp
 deactivate Comp
 CTRL -> CALStore: cal = createClinicalAnalysisLaboratory(calDTO)
 activate CALStore
-CALStore -> CAL : create(calDTO)
+CALStore -> MapperCal : create(calDTO)
 deactivate CALStore
 deactivate Comp
-activate CAL
-CAL -> CALDTO : name=getname()
+activate MapperCal
+MapperCal -> CALDTO : name=getname()
 activate CALDTO
 deactivate CALDTO
 
-CAL -> CALDTO : address=getaddress()
+MapperCal -> CALDTO : address=getaddress()
+activate CALDTO
+deactivate CALDTO
+MapperCal -> CALDTO : phoneNumber=getphoneNumber()
 activate CALDTO
 deactivate CALDTO
 
-CAL -> CALDTO : phoneNumber=getphoneNumber()
+MapperCal -> CALDTO : TIN=getTIn()
 activate CALDTO
 deactivate CALDTO
 
-CAL -> CALDTO : TIN=getTIn()
+MapperCal -> CALDTO : laboratoryId=getlaboratoryId()
 activate CALDTO
 deactivate CALDTO
 
-CAL -> CALDTO : laboratoryId=getlaboratoryId()
+MapperCal -> CALDTO : listOfTestTypes=getlistOfTestTypes()
 activate CALDTO
 deactivate CALDTO
 
-CAL -> CALDTO : listOfTestTypes=getlistOfTestTypes()
-activate CALDTO
-deactivate CALDTO
+MapperCal -> CAL** : create (name, address, phoneNumber , TIN ,laboratoryId,selectedTestTypesList)
 
 
-deactivate CAL
+deactivate MapperCal
 
 
 
