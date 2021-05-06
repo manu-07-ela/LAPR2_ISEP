@@ -1,5 +1,4 @@
 @startuml
-skinparam classAttributeIconSize 0
 
 class CreateParameterUI{
 +getListParameterDto()
@@ -12,7 +11,7 @@ class CreateParameterController{
 +getListOfParameterCategory
 +toDto()
 +createParameter(code,shortName,description,selectedCategory)
-+validateParameter(p)
++validateParameterData(p)
 +saveParameter(p)
 }
 
@@ -23,28 +22,29 @@ class Company{
 -address
 -headquarters
 --
-+getParameterStore()
-+getParameterCategoryStore()
 +toDto(listParameterCategory)
 }
 
 class ParameterStore {
 +createParameter(code,shortName,description,selectedCategory)
++getParameterByShortName(p)
 +getParameterByCode(p)
 +getParameterByCategory(p)
++validateParameterExistence(p)
 +addParameter(p)
+
+List<ParameterCategory> listParameterCategory
+
 }
 
 class ParameterCategoryStore {
-+getParameterCategories()
-+getParameterCategoryByCode()
++getListOfParameterCategory()
 }
 
 class Parameter{
 - int code
 - String shortName
 - String description
-+ create(code,shortName,description,selectedCategory)
 }
 
 class ParameterCategory{
@@ -58,13 +58,18 @@ class ParameterCategoryMapper{
 +toParameterCategoryDto(ParameterCategory)
 +addParameterCategory(ParameterCategoryDto)
 
+parameterCategoryDto : ParameterCategoryDto
+List<ParameterCategoryDto> listParameterCategoryDto
+
 }
 
 
 CreateParameterUI --> CreateParameterController
 CreateParameterController --> Company
 CreateParameterController --> ParameterCategoryMapper : uses
+CreateParameterController ..> ParameterCategoryStore : uses
 Company "1" --> "1" ParameterStore : uses
+Company "1" --> "1" ParameterCategoryMapper
 Company "1" --> "1" ParameterCategoryStore : uses
 ParameterStore --> Parameter : Capable of analyzing
 ParameterCategoryStore "1" --> "*" ParameterCategory : adopts
