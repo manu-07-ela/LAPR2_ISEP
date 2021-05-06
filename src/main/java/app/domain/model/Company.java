@@ -48,8 +48,8 @@ public class Company {
     }
 
     /**
-     *
-     * @return
+     * Get the company designation.
+     * @return The company designation.
      */
     public String getDesignation() {
         return designation;

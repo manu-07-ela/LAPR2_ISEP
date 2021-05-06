@@ -12,7 +12,7 @@ public class TestTypeTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureNullsNotAllowed(){
+    public void checkNullsNotAllowed(){
         TestType tt = new TestType(null,null,null,null);
     }
 
