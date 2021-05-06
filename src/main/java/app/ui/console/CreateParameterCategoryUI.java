@@ -35,22 +35,32 @@ public class CreateParameterCategoryUI implements Runnable {
 
     public void createParameterCategory(){
 
-        System.out.printf("%nEnter the following data about the parameter category you want to create%n");
 
-        String code = Utils.readLineFromConsole("Code: ");
-        String name = Utils.readLineFromConsole("Name: ");
+        boolean dadosInvalidos=true;
 
-        createParameterCategoryctrl.createParameterCategory(code,name);
+        do{
+            try{
+                System.out.printf("%nEnter the following data about the parameter category you want to create%n");
 
-        System.out.printf("Do you want to create a Parameter Category with the code %s and name %s",code,name);
+                String code = Utils.readLineFromConsole("Code: ");
+                String name = Utils.readLineFromConsole("Name: ");
+                createParameterCategoryctrl.createParameterCategory(code,name);
+                dadosInvalidos=false;
+                System.out.printf("Do you want to create a Parameter Category with the code %s and name %s",code,name);
 
-        String resposta = Utils.readLineFromConsole("S/N:");
+                String resposta = Utils.readLineFromConsole("S/N:");
 
-        if(resposta.equalsIgnoreCase("S")){
-            if(createParameterCategoryctrl.saveTestType()){
-                System.out.println("The parameter category was created successfully");
+                if(resposta.equalsIgnoreCase("S")){
+                    if(createParameterCategoryctrl.saveTestType()){
+                        System.out.println("The parameter category was created successfully");
+                    }
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.printf("%nMessage: %s%n" ,e.getMessage());
             }
-        }
+        } while (dadosInvalidos);
+
+
 
     }
 }

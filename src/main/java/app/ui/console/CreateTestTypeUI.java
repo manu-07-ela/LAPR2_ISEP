@@ -38,15 +38,22 @@ public class CreateTestTypeUI implements Runnable {
      */
     public void createTestType(){
 
-        System.out.printf("%nEnter the following data about the type of test you want to create%n");
-        String code = Utils.readLineFromConsole("Code: ");
-        String description = Utils.readLineFromConsole("Description: ");
-        String collectingMethod = Utils.readLineFromConsole("Collecting Method: ");
+        boolean dadosInvalidos=true;
 
-        Utils.showList(createTestTypectrl.getParameterCategories(),"Choose the category of parameters associated with the test type");
+        do{
+            try {
+                System.out.printf("%nEnter the following data about the type of test you want to create%n");
+                String code = Utils.readLineFromConsole("Code: ");
+                String description = Utils.readLineFromConsole("Description: ");
+                String collectingMethod = Utils.readLineFromConsole("Collecting Method: ");
 
-        Utils.selectsObject(createTestTypectrl.getParameterCategories());
+                Utils.showList(createTestTypectrl.getParameterCategories(),"Choose the category of parameters associated with the test type");
 
+                Utils.selectsObject(createTestTypectrl.getParameterCategories());
+            } catch (IllegalArgumentException e){
+                System.out.printf("%nMessage: %s%n" ,e.getMessage());
+            }
+        } while (dadosInvalidos);
     }
 
 }
