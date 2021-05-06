@@ -50,10 +50,11 @@ public class TestTypeStore {
 
     /**
      * Adds a new test type to the List.
-     * @param testType
+     * @param testType The type of test we intend to add.
+     * @return true if the test type was added. Otherwise, false.
      */
-    public void addTestType(TestType testType) {
-        testTypeList.add(testType);
+    public boolean addTestType(TestType testType) {
+        return testTypeList.add(testType);
     }
 
     /**
@@ -64,7 +65,7 @@ public class TestTypeStore {
     public boolean saveTestType(TestType testType) {
         if (!validateTestType(testType))
             return false;
-        return this.testTypeList.add(testType);
+        return this.addTestType(testType);
     }
 
     /**

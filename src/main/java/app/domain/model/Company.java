@@ -72,7 +72,7 @@ public class Company {
     }
 
     /**
-     * 
+     * Gets the list containing the company's parameter categories.
      * @return
      */
     public ParameterCategoryStore getParameterCategoryStore(){

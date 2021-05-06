@@ -1,7 +1,6 @@
 package app.domain.store;
 
 import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +49,8 @@ public class ParameterCategoryStore {
      * Adds a new parameter category to the List.
      * @param pc Parameter Category we want to add to the list.
      */
-    public void addParameterCategory(ParameterCategory pc) {
-        parameterCategoryList.add(pc);
+    public boolean addParameterCategory(ParameterCategory pc) {
+        return parameterCategoryList.add(pc);
     }
 
     /**
@@ -62,11 +61,11 @@ public class ParameterCategoryStore {
     public boolean saveParameterCategory(ParameterCategory pc) {
         if (!validateParameterCategory(pc))
             return false;
-        return this.parameterCategoryList.add(pc);
+        return this.addParameterCategory(pc);
     }
 
     /**
-     *
+     * Get the existing parameter categories.
      * @return The list of existing parameter categories.
      */
     public List<ParameterCategory> getParameterCategoryList(){
@@ -74,9 +73,9 @@ public class ParameterCategoryStore {
     }
 
     /**
-     *
-     * @param code
-     * @return
+     * Gets parameter category through code.
+     * @param code the code associated with the parameter category that we want to get
+     * @return the parameter category associated with the code
      */
     public ParameterCategory getParameterCategoryByCode(String code){
         for (ParameterCategory pc : parameterCategoryList) {
@@ -86,19 +85,4 @@ public class ParameterCategoryStore {
         }
         return null;
     }
-
-    /**
-     *
-     * @param name
-     * @return
-     */
-    public ParameterCategory getParameterCategoryByName(String name){
-        for (ParameterCategory pc : parameterCategoryList) {
-            if (pc.getCode().equals(name)) {
-                return pc;
-            }
-        }
-        return null;
-    }
-
 }
