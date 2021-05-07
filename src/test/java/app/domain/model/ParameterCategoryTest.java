@@ -39,31 +39,10 @@ public class ParameterCategoryTest {
     }
 
     @Test
-    public void parameterCategoriesCodesEquals(){
+    public void equalParameterCategories(){
         ParameterCategory pc1 = new ParameterCategory("1f5dc", "CategoryPa");
         ParameterCategory pc2 = new ParameterCategory("1f5dc", "Category");
         Assert.assertEquals(pc1,pc2);
-    }
-
-    @Test
-    public void parameterCategoriesNamesEquals(){
-        ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
-        ParameterCategory pc2 = new ParameterCategory("1f5dc", "Category");
-        Assert.assertEquals(pc1,pc2);
-    }
-
-    @Test
-    public void parameterCategoriesRefEquals(){
-        ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
-        ParameterCategory pc2 = pc1;
-        Assert.assertEquals(pc1,pc2);
-    }
-
-    @Test
-    public void parameterCategoriesNotEquals(){
-        ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
-        ParameterCategory pc2 = null;
-        Assert.assertNotEquals(pc1,pc2);
     }
 
 
