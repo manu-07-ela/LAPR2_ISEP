@@ -34,7 +34,7 @@ public class CreateClinicalAnalysisLaboratoryController {
      */
     public List<TestTypeDTO> getTestTypeList(){
        TestTypeStore store = company.getTestTypeStore();
-       return TestTyperMapper.toModel(store.getTestTypeListList());
+       return TestTyperMapper.toModel(store.getTestTypeList());
     }
 
     /**

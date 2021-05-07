@@ -45,6 +45,13 @@ public class ClinicalAnalysisLaboratoryStore {
         return !this.clinicalAnalysisLaboratoryList.contains(clinicalAnalysisLaboratory);
     }
 
+    /**
+     * 
+     * @return
+     */
+    public List<ClinicalAnalysisLaboratory> getClinicalAnalysisLaboratoryList() {
+        return clinicalAnalysisLaboratoryList;
+    }
 
     /**
      *
