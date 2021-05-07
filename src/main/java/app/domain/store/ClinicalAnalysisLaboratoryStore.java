@@ -30,9 +30,9 @@ public class ClinicalAnalysisLaboratoryStore {
      * @param calDTO
      * @return
      */
-    /*public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO){
+    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO){
         return CreateClinicalAnalysisLaboratoryMapper.ToModel(calDTO);
-    }*/
+    }
 
     /**
      *
@@ -45,13 +45,6 @@ public class ClinicalAnalysisLaboratoryStore {
         return !this.clinicalAnalysisLaboratoryList.contains(clinicalAnalysisLaboratory);
     }
 
-    /**
-     *
-     * @param clinicalAnalysisLaboratory
-     */
-    public void addClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory) {
-        clinicalAnalysisLaboratoryList.add(clinicalAnalysisLaboratory);
-    }
 
     /**
      *
