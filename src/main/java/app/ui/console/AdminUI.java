@@ -20,6 +20,7 @@ public class AdminUI implements Runnable{
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Create Test Type ", new CreateTestTypeUI()));
         options.add(new MenuItem("Create Parameter Category", new CreateParameterCategoryUI()));
+        options.add(new MenuItem("Create Parameter", new CreateParameterUI()));
 
         int option = 0;
         do {
