@@ -32,8 +32,16 @@ CTRL -> CS : cl=createClient(cldto)
 activate CS
 
 CS -> CM : cl = toModel(cldto)
-
+deactivate CS
 activate CM
+
+
+
+CTRL -> CS : validateClient(cl)
+activate CS
+deactivate CS
+deactivate CTRL
+
 
 ref over CM
   SD_ClientMapper_toClientDto
@@ -42,7 +50,7 @@ end ref
 CM --> CL** : create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
 deactivate CM
 deactivate CS
-deactivate CTRL
+
 
 UI --> REP : shows all data and requests confirmation
 deactivate COMP
