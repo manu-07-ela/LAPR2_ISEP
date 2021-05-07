@@ -45,11 +45,11 @@ public class ParameterCategoryDto {
     }
 
     /**
-     *
-     * @return
+     *Textual description of the parameter category dto.
+     *@return Information about the characteristics of the parameter category dto.
      */
     @Override
     public String toString(){
-        return String.format("<Parameter Category> %s - <Code> %s",name,code);
+        return String.format("<Parameter Category> %s / <Code> %s",name,code);
     }
 }
