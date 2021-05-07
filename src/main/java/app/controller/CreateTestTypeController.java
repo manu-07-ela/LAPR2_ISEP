@@ -19,6 +19,11 @@ public class CreateTestTypeController {
     /**
      *
      */
+    private App app;
+
+    /**
+     *
+     */
     private Company company;
 
     /**
@@ -37,12 +42,19 @@ public class CreateTestTypeController {
     private TestType tt;
 
     /**
+     *
+     */
+    private ParameterCategoryMapper pcMapper;
+
+    /**
      * Instantiates a new Create Test Type Controller.
      */
     public CreateTestTypeController(){
-        this.company=App.getInstance().getCompany();
+        this.app=App.getInstance();
+        this.company=app.getCompany();
         this.pcStore=company.getParameterCategoryStore();
         this.ttStore=company.getTestTypeStore();
+        pcMapper = new ParameterCategoryMapper();
     }
 
     /**
@@ -53,6 +65,7 @@ public class CreateTestTypeController {
         this.company = company;
         this.pcStore=company.getParameterCategoryStore();
         this.ttStore=company.getTestTypeStore();
+        pcMapper = new ParameterCategoryMapper();
     }
 
     /**
