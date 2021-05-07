@@ -7,7 +7,10 @@ participant ":CreateClientUI" as UI
 participant ":CreateClientController" as CTRL
 participant ":Company" as COMP
 participant "store: ClientStore" as CS
+participant ":ClientMapper" as CM
+participant "cldto: ClientDto" as CDTO
 participant "cl: Client" as CL
+participant ":AuthFacade" as AF
 
 activate REP
 REP -> UI : asks to register a client in the application
@@ -18,18 +21,55 @@ deactivate UI
 REP -> UI : types requested data
 activate UI
 
-UI -> CTRL : createClient(dto)
+UI -> CTRL : createClient(cldto)
 activate CTRL
 
 CTRL -> COMP : store =getClientStore()
 activate COMP
 deactivate COMP
 
-CTRL -> CS : cl=createClient(dto)
+CTRL -> CS : cl=createClient(cldto)
 activate CS
 
-CS -> CL** : create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+CS -> CM : cl = toModel(cldto)
+
+activate CM
+CM -> CDTO : name = getname()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : citizencardnumber = getcitizencardnumber()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : nhs = getnhs()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : date = getdate()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : sex = getsex()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : tin = gettin()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : phonenumber = getphonenumber()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : email = getemail()
+activate CDTO
+deactivate CDTO
+
+CM --> CL** : create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+deactivate CM
 deactivate CS
+
 CTRL -> CS : validateClient(cl)
 activate CS
 deactivate CS
@@ -38,7 +78,6 @@ deactivate CTRL
 UI --> REP : shows all data and requests confirmation
 deactivate COMP
 deactivate UI
-note over COMP: dto has all the required data(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
 
 REP -> UI : confirms the data
 activate UI
@@ -51,6 +90,11 @@ activate CS
 CS -> CS: validateClient(cl)
 activate CS
 deactivate CS
+
+CS -> AF: addUser(name,email,pwd)
+activate AF
+deactivate AF
+
 CS -> CS: addClient(cl)
 activate CS
 deactivate CS
