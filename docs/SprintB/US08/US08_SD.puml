@@ -31,19 +31,9 @@ deactivate TTS
 
 CTRL -> MapperTT :toDTO(listTestType)
 activate MapperTT
-MapperTT --> "TestTypeListDTO:List<TestTypeDTO>"** :create()
-loop for each object in TestTypeList
-MapperTT -> "listTestType:List<TestType>" : obj= get(i)
-activate "listTestType:List<TestType>"
-deactivate "listTestType:List<TestType>"
-MapperTT -> MapperTT : objDTO = toDTO(obj)
-activate MapperTT
-MapperTT -> "objDTO : TestTypeDTO"** : create()
-deactivate MapperTT
-MapperTT -> "TestTypeListDTO:List<TestTypeDTO>" : add(objDTO)
-activate "TestTypeListDTO:List<TestTypeDTO>"
-deactivate "TestTypeListDTO:List<TestTypeDTO>"
-end
+ref over MapperTT
+SD_populateList
+end ref
 MapperTT --> CTRL : TestTypeListDTO
 deactivate MapperTT
 CTRL --> UI : TestTypeListDTO
