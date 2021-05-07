@@ -2,14 +2,16 @@ package app.controller;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.Company;
-import app.domain.model.TestType;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.TestTypeStore;
 import app.mappers.TestTyperMapper;
-import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
+import app.mappers.dto.TestTypeDTO;
 
 import java.util.List;
 
+/**
+ * @author Carlos Rodrigues <1201001@isep.ipp.pt>
+ */
 public class CreateClinicalAnalysisLaboratoryController {
 
     private Company company;
@@ -27,21 +29,22 @@ public class CreateClinicalAnalysisLaboratoryController {
 
     /**
      *
+     * @return
      */
-    /*public List<TestType> getTestTypeList(){
+    public List<TestTypeDTO> getTestTypeList(){
        TestTypeStore store = company.getTestTypeStore();
        return TestTyperMapper.toModel(store.getTestTypeListList());
-    }*/
+    }
 
     /**
      *
      * @param calDTO
      * @return
      */
-    public boolean CreateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
+   /* public boolean CreateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
         this.cal = store.createClinicalAnalysisLaboratory(calDTO);
         return store.validateClinicalAnalysisLaboratory(cal);
-    }
+    }*/
 
     /**
      *

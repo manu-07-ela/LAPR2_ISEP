@@ -8,6 +8,9 @@ import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Carlos Rodrigues <1201001@isep.ipp.pt>
+ */
 public class ClinicalAnalysisLaboratoryStore {
 
     /**
