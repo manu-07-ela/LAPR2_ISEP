@@ -13,15 +13,6 @@ import java.util.List;
  */
 public class ParameterCategoryMapper {
 
-    private ParameterCategoryDto pcDto;
-
-    /**
-     *
-     */
-    public ParameterCategoryMapper(){
-
-    }
-
     /**
      * Transforms a list of objects of type ParameterCategory into a list of objects of type ParameterCategoryDTO.
      * @param parameterCategories A list of ParameterCategory.
@@ -29,8 +20,7 @@ public class ParameterCategoryMapper {
      */
     public List<ParameterCategoryDto> toDto (List<ParameterCategory> parameterCategories){
         List<ParameterCategoryDto> parameterCategoryDTO = new ArrayList<>();
-        for(ParameterCategory parameterCategory:parameterCategories)
-        {
+        for(ParameterCategory parameterCategory:parameterCategories) {
             parameterCategoryDTO.add(this.toDto(parameterCategory));
         }
         return parameterCategoryDTO;
