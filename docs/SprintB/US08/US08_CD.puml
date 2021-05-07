@@ -12,12 +12,14 @@ class CreateClinicalAnalysisLaboratoryController{
 
 class Company{
   +getClinicalAnalysisLaboratoryStore()
+  +getTestTypeStore()
 }
 
 
 class ClinicalAnalysisLaboratory {
   -String laboratoryId
-  +create (calDTO))
+  -List<TestType> listOfTestTypes
+  create (name, address, phoneNumber , TIN ,laboratoryId,selectedTestTypesList)
 
 
 }
@@ -35,7 +37,6 @@ class TestTypeStore{
 }
 
 class ClinicalAnalysisLaboratoryStore{
-  +getClinicalAnalysisLaboratory()
   +createClinicalAnalysisLaboratory(calDTO)
   +validateClinicalAnalysisLaboratory(cal)
   +addClinicalAnalysisLaboratory(cal)
@@ -43,6 +44,7 @@ class ClinicalAnalysisLaboratoryStore{
 
 class ClinicalAnalysisLaboratoryMapper {
    +toDTO(listTestType)
+
 }
 
 class TestTypeMapper {
@@ -56,7 +58,7 @@ class ClinicalAnalysisLaboratoryDTO {
   -int phoneNumber
   -int tin
   -String laboratoryId
-  +create (name, address, phoneNumber , TIN ,\nlaboratoryId,selectedTestTypesList)
+  -List<TestType> listOfTestTypes
 }
 
 class TestType{
@@ -64,7 +66,6 @@ class TestType{
   -String description
   -String collectingMethod
   -List<ParameterCategories> listOfParameterCategories
-  +TestType(code,description,collectingMethod,listOfParameterCategories)
 }
 
 class TestTypeDTO{
@@ -72,7 +73,6 @@ class TestTypeDTO{
   -String description
   -String collectingMethod
   -List<ParameterCategories> listOfParameterCategories
-  +TestType(code,description,collectingMethod,listOfParameterCategories)
 }
 
 
@@ -82,17 +82,21 @@ class TestTypeDTO{
 
 CreateClinicalAnalysisLaboratoryUI ..> CreateClinicalAnalysisLaboratoryController
 CreateClinicalAnalysisLaboratoryUI ..> ClinicalAnalysisLaboratoryDTO
+CreateClinicalAnalysisLaboratoryUI ..> TestTypeDTO
 CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryDTO
 CreateClinicalAnalysisLaboratoryController ..> Company
 CreateClinicalAnalysisLaboratoryController ...> TestTypeStore
 CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryMapper
 CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryStore
+CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratory
 CreateClinicalAnalysisLaboratoryController ..> TestTypeMapper
 ClinicalAnalysisLaboratoryStore"1" --> "1" ClinicalAnalysisLaboratory : conducts
 Laboratory  <|- ClinicalAnalysisLaboratory
 ClinicalAnalysisLaboratoryMapper ..> ClinicalAnalysisLaboratoryDTO
 ClinicalAnalysisLaboratoryMapper ...> ClinicalAnalysisLaboratory
+Company "1" --> "1" TestTypeStore : uses
 Company "1" --> "1" ClinicalAnalysisLaboratoryStore : uses
 TestTypeStore "1" --> "*" TestType : conducts
-TestTypeMapper --> TestTypeDTO
+TestTypeMapper .....> TestType
+TestTypeMapper ..> TestTypeDTO
 @enduml
