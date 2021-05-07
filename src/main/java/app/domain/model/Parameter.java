@@ -25,18 +25,28 @@ public class Parameter {
     private String description;
 
     /**
+     * The Category of the parameter.
+     */
+    private String category;
+
+    /**
      * Constructs an instance of {@code Parameter} receiving the code, the short name and the description.
      *
      * @param code the parameter code
      * @param shortName the parameter short name
      * @param description the parameter description
      */
-    public Parameter(String code, String shortName, String description){
+    public Parameter(String code, String shortName, String description, String Category){
         checkRules(code, shortName, description);
         this.code=code;
         this.shortName= shortName;
         this.description=description;
+        this.category=category;
     }
+
+
+
+
 
     /**
      * Checks if the code, the short name and the description, associated with the parameter, respects the business rules.
@@ -61,7 +71,7 @@ public class Parameter {
             throw new IllegalArgumentException("The name must be a maximum of 20 characters.");
     }
 
-   
+
     /**
      * Get the parameter code.
      * @return The parameter code.
