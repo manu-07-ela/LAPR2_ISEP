@@ -24,23 +24,32 @@ class ClinicalAnalysisLaboratory {
   -laboratoryId
 }
 
-class TestType{
--designation
--collectingMethod
+class Test{
+-internalCode
+-nhsCode
+-description
+-dateValidationLabCordinator
+-timeValidationLabCordinator
 }
 
 class ChemicalLaboratory{
 
 }
 
-class Administrator {
-
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-organizationRole
+-socCode
 }
 
 Company "1"---- "1..*" Laboratory : owns >
 ClinicalAnalysisLaboratory ----|> Laboratory
-ClinicalAnalysisLaboratory "1..*"----"*" TestType : performs >
-Administrator "1"---"1..*"ClinicalAnalysisLaboratory : creates >
+ClinicalAnalysisLaboratory "1..*"----"*" Test : performs >
+Employee "1"---"1..*"ClinicalAnalysisLaboratory : creates >
 ChemicalLaboratory ----|> Laboratory
 
 

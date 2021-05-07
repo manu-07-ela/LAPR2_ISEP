@@ -1,7 +1,6 @@
 package app.domain.model;
 
-import app.domain.store.ParameterCategoryStore;
-import app.domain.store.TestTypeStore;
+import app.domain.store.*;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
@@ -35,8 +34,21 @@ public class Company {
 
     /**
      *
+     */
+    private ClinicalAnalysisLaboratoryStore clinicalnAlysisLaboratoryStore;
+    /**
+     * Represents a instance of the store of employees
+     */
+    private EmployeeStore employeeStore;
+    /**
+     * Represents a instance of the store of organization roles
+     */
+    private OrganizationRoleStore organizationRoleStore;
+    /**
+     *
      * @param designation
      */
+
     public Company(String designation) {
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
@@ -45,11 +57,14 @@ public class Company {
         this.authFacade = new AuthFacade();
         this.testTypeStore = new TestTypeStore();
         this.parameterCategoryStore = new ParameterCategoryStore();
+        this.clinicalnAlysisLaboratoryStore = new ClinicalAnalysisLaboratoryStore();
+        this.employeeStore = new EmployeeStore();
+        this.organizationRoleStore = new OrganizationRoleStore();
     }
 
     /**
-     *
-     * @return
+     * Get the company designation.
+     * @return The company designation.
      */
     public String getDesignation() {
         return designation;
@@ -64,6 +79,22 @@ public class Company {
     }
 
     /**
+     * Get the instance of employee store
+     * @return the instance of employee store
+     */
+    public EmployeeStore getEmployeeStore() {
+        return employeeStore;
+    }
+
+    /**
+     * Get the instance of organization role store
+     * @return the instance of organization role store
+     */
+    public OrganizationRoleStore getOrganizationRoleStore() {
+        return organizationRoleStore;
+    }
+
+    /**
      * Gets the List containing the company's test types.
      * @return the list of test types
      */
@@ -72,21 +103,17 @@ public class Company {
     }
 
     /**
-     * 
+     * Gets the list containing the company's parameter categories.
      * @return
      */
     public ParameterCategoryStore getParameterCategoryStore(){
         return parameterCategoryStore;
     }
 
-    /**
-     *
-     * @param cal
-     * @return
-     */
-    public boolean validateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal){
-        return true;
+    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){
+        return clinicalnAlysisLaboratoryStore;
     }
+
 
     /**
      *
@@ -102,13 +129,5 @@ public class Company {
         return new ClinicalAnalysisLaboratory(name,address,phoneNumber,tin,laboratoryId,listOfTestTypes);
     }
 
-    /**
-     *
-     * @param cal
-     * @return
-     */
-    public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal){
-        return true;
-    }
 
 }

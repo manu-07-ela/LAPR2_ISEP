@@ -4,10 +4,12 @@
 |:---------------:|:--------------------:|:---------------------------|
 | **AC** | **-** | Acronym for _Acceptance Criteria_.|
 | **Administrator** | **Administrador** | The person responsible for carrying out the administration of Many Labs.|
+|**Algorithms** |**Algoritmos**|  It is a finite sequence of well-defined, computer-implementable instructions, typically to solve a class of problems or to perform a computation.|
 | **API** | **-** | Acronym for _Application Programming Interface_.|
 | **Application Programming Interface** | **Interface de Programação de Aplicações** | A set of functions established by a software that allow the creation of application in a simpler and more practical way for developers.|
 | **Barcode**   | **Código de Barras** | A machine-readable code in the form of numbers and a pattern of parallel lines of varying widths, printed on a commodity and used to identify each sample.|
 | **Benchmark**   | **Marca de referência** | A point of reference against which things may be compared.|
+|**CamelCase**| - |  It is the practice of writing phrases without spaces or punctuation, indicating the separation of words with a single capitalized letter, and the first word starting with either case.
 | **Category** | **Categoria** | Refers to a clinical categorie.|
 | **Chemical Laboratory** | **Laboratório Químico** | |
 | **Client**   | **Cliente** | A person using the services of Manylabs.|
@@ -23,6 +25,8 @@
 | **IDE**  | **-** | Acronym for _Integrated Development Environment_.|
 | **Integrated Development Environment**  | **Ambiente de Desenvolvimento Integrado** | A software for building applications that combines common developer tools into a single graphical user interface.|
 | **JaCoCo** | **-** | JaCoCo is a code coverage library for Java.|
+|**Javadoc**| - |  It is a documentation tool for the Java programming language.|
+|**JavaFX**| - | It is a software platform for creating and delivering desktop applications, as well as rich web applications that can run across a wide variety of devices.|
 | **JUnit** | **-** | JUnit is a simple framework to write repeatable tests.|
 | **Lab**  | **-** | Acronym for _Laboratory_.|
 | **Lab order**  | **Prescrição médica** | Contains the type of test and parameters to be measured.|
@@ -52,3 +56,5 @@
 | **UI**   | **-** | Acronym for _User Interface_. |
 | **US**   | **-** | Acronym for _User Stories_.|
 | **WBC**  | **-** | Acronym for _White Bloods Cells_.|
+
+

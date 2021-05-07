@@ -11,8 +11,8 @@ import java.util.List;
  */
 
 public class AdminUI implements Runnable{
-    public AdminUI()
-    {
+
+    public AdminUI() {
     }
 
     public void run()
@@ -22,15 +22,14 @@ public class AdminUI implements Runnable{
         options.add(new MenuItem("Create Parameter Category", new CreateParameterCategoryUI()));
 
         int option = 0;
-        do
-        {
+        do {
             option = Utils.showAndSelectIndex(options, "\n\nAdmin Menu:");
 
             if ( (option >= 0) && (option < options.size()))
             {
                 options.get(option).run();
             }
-        }
-        while (option != -1 );
+
+        } while (option != -1 );
     }
 }

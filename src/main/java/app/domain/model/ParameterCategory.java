@@ -87,7 +87,7 @@ public class ParameterCategory {
 
         ParameterCategory otherParameterCategory = (ParameterCategory) o;
 
-        return this.getCode().equals(otherParameterCategory.getCode());
+        return this.getCode().equals(otherParameterCategory.getCode()) || (this.getName().equalsIgnoreCase(otherParameterCategory.getName()) && !this.getCode().equals(otherParameterCategory.getCode()));
     }
 
     /**
@@ -96,6 +96,6 @@ public class ParameterCategory {
      */
     @Override
     public String toString(){
-        return String.format("Parameter Category: %s\nCode: %s\n",name,code);
+        return String.format("Parameter Category: %s%nCode: %s%n",name,code);
     }
 }

@@ -6,9 +6,12 @@ participant ":CreateClinicalAnalysisLaboratoryUI" as UI
 participant ":CreateClinicalAnalysisLaboratoryController" as CTRL
 participant ": Company" as Comp
 participant "store: TestTypeStore" as TTS
-participant "cal: ClinicalAnalysisLaboratory" as CAL
-participant ":ClinicalAnalysisLaboratoryMapper" as Mapper
+participant ":TestTypeMapper" as MapperTT
+participant "store: ClinicalAnalysisLaboratoryStore" as CALStore
+participant ":ClinicalAnalysisLaboratoryMapper" as MapperCal
 participant "DTO:ClinicalAnalysisLaboratoryDTO" as CALDTO
+participant "cal: ClinicalAnalysisLaboratory" as CAL
+participant "t: TestType" as TT
 
 activate ADM
 ADM -> UI : asks to create a new Clinical Analysis Laboratory
@@ -16,6 +19,7 @@ activate UI
 UI -> CTRL : getTestTypeList()
 activate CTRL
 
+CTRL -> Comp : store=getClinicalAnalysisLaboratoryStore
 CTRL -> TTS : getTestTypeList()
 activate TTS
 TTS -> "listTestType:List<TestType>"** : get()
@@ -25,32 +29,32 @@ TTS -> "listTestType:List<TestType>"** : get()
 TTS --> CTRL : listTestType
 deactivate TTS
 
-CTRL -> Mapper :toDTO(listTestType)
-activate Mapper
-Mapper --> "TestTypeListDTO:List<TestTypeDTO>"** :create()
+CTRL -> MapperTT :toDTO(listTestType)
+activate MapperTT
+MapperTT --> "TestTypeListDTO:List<TestTypeDTO>"** :create()
 loop for each object in TestTypeList
-Mapper -> "listTestType:List<TestType>" : obj= get(i)
+MapperTT -> "listTestType:List<TestType>" : obj= get(i)
 activate "listTestType:List<TestType>"
 deactivate "listTestType:List<TestType>"
-Mapper -> Mapper : objDTO = toDTO(obj)
-activate Mapper
-Mapper -> "objDTO : TestTypeDTO"** : create()
-deactivate Mapper
-Mapper -> "TestTypeListDTO:List<TestTypeDTO>" : add(objDTO)
+MapperTT -> MapperTT : objDTO = toDTO(obj)
+activate MapperTT
+MapperTT -> "objDTO : TestTypeDTO"** : create()
+deactivate MapperTT
+MapperTT -> "TestTypeListDTO:List<TestTypeDTO>" : add(objDTO)
 activate "TestTypeListDTO:List<TestTypeDTO>"
 deactivate "TestTypeListDTO:List<TestTypeDTO>"
 end
-Mapper --> CTRL : TestTypeListDTODTO
-deactivate Mapper
+MapperTT --> CTRL : TestTypeListDTO
+deactivate MapperTT
 CTRL --> UI : TestTypeListDTO
 deactivate CTRL
-
+loop while user selects TestTypes
 UI --> ADM : shows a TestType list and ask to choose the ones intended
 deactivate UI
 
-ADM -> UI : selects the TestTypes intended
+ADM -> UI : select a TestType
 activate UI
-
+end
 UI --> ADM : requests data (name, address, phoneNumber , TIN, laboratoryId)
 deactivate UI
 
@@ -62,45 +66,49 @@ activate CTRL
 
 
 
-
-CTRL -> Comp: cal = createClinicalAnalysisLaboratory(calDTO)
+CTRL -> Comp : store = getClinicalAnalysisLaboratoryStore()
 activate Comp
 |||
-Comp -> CAL**: create (calDTO)
 deactivate Comp
-activate CAL
-CAL -> CALDTO : name=getname()
-activate CALDTO
-deactivate CALDTO
-
-CAL -> CALDTO : address=getaddress()
-activate CALDTO
-deactivate CALDTO
-
-CAL -> CALDTO : phoneNumber=getphoneNumber()
-activate CALDTO
-deactivate CALDTO
-
-CAL -> CALDTO : TIN=getTIn()
-activate CALDTO
-deactivate CALDTO
-
-CAL -> CALDTO : laboratoryId=getlaboratoryId()
-activate CALDTO
-deactivate CALDTO
-
-CAL -> CALDTO : listOfTestTypes=getlistOfTestTypes()
-activate CALDTO
-deactivate CALDTO
-
-
-deactivate CAL
-
-
-
-CTRL -> Comp : validateClinicalAnalysisLaboratory(cal)
-activate Comp
+CTRL -> CALStore: cal = createClinicalAnalysisLaboratory(calDTO)
+activate CALStore
+CALStore -> MapperCal : create(calDTO)
+deactivate CALStore
 deactivate Comp
+activate MapperCal
+MapperCal -> CALDTO : name=getname()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CALDTO : address=getaddress()
+activate CALDTO
+deactivate CALDTO
+MapperCal -> CALDTO : phoneNumber=getphoneNumber()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CALDTO : TIN=getTIn()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CALDTO : laboratoryId=getlaboratoryId()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CALDTO : listOfTestTypes=getlistOfTestTypes()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CAL** : create (name, address, phoneNumber , TIN ,laboratoryId,selectedTestTypesList)
+
+
+deactivate MapperCal
+
+
+
+CTRL -> CALStore : validateClinicalAnalysisLaboratory(cal)
+activate CALStore
+deactivate CALStore
 deactivate CTRL
 
 UI --> ADM: shows all data and requests confirmation
@@ -112,16 +120,17 @@ activate UI
 UI -> CTRL : saveClinicalAnalysisLaboratory()
 activate CTRL
 
-CTRL -> Comp : saveClinicalAnalysisLaboratory(cal)
-activate Comp
+CTRL -> CALStore : saveClinicalAnalysisLaboratory(cal)
+activate CALStore
 
-Comp -> Comp: validateClinicalAnalysisLaboratory(cal)
-activate Comp
-deactivate Comp
-Comp -> Comp: addClinicalAnalysisLaboratory(cal)
-activate Comp
-deactivate Comp
-deactivate Comp
+CALStore -> CALStore: validateClinicalAnalysisLaboratory(cal)
+activate CALStore
+deactivate CALStore
+
+CALStore -> CALStore: addClinicalAnalysisLaboratory(cal)
+activate CALStore
+deactivate CALStore
+deactivate CALStore
 
 CTRL --> UI : result
 
