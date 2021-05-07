@@ -1,8 +1,6 @@
 package app.domain.model;
 
-import app.domain.store.ClinicalAnalysisLaboratoryStore;
-import app.domain.store.ParameterCategoryStore;
-import app.domain.store.TestTypeStore;
+import app.domain.store.*;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
@@ -38,7 +36,14 @@ public class Company {
      *
      */
     private ClinicalAnalysisLaboratoryStore clinicalnAlysisLaboratoryStore;
-
+    /**
+     * Represents a instance of the store of employees
+     */
+    private EmployeeStore employeeStore;
+    /**
+     * Represents a instance of the store of organization roles
+     */
+    private OrganizationRoleStore organizationRoleStore;
     /**
      *
      * @param designation
@@ -53,6 +58,8 @@ public class Company {
         this.testTypeStore = new TestTypeStore();
         this.parameterCategoryStore = new ParameterCategoryStore();
         this.clinicalnAlysisLaboratoryStore = new ClinicalAnalysisLaboratoryStore();
+        this.employeeStore = new EmployeeStore();
+        this.organizationRoleStore = new OrganizationRoleStore();
     }
 
     /**
@@ -69,6 +76,22 @@ public class Company {
      */
     public AuthFacade getAuthFacade() {
         return authFacade;
+    }
+
+    /**
+     * Get the instance of employee store
+     * @return the instance of employee store
+     */
+    public EmployeeStore getEmployeeStore() {
+        return employeeStore;
+    }
+
+    /**
+     * Get the instance of organization role store
+     * @return the instance of organization role store
+     */
+    public OrganizationRoleStore getOrganizationRoleStore() {
+        return organizationRoleStore;
     }
 
     /**

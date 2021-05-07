@@ -70,8 +70,8 @@ class EmployeeDTO{
 -employeeId
 -socCode
 -doctorIndexNumber
-+EmployeeDTO(name, adress, phoneNumber, email, socCode, doctorIndexNumber)
-+EmployeeDTO(name, adress, phoneNumber, email, socCode)
++EmployeeDTO(name, address, phoneNumber, email, socCode, doctorIndexNumber)
++EmployeeDTO(name, address, phoneNumber, email, socCode)
 +getName()
 +getAddress()
 +getPhoneNumber()
