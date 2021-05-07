@@ -2,7 +2,6 @@ package app.mappers;
 
 import app.domain.model.Client;
 import app.mappers.dto.ClientDto;
-import app.mappers.dto.EmployeeDTO;
 
 /**
  * Transform objects of type Client into objects of type ClientDto and vice versa
