@@ -57,6 +57,7 @@ public class CreateParameterController {
         this.company = app.getCompany();
         this.pcStore = company.getParameterCategoryStore();
         this.pStore = company.getParameterStore();
+        pcMapper = new ParameterCategoryMapper();
     }
 
     /**
@@ -65,8 +66,9 @@ public class CreateParameterController {
      */
     public CreateParameterController(Company company) {
         this.company = company;
-        this.pcStore=company.getParameterCategoryStore();
-        this.pStore=company.getParameterStore();
+        this.pcStore = company.getParameterCategoryStore();
+        this.pStore = company.getParameterStore();
+        pcMapper = new ParameterCategoryMapper();
     }
 
     /**
