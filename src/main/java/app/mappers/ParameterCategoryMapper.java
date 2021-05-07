@@ -7,14 +7,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Transform objects of type ParameterCategory into objects of type ParameterCategoryDTO
  *
+ * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
 public class ParameterCategoryMapper {
 
+    private ParameterCategoryDto pcDto;
+
     /**
      *
-     * @param parameterCategories
-     * @return
+     */
+    public ParameterCategoryMapper(){
+
+    }
+
+    /**
+     * Transforms a list of objects of type ParameterCategory into a list of objects of type ParameterCategoryDTO.
+     * @param parameterCategories A list of ParameterCategory.
+     * @return A list of ParameterCategoryDTO
      */
     public List<ParameterCategoryDto> toDto (List<ParameterCategory> parameterCategories){
         List<ParameterCategoryDto> parameterCategoryDTO = new ArrayList<>();
@@ -26,9 +37,9 @@ public class ParameterCategoryMapper {
     }
 
     /**
-     *
-     * @param parameterCategory
-     * @return
+     * Transforms an object of type ParameterCategory into an object of type ParameterCategoryDTO.
+     * @param parameterCategory An ParameterCategory object.
+     * @return An instance of ParameterCategoryDTO.
      */
     public ParameterCategoryDto toDto(ParameterCategory parameterCategory) {
         return new ParameterCategoryDto(parameterCategory.getCode(),parameterCategory.getName());
