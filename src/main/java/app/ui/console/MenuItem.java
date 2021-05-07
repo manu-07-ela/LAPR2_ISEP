@@ -24,6 +24,7 @@ public class MenuItem {
         this.ui = ui;
     }
 
+
     public void run()
     {
         this.ui.run();

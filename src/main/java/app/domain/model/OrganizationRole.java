@@ -1,5 +1,4 @@
 package app.domain.model;
-import app.domain.shared.DefaultOrgRoles;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Locale;
@@ -9,7 +8,7 @@ import java.util.Locale;
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 
-public class OrganizationRole implements DefaultOrgRoles {
+public class OrganizationRole {
     /**
      * The designation of a role in organization.
      */
@@ -20,10 +19,9 @@ public class OrganizationRole implements DefaultOrgRoles {
      * @param designation characterizes the role in the organization.
      */
     public OrganizationRole(String designation){
-        if (!isValidDesignation()) {
-            throw new IllegalArgumentException("Designation must have at maximum 15 charcters");
+        if (!isValidDesignation(designation)) {
+            throw new IllegalArgumentException("Designation must have at maximum 15 characters");
         }
-        if (!isValidOrganizationRole()) throw new IllegalArgumentException ("This organization role do not exist in Company");
         this.designation = designation;
 
     }
@@ -50,21 +48,23 @@ public class OrganizationRole implements DefaultOrgRoles {
      * @return true if the designation obeys the rules imposed by the business, false otherwise.
      */
 
-    public boolean isValidDesignation(){
-        return  designation.length() <= 15 || StringUtils.isBlank(designation);
+    public boolean isValidDesignation(String designation){
+        return  designation.length() <= 35 || StringUtils.isBlank(designation);
     }
 
+
     /**
-     * Checks whether the designation associated with the organization role we intend to create exist in Company.
-     * @return true if the organization role exists in company, false otherwise.
+     *
+     * @param other
+     * @return
      */
-    public boolean isValidOrganizationRole() {
-        boolean flag = false;
-        for (String orgRoleAux : ORGANIZATIONROLES){
-            if (orgRoleAux.toUpperCase(Locale.ROOT).equals(orgRoleAux) && !flag) {
-                flag = true;
-            }
-        }
-        return flag;
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        OrganizationRole that = (OrganizationRole) other;
+        return designation.equalsIgnoreCase(that.designation);
     }
+
+
 }

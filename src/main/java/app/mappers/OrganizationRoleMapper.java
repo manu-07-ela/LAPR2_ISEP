@@ -19,7 +19,9 @@ public class OrganizationRoleMapper {
     public OrganizationRoleDTO toDTO(OrganizationRole orgRole){
         return new OrganizationRoleDTO(orgRole.getDesignation());
     }
-
+    public OrganizationRole toOrganizationRole(OrganizationRoleDTO organizationRoleDTO){
+        return new OrganizationRole(organizationRoleDTO.getDesignation());
+    }
     /**
      *Transforms a list of objects of type OrganizationRole into a list of objects of type OrganizationRoleDTO
      * @param orgRole a list of organization roles
