@@ -23,16 +23,13 @@ ADM -> UI: starts new parameter
 activate UI
 UI -> CTRL : listParameterCategoryDto = getListParameterCategoryDto()
 activate CTRL
-CTRL -> COMP : store = getParameterCategoryStore()
+CTRL -> COMP : pcstore = getParameterCategoryStore()
 activate COMP
 deactivate COMP
 CTRL -> PCSTORE : listParameterCategory = getListOfParameterCategory()
 activate PCSTORE
 deactivate PCSTORE
-CTRL -> COMP : toDTO()
-activate COMP
-COMP -> MAPPER : toDTO(listParameterCategory)
-deactivate COMP
+CTRL -> MAPPER : toDTO(listParameterCategory)
 activate MAPPER
 loop for each object in listParameterCategory
 MAPPER -> LISTPC : ParameterCategory = getParameterCategories(i)
@@ -55,6 +52,7 @@ deactivate UI
 
 ADM -> UI: inserts the category(selectedCategory)
 activate UI
+deactivate CTRL
 UI--> ADM : request data (code, shortName, description)
 deactivate UI
 
@@ -63,9 +61,15 @@ ADM -> UI : types request data
 activate UI
 UI -> CTRL : createParameter(code, shortName, description, selectedCategory)
 activate CTRL
-CTRL -> STORE : t = createParameter(code,shortName,description,selectedCategory)
+CTRL -> COMP : pstore = getParameterStore()
+activate COMP
+deactivate COMP
+CTRL -> MAPPER : category = toParameterCategory(selectedCategory)
+activate MAPPER
+deactivate MAPPER
+CTRL -> STORE : t = createParameter(code,shortName,description,category)
 activate STORE
-STORE -> PRMT** : createParameter(code,shortName,description,selectedCategory)
+STORE -> PRMT** : createParameter(code,shortName,description,category)
 deactivate STORE
 CTRL -> STORE : validateParameterData(p)
 activate STORE

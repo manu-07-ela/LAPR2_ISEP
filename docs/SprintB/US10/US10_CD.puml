@@ -17,7 +17,7 @@ class Company{
 -headquarters
 --
 +getParameterCategoryStore()
-+doDTO()
++getParameterStore()
 }
 
 class ParameterStore {
@@ -27,7 +27,7 @@ class ParameterStore {
 +validateParameterExistence(p)
 +addParameter(p)
 
-List<ParameterCategory> listParameterCategory
+List<Parameter> listParameter
 
 }
 
@@ -38,7 +38,7 @@ List<ParameterCategoryDto> listParameterCategoryDto
 }
 
 class ParameterCategoryStore {
-+getListOfParameterCategory()
++getParameterCategoryList()
 }
 
 class Parameter{
@@ -50,8 +50,7 @@ class Parameter{
 
 class ParameterCategory{
 - code
-- shortName
-- nhsid
+- name
 }
 
 
