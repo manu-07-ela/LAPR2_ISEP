@@ -110,24 +110,12 @@ public class Company {
         return parameterCategoryStore;
     }
 
-    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){
-        return clinicalnAlysisLaboratoryStore;
-    }
-
-
     /**
      *
-     * @param name                    Clinical Analysis Laboratory's name
-     * @param address                 Clinical Analysis Laboratory's address
-     * @param phoneNumber             Clinical Analysis Laboratory's phone number
-     * @param tin                     Clinical Analysis Laboratory's tax identification number
-     * @param laboratoryId            Clinical Analysis Laboratory's ID
-     * @param listOfTestTypes         List of Test Type that the Clinical Analysis Laboratory does
      * @return
      */
-    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory (String name, String address, int phoneNumber , int tin, String laboratoryId, List<TestType> listOfTestTypes){
-        return new ClinicalAnalysisLaboratory(name,address,phoneNumber,tin,laboratoryId,listOfTestTypes);
-    }
+    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){ return clinicalnAlysisLaboratoryStore; }
+
 
 
 }
