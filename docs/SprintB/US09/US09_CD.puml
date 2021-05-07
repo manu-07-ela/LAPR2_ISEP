@@ -10,9 +10,9 @@ class CreateTestTypeUI{
 }
 
 class CreateTestTypeController{
-+boolean createTestType(code,description,collecting method,selectedParameterCategoriesList)
-+boolean saveTestType()
-+List<ParameterCategoryDto> getParameterCategories()
++createTestType(code,description,collecting method,selectedParameterCategoriesList)
++saveTestType()
++getParameterCategories()
 }
 
 class TestType{
@@ -31,13 +31,13 @@ class TestTypeStore{
 }
 
 class ParameterCategoryStore{
-+List<ParameterCategory> getParameterCategoryList()
-+ParameterCategory getParameterCategorybyCode()
++getParameterCategoryList()
++getParameterCategorybyCode()
 }
 
 class ParameterCategoryMapper{
-+List<ParameterCategoryDto> toDto (List<ParameterCategory> parameterCategories)
-+ParameterCategoryDto toDto(ParameterCategory parameterCategory
++toDto(parameterCategories)
++toDto(parameterCategory)
 }
 
 
