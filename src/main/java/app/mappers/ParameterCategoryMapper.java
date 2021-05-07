@@ -2,7 +2,6 @@ package app.mappers;
 
 import app.domain.model.ParameterCategory;
 import app.mappers.dto.ParameterCategoryDto;
-
 import java.util.ArrayList;
 import java.util.List;
 
