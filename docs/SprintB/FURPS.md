@@ -7,7 +7,7 @@ _Specifies functionalities that:_
 - _are not related to US/UC, namely: Audit, Reporting and Security._
 
 ### _Authentication_
-- All those who wish to use the application must be authenticated with a password holding seven alphanumeric characters, including three capital letters and two digits.
+- All those who wish to use the application must be authenticated with a password holding ten alphanumeric characters, generated automatically by the System.
 
 ________
 ## Usability 

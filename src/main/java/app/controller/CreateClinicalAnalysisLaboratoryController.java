@@ -4,6 +4,9 @@ import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.Company;
 import app.domain.model.TestType;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
+import app.domain.store.TestTypeStore;
+import app.mappers.TestTyperMapper;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 
 import java.util.List;
 
@@ -22,12 +25,30 @@ public class CreateClinicalAnalysisLaboratoryController {
         this.cal = null;
     }
 
-    public boolean CreateClinicalAnalysisLaboratory(String name, String address, int phoneNumber , int tin, String laboratoryId, List<TestType> listOfTestTypes) {
-        this.cal = this.store.createClinicalAnalysisLaboratory(name,address,phoneNumber,tin,laboratoryId,listOfTestTypes);
-        return this.store.validateClinicalAnalysisLaboratory(cal);
+    /**
+     *
+     */
+    /*public List<TestType> getTestTypeList(){
+       TestTypeStore store = company.getTestTypeStore();
+       return TestTyperMapper.toModel(store.getTestTypeListList());
+    }*/
+
+    /**
+     *
+     * @param calDTO
+     * @return
+     */
+    public boolean CreateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
+        this.cal = store.createClinicalAnalysisLaboratory(calDTO);
+        return store.validateClinicalAnalysisLaboratory(cal);
     }
+
+    /**
+     *
+     * @return
+     */
     public boolean saveClinicalAnalysisLaboratory() {
-        return this.store.saveClinicalAnalysisLaboratory(cal);
+        return store.saveClinicalAnalysisLaboratory(cal);
     }
 
 }

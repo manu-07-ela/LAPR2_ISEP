@@ -2,6 +2,8 @@ package app.domain.store;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.TestType;
+import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,26 +24,12 @@ public class ClinicalAnalysisLaboratoryStore {
 
     /**
      *
-     * @param name                    Clinical Analysis Laboratory's name
-     * @param address                 Clinical Analysis Laboratory's address
-     * @param phoneNumber             Clinical Analysis Laboratory's phone number
-     * @param tin                     Clinical Analysis Laboratory's tax identification number
-     * @param laboratoryId            Clinical Analysis Laboratory's ID
-     * @param listOfTestTypes         List of Test Type that the Clinical Analysis Laboratory does
+     * @param calDTO
      * @return
      */
-    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(String name, String address, int phoneNumber , int tin, String laboratoryId, List<TestType> listOfTestTypes){
-        return new ClinicalAnalysisLaboratory(name,address,phoneNumber,tin,laboratoryId,listOfTestTypes);
-    }
-
-    /**
-     *
-     * @param obj
-     * @return
-     */
-    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory obj){
-        return new ClinicalAnalysisLaboratory(obj);
-    }
+    /*public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO){
+        return CreateClinicalAnalysisLaboratoryMapper.ToModel(calDTO);
+    }*/
 
     /**
      *

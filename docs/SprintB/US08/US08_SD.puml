@@ -72,7 +72,7 @@ activate Comp
 deactivate Comp
 CTRL -> CALStore: cal = createClinicalAnalysisLaboratory(calDTO)
 activate CALStore
-CALStore -> MapperCal : create(calDTO)
+CALStore -> MapperCal : ToModel(calDTO)
 deactivate CALStore
 deactivate Comp
 activate MapperCal
