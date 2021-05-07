@@ -49,13 +49,14 @@ class Test{
 -internalCode
 -nhsCode
 -description
--dateValidationLabCordinator
--timeValidationLabCordinator
 }
 
 class Sample{
--date
--time
+-dateAndTime
+}
+
+class LabCordinatorValidation {
+-dateAndTime
 }
 
 class TestType{
@@ -80,8 +81,7 @@ class ParameterCategory{
 }
 
 class ChemicalAnalysis{
--date
--time
+-dateAndTime
 }
 
 class LabOrder{
@@ -100,8 +100,7 @@ class SpecialistDoctor{
 
 class MedicalReport{
 -diagnosis
--date
--time
+-dateAndTime
 }
 
 class ExternalModule{
@@ -162,7 +161,9 @@ Test "*"---"1..*" Parameter : measure >
 Test "1..*"---"1" TestType : is associated to >
 Test "1..*" ---"1" ChemicalAnalysis : request >
 Test "1..*" ---"1" MedicalReport : request >
-Test "*" ---"1" Employee : validated by >
+Test "*" --- "1" LabCordinatorValidation : request >
+
+LabCordinatorValidation "*"--"1" Employee : made by >
 
 Parameter "*"---"1" ParameterCategory : presented under >
 Parameter "1..*" ---"1" ChemicalAnalysis : analyze by >
@@ -175,8 +176,9 @@ TestType "*"---"1" Employee : specified by >
 
 ParameterResult "1..*" --- "1" Test : associated >
 ParameterResult "1" --- "1" Parameter : associated >
-ParameterResult "1..*"---"1" Employee : validated by >
+ParameterResult "1..*"---"1" LabCordinatorValidation : validated by >
 ParameterResult "1..*"---"1" Employee: registered by >
+ParameterResult "*"---"1" ReferenceValue : compareted with >
 
 Sample "*"---"1" ChemicalLaboratory : sent to >
 Sample "1..*"---"1" Test : associated >
@@ -192,13 +194,12 @@ Client "*"---"1..*" EmailResult : receives >
 Client "*"---"1" EmailLogin : receives >
 Client "*"---"1" Employee : registered by >
 
-LabOrder "1"---------"1" Test : orders a >
+LabOrder "1"---------"1" Test : prescribe >
 LabOrder "1..*"---"1" TestType : contains the >
 LabOrder "*"---"1..*" Parameter : contains the >
 
 ChemicalAnalysis "1" --- "1..*" Sample : analyzes >
 ChemicalAnalysis "1"---"1..*" ParameterResult: generates >
-ChemicalAnalysis "*"---"1" Employee : validated by >
 
 SpecialistDoctor ---|> Employee
 SpecialistDoctor "1"---"1..*" ParameterResult : analyzes >
@@ -206,10 +207,10 @@ SpecialistDoctor "1"---"*" MedicalReport: write the >
 
 MedicalReport "1..*"---"1" Client : sent to >
 MedicalReport "1"---"1..*" ParameterResult : contains >
-MedicalReport "*"---"1" Employee : validated by >
+MedicalReport "*"---"1" LabCordinatorValidation : validated by >
 
 ExternalModule "1"---"*" MedicalReport : validates >
-ExternalModule "1"---"1..*" ReferenceValue : contains >
+ExternalModule "1"---"1..*" ReferenceValue : provides >
 
 NhsApi "1"---"*" Covid19Report : send the >
 
