@@ -22,6 +22,7 @@ public class OrganizationRoleStore{
      * @return The list of organization roles
      */
     public List<OrganizationRole> getListOrgRoles() {
+
         return listOrgRoles;
     }
 
@@ -29,16 +30,24 @@ public class OrganizationRoleStore{
      * Instantiates a new OrganizationRoleStore.
      */
     public OrganizationRoleStore() {
-        this.listOrgRoles = new ArrayList<>();
+        this.listOrgRoles = new ArrayList<OrganizationRole>();
+        listOrgRoles.add(new OrganizationRole("ADMINISTRATOR"));
+        listOrgRoles.add(new OrganizationRole("RECEPTIONIST"));
+        listOrgRoles.add(new OrganizationRole("MEDICAL LAB TECHNICIAN"));
+        listOrgRoles.add(new OrganizationRole("CLINICAL CHEMISTRY TECHNICIAN"));
+        listOrgRoles.add(new OrganizationRole("SPECIALIST DOCTOR"));
+        listOrgRoles.add(new OrganizationRole("LABORATORY COORDINATOR"));
     }
 
     /**
      * Creates a new instance of OrganizationRole receiving an object of type OrganizationRoleDto
-     * @param orgRoleDto the DTO organization role
+     * @param orgRole the DTO organization role
      * @return a organization role
      */
-    public OrganizationRole createOrganizationRole(OrganizationRoleDTO orgRoleDto){
-        return new OrganizationRole(orgRoleDto.getDesignation());
+    public OrganizationRole createOrganizationRole(OrganizationRole orgRole){
+
+        return new OrganizationRole(orgRole.getDesignation());
+
     }
 
     /**
@@ -47,7 +56,11 @@ public class OrganizationRoleStore{
      * @return false if the organizationRole already exists or is null. Otherwise, it returns true.
      */
     public  boolean validateOrganizationRole(OrganizationRole orgRole){
-        return listOrgRoles.contains(orgRole);
+        boolean flag = false;
+        for (OrganizationRole orgRoleAux : listOrgRoles) {
+            if (orgRole.getDesignation().equalsIgnoreCase(orgRoleAux.getDesignation())&& !flag) flag = true;
+        }
+        return flag;
     }
 
 
