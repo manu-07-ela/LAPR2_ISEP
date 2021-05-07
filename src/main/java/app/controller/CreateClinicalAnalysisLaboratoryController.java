@@ -28,10 +28,10 @@ public class CreateClinicalAnalysisLaboratoryController {
     /**
      *
      */
-    public List<TestType> getTestTypeList(){
+    /*public List<TestType> getTestTypeList(){
        TestTypeStore store = company.getTestTypeStore();
        return TestTyperMapper.toModel(store.getTestTypeListList());
-    }
+    }*/
 
     /**
      *

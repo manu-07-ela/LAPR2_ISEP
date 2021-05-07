@@ -27,9 +27,9 @@ public class ClinicalAnalysisLaboratoryStore {
      * @param calDTO
      * @return
      */
-    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO){
+    /*public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO){
         return CreateClinicalAnalysisLaboratoryMapper.ToModel(calDTO);
-    }
+    }*/
 
     /**
      *

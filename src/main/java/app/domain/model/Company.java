@@ -1,5 +1,9 @@
 package app.domain.model;
 
+import app.domain.store.ClinicalAnalysisLaboratoryStore;
+import app.domain.store.ParameterCategoryStore;
+import app.domain.store.ParameterStore;
+import app.domain.store.TestTypeStore;
 import app.domain.store.*;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
@@ -31,6 +35,11 @@ public class Company {
      *
      */
     private ParameterCategoryStore parameterCategoryStore;
+
+    /**
+     *
+     */
+    private ParameterStore parameterStore;
 
     /**
      *
@@ -109,6 +118,15 @@ public class Company {
     public ParameterCategoryStore getParameterCategoryStore(){
         return parameterCategoryStore;
     }
+
+    /**
+     * Gets the list containing the company's parameters.
+     * @return
+     */
+    public ParameterStore getParameterStore(){
+        return parameterStore;
+    }
+
 
     /**
      *
