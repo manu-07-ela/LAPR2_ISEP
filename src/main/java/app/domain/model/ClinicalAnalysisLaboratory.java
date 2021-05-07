@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -27,19 +29,24 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
      * @param laboratoryId            Clinical Analysis Laboratory's ID
      * @param listOfTestTypes         List of Test Type that the Clinical Analysis Laboratory does
      */
-    public ClinicalAnalysisLaboratory(String name, String address, float phoneNumber , float tin, String laboratoryId, List<TestType> listOfTestTypes){
+    public ClinicalAnalysisLaboratory(String name, String address, String phoneNumber , String tin, String laboratoryId, List<TestType> listOfTestTypes){
         super(name, address, phoneNumber, tin);
         laboratoryIdValidation(laboratoryId);
         this.laboratoryId=laboratoryId;
         this.listOfTestTypes=listOfTestTypes;
     }
 
-    public ClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory obj){
-        super(obj.getName(), obj.getAddress(), obj.getPhoneNumber(), obj.getTin());
-        laboratoryIdValidation(obj.getLaboratoryId());
-        this.laboratoryId= obj.getLaboratoryId();
-        this.listOfTestTypes= obj.getListOfTestTypes();
+    /**
+     *
+     * @param calDTO
+     */
+    public ClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
+        super(calDTO.getName(), calDTO.getAddress(), calDTO.getPhoneNumber(), calDTO.getTin());
+        laboratoryIdValidation(calDTO.getLaboratoryId());
+        this.laboratoryId= calDTO.getLaboratoryId();
+        this.listOfTestTypes= calDTO.getListOfTestTypes();
     }
+
     /**
      *
      * @return

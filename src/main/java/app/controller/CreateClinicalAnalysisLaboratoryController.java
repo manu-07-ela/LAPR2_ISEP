@@ -5,6 +5,7 @@ import app.domain.model.Company;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.TestTypeStore;
 import app.mappers.TestTyperMapper;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import app.mappers.dto.TestTypeDTO;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class CreateClinicalAnalysisLaboratoryController {
      */
     public List<TestTypeDTO> getTestTypeList(){
        TestTypeStore store = company.getTestTypeStore();
-       return TestTyperMapper.toModel(store.getTestTypeListList());
+       return TestTyperMapper.toModel(store.getTestTypeList());
     }
 
     /**
@@ -41,10 +42,10 @@ public class CreateClinicalAnalysisLaboratoryController {
      * @param calDTO
      * @return
      */
-   /* public boolean CreateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
+   public boolean CreateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
         this.cal = store.createClinicalAnalysisLaboratory(calDTO);
         return store.validateClinicalAnalysisLaboratory(cal);
-    }*/
+    }
 
     /**
      *

@@ -1,6 +1,8 @@
 package app.mappers.dto;
 
+import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.ParameterCategory;
+import app.domain.model.TestType;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -41,6 +43,16 @@ public class TestTypeDTO {
         this.description=description;
         this.collectingMethod=collectingMethod;
         this.listOfParameterCategories=listOfParameterCategories;
+    }
+
+    public TestTypeDTO (TestType obj){
+        checkCodeRules(obj.getCode());
+        checkDescriptionRules(obj.getDescription());
+        checkcollectingMethodRules(obj.getCollectingMethod());
+        this.code= obj.getCode();
+        this.description= obj.getDescription();
+        this.collectingMethod=obj.getCollectingMethod();
+        this.listOfParameterCategories=obj.getListOfParameterCategories();
     }
 
     /**

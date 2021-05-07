@@ -22,6 +22,6 @@ public class TestTyperMapper {
     }
 
     public static TestTypeDTO ToDTO(TestType obj){
-        return new TestTypeDTO(obj.getCode(),obj.getDescription(),obj.getCollectingMethod(),obj.getListOfParameterCategories());
+        return new TestTypeDTO(obj);
     }
 }

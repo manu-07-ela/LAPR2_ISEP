@@ -46,6 +46,7 @@ public class CreateTestTypeController {
      */
     private ParameterCategoryMapper pcMapper;
 
+
     /**
      * Instantiates a new Create Test Type Controller.
      */
@@ -62,10 +63,20 @@ public class CreateTestTypeController {
      * @param company
      */
     public CreateTestTypeController(Company company) {
-        this.company = company;
+        this.app=App.getInstance();
+        this.company =company;
         this.pcStore=company.getParameterCategoryStore();
         this.ttStore=company.getTestTypeStore();
         pcMapper = new ParameterCategoryMapper();
+    }
+
+    /**
+     * Get a list of objects of type ParameterCategoryDTO
+     * @return list with parameterCategoriesDto
+     */
+    public List<ParameterCategoryDto> getParameterCategories(){
+        List<ParameterCategory> listParameterCategories = pcStore.getParameterCategoryList();
+        return pcMapper.toDto(listParameterCategories);
     }
 
     /**
@@ -88,20 +99,5 @@ public class CreateTestTypeController {
     public boolean saveTestType() {
         return this.ttStore.saveTestType(tt);
     }
-
-    /**
-     *
-     * @return
-     */
-    public List<ParameterCategoryDto> getParameterCategories(){
-        List<ParameterCategory> listParameterCategories = pcStore.getParameterCategoryList();
-        ParameterCategoryMapper mapper = new ParameterCategoryMapper();
-        return mapper.toDto(listParameterCategories);
-    }
-
-
-
-
-
 
 }

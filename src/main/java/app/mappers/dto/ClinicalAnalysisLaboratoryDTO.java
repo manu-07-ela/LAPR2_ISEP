@@ -1,6 +1,7 @@
 package app.mappers.dto;
 
 import app.domain.model.TestType;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -18,12 +19,12 @@ public class ClinicalAnalysisLaboratoryDTO {
     /**
      * Clinical Analysis Laboratory's phone number
      */
-    private float phoneNumber;
+    private String phoneNumber;
 
     /**
      * Clinical Analysis Laboratory's tax identification number
      */
-    private float tin;
+    private String tin;
     /**
      * Clinical Analysis Laboratory's ID
      */
@@ -42,7 +43,7 @@ public class ClinicalAnalysisLaboratoryDTO {
      * @param phoneNumber             Clinical Analysis Laboratory's phone number
      * @param tin                     Clinical Analysis Laboratory's tax identification number
      */
-    public ClinicalAnalysisLaboratoryDTO (String name, String address, float phoneNumber , float tin){
+    public ClinicalAnalysisLaboratoryDTO (String name, String address, String phoneNumber , String tin,String laboratoryId, List<TestType> listOfTestTypes){
         nameValidation(name);
         AddressValidation(address);
         phoneNumberValidation(phoneNumber);
@@ -74,14 +75,14 @@ public class ClinicalAnalysisLaboratoryDTO {
      *
      * @return
      */
-    public float getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
     /**
      *
      * @return
      */
-    public float getTin() {
+    public String getTin() {
         return tin;
     }
     /**
@@ -116,14 +117,14 @@ public class ClinicalAnalysisLaboratoryDTO {
      *
      * @param phoneNumber
      */
-    public void setPhoneNumber(float phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     /**
      *
      * @param tin
      */
-    public void setTin(float tin) {
+    public void setTin(String tin) {
         this.tin = tin;
     }
     /**
@@ -139,7 +140,9 @@ public class ClinicalAnalysisLaboratoryDTO {
      * @param name   Clinical Analysis Laboratory's name
      */
     private void nameValidation(String name){
-        if (name.length()>20){
+        if (StringUtils.isBlank(name)){
+            throw  new IllegalArgumentException("The name mustn't have more than 20 characters");
+        }else if(name.length()>20){
             throw  new IllegalArgumentException("The name mustn't have more than 20 characters");
         }
 
@@ -150,7 +153,9 @@ public class ClinicalAnalysisLaboratoryDTO {
      * @param address     Clinical Analysis Laboratory's address
      */
     private void AddressValidation(String address){
-        if (address.length()>30){
+        if (StringUtils.isBlank(address)){
+            throw  new IllegalArgumentException("The address mustn't have more than 30 characters");
+        }else if (address.length()>30){
             throw  new IllegalArgumentException("The address mustn't have more than 30 characters");
         }
     }
@@ -159,9 +164,10 @@ public class ClinicalAnalysisLaboratoryDTO {
      *
      * @param phoneNumber
      */
-    private void phoneNumberValidation(float phoneNumber){
-        String la = ""+phoneNumber;
-        if (la.length()!=11){
+    private void phoneNumberValidation(String phoneNumber){
+        if (StringUtils.isBlank(phoneNumber)){
+            throw  new IllegalArgumentException("Phone number has to have 11 digits");
+        }else if (phoneNumber.length()!=11){
             throw  new IllegalArgumentException("Phone number has to have 11 digits");
         }
     }
@@ -170,9 +176,10 @@ public class ClinicalAnalysisLaboratoryDTO {
      *
      * @param tin
      */
-    private void tinValidation(float tin){
-        String la = ""+tin;
-        if (la.length()!=10){
+    private void tinValidation(String tin){
+        if (StringUtils.isBlank(tin)){
+            throw  new IllegalArgumentException("Tin has to have 10 digits");
+        }else if (tin.length()!=10){
             throw  new IllegalArgumentException("Tin has to have 10 digits");
         }
     }
@@ -182,8 +189,9 @@ public class ClinicalAnalysisLaboratoryDTO {
      * @param laboratoryId Clinical Analysis Laboratory's ID
      */
     private void laboratoryIdValidation(String laboratoryId){
-        if (laboratoryId.length()>5){
+        if (StringUtils.isBlank(laboratoryId))
             throw  new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
-        }
+        if ( !StringUtils.isAlphanumeric(laboratoryId) || laboratoryId.length() != 5 )
+            throw  new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
     }
 }

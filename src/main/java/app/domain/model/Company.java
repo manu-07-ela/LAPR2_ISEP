@@ -104,16 +104,16 @@ public class Company {
     }
 
     /**
-     * Gets the List containing the company's test types.
-     * @return the list of test types
+     * Get the instance of TestTypeStore.
+     * @return the instance of TestTypeStore.
      */
     public TestTypeStore getTestTypeStore(){
         return testTypeStore;
     }
 
     /**
-     * Gets the list containing the company's parameter categories.
-     * @return
+     * Get the instance of ParameterCategoryStore.
+     * @return the instance of ParameterCategoryStore.
      */
     public ParameterCategoryStore getParameterCategoryStore(){
         return parameterCategoryStore;

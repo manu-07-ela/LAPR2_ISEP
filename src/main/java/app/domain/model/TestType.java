@@ -131,7 +131,7 @@ public class TestType {
 
         TestType otherTestType = (TestType) o;
 
-        return this.getCode().equals(otherTestType.getCode()) || (this.getDescription().equalsIgnoreCase(otherTestType.getDescription()) && !this.getCode().equals(otherTestType.getCode()) );
+        return this.getCode().equals(otherTestType.getCode()) || this.getDescription().equalsIgnoreCase(otherTestType.getDescription()) ;
     }
 
     /**

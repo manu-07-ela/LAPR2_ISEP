@@ -29,7 +29,7 @@ deactivate COMP
 CTRL -> PCSTORE : listParameterCategory = getListOfParameterCategory()
 activate PCSTORE
 deactivate PCSTORE
-CTRL -> MAPPER : toDTO(listParameterCategory)
+CTRL -> MAPPER : toDto(listParameterCategory)
 activate MAPPER
 loop for each object in listParameterCategory
 MAPPER -> LISTPC : ParameterCategory = getParameterCategories(i)
@@ -64,19 +64,20 @@ activate CTRL
 CTRL -> COMP : pstore = getParameterStore()
 activate COMP
 deactivate COMP
-CTRL -> MAPPER : category = toParameterCategory(selectedCategory)
-activate MAPPER
-deactivate MAPPER
+CTRL -> PCSTORE : category = getParameterCategoryByCode(selectedCategory)
+activate PCSTORE
+deactivate PCSTORE
 CTRL -> STORE : t = createParameter(code,shortName,description,category)
 activate STORE
 STORE -> PRMT** : createParameter(code,shortName,description,category)
-deactivate STORE
-CTRL -> STORE : validateParameterData(p)
-activate STORE
-STORE -> STORE : validateParameterData(p)
+STORE -> STORE : validateParameter(p)
 activate STORE
 deactivate STORE
 deactivate STORE
+
+
+
+
 
 
 deactivate CTRL
@@ -92,7 +93,7 @@ UI -> CTRL : saveParameter()
 activate CTRL
 CTRL -> STORE : saveParameter(p)
 activate STORE
-STORE -> STORE : validateParameterExistence(p)
+STORE -> STORE : validateParameter(p)
 activate STORE
 deactivate STORE
 STORE ->STORE : addParameter(p)

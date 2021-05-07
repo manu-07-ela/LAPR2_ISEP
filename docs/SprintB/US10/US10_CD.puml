@@ -21,10 +21,9 @@ class Company{
 }
 
 class ParameterStore {
-+createParameter(code,shortName,description,selectedCategory)
-+validateParameterData(p)
 +saveParameter(p)
-+validateParameterExistence(p)
++createParameter(code,shortName,description,selectedCategory)
++validateParameter(p)
 +addParameter(p)
 
 List<Parameter> listParameter
@@ -55,15 +54,16 @@ class ParameterCategory{
 
 
 
-CreateParameterUI --> CreateParameterController
-CreateParameterController --> Company
-CreateParameterController --> ParameterCategoryMapper : uses
+CreateParameterUI ..> CreateParameterController
+CreateParameterController ..> Company
+CreateParameterController ..> ParameterCategoryMapper : uses
 CreateParameterController ..> ParameterCategoryStore : uses
+CreateParameterController ..> ParameterStore : uses
 Company "1" --> "1" ParameterStore : uses
-Company "1" --> "1" ParameterCategoryMapper
-Company "1" --> "1" ParameterCategoryStore : uses
-ParameterStore --> Parameter : Capable of analyzing
-ParameterCategoryStore "1" --> "*" ParameterCategory : adopts
+Company "1" ..> "1" ParameterCategoryMapper
+Company "1" ..> "1" ParameterCategoryStore : uses
+ParameterStore ..> Parameter : Capable of analyzing
+ParameterCategoryStore "1" ..> "*" ParameterCategory : adopts
 Parameter "1" --> "*" ParameterCategory : presented under
 
 @enduml
