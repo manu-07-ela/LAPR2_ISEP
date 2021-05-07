@@ -1,6 +1,10 @@
 @startuml
 skinparam classAttributeIconSize 0
 
+class CreateClientUI {
+
+}
+
 class Client {
   -int citizen card number
   -int NHS number
@@ -11,10 +15,6 @@ class Client {
   -String e-mail
   -String name
   +Client(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
-}
-
-class Company {
-  +getClientStore()
 }
 
 class ClientStore {
@@ -33,16 +33,22 @@ class ClientDto {
   -int phone number
   -String e-mail
   -String name
+  ClientDto(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+  +getname()
+  +getnhs()
+  +getdate()
+  +getsex()
+  +gettin()
+  +getphonenumber()
+  +getemail()
 }
 
 class ClientMapper {
-+getname()
-+getnhs()
-+getdate()
-+getsex()
-+gettin()
-+getphonenumber()
-+getemail()
+
+}
+
+class Company {
+  +getClientStore()
 }
 
 
@@ -55,9 +61,7 @@ class AuthFacade {
   +addUser(name,email,pwd)
 }
 
-class CreateClientUI {
 
-}
 
 CreateClientUI ..> CreateClientController
 CreateClientUI ..> ClientDto
@@ -71,6 +75,7 @@ ClientMapper ..> Client
 ClientStore "1" -> "*" Client : register the
 ClientStore "1" -> "1" AuthFacade : uses
 Company "1" -> "1" ClientStore : uses
+
 
 
 @enduml

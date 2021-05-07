@@ -69,10 +69,6 @@ deactivate CDTO
 CM --> CL** : create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
 deactivate CM
 deactivate CS
-
-CTRL -> CS : validateClient(cl)
-activate CS
-deactivate CS
 deactivate CTRL
 
 UI --> REP : shows all data and requests confirmation
