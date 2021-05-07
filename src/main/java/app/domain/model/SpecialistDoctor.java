@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import app.domain.model.attributes.Address;
+import app.domain.model.attributes.Name;
 import auth.domain.model.Email;
 import org.apache.commons.lang3.StringUtils;
 
@@ -26,7 +28,7 @@ public class SpecialistDoctor extends Employee{
      * @param organizationRole specialist doctor organization role
      * @param doctorIndexNumber specialist doctor doctor index number
      */
-    public SpecialistDoctor(String name, Email email, String adress, int phoneNumber, int socCode, OrganizationRole organizationRole, int doctorIndexNumber) {
+    public SpecialistDoctor(Name name, Email email, Address adress, double phoneNumber, int socCode, OrganizationRole organizationRole, int doctorIndexNumber) {
         super(name, email, adress, phoneNumber, socCode, organizationRole);
         if (!isValidDoctorIndexNumber()) throw new IllegalArgumentException("Doctor index number should have 6 digits");
         this.doctorIndexNumber = doctorIndexNumber;

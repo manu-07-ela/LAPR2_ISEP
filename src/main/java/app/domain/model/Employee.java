@@ -1,4 +1,6 @@
 package app.domain.model;
+import app.domain.model.attributes.Address;
+import app.domain.model.attributes.Name;
 import auth.domain.model.Email;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -13,7 +15,7 @@ public class Employee {
     /**
      *The name of an employee in the organization
      */
-    private String name;
+    private Name name;
     /**
      *The email of an employee in the organization
      */
@@ -21,11 +23,11 @@ public class Employee {
     /**
      *The address of an employee in the organization
      */
-    private String address;
+    private Address address;
     /**
      *The phone number of an employee in the organization
      */
-    private int phoneNumber;
+    private double phoneNumber;
     /**
      *The employee ID of an employee in the organization
      */
@@ -48,32 +50,28 @@ public class Employee {
      * @param socCode SOC code of Employee
      * @param organizationRole organization Role of Employee
      */
-    public Employee(String name, Email email, String address, int phoneNumber, int socCode, OrganizationRole organizationRole){
-        if(!isValidName()) {
-            throw new IllegalArgumentException("Name need to have maximum 15 characters");
-        }
-        if (!isValidSocNumber()){
+    public Employee(Name name, Email email, Address address, double phoneNumber, int socCode, OrganizationRole organizationRole){
+
+        if (!isValidSocNumber(socCode)){
             throw new IllegalArgumentException("Soc Number must have maximum 4 digits");
         }
-        if (!isValidPhoneNumber()){
+        if (!isValidPhoneNumber(phoneNumber)){
             throw new IllegalArgumentException("Phone number must have maximum (this rule)");
         }
 
-        this.name = name.trim();
+        this.name = name;
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.socCode = socCode;
         this.organizationRole = new OrganizationRole(organizationRole.designation);
-
-
     }
 
     /**
      * Get the name of an employee
      * @return the name of Employee
      */
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
@@ -89,7 +87,7 @@ public class Employee {
      * Get the address of an employee
      * @return the address of Employee
      */
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
@@ -97,7 +95,7 @@ public class Employee {
      * Get the phone number of an employee
      * @return the phone number of Employee
      */
-    public int getPhoneNumber() {
+    public double getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -126,18 +124,10 @@ public class Employee {
     }
 
     /**
-     * Checks whether the name associated with the employee we intend to create complies with all business rules.
-     * @return true if the name obeys the rules imposed by the business, false otherwise.
-     */
-    private boolean isValidName(){
-        return name.length()<=15 || StringUtils.isBlank(name);
-    }
-
-    /**
      * Checks whether the SOC number associated with the employee we intend to create complies with all business rules.
      * @return true if the SOC number obeys the rules imposed by the business, false otherwise.
      */
-    private  boolean isValidSocNumber(){
+    private  boolean isValidSocNumber(Integer socCode){
         return Integer.toString(socCode).length() == 4 || StringUtils.isBlank(Integer.toString(socCode));
     }
 
@@ -145,8 +135,8 @@ public class Employee {
      * Checks whether the phone number associated with the employee we intend to create complies with all business rules.
      * @return true if the phone number obeys the rules imposed by the business, false otherwise.
      */
-    private  boolean isValidPhoneNumber() {
-        return Integer.toString(phoneNumber).length() == 11 || !ObjectUtils.allNotNull(phoneNumber) || StringUtils.isBlank(Integer.toString(phoneNumber));
+    private  boolean isValidPhoneNumber(double phoneNumber) {
+        return Double.toString(phoneNumber).length() == 11 || !ObjectUtils.allNotNull(phoneNumber) || StringUtils.isBlank(Double.toString(phoneNumber));
     }
 
     /**

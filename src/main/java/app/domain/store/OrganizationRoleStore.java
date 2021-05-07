@@ -45,9 +45,8 @@ public class OrganizationRoleStore{
      * @return a organization role
      */
     public OrganizationRole createOrganizationRole(OrganizationRole orgRole){
-
+        if (!validateOrganizationRole(orgRole)) throw new IllegalArgumentException("This Organization Role do not exist in Company");
         return new OrganizationRole(orgRole.getDesignation());
-
     }
 
     /**
@@ -56,11 +55,7 @@ public class OrganizationRoleStore{
      * @return false if the organizationRole already exists or is null. Otherwise, it returns true.
      */
     public  boolean validateOrganizationRole(OrganizationRole orgRole){
-        boolean flag = false;
-        for (OrganizationRole orgRoleAux : listOrgRoles) {
-            if (orgRole.getDesignation().equalsIgnoreCase(orgRoleAux.getDesignation())&& !flag) flag = true;
-        }
-        return flag;
+        return listOrgRoles.contains(orgRole);
     }
 
 

@@ -73,18 +73,14 @@ public class RegisterEmployeeController {
        return this.mapperOrgRole.listOrgRolesDto(this.organizationRoleStore.getListOrgRoles());
     }
 
-    public boolean validateOrganizationRole(OrganizationRoleDTO orgRoleDto){
-        return !this.organizationRoleStore.validateOrganizationRole(this.mapperOrgRole.toOrganizationRole(orgRoleDto));
-    }
 
     /**
      *
      * @param orgRoleDto
      * @return
      */
-    public boolean createOrganizationRole(OrganizationRoleDTO orgRoleDto){
-        this.orgRole = organizationRoleStore.createOrganizationRole(this.mapperOrgRole.toOrganizationRole(orgRoleDto));
-        return this.organizationRoleStore.validateOrganizationRole(orgRole);
+    public OrganizationRole createOrganizationRole(OrganizationRoleDTO orgRoleDto) {
+        return this.orgRole = organizationRoleStore.createOrganizationRole(this.mapperOrgRole.toOrganizationRole(orgRoleDto));
     }
 
     /**

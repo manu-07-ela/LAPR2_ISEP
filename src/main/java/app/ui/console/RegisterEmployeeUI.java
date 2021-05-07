@@ -2,8 +2,10 @@ package app.ui.console;
 
 import app.controller.RegisterEmployeeController;
 import app.domain.model.OrganizationRole;
+import app.mappers.dto.EmployeeDTO;
 import app.mappers.dto.OrganizationRoleDTO;
 import app.ui.console.utils.Utils;
+import auth.domain.model.Email;
 
 import java.util.Scanner;
 
@@ -19,8 +21,10 @@ public class RegisterEmployeeUI implements Runnable{
     @Override
     public void run() {
         showOrganizationRole();
-        String option = Utils.readLineFromConsole("Type your option: ");
-        createOrganizationRole(option);
+        OrganizationRole orgRole = createOrganizationRole();
+        createEmployee(orgRole);
+
+
     }
     private void showOrganizationRole(){
         System.out.printf("What is the organizational role played by the employee you want to register? %n");
@@ -29,15 +33,46 @@ public class RegisterEmployeeUI implements Runnable{
             System.out.printf("-> %s%n", orgRoleDTO.getDesignation());
         }
     }
-    private void createOrganizationRole(String designation){
-        OrganizationRoleDTO orgRoleDto = new OrganizationRoleDTO(designation);
-        if (controller.validateOrganizationRole(orgRoleDto)){
+    private OrganizationRole createOrganizationRole(){
+        OrganizationRole orgRole = null;
+        boolean invalidData = true;
+        do {
+            String option = Utils.readLineFromConsole("Type your option: ");
             try {
-                this.controller.createOrganizationRole(new OrganizationRoleDTO(designation));
+                orgRole = this.controller.createOrganizationRole(new OrganizationRoleDTO(option));
+                invalidData = false;
+
             }catch (IllegalArgumentException e){
                 System.out.printf("ERROR: %s%n", e.getMessage());
+
             }
-        }
+        }while (invalidData);
+
+        return orgRole;
+    }
+    public void createEmployee(OrganizationRole orgRole){
+        boolean invalidData = true;
+        do {
+            try {
+                String name = Utils.readLineFromConsole("Name: ");
+                String email = Utils.readLineFromConsole("Email: ");
+                String address = Utils.readLineFromConsole("Address: ");
+                double phoneNumber = Utils.readDoubleFromConsole("Phone Number: ");
+                int socCode = Utils.readIntegerFromConsole("SOC code: ");
+                if (orgRole.getDesignation().equalsIgnoreCase("ADMINISTRATOR")){
+                    int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor index Number: ");
+                    controller.createSpecialistDoctor(new EmployeeDTO(name, new Email(email), address, phoneNumber, socCode, new OrganizationRole(orgRole.getDesignation()), doctorIndexNumber));
+                }
+                else{
+                    controller.createEmployee(new EmployeeDTO(name, new Email(email), address, phoneNumber, socCode, new OrganizationRole(orgRole.getDesignation())));
+                }
+                invalidData = false;
+
+            }catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
+
+        }while (invalidData);
     }
 
 

@@ -1,6 +1,8 @@
 package app.mappers.dto;
 
 import app.domain.model.OrganizationRole;
+import app.domain.model.attributes.Address;
+import app.domain.model.attributes.Name;
 import auth.domain.model.Email;
 
 /**
@@ -12,7 +14,7 @@ public class EmployeeDTO {
     /**
      * The name of the data transfer object of the type employed
      */
-    private String name;
+    private Name name;
     /**
      *The email of the data transfer object of the type employed
      */
@@ -20,11 +22,11 @@ public class EmployeeDTO {
     /**
      *The address of the data transfer object of the type employed
      */
-    private String address;
+    private Address address;
     /**
      *The phone number of the data transfer object of the type employed
      */
-    private int phoneNumber;
+    private double phoneNumber;
     /**
      *The SOC code of the data transfer object of the type employed
      */
@@ -49,7 +51,7 @@ public class EmployeeDTO {
      * @param organizationRole employer's organization role
      * @param doctorIndexNumber employer's doctor index number
      */
-    public EmployeeDTO(String name, Email email, String address, int phoneNumber, int socCode, OrganizationRole organizationRole, int doctorIndexNumber) {
+    public EmployeeDTO(Name name, Email email, Address address, double phoneNumber, int socCode, OrganizationRole organizationRole, int doctorIndexNumber) {
         this.name = name;
         this.email = email;
         this.address = address;
@@ -68,7 +70,7 @@ public class EmployeeDTO {
      * @param socCode employer's SOC code
      * @param organizationRole employer's organization role
      */
-    public EmployeeDTO(String name, Email email, String address, int phoneNumber,int socCode, OrganizationRole organizationRole) {
+    public EmployeeDTO(Name name, Email email, Address address, double phoneNumber,int socCode, OrganizationRole organizationRole) {
         this.name = name;
         this.email = email;
         this.address = address;
@@ -81,7 +83,7 @@ public class EmployeeDTO {
      * Get the name of the employee
      * @return the name of EmployeeDto
      */
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
@@ -97,7 +99,7 @@ public class EmployeeDTO {
      *Get the address of the employee
      * @return the address of EmployeeDto
      */
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
@@ -105,7 +107,7 @@ public class EmployeeDTO {
      *Get the phone number of the employee
      * @return the phone number of EmployeeDto
      */
-    public int getPhoneNumber() {
+    public double getPhoneNumber() {
         return phoneNumber;
     }
 
