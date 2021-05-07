@@ -6,6 +6,9 @@ import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 
 import java.util.List;
 
+/**
+ * @author Carlos Rodrigues <1201001@isep.ipp.pt>
+ */
 public class CreateClinicalAnalysisLaboratoryMapper {
 
  public ClinicalAnalysisLaboratory ToModel(ClinicalAnalysisLaboratoryDTO calDTO){
@@ -17,4 +20,5 @@ public class CreateClinicalAnalysisLaboratoryMapper {
      List< TestType > listOfTestTypes = calDTO.getListOfTestTypes();
      return new ClinicalAnalysisLaboratory(name,address,phoneNumber,tin, laboratoryId,listOfTestTypes);
  }
+
 }

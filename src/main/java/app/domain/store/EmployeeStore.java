@@ -3,6 +3,7 @@ package app.domain.store;
 import app.domain.model.Employee;
 import app.domain.model.OrganizationRole;
 import app.domain.model.SpecialistDoctor;
+import app.mappers.dto.EmployeeDTO;
 import auth.domain.model.Email;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,32 +26,21 @@ public class EmployeeStore {
     }
 
     /**
-     * Create a new employee instance
-     * @param name employee name
-     * @param email employee email
-     * @param address employee address
-     * @param phoneNumber employee phone number
-     * @param socCode employee SOC code
-     * @param organizationRole employee organization role
-     * @return an Employee
+     *
+     * @param empDto
+     * @return
      */
-    public Employee createEmployee(String name, Email email, String address, int phoneNumber, int socCode, OrganizationRole organizationRole) {
-        return new Employee(name, email, address, phoneNumber, socCode, organizationRole);
+    public Employee createEmployee(EmployeeDTO empDto) {
+        return new Employee(empDto.getName(), empDto.getEmail(), empDto.getAddress(),empDto.getPhoneNumber(),empDto.getSocCode(), empDto.getOrganizationRole());
     }
 
     /**
-     * Create a new specialist doctor instance
-     * @param name specialist doctor name
-     * @param email specialist doctor email
-     * @param address specialist doctor address
-     * @param phoneNumber specialist doctor phone number
-     * @param socCode specialist doctor SOC code
-     * @param organizationRole specialist doctor organization role
-     * @param doctorIndexNumber specialist doctor index number
-     * @return a Specialist Doctor
+     *
+     * @param empDto
+     * @return
      */
-    public SpecialistDoctor createSpecialistDoctor(String name, Email email, String address, int phoneNumber, int socCode, OrganizationRole organizationRole, int doctorIndexNumber){
-        return new SpecialistDoctor(name, email, address, phoneNumber, socCode, organizationRole, doctorIndexNumber);
+    public SpecialistDoctor createSpecialistDoctor(EmployeeDTO empDto){
+        return new SpecialistDoctor(empDto.getName(), empDto.getEmail(), empDto.getAddress(),empDto.getPhoneNumber(),empDto.getSocCode(), empDto.getOrganizationRole(), empDto.getDoctorIndexNumber());
     }
 
     /**

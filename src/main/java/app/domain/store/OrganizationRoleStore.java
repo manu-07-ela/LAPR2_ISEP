@@ -1,14 +1,17 @@
 package app.domain.store;
 
 import app.domain.model.OrganizationRole;
+import app.mappers.dto.OrganizationRoleDTO;
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Guard and manage instances of the organization's roles
  * @author  Manuela Leite <1200720@isep.ipp.pt>
  */
-public class OrganizationRoleStore {
+public class OrganizationRoleStore{
     /**
      * List that contains all the organizational roles played in the company
      */
@@ -34,8 +37,17 @@ public class OrganizationRoleStore {
      * @param orgRoleDto the DTO organization role
      * @return a organization role
      */
-    public OrganizationRole createOrganizationRole(OrganizationRole orgRoleDto){
+    public OrganizationRole createOrganizationRole(OrganizationRoleDTO orgRoleDto){
         return new OrganizationRole(orgRoleDto.getDesignation());
+    }
+
+    /**
+     * Global validation of Organization role
+     * @param orgRole Organization Role that we intend to validate.
+     * @return false if the organizationRole already exists or is null. Otherwise, it returns true.
+     */
+    public  boolean validateOrganizationRole(OrganizationRole orgRole){
+        return listOrgRoles.contains(orgRole);
     }
 
 

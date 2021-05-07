@@ -3,6 +3,9 @@ package app.domain.model;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author Carlos Rodrigues <1201001@isep.ipp.pt>
+ */
 public class ClinicalAnalysisLaboratory extends Laboratory {
     /**
      * Clinical Analysis Laboratory's ID

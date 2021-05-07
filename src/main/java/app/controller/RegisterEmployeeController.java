@@ -1,8 +1,10 @@
 package app.controller;
 
+import app.domain.model.Company;
 import app.domain.model.Employee;
 import app.domain.model.OrganizationRole;
 import app.domain.model.SpecialistDoctor;
+import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;
 import app.mappers.dto.EmployeeDTO;
 import app.mappers.dto.OrganizationRoleDTO;
@@ -11,6 +13,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterEmployeeController {
+    /**
+     *
+     */
+    private Company company;
+    /**
+     *
+     */
+    private EmployeeStore employeeStore;
+    /**
+     *
+     */
+    private  OrganizationRoleStore organizationRoleStore;
+    /**
+     *
+     */
+    private Employee emp;
+    private OrganizationRole orgRole;
+
+    /**
+     *
+     */
+    public RegisterEmployeeController(){
+        this.company = App.getInstance().getCompany();
+        this.employeeStore = company.getEmployeeStore();
+        this.organizationRoleStore = company.getOrganizationRoleStore();
+
+    }
+
+    /**
+     *
+     * @param company
+     */
+    public RegisterEmployeeController(Company company){
+        this.company = company;
+        this.employeeStore = company.getEmployeeStore();
+        this.organizationRoleStore = company.getOrganizationRoleStore();
+    }
+
     /**
      *
      * @return
@@ -24,8 +64,9 @@ public class RegisterEmployeeController {
      * @param orgRoleDto
      * @return
      */
-    public OrganizationRole createOrganizationRole(OrganizationRoleDTO orgRoleDto){
-        return new OrganizationRole(orgRoleDto.getDesignation());
+    public boolean createOrganizationRole(OrganizationRoleDTO orgRoleDto){
+        this.orgRole = organizationRoleStore.createOrganizationRole(orgRoleDto);
+        return this.organizationRoleStore.validateOrganizationRole(orgRole);
     }
 
     /**
@@ -34,7 +75,8 @@ public class RegisterEmployeeController {
      * @return
      */
     public SpecialistDoctor createSpecialistDoctor(EmployeeDTO empDto){
-        return new SpecialistDoctor(empDto.getName(),empDto.getEmail(), empDto.getAddress(), empDto.getPhoneNumber(), empDto.getSocCode(), empDto.getOrganizationRole(), empDto.getDoctorIndexNumber());
+        this.emp = employeeStore.createSpecialistDoctor(empDto);
+        return (SpecialistDoctor) emp;
     }
 
     /**
@@ -43,7 +85,8 @@ public class RegisterEmployeeController {
      * @return
      */
     public Employee createEmployee(EmployeeDTO empDto){
-        return new Employee(empDto.getName(), empDto.getEmail(),empDto.getAddress(),empDto.getPhoneNumber(), empDto.getSocCode(), empDto.getOrganizationRole());
+        this.emp = employeeStore.createEmployee(empDto);
+        return (SpecialistDoctor) emp;
     }
 
     public boolean saveEmployee(){
