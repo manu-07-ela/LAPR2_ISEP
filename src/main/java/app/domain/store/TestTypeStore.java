@@ -72,7 +72,7 @@ public class TestTypeStore {
      *
      * @return
      */
-    public List<TestType> getTestTypeListList(){
+    public List<TestType> getTestTypeList(){
         return testTypeList;
     }
 

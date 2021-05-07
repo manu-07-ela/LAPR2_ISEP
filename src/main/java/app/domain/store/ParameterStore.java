@@ -25,7 +25,16 @@ public class ParameterStore {
         listParameter = new ArrayList();
     }
 
-
+    /**
+     * Save the parameter case it is in a valid state.
+     * @param parameter The type of test we intend to save.
+     * @return true if the test type was saved. Otherwise, false.
+     */
+    public boolean saveParameter(Parameter parameter) {
+        if (!validateParameter(parameter))
+            return false;
+        return this.addParameter(parameter);
+    }
 
     /**
      * New Parameter.
@@ -59,17 +68,6 @@ public class ParameterStore {
         return listParameter.add(parameter);
     }
 
-
-    /**
-     * Save the parameter case it is in a valid state.
-     * @param parameter The type of test we intend to save.
-     * @return true if the test type was saved. Otherwise, false.
-     */
-    public boolean saveParameter(Parameter parameter) {
-        if (!validateParameter(parameter))
-            return false;
-        return this.addParameter(parameter);
-    }
 
 
     /**
