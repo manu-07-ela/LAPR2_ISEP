@@ -6,10 +6,11 @@ import app.domain.model.OrganizationRole;
 import app.domain.model.SpecialistDoctor;
 import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;
+import app.mappers.EmployeeMapper;
+import app.mappers.OrganizationRoleMapper;
 import app.mappers.dto.EmployeeDTO;
 import app.mappers.dto.OrganizationRoleDTO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterEmployeeController {
@@ -29,7 +30,18 @@ public class RegisterEmployeeController {
      *
      */
     private Employee emp;
+    /**
+     *
+     */
     private OrganizationRole orgRole;
+    /**
+     *
+     */
+    private OrganizationRoleMapper mapperOrgRole;
+    /**
+     *
+     */
+    private EmployeeMapper mapperEmp;
 
     /**
      *
@@ -38,6 +50,8 @@ public class RegisterEmployeeController {
         this.company = App.getInstance().getCompany();
         this.employeeStore = company.getEmployeeStore();
         this.organizationRoleStore = company.getOrganizationRoleStore();
+        this.mapperOrgRole = new OrganizationRoleMapper();
+        this.mapperEmp = new EmployeeMapper();
 
     }
 
@@ -55,9 +69,13 @@ public class RegisterEmployeeController {
      *
      * @return
      */
-   //public List<OrganizationRole> getLisOfOrgRoles(){
-    // see how to ask for methods in other classes
-   // }
+    public List<OrganizationRoleDTO> getLisOfOrgRoles(){
+       return this.mapperOrgRole.listOrgRolesDto(this.organizationRoleStore.getListOrgRoles());
+    }
+
+    public boolean validateOrganizationRole(OrganizationRoleDTO orgRoleDto){
+        return !this.organizationRoleStore.validateOrganizationRole(this.mapperOrgRole.toOrganizationRole(orgRoleDto));
+    }
 
     /**
      *
@@ -65,7 +83,7 @@ public class RegisterEmployeeController {
      * @return
      */
     public boolean createOrganizationRole(OrganizationRoleDTO orgRoleDto){
-        this.orgRole = organizationRoleStore.createOrganizationRole(orgRoleDto);
+        this.orgRole = organizationRoleStore.createOrganizationRole(this.mapperOrgRole.toOrganizationRole(orgRoleDto));
         return this.organizationRoleStore.validateOrganizationRole(orgRole);
     }
 
@@ -89,8 +107,12 @@ public class RegisterEmployeeController {
         return (SpecialistDoctor) emp;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean saveEmployee(){
-        return true; //see how to save the Employee
+        return this.employeeStore.addEmployee(emp);
     }
 
 

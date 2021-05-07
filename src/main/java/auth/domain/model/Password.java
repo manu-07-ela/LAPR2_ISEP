@@ -23,9 +23,9 @@ public class Password {
     private boolean validate(String password) {
         if (StringUtils.isBlank(password))
             return false;
-        // Check for other invalid criteria here
+        if (!StringUtils.isAlphanumeric(password) && password.length()!=10)
+            return false;
 
-        //
         return true;
     }
 
