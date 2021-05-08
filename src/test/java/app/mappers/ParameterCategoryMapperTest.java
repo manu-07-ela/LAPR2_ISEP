@@ -34,12 +34,12 @@ public class ParameterCategoryMapperTest {
     @Test
     public void pcToDto() {
         ParameterCategoryDto result = pcMapper.toDto(pc);
-        Assert.assertNotEquals(pcDto,result);
+        Assert.assertEquals(pcDto,result);
     }
 
     @Test
     public void listToDto() {
         List<ParameterCategoryDto> result = pcMapper.toDto(listPC);
-        Assert.assertNotEquals(listPCDto,result);
+        Assert.assertEquals(listPCDto,result);
     }
 }
