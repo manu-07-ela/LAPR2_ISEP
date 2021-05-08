@@ -69,6 +69,7 @@ public class Company {
         this.designation = designation;
         this.authFacade = new AuthFacade();
         this.testTypeStore = new TestTypeStore();
+        this.parameterStore = new ParameterStore();
         this.parameterCategoryStore = new ParameterCategoryStore();
         this.clinicalnAlysisLaboratoryStore = new ClinicalAnalysisLaboratoryStore();
         this.employeeStore = new EmployeeStore();
