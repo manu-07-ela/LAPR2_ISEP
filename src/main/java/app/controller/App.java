@@ -74,6 +74,11 @@ public class App {
     private void bootstrap()
     {
         this.authFacade.addUserRole(Constants.ROLE_ADMIN,Constants.ROLE_ADMIN);
+        this.authFacade.addUserRole(Constants.ROLE_RECP,Constants.ROLE_RECP);
+        this.authFacade.addUserRole(Constants.ROLE_MED_LAB_TEC,Constants.ROLE_MED_LAB_TEC);
+        this.authFacade.addUserRole(Constants.ROLE_CLI_CHE_TEC,Constants.ROLE_CLI_CHE_TEC);
+        this.authFacade.addUserRole(Constants.ROLE_SPE_DOCTOR,Constants.ROLE_SPE_DOCTOR);
+        this.authFacade.addUserRole(Constants.ROLE_LAB_COD, Constants.ROLE_LAB_COD);
 
         this.authFacade.addUserWithRole("Main Administrator", "admin@lei.sem2.pt", "123456",Constants.ROLE_ADMIN);
     }

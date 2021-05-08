@@ -133,11 +133,10 @@ public class RegisterEmployeeController {
      */
     public boolean transformEmployeeInUser(Employee emp) throws IOException {
         String password = generatePassword();
-        File archive = new File("C:\\Users\\manua\\OneDrive\\Desktop\\lei-21-s2-1de-g22\\src\\main\\java\\app\\loginCredentials\\" + emp.getEmployeeId() + ".txt");
+        File archive = new File("loginCredentials\\" + emp.getEmployeeId() + ".txt");
         FileWriter fw = new FileWriter(archive, true);
-        fw.write("ID: " + emp.getEmail().getEmail());
-        fw.write("");
-        fw.write("PASSWORD: " + password);
+        fw.write("ID: " + emp.getEmail().getEmail() + "\n");
+        fw.write("PASSWORD: " + password + "\n");
         fw.close();
         return this.authFacade.addUserWithRole(emp.getName().getName(), emp.getEmail().getEmail(),password,orgRole.getDesignation());
 
