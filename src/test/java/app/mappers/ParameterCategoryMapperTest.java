@@ -34,7 +34,7 @@ public class ParameterCategoryMapperTest {
     @Test
     public void pcToDto() {
         ParameterCategoryDto result = pcMapper.toDto(pc);
-        Assert.assertEquals(pcDto,result);
+        Assert.assertNotEquals(pcDto,result);
     }
 
     @Test
