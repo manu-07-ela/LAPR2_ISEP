@@ -2,6 +2,8 @@ package app.domain.model.attributes;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Objects;
+
 /**
  * Represents a doctor index number of a specialist doctor
  * @author Manuela Leite <1200720@isep.ipp.pt>
@@ -38,4 +40,18 @@ public class DoctorIndexNumber {
         if (StringUtils.isBlank(Integer.toString(doctorIndexNumber))) throw new IllegalArgumentException("ERROR: Doctor index number can't be blank.");
         if (Integer.toString(doctorIndexNumber).length()!=6) throw new IllegalArgumentException("ERROR: Doctor index number must have 6 digits");
     }
+
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DoctorIndexNumber that = (DoctorIndexNumber) o;
+        return doctorIndexNumber == that.doctorIndexNumber;
+    }
+
 }
