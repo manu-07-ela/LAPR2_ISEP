@@ -28,7 +28,7 @@ public class CreateParameterCategoryUI implements Runnable {
      */
     @Override
     public void run() {
-        System.out.printf("%nCreating a new Parameter Category%n");
+        System.out.printf("%nCreating a Parameter Category%n");
         createParameterCategory();
 
     }
@@ -44,8 +44,10 @@ public class CreateParameterCategoryUI implements Runnable {
 
                 String code = Utils.readLineFromConsole("Code: ");
                 String name = Utils.readLineFromConsole("Name: ");
+
                 boolean result =createParameterCategoryctrl.createParameterCategory(code,name);
                 dadosInvalidos=false;
+
                 if(result){
                     System.out.printf("%nDo you want to create a Parameter Category with the following data:%n%s",createParameterCategoryctrl.toString());
 

@@ -105,4 +105,12 @@ public class CreateTestTypeController {
         return this.ttStore.saveTestType(tt);
     }
 
+    /**
+     *
+     * @return
+     */
+    public String toString(){
+        return tt.toString();
+    }
+
 }
