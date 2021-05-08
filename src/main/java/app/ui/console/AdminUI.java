@@ -21,6 +21,9 @@ public class AdminUI implements Runnable{
         options.add(new MenuItem("Create Parameter Category", new CreateParameterCategoryUI()));
         options.add(new MenuItem("Create Test Type ", new CreateTestTypeUI()));
         options.add(new MenuItem("Create Parameter", new CreateParameterUI()));
+        options.add(new MenuItem("Create a Clinical Analysis Laboratory",new CreateClinicalAnalysisLaboratoryUI()));
+
+
         int option = 0;
         do {
             option = Utils.showAndSelectIndex(options, "\n\nAdmin Menu:");

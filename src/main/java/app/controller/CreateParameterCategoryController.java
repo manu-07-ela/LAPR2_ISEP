@@ -14,6 +14,11 @@ public class CreateParameterCategoryController {
     /**
      *
      */
+    private App app;
+
+    /**
+     *
+     */
     private Company company;
 
     /**
@@ -30,7 +35,8 @@ public class CreateParameterCategoryController {
      * Instantiates a new Create Parameter Category Controller.
      */
     public CreateParameterCategoryController() {
-        this.company=App.getInstance().getCompany();
+        this.app=App.getInstance();
+        this.company=app.getCompany();
         this.pcStore=company.getParameterCategoryStore();
     }
 
@@ -39,6 +45,7 @@ public class CreateParameterCategoryController {
      * @param company
      */
     public CreateParameterCategoryController(Company company) {
+        this.app=App.getInstance();
         this.company = company;
         this.pcStore=company.getParameterCategoryStore();
         this.pc = null;
