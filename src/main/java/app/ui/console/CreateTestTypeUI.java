@@ -55,7 +55,7 @@ public class CreateTestTypeUI implements Runnable {
 
                 System.out.printf("%nThe description must be a maximum of 15 characters.%n");
                 String description = Utils.readLineFromConsole("Description: ");
-                
+
                 System.out.printf("%nThe collection method must be a maximum of 20 characters.%n");
                 String collectingMethod = Utils.readLineFromConsole("Collecting Method: ");
 
