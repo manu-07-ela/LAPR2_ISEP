@@ -35,6 +35,11 @@ public class TestTypeTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
+    public void ensureCodeMeetsAC1_3(){
+        TestType tt = new TestType("","description","method",listPC);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionMeetsAC2(){
         TestType tt = new TestType("1g3d7","descriptionteste","method",listPC);
     }

@@ -1,6 +1,8 @@
 package app.ui.console;
 
 import app.controller.CreateParameterController;
+import app.domain.model.Parameter;
+import app.domain.store.ParameterStore;
 import app.mappers.dto.ParameterCategoryDto;
 import app.ui.console.utils.Utils;
 
@@ -48,9 +50,8 @@ public class CreateParameterUI implements Runnable {
                 String code = Utils.readLineFromConsole("Code: ");
                 String shortName = Utils.readLineFromConsole("Short Name: ");
                 String description = Utils.readLineFromConsole("Description: ");
-                System.out.println(selectedCategoryDto);
 
-                createParameterCtrl.createParameter(code,shortName,description,selectedCategoryDto);
+                Parameter parameter = createParameterCtrl.createParameter(code,shortName,description,selectedCategoryDto);
 
                 dadosInvalidos = false;
 
@@ -59,7 +60,8 @@ public class CreateParameterUI implements Runnable {
                 String answer = Utils.readLineFromConsole("S/N:");
 
                 if(answer.equalsIgnoreCase("S")){
-                    if(createParameterCtrl.saveParameter()){
+
+                    if(createParameterCtrl.saveParameter(parameter)){
                         System.out.println("The Test Type was created successfully");
                     }
                 }

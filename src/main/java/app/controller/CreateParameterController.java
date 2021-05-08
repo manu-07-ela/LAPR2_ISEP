@@ -7,8 +7,6 @@ import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
 import app.mappers.ParameterCategoryMapper;
 import app.mappers.dto.ParameterCategoryDto;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -90,21 +88,23 @@ public class CreateParameterController {
      * @return false if the parameter already exists or is null. Otherwise, it returns true.
      */
 
-    public boolean createParameter(String code, String shortName, String description, ParameterCategoryDto selectedCategoryDto){
-        ParameterCategory selectedCategory = pcStore.getParameterCategoryByCode(selectedCategoryDto.getCode());
-        p=pStore.createParameter(code,shortName,description,selectedCategory);
-        return this.pStore.validateParameter(p);
+    public Parameter createParameter(String code, String shortName, String description, ParameterCategoryDto selectedCategoryDto){
+        ParameterCategory selected = pcStore.getParameterCategoryByCode(selectedCategoryDto.getCode());
+        p = pStore.createParameter(code,shortName,description,selected);
+        pStore.validateParameter(p);
+        return p;
     }
-
 
     /**
      * Save the parameter if it is in a valid state.
      * @return true if the parameter was saved. Otherwise, false.
      */
-    public boolean saveParameter() {
+    /*public boolean saveParameter(ParameterCategory par) {
         return this.pStore.saveParameter(p);
+    }*/
+    public boolean saveParameter(Parameter par) {
+        return pStore.saveParameter(par);
     }
-
 
 
 

@@ -68,13 +68,13 @@ CS -> CS: validateClient(cl)
 activate CS
 deactivate CS
 
-CS -> AF: addUser(name,email,pwd)
-activate AF
-deactivate AF
-
 CS -> CS: addClient(cl)
 activate CS
 deactivate CS
+
+CS -> AF: addUser(name,email,pwd)
+activate AF
+deactivate AF
 deactivate CS
 
 UI --> REP : informs operation success

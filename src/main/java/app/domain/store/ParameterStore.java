@@ -39,41 +39,41 @@ public class ParameterStore {
     }
 
     /**
+     * Global validation of a test type.
+     * @param p Test Type that we intend to validate.
+     * @return false if the test type already exists or is null. Otherwise, it returns true.
+     */
+    public boolean validateParameter(Parameter p) {
+        if (p == null)
+            return false;
+        return !this.listParameter.contains(p);
+    }
+
+    /**
+     * Adds a new test type to the List.
+     * @param p The type of test we intend to add.
+     * @return true if the test type was added. Otherwise, false.
+     */
+    public boolean addParameter(Parameter p) {
+        return listParameter.add(p);
+    }
+
+    /**
      * New Parameter.
      * @param code The Parameter code.
      * @param shortName The Parameter short name.
      * @param description The Parameter description.
-     * @param selectedCategory The Parameter category.
+     * @param category The Parameter category.
      */
     /*
     public Parameter createParameter(String code, String shortName, String description, String selectedCategory){
         return new Parameter(code,shortName,description,selectedCategory);
     }*/
-    public Parameter createParameter(String code, String shortName, String description,ParameterCategory selectedCategory){
-        return new Parameter(code,shortName,description,selectedCategory);
+    public Parameter createParameter(String code, String shortName, String description,ParameterCategory category){
+        return new Parameter(code,shortName,description,category);
     }
 
 
-
-    /**
-     * Global validation of a parameter.
-     * @param parameter The parameter we intend to validate.
-     * @return false if the parameter already exists or is null. Otherwise, it returns true.
-     */
-    public boolean validateParameter(Parameter parameter) {
-        if (parameter == null)
-            return false;
-        return !this.listParameter.contains(parameter);
-    }
-
-    /**
-     * Adds a new parameter to the List.
-     * @param parameter The parameter we intend to add.
-     * @return true if the parameter was added. Otherwise, false.
-     */
-    public boolean addParameter(Parameter parameter) {
-        return listParameter.add(parameter);
-    }
 
 
 

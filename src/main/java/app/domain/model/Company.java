@@ -54,6 +54,10 @@ public class Company {
      */
     private OrganizationRoleStore organizationRoleStore;
     /**
+     * Represents a instance of the store of Client
+     */
+    private ClientStore clientStore;
+    /**
      *
      * @param designation
      */
@@ -69,6 +73,7 @@ public class Company {
         this.clinicalnAlysisLaboratoryStore = new ClinicalAnalysisLaboratoryStore();
         this.employeeStore = new EmployeeStore();
         this.organizationRoleStore = new OrganizationRoleStore();
+        this.clientStore = new ClientStore();
     }
 
     /**
@@ -134,6 +139,11 @@ public class Company {
      */
     public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){ return clinicalnAlysisLaboratoryStore; }
 
-
-
+    /**
+     * Gets the instance of ClientStore
+     * @return
+     */
+    public ClientStore getClientStore() {
+        return clientStore;
+    }
 }
