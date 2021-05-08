@@ -4,6 +4,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.util.regex.Pattern;
+
+import static java.lang.Integer.parseInt;
 
 public class Client {
     /**
@@ -53,6 +56,7 @@ public class Client {
         sexValidation(sex);
         tinValidation(tin);
         phonenumberValidation(phonenumber);
+        emailValidation(email);
         this.name = name;
         this.citizencardnumber = citizencardnumber;
         this.nhs = nhs;
@@ -95,38 +99,6 @@ public class Client {
         return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCitizencardnumber(String citizencardnumber) {
-        this.citizencardnumber = citizencardnumber;
-    }
-
-    public void setNhs(String nhs) {
-        this.nhs = nhs;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public void setTin(String tin) {
-        this.tin = tin;
-    }
-
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     /**
      *
      * @param name   Client's name
@@ -154,7 +126,7 @@ public class Client {
      * @param nhs
      */
     private void nhsValidation(String nhs){
-        if (!StringUtils.isNumeric(citizencardnumber)) throw new IllegalArgumentException("National Healthcare Service number is numeric only.");
+        if (!StringUtils.isNumeric(nhs)) throw new IllegalArgumentException("National Healthcare Service number is numeric only.");
         if (nhs.length()!=10){
             throw  new IllegalArgumentException("The nhs must have 10 digits");
         }
@@ -164,19 +136,21 @@ public class Client {
      *
      * @param date
      */
-    private void dateValidation(String date){
-        if (date.trim().equals("")){
-            throw  new IllegalArgumentException("The data mustn't be null");
-        }
-        else{
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-            format.setLenient(false);
-            try {
-                format.parse(date);
+    private void dateValidation(String date) {
+        if (!date.trim().equals("")) {
+        if (parseInt(date.substring(6, 10)) < 1870) {
+                throw new IllegalArgumentException("The Client cant be born before the year 1870");
+            } else {
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                format.setLenient(false);
+                try {
+                    format.parse(date);
+                } catch (ParseException e) {
+                    throw new IllegalArgumentException("The data must be valid and have this format DD/MM/YYYY");
+                }
             }
-            catch (ParseException e) {
-                throw  new IllegalArgumentException("The data must be valid and have this format DD/MM/YYYY");
-            }
+        }else{
+            throw new IllegalArgumentException("The data mustn't be null");
         }
     }
 
@@ -185,10 +159,9 @@ public class Client {
      * @param sex
      */
     private void sexValidation(String sex){
-        if (StringUtils.isBlank(sex)) throw new NullPointerException("Gender can't be blank.");
         sex=sex.toLowerCase();
-        if (!sex.equals("male") && !sex.equals("female")){
-            throw  new IllegalArgumentException("The sex must be Male or Female");
+        if (!sex.equals("male") && !sex.equals("female") && !sex.equals("")){
+            throw  new IllegalArgumentException("The gender must be Male, Female or left blank");
         }
     }
 
@@ -217,4 +190,20 @@ public class Client {
             throw  new IllegalArgumentException("The phone number must have 11 digits");
         }
     }
+
+    private void emailValidation(String email){
+        if (StringUtils.isBlank(email)){
+            throw new IllegalArgumentException("E-mail can't be blank");
+        }
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if(!pat.matcher(email).matches()){
+            throw new IllegalArgumentException("Invalid E-mail Address");
+        }
+    }
+
 }

@@ -5,6 +5,9 @@ import app.mappers.ClientMapper;
 import app.mappers.dto.ClientDto;
 import auth.AuthFacade;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,17 +42,22 @@ public class ClientStore {
             return false;
         return !this.clientList.contains(cl);
     }
-        public static String generatepwd() {
+        public static String generatelogin(Client cl) throws IOException {
             String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
             SecureRandom random = new SecureRandom();
             StringBuilder pwd = new StringBuilder();
 
-            for (int i = 0; i <= 20; i++)
+            for (int i = 0; i < 10; i++)
             {
                 int randomIndex = random.nextInt(chars.length());
                 pwd.append(chars.charAt(randomIndex));
             }
+            File archive = new File("loginCredentials\\" + cl.getName() + ".txt");
+            FileWriter fw = new FileWriter(archive, true);
+            fw.write("ID: " + cl.getEmail() + "\n");
+            fw.write("PASSWORD: " + pwd.toString() + "\n");
+            fw.close();
             return pwd.toString();
         }
 
@@ -66,11 +74,11 @@ public class ClientStore {
      * @param clAuthFacade
      * @return
      */
-    public boolean saveClient(Client cl,AuthFacade clAuthFacade) {
+    public boolean saveClient(Client cl,AuthFacade clAuthFacade) throws IOException {
         if (!validateClient(cl)) {
             return false;
         } else {
-            clAuthFacade.addUser(cl.getName(),cl.getEmail(),generatepwd());
+            clAuthFacade.addUser(cl.getName(),cl.getEmail(), generatelogin(cl));
             this.clientList.add(cl);
             return true;
         }
