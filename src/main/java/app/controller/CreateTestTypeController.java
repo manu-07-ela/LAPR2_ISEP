@@ -18,38 +18,38 @@ import java.util.List;
 public class CreateTestTypeController {
 
     /**
-     *
+     * Represents an instance of app.
      */
     private App app;
 
     /**
-     *
+     * Represents a instance of company.
      */
     private Company company;
 
     /**
-     *
+     * Represents an instance of the parameter category store.
      */
     private ParameterCategoryStore pcStore;
 
     /**
-     *
+     * Represents an instance of the test type store.
      */
     private TestTypeStore ttStore;
 
     /**
-     *
+     * Represents an instance of test type.
      */
     private TestType tt;
 
     /**
-     *
+     * Represents an instance of the parameter category mapper
      */
     private ParameterCategoryMapper pcMapper;
 
 
     /**
-     * Instantiates a new Create Test Type Controller.
+     * Constructs an instance of {@code CreateTestTypeController}.
      */
     public CreateTestTypeController(){
         this.app=App.getInstance();
@@ -60,8 +60,8 @@ public class CreateTestTypeController {
     }
 
     /**
-     * Instantiates a new Create Test Type Controller.
-     * @param company
+     * Constructs an instance of {@code CreateTestTypeController} receiving a company.
+     * @param company The company.
      */
     public CreateTestTypeController(Company company) {
         this.app=App.getInstance();
@@ -106,8 +106,8 @@ public class CreateTestTypeController {
     }
 
     /**
-     *
-     * @return
+     * Textual description of the test type.
+     * @return Information about the characteristics of the test type.
      */
     public String toString(){
         return tt.toString();
