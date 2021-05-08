@@ -114,8 +114,7 @@ public class Parameter {
         }
 
         Parameter auxParameter = (Parameter) obj;
-        return this.getCode().equals(auxParameter.getCode()) || (!this.getCode().equals(auxParameter.getCode()) &&
-                this.getShortName().equalsIgnoreCase(auxParameter.getShortName()) && this.getDescription().equalsIgnoreCase(auxParameter.getShortName()));
+        return this.getCode().equals(auxParameter.getCode()) || this.getShortName().equalsIgnoreCase(auxParameter.getShortName()) || this.getDescription().equalsIgnoreCase(auxParameter.getShortName());
     }
 
     /**
