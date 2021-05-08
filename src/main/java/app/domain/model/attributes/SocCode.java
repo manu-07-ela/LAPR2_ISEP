@@ -11,13 +11,13 @@ public class SocCode {
     /**
      * The SOC code of an employee
      */
-    private int socCode;
+    private String socCode;
 
     /**
      * Create a SOC code instance receiving a SOC code by parameter
      * @param socCode the SOC code of an employee
      */
-    public SocCode(int socCode) {
+    public SocCode(String  socCode) {
         checkRulesForSocCode(socCode);
         this.socCode = socCode;
     }
@@ -26,7 +26,7 @@ public class SocCode {
      * Get the SOC code of an employee
      * @return the SOC code
      */
-    public int getSocCode() {
+    public String getSocCode() {
         return socCode;
     }
 
@@ -34,9 +34,10 @@ public class SocCode {
      * Checks if the business rules applied to the SOC code are respected
      * @param socCode the SOC code
      */
-    private void checkRulesForSocCode(int socCode){
-        if (StringUtils.isBlank(Integer.toString(socCode))) throw new IllegalArgumentException("ERROR: SOC can't be blank.");
-        if (Integer.toString(socCode).length() != 4) throw new IllegalArgumentException("ERROR: SOC code must have 4 digits.");
+    private void checkRulesForSocCode(String socCode){
+        if (StringUtils.isBlank(socCode)) throw new NullPointerException("ERROR: SOC code can't be blank.");
+        if (!StringUtils.isNumeric(socCode)) throw new IllegalArgumentException("ERROR: SCO code consists only of numbers");
+        if (socCode.length() != 4) throw new IllegalArgumentException("ERROR: SOC code must have 4 digits.");
     }
 
     /**
