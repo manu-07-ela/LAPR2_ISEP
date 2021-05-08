@@ -3,7 +3,9 @@ package app.domain.store;
 import app.domain.model.Client;
 import app.mappers.ClientMapper;
 import app.mappers.dto.ClientDto;
+import auth.AuthFacade;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +26,8 @@ public class ClientStore {
      * @param cldto
      * @return
      */
-    public Client createClient(ClientDto cldto) {
-        return ClientMapper.toModel(cldto);
+    public Client createClient(ClientDto cldto, ClientMapper clMapper) {
+        return clMapper.toModel(cldto);
     }
 
     /**
@@ -37,15 +39,19 @@ public class ClientStore {
             return false;
         return !this.clientList.contains(cl);
     }
+        public static String generatepwd() {
+            String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    /**
-     *
-     * @param cl
-     * @return
-     */
-    public boolean addClient(Client cl){
-        return clientList.add(cl);
-    }
+            SecureRandom random = new SecureRandom();
+            StringBuilder pwd = new StringBuilder();
+
+            for (int i = 0; i <= 20; i++)
+            {
+                int randomIndex = random.nextInt(chars.length());
+                pwd.append(chars.charAt(randomIndex));
+            }
+            return pwd.toString();
+        }
 
     /**
      * @return
@@ -54,10 +60,17 @@ public class ClientStore {
         return clientList;
     }
 
-    public boolean saveClient(Client cl) {
+    /**
+     *
+     * @param cl
+     * @param clAuthFacade
+     * @return
+     */
+    public boolean saveClient(Client cl,AuthFacade clAuthFacade) {
         if (!validateClient(cl)) {
             return false;
         } else {
+            clAuthFacade.addUser(cl.getName(),cl.getEmail(),generatepwd());
             this.clientList.add(cl);
             return true;
         }
