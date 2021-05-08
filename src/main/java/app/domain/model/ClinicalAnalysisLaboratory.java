@@ -1,9 +1,9 @@
 package app.domain.model;
 
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
+import org.apache.commons.lang3.StringUtils;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author Carlos Rodrigues <1201001@isep.ipp.pt>
@@ -33,7 +33,7 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
         super(name, address, phoneNumber, tin);
         laboratoryIdValidation(laboratoryId);
         this.laboratoryId=laboratoryId;
-        this.listOfTestTypes=listOfTestTypes;
+        this.listOfTestTypes= listOfTestTypes;
     }
 
     /**
@@ -44,7 +44,7 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
         super(calDTO.getName(), calDTO.getAddress(), calDTO.getPhoneNumber(), calDTO.getTin());
         laboratoryIdValidation(calDTO.getLaboratoryId());
         this.laboratoryId= calDTO.getLaboratoryId();
-        this.listOfTestTypes= calDTO.getListOfTestTypes();
+        this.listOfTestTypes= new ArrayList((Collection) calDTO.getListOfTestTypes());
     }
 
     /**
@@ -67,9 +67,10 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
      * @param laboratoryId Clinical Analysis Laboratory's ID
      */
     private void laboratoryIdValidation(String laboratoryId){
-        if (laboratoryId.length()>5){
+        if (StringUtils.isBlank(laboratoryId))
             throw  new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
-        }
+        if ( !StringUtils.isAlphanumeric(laboratoryId) || laboratoryId.length() != 5 )
+            throw  new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
     }
 
 
