@@ -48,7 +48,21 @@ public class CreateParameterUI implements Runnable {
                 String code = Utils.readLineFromConsole("Code: ");
                 String shortName = Utils.readLineFromConsole("Short Name: ");
                 String description = Utils.readLineFromConsole("Description: ");
+                System.out.println(selectedCategoryDto);
 
+                createParameterCtrl.createParameter(code,shortName,description,selectedCategoryDto);
+
+                dadosInvalidos = false;
+
+                System.out.printf("Do you want to create a Parameter with the code %s, short name %s, description: %s in the category %s", code, shortName,description,selectedCategoryDto);
+
+                String answer = Utils.readLineFromConsole("S/N:");
+
+                if(answer.equalsIgnoreCase("S")){
+                    if(createParameterCtrl.saveParameter()){
+                        System.out.println("The Test Type was created successfully");
+                    }
+                }
 
             } catch (IllegalArgumentException e){
                 System.out.printf("%nMessage: %s%n" ,e.getMessage());

@@ -68,7 +68,7 @@ public class ParameterCategoryTest {
     @Test
     public void parameterCategoriesNotEquals(){
         ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
-        Parameter p1 = new Parameter("12345","test","test",pc1.toString());
+        Parameter p1 = new Parameter("12345","test","test",pc1);
         Assert.assertNotEquals(pc1,p1);
     }
 

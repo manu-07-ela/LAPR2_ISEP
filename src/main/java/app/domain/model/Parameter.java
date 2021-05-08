@@ -2,6 +2,8 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
+
 /**
  * Represents a parameter.
  *
@@ -27,7 +29,7 @@ public class Parameter {
     /**
      * The Category of the parameter.
      */
-    private String category;
+    private ParameterCategory category;
 
     /**
      * Constructs an instance of {@code Parameter} receiving the code, the short name and the description.
@@ -36,12 +38,12 @@ public class Parameter {
      * @param shortName the parameter short name
      * @param description the parameter description
      */
-    public Parameter(String code, String shortName, String description, String Category){
+    public Parameter(String code, String shortName, String description,ParameterCategory cat){
         checkRules(code, shortName, description);
         this.code=code;
         this.shortName= shortName;
         this.description=description;
-        this.category=category;
+        this.category=cat;
     }
 
 
@@ -112,7 +114,8 @@ public class Parameter {
         }
 
         Parameter auxParameter = (Parameter) obj;
-        return this.getCode().equals(auxParameter.getCode()) || (!this.getCode().equals(auxParameter.getCode()) && this.getShortName().equalsIgnoreCase(auxParameter.getShortName()) && this.getDescription().equalsIgnoreCase(auxParameter.getShortName()));
+        return this.getCode().equals(auxParameter.getCode()) || (!this.getCode().equals(auxParameter.getCode()) &&
+                this.getShortName().equalsIgnoreCase(auxParameter.getShortName()) && this.getDescription().equalsIgnoreCase(auxParameter.getShortName()));
     }
 
     /**
