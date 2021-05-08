@@ -34,7 +34,7 @@ public class SpecialistDoctor extends Employee{
      * @return the doctor index number.
      */
     public DoctorIndexNumber getDoctorIndexNumber() {
-        return doctorIndexNumber;
+        return new DoctorIndexNumber(doctorIndexNumber);
     }
 
     /**
@@ -43,7 +43,7 @@ public class SpecialistDoctor extends Employee{
      */
     @Override
     public String toString() {
-        return String.format("%s-> Doctor Index Number= %d%n", super.toString(), doctorIndexNumber.getDoctorIndexNumber());
+        return String.format("%s-> Doctor Index Number= %s%n", super.toString(), doctorIndexNumber.getDoctorIndexNumber());
     }
 
     /**

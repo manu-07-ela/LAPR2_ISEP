@@ -23,6 +23,14 @@ public class DoctorIndexNumber {
     }
 
     /**
+     * Copy builder of doctor index number
+     * @param doctorIndexNumber the doctor index number
+     */
+    public DoctorIndexNumber(DoctorIndexNumber doctorIndexNumber) {
+        this.doctorIndexNumber = doctorIndexNumber.getDoctorIndexNumber();
+    }
+
+    /**
      * Get the doctor index number
      * @return the doctor index number
      */

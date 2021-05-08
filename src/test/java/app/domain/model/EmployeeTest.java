@@ -7,7 +7,6 @@ import app.domain.model.attributes.SocCode;
 import auth.domain.model.Email;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 public class EmployeeTest {
 
