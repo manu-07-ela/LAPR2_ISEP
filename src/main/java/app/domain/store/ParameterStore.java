@@ -1,6 +1,8 @@
 package app.domain.store;
 
 import app.domain.model.Parameter;
+import app.domain.model.ParameterCategory;
+import app.domain.model.TestType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +45,14 @@ public class ParameterStore {
      * @param description The Parameter description.
      * @param selectedCategory The Parameter category.
      */
+    /*
     public Parameter createParameter(String code, String shortName, String description, String selectedCategory){
         return new Parameter(code,shortName,description,selectedCategory);
+    }*/
+    public Parameter createParameter(String code, String shortName, String description,ParameterCategory selectedCategory){
+        return new Parameter(code,shortName,description,selectedCategory);
     }
+
 
 
     /**
