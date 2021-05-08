@@ -30,40 +30,21 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 > **Question:** Can a parameter be classified in more than one parameter category?
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7749) No. Each parameter has only one category. There are no subcategories.
->
-> **Question:** When a new parameter is specified, should there always be a category it falls under prior to its specification and subsequent categorization?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) Each parameter is associated with one category.
-> 
->
->**Question:** Can a parameter have more than one category? or is it limited to one?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649&parent=10196#p10297)
+
  
 >**Question:** Is the categorization of a parameter mandatory or optional?
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649) Yes.
 
-> **Question:** How does the assignment of a parameter category works? Does he have to select the category or he have the option to create in the moment?
-> 
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649) There exists a user story to specify a new parameter category. Therefore, the administrator should select one category when creating a parameter.
 
 > **Question:** Does the administrator need to log in order to create a parameter and categorize it?
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7639) Yes.
 
-> **Question:**  Which information will the client provide for the addition of a new parameter and its categorization?
-> 
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) A: I already answered this question.
-
 > **Question:** Does the client want to specify more than one new parameter at a time?
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) Yes.
 
-> **Question:** Regarding the recommended fields, which one are unique and mandatory?
-Unique = for example, two parameters cannot have the same code.
-> 
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7507) 
 
 > **Question:**  In case the category doesn't exist in the system, would be possible for the admin to create directly when creating the parameters or does he/she needs to create first the category and only after the parameters?
 for the second option this would mean that the Admin will have duplicate work: (A)  starts to create a parameter and he notices that the category does not exist - needs to exit and create category
@@ -78,11 +59,11 @@ for the second option this would mean that the Admin will have duplicate work: (
 
 > **Question:** Is the code of a parameter the same as its respective category? Or can they be different?
 >
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041)
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041) No, they are different things.
 
 > **Question:** Will the administrator give the reference values for the new parameter?
 >
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041)
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041) A: In Sprint C we will make available an API that returns the reference values.
 
 > **Question:**
 >
@@ -97,7 +78,7 @@ for the second option this would mean that the Admin will have duplicate work: (
 * **AC2:** The Short Name is a String with no more than 8 characters.
 * **AC3:** The Description is a String with no more than 20 characters.
 * **AC4:** Each parameter has only one category.
-* **AC5:** The administrator has to be logged in, in order to create a new parameter and categorize it.
+* **AC5:** The parameter code must be different from the parameter category code.
 
 
 ### 1.4. Found out Dependencies
