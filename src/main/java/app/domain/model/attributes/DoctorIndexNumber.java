@@ -17,7 +17,7 @@ public class DoctorIndexNumber {
      * Create a doctor index number instance receiving a doctor index number by parameter
      * @param doctorIndexNumber the doctor index number
      */
-    public DoctorIndexNumber(int doctorIndexNumber) {
+    public DoctorIndexNumber(Integer doctorIndexNumber) {
         checkRulesForDoctorIndexNumber(doctorIndexNumber);
         this.doctorIndexNumber = doctorIndexNumber;
     }

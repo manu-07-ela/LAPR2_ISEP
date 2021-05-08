@@ -156,7 +156,7 @@ public class RegisterEmployeeUI implements Runnable{
         PhoneNumber phoneNumberAux = null;
         do{
             try {
-                double phoneNumber = Utils.readDoubleFromConsole("Phone Number: ");
+                String phoneNumber = Utils.readLineFromConsole("Phone Number: ");
                 phoneNumberAux = new PhoneNumber(phoneNumber);
                 invalidData = false;
             }catch(Exception e){
@@ -175,7 +175,7 @@ public class RegisterEmployeeUI implements Runnable{
         SocCode socCodeAux = null;
         do{
             try {
-                int socCode = Utils.readIntegerFromConsole("SOC code: ");
+                String socCode = Utils.readLineFromConsole("SOC code: ");
                 socCodeAux = new SocCode(socCode);
                 invalidData = false;
             }catch (Exception e){

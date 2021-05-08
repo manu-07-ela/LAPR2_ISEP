@@ -21,7 +21,7 @@ public class Name {
      */
     public Name(String name){
         checkRulesForName(name);
-        this.name = name;
+        this.name = name.trim();
     }
 
     /**
@@ -38,7 +38,7 @@ public class Name {
      */
     private void checkRulesForName(String name){
         if (name.length()>35) throw new IllegalArgumentException("ERROR: Name need to have maximum 15 characters");
-        if (StringUtils.isBlank(name)) throw new IllegalArgumentException("ERROR: Name can't be blank.");
+        if (StringUtils.isBlank(name)) throw new NullPointerException("ERROR: Name can't be blank.");
     }
 
     /**

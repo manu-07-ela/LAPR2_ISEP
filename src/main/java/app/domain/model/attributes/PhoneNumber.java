@@ -14,13 +14,13 @@ public class PhoneNumber {
     /**
      * The phone number of an employee
      */
-    private double phoneNumber;
+    private String phoneNumber;
 
     /**
      * Builds a phone number instance by receiving an phone number by parameter
      * @param phoneNumber
      */
-    public PhoneNumber(double phoneNumber) {
+    public PhoneNumber(String phoneNumber) {
         checkRulesForPhoneNumber(phoneNumber);
         this.phoneNumber = phoneNumber;
     }
@@ -29,7 +29,7 @@ public class PhoneNumber {
      * Get the phone number
      * @return the phone number
      */
-    public double getPhoneNumber() {
+    public String  getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -37,9 +37,10 @@ public class PhoneNumber {
      * Checks if the business rules applied to the phone number are respected
      * @param phoneNumber the phone number
      */
-    private void checkRulesForPhoneNumber(double phoneNumber){
-        if (StringUtils.isBlank(Double.toString(phoneNumber))) throw  new IllegalArgumentException("ERROR: Phone number can't be blank.");
-        if(Double.toString(phoneNumber).length() != 11) throw  new IllegalArgumentException("ERROR: Phone number must have 11 digits.");
+    private void checkRulesForPhoneNumber(String phoneNumber){
+        if (StringUtils.isBlank(phoneNumber)) throw  new NullPointerException("ERROR: Phone number can't be blank.");
+        if (!StringUtils.isNumeric(phoneNumber)) throw new IllegalArgumentException("ERROR: Phone number is numeric only.");
+        if(phoneNumber.length() != 11) throw  new IllegalArgumentException("ERROR: Phone number must have 11 digits.");
     }
 
     /**
@@ -52,7 +53,7 @@ public class PhoneNumber {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         PhoneNumber that = (PhoneNumber) other;
-        return Double.compare(that.phoneNumber, phoneNumber) == 0;
+        return Objects.equals(phoneNumber, that.phoneNumber);
     }
 
 }
