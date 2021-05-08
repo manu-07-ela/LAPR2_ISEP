@@ -1,7 +1,6 @@
 package app.domain.model;
 
-import app.domain.model.attributes.Address;
-import app.domain.model.attributes.Name;
+import app.domain.model.attributes.*;
 import auth.domain.model.Email;
 import org.apache.commons.lang3.StringUtils;
 
@@ -16,7 +15,7 @@ public class SpecialistDoctor extends Employee{
     /**
      * The doctor index number of a specialist doctor in the organization
      */
-    int doctorIndexNumber;
+    DoctorIndexNumber doctorIndexNumber;
 
     /**
      *Constructs an instance of {@code SpecialistDoctor} receiving the name, email, address, phone number, soc code, organization role and doctor index number.
@@ -28,17 +27,16 @@ public class SpecialistDoctor extends Employee{
      * @param organizationRole specialist doctor organization role
      * @param doctorIndexNumber specialist doctor doctor index number
      */
-    public SpecialistDoctor(Name name, Email email, Address adress, double phoneNumber, int socCode, OrganizationRole organizationRole, int doctorIndexNumber) {
+    public SpecialistDoctor(Name name, Email email, Address adress, PhoneNumber phoneNumber, SocCode socCode, OrganizationRole organizationRole, DoctorIndexNumber doctorIndexNumber) {
         super(name, email, adress, phoneNumber, socCode, organizationRole);
-        if (!isValidDoctorIndexNumber()) throw new IllegalArgumentException("Doctor index number should have 6 digits");
-        this.doctorIndexNumber = doctorIndexNumber;
+        this.doctorIndexNumber = new DoctorIndexNumber(doctorIndexNumber.getDoctorIndexNumber());
     }
 
     /**
      * Get the specialist doctor index number.
      * @return the doctor index number.
      */
-    public int getDoctorIndexNumber() {
+    public DoctorIndexNumber getDoctorIndexNumber() {
         return doctorIndexNumber;
     }
 
@@ -51,13 +49,6 @@ public class SpecialistDoctor extends Employee{
         return String.format("%s doctorIndexNumber= %d%n", super.toString(), doctorIndexNumber);
     }
 
-    /**
-     *Checks whether the doctor index number associated with the specialist doctor we intend to create complies with all business rules.
-     * @return true if the doctor index number obeys the rules imposed by the business, false otherwise.
-     */
-    private boolean isValidDoctorIndexNumber(){
-        return Integer.toString(doctorIndexNumber).length()==6 || StringUtils.isBlank(Integer.toString(doctorIndexNumber));
-    }
 
     /**
      * Compare the specialist doctor with the other object provided.

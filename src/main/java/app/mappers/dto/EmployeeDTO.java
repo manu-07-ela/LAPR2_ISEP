@@ -1,8 +1,7 @@
 package app.mappers.dto;
 
 import app.domain.model.OrganizationRole;
-import app.domain.model.attributes.Address;
-import app.domain.model.attributes.Name;
+import app.domain.model.attributes.*;
 import auth.domain.model.Email;
 
 /**
@@ -26,11 +25,11 @@ public class EmployeeDTO {
     /**
      *The phone number of the data transfer object of the type employed
      */
-    private double phoneNumber;
+    private PhoneNumber phoneNumber;
     /**
      *The SOC code of the data transfer object of the type employed
      */
-    private int socCode;
+    private SocCode socCode;
     /**
      *The organization role of the data transfer object of the type employed
      */
@@ -38,7 +37,7 @@ public class EmployeeDTO {
     /**
      *The doctor index number of the data transfer object of the type specialist doctor
      */
-    private int doctorIndexNumber;
+    private DoctorIndexNumber doctorIndexNumber;
 
 
     /**
@@ -51,14 +50,14 @@ public class EmployeeDTO {
      * @param organizationRole employer's organization role
      * @param doctorIndexNumber employer's doctor index number
      */
-    public EmployeeDTO(Name name, Email email, Address address, double phoneNumber, int socCode, OrganizationRole organizationRole, int doctorIndexNumber) {
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.socCode = socCode;
-        this.organizationRole = organizationRole;
-        this.doctorIndexNumber = doctorIndexNumber;
+    public EmployeeDTO(Name name, Email email, Address address, PhoneNumber phoneNumber, SocCode socCode, OrganizationRole organizationRole, DoctorIndexNumber doctorIndexNumber) {
+        this.name = new Name(name.getName());
+        this.email = new Email(email.getEmail());
+        this.address = new Address(address.getAddress());
+        this.phoneNumber = new PhoneNumber(phoneNumber.getPhoneNumber());
+        this.socCode = new SocCode(socCode.getSocCode());
+        this.organizationRole = new OrganizationRole(organizationRole.getDesignation());
+        this.doctorIndexNumber = new DoctorIndexNumber(doctorIndexNumber.getDoctorIndexNumber());
     }
 
     /**
@@ -70,13 +69,13 @@ public class EmployeeDTO {
      * @param socCode employer's SOC code
      * @param organizationRole employer's organization role
      */
-    public EmployeeDTO(Name name, Email email, Address address, double phoneNumber,int socCode, OrganizationRole organizationRole) {
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.socCode = socCode;
-        this.organizationRole = organizationRole;
+    public EmployeeDTO(Name name, Email email, Address address, PhoneNumber phoneNumber,SocCode socCode, OrganizationRole organizationRole) {
+        this.name = new Name(name.getName());
+        this.email = new Email(email.getEmail());
+        this.address = new Address(address.getAddress());
+        this.phoneNumber = new PhoneNumber(phoneNumber.getPhoneNumber());
+        this.socCode = new SocCode(socCode.getSocCode());
+        this.organizationRole = new OrganizationRole(organizationRole.getDesignation());
     }
 
     /**
@@ -107,7 +106,7 @@ public class EmployeeDTO {
      *Get the phone number of the employee
      * @return the phone number of EmployeeDto
      */
-    public double getPhoneNumber() {
+    public PhoneNumber getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -115,7 +114,7 @@ public class EmployeeDTO {
      *Get the SOC code of the employee
      * @return the SOC code of EmployeeDto
      */
-    public int getSocCode() {
+    public SocCode getSocCode() {
         return socCode;
     }
 
@@ -131,7 +130,7 @@ public class EmployeeDTO {
      *Get the doctor index number of the employee
      * @return the doctor index number of EmployeeDto
      */
-    public int getDoctorIndexNumber() {
+    public DoctorIndexNumber getDoctorIndexNumber() {
         return doctorIndexNumber;
     }
 }

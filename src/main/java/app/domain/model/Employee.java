@@ -1,6 +1,8 @@
 package app.domain.model;
 import app.domain.model.attributes.Address;
 import app.domain.model.attributes.Name;
+import app.domain.model.attributes.PhoneNumber;
+import app.domain.model.attributes.SocCode;
 import auth.domain.model.Email;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -27,7 +29,7 @@ public class Employee {
     /**
      *The phone number of an employee in the organization
      */
-    private double phoneNumber;
+    private PhoneNumber phoneNumber;
     /**
      *The employee ID of an employee in the organization
      */
@@ -35,7 +37,7 @@ public class Employee {
     /**
      *The Standard Occupational Classification of an employee in the organization
      */
-    private int socCode;
+    private SocCode socCode;
     /**
      *The organization role of an employee in the organization
      */
@@ -50,20 +52,13 @@ public class Employee {
      * @param socCode SOC code of Employee
      * @param organizationRole organization Role of Employee
      */
-    public Employee(Name name, Email email, Address address, double phoneNumber, int socCode, OrganizationRole organizationRole){
+    public Employee(Name name, Email email, Address address, PhoneNumber phoneNumber, SocCode socCode, OrganizationRole organizationRole){
 
-        if (!isValidSocNumber(socCode)){
-            throw new IllegalArgumentException("Soc Number must have maximum 4 digits");
-        }
-        if (!isValidPhoneNumber(phoneNumber)){
-            throw new IllegalArgumentException("Phone number must have maximum (this rule)");
-        }
-
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.socCode = socCode;
+        this.name = new Name(name.getName());
+        this.email = new Email(email.getEmail());
+        this.address = new Address(address.getAddress());
+        this.phoneNumber = new PhoneNumber(phoneNumber.getPhoneNumber());
+        this.socCode = new SocCode(socCode.getSocCode());
         this.organizationRole = new OrganizationRole(organizationRole.designation);
     }
 
@@ -95,7 +90,7 @@ public class Employee {
      * Get the phone number of an employee
      * @return the phone number of Employee
      */
-    public double getPhoneNumber() {
+    public PhoneNumber getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -111,7 +106,7 @@ public class Employee {
      * Get the SOC code of an employee
      * @return the SOC code of Employee
      */
-    public int getSocCode() {
+    public SocCode getSocCode() {
         return socCode;
     }
 
@@ -123,21 +118,6 @@ public class Employee {
         return organizationRole;
     }
 
-    /**
-     * Checks whether the SOC number associated with the employee we intend to create complies with all business rules.
-     * @return true if the SOC number obeys the rules imposed by the business, false otherwise.
-     */
-    private  boolean isValidSocNumber(Integer socCode){
-        return Integer.toString(socCode).length() == 4 || StringUtils.isBlank(Integer.toString(socCode));
-    }
-
-    /**
-     * Checks whether the phone number associated with the employee we intend to create complies with all business rules.
-     * @return true if the phone number obeys the rules imposed by the business, false otherwise.
-     */
-    private  boolean isValidPhoneNumber(double phoneNumber) {
-        return Double.toString(phoneNumber).length() == 11 || !ObjectUtils.allNotNull(phoneNumber) || StringUtils.isBlank(Double.toString(phoneNumber));
-    }
 
     /**
      * Textual description of an employee.

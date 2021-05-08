@@ -2,6 +2,7 @@ package app.ui.console;
 
 import app.controller.RegisterEmployeeController;
 import app.domain.model.OrganizationRole;
+import app.domain.model.attributes.*;
 import app.mappers.dto.EmployeeDTO;
 import app.mappers.dto.OrganizationRoleDTO;
 import app.ui.console.utils.Utils;
@@ -61,10 +62,10 @@ public class RegisterEmployeeUI implements Runnable{
                 int socCode = Utils.readIntegerFromConsole("SOC code: ");
                 if (orgRole.getDesignation().equalsIgnoreCase("ADMINISTRATOR")){
                     int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor index Number: ");
-                    controller.createSpecialistDoctor(new EmployeeDTO(name, new Email(email), address, phoneNumber, socCode, new OrganizationRole(orgRole.getDesignation()), doctorIndexNumber));
+                    controller.createSpecialistDoctor(new EmployeeDTO(new Name(name), new Email(email), new Address(address), new PhoneNumber(phoneNumber), new SocCode(socCode), new OrganizationRole(orgRole.getDesignation()), new DoctorIndexNumber(doctorIndexNumber)));
                 }
                 else{
-                    controller.createEmployee(new EmployeeDTO(name, new Email(email), address, phoneNumber, socCode, new OrganizationRole(orgRole.getDesignation())));
+                    controller.createEmployee(new EmployeeDTO(new Name(name), new Email(email), new Address(address), new PhoneNumber(phoneNumber), new SocCode(socCode), new OrganizationRole(orgRole.getDesignation())));
                 }
                 invalidData = false;
 
