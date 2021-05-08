@@ -42,7 +42,10 @@ public class CreateParameterCategoryUI implements Runnable {
             try{
                 System.out.printf("%nEnter the following data about the parameter category you want to create%n");
 
+                System.out.printf("%nThe code must be 5 alphanumeric characters.%n");
                 String code = Utils.readLineFromConsole("Code: ");
+
+                System.out.printf("%nThe name must be a maximum of 10 characters.%n");
                 String name = Utils.readLineFromConsole("Name: ");
 
                 boolean result =createParameterCategoryctrl.createParameterCategory(code,name);
