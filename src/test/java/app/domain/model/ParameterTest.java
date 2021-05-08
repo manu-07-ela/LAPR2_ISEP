@@ -25,7 +25,7 @@ public class ParameterTest {
     public void getDescription() {
         Parameter p = new Parameter("TT030","rbc","Red Blood Cells",pc);
         String result = p.getDescription();
-        Assert.assertEquals("description",result);
+        Assert.assertEquals("Red Blood Cells",result);
     }
 
     @Test
