@@ -43,15 +43,15 @@ public class PhoneNumber {
     }
 
     /**
-     *
-     * @param o
-     * @return
+     * Compare the phone number with other object received
+     * @param other Object we want to compare with the phone number
+     * @return true if the received object represents another phone number equivalent to the phone number. Otherwise, it returns false.
      */
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PhoneNumber that = (PhoneNumber) o;
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        PhoneNumber that = (PhoneNumber) other;
         return Double.compare(that.phoneNumber, phoneNumber) == 0;
     }
 

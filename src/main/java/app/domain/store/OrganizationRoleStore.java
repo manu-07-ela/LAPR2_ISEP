@@ -1,8 +1,6 @@
 package app.domain.store;
 
 import app.domain.model.OrganizationRole;
-import app.mappers.dto.OrganizationRoleDTO;
-
 import java.util.ArrayList;
 import java.util.List;
 

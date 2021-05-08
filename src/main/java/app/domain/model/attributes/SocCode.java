@@ -2,8 +2,6 @@ package app.domain.model.attributes;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Objects;
-
 /**
  * Represents a SOC code of an employee
  * @author Manuela Leite <1200720@isep.ipp.pt>
@@ -42,15 +40,15 @@ public class SocCode {
     }
 
     /**
-     *
-     * @param o
-     * @return
+     * Compare the SOC code with other object received
+     * @param other Object we want to compare with the SOC code
+     * @return true if the received object represents another SOC code equivalent to the SOC code. Otherwise, it returns false.
      */
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SocCode socCode1 = (SocCode) o;
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        SocCode socCode1 = (SocCode) other;
         return socCode == socCode1.socCode;
     }
 

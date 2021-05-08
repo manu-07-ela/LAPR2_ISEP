@@ -4,12 +4,9 @@ import app.domain.model.attributes.Name;
 import app.domain.model.attributes.PhoneNumber;
 import app.domain.model.attributes.SocCode;
 import auth.domain.model.Email;
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import java.text.DecimalFormat;
 import java.util.Locale;
-import java.util.Objects;
+
 
 /**
  *Represents a Employee in organization
@@ -67,6 +64,11 @@ public class Employee {
         instancesOfEmployee++;
     }
 
+    /**
+     * Takes the initials of a name and puts them in capital letters to be used in the employee ID later
+     * @param name The name of an employee
+     * @return The initials of an employee's name
+     */
     private String nameId(Name name){
         String n = "";
         String[] nameAux = name.getName().split(" ");
@@ -75,6 +77,12 @@ public class Employee {
         }
         return n.toUpperCase(Locale.ROOT);
     }
+
+    /**
+     * Receives the instance counter from the employees and puts this number with 5 digits to later be concatenated with the initials of the employee's name
+     * @param id The employee instance counter
+     * @return The number with 5 digits
+     */
     private String numberId(int id){
         DecimalFormat df = new DecimalFormat("00000");
         return df.format(id);
