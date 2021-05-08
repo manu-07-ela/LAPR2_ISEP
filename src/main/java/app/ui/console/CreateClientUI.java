@@ -30,7 +30,7 @@ public class CreateClientUI {
                 String tin = Utils.readLineFromConsole("Tax identification number: ");
                 String phonenumber = Utils.readLineFromConsole("Phone number: ");
                 String email = Utils.readLineFromConsole("E-mail: ");
-                createClientctrl.CreateClient();
+                //createClientctrl.CreateClient();
                 dadosInvalidos = false;
                 System.out.printf("Do you want to create a Client with the name %s, citizen card number %s, National Healthcare Service number %s, birth date %s, gender %s, phone number %s, and e-mail %s?",name,citizencardnumber,nhs,date,sex,tin,phonenumber,email);
 
