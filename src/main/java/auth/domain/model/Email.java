@@ -19,6 +19,9 @@ public class Email {
             throw new IllegalArgumentException("Invalid Email Address.");
         this.email = email;
     }
+    public Email(Email email){
+        this.email = email.getEmail();
+    }
 
     private boolean validate(String email) {
         if (StringUtils.isBlank(email))

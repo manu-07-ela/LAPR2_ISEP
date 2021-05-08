@@ -2,8 +2,6 @@ package app.domain.model.attributes;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Objects;
-
 /**
  * Represents a address of an employee
  * @author Manuela Leite <1200720@isep.ipp.pt>
@@ -25,9 +23,18 @@ public class Address {
     }
 
     /**
-     *
-     * @param other
-     * @return
+     * Copy builder of address
+     * @param address the address
+     */
+    public Address(Address address){
+        this.address = address.getAddress();
+    }
+
+
+    /**
+     * Compare the address with other object received
+     * @param other Object we want to compare with the address
+     * @return true if the received object represents another address equivalent to the address. Otherwise, it returns false.
      */
     @Override
     public boolean equals(Object other) {
@@ -51,6 +58,5 @@ public class Address {
      */
     private void checkRulesForAddress(String address){
         if (StringUtils.isBlank(address)) throw new IllegalArgumentException("ERROR: Address can´t be blank");
-
     }
 }

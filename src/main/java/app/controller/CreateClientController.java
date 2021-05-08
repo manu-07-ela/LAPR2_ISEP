@@ -3,7 +3,9 @@ package app.controller;
 import app.domain.model.Client;
 import app.domain.model.Company;
 import app.domain.store.ClientStore;
+import app.mappers.ClientMapper;
 import app.mappers.dto.ClientDto;
+import auth.AuthFacade;
 
 public class CreateClientController {
     /**
@@ -18,6 +20,14 @@ public class CreateClientController {
      *
      */
     private ClientStore store;
+    /**
+     *
+     */
+    private AuthFacade clAuthFacade;
+    /**
+     *
+     */
+    private ClientMapper clMapper;
 
     /**
      *
@@ -33,6 +43,8 @@ public class CreateClientController {
     public CreateClientController(Company company) {
         this.company = company;
         this.store = company.getClientStore();
+        clAuthFacade = new AuthFacade();
+        clMapper = new ClientMapper();
         this.cl = null;
     }
 
@@ -42,7 +54,7 @@ public class CreateClientController {
      * @return
      */
     public boolean CreateClient(ClientDto cldto) {
-        this.cl = store.createClient(cldto);
+        this.cl = store.createClient(cldto,clMapper);
         return store.validateClient(cl);
     }
 
@@ -51,6 +63,6 @@ public class CreateClientController {
      * @return
      */
     public boolean saveClient() {
-        return store.saveClient(cl);
+        return store.saveClient(cl,clAuthFacade);
     }
 }

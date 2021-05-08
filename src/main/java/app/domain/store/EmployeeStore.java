@@ -1,10 +1,8 @@
 package app.domain.store;
 
 import app.domain.model.Employee;
-import app.domain.model.OrganizationRole;
 import app.domain.model.SpecialistDoctor;
 import app.mappers.dto.EmployeeDTO;
-import auth.domain.model.Email;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,18 +24,18 @@ public class EmployeeStore {
     }
 
     /**
-     *
-     * @param empDto
-     * @return
+     * Creates an instance of Employee receiving an Employee DTO by parameter
+     * @param empDto an employee DTO
+     * @return an instance of employee
      */
     public Employee createEmployee(EmployeeDTO empDto) {
         return new Employee(empDto.getName(), empDto.getEmail(), empDto.getAddress(),empDto.getPhoneNumber(),empDto.getSocCode(), empDto.getOrganizationRole());
     }
 
     /**
-     *
-     * @param empDto
-     * @return
+     * Creates an instance of specialist doctor receiving an Employee DTO by parameter
+     * @param empDto an employee DTO
+     * @return an instance of specialist doctor
      */
     public SpecialistDoctor createSpecialistDoctor(EmployeeDTO empDto){
         return new SpecialistDoctor(empDto.getName(), empDto.getEmail(), empDto.getAddress(),empDto.getPhoneNumber(),empDto.getSocCode(), empDto.getOrganizationRole(), empDto.getDoctorIndexNumber());
@@ -68,8 +66,5 @@ public class EmployeeStore {
     public List<Employee> getEmployeesList(){
         return employees;
     }
-
-
-
 
 }

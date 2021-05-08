@@ -144,10 +144,10 @@ public class TestType {
         StringBuilder parameterCategories = new StringBuilder();
         for (ParameterCategory pc : listOfParameterCategories) {
             parameterCategories.append(pc.getName());
-            parameterCategories.append("\n");
+            parameterCategories.append(" ");
         }
 
-        return String.format("Test Type: %s%nCode: %s%nCollecting Method: %s%nParameter Categories:%n%s",description,code,collectingMethod,parameterCategories);
+        return String.format("<Test Type> %s <Code> %s / <Collecting Method> %s / <Parameter Categories> %s",description,code,collectingMethod,parameterCategories);
     }
 
 

@@ -1,18 +1,65 @@
 package app.controller;
 
 import app.domain.model.Company;
+import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
+import app.domain.store.ParameterCategoryStore;
+import app.domain.store.TestTypeStore;
+import app.mappers.dto.ParameterCategoryDto;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateTestTypeControllerTest {
 
+    CreateTestTypeController ctrl;
+    List<ParameterCategoryDto> lpcDto;
+    List<ParameterCategory> lpc;
+    ParameterCategoryStore pcStore;
+    TestTypeStore ttStore;
+    ParameterCategoryDto pcDto;
+    ParameterCategory pc;
+    Company company;
+    TestType tt;
+
     @Before
     public void setup(){
-
+        App app = App.getInstance();
+        company = new Company("Many Labs");
+        lpcDto = new ArrayList();
+        pcStore = company.getParameterCategoryStore();
+        ttStore = company.getTestTypeStore();
+        pc = new ParameterCategory("12A4D","Covid-19");
+        pcStore.addParameterCategory(pc);
+        lpc=pcStore.getParameterCategoryList();
+        pcDto = new ParameterCategoryDto("12A4D","Covid-19");
+        lpcDto.add(pcDto);
+        ctrl = new CreateTestTypeController(company);
+        tt= new TestType("12345","test","collecting",lpc);
     }
+
+    @Test
+    public void getParameterCategories(){
+        List<ParameterCategoryDto> result = ctrl.getParameterCategories();
+        Assert.assertEquals(lpcDto,result);
+    }
+
+    @Test
+    public void createValidTestType(){
+        boolean result = ctrl.createTestType("12345","test","collecting",lpcDto);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void createInvalidTestType(){
+        ttStore.addTestType(tt);
+        boolean result = ctrl.createTestType("12345","test","collecting",lpcDto);
+        Assert.assertFalse(result);
+    }
+
+
 
 }

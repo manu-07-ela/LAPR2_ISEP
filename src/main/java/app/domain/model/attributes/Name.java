@@ -21,9 +21,16 @@ public class Name {
      */
     public Name(String name){
         checkRulesForName(name);
-        this.name = name;
+        this.name = name.trim();
     }
 
+    /**
+     * Copy builder of doctor index number
+     * @param name the name
+     */
+    public Name(Name name){
+        this.name = name.getName();
+    }
     /**
      *Get the name of an employee
      * @return the name
@@ -37,14 +44,14 @@ public class Name {
      * @param name The name
      */
     private void checkRulesForName(String name){
-        if (name.length()>35) throw new IllegalArgumentException("ERROR: Name need to have maximum 15 characters");
-        if (StringUtils.isBlank(name)) throw new IllegalArgumentException("ERROR: Name can't be blank.");
+        if (name.length()>35) throw new IllegalArgumentException("ERROR: Name need to have maximum 35 characters");
+        if (StringUtils.isBlank(name)) throw new NullPointerException("ERROR: Name can't be blank.");
     }
 
     /**
-     *
-     * @param other
-     * @return
+     *Compare the doctor name with other object received
+     * @param other Object we want to compare with the name
+     * @return true if the received object represents another name equivalent to the name. Otherwise, it returns false.
      */
     @Override
     public boolean equals(Object other) {

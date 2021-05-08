@@ -13,22 +13,29 @@ public class SocCode {
     /**
      * The SOC code of an employee
      */
-    private int socCode;
+    private String  socCode;
 
     /**
      * Create a SOC code instance receiving a SOC code by parameter
      * @param socCode the SOC code of an employee
      */
-    public SocCode(int socCode) {
+    public SocCode(String socCode) {
         checkRulesForSocCode(socCode);
         this.socCode = socCode;
     }
 
     /**
+     * Copy builder of SOC code
+     * @param socCode the SOC code
+     */
+    public SocCode(SocCode socCode){
+            this.socCode = socCode.getSocCode();
+    }
+    /**
      * Get the SOC code of an employee
      * @return the SOC code
      */
-    public int getSocCode() {
+    public String getSocCode() {
         return socCode;
     }
 
@@ -36,22 +43,24 @@ public class SocCode {
      * Checks if the business rules applied to the SOC code are respected
      * @param socCode the SOC code
      */
-    private void checkRulesForSocCode(int socCode){
-        if (StringUtils.isBlank(Integer.toString(socCode))) throw new IllegalArgumentException("ERROR: SOC can't be blank.");
-        if (Integer.toString(socCode).length() != 4) throw new IllegalArgumentException("ERROR: SOC code must have 4 digits.");
+    private void checkRulesForSocCode(String socCode){
+        if (StringUtils.isBlank(socCode)) throw new NullPointerException("ERROR: SOC code can't be blank.");
+        if (!StringUtils.isNumeric(socCode)) throw new IllegalArgumentException("ERROR: SCO code consists only of numbers");
+        if (socCode.length() != 4) throw new IllegalArgumentException("ERROR: SOC code must have 4 digits.");
     }
 
     /**
-     *
-     * @param o
-     * @return
+     * Compare the SOC code with other object received
+     * @param other Object we want to compare with the SOC code
+     * @return true if the received object represents another SOC code equivalent to the SOC code. Otherwise, it returns false.
      */
+
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SocCode socCode1 = (SocCode) o;
-        return socCode == socCode1.socCode;
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        SocCode socCode1 = (SocCode) other;
+        return Objects.equals(socCode, socCode1.socCode);
     }
 
 }
