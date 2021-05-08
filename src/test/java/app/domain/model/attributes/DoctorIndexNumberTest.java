@@ -6,7 +6,7 @@ import org.junit.Test;
 public class DoctorIndexNumberTest {
 
     @Test(expected = NullPointerException.class)
-    public void ensureDoctorIndexNumberNullIsNotAllowed(){new DoctorIndexNumber(null);}
+    public void ensureDoctorIndexNumberNullIsNotAllowed(){new DoctorIndexNumber("");}
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDoctorIndexNumberMeetsAC6_1(){new DoctorIndexNumber("1234567");}

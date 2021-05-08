@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class NameTest {
 
     @Test(expected = NullPointerException.class)
-    public void ensureNameNullIsNotAllowed(){new Name(null);}
+    public void ensureNameNullIsNotAllowed(){new Name("");}
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameMeetsAC9(){new Name("Maria Lucia Lima de Ferreira Carvalho");}

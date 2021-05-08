@@ -2,7 +2,7 @@ package app.ui.console;
 
 import app.controller.RegisterEmployeeController;
 import app.domain.model.Employee;
-import app.domain.model.OrganizationRole;
+import app.domain.model.attributes.OrganizationRole;
 import app.domain.model.SpecialistDoctor;
 import app.domain.model.attributes.*;
 import app.mappers.dto.EmployeeDTO;

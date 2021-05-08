@@ -23,6 +23,15 @@ public class Address {
     }
 
     /**
+     * Copy builder of address
+     * @param address the address
+     */
+    public Address(Address address){
+        this.address = address.getAddress();
+    }
+
+
+    /**
      * Compare the address with other object received
      * @param other Object we want to compare with the address
      * @return true if the received object represents another address equivalent to the address. Otherwise, it returns false.
@@ -49,6 +58,5 @@ public class Address {
      */
     private void checkRulesForAddress(String address){
         if (StringUtils.isBlank(address)) throw new IllegalArgumentException("ERROR: Address can´t be blank");
-
     }
 }

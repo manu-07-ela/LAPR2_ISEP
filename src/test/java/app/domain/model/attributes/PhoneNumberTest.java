@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class PhoneNumberTest {
     @Test(expected = NullPointerException.class)
-    public void ensurePhoneNumberNullIsNotAllowed(){new PhoneNumber(null);}
+    public void ensurePhoneNumberNullIsNotAllowed(){new PhoneNumber("");}
 
     @Test(expected = IllegalArgumentException.class)
     public void ensurePhoneNumberMeetsAC5_1(){new PhoneNumber("11111");}

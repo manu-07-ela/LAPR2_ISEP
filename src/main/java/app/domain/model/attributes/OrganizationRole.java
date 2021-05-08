@@ -1,4 +1,4 @@
-package app.domain.model;
+package app.domain.model.attributes;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -17,11 +17,16 @@ public class OrganizationRole {
      * @param designation characterizes the role in the organization.
      */
     public OrganizationRole(String designation){
-        if (!isValidDesignation(designation)) {
-            throw new IllegalArgumentException("Designation must have at maximum 15 characters");
-        }
+       checkRulesForDesignation(designation);
         this.designation = designation;
+    }
 
+    /**
+     * Copy builder of organizationRole
+     * @param orgRole the organization role
+     */
+    public OrganizationRole(OrganizationRole orgRole){
+        this.designation = orgRole.getDesignation();
     }
 
     /**
@@ -43,10 +48,11 @@ public class OrganizationRole {
 
     /**
      * Checks whether the designation associated with the organization role we intend to create complies with all business rules.
-     * @return true if the designation obeys the rules imposed by the business, false otherwise.
+     * @param designation true if the designation obeys the rules imposed by the business, false otherwise.
      */
-    public boolean isValidDesignation(String designation){
-        return  designation.length() <= 35 || StringUtils.isBlank(designation);
+    public void checkRulesForDesignation(String designation){
+        if (StringUtils.isBlank(designation)) throw new NullPointerException("ERROR: designation can't be blank.");
+        if (designation.length() > 35) throw new IllegalArgumentException("ERROR: designation must have maximum 35 characters.");
     }
 
     /**

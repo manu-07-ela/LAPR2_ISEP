@@ -1,6 +1,6 @@
 package app.mappers.dto;
 
-import app.domain.model.OrganizationRole;
+import app.domain.model.attributes.OrganizationRole;
 import app.domain.model.attributes.*;
 import auth.domain.model.Email;
 

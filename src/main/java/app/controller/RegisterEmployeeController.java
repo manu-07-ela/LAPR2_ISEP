@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.*;
+import app.domain.model.attributes.OrganizationRole;
 import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;
 import app.mappers.EmployeeMapper;
@@ -78,6 +79,9 @@ public class RegisterEmployeeController {
         this.company = company;
         this.employeeStore = company.getEmployeeStore();
         this.organizationRoleStore = company.getOrganizationRoleStore();
+        this.mapperOrgRole = new OrganizationRoleMapper();
+        this.mapperEmp = new EmployeeMapper();
+        this.authFacade = company.getAuthFacade();
     }
 
     /**
