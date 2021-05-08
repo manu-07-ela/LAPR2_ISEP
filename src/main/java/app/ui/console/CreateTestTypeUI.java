@@ -31,10 +31,12 @@ public class CreateTestTypeUI implements Runnable {
      */
     @Override
     public void run(){
-
-        System.out.printf("%nCreating a Test Type%n");
-        createTestType();
-
+        if(createTestTypectrl.getParameterCategories().size() == 0){
+            System.out.println("There is no Parameter Category in the system so it is not possible to create a test type.");
+        } else {
+            System.out.printf("%nCreating a Test Type%n");
+            createTestType();
+        }
     }
 
     /**
