@@ -17,6 +17,7 @@ public class TestTypeStoreTest {
     ParameterCategory pc;
     List<ParameterCategory> listPC;
     TestTypeStore ttStore;
+    List<TestType> listTT = new ArrayList();
 
     @Before
     public void setup(){
@@ -65,4 +66,33 @@ public class TestTypeStoreTest {
         TestType result=ttStore.getTestTypeByCode("12345");
         Assert.assertEquals(null,result);
     }
+
+    @Test
+    public void saveValidTestType() {
+        boolean result = ttStore.saveTestType(tt);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void saveInvalidTestType() {
+        ttStore.addTestType(tt);
+        boolean result = ttStore.saveTestType(tt);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void saveNullTestType(){
+        TestType test = null;
+        boolean result = ttStore.saveTestType(test);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void getTestTypeList(){
+        listTT.add(tt);
+        ttStore.addTestType(tt);
+        List<TestType> result = ttStore.getTestTypeList();
+        Assert.assertEquals(listTT,result);
+    }
+
 }
