@@ -39,12 +39,12 @@ public class TestTypeTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionMeetsAC2(){
-        TestType tt = new TestType("1g3d7","descriptionteste","method",listPC);
+        TestType tt = new TestType("1g3d7","descriptionteste","collectingMethodTest",listPC);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCollectingMethodMeetsAC3(){
-        TestType tt = new TestType("1g354","description","collectingmethodteste",listPC);
+        TestType tt = new TestType("1g354","description","collectingsmethodsteste",listPC);
     }
 
     @Test
