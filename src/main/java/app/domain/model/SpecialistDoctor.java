@@ -2,9 +2,6 @@ package app.domain.model;
 
 import app.domain.model.attributes.*;
 import auth.domain.model.Email;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.Objects;
 
 /**
  * Represents a specialist doctor in organization
@@ -48,7 +45,6 @@ public class SpecialistDoctor extends Employee{
     public String toString() {
         return String.format("%s-> Doctor Index Number= %d%n", super.toString(), doctorIndexNumber.getDoctorIndexNumber());
     }
-
 
     /**
      * Compare the specialist doctor with the other object provided.
