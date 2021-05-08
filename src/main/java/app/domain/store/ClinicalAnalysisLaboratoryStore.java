@@ -3,6 +3,7 @@ package app.domain.store;
 import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.TestType;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
+import app.mappers.TestTyperMapper;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 
 import java.util.ArrayList;
@@ -28,10 +29,11 @@ public class ClinicalAnalysisLaboratoryStore {
     /**
      *
      * @param calDTO
+     * @param calMapper
      * @return
      */
-    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO){
-        return CreateClinicalAnalysisLaboratoryMapper.ToModel(calDTO);
+    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO, CreateClinicalAnalysisLaboratoryMapper calMapper){
+        return calMapper.ToModel(calDTO);
     }
 
     /**
