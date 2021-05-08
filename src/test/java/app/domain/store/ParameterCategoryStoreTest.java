@@ -51,5 +51,45 @@ public class ParameterCategoryStoreTest {
         Assert.assertFalse(result);
     }
 
+    @Test
+    public void getExistingParameterCategoryByCode(){
+        pcStore.addParameterCategory(pc);
+        ParameterCategory result=pcStore.getParameterCategoryByCode("12A4D");
+        Assert.assertEquals(pc,result);
+    }
+
+    @Test
+    public void getNonexistentParameterCategoryByCode(){
+        ParameterCategory result=pcStore.getParameterCategoryByCode("12A4D");
+        Assert.assertEquals(null,result);
+    }
+
+    @Test
+    public void saveValidParameterCategory() {
+        boolean result = pcStore.saveParameterCategory(pc);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void saveInvalidParameterCategory() {
+        pcStore.addParameterCategory(pc);
+        boolean result = pcStore.saveParameterCategory(pc);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void saveNullParameterCategory(){
+        ParameterCategory test = null;
+        boolean result = pcStore.saveParameterCategory(test);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void getParameterCategoryList(){
+        pcStore.addParameterCategory(pc);
+        List<ParameterCategory> result = pcStore.getParameterCategoryList();
+        Assert.assertEquals(listPC,result);
+    }
+
 
 }
