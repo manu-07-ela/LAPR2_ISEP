@@ -56,9 +56,9 @@ public class ParameterCategoryDto {
     }
 
     /**
-     *
-     * @param o
-     * @return
+     * Compare the parameter category dto with the other object provided.
+     * @param o Object we want to compare with the parameter category.
+     * @return true if the received object represents another parameter category dto equivalent to the parameter category dto. Otherwise, it returns false.
      */
     @Override
     public boolean equals(Object o){
@@ -72,6 +72,6 @@ public class ParameterCategoryDto {
 
         ParameterCategoryDto otherParameterCategoryDto = (ParameterCategoryDto) o;
 
-        return this.getCode().equals(otherParameterCategoryDto.getCode()) || this.getName().equalsIgnoreCase(otherParameterCategoryDto.getName());
+        return this.getCode().equals(otherParameterCategoryDto.getCode()) && this.getName().equalsIgnoreCase(otherParameterCategoryDto.getName());
     }
 }
