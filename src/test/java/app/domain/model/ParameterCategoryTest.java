@@ -1,9 +1,8 @@
 package app.domain.model;
 
+import app.mappers.dto.ParameterCategoryDto;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ParameterCategoryTest {
 
@@ -60,10 +59,17 @@ public class ParameterCategoryTest {
     }
 
     @Test
-    public void parameterCategoriesNotEquals(){
+    public void parameterCategoriesNotEqualsNull(){
         ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
         ParameterCategory pc2 = null;
         Assert.assertNotEquals(pc1,pc2);
+    }
+
+    @Test
+    public void parameterCategoriesNotEquals(){
+        ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
+        Parameter p1 = new Parameter("12345","test","test",pc1.toString());
+        Assert.assertNotEquals(pc1,p1);
     }
 
 
