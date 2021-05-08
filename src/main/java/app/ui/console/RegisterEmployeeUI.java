@@ -194,7 +194,7 @@ public class RegisterEmployeeUI implements Runnable{
         DoctorIndexNumber doctorIndexNumberAux = null;
         do{
             try {
-                int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor index Number: ");
+                String doctorIndexNumber = Utils.readLineFromConsole("Doctor index Number: ");
                 doctorIndexNumberAux = new DoctorIndexNumber(doctorIndexNumber);
                 invalidData = false;
             }catch (Exception e){

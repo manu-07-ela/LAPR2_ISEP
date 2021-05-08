@@ -150,7 +150,7 @@ public class Employee {
      */
     @Override
     public String toString() {
-        return String.format("-> Name= %s%n-> Email= %s%n-> Address= %s%n-> PhoneNumber= %.0f%n-> Employee ID= %s%n-> SOC code= %d%n-> Organization Role= %s%n", name.getName(), email.getEmail(), address.getAddress(), phoneNumber.getPhoneNumber(), employeeId, socCode.getSocCode(), organizationRole.getDesignation());
+        return String.format("-> Name= %s%n-> Email= %s%n-> Address= %s%n-> PhoneNumber= %s%n-> Employee ID= %s%n-> SOC code= %s%n-> Organization Role= %s%n", name.getName(), email.getEmail(), address.getAddress(), phoneNumber.getPhoneNumber(), employeeId, socCode.getSocCode(), organizationRole.getDesignation());
     }
 
     /**
