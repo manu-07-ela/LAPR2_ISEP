@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
@@ -130,6 +132,7 @@ public class Client {
      * @param name   Client's name
      */
     private void nameValidation(String name){
+        if (StringUtils.isBlank(name)) throw new NullPointerException("Name can't be blank.");
         if (name.length()==0 || name.length()>35){
             throw  new IllegalArgumentException("The name mustn't have 0 or more then 35 characters");
         }
@@ -140,6 +143,7 @@ public class Client {
      * @param citizencardnumber
      */
     private void citizencardnumberValidation(String citizencardnumber){
+        if (!StringUtils.isNumeric(citizencardnumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
         if (citizencardnumber.length()!=16){
             throw  new IllegalArgumentException("The citizen card number must have 16 digits");
         }
@@ -150,6 +154,7 @@ public class Client {
      * @param nhs
      */
     private void nhsValidation(String nhs){
+        if (!StringUtils.isNumeric(citizencardnumber)) throw new IllegalArgumentException("National Healthcare Service number is numeric only.");
         if (nhs.length()!=10){
             throw  new IllegalArgumentException("The nhs must have 10 digits");
         }
@@ -180,6 +185,7 @@ public class Client {
      * @param sex
      */
     private void sexValidation(String sex){
+        if (StringUtils.isBlank(sex)) throw new NullPointerException("Gender can't be blank.");
         sex=sex.toLowerCase();
         if (!sex.equals("male") && !sex.equals("female")){
             throw  new IllegalArgumentException("The sex must be Male or Female");
@@ -191,6 +197,9 @@ public class Client {
      * @param tin
      */
     private void tinValidation(String tin){
+        if (!StringUtils.isNumeric(tin)){
+            throw new IllegalArgumentException("Tax identification number is numeric only.");
+        }
         if (tin.length()!=10){
             throw  new IllegalArgumentException("The tin must have 10 digits");
         }
@@ -201,6 +210,9 @@ public class Client {
      * @param phonenumber
      */
     private void phonenumberValidation(String phonenumber){
+        if (!StringUtils.isNumeric(phonenumber)){
+            throw new IllegalArgumentException("Phone number is numeric only.");
+        }
         if (phonenumber.length()!=11){
             throw  new IllegalArgumentException("The phone number must have 11 digits");
         }
