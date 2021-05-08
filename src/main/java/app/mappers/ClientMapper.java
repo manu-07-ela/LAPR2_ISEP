@@ -13,7 +13,7 @@ public class ClientMapper {
      * @param cl an Client object
      * @return an instance of ClientDto
      */
-    public static Client toModel(ClientDto cl){
+    public Client toModel(ClientDto cl){
         return new Client(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());
     }
 
