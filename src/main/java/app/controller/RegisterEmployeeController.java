@@ -135,9 +135,8 @@ public class RegisterEmployeeController {
         String password = generatePassword();
         File archive = new File("loginCredentials\\" + emp.getEmployeeId() + ".txt");
         FileWriter fw = new FileWriter(archive, true);
-        fw.write("ID: " + emp.getEmail().getEmail());
-        fw.write("");
-        fw.write("PASSWORD: " + password);
+        fw.write("ID: " + emp.getEmail().getEmail() + "\n");
+        fw.write("PASSWORD: " + password + "\n");
         fw.close();
         return this.authFacade.addUserWithRole(emp.getName().getName(), emp.getEmail().getEmail(),password,orgRole.getDesignation());
 
