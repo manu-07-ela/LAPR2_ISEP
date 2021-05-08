@@ -11,13 +11,13 @@ public class SocCode {
     /**
      * The SOC code of an employee
      */
-    private String socCode;
+    private String  socCode;
 
     /**
      * Create a SOC code instance receiving a SOC code by parameter
      * @param socCode the SOC code of an employee
      */
-    public SocCode(String  socCode) {
+    public SocCode(String socCode) {
         checkRulesForSocCode(socCode);
         this.socCode = socCode;
     }
