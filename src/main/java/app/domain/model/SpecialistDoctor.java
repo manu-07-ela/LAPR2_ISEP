@@ -3,6 +3,8 @@ package app.domain.model;
 import app.domain.model.attributes.*;
 import auth.domain.model.Email;
 
+import java.util.Objects;
+
 /**
  * Represents a specialist doctor in organization
  * @author Manuela Leite <1200720@isep.ipp.pt>
@@ -26,7 +28,7 @@ public class SpecialistDoctor extends Employee{
      */
     public SpecialistDoctor(Name name, Email email, Address adress, PhoneNumber phoneNumber, SocCode socCode, OrganizationRole organizationRole, DoctorIndexNumber doctorIndexNumber) {
         super(name, email, adress, phoneNumber, socCode, organizationRole);
-        this.doctorIndexNumber = new DoctorIndexNumber(doctorIndexNumber.getDoctorIndexNumber());
+        this.doctorIndexNumber = new DoctorIndexNumber(doctorIndexNumber);
     }
 
     /**
@@ -34,7 +36,7 @@ public class SpecialistDoctor extends Employee{
      * @return the doctor index number.
      */
     public DoctorIndexNumber getDoctorIndexNumber() {
-        return doctorIndexNumber;
+        return new DoctorIndexNumber(doctorIndexNumber);
     }
 
     /**
@@ -43,7 +45,7 @@ public class SpecialistDoctor extends Employee{
      */
     @Override
     public String toString() {
-        return String.format("%s-> Doctor Index Number= %d%n", super.toString(), doctorIndexNumber.getDoctorIndexNumber());
+        return String.format("%s-> Doctor Index Number= %s%n", super.toString(), doctorIndexNumber.getDoctorIndexNumber());
     }
 
     /**
@@ -51,14 +53,14 @@ public class SpecialistDoctor extends Employee{
      * @param other Object we want to compare with the specialist doctor.
      * @return true if the received object represents another specialist doctor equivalent to the specialist doctor. Otherwise, it returns false.
      */
+
     @Override
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         if (!super.equals(other)) return false;
         SpecialistDoctor that = (SpecialistDoctor) other;
-        return doctorIndexNumber == that.doctorIndexNumber;
+        return Objects.equals(doctorIndexNumber, that.doctorIndexNumber);
     }
-
 
 }

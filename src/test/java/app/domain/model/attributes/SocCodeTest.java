@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class SocCodeTest {
     @Test(expected = NullPointerException.class)
-    public void ensureSocCodeNullIsNotAllowed(){new SocCode(null);}
+    public void ensureSocCodeNullIsNotAllowed(){new SocCode("");}
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureSocCodeMeetsAC7_1(){new SocCode("1111111");}

@@ -2,6 +2,8 @@ package app.domain.model.attributes;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Objects;
+
 /**
  * Represents a doctor index number of a specialist doctor
  * @author Manuela Leite <1200720@isep.ipp.pt>
@@ -20,6 +22,14 @@ public class DoctorIndexNumber {
     public DoctorIndexNumber(String  doctorIndexNumber) {
         checkRulesForDoctorIndexNumber(doctorIndexNumber);
         this.doctorIndexNumber = doctorIndexNumber;
+    }
+
+    /**
+     * Copy builder of doctor index number
+     * @param doctorIndexNumber the doctor index number
+     */
+    public DoctorIndexNumber(DoctorIndexNumber doctorIndexNumber) {
+        this.doctorIndexNumber = doctorIndexNumber.getDoctorIndexNumber();
     }
 
     /**
@@ -45,12 +55,14 @@ public class DoctorIndexNumber {
      * @param other Object we want to compare with the doctor index number
      * @return true if the received object represents another doctor index number equivalent to the doctor index number. Otherwise, it returns false.
      */
+
     @Override
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         DoctorIndexNumber that = (DoctorIndexNumber) other;
-        return doctorIndexNumber == that.doctorIndexNumber;
+        return Objects.equals(doctorIndexNumber, that.doctorIndexNumber);
     }
+
 
 }

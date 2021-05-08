@@ -1,8 +1,5 @@
 package app.domain.model;
-import app.domain.model.attributes.Address;
-import app.domain.model.attributes.Name;
-import app.domain.model.attributes.PhoneNumber;
-import app.domain.model.attributes.SocCode;
+import app.domain.model.attributes.*;
 import auth.domain.model.Email;
 import java.text.DecimalFormat;
 import java.util.Locale;
@@ -54,12 +51,12 @@ public class Employee {
      */
     public Employee(Name name, Email email, Address address, PhoneNumber phoneNumber, SocCode socCode, OrganizationRole organizationRole){
 
-        this.name = new Name(name.getName());
-        this.email = new Email(email.getEmail());
-        this.address = new Address(address.getAddress());
-        this.phoneNumber = new PhoneNumber(phoneNumber.getPhoneNumber());
-        this.socCode = new SocCode(socCode.getSocCode());
-        this.organizationRole = new OrganizationRole(organizationRole.designation);
+        this.name = new Name(name);
+        this.email = new Email(email);
+        this.address = new Address(address);
+        this.phoneNumber = new PhoneNumber(phoneNumber);
+        this.socCode = new SocCode(socCode);
+        this.organizationRole = new OrganizationRole(organizationRole);
         this.employeeId = nameId(this.name)+numberId(instancesOfEmployee);
         instancesOfEmployee++;
     }

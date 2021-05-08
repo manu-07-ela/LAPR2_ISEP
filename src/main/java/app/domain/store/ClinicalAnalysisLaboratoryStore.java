@@ -3,7 +3,6 @@ package app.domain.store;
 import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.TestType;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
-import app.mappers.TestTyperMapper;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 
 import java.util.ArrayList;
@@ -47,12 +46,26 @@ public class ClinicalAnalysisLaboratoryStore {
         return !this.clinicalAnalysisLaboratoryList.contains(clinicalAnalysisLaboratory);
     }
 
+    public boolean validateClinicalAnalysisLaboratoryglobal (ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+        for (ClinicalAnalysisLaboratory cal: clinicalAnalysisLaboratoryList) {
+            if (clinicalAnalysisLaboratory.equals(cal)){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
     /**
      * 
      * @return
      */
     public List<ClinicalAnalysisLaboratory> getClinicalAnalysisLaboratoryList() {
         return clinicalAnalysisLaboratoryList;
+    }
+
+    public boolean addClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal) {
+        return clinicalAnalysisLaboratoryList.add(cal);
     }
 
     /**

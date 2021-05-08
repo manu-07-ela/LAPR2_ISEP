@@ -25,6 +25,13 @@ public class Name {
     }
 
     /**
+     * Copy builder of doctor index number
+     * @param name the name
+     */
+    public Name(Name name){
+        this.name = name.getName();
+    }
+    /**
      *Get the name of an employee
      * @return the name
      */

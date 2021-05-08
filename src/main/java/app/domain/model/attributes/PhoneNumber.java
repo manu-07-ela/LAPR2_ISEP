@@ -26,6 +26,14 @@ public class PhoneNumber {
     }
 
     /**
+     * Copy builder of phone number
+     * @param phoneNumber the phone number
+     */
+    public PhoneNumber(PhoneNumber phoneNumber){
+        this.phoneNumber = phoneNumber.getPhoneNumber();
+    }
+
+    /**
      * Get the phone number
      * @return the phone number
      */

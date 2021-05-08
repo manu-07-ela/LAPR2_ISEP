@@ -7,7 +7,7 @@ import org.junit.Test;
 public class AddressTest {
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureAddressNullIsNotAllowed(){Address adr = new Address(null);}
+    public void ensureAddressNullIsNotAllowed(){new Address("");}
 
     @Test
     public void addressEquals(){
