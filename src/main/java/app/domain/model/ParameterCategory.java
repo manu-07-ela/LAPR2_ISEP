@@ -96,6 +96,6 @@ public class ParameterCategory {
      */
     @Override
     public String toString(){
-        return String.format("Parameter Category: %s%nCode: %s%n",name,code);
+        return String.format("<Name> %s / <Code> %s",name,code);
     }
 }

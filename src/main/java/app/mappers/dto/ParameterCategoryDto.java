@@ -50,6 +50,6 @@ public class ParameterCategoryDto {
      */
     @Override
     public String toString(){
-        return String.format("<Parameter Category> %s / <Code> %s",name,code);
+        return String.format("<Name> %s / <Code> %s",name,code);
     }
 }
