@@ -131,9 +131,9 @@ public class Laboratory {
      */
     private void phoneNumberValidation(String phoneNumber){
         if (StringUtils.isBlank(phoneNumber)){
-            throw  new IllegalArgumentException("Phone number has to have 11 digits");
-        }else if (phoneNumber.length()!=11){
-            throw  new IllegalArgumentException("Phone number has to have 11 digits");
+            throw  new IllegalArgumentException("Phone number is a number with 11 digits");
+        }else if (phoneNumber.length()!=11 && StringUtils.isNumeric(phoneNumber)){
+            throw  new IllegalArgumentException("Phone number is a number with 11 digits");
         }
     }
 
@@ -143,9 +143,9 @@ public class Laboratory {
      */
     private void tinValidation(String tin){
         if (StringUtils.isBlank(tin)){
-            throw  new IllegalArgumentException("Tin has to have 10 digits");
-        }else if (tin.length()!=10){
-            throw  new IllegalArgumentException("Tin has to have 10 digits");
+            throw  new IllegalArgumentException("Tin is a number with 10 digits");
+        }else if (tin.length()!=10 && StringUtils.isNumeric(tin)){
+            throw  new IllegalArgumentException("Tin is a number with 10 digits");
         }
     }
 

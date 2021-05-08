@@ -2,6 +2,8 @@ package app.domain.model.attributes;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Objects;
+
 /**
  * Represents a phone number of an employee
  * @author Manuela Leite <1200720@isep.ipp.pt>
@@ -39,4 +41,18 @@ public class PhoneNumber {
         if (StringUtils.isBlank(Double.toString(phoneNumber))) throw  new IllegalArgumentException("ERROR: Phone number can't be blank.");
         if(Double.toString(phoneNumber).length() != 11) throw  new IllegalArgumentException("ERROR: Phone number must have 11 digits.");
     }
+
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PhoneNumber that = (PhoneNumber) o;
+        return Double.compare(that.phoneNumber, phoneNumber) == 0;
+    }
+
 }

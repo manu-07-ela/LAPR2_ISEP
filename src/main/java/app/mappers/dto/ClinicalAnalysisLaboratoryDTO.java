@@ -33,7 +33,7 @@ public class ClinicalAnalysisLaboratoryDTO {
     /**
      * List of Test Type that the Clinical Analysis Laboratory does
      */
-    private List<TestType> listOfTestTypes;
+    private List<TestTypeDTO> listOfTestTypes;
 
 
     /**
@@ -43,7 +43,7 @@ public class ClinicalAnalysisLaboratoryDTO {
      * @param phoneNumber             Clinical Analysis Laboratory's phone number
      * @param tin                     Clinical Analysis Laboratory's tax identification number
      */
-    public ClinicalAnalysisLaboratoryDTO (String name, String address, String phoneNumber , String tin,String laboratoryId, List<TestType> listOfTestTypes){
+    public ClinicalAnalysisLaboratoryDTO (String name, String address, String phoneNumber , String tin,String laboratoryId, List<TestTypeDTO> listOfTestTypes){
         nameValidation(name);
         AddressValidation(address);
         phoneNumberValidation(phoneNumber);
@@ -96,7 +96,7 @@ public class ClinicalAnalysisLaboratoryDTO {
      *
      * @return
      */
-    public List<TestType> getListOfTestTypes() {
+    public List<TestTypeDTO> getListOfTestTypes() {
         return listOfTestTypes;
     }
     /**

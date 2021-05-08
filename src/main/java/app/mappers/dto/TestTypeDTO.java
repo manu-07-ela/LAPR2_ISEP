@@ -26,7 +26,7 @@ public class TestTypeDTO {
     /**
      * List of parameter categories that the test type has associated.
      */
-    private List<ParameterCategory> listOfParameterCategories;
+    private List<ParameterCategoryDto> listOfParameterCategories;
 
     /**
      * Build an instance of {@code TestType} by receiving the code, description, collection method and associated parameter categories.
@@ -35,7 +35,7 @@ public class TestTypeDTO {
      * @param collectingMethod The test type collecting method.
      * @param listOfParameterCategories List of parameter categories that the test type has associated.
      */
-    public TestTypeDTO (String code, String description, String collectingMethod, List<ParameterCategory> listOfParameterCategories){
+    public TestTypeDTO (String code, String description, String collectingMethod, List<ParameterCategoryDto> listOfParameterCategories){
         checkCodeRules(code);
         checkDescriptionRules(description);
         checkcollectingMethodRules(collectingMethod);
@@ -43,16 +43,6 @@ public class TestTypeDTO {
         this.description=description;
         this.collectingMethod=collectingMethod;
         this.listOfParameterCategories=listOfParameterCategories;
-    }
-
-    public TestTypeDTO (TestType obj){
-        checkCodeRules(obj.getCode());
-        checkDescriptionRules(obj.getDescription());
-        checkcollectingMethodRules(obj.getCollectingMethod());
-        this.code= obj.getCode();
-        this.description= obj.getDescription();
-        this.collectingMethod=obj.getCollectingMethod();
-        this.listOfParameterCategories=obj.getListOfParameterCategories();
     }
 
     /**
@@ -116,8 +106,16 @@ public class TestTypeDTO {
      * Get the categories of parameters associated with the type of test.
      * @return List of parameter categories that the test type has associated.
      */
-    public List<ParameterCategory> getListOfParameterCategories() {
+    public List<ParameterCategoryDto> getListOfParameterCategories() {
         return listOfParameterCategories;
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return String.format("<Code> %s /  <description> %s / <collectingMethod> %s ",code ,description,collectingMethod);
+    }
 }
