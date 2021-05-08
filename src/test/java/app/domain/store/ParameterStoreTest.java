@@ -37,6 +37,7 @@ public class ParameterStoreTest {
     }
     @Test
     public void saveInvalidParameter() {
+        pStore.addParameter(p);
         boolean result = pStore.saveParameter(p);
         Assert.assertFalse(result);
     }
