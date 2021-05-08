@@ -80,6 +80,35 @@ public class TestTypeTest {
         Assert.assertNotEquals(pc1,tt1);
     }
 
+    @Test
+    public void getListOfParameterCategories() {
+        TestType tt = new TestType("1g354","description","collectingmethod",listPC);
+        List<ParameterCategory> result = tt.getListOfParameterCategories();
+        Assert.assertEquals(listPC,result);
+    }
+
+    @Test
+    public void getCollectingMethod() {
+        TestType tt = new TestType("1g354","description","collectingmethod",listPC);
+        String result = tt.getCollectingMethod();
+        Assert.assertEquals("collectingmethod",result);
+    }
+
+    @Test
+    public void getDescription() {
+        TestType tt = new TestType("1g354","description","collectingmethod",listPC);
+        String result = tt.getDescription();
+        Assert.assertEquals("description",result);
+    }
+
+    @Test
+    public void getCode() {
+        TestType tt = new TestType("1g354","description","collectingmethod",listPC);
+        String result = tt.getCode();
+        Assert.assertEquals("1g354",result);
+    }
+
+
 
 
   
