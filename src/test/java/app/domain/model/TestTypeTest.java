@@ -12,12 +12,14 @@ public class TestTypeTest {
 
     ParameterCategory pc;
     List<ParameterCategory> listPC;
+    TestType testType;
 
     @Before
     public void setup(){
         pc = new ParameterCategory("12A4D","Covid-19");
         listPC = new ArrayList();
         listPC.add(pc);
+        testType = new TestType("98765","test","method",listPC);
     }
 
     @Test(expected = IllegalArgumentException.class)

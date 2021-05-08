@@ -1,8 +1,6 @@
 package app.domain.model;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Locale;
-
 /**
  * Represents a role in organization
  * @author Manuela Leite <1200720@isep.ipp.pt>
@@ -47,16 +45,14 @@ public class OrganizationRole {
      * Checks whether the designation associated with the organization role we intend to create complies with all business rules.
      * @return true if the designation obeys the rules imposed by the business, false otherwise.
      */
-
     public boolean isValidDesignation(String designation){
         return  designation.length() <= 35 || StringUtils.isBlank(designation);
     }
 
-
     /**
-     *
-     * @param other
-     * @return
+     * Compare the organization role with the other object provided.
+     * @param other Object we want to compare with the organization role.
+     * @return true if the received object represents another organization role equivalent to the organization role. Otherwise, it returns false.
      */
     @Override
     public boolean equals(Object other) {

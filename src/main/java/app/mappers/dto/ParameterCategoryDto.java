@@ -1,5 +1,7 @@
 package app.mappers.dto;
 
+import app.domain.model.ParameterCategory;
+
 /**
  * Represents a data transfer object of parameter category.
  *
@@ -50,6 +52,26 @@ public class ParameterCategoryDto {
      */
     @Override
     public String toString(){
-        return String.format("<Parameter Category> %s / <Code> %s",name,code);
+        return String.format("<Name> %s / <Code> %s",name,code);
+    }
+
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o){
+        if(this == o){
+            return true;
+        }
+
+        if(o == null || this.getClass() != o.getClass()){
+            return false;
+        }
+
+        ParameterCategoryDto otherParameterCategoryDto = (ParameterCategoryDto) o;
+
+        return this.getCode().equals(otherParameterCategoryDto.getCode()) || this.getName().equalsIgnoreCase(otherParameterCategoryDto.getName());
     }
 }

@@ -48,7 +48,6 @@ public class CreateParameterCategoryController {
         this.app=App.getInstance();
         this.company = company;
         this.pcStore=company.getParameterCategoryStore();
-        this.pc = null;
     }
 
     /**
@@ -68,5 +67,14 @@ public class CreateParameterCategoryController {
      */
     public boolean saveTestType() {
         return this.pcStore.saveParameterCategory(pc);
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString(){
+        return pc.toString();
     }
 }

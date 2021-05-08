@@ -32,7 +32,7 @@ public class CreateTestTypeUI implements Runnable {
     @Override
     public void run(){
 
-        System.out.printf("%nCreating a new Test Type%n");
+        System.out.printf("%nCreating a Test Type%n");
         createTestType();
 
     }
@@ -47,6 +47,7 @@ public class CreateTestTypeUI implements Runnable {
         do{
             try {
                 System.out.printf("%nEnter the following data about the Test Type you want to create%n");
+
                 String code = Utils.readLineFromConsole("Code: ");
                 String description = Utils.readLineFromConsole("Description: ");
                 String collectingMethod = Utils.readLineFromConsole("Collecting Method: ");
@@ -54,22 +55,35 @@ public class CreateTestTypeUI implements Runnable {
                 Utils.showList(createTestTypectrl.getParameterCategories(),"Choose the category of parameters associated with the test type");
 
                 List<ParameterCategoryDto> listOfParameterCategories = new ArrayList();
-                String resposta;
+                boolean resposta;
                 do{
-                    listOfParameterCategories.add((ParameterCategoryDto) Utils.selectsObject(createTestTypectrl.getParameterCategories()));
-                    System.out.printf("%nDo you want to select any more categories?%n");
-                    resposta = Utils.readLineFromConsole("S/N:");
-                } while (resposta.equalsIgnoreCase("S"));
-                createTestTypectrl.createTestType(code,description,collectingMethod,listOfParameterCategories);
-                dadosInvalidos = false;
-                System.out.printf("Do you want to create a Test Type with the code %s, description %s and collecting method %s",code,description,collectingMethod);
-
-                String answer = Utils.readLineFromConsole("S/N:");
-
-                if(answer.equalsIgnoreCase("S")){
-                    if(createTestTypectrl.saveTestType()){
-                        System.out.println("The Test Type was created successfully");
+                    ParameterCategoryDto pcDto = (ParameterCategoryDto) Utils.selectsObject(createTestTypectrl.getParameterCategories());
+                    if (!listOfParameterCategories.contains(pcDto)){
+                        listOfParameterCategories.add(pcDto);
                     }
+                    System.out.printf("%nDo you want to select any more categories?%n");
+                    resposta = Utils.confirm("S/N:");
+                } while (resposta);
+
+                boolean result = createTestTypectrl.createTestType(code,description,collectingMethod,listOfParameterCategories);
+                dadosInvalidos = false;
+
+                if(result){
+
+                    System.out.printf("%nDo you want to create a Test Type with the following data:%n%s",createTestTypectrl.toString());
+
+                    String answer = Utils.readLineFromConsole("S/N:");
+
+                    if(answer.equalsIgnoreCase("S")){
+                        if(createTestTypectrl.saveTestType()){
+                            System.out.println("The Test Type was created successfully");
+                        }
+                    } else {
+                        System.out.println("The test type has not been created.");
+                    }
+                } else {
+                    System.out.println("There is already an equivalent test type in the system");
+                    System.out.println("The test type has not been created.");
                 }
             } catch (IllegalArgumentException e){
                 System.out.printf("%nMessage: %s%n" ,e.getMessage());

@@ -42,9 +42,9 @@ public class Name {
     }
 
     /**
-     *
-     * @param other
-     * @return
+     *Compare the doctor name with other object received
+     * @param other Object we want to compare with the name
+     * @return true if the received object represents another name equivalent to the name. Otherwise, it returns false.
      */
     @Override
     public boolean equals(Object other) {
