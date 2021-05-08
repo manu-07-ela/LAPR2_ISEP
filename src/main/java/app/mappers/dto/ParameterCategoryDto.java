@@ -1,5 +1,7 @@
 package app.mappers.dto;
 
+import app.domain.model.ParameterCategory;
+
 /**
  * Represents a data transfer object of parameter category.
  *
@@ -51,5 +53,25 @@ public class ParameterCategoryDto {
     @Override
     public String toString(){
         return String.format("<Name> %s / <Code> %s",name,code);
+    }
+
+    /**
+     * Compare the parameter category dto with the other object provided.
+     * @param o Object we want to compare with the parameter category.
+     * @return true if the received object represents another parameter category dto equivalent to the parameter category dto. Otherwise, it returns false.
+     */
+    @Override
+    public boolean equals(Object o){
+        if(this == o){
+            return true;
+        }
+
+        if(o == null || this.getClass() != o.getClass()){
+            return false;
+        }
+
+        ParameterCategoryDto otherParameterCategoryDto = (ParameterCategoryDto) o;
+
+        return this.getCode().equals(otherParameterCategoryDto.getCode()) && this.getName().equalsIgnoreCase(otherParameterCategoryDto.getName());
     }
 }

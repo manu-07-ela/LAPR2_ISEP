@@ -12,27 +12,27 @@ import app.domain.store.ParameterCategoryStore;
 public class CreateParameterCategoryController {
 
     /**
-     *
+     * Represents an instance of app.
      */
     private App app;
 
     /**
-     *
+     * Represents a instance of company.
      */
     private Company company;
 
     /**
-     *
+     * Represents an instance of parameter category.
      */
     private ParameterCategory pc;
 
     /**
-     *
+     * Represents an instance of the parameter category store.
      */
     private ParameterCategoryStore pcStore;
 
     /**
-     * Instantiates a new Create Parameter Category Controller.
+     * Constructs an instance of {@code CreateParameterCategoryController}.
      */
     public CreateParameterCategoryController() {
         this.app=App.getInstance();
@@ -41,8 +41,8 @@ public class CreateParameterCategoryController {
     }
 
     /**
-     * Instantiates a new Create Parameter Category Controller.
-     * @param company
+     * Constructs an instance of {@code CreateParameterCategoryController} receiving a company.
+     * @param company The company.
      */
     public CreateParameterCategoryController(Company company) {
         this.app=App.getInstance();
@@ -70,8 +70,8 @@ public class CreateParameterCategoryController {
     }
 
     /**
-     *
-     * @return
+     * Textual description of the parameter category.
+     * @return Information about the characteristics of the parameter category.
      */
     @Override
     public String toString(){

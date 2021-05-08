@@ -1,9 +1,10 @@
 package app.ui.console;
 
 import app.controller.CreateClientController;
+import app.mappers.dto.ClientDto;
 import app.ui.console.utils.Utils;
 
-public class CreateClientUI {
+public class CreateClientUI implements Runnable {
 
     private CreateClientController createClientctrl;
 
@@ -30,7 +31,8 @@ public class CreateClientUI {
                 String tin = Utils.readLineFromConsole("Tax identification number: ");
                 String phonenumber = Utils.readLineFromConsole("Phone number: ");
                 String email = Utils.readLineFromConsole("E-mail: ");
-                //createClientctrl.CreateClient();
+                ClientDto cldto = new ClientDto(name,citizencardnumber,nhs,date,sex,tin,phonenumber,email);
+                createClientctrl.CreateClient(cldto);
                 dadosInvalidos = false;
                 System.out.printf("Do you want to create a Client with the name %s, citizen card number %s, National Healthcare Service number %s, birth date %s, gender %s, phone number %s, and e-mail %s?",name,citizencardnumber,nhs,date,sex,tin,phonenumber,email);
 
