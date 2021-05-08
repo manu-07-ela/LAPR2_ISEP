@@ -2,6 +2,8 @@ package app.domain.model.attributes;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Objects;
+
 /**
  * Represents a address of an employee
  * @author Manuela Leite <1200720@isep.ipp.pt>
@@ -20,6 +22,19 @@ public class Address {
     public Address(String address) {
         checkRulesForAddress(address);
         this.address = address;
+    }
+
+    /**
+     *
+     * @param other
+     * @return
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        Address address1 = (Address) other;
+        return address.equals(address1.address);
     }
 
     /**

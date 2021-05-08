@@ -1,15 +1,13 @@
 package app.controller;
 
-import app.domain.model.Company;
-import app.domain.model.Employee;
-import app.domain.model.OrganizationRole;
-import app.domain.model.SpecialistDoctor;
+import app.domain.model.*;
 import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;
 import app.mappers.EmployeeMapper;
 import app.mappers.OrganizationRoleMapper;
 import app.mappers.dto.EmployeeDTO;
 import app.mappers.dto.OrganizationRoleDTO;
+import auth.AuthFacade;
 
 import java.util.List;
 
@@ -33,7 +31,7 @@ public class RegisterEmployeeController {
     /**
      *
      */
-    private OrganizationRole orgRole;
+    private AuthFacade authFacade;
     /**
      *
      */
@@ -42,7 +40,8 @@ public class RegisterEmployeeController {
      *
      */
     private EmployeeMapper mapperEmp;
-
+    private OrganizationRole orgRole;
+    private SpecialistDoctor specialistDoctor;
     /**
      *
      */
@@ -52,6 +51,7 @@ public class RegisterEmployeeController {
         this.organizationRoleStore = company.getOrganizationRoleStore();
         this.mapperOrgRole = new OrganizationRoleMapper();
         this.mapperEmp = new EmployeeMapper();
+        this.authFacade = company.getAuthFacade();
 
     }
 
@@ -89,8 +89,8 @@ public class RegisterEmployeeController {
      * @return
      */
     public SpecialistDoctor createSpecialistDoctor(EmployeeDTO empDto){
-        this.emp = employeeStore.createSpecialistDoctor(empDto);
-        return (SpecialistDoctor) emp;
+        this.specialistDoctor = employeeStore.createSpecialistDoctor(empDto);
+        return specialistDoctor;
     }
 
     /**
@@ -100,17 +100,28 @@ public class RegisterEmployeeController {
      */
     public Employee createEmployee(EmployeeDTO empDto){
         this.emp = employeeStore.createEmployee(empDto);
-        return (SpecialistDoctor) emp;
+        return emp;
     }
 
     /**
      *
      * @return
      */
-    public boolean saveEmployee(){
+    public boolean saveEmployee(Employee emp){
         return this.employeeStore.addEmployee(emp);
     }
 
+    /**
+     *
+     * @param emp
+     * @return
+     */
+    public boolean transformEmployeeInUser(Employee emp){
+        final String[] characters = {"0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        String aux = "";
+        for (int i=0; i<10; i++) aux += characters[(int) (Math.random()*characters.length)];
+        return this.authFacade.addUserWithRole(emp.getName().getName(), emp.getEmail().getEmail(), aux,orgRole.getDesignation());
+    }
 
 
 }

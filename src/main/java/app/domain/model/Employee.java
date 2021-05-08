@@ -7,6 +7,8 @@ import auth.domain.model.Email;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.DecimalFormat;
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -42,6 +44,7 @@ public class Employee {
      *The organization role of an employee in the organization
      */
     private OrganizationRole organizationRole;
+    private static int instancesOfEmployee;
 
     /**
      * Constructs an instance of {@code Employee} receiving the name, email, address, phone number, soc code and organization role
@@ -60,8 +63,22 @@ public class Employee {
         this.phoneNumber = new PhoneNumber(phoneNumber.getPhoneNumber());
         this.socCode = new SocCode(socCode.getSocCode());
         this.organizationRole = new OrganizationRole(organizationRole.designation);
+        this.employeeId = nameId(this.name)+numberId(instancesOfEmployee);
+        instancesOfEmployee++;
     }
 
+    private String nameId(Name name){
+        String n = "";
+        String[] nameAux = name.getName().split(" ");
+        for (int i=0; i<nameAux.length; i++){
+            n += nameAux[i].charAt(0);
+        }
+        return n.toUpperCase(Locale.ROOT);
+    }
+    private String numberId(int id){
+        DecimalFormat df = new DecimalFormat("00000");
+        return df.format(id);
+    }
     /**
      * Get the name of an employee
      * @return the name of Employee
@@ -125,7 +142,7 @@ public class Employee {
      */
     @Override
     public String toString() {
-        return String.format("name= %s%n, email= %s%n, address= %s%n, phoneNumber= %d%n, employeeId= %s%n, socCode= %d%n, organizationRole= %s%n", name, email, address, phoneNumber, employeeId, socCode, organizationRole);
+        return String.format("-> Name= %s%n-> Email= %s%n-> Address= %s%n-> PhoneNumber= %.0f%n-> Employee ID= %s%n-> SOC code= %d%n-> Organization Role= %s%n", name.getName(), email.getEmail(), address.getAddress(), phoneNumber.getPhoneNumber(), employeeId, socCode.getSocCode(), organizationRole.getDesignation());
     }
 
     /**
