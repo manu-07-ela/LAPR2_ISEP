@@ -17,7 +17,7 @@ public class TestTypeStoreTest {
     ParameterCategory pc;
     List<ParameterCategory> listPC;
     TestTypeStore ttStore;
-    List<TestType> listTT = new ArrayList();
+    List<TestType> listTT;
 
     @Before
     public void setup(){
@@ -26,6 +26,7 @@ public class TestTypeStoreTest {
         listPC = new ArrayList();
         listPC.add(pc);
         tt = new TestType ("12345","test","collecting",listPC);
+        listTT = new ArrayList();
     }
 
     @Test
