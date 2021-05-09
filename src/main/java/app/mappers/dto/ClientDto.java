@@ -130,5 +130,5 @@ public class ClientDto {
     public String getEmail() {
         return email;
     }
-    
+
 }
