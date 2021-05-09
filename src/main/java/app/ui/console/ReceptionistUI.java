@@ -5,11 +5,16 @@ import app.ui.console.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the controller used to register a client
+ * @author José Pessoa <1201007@isep.ipp.pt>
+ */
+
 public class ReceptionistUI implements Runnable {
     public ReceptionistUI() {
     }
 
-@Override
+    @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Register a Client", new CreateClientUI()));

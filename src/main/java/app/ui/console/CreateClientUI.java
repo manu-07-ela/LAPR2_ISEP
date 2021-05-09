@@ -6,19 +6,37 @@ import app.ui.console.utils.Utils;
 
 import java.io.IOException;
 
+/**
+ * Represents an interface with the user to be able to register a client
+ * @author José Pessoa <1201007@isep.ipp.pt>
+ */
+
 public class CreateClientUI implements Runnable {
 
+    /**
+     * Represents a instance of register employee controller
+     */
     private CreateClientController createClientctrl;
 
+    /**
+     * Initializes the controller
+     */
     public CreateClientUI(){
         createClientctrl = new CreateClientController();
     }
 
+    /**
+     * Invokes the necessary methods for the interface to function
+     */
+    @Override
     public void run() {
         System.out.printf("%nCreating a new Client%n");
         createClient();
     }
 
+    /**
+     * Create an instance of client
+     */
     public void createClient() {
         boolean dadosInvalidos=true;
         do {

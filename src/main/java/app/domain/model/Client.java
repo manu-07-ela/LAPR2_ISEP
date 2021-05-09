@@ -8,6 +8,11 @@ import java.util.regex.Pattern;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * Represents the controller used to register a client
+ * @author José Pessoa <1201007@isep.ipp.pt>
+ */
+
 public class Client {
     /**
      * Client's name
@@ -48,6 +53,17 @@ public class Client {
      */
     private String email;
 
+    /**
+     * Constructs an instance of {@code Client} receiving the name, Citizen card number, National Healthcare Service number, birth date, gender, tax identification number, phone number and e-mail
+     * @param name
+     * @param citizencardnumber
+     * @param nhs
+     * @param date
+     * @param sex
+     * @param tin
+     * @param phonenumber
+     * @param email
+     */
     public Client(String name, String citizencardnumber, String nhs, String date, String sex, String tin, String phonenumber, String email) {
         nameValidation(name);
         citizencardnumberValidation(citizencardnumber);
@@ -67,41 +83,73 @@ public class Client {
         this.email = email;
     }
 
+    /**
+     * Get the name of a client
+     * @return the name of client
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get the Citizen card number of a client
+     * @return the Citizen card number of client
+     */
     public String getCitizencardnumber() {
         return citizencardnumber;
     }
 
+    /**
+     * Get the National Healthcare Service number of a client
+     * @return the National Healthcare Service number of client
+     */
     public String getNhs() {
         return nhs;
     }
 
+    /**
+     * Get the birth date of a client
+     * @return the birth date of client
+     */
     public String getDate() {
         return date;
     }
 
+    /**
+     * Get the gender of a client
+     * @return the gender of client
+     */
     public String getSex() {
         return sex;
     }
 
+    /**
+     * Get the tax identification number of a client
+     * @return the tax identification number of client
+     */
     public String getTin() {
         return tin;
     }
 
+    /**
+     * Get the phone number of a client
+     * @return the phone number of client
+     */
     public String getPhonenumber() {
         return phonenumber;
     }
 
+    /**
+     * Get the e-mail of a client
+     * @return the e-mail of client
+     */
     public String getEmail() {
         return email;
     }
 
     /**
-     *
-     * @param name   Client's name
+     * Checks whether the name associated with the client we intend to register complies with all business rules.
+     * @param name The Client's name
      */
     private void nameValidation(String name){
         if (StringUtils.isBlank(name)) throw new NullPointerException("Name can't be blank.");
@@ -111,8 +159,8 @@ public class Client {
     }
 
     /**
-     *
-     * @param citizencardnumber
+     * Checks whether the citizen card number associated with the client we intend to register complies with all business rules.
+     * @param citizencardnumber The Client's citizen card number
      */
     private void citizencardnumberValidation(String citizencardnumber){
         if (!StringUtils.isNumeric(citizencardnumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
@@ -122,8 +170,8 @@ public class Client {
     }
 
     /**
-     *
-     * @param nhs
+     * Checks whether the National Healthcare Service number associated with the client we intend to register complies with all business rules.
+     * @param nhs The Client's National Healthcare Service number
      */
     private void nhsValidation(String nhs){
         if (!StringUtils.isNumeric(nhs)) throw new IllegalArgumentException("National Healthcare Service number is numeric only.");
@@ -133,8 +181,8 @@ public class Client {
     }
 
     /**
-     *
-     * @param date
+     * Checks whether the birth date associated with the client we intend to register complies with all business rules.
+     * @param date The Client's birth date
      */
     private void dateValidation(String date) {
         if (!date.trim().equals("")) {
@@ -155,8 +203,8 @@ public class Client {
     }
 
     /**
-     *
-     * @param sex
+     * Checks whether the gender associated with the client we intend to register complies with all business rules.
+     * @param sex The Client's gender
      */
     private void sexValidation(String sex){
         sex=sex.toLowerCase();
@@ -166,8 +214,8 @@ public class Client {
     }
 
     /**
-     *
-     * @param tin
+     * Checks whether the tax identification number associated with the client we intend to register complies with all business rules.
+     * @param tin The Client's tax identification number
      */
     private void tinValidation(String tin){
         if (!StringUtils.isNumeric(tin)){
@@ -179,8 +227,8 @@ public class Client {
     }
 
     /**
-     *
-     * @param phonenumber
+     * Checks whether the phone number associated with the client we intend to register complies with all business rules.
+     * @param phonenumber The Client's phone number
      */
     private void phonenumberValidation(String phonenumber){
         if (!StringUtils.isNumeric(phonenumber)){
@@ -191,6 +239,10 @@ public class Client {
         }
     }
 
+    /**
+     * Checks whether the e-mail associated with the client we intend to register complies with all business rules.
+     * @param email The Client's e-mail
+     */
     private void emailValidation(String email){
         if (StringUtils.isBlank(email)){
             throw new IllegalArgumentException("E-mail can't be blank");
@@ -206,6 +258,11 @@ public class Client {
         }
     }
 
+    /**
+     * Compare the client with the other object provided.
+     * @param other Object we want to compare with the client.
+     * @return true if the received object represents another client equivalent to the client. Otherwise, it returns false.
+     */
     @Override
     public boolean equals(Object other) {
         if (this == other) return true;

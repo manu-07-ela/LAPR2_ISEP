@@ -2,6 +2,11 @@ package app.mappers.dto;
 
 import app.domain.model.Client;
 
+/**
+ * Represents the controller used to register a client
+ * @author José Pessoa <1201007@isep.ipp.pt>
+ */
+
 public class ClientDto {
     /**
      * Client's name
@@ -66,7 +71,7 @@ public class ClientDto {
 
     /**
      * Get the name of the Client
-     * @return
+     * @return the name of ClientDto
      */
     public String getName() {
         return name;
@@ -74,7 +79,7 @@ public class ClientDto {
 
     /**
      * Get the Citizen card number of the Client
-     * @return
+     * @return the Citizen card number of ClientDto
      */
     public String getCitizencardnumber() {
         return citizencardnumber;
@@ -82,7 +87,7 @@ public class ClientDto {
 
     /**
      * Get the National Healthcare Service number of the Client
-     * @return
+     * @return the National Healthcare Service number of ClientDto
      */
     public String getNhs() {
         return nhs;
@@ -90,7 +95,7 @@ public class ClientDto {
 
     /**
      * Get the birth date of the Client
-     * @return
+     * @return the birth date of ClientDto
      */
     public String getDate() {
         return date;
@@ -98,7 +103,7 @@ public class ClientDto {
 
     /**
      * Get the gender of the Client
-     * @return
+     * @return the gender of ClientDto
      */
     public String getSex() {
         return sex;
@@ -106,7 +111,7 @@ public class ClientDto {
 
     /**
      * Get the Tax identification number of the Client
-     * @return
+     * @return the Tax identification number of ClientDto
      */
     public String getTin() {
         return tin;
@@ -114,7 +119,7 @@ public class ClientDto {
 
     /**
      * Get the phone number of the Client
-     * @return
+     * @return the phone number of ClientDto
      */
     public String getPhonenumber() {
         return phonenumber;
@@ -122,7 +127,7 @@ public class ClientDto {
 
     /**
      * Get the e-mail of the Client
-     * @return
+     * @return the e-mail of ClientDto
      */
     public String getEmail() {
         return email;
@@ -140,5 +145,4 @@ public class ClientDto {
         Client client = (Client) other;
         return this.getName().equals((client).getName()) || this.getCitizencardnumber().equals((client).getCitizencardnumber()) || this.getNhs().equals((client).getNhs()) || this.getDate().equals((client).getDate()) || this.getSex().equals((client).getSex()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
     }
-
 }
