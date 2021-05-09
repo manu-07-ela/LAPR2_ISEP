@@ -90,13 +90,9 @@ public class ClinicalAnalysisLaboratoryTest {
     public void TinValidation1(){
         ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567","12ki3",testTypeList);
     }
-<<<<<<< HEAD
-    //TRATAR URGENTE PRO BUILD DO JENKINJS FUNCIONAR
-    /*@Test(expected = IllegalArgumentException.class)
-=======
+
 
     @Test(expected = IllegalArgumentException.class)
->>>>>>> b39d24d31de4effac5fed77d3661f780adf019fb
     public void TinValidation2(){
         ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567891123","12ki3",testTypeList);
     }
