@@ -65,12 +65,12 @@ public class ClientDtoTest {
         Assert.assertEquals("pessoa@gmail.com",result);
     }
 
-//    @Test
-//    public void ClientDtoEquals() {
-//        ClientDto cl1 = new ClientDto("José Teixeira","1234567891234777","1234567777","12/12/2000","Female","1234567777","12345678777","teixeira@gmail.com");
-//        ClientDto cl2 = new ClientDto("José Teixeira","1234567891234777","1234567777","12/12/2000","Female","1234567777","12345678777","teixeira@gmail.com");
-//        Assert.assertEquals(cl1,cl2);
-//    }
+    @Test
+    public void ClientDtoEquals() {
+        ClientDto cl1 = new ClientDto("José Teixeira","1234567891234777","1234567777","12/12/2000","Female","1234567777","12345678777","teixeira@gmail.com");
+        ClientDto cl2 = new ClientDto("José Teixeira","1234567891234777","1234567777","12/12/2000","Female","1234567777","12345678777","teixeira@gmail.com");
+        Assert.assertEquals(cl1,cl2);
+    }
 
     @Test
     public void ClientDtoRefEquals(){

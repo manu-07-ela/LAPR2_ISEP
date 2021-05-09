@@ -51,6 +51,11 @@ public class TestTypeTest {
     public void ensureDescriptionMeetsAC2(){
         TestType tt = new TestType("1g3d7","descriptionteste","collectingMethodTest",listPC);
     }
+    @Test
+    public void ensureDescriptionMeetsAC2_1(){
+        TestType tt = new TestType("1g354","descriptiontest","collectingsmethod",listPC);
+        Assert.assertNotNull(tt);
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureBlankDescriptioNotAllowed(){
@@ -60,6 +65,12 @@ public class TestTypeTest {
     @Test(expected = IllegalArgumentException.class)
     public void ensureCollectingMethodMeetsAC3(){
         TestType tt = new TestType("1g354","description","collectingsmethodsteste",listPC);
+    }
+
+    @Test
+    public void ensureCollectingMethodMeetsAC3_1(){
+        TestType tt = new TestType("1g354","description","collectingsmethodstt",listPC);
+        Assert.assertNotNull(tt);
     }
 
     @Test(expected = IllegalArgumentException.class)

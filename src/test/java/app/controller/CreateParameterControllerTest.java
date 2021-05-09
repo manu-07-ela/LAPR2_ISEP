@@ -60,5 +60,20 @@ public class CreateParameterControllerTest {
         Assert.assertFalse(result);
     }
 
+    @Test
+    public void saveValidParameter() {
+        pCtrl.createParameter("TT030","rbc","Red Blood Cells",pcDto);
+        boolean result = pCtrl.saveParameter();
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void saveInvalidParameter() {
+        pCtrl.createParameter("TT030","rbc","Red Blood Cells",pcDto);
+        pStore.addParameter(p);
+        boolean result = pCtrl.saveParameter();
+        Assert.assertFalse(result);
+    }
+
 
 }
