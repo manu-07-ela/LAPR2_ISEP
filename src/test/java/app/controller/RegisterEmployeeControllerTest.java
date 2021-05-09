@@ -57,7 +57,7 @@ public class RegisterEmployeeControllerTest {
         organizationRoleDTOList.add(new OrganizationRoleDTO("LABORATORY COORDINATOR"));
 
     }
-    /*
+
     @Test
     public void getLisOfOrgRoles() {
         List<OrganizationRoleDTO> result = controller.getLisOfOrgRoles();
@@ -65,8 +65,7 @@ public class RegisterEmployeeControllerTest {
             Assert.assertEquals(result.get(i).getDesignation(), organizationRoleDTOList.get(i).getDesignation());
         }
 
-        Assert.assertEquals(organizationRoleDTOList, result);
-    }*/
+    }
 
     @Test
     public void createOrganizationRole() {
