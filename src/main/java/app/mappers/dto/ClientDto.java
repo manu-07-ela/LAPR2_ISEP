@@ -142,7 +142,7 @@ public class ClientDto {
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
-        Client client = (Client) other;
-        return this.getName().equals((client).getName()) || this.getCitizencardnumber().equals((client).getCitizencardnumber()) || this.getNhs().equals((client).getNhs()) || this.getDate().equals((client).getDate()) || this.getSex().equals((client).getSex()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
+        ClientDto clientdto = (ClientDto) other;
+        return this.getName().equals((clientdto).getName()) || this.getCitizencardnumber().equals((clientdto).getCitizencardnumber()) || this.getNhs().equals((clientdto).getNhs()) || this.getDate().equals((clientdto).getDate()) || this.getSex().equals((clientdto).getSex()) || this.getTin().equals((clientdto).getTin()) || this.getPhonenumber().equals((clientdto).getPhonenumber())|| this.getEmail().equals((clientdto).getEmail());
     }
 }
