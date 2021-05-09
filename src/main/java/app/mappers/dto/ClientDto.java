@@ -1,7 +1,5 @@
 package app.mappers.dto;
 
-import app.domain.model.Client;
-
 /**
  * Represents the controller used to register a client
  * @author José Pessoa <1201007@isep.ipp.pt>
