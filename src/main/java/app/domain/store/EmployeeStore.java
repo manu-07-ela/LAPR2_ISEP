@@ -56,7 +56,7 @@ public class EmployeeStore {
      * @return true if the employee was saved. Otherwise, false.
      */
     public boolean saveEmployee(Employee employee){
-        if (!validateEmployee(employee)) return false;
+        if (validateEmployee(employee)) return false;
         return this.addEmployee(employee);
     }
     /**
@@ -66,7 +66,7 @@ public class EmployeeStore {
      */
     public boolean validateEmployee(Employee employee){
         if (employee == null) return false;
-        return !this.employees.contains(employee);
+        return this.employees.contains(employee);
     }
 
     /**

@@ -16,7 +16,7 @@ public class CreateClientUI implements Runnable {
     /**
      * Represents a instance of register employee controller
      */
-    private CreateClientController createClientctrl;
+    private final CreateClientController createClientctrl;
 
     /**
      * Initializes the controller

@@ -57,11 +57,15 @@ public class RegisterEmployeeControllerTest {
         organizationRoleDTOList.add(new OrganizationRoleDTO("LABORATORY COORDINATOR"));
 
     }
-    /*@Test
+    /*
+    @Test
     public void getLisOfOrgRoles() {
         List<OrganizationRoleDTO> result = controller.getLisOfOrgRoles();
+        for (int i=0; i<organizationRoleDTOList.size(); i++){
+            Assert.assertEquals(result.get(i).getDesignation(), organizationRoleDTOList.get(i).getDesignation());
+        }
 
-        Assert.assertArrayEquals(organizationRoleDTOList.toArray(), result.toArray());
+        Assert.assertEquals(organizationRoleDTOList, result);
     }*/
 
     @Test
@@ -89,10 +93,10 @@ public class RegisterEmployeeControllerTest {
         Assert.assertTrue(result);
     }
 
-    /*@Test
+    @Test
     public void transformEmployeeInUser() throws IOException {
         boolean result = controller.transformEmployeeInUser(controller.createEmployee(employeeDTO1));
         Assert.assertTrue(result);
 
-    }*/
+    }
 }
