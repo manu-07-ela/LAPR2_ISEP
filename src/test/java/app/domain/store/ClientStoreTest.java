@@ -2,7 +2,6 @@ package app.domain.store;
 
 import app.domain.model.Client;
 
-import app.domain.model.ClinicalAnalysisLaboratory;
 import app.mappers.ClientMapper;
 import app.mappers.dto.ClientDto;
 import auth.AuthFacade;

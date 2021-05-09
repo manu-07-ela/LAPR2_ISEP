@@ -14,7 +14,7 @@ class Client {
   -int phone number
   -String e-mail
   -String name
-  +Client(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+  create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
 }
 
 class ClientStore {
