@@ -47,15 +47,16 @@ public class OrganizationRoleStoreTest {
         orgRoleStore.createOrganizationRole(new OrganizationRole("MEDICAL LABORATORY COORDINATOR"));
     }
 
-    /*@Test
+    @Test
     public void validateAValidOrganizationRole() {
         boolean result = orgRoleStore.saveOrganizationRole(orgRole);
-        Assert.assertTrue(result);
+        Assert.assertFalse(result);
+
     }
 
     @Test
     public void validateAInvalidOrganizationRole(){
         boolean result = orgRoleStore.validateOrganizationRole(new OrganizationRole("MEDICAL LABORATORY COORDINATOR"));
-        Assert.assertFalse(result);
-    }*/
+        Assert.assertTrue(result);
+    }
 }

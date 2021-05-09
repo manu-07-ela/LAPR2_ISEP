@@ -34,7 +34,7 @@ public class EmployeeStoreTest {
         employess.add(emp);
 
     }
-    /*@Test
+    @Test
     public void createEmployee() {
         Employee emp1 = empStore.createEmployee(empDto1);
         Assert.assertEquals(emp, emp1);
@@ -44,7 +44,7 @@ public class EmployeeStoreTest {
     public void createSpecialistDoctor() {
         SpecialistDoctor spcDoc1 = empStore.createSpecialistDoctor(empDto2);
         Assert.assertEquals(spcDoc, spcDoc1);
-    }*/
+    }
 
 
     @Test

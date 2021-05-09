@@ -31,11 +31,12 @@ public class SpecialistDoctorTest {
 
     @Test
     public void testEquals() {
-        SpecialistDoctor spDoc1 = new SpecialistDoctor(new Name("Manuela de Araujo Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Specialist Doctor"), new DoctorIndexNumber("123456"));
+        SpecialistDoctor spDoc1 = new SpecialistDoctor(new Name("Manuela de Araujo Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Specialist Doctor"), new DoctorIndexNumber("123126"));
         SpecialistDoctor spDoc2 = spDoc1;
 
         Assert.assertEquals(spDoc1, spDoc2);
-        Assert.assertNotEquals(spDoc, spDoc1);
+        Assert.assertNotEquals(spDoc1, spDoc);
+
 
     }
 }

@@ -128,14 +128,14 @@
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  	   |	... interacting with the actor ? | CreateEmployeeUI | There is no logical reason to assign this task to any of the existing class in the Domain Model |
-|              | ... coordinating the US ? | CreateEmployeeController | This task is assign to a Controller to make the connection from the UI and all the classes |      
-|              | ... instantiating a new Employee ? | Company | In the DM company is the class that employs the Employee, so is the one assign to this task |
+| Step 1  	   |	... interacting with the actor ? | CreateEmployeeUI | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model. |
 |              | ... knowing the user using the system ? | UserSession | IE: A&A component documentation |
-| Step 2       |  ... knowing the organizationRoles to show ? | ListRoles | has registered all the roles |
-|              |                                   | ListRolesDto | dto from OrganizationRole that has all the registered roles |
-| Step 3       | ... saving the selected role ?    | OrgRole      | IE: object created to have all the information about a role |
-|              |                                   | OrgRoleDto   | dto from the object created to have all the information about a role |
+|              | ... coordinating the US ? | CreateEmployeeController | This task is assign to a Controller to make the connection from the UI and all the classes |
+|              | ... knowing who is responsible for creating Employee instances?| Company | Creator (R1)|
+|              | ... creates Employee instance?                                 | EmployeeStore       | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in EmployeeStore.|
+| Step 2       |  ... knowing who is responsible for know all Organization role?| Company |  Creator (R1)|
+|              | ...know all the organizational roles for show? | OrganizationRoleStore |HC+LC on the Company. By HC / LC the Company delegates these responsibilities in OrganizationRoleStore. |
+| Step 3       | ... saving the selected role ?    | OrganizationRole | IE: object created to have all the information about a role |
 | Step 4       | n/a                               |  n/a         | n/a |
 | Step 5       | ... saving the inputted data ?    | Employee | IE: the object created in step 1 has its own data |
 |              |                                   | EmployeeDto | IE: dto from the object created in step 1 and has its data |

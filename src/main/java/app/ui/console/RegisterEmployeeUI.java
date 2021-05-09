@@ -94,7 +94,7 @@ public class RegisterEmployeeUI implements Runnable{
      * Create an instance of name
      * @return The name
      */
-    public Name name(){
+    private Name name(){
         boolean invalidData = true;
         Name nameAux = null;
         do{
@@ -113,7 +113,7 @@ public class RegisterEmployeeUI implements Runnable{
      * Create an instance of email
      * @return the email
      */
-    public Email email(){
+    private Email email(){
         boolean invalidData = true;
         Email emailAux = null;
         do{
@@ -132,7 +132,7 @@ public class RegisterEmployeeUI implements Runnable{
      * Create an instance of address
      * @return the address
      */
-    public Address adress(){
+    private Address address(){
         boolean invalidData = true;
         Address addressAux = null;
         do{
@@ -151,7 +151,7 @@ public class RegisterEmployeeUI implements Runnable{
      * Create an instance of phone number
      * @return the phone number
      */
-    public PhoneNumber phoneNumber(){
+    private PhoneNumber phoneNumber(){
         boolean invalidData = true;
         PhoneNumber phoneNumberAux = null;
         do{
@@ -170,7 +170,7 @@ public class RegisterEmployeeUI implements Runnable{
      * Create an instance of SOC code
      * @return the SOC code
      */
-    public SocCode socCode(){
+    private SocCode socCode(){
         boolean invalidData = true;
         SocCode socCodeAux = null;
         do{
@@ -189,7 +189,7 @@ public class RegisterEmployeeUI implements Runnable{
      * Create an instance of doctor index number
      * @return the doctor index number
      */
-    public DoctorIndexNumber doctorIndexNumber(){
+    private DoctorIndexNumber doctorIndexNumber(){
         boolean invalidData = true;
         DoctorIndexNumber doctorIndexNumberAux = null;
         do{
@@ -209,8 +209,8 @@ public class RegisterEmployeeUI implements Runnable{
      * @param organizationRole the organization role played by the employee
      * @return the specialist doctor
      */
-    public SpecialistDoctor createSpecialistDoctor(OrganizationRole organizationRole){
-        return controller.createSpecialistDoctor(new EmployeeDTO(name(), email(),adress(), phoneNumber(), socCode(), organizationRole, doctorIndexNumber()));
+    private SpecialistDoctor createSpecialistDoctor(OrganizationRole organizationRole){
+        return controller.createSpecialistDoctor(new EmployeeDTO(name(), email(), address(), phoneNumber(), socCode(), organizationRole, doctorIndexNumber()));
     }
 
     /**
@@ -218,15 +218,15 @@ public class RegisterEmployeeUI implements Runnable{
      * @param organizationRole the organization role played by the employee
      * @return the employee
      */
-    public  Employee createEmployee(OrganizationRole organizationRole){
-        return controller.createEmployee(new EmployeeDTO(name(), email(), adress(), phoneNumber(), socCode(), organizationRole));
+    private Employee createEmployee(OrganizationRole organizationRole){
+        return controller.createEmployee(new EmployeeDTO(name(), email(), address(), phoneNumber(), socCode(), organizationRole));
     }
 
     /**
      * Shows the employee and asks if the user wants to save him
      * @param emp the employee
      */
-    public void showEmployee(Employee emp) throws IOException {
+    private void showEmployee(Employee emp) throws IOException {
         System.out.println();
         System.out.println("-*-*-*-*-*- Employee data -*-*-*-*-*-");
         System.out.println(emp);
@@ -247,7 +247,7 @@ public class RegisterEmployeeUI implements Runnable{
      * Shows the specialist doctor and asks if the user wants to save him
      * @param emp the specialist doctor
      */
-    public void showSpecialistDoctor(SpecialistDoctor emp) throws IOException {
+    private void showSpecialistDoctor(SpecialistDoctor emp) throws IOException {
         System.out.println();
         System.out.println("Do you want to save this employee?");
         System.out.println(emp);

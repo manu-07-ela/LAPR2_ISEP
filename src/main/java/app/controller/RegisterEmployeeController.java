@@ -127,13 +127,12 @@ public class RegisterEmployeeController {
         try {
             fw.write("ID: " + emp.getEmail().getEmail() + "\n");
             fw.write("PASSWORD: " + password + "\n");
-
         }catch (IOException e){
             e.printStackTrace();
-        }
-        finally {
+        }finally {
             fw.close();
         }
+
         return this.authFacade.addUserWithRole(emp.getName().getDesignation(), emp.getEmail().getEmail(),password,orgRole.getDesignation());
 
     }

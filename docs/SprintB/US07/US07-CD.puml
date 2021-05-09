@@ -30,7 +30,7 @@ class Employee{
 -email
 -employeeId
 -socCode
-+Employee(name address, phoneNumber, email, socCode)
++Employee(name, address, phoneNumber, email, socCode)
 
 }
 class SpecialistDoctor{
@@ -111,6 +111,24 @@ class OrganizationRoleStore{
 +getListOfOrgRoles()
 +createOrganizationRole(orgRoleDto)
 }
+class RegisterEmployeeUI{
++run()
+-showOrganizationRole()
+-createOrganizationRole()
+-name()
+-email()
+-address()
+-phoneNumber()
+-socCode()
+-doctorIndexNumber()
+-createSpecialistDoctor()
+-createEmployee()
+-showEmployee()
+-showSpecialistDoctor()
+
+
+}
+
 EmployeeMapper..>Employee
 EmployeeDTO..>EmployeeMapper
 Company "1"-->"1" EmployeeStore : uses
