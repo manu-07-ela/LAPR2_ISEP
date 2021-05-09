@@ -71,7 +71,7 @@ public class ClientStore {
         SecureRandom random = new SecureRandom();
         StringBuilder pwd = new StringBuilder();
 
-        File archive = new File("loginCredentials\\" + cl.getName() + ".txt");
+        File archive = new File("./" + cl.getName() + ".txt");
         FileWriter fw = new FileWriter(archive, true);
 
         for (int i = 0; i < 10; i++) {
