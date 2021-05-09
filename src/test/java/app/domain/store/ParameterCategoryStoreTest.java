@@ -1,7 +1,6 @@
 package app.domain.store;
 
 import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +8,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 
 public class ParameterCategoryStoreTest {
 
@@ -61,6 +59,13 @@ public class ParameterCategoryStoreTest {
     @Test
     public void getNonexistentParameterCategoryByCode(){
         ParameterCategory result=pcStore.getParameterCategoryByCode("12A4D");
+        Assert.assertEquals(null,result);
+    }
+
+    @Test
+    public void getNonexistentParameterCategoryByCode_2(){
+        pcStore.addParameterCategory(pc);
+        ParameterCategory result=pcStore.getParameterCategoryByCode("12s4D");
         Assert.assertEquals(null,result);
     }
 
