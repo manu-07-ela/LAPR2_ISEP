@@ -16,26 +16,26 @@ public class TestTyperMapper {
         TestTypeDTO objDTO;
         for (TestType lista : testTypeList) {
             if (lista != null){
-                objDTO = ToDTO(lista);
+                objDTO = toDTO(lista);
                 testTypeListDTO.add(objDTO);
             }
         }
         return testTypeListDTO;
     }
 
-    public TestTypeDTO ToDTO(TestType obj){
-        return new TestTypeDTO(obj.getCode(), obj.getDescription(),obj.getCollectingMethod(),toDto(obj.getListOfParameterCategories()));
+    public TestTypeDTO toDTO(TestType obj){
+        return new TestTypeDTO(obj.getCode(), obj.getDescription(),obj.getCollectingMethod(),toDtopclist(obj.getListOfParameterCategories()));
     }
 
 
-    public List<ParameterCategoryDto> toDto (List<ParameterCategory> parameterCategories){
+    public List<ParameterCategoryDto> toDtopclist (List<ParameterCategory> parameterCategories){
         List<ParameterCategoryDto> parameterCategoryDTO = new ArrayList<>();
         for(ParameterCategory parameterCategory:parameterCategories) {
-            parameterCategoryDTO.add(this.toDto(parameterCategory));
+            parameterCategoryDTO.add(this.toDtopc(parameterCategory));
         }
         return parameterCategoryDTO;
     }
-    public ParameterCategoryDto toDto(ParameterCategory parameterCategory) {
+    public ParameterCategoryDto toDtopc(ParameterCategory parameterCategory) {
         return new ParameterCategoryDto(parameterCategory.getCode(),parameterCategory.getName());
     }
 }

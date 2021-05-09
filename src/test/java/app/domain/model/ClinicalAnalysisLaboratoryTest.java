@@ -118,6 +118,13 @@ public class ClinicalAnalysisLaboratoryTest {
     }
 
     @Test
+    public void LaboratoryNameEquals(){
+        ClinicalAnalysisLaboratory cal1 = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas assadas","12345678945","1234567891","8uki3",testTypeList);
+        ClinicalAnalysisLaboratory cal2 = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567123","12ki3",testTypeList);
+        Assert.assertNotEquals(cal1,cal2);
+    }
+
+    @Test
     public void LaboratoryAddressEquals(){
         ClinicalAnalysisLaboratory cal1 = new ClinicalAnalysisLaboratory("Ricardo","Rua das cavalas","12345678945","1234567891","8uki3",testTypeList);
         ClinicalAnalysisLaboratory cal2 = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567123","12ki3",testTypeList);
