@@ -7,19 +7,12 @@ skinparam classAttributeIconSize 0
 class Administrator
 class Company
 class Employee
-class User
-class Role
 class OrganizationRole
 
 class OrganizationRole{
 -description
 }
 
-class User{
--name
--email
--password
-}
 class Employee{
 -name
 -address
@@ -33,20 +26,16 @@ class Company{
 -designation
 }
 
-class Role{
--id
--description
-}
+
 
 class SpecialistDoctor{
 -doctorIndexNumber
 }
 
 Administrator "*"--"1" Company : < knows
-Employee --|> User
 Company "1"--"*" Employee : knows >
 Administrator "1"--"*" Employee : register >
-User "*"--"1" Role : plays >
+
 Employee "*"--"1" OrganizationRole: plays >
 SpecialistDoctor --|> Employee
 Company -- OrganizationRole : comprehend >
