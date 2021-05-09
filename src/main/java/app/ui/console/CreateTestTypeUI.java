@@ -62,11 +62,15 @@ public class CreateTestTypeUI implements Runnable {
                 boolean confirmation;
                 int aux=0;
                 do{
-                    aux++;
-                    ParameterCategoryDto pcDto = (ParameterCategoryDto) Utils.selectsObject(createTestTypectrl.getParameterCategories());
+                    Object option = Utils.selectsObject(createTestTypectrl.getParameterCategories());
+                    if (option == null){
+                        throw new IllegalArgumentException("There must be at least one parameter category associated.");
+                    }
+                    ParameterCategoryDto pcDto = (ParameterCategoryDto) option;
                     if (!listOfParameterCategories.contains(pcDto)){
                         listOfParameterCategories.add(pcDto);
                     }
+                    aux++;
                     confirmation = false;
                     if(createTestTypectrl.getParameterCategories().size()>aux) {
                         System.out.printf("%nDo you want to select any more categories?%n");

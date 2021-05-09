@@ -46,8 +46,12 @@ public class CreateParameterUI implements Runnable {
         do{
             try {
 
-                ParameterCategoryDto selectedCategoryDto = (ParameterCategoryDto) Utils.showAndSelectOne(createParameterCtrl.getParameterCategories(),"Select the category to insert the Parameter ");
-
+                Utils.showList(createParameterCtrl.getParameterCategories(),"Select the category to insert the Parameter ");
+                Object option = Utils.selectsObject(createParameterCtrl.getParameterCategories());
+                if (option == null){
+                    throw new IllegalArgumentException("There must be at least one parameter category associated.");
+                }
+                ParameterCategoryDto selectedCategoryDto = (ParameterCategoryDto) option;
                 System.out.printf("%nEnter the following data about the parameter you want to create%n");
                 String code = Utils.readLineFromConsole("Code: ");
                 String shortName = Utils.readLineFromConsole("Short Name: ");
