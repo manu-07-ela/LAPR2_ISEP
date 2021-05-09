@@ -65,7 +65,7 @@ public class CreateParameterCategoryController {
      * Save the parameter category case it is in a valid state.
      * @return true if the parameter category was saved. Otherwise, false.
      */
-    public boolean saveTestType() {
+    public boolean saveParameterCategory() {
         return this.pcStore.saveParameterCategory(pc);
     }
 

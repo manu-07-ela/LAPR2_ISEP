@@ -46,7 +46,7 @@ public class CreateParameterControllerTest {
         Assert.assertEquals(lpcDto,result);
     }
 
-    /*
+
     @Test
     public void createValidParameter() {
         boolean result = pCtrl.createParameter("TT030","rbc","Red Blood Cells",pcDto);
@@ -56,9 +56,9 @@ public class CreateParameterControllerTest {
     @Test
     public void createInvalidParameter() {
         pStore.addParameter(p);
-        boolean result = pCtrl.createParameter("TT030","rbc","Red Blood Cells",pc);
+        boolean result = pCtrl.createParameter("TT030","rbc","Red Blood Cells",pcDto);
         Assert.assertFalse(result);
-    }*/
+    }
 
 
 }

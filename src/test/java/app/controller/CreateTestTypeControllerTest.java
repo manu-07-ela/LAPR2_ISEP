@@ -60,6 +60,21 @@ public class CreateTestTypeControllerTest {
         Assert.assertFalse(result);
     }
 
+    @Test
+    public void saveValidTestType() {
+        ctrl.createTestType("12345","test","collecting",lpcDto);
+        boolean result = ctrl.saveTestType();
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void saveInvalidTestType() {
+        ctrl.createTestType("12345","test","collecting",lpcDto);
+        ttStore.addTestType(tt);
+        boolean result = ctrl.saveTestType();
+        Assert.assertFalse(result);
+    }
+
 
 
 }
