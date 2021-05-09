@@ -99,11 +99,16 @@ public class CreateParameterController {
      * Save the parameter if it is in a valid state.
      * @return true if the parameter was saved. Otherwise, false.
      */
-    /*public boolean saveParameter(ParameterCategory par) {
-        return this.pStore.saveParameter(p);
-    }*/
     public boolean saveParameter(Parameter par) {
         return pStore.saveParameter(par);
+    }
+
+    /**
+     * Textual description of the parameter.
+     * @return Information about the characteristics of the parameter.
+     */
+    public String toString(){
+        return p.toString();
     }
 
 

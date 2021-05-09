@@ -2,7 +2,6 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.List;
 
 /**
  * Represents a parameter.
@@ -39,16 +38,12 @@ public class Parameter {
      * @param description the parameter description
      */
     public Parameter(String code, String shortName, String description,ParameterCategory cat){
-        checkRules(code, shortName, description);
+        checkRules(code, shortName, description,cat);
         this.code=code;
         this.shortName= shortName;
         this.description=description;
         this.category=cat;
     }
-
-
-
-
 
     /**
      * Checks if the code, the short name and the description, associated with the parameter, respects the business rules.
@@ -56,11 +51,14 @@ public class Parameter {
      * @param shortName The short name of the parameter.
      * @param description The description of the parameter.
      */
-    private void checkRules (String code, String shortName, String description) {
+    private void checkRules (String code, String shortName, String description, ParameterCategory cat) {
+
         if (StringUtils.isBlank(code))
             throw new IllegalArgumentException("Code cannot be blank.");
         if ( !StringUtils.isAlphanumeric(code) || code.length() != 5 )
             throw new IllegalArgumentException("The code must be 5 alphanumeric characters.");
+        if ( !StringUtils.isAlphanumeric(code) || code.equals(cat.getCode()))
+            throw new IllegalArgumentException("The Parameter Code cannot be the same as the Parameter Category Code");
 
         if (StringUtils.isBlank(shortName))
             throw new IllegalArgumentException("Name cannot be blank.");
@@ -71,6 +69,7 @@ public class Parameter {
             throw new IllegalArgumentException("Name cannot be blank.");
         if (description.length() > 20)
             throw new IllegalArgumentException("The name must be a maximum of 20 characters.");
+
     }
 
 
@@ -125,4 +124,7 @@ public class Parameter {
     public String toString(){
         return String.format("Parameter: %s\nCode: %s\nDescription: %s", shortName, code, description);
     }
+
+
+
 }

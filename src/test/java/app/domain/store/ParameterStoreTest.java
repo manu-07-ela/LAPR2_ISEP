@@ -6,11 +6,8 @@ import app.domain.model.TestType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class ParameterStoreTest {
 
@@ -39,6 +36,12 @@ public class ParameterStoreTest {
     public void saveInvalidParameter() {
         pStore.addParameter(p);
         boolean result = pStore.saveParameter(p);
+        Assert.assertFalse(result);
+    }
+    @Test
+    public void saveNullParameter() {
+        Parameter param = null;
+        boolean result = pStore.saveParameter(param);
         Assert.assertFalse(result);
     }
 
@@ -72,5 +75,11 @@ public class ParameterStoreTest {
         pStore.addParameter(p);
         List<Parameter> result = pStore.getParameterList();
         Assert.assertEquals(listParameter,result);
+    }
+
+    @Test
+    public void getNonexistentParameterByCode(){
+        Parameter result=pStore.getParameterByCode("12345");
+        Assert.assertEquals(null,result);
     }
 }

@@ -2,7 +2,6 @@ package app.ui.console;
 
 import app.controller.CreateParameterController;
 import app.domain.model.Parameter;
-import app.domain.store.ParameterStore;
 import app.mappers.dto.ParameterCategoryDto;
 import app.ui.console.utils.Utils;
 
@@ -29,10 +28,12 @@ public class CreateParameterUI implements Runnable {
      */
     @Override
     public void run(){
-
-        System.out.printf("%nCreating a new Parameter%n");
-        createParameter();
-
+        if(createParameterCtrl.getParameterCategories().size() == 0){
+            System.out.println("To proceed with the creation of the parameter, you must first create a parameter category.");
+        } else {
+            System.out.printf("%nCreating a new Parameter%n");
+            createParameter();
+        }
     }
 
     /**
@@ -44,6 +45,7 @@ public class CreateParameterUI implements Runnable {
 
         do{
             try {
+
                 ParameterCategoryDto selectedCategoryDto = (ParameterCategoryDto) Utils.showAndSelectOne(createParameterCtrl.getParameterCategories(),"Select the category to insert the Parameter ");
 
                 System.out.printf("%nEnter the following data about the parameter you want to create%n");
@@ -62,12 +64,15 @@ public class CreateParameterUI implements Runnable {
                 if(answer.equalsIgnoreCase("S")){
 
                     if(createParameterCtrl.saveParameter(parameter)){
-                        System.out.println("The Test Type was created successfully");
+                        System.out.println("The Parameter was created successfully");
+                        String confirm = Utils.readLineFromConsole("Do you want to create another one? (S/N)");
+                        if (confirm.equalsIgnoreCase("S"))
+                            dadosInvalidos = true;
                     }
                 }
 
             } catch (IllegalArgumentException e){
-                System.out.printf("%nMessage: %s%n" ,e.getMessage());
+                System.out.printf("%nMessage: %s%n",e.getMessage());
             }
         } while (dadosInvalidos);
     }
