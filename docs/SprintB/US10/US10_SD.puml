@@ -31,17 +31,9 @@ activate PCSTORE
 deactivate PCSTORE
 CTRL -> MAPPER : toDto(listParameterCategory)
 activate MAPPER
-loop for each object in listParameterCategory
-MAPPER -> LISTPC : ParameterCategory = getParameterCategories(i)
-activate LISTPC
-deactivate LISTPC
-MAPPER-> PCDTO : ParameterCategoriesDto = toParameterCategoryDto(ParameterCategory)
-activate PCDTO
-deactivate PCDTO
-MAPPER-> LISTPCDTO : addParameterCategoryDto(ParameterCategoryDto)
-activate LISTPCDTO
-deactivate LISTPCDTO
-end
+ref over MAPPER
+SD_ParameterCategoryMapper_toDto_List
+end ref
 MAPPER --> CTRL : listParameterCategoryDto
 deactivate MAPPER
 deactivate CTRL
