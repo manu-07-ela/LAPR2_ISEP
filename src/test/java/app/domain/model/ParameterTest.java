@@ -4,16 +4,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
-
 public class ParameterTest {
 
     ParameterCategory pc;
     ParameterCategory pc1;
-    List<Parameter> listParameter;
     Parameter p;
 
     @Before
@@ -107,13 +101,16 @@ public class ParameterTest {
     }
 
     @Test
-    public void ParameterNotEquals(){
+    public void ParameterAllDataNotEquals(){
         Parameter p1 = new Parameter("TT030","rbc","Red Blood Cells",pc);
-        ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
+        Parameter p2 = new Parameter("44LO1","wbc","White Blood Cells",pc1);
         Assert.assertNotEquals(pc1,p1);
     }
 
     @Test
-    public void testToString() {
+    public void ParameterNotEquals(){
+        Parameter p1 = new Parameter("TT030","rbc","Red Blood Cells",pc);
+        ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
+        Assert.assertNotEquals(pc1,p1);
     }
 }
