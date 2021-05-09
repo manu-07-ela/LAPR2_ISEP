@@ -24,25 +24,25 @@ public class CreateClinicalAnalysisLaboratoryMapper {
         TestType obj;
         for (TestTypeDTO lista : testTypeListDTO) {
             if (lista != null){
-                obj = ToDomain(lista);
+                obj = toDomain(lista);
                 testTypeList.add(obj);
             }
         }
         return testTypeList;
     }
 
-    public TestType ToDomain(TestTypeDTO obj){
-        return new TestType (obj.getCode(), obj.getDescription(),obj.getCollectingMethod(),toDomain(obj.getListOfParameterCategories()));
+    public TestType toDomain (TestTypeDTO obj){
+        return new TestType (obj.getCode(), obj.getDescription(),obj.getCollectingMethod(),toDomainpclist(obj.getListOfParameterCategories()));
     }
 
-    public List<ParameterCategory> toDomain (List<ParameterCategoryDto> parameterCategories){
+    public List<ParameterCategory> toDomainpclist (List<ParameterCategoryDto> parameterCategories){
         List<ParameterCategory> parameterCategory = new ArrayList<>();
         for(ParameterCategoryDto lista : parameterCategories) {
-            parameterCategory.add(this.toDomain(lista));
+            parameterCategory.add(this.toDomainpc(lista));
         }
         return parameterCategory;
     }
-    public ParameterCategory toDomain(ParameterCategoryDto parameterCategory) {
+    public ParameterCategory toDomainpc(ParameterCategoryDto parameterCategory) {
         return new ParameterCategory (parameterCategory.getCode(),parameterCategory.getName());
     }
 
