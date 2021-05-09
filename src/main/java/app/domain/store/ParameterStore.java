@@ -2,7 +2,6 @@ package app.domain.store;
 
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
-import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +27,8 @@ public class ParameterStore {
 
     /**
      * Save the parameter case it is in a valid state.
-     * @param parameter The type of test we intend to save.
-     * @return true if the test type was saved. Otherwise, false.
+     * @param parameter The parameter we intend to save.
+     * @return true if the parameter was saved. Otherwise, false.
      */
     public boolean saveParameter(Parameter parameter) {
         if (!validateParameter(parameter))
@@ -38,9 +37,9 @@ public class ParameterStore {
     }
 
     /**
-     * Global validation of a test type.
-     * @param p Test Type that we intend to validate.
-     * @return false if the test type already exists or is null. Otherwise, it returns true.
+     * Global validation of a parameter.
+     * @param p parameter that we intend to validate.
+     * @return false if the parameter already exists or is null. Otherwise, it returns true.
      */
     public boolean validateParameter(Parameter p) {
         if (p == null)
@@ -65,17 +64,7 @@ public class ParameterStore {
      * @param category The Parameter category.
      */
     public Parameter createParameter(String code, String shortName, String description,ParameterCategory category){
-        checkParameterExistence(code);
         return new Parameter(code,shortName,description,category);
-    }
-    private void checkParameterExistence(String code) {
-        if (!StringUtils.isAlphanumeric(code)) {
-            for (Parameter param : listParameter) {
-                if (param.getCode().equals(code)) {
-                    throw new IllegalArgumentException("Already exists a Parameter with this code.");
-                }
-            }
-        }
     }
 
     /**

@@ -57,7 +57,7 @@ public class CreateParameterCategoryUI implements Runnable {
                     boolean resposta = Utils.confirm("S/N:");
 
                     if(resposta) {
-                        if (createParameterCategoryctrl.saveTestType()) {
+                        if (createParameterCategoryctrl.saveParameterCategory()) {
                             System.out.println("The parameter category was created successfully");
                         } else {
                             System.out.println("A parameter category with that name or code already exists");
