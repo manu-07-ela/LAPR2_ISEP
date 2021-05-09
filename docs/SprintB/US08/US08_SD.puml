@@ -65,38 +65,13 @@ activate CALStore
 CALStore -> MapperCal : ToModel(calDTO)
 deactivate CALStore
 deactivate Comp
-activate MapperCal
-MapperCal -> CALDTO : name=getname()
-activate CALDTO
-deactivate CALDTO
-
-MapperCal -> CALDTO : address=getaddress()
-activate CALDTO
-deactivate CALDTO
-MapperCal -> CALDTO : phoneNumber=getphoneNumber()
-activate CALDTO
-deactivate CALDTO
-
-MapperCal -> CALDTO : TIN=getTIn()
-activate CALDTO
-deactivate CALDTO
-
-MapperCal -> CALDTO : laboratoryId=getlaboratoryId()
-activate CALDTO
-deactivate CALDTO
-
-MapperCal -> CALDTO : listOfTestTypes=getlistOfTestTypes()
-activate CALDTO
-deactivate CALDTO
-
-MapperCal -> CAL** : create (name, address, phoneNumber , TIN ,laboratoryId,selectedTestTypesList)
 
 
-deactivate MapperCal
+ref over MapperCal
+SD_ToModel
+end ref
 
-
-
-CTRL -> CALStore : validateClinicalAnalysisLaboratory(cal)
+CTRL -> CALStore : validateClinicalAnalysisLaboratoryglobal(cal)
 activate CALStore
 deactivate CALStore
 deactivate CTRL
