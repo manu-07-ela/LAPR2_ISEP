@@ -231,28 +231,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         return store.saveClient(cl,clAuthFacade);
     }
 
-## Class Company
-
-
-	/**
-	* Gets the instance of ClientStore
-	* @return the instance of clientStore.
-	*/
-	public ClientStore getClientStore() {
-	return clientStore;
-	}		
-
 ## Class ClientStore
-
-	/**
-     * Creates an instance of Client receiving a Client DTO and Client Mapper by parameter
-     * @param cldto a client DTO
-     * @param clMapper a instance of Client Mapper
-     * @return
-     */
-    public Client createClient(ClientDto cldto, ClientMapper clMapper) {
-        return clMapper.toModel(cldto);
-    }
 
 	/**
      * Global validation of a Client
@@ -280,81 +259,28 @@ Other software classes (i.e. Pure Fabrication) identified:
         }
     }
 
-## Class ClientMapper
-
-	/**
-     *Transforms an object of type Client into an object of type ClientDto
-     * @param cl an Client object
-     * @return an instance of ClientDto
-     */
-    public Client toModel(ClientDto cl){
-        return new Client(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());
-    }
-
 ## Class ClientDto
 
 	/**
-     * Get the name of the Client
-     * @return the name of ClientDto
+     * Creates a new instance of ClientDto with the following attributes: name, citizencardnumber, nhs, date, sex, tin, phonenumber, email
+     * @param name
+     * @param citizencardnumber
+     * @param nhs
+     * @param date
+     * @param sex
+     * @param tin
+     * @param phonenumber
+     * @param email
      */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Get the Citizen card number of the Client
-     * @return the Citizen card number of ClientDto
-     */
-    public String getCitizencardnumber() {
-        return citizencardnumber;
-    }
-
-    /**
-     * Get the National Healthcare Service number of the Client
-     * @return the National Healthcare Service number of ClientDto
-     */
-    public String getNhs() {
-        return nhs;
-    }
-
-    /**
-     * Get the birth date of the Client
-     * @return the birth date of ClientDto
-     */
-    public String getDate() {
-        return date;
-    }
-
-    /**
-     * Get the gender of the Client
-     * @return the gender of ClientDto
-     */
-    public String getSex() {
-        return sex;
-    }
-
-    /**
-     * Get the Tax identification number of the Client
-     * @return the Tax identification number of ClientDto
-     */
-    public String getTin() {
-        return tin;
-    }
-
-    /**
-     * Get the phone number of the Client
-     * @return the phone number of ClientDto
-     */
-    public String getPhonenumber() {
-        return phonenumber;
-    }
-
-    /**
-     * Get the e-mail of the Client
-     * @return the e-mail of ClientDto
-     */
-    public String getEmail() {
-        return email;
+    public ClientDto(String name, String citizencardnumber, String nhs, String date, String sex, String tin, String phonenumber, String email) {
+        this.name = name;
+        this.citizencardnumber = citizencardnumber;
+        this.nhs = nhs;
+        this.date = date;
+        this.sex = sex;
+        this.tin = tin;
+        this.phonenumber = phonenumber;
+        this.email = email;
     }
 
 ## Class Client
@@ -389,18 +315,10 @@ Other software classes (i.e. Pure Fabrication) identified:
         this.email = email;
     }
 
-## Class AuthFacade
-
-	public boolean addUser(String name, String email, String pwd)
-    {
-        User user = this.users.create(name, email, pwd);
-        return this.users.add(user);
-    }
-
 # 6. Integration and Demo 
+
+* At the moment, instead of sending an e-mail informing the client that the registration was successful and giving him the password, the details are sent to a text file.
 
 # 7. Observations
 
-
-
-
+* In the future, the user story will be developed with a graphical interface, and the Client menu will be added.
