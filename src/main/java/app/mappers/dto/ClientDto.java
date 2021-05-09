@@ -1,5 +1,7 @@
 package app.mappers.dto;
 
+import app.domain.model.Client;
+
 public class ClientDto {
     /**
      * Client's name
@@ -125,4 +127,18 @@ public class ClientDto {
     public String getEmail() {
         return email;
     }
+
+    /**
+     * Compare the client dto with the other object provided.
+     * @param other Object we want to compare with the client.
+     * @return true if the received object represents another client dto equivalent to the client dto. Otherwise, it returns false.
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        Client client = (Client) other;
+        return this.getName().equals((client).getName()) || this.getCitizencardnumber().equals((client).getCitizencardnumber()) || this.getNhs().equals((client).getNhs()) || this.getDate().equals((client).getDate()) || this.getSex().equals((client).getSex()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
+    }
+
 }
