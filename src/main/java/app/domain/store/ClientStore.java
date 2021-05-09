@@ -34,7 +34,7 @@ public class ClientStore {
      * Creates an instance of Client receiving a Client DTO and Client Mapper by parameter
      * @param cldto a client DTO
      * @param clMapper a instance of Client Mapper
-     * @return
+     * @return an instance of Client
      */
     public Client createClient(ClientDto cldto, ClientMapper clMapper) {
         return clMapper.toModel(cldto);
