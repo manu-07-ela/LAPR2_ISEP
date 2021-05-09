@@ -52,11 +52,16 @@ public class CreateParameterCategoryUI implements Runnable {
                 if(result){
                     System.out.printf("%nDo you want to create a Parameter Category with the following data:%n%s",createParameterCategoryctrl.toString());
 
-                    boolean resposta = Utils.confirm("S/N:");
+                    boolean confirmation = Utils.confirm("S/N:");
 
-                    if(resposta) {
+                    if(confirmation) {
                         if (createParameterCategoryctrl.saveParameterCategory()) {
                             System.out.println("The parameter category was created successfully");
+
+                            boolean confirm = Utils.confirm("Do you want to create another one? (S/N)");
+
+                            if (confirm)
+                                dadosInvalidos = true;
                         } else {
                             System.out.println("A parameter category with that name or code already exists");
                         }
