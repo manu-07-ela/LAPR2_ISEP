@@ -69,8 +69,8 @@ public class TestTypeStore {
     }
 
     /**
-     *
-     * @return
+     * Get the Test Type List
+     * @return The list of existing test types.
      */
     public List<TestType> getTestTypeList(){
         return testTypeList;

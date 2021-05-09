@@ -15,8 +15,8 @@ public class EmployeeTest {
         emp = new Employee(new Name("Manuela de Araujo Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
         empAux = new Employee(new Name("Julia Ferreira Marcia"), new Email("julia@gmail.com"), new Address("Rua da boavista"), new PhoneNumber("12345267182"), new SocCode("3425"), new OrganizationRole("Receptionist"));
     }
-    /*
-    @Test
+
+    /*@Test
     public void getEmployeeId() {
         String expectedResult1 = "MDAL00000";
         String expectedResult2 = "JFM00001";
@@ -26,10 +26,8 @@ public class EmployeeTest {
         Assert.assertEquals(expectedResult2, result2);
     }*/
 
-
     @Test(expected = NullPointerException.class)
     public void ensureNullIsNotAllowed(){new Employee(null, null, null, null, null, null);}
-
 
     @Test
     public void ensureEmployeeObeysAllAc(){
@@ -81,34 +79,18 @@ public class EmployeeTest {
     }
 
     @Test
-    public void nameAddressPhoneNumberEquals() {
+    public void EmployeeEquals() {
         Employee emp1 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
-        Employee emp2 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
-
-        Assert.assertTrue(emp1.getName().equals(emp2.getName()) && emp1.getEmail().equals(emp2.getEmail()) && emp1.getPhoneNumber().equals(emp2.getPhoneNumber()));
+        Employee emp2 = new Employee(new Name("Manuela de Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12334565367"),new SocCode("1234"), new OrganizationRole("Specialist doctor"));
+        Assert.assertEquals(emp1, emp2);
     }
 
     @Test
-    public void namePhoneNumberEquals() {
-        Employee emp1 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
-        Employee emp2 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 30"),new PhoneNumber("12338345367"),new SocCode("1234"), new OrganizationRole("Administrator"));
+    public void EmployeeNotEquals() {
+        Employee emp1 = new Employee(new Name("Manuela Leite"), new Email("1200320@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
+        Employee emp2 = new Employee(new Name("Manuela de Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 30"),new PhoneNumber("12338345367"),new SocCode("1234"), new OrganizationRole("Administrator"));
 
-        Assert.assertFalse(emp1.getName().equals(emp2.getName()) && emp1.getEmail().equals(emp2.getEmail()) && emp1.getPhoneNumber().equals(emp2.getPhoneNumber()));
-    }
-
-    @Test
-    public void nameAddressEquals() {
-        Employee emp1 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12332725337"),new SocCode("1234"), new OrganizationRole("Administrator"));
-        Employee emp2 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
-
-        Assert.assertFalse(emp1.getName().equals(emp2.getName()) && emp1.getEmail().equals(emp2.getEmail()) && emp1.getPhoneNumber().equals(emp2.getPhoneNumber()));
-    }
-    @Test
-    public void addressPhoneNumberEquals() {
-        Employee emp1 = new Employee(new Name("Manuela de Araujo Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
-        Employee emp2 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
-
-        Assert.assertFalse(emp1.getName().equals(emp2.getName()) && emp1.getEmail().equals(emp2.getEmail()) && emp1.getPhoneNumber().equals(emp2.getPhoneNumber()));
+        Assert.assertFalse(emp1.getEmail().equals(emp2.getEmail()));
     }
 
     @Test
@@ -118,5 +100,6 @@ public class EmployeeTest {
 
         Assert.assertEquals(emp1, emp2);
     }
+
 
 }

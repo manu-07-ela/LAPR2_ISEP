@@ -1,6 +1,5 @@
 package app.domain.store;
 
-import app.domain.model.ParameterCategory;
 import app.domain.model.attributes.OrganizationRole;
 import org.junit.Assert;
 import org.junit.Before;

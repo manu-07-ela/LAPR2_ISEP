@@ -1,7 +1,5 @@
 package app.mappers.dto;
 
-import app.domain.model.Client;
-
 /**
  * Represents the controller used to register a client
  * @author José Pessoa <1201007@isep.ipp.pt>
@@ -11,41 +9,41 @@ public class ClientDto {
     /**
      * Client's name
      */
-    private String name;
+    private final String name;
     /**
      * Client's citizen card number
      */
-    private String citizencardnumber;
+    private final String citizencardnumber;
 
     /**
      * Client's National Healthcare Service number
      */
-    private String nhs;
+    private final String nhs;
 
     /**
      * Client's birth date
      */
-    private String date;
+    private final String date;
 
     /**
      * Client's gender
      */
-    private String sex;
+    private final String sex;
 
     /**
      * Client's tax identification number
      */
-    private String tin;
+    private final String tin;
 
     /**
      * Client's phone number
      */
-    private String phonenumber;
+    private final String phonenumber;
 
     /**
      * Client's e-mail
      */
-    private String email;
+    private final String email;
 
     /**
      * Creates a new instance of ClientDto with the following attributes: name, citizencardnumber, nhs, date, sex, tin, phonenumber, email
@@ -133,16 +131,4 @@ public class ClientDto {
         return email;
     }
 
-    /**
-     * Compare the client dto with the other object provided.
-     * @param other Object we want to compare with the client.
-     * @return true if the received object represents another client dto equivalent to the client dto. Otherwise, it returns false.
-     */
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) return true;
-        if (other == null || getClass() != other.getClass()) return false;
-        ClientDto clientdto = (ClientDto) other;
-        return this.getName().equals((clientdto).getName()) || this.getCitizencardnumber().equals((clientdto).getCitizencardnumber()) || this.getNhs().equals((clientdto).getNhs()) || this.getDate().equals((clientdto).getDate()) || this.getSex().equals((clientdto).getSex()) || this.getTin().equals((clientdto).getTin()) || this.getPhonenumber().equals((clientdto).getPhonenumber())|| this.getEmail().equals((clientdto).getEmail());
-    }
 }

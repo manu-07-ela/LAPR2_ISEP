@@ -233,15 +233,14 @@ public class RegisterEmployeeUI implements Runnable{
                     controller.transformEmployeeInUser(specialistDoctor);
                     System.out.println("Operation completed successfully, your employee was saved.");
                     System.out.println("Your credentials are in the file named:" + specialistDoctor.getEmployeeId());
-                }
+                }else System.out.println("Your employee already exists in the system, please check the file identified with EmployeeID to obtain your credentials");
             } else{
                 Employee employee = controller.createEmployee(emp);
                 if (controller.saveEmployee(employee)){
                     controller.transformEmployeeInUser(employee);
                     System.out.println("Operation completed successfully, your employee was saved.");
                     System.out.println("Your credentials are in the file named:" + employee.getEmployeeId());
-                }
-
+                }else System.out.println("Your employee already exists in the system, please check the file identified with EmployeeID to obtain your credentials");
             }
         }else System.out.println("You didn't save this employee");
     }
