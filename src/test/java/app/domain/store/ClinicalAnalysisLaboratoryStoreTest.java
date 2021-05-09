@@ -39,6 +39,7 @@ public class ClinicalAnalysisLaboratoryStoreTest {
     List<TestType> testTypeList;
     List<TestTypeDTO> testTypeListDTO;
     ClinicalAnalysisLaboratory cal;
+    List<ClinicalAnalysisLaboratory> calList;
     CreateClinicalAnalysisLaboratoryMapper calMapper;
 
     @Before
@@ -75,6 +76,9 @@ public class ClinicalAnalysisLaboratoryStoreTest {
         testTypeListDTO.add(tt1DTO);
 
         cal = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567891","12ki3",testTypeList);
+
+        calList= new ArrayList<>();
+        calList.add(cal);
 
     }
 
@@ -136,6 +140,13 @@ public class ClinicalAnalysisLaboratoryStoreTest {
         ClinicalAnalysisLaboratory cal = null;
         boolean result = calStore.saveClinicalAnalysisLaboratory(cal);
         Assert.assertFalse(result);
+    }
+
+    @Test
+    public void getClinicalAnalysisLaboratory() {
+        calStore.addClinicalAnalysisLaboratory(cal);
+        List<ClinicalAnalysisLaboratory> result = calStore.getClinicalAnalysisLaboratoryList();
+        Assert.assertEquals(calList,result);
     }
 
 }

@@ -87,19 +87,18 @@ public class CreateParameterController {
      * @param selectedCategoryDto The category of the parameter.
      * @return Parameter created.
      */
-    public Parameter createParameter(String code, String shortName, String description, ParameterCategoryDto selectedCategoryDto){
+    public boolean createParameter(String code, String shortName, String description, ParameterCategoryDto selectedCategoryDto){
         ParameterCategory selected = pcStore.getParameterCategoryByCode(selectedCategoryDto.getCode());
         p = pStore.createParameter(code,shortName,description,selected);
-        pStore.validateParameter(p);
-        return p;
+        return pStore.validateParameter(p);
     }
 
     /**
      * Save the parameter if it is in a valid state.
      * @return true if the parameter was saved. Otherwise, false.
      */
-    public boolean saveParameter(Parameter par) {
-        return pStore.saveParameter(par);
+    public boolean saveParameter() {
+        return pStore.saveParameter(p);
     }
 
     /**

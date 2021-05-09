@@ -53,22 +53,30 @@ public class CreateParameterUI implements Runnable {
                 String shortName = Utils.readLineFromConsole("Short Name: ");
                 String description = Utils.readLineFromConsole("Description: ");
 
-                Parameter parameter = createParameterCtrl.createParameter(code,shortName,description,selectedCategoryDto);
+                Boolean result = createParameterCtrl.createParameter(code,shortName,description,selectedCategoryDto);
 
                 dadosInvalidos = false;
 
-                System.out.printf("Do you want to create a Parameter with the code %s, short name %s, description: %s in the category %s", code, shortName,description,selectedCategoryDto);
+                if(result) {
 
-                String answer = Utils.readLineFromConsole("S/N:");
+                    System.out.printf("Do you want to create a Parameter with the code %s, short name %s, description: %s in the category %s", code, shortName, description, selectedCategoryDto);
 
-                if(answer.equalsIgnoreCase("S")){
+                    String answer = Utils.readLineFromConsole("S/N:");
 
-                    if(createParameterCtrl.saveParameter(parameter)){
-                        System.out.println("The Parameter was created successfully");
-                        String confirm = Utils.readLineFromConsole("Do you want to create another one? (S/N)");
-                        if (confirm.equalsIgnoreCase("S"))
-                            dadosInvalidos = true;
+                    if (answer.equalsIgnoreCase("S")) {
+                        if (createParameterCtrl.saveParameter()) {
+                            System.out.println("The Parameter was created successfully");
+
+                            String confirm = Utils.readLineFromConsole("Do you want to create another one? (S/N)");
+
+                            if (confirm.equalsIgnoreCase("S"))
+                                dadosInvalidos = true;
+                        } else {
+                            System.out.println("The Parameter has not been created.");
+                        }
                     }
+                } else {
+                    System.out.println("There's already a Parameter with that code in the System. The Parameter has not been created.");
                 }
 
             } catch (IllegalArgumentException e){

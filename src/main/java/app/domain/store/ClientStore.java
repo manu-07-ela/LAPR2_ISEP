@@ -66,23 +66,27 @@ public class ClientStore {
      * @return True if the client has been registered, false otherwise
      */
     public static String generatelogin(Client cl) throws IOException {
-            String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-            SecureRandom random = new SecureRandom();
-            StringBuilder pwd = new StringBuilder();
+        SecureRandom random = new SecureRandom();
+        StringBuilder pwd = new StringBuilder();
 
-            for (int i = 0; i < 10; i++)
-            {
-                int randomIndex = random.nextInt(chars.length());
-                pwd.append(chars.charAt(randomIndex));
-            }
-            File archive = new File("loginCredentials\\" + cl.getName() + ".txt");
-            FileWriter fw = new FileWriter(archive, true);
+        File archive = new File("loginCredentials\\" + cl.getName() + ".txt");
+        FileWriter fw = new FileWriter(archive, true);
+
+        for (int i = 0; i < 10; i++) {
+            int randomIndex = random.nextInt(chars.length());
+            pwd.append(chars.charAt(randomIndex));
+        }
+        try {
             fw.write("ID: " + cl.getEmail() + "\n");
             fw.write("PASSWORD: " + pwd.toString() + "\n");
+        } catch (IOException e) {
+        }finally {
             fw.close();
-            return pwd.toString();
         }
+        return pwd.toString();
+    }
 
     /**
      * Get the existing clients

@@ -48,9 +48,9 @@ public class CreateClientController {
      * @param company The company
      */
     public CreateClientController(Company company) {
-        this.company = company;
+        this.company = App.getInstance().getCompany();
         this.store = company.getClientStore();
-        clAuthFacade = new AuthFacade();
+        clAuthFacade = company.getAuthFacade();
         clMapper = new ClientMapper();
         this.cl = null;
     }

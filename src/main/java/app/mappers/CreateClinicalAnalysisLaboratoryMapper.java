@@ -46,4 +46,5 @@ public class CreateClinicalAnalysisLaboratoryMapper {
         return new ParameterCategory (parameterCategory.getCode(),parameterCategory.getName());
     }
 
+
 }

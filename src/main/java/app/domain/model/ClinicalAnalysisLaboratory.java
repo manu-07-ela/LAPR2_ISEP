@@ -118,10 +118,8 @@ public class ClinicalAnalysisLaboratory  {
      * @param name   Clinical Analysis Laboratory's name
      */
     private void nameValidation(String name){
-        if (StringUtils.isBlank(name)){
-            throw  new IllegalArgumentException("The name mustn't have more than 20 characters");
-        }else if(name.length()>20){
-            throw  new IllegalArgumentException("The name mustn't have more than 20 characters");
+        if (StringUtils.isBlank(name) || name.length()>20){
+            throw  new IllegalArgumentException("The name mustn't have more than 20 characters and cannot be blank");
         }
 
     }
@@ -131,10 +129,8 @@ public class ClinicalAnalysisLaboratory  {
      * @param address     Clinical Analysis Laboratory's address
      */
     private void AddressValidation(String address){
-        if (StringUtils.isBlank(address)){
-            throw  new IllegalArgumentException("The address mustn't have more than 30 characters");
-        }else if (address.length()>30){
-            throw  new IllegalArgumentException("The address mustn't have more than 30 characters");
+        if (StringUtils.isBlank(address) || address.length()>30 ){
+            throw  new IllegalArgumentException("The address mustn't have more than 30 characters and cannot be blank");
         }
     }
 
@@ -143,10 +139,8 @@ public class ClinicalAnalysisLaboratory  {
      * @param phoneNumber
      */
     private void phoneNumberValidation(String phoneNumber){
-        if (StringUtils.isBlank(phoneNumber)){
-            throw  new IllegalArgumentException("Phone number has to have 11 digits");
-        }else if (phoneNumber.length()!=11){
-            throw  new IllegalArgumentException("Phone number has to have 11 digits");
+        if (StringUtils.isBlank(phoneNumber) || phoneNumber.length()!=11){
+            throw  new IllegalArgumentException("Phone number is a number with 11 digits");
         }
     }
 
@@ -155,10 +149,8 @@ public class ClinicalAnalysisLaboratory  {
      * @param tin
      */
     private void tinValidation(String tin){
-        if (StringUtils.isBlank(tin)){
-            throw  new IllegalArgumentException("Tin has to have 10 digits");
-        }else if (tin.length()!=10){
-            throw  new IllegalArgumentException("Tin has to have 10 digits");
+        if (StringUtils.isBlank(tin) || tin.length()!=10){
+            throw  new IllegalArgumentException("Tin is a number with 10 digits");
         }
     }
 
@@ -167,10 +159,9 @@ public class ClinicalAnalysisLaboratory  {
      * @param laboratoryId Clinical Analysis Laboratory's ID
      */
     private void laboratoryIdValidation(String laboratoryId){
-        if (StringUtils.isBlank(laboratoryId))
-            throw  new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
-        if ( !StringUtils.isAlphanumeric(laboratoryId) || laboratoryId.length() != 5 )
-            throw  new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
+        if (StringUtils.isBlank(laboratoryId) || !StringUtils.isAlphanumeric(laboratoryId) || laboratoryId.length() != 5 ) {
+            throw new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
+        }
     }
 
     /**
