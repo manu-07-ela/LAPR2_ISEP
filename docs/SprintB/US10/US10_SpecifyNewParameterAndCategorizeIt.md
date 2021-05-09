@@ -129,7 +129,7 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 | 			     |	... coordinating the US? | CreateParameterController | Controller                             |
 |                |  ... knowing who is responsible for creating the Parameter? | Company | Creator (R1) |
 | 			  	 |	... instantiating a new Parameter? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
-| 			  	 |	... showing the existing parameter categories? | ParameterCategoryStoreDto | IE: has registed all Organizations |
+| 			  	 |	... showing the existing parameter categories? | CreateParameterUI | IE: has registed all Organizations |
 |                | ... knowing the user using the system? | UserSession |            |
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |	...saving the inputted data? | Parameter  | IE: object created in step 1 has its own data.  |

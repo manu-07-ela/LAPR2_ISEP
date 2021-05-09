@@ -19,6 +19,7 @@
 | **Courier**  | **Mensageiro** | A employee of Many labs who transports the samples.|
 | **Diagnosis**  | **Diagnóstico** | A chemical analysis of the cause or nature of a condition, situation, or problem made by the doctor.|
 | **Doctor** | **Doutor** | Doctor who prescribes the lab order.|
+| **DTO** | **-** | Acronym for _Data Transfer Object_.|
 | **E-mail**   | **-**  | Messages distributed by electronic means from one computer user to one or more recipients via a network.|
 | **Employee**   | **Empregado**  | An individual who was hired by an employer to do a specific job.|
 | **HQ**   | **-**  | Acronym for _Headquarters_.|
@@ -35,7 +36,9 @@
 | **Medical Lab Technician**   | **Técnico de laboratório médico** |  Collects and registers the samples required to perform a given test.|
 | **NHS**  | **SNS** | Acronym for _National Healthcare Service_.|
 | **OO**   | **-** | Acronym for _Object Oriented_.|
+| **Organization Role**   | **-** | Role played by an employee in Company.|
 | **Parameter**  | **Parâmetro** | Parameter evaluated in a clinical examination.|
+| **Parameter Category**  | **Categoria do Parâmetro** | Category where the parameter is.|
 | **PLT**   | **-** | Acronym for _Platelets_.|
 | **RBC**  | **-** | Acronym for _Red Blood Cells_.|
 | **Receptionist**  | **Rececionista** | Works in the Clinical Analysis Laboratory and records in the application the test to be performed on a client or the client. |
@@ -55,6 +58,7 @@
 | **UCD**  | **-** | Acronym for _Use Cases Diagrams_.|
 | **UI**   | **-** | Acronym for _User Interface_. |
 | **US**   | **-** | Acronym for _User Stories_.|
+| **User Role**  | **Papel do usuário** | Role played by a user.|
 | **WBC**  | **-** | Acronym for _White Bloods Cells_.|
 
 
