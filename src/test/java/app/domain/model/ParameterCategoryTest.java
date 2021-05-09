@@ -12,6 +12,11 @@ public class ParameterCategoryTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
+    public void ensureBlankIsNotAllowed() {
+        ParameterCategory pc = new ParameterCategory("", "");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
     public void ensureCodeMeetsAC2_1() {
         ParameterCategory pc = new ParameterCategory("10d5th", "Category");
     }
