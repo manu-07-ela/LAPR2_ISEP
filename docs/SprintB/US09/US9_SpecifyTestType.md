@@ -100,7 +100,7 @@ n/a
 | Step 2  		 |                                                                 |                          |                                                                                                                           |
 | Step 3  		 | ... saving the inputted data?                                   | TestType                 | IE: object created in step 1 has its own data.                                                                            |
 | Step 4  		 | ... knowing the parameter categories to show?                   | ParameterCategoryStore   | IE: knows all the categories of parameters.                                                                               |
-|                |                                                                 |                          |                                                                                                                           |
+|                |                                                                 | ParameterCategoryMapper  | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
 | Step 5  		 | ... saving the selected categories?                             | TestType                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
 | Step 6  		 |                                                                 |                          |                                                                                                                           |
 | Step 7  		 | ... validating all data (local validation)?                     | TestType                 | IE: owns its data.                                                                                                        |
@@ -155,8 +155,75 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## Class CreateTestTypeController 
 
+	/**
+	* Get a list of objects of type ParameterCategoryDTO
+	* @return list with parameterCategoriesDto
+	*/
+	public List<ParameterCategoryDto> getParameterCategories(){
+		List<ParameterCategory> listParameterCategories = pcStore.getParameterCategoryList();
+		return pcMapper.toDto(listParameterCategories);
+	}
+
+	/**
+	* New test type.
+	* @param code The test type code.
+	* @param description The description of the test type.
+	* @param collectingMethod The test type collecting method.
+	* @param listOfParameterCategoriesDto List of parameter categories that the test type has associated.
+	* @return false if the test type already exists or is null. Otherwise, it returns true.
+	*/
+	public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategoryDto> listOfParameterCategoriesDto){
+		List<ParameterCategory> listOfParameterCategories = new ArrayList();
+		for ( ParameterCategoryDto pcDto : listOfParameterCategoriesDto){
+		listOfParameterCategories.add(pcStore.getParameterCategoryByCode(pcDto.getCode()));
+		}
+		this.tt=ttStore.createTestType(code,description,collectingMethod,listOfParameterCategories);
+		return this.ttStore.validateTestType(tt);
+	}
+
+    /**
+     * Save the type of test case it is in a valid state.
+     * @return true if the test type was saved. Otherwise, false.
+     */
+    public boolean saveTestType() {
+        return this.ttStore.saveTestType(tt);
+    }
+
 
 ## Class Company
+
+	/**
+	* Get the instance of ParameterCategoryStore.
+	* @return the instance of ParameterCategoryStore.
+	*/
+	public ParameterCategoryStore getParameterCategoryStore(){
+		return parameterCategoryStore;
+	}
+
+## Class TestType Store
+
+	/**
+     * New test type.
+     * @param code The test type code.
+     * @param description The description of the test type.
+     * @param collectingMethod  The test type collecting method.
+     * @param listOfParameterCategories List of parameter categories that the test type has associated.
+     * @return The test type.
+     */
+    public TestType createTestType(String code, String description, String collectingMethod, List<ParameterCategory> listOfParameterCategories){
+        return new TestType(code,description,collectingMethod,listOfParameterCategories);
+    }
+
+    /**
+     * Global validation of a test type.
+     * @param testType Test Type that we intend to validate.
+     * @return false if the test type already exists or is null. Otherwise, it returns true.
+     */
+    public boolean validateTestType(TestType testType) {
+        if (testType == null)
+            return false;
+        return !this.testTypeList.contains(testType);
+    }
 
 
 
