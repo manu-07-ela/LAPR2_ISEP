@@ -34,7 +34,7 @@ public class ClientStore {
      * Creates an instance of Client receiving a Client DTO and Client Mapper by parameter
      * @param cldto a client DTO
      * @param clMapper a instance of Client Mapper
-     * @return
+     * @return an instance of Client
      */
     public Client createClient(ClientDto cldto, ClientMapper clMapper) {
         return clMapper.toModel(cldto);
@@ -71,7 +71,7 @@ public class ClientStore {
         SecureRandom random = new SecureRandom();
         StringBuilder pwd = new StringBuilder();
 
-        File archive = new File("loginCredentials\\" + cl.getName() + ".txt");
+        File archive = new File("./" + cl.getName() + ".txt");
         FileWriter fw = new FileWriter(archive, true);
 
         for (int i = 0; i < 10; i++) {
@@ -107,7 +107,8 @@ public class ClientStore {
             return false;
         } else {
             this.clientList.add(cl);
-            return clAuthFacade.addUser(cl.getName(),cl.getEmail(), generatelogin(cl));
+            String pwd = generatelogin(cl);
+            return clAuthFacade.addUser(cl.getName(),cl.getEmail(), pwd);
         }
     }
 }

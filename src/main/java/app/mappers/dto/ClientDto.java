@@ -47,14 +47,14 @@ public class ClientDto {
 
     /**
      * Creates a new instance of ClientDto with the following attributes: name, citizencardnumber, nhs, date, sex, tin, phonenumber, email
-     * @param name
-     * @param citizencardnumber
-     * @param nhs
-     * @param date
-     * @param sex
-     * @param tin
-     * @param phonenumber
-     * @param email
+     * @param name name of Client
+     * @param citizencardnumber Citizen card number of Client
+     * @param nhs National HealthCare Service number of Client
+     * @param date Birth-date of Client
+     * @param sex Gender of Client
+     * @param tin Tax identification number of Client
+     * @param phonenumber Phone number of Client
+     * @param email E-mail of Client
      */
     public ClientDto(String name, String citizencardnumber, String nhs, String date, String sex, String tin, String phonenumber, String email) {
         this.name = name;

@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autonumber
+
+participant "store: ClinicalAnalysisLaboratoryStore" as CALStore
+participant ":ClinicalAnalysisLaboratoryMapper" as MapperCal
+participant "DTO:ClinicalAnalysisLaboratoryDTO" as CALDTO
+participant "cal: ClinicalAnalysisLaboratory" as CAL
+
+CALStore -> MapperCal : ToModel(calDTO)
+deactivate CALStore
+activate MapperCal
+MapperCal -> CALDTO : name=getname()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CALDTO : address=getaddress()
+activate CALDTO
+deactivate CALDTO
+MapperCal -> CALDTO : phoneNumber=getphoneNumber()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CALDTO : TIN=getTIn()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CALDTO : laboratoryId=getlaboratoryId()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CALDTO : listOfTestTypes=getlistOfTestTypes()
+activate CALDTO
+deactivate CALDTO
+
+MapperCal -> CAL** : create (name, address, phoneNumber , TIN ,laboratoryId,selectedTestTypesList)
+
+
+deactivate MapperCal
+@enduml
