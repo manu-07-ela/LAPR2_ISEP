@@ -36,26 +36,15 @@ public class RegisterEmployeeUI implements Runnable{
      */
     @Override
     public void run() {
-        SpecialistDoctor specialistDoctor = null;
-        Employee emp = null;
         showOrganizationRole();
         OrganizationRole orgRole = createOrganizationRole();
-        if (orgRole.getDesignation().equalsIgnoreCase("SPECIALIST DOCTOR")){
-            specialistDoctor = createSpecialistDoctor(orgRole);
-            try {
-                showSpecialistDoctor(specialistDoctor);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        EmployeeDTO employeeDTO = createEmployeeDTO(orgRole);
+        try {
+            showEmployee(employeeDTO, orgRole);
+        }catch (IOException e){
+            e.printStackTrace();
         }
-        else{
-            emp =  createEmployee(orgRole);
-            try {
-                showEmployee(emp);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+
     }
 
     /**
@@ -205,65 +194,56 @@ public class RegisterEmployeeUI implements Runnable{
     }
 
     /**
-     * Create an instance of specialist doctor
-     * @param organizationRole the organization role played by the employee
-     * @return the specialist doctor
-     */
-    private SpecialistDoctor createSpecialistDoctor(OrganizationRole organizationRole){
-        return controller.createSpecialistDoctor(new EmployeeDTO(name(), email(), address(), phoneNumber(), socCode(), organizationRole, doctorIndexNumber()));
-    }
-
-    /**
      * Create an instance of employee
      * @param organizationRole the organization role played by the employee
      * @return the employee
      */
-    private Employee createEmployee(OrganizationRole organizationRole){
-        return controller.createEmployee(new EmployeeDTO(name(), email(), address(), phoneNumber(), socCode(), organizationRole));
+    private EmployeeDTO createEmployeeDTO(OrganizationRole organizationRole){
+        if (organizationRole.getDesignation().equalsIgnoreCase("specialist doctor"))
+            return new EmployeeDTO(name(), email(), address(), phoneNumber(), socCode(), organizationRole, doctorIndexNumber());
+        else
+            return new EmployeeDTO(name(), email(), address(), phoneNumber(), socCode(), organizationRole);
     }
 
-    /**
-     * Shows the employee and asks if the user wants to save him
-     * @param emp the employee
-     */
-    private void showEmployee(Employee emp) throws IOException {
-        System.out.println();
-        System.out.println("-*-*-*-*-*- Employee data -*-*-*-*-*-");
-        System.out.println(emp);
-        System.out.println("Do you want to save this employee?");
-        System.out.println("1. YES");
-        System.out.println("2. NO");
-        int option = Utils.readIntegerFromConsole("Type your option: ");
-        if (option == 1){
-            if ( controller.saveEmployee(emp) && controller.transformEmployeeInUser(emp)){
-                System.out.println("Operation completed successfully, your employee was saved.");
-                System.out.println("Your credentials are in the file named:" + emp.getEmployeeId());
-            }
-
-        }
-    }
 
     /**
      * Shows the specialist doctor and asks if the user wants to save him
      * @param emp the specialist doctor
      */
-    private void showSpecialistDoctor(SpecialistDoctor emp) throws IOException {
+    private void showEmployee(EmployeeDTO emp, OrganizationRole orgRole) throws IOException {
         System.out.println();
+        System.out.println("-*-*-*-*-*- Employee data -*-*-*-*-*-");
+        System.out.println("Organization Role: " + emp.getOrganizationRole().getDesignation());
+        System.out.println("Name:" + emp.getName().getDesignation());
+        System.out.println("Email: " + emp.getEmail().getEmail());
+        System.out.println("Address: " + emp.getAddress().getDesignation());
+        System.out.println("Phone number: " + emp.getPhoneNumber().getNumber());
+        System.out.println("SOC code: " + emp.getSocCode().getCode());
+        if (orgRole.getDesignation().equalsIgnoreCase("specialist doctor")){
+            System.out.println("Doctor index number: " + emp.getDoctorIndexNumber().getNumber());
+        }
         System.out.println("Do you want to save this employee?");
-        System.out.println(emp);
         System.out.println("1. YES");
         System.out.println("2. NO");
         int option = Utils.readIntegerFromConsole("Type your option: ");
         if (option == 1){
-            if (controller.saveEmployee(emp) && controller.transformEmployeeInUser(emp)){
-                System.out.println("Operation completed successfully, your employee was saved.");
-                System.out.println("Your credentials are in the file named:" + emp.getEmployeeId());
+            if (orgRole.getDesignation().equalsIgnoreCase("specialist doctor")) {
+                SpecialistDoctor specialistDoctor = controller.createSpecialistDoctor(emp);
+                if (controller.saveEmployee(specialistDoctor)) {
+                    controller.transformEmployeeInUser(specialistDoctor);
+                    System.out.println("Operation completed successfully, your employee was saved.");
+                    System.out.println("Your credentials are in the file named:" + specialistDoctor.getEmployeeId());
+                }
+            } else{
+                Employee employee = controller.createEmployee(emp);
+                if (controller.saveEmployee(employee)){
+                    controller.transformEmployeeInUser(employee);
+                    System.out.println("Operation completed successfully, your employee was saved.");
+                    System.out.println("Your credentials are in the file named:" + employee.getEmployeeId());
+                }
+
             }
-
-
-
-
-        }
+        }else System.out.println("You didn't save this employee");
     }
 
 

@@ -64,10 +64,10 @@
 - *_AC5:_* The phone number must have 11 digits.
 - *_AC6:_* Doctor index number has 6 digits.
 - *_AC7:_* Soc number must have 4 digits.
-- *_AC7:_* The Organization role must have maximum 15 characters.
-- *_AC8:_* When the application is used for the first time, it must contain at least one administrator registered in the system.
-- *_AC9:_* The Employee name has maximum 35 characters.
-- *_AC10:_* Password must have ten alphanumerics characters.
+- *_AC8:_* The Organization role must have maximum 15 characters.
+- *_AC9:_* When the application is used for the first time, it must contain at least one administrator registered in the system.
+- *_AC10:_* The Employee name has maximum 35 characters.
+- *_AC11:_* Password must have ten alphanumerics characters.
 
 ### 1.4. Found out Dependencies
 - The "Auth" component
@@ -170,24 +170,88 @@ Other software classes (i.e. Pure Fabrication) identified:
 ![US07-CD](US07-CD.svg)
 
 # 4. Tests 
-*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
 
-**_DO NOT COPY ALL DEVELOPED TESTS HERE_**
+**Test 1:** Check that it is not possible to create an instance of the Employee class with null values. 
 
-**Test 1:** Check that it is not possible to create an instance of the Example class with null values. 
+	@Test(expected = NullPointerException.class)
+    public void ensureNullIsNotAllowed(){new Employee(null, null, null, null, null, null);}
+**Test 2:** Check that it is not possible to create an instance of Name with less than 35 characters - AC9.
 
 	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Exemplo instance = new Exemplo(null, null);
-	}
+    public void ensureNameMeetsAC9(){new Name("Maria Lucia Lima de Ferreira Carvalho");}
 
-*It is also recommended to organize this content by subsections.* 
+**Test 3:** Check that it is not possible to create an instance of Doctor index number with less than 6 digits - AC6.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureDoctorIndexNumberMeetsAC6_1(){new DoctorIndexNumber("1234567");}
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureDoctorIndexNumberMeetsAC6_2(){new DoctorIndexNumber("123");}
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureDoctorIndexNumberMeetsAC6_3(){new DoctorIndexNumber("1adt57");}
+  
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureNameMeetsAC9(){new Name("Maria Lucia Lima de Ferreira Carvalho");}
+
+**Test 4:** Check that it is not possible to create an instance of SOC code with less than 4 digits - AC7.
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureSocCodeMeetsAC7_1(){new SocCode("1111111");}
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureSocCodeMeetsAC7_2(){new SocCode("1");}
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureSocCodeMeetsAC7_3(){new SocCode("1ah7");}
+
+**Test 5:** Check that it is not possible to create an instance of Phone number with less than 11 digits - AC5.
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void ensurePhoneNumberMeetsAC5_1(){new PhoneNumber("11111");}
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensurePhoneNumberMeetsAC5_2(){new PhoneNumber("11111111111111111");}
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensurePhoneNumberMeetsAC5_3(){new PhoneNumber("11111abgss");}
+
 
 # 5. Construction (Implementation)
 
-*In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
+##Class RegisterEmployeeController
+  
+    /**
+     * Returns a DTO-type list of organizational roles present in the company
+     * @return A DTO-type list of Organization roles
+     */
+    public List<OrganizationRoleDTO> getLisOfOrgRoles(){
+       return this.mapperOrgRole.listOrgRolesDto(this.organizationRoleStore.getListOrgRoles());
+    }
 
-*It is also recommended to organize this content by subsections.* 
+##Class EmployeeStore
+
+    /**
+     * Global validation of a Employee
+     * @param employee Employee that we intend to validate
+     * @return false if the employee already exists or is null. Otherwise, it returns true.
+     */
+    public boolean validateEmployee(Employee employee){
+        if (employee == null) return false;
+        return !this.employees.contains(employee);
+    }
+
+    /**
+     * Save the employee case it is in a valid state.
+     * @param employee The employee we intend to save
+     * @return true if the employee was saved. Otherwise, false.
+     */
+    public boolean saveEmployee(Employee employee){
+        if (!validateEmployee(employee)) return false;
+        return this.addEmployee(employee);
+    }
+
+
 
 # 6. Integration and Demo 
 

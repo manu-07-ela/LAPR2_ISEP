@@ -124,7 +124,9 @@ public class RegisterEmployeeController {
         String password = generatePassword();
         File archive = new File("loginCredentials\\" + emp.getEmployeeId() + ".txt");
         FileWriter fw = new FileWriter(archive, true);
+
         try {
+            if (archive.exists()) archive.delete();
             fw.write("ID: " + emp.getEmail().getEmail() + "\n");
             fw.write("PASSWORD: " + password + "\n");
         }catch (IOException e){

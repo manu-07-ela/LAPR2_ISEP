@@ -23,8 +23,8 @@ UI -> CTRL: listOrgRolesDto = getListOfOrgRoles()
 activate CTRL
 CTRL -> COMP : store = getOrgRolesStore()
 activate COMP
-CTRL->ORGSTORE : listOrgRoles = getListOfOrgRoles()
 deactivate COMP
+CTRL->ORGSTORE : listOrgRoles = getListOfOrgRoles()
 activate ORGSTORE
 UI-->ADM : show the employees roles
 deactivate ORGSTORE
@@ -45,8 +45,9 @@ ORGSTORE -> MAPPER : orgRole = toOrgRole(orgRoleDto)
 activate MAPPER
 MAPPER -> ORGROLEDTO : designation = getDesignationDto()
 activate ORGROLEDTO
-MAPPER-->"orgRole : \n OrganizationRole"** : create(designation)
 deactivate ORGROLEDTO
+MAPPER-->"orgRole : \n OrganizationRole"** : create(designation)
+
 alt orgRole = specialist doctor
 UI --> ADM : request data (name, address, phoneNumber, email,socCode, doctorIndexNumber)
 else
@@ -100,11 +101,12 @@ UI -> CTRL : createEmployee(empDto)
 activate CTRL
 CTRL -> COMP : store = getEmployeeStore()
 activate COMP
+deactivate COMP
 
 CTRL-> STORE : emp = createEmployee(empDto)
 activate STORE
 deactivate CTRL
-deactivate COMP
+
 STORE ->MAPPEREMP : emp = createEmployee(empDto)
 activate MAPPEREMP
 

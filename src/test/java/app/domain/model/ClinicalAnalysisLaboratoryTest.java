@@ -91,6 +91,7 @@ public class ClinicalAnalysisLaboratoryTest {
         ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567","12ki3",testTypeList);
     }
 
+
     @Test(expected = IllegalArgumentException.class)
     public void TinValidation2(){
         ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567891123","12ki3",testTypeList);
