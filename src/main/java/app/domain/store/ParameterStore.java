@@ -3,6 +3,7 @@ package app.domain.store;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,17 +66,19 @@ public class ParameterStore {
      * @param description The Parameter description.
      * @param category The Parameter category.
      */
-    /*
-    public Parameter createParameter(String code, String shortName, String description, String selectedCategory){
-        return new Parameter(code,shortName,description,selectedCategory);
-    }*/
     public Parameter createParameter(String code, String shortName, String description,ParameterCategory category){
+        checkParameterExistence(code);
         return new Parameter(code,shortName,description,category);
     }
-
-
-
-
+    private void checkParameterExistence(String code) {
+        if (!StringUtils.isAlphanumeric(code)) {
+            for (Parameter param : listParameter) {
+                if (param.getCode().equals(code)) {
+                    throw new IllegalArgumentException("Already exists a Parameter with this code.");
+                }
+            }
+        }
+    }
 
     /**
      * Get the Parameter Category List
@@ -84,7 +87,19 @@ public class ParameterStore {
     public List<Parameter> getParameterList() {
         return listParameter;
     }
-
+    /**
+     * Get test type through code.
+     * @param code The code of the type of test we want to get.
+     * @return The type of test associated with that code. If there is no type of test that has that code it returns null.
+     */
+    public Parameter getParameterByCode(String code) {
+        for (Parameter param : listParameter) {
+            if (param.getCode().equals(code)) {
+                return param;
+            }
+        }
+        return null;
+    }
 
 
 

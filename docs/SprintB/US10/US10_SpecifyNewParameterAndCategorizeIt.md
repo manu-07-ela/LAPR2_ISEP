@@ -147,7 +147,7 @@ for the second option this would mean that the Admin will have duplicate work: (
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |	...saving the inputted data? | Parameter  | IE: object created in step 1 has its own data.  |
 | Step 4  		 | ... knowing the parameter categories to show?                   | ParameterCategoryStore   | IE: knows all the categories of parameters.                                                                               |
-| Step 5  		 | ... saving the selected categories?                             | Parameter                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
+| Step 5  		 | ... saving the selected category?                             | Parameter                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
 | Step 6  		 |                                                                 |                          |                                                                                                                           |
 | Step 7  		 | ... validating all data (local validation)?                     | Parameter                 | IE: owns its data.                                                                                                        |
 |                | ... validating all data (global validation)?                    | ParameterStore            | IE: knows all types of tests.                                                                                             |
@@ -165,6 +165,8 @@ According to the taken rationale, the conceptual classes promoted to software cl
 Other software classes (i.e. Pure Fabrication) identified: 
  * CreateParameterUI  
  * CreateParameterController
+ * ParameterCategoryMapper
+ * ParameterCategoryStore
  * ParameterStore
 
 ## 3.2. Sequence Diagram (SD)
