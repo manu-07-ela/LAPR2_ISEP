@@ -18,8 +18,8 @@ public class EmployeeTest {
 
     /*@Test
     public void getEmployeeId() {
-        String expectedResult1 = "MDAL00010";
-        String expectedResult2 = "JFM00011";
+        String expectedResult1 = "MDAL00000";
+        String expectedResult2 = "JFM00001";
         String result1 = emp.getEmployeeId();
         String result2 = empAux.getEmployeeId();
         Assert.assertEquals(expectedResult1, result1);
@@ -28,7 +28,6 @@ public class EmployeeTest {
 
     @Test(expected = NullPointerException.class)
     public void ensureNullIsNotAllowed(){new Employee(null, null, null, null, null, null);}
-
 
     @Test
     public void ensureEmployeeObeysAllAc(){
