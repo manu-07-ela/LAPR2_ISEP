@@ -43,7 +43,7 @@ public class OrganizationRoleStore{
      * @return a organization role
      */
     public OrganizationRole createOrganizationRole(OrganizationRole orgRole){
-        if (!validateOrganizationRole(orgRole)) throw new IllegalArgumentException("This Organization Role do not exist in Company");
+        if (validateOrganizationRole(orgRole)) throw new IllegalArgumentException("This Organization Role do not exist in Company");
         return new OrganizationRole(orgRole);
     }
 
@@ -53,10 +53,19 @@ public class OrganizationRoleStore{
      * @return false if the organizationRole already exists or is null. Otherwise, it returns true.
      */
     public  boolean validateOrganizationRole(OrganizationRole orgRole){
-
-        return listOrgRoles.contains(orgRole);
+        return !listOrgRoles.contains(orgRole);
     }
 
+    /**
+     * save a new organization role in the List.
+     * @param organizationRole Organization role we intend to save.
+     * @return true if the organization role was saved, false otherwise;
+     */
+    public boolean saveOrganizationRole(OrganizationRole organizationRole){
+        if (validateOrganizationRole(organizationRole) && organizationRole!= null)
+            return listOrgRoles.add(organizationRole);
+        return false;
 
+    }
 
 }

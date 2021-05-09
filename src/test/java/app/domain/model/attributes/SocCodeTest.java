@@ -19,6 +19,14 @@ public class SocCodeTest {
     public void ensureSocCodeMeetsAC7_3(){new SocCode("1ah7");}
 
     @Test
+    public void getSocCode(){
+        SocCode sc1 = new SocCode("1234");
+        String expectedResult = "1234";
+        Assert.assertEquals(expectedResult, sc1.getSocCode());
+    }
+
+
+    @Test
     public void socCodeEquals(){
         SocCode sc1 = new SocCode("1234");
         SocCode sc2 = new SocCode("1234");

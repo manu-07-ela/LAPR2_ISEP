@@ -24,39 +24,29 @@ public class RegisterEmployeeController {
     /**
      * Represents a instance of company
      */
-    private Company company;
+    private final Company company;
     /**
      *Represents an instance of the employee store
      */
-    private EmployeeStore employeeStore;
+    private final EmployeeStore employeeStore;
     /**
      *Represents an instance of the organization role store
      */
-    private  OrganizationRoleStore organizationRoleStore;
-    /**
-     *Represents an instance of employee
-     */
-    private Employee emp;
+    private final OrganizationRoleStore organizationRoleStore;
+
     /**
      *Represents an instance Auth facade
      */
-    private AuthFacade authFacade;
+    private final AuthFacade authFacade;
     /**
      *Represents an instance of the employee store
      */
-    private OrganizationRoleMapper mapperOrgRole;
-    /**
-     *Represents an instance of the employee mapper
-     */
-    private EmployeeMapper mapperEmp;
-    /**
+    private final OrganizationRoleMapper mapperOrgRole;
+     /**
      *Represents an instance of organization role
      */
     private OrganizationRole orgRole;
-    /**
-     *Represents an instance of specialist doctor
-     */
-    private SpecialistDoctor specialistDoctor;
+
 
     /**
      * Constructs an instance of {@code RegisterEmployeeController}
@@ -66,7 +56,6 @@ public class RegisterEmployeeController {
         this.employeeStore = company.getEmployeeStore();
         this.organizationRoleStore = company.getOrganizationRoleStore();
         this.mapperOrgRole = new OrganizationRoleMapper();
-        this.mapperEmp = new EmployeeMapper();
         this.authFacade = company.getAuthFacade();
 
     }
@@ -80,7 +69,6 @@ public class RegisterEmployeeController {
         this.employeeStore = company.getEmployeeStore();
         this.organizationRoleStore = company.getOrganizationRoleStore();
         this.mapperOrgRole = new OrganizationRoleMapper();
-        this.mapperEmp = new EmployeeMapper();
         this.authFacade = company.getAuthFacade();
     }
 
@@ -108,8 +96,7 @@ public class RegisterEmployeeController {
      * @return the Specialist Doctor
      */
     public SpecialistDoctor createSpecialistDoctor(EmployeeDTO empDto){
-        this.specialistDoctor = employeeStore.createSpecialistDoctor(empDto);
-        return specialistDoctor;
+         return employeeStore.createSpecialistDoctor(empDto);
     }
 
     /**
@@ -118,8 +105,7 @@ public class RegisterEmployeeController {
      * @return the Employee
      */
     public Employee createEmployee(EmployeeDTO empDto){
-        this.emp = employeeStore.createEmployee(empDto);
-        return emp;
+        return employeeStore.createEmployee(empDto);
     }
 
     /**
@@ -127,7 +113,7 @@ public class RegisterEmployeeController {
      * @return True if the employee is saved in the employee store, false otherwise
      */
     public boolean saveEmployee(Employee emp){
-        return this.employeeStore.addEmployee(emp);
+        return this.employeeStore.saveEmployee(emp);
     }
 
     /**
@@ -139,9 +125,16 @@ public class RegisterEmployeeController {
         String password = generatePassword();
         File archive = new File("loginCredentials\\" + emp.getEmployeeId() + ".txt");
         FileWriter fw = new FileWriter(archive, true);
-        fw.write("ID: " + emp.getEmail().getEmail() + "\n");
-        fw.write("PASSWORD: " + password + "\n");
-        fw.close();
+        try {
+            fw.write("ID: " + emp.getEmail().getEmail() + "\n");
+            fw.write("PASSWORD: " + password + "\n");
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        finally {
+            fw.close();
+        }
         return this.authFacade.addUserWithRole(emp.getName().getName(), emp.getEmail().getEmail(),password,orgRole.getDesignation());
 
     }

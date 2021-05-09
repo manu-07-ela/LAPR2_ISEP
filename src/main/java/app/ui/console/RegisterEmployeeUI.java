@@ -22,12 +22,12 @@ public class RegisterEmployeeUI implements Runnable{
     /**
      * Represents a instance of register employee controller
      */
-    private RegisterEmployeeController controller;
+    private final RegisterEmployeeController controller;
 
     /**
      * Initializes the controller
      */
-    public  RegisterEmployeeUI(){
+    public RegisterEmployeeUI(){
         controller = new RegisterEmployeeController();
     }
 
@@ -235,8 +235,7 @@ public class RegisterEmployeeUI implements Runnable{
         System.out.println("2. NO");
         int option = Utils.readIntegerFromConsole("Type your option: ");
         if (option == 1){
-            if ( controller.saveEmployee(emp)){
-                controller.transformEmployeeInUser(emp);
+            if ( controller.saveEmployee(emp) && controller.transformEmployeeInUser(emp)){
                 System.out.println("Operation completed successfully, your employee was saved.");
                 System.out.println("Your credentials are in the file named:" + emp.getEmployeeId());
             }
@@ -256,8 +255,7 @@ public class RegisterEmployeeUI implements Runnable{
         System.out.println("2. NO");
         int option = Utils.readIntegerFromConsole("Type your option: ");
         if (option == 1){
-            if (controller.saveEmployee(emp)){
-                controller.transformEmployeeInUser(emp);
+            if (controller.saveEmployee(emp) && controller.transformEmployeeInUser(emp)){
                 System.out.println("Operation completed successfully, your employee was saved.");
                 System.out.println("Your credentials are in the file named:" + emp.getEmployeeId());
             }

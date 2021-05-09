@@ -51,12 +51,22 @@ public class EmployeeStore {
     }
 
     /**
+     * Save the employee case it is in a valid state.
+     * @param employee The employee we intend to save
+     * @return true if the employee was saved. Otherwise, false.
+     */
+    public boolean saveEmployee(Employee employee){
+        if (!validateEmployee(employee)) return false;
+        return this.addEmployee(employee);
+    }
+    /**
      * Global validation of a Employee
      * @param employee Employee that we intend to validate
      * @return false if the employee already exists or is null. Otherwise, it returns true.
      */
     public boolean validateEmployee(Employee employee){
-        return employee == null ? false : !this.employees.contains(employee);
+        if (employee == null) return false;
+        return !this.employees.contains(employee);
     }
 
     /**

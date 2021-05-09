@@ -14,6 +14,14 @@ public class NameTest {
     public void ensureNameMeetsAC9(){new Name("Maria Lucia Lima de Ferreira Carvalho");}
 
     @Test
+    public void getName(){
+        Name name1 = new Name("Manuela de Araujo Leite");
+        String expectedResult = "Manuela de Araujo Leite";
+        Assert.assertEquals(expectedResult, name1.getName());
+
+    }
+
+    @Test
     public void NameEquals(){
         Name name1 = new Name("Manuela de Araujo Leite");
         Name name2 = new Name("Manuela de Araujo Leite");

@@ -10,6 +10,14 @@ public class AddressTest {
     public void ensureAddressNullIsNotAllowed(){new Address("");}
 
     @Test
+    public void getAddress(){
+        Address adr1 = new Address("Rua do fojo");
+        String expectedResult = "Rua do fojo";
+        Assert.assertEquals(expectedResult, adr1.getAddress());
+
+    }
+
+    @Test
     public void addressEquals(){
         Address adr1 = new Address("Rua do fojo");
         Address adr2 = new Address("Rua do fojo");
