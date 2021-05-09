@@ -9,41 +9,41 @@ public class ClientDto {
     /**
      * Client's name
      */
-    private String name;
+    private final String name;
     /**
      * Client's citizen card number
      */
-    private String citizencardnumber;
+    private final String citizencardnumber;
 
     /**
      * Client's National Healthcare Service number
      */
-    private String nhs;
+    private final String nhs;
 
     /**
      * Client's birth date
      */
-    private String date;
+    private final String date;
 
     /**
      * Client's gender
      */
-    private String sex;
+    private final String sex;
 
     /**
      * Client's tax identification number
      */
-    private String tin;
+    private final String tin;
 
     /**
      * Client's phone number
      */
-    private String phonenumber;
+    private final String phonenumber;
 
     /**
      * Client's e-mail
      */
-    private String email;
+    private final String email;
 
     /**
      * Creates a new instance of ClientDto with the following attributes: name, citizencardnumber, nhs, date, sex, tin, phonenumber, email

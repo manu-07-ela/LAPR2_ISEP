@@ -160,7 +160,7 @@ public class Employee {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Employee employee = (Employee) other;
-        return phoneNumber.equals(employee.phoneNumber) && name.equals(employee.name) && email.equals(employee.email) && organizationRole.equals(employee.organizationRole);
+        return email.equals(email);
     }
 
 }

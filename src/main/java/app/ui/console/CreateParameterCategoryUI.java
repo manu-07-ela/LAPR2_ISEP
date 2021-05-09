@@ -6,25 +6,25 @@ import app.ui.console.utils.Utils;
 
 
 /**
- *
+ * Represents an interface with the user to be able to register a new parameter category.
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
 public class CreateParameterCategoryUI implements Runnable {
 
     /**
-     *
+     * Represents a instance of create parameter category controller.
      */
     private CreateParameterCategoryController createParameterCategoryctrl;
 
     /**
-     *
+     * Initializes the controller.
      */
     public CreateParameterCategoryUI(){
         createParameterCategoryctrl = new CreateParameterCategoryController();
     }
 
     /**
-     *
+     * Invokes the necessary methods for the interface to function.
      */
     @Override
     public void run() {
@@ -33,6 +33,9 @@ public class CreateParameterCategoryUI implements Runnable {
 
     }
 
+    /**
+     * Create an instance of parameter category.
+     */
     public void createParameterCategory(){
 
 
@@ -52,11 +55,16 @@ public class CreateParameterCategoryUI implements Runnable {
                 if(result){
                     System.out.printf("%nDo you want to create a Parameter Category with the following data:%n%s",createParameterCategoryctrl.toString());
 
-                    boolean resposta = Utils.confirm("S/N:");
+                    boolean confirmation = Utils.confirm("S/N:");
 
-                    if(resposta) {
+                    if(confirmation) {
                         if (createParameterCategoryctrl.saveParameterCategory()) {
                             System.out.println("The parameter category was created successfully");
+
+                            boolean confirm = Utils.confirm("Do you want to create another one? (S/N)");
+
+                            if (confirm)
+                                dadosInvalidos = true;
                         } else {
                             System.out.println("A parameter category with that name or code already exists");
                         }

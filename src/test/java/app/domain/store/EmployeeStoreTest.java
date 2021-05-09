@@ -1,7 +1,6 @@
 package app.domain.store;
 
 import app.domain.model.Employee;
-import app.domain.model.ParameterCategory;
 import app.domain.model.SpecialistDoctor;
 import app.domain.model.attributes.*;
 import app.mappers.dto.EmployeeDTO;
@@ -47,20 +46,21 @@ public class EmployeeStoreTest {
     }
 
 
-   /* @Test
+   @Test
     public void validateValidEmployee() {
         boolean result1 = empStore.validateEmployee(emp);
         boolean result2 = empStore.validateEmployee(spcDoc);
 
-        Assert.assertTrue(result1);
-        Assert.assertTrue(result2);
+        Assert.assertFalse(result1);
+        Assert.assertFalse(result2);
     }
 
     @Test public void validateInvalidEmployee(){
         empStore.addEmployee(emp);
         boolean result = empStore.validateEmployee(emp);
-        Assert.assertFalse(result);
-    }*/
+        Assert.assertTrue(result);
+    }
+
     @Test public void validateNullEmployee(){
         Employee emp1 = null;
         boolean result = empStore.validateEmployee(emp1);
@@ -80,12 +80,12 @@ public class EmployeeStoreTest {
         Assert.assertFalse(result);
     }
 
-    /*@Test
+    @Test
     public void saveNullParameterCategory(){
         Employee emp1 = null;
         boolean result = empStore.saveEmployee(emp1);
         Assert.assertFalse(result);
-    }*/
+    }
 
     @Test
     public void getEmployeesList() {

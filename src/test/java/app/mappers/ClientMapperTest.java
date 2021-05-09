@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+
 public class ClientMapperTest {
 
     ClientDto clDto;
@@ -27,5 +28,12 @@ public class ClientMapperTest {
         Client result = clMapper.toModel(clDto);
         Assert.assertEquals(cl,result);
     }
+
+
+    /*@Test
+    public void toModel() {
+        Client result = clMapper.toModel(clDto);
+        Assert.assertEquals(cl,result);
+    }*/
 
 }
