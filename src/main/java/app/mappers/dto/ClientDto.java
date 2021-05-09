@@ -130,17 +130,5 @@ public class ClientDto {
     public String getEmail() {
         return email;
     }
-
-    /**
-     * Compare the client dto with the other object provided.
-     * @param other Object we want to compare with the client.
-     * @return true if the received object represents another client dto equivalent to the client dto. Otherwise, it returns false.
-     */
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) return true;
-        if (other == null || getClass() != other.getClass()) return false;
-        ClientDto clientdto = (ClientDto) other;
-        return this.getName().equals((clientdto).getName()) || this.getCitizencardnumber().equals((clientdto).getCitizencardnumber()) || this.getNhs().equals((clientdto).getNhs()) || this.getDate().equals((clientdto).getDate()) || this.getSex().equals((clientdto).getSex()) || this.getTin().equals((clientdto).getTin()) || this.getPhonenumber().equals((clientdto).getPhonenumber())|| this.getEmail().equals((clientdto).getEmail());
-    }
+    
 }
