@@ -1,13 +1,11 @@
 package app.mappers.dto;
 
-import app.domain.model.Parameter;
+
 import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 public class ParameterCategoryDtoTest {
 
@@ -42,6 +40,20 @@ public class ParameterCategoryDtoTest {
         ParameterCategoryDto pc1 = new ParameterCategoryDto("1f5ac", "Category");
         ParameterCategoryDto pc2 = pc1;
         Assert.assertEquals(pc1,pc2);
+    }
+
+    @Test
+    public void parameterCategoriesDtoCodeEquals(){
+        ParameterCategoryDto pc1 = new ParameterCategoryDto("1f5ac", "Category");
+        ParameterCategoryDto pc2 = new ParameterCategoryDto("1f5ac", "Category test");
+        Assert.assertNotEquals(pc1,pc2);
+    }
+
+    @Test
+    public void parameterCategoriesDtoNameEquals(){
+        ParameterCategoryDto pc1 = new ParameterCategoryDto("1f5ac", "Category");
+        ParameterCategoryDto pc2 = new ParameterCategoryDto("1f5ab", "Category");
+        Assert.assertNotEquals(pc1,pc2);
     }
 
     @Test
