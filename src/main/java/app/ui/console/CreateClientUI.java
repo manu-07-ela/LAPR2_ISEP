@@ -61,7 +61,7 @@ public class CreateClientUI implements Runnable {
                 if (resposta.equalsIgnoreCase("S")) {
                     if (createClientctrl.saveClient()) {
                         System.out.println("The Client was registered successfully");
-                        System.out.println("Your credentials are in the file named:" + cldto.getName());
+                        System.out.println("Your credentials are in the file named: " + cldto.getName());
                     }
                 }
             } catch (IllegalArgumentException | IOException e) {
