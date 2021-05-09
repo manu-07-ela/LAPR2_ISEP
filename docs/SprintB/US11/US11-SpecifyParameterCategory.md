@@ -132,13 +132,6 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **_DO NOT COPY ALL DEVELOPED TESTS HERE_**
 
-**Test 1:** Check that it is not possible to create an instance of the Example class with null values. 
-
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Exemplo instance = new Exemplo(null, null);
-	}
-
 *It is also recommended to organize this content by subsections.* 
 
 # 5. Construction (Implementation)
@@ -156,7 +149,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
 
-
+* In the future, the user story will be developed with a graphical interface, making the user experience more appealing.
 
 
 

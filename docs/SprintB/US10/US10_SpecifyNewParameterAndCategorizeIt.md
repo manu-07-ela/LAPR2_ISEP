@@ -137,8 +137,8 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 | Step 5  		 | ... saving the selected category?                             | Parameter                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
 | Step 6  		 |                                                                 |                          |                                                                                                                           |
 | Step 7  		 | ... validating all data (local validation)?                     | Parameter                 | IE: owns its data.                                                                                                        |
-|                | ... validating all data (global validation)?                    | ParameterStore            | IE: knows all types of tests.                                                                                             |
-|                | ... saving the created task?                                    | ParameterStore            | IE: owns all types of tests.                                                                                              |
+|                | ... validating all data (global validation)?                    | ParameterStore            | IE: knows all parameters.                                                                                             |
+|                | ... saving the created task?                                    | ParameterStore            | IE: owns all parameters.                                                                                              |
 | Step 8  		 | ... informing operation success?                                | CreateParameterUI         | IE: is responsible for user interactions.                                                                                 |             
 
 ### Systematization ##

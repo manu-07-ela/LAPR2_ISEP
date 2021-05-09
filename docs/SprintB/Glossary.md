@@ -11,7 +11,7 @@
 | **Benchmark**   | **Marca de referência** | A point of reference against which things may be compared.|
 |**CamelCase**| - |  It is the practice of writing phrases without spaces or punctuation, indicating the separation of words with a single capitalized letter, and the first word starting with either case.
 | **Category** | **Categoria** | Refers to a clinical categorie.|
-| **Chemical Laboratory** | **Laboratório Químico** | |
+| **Chemical Laboratory** | **Laboratório Químico** | Where chemical analyzes related to a type of test are performed.|
 | **Client**   | **Cliente** | A person using the services of Manylabs.|
 | **Clinical Analysis Laboratory**  | **Laboratório de Análises Clínicas** |Laboratory that performs blood tests and tests of covid-19.|
 | **Clinical Chemistry Technologist**  | **Técnico Químico** |  Performs the chemical analysis.|
