@@ -11,9 +11,16 @@ import java.util.List;
  */
 
 public class ReceptionistUI implements Runnable {
+
+    /**
+     * Initializes the Receptionist interface
+     */
     public ReceptionistUI() {
     }
 
+    /**
+     * Invokes the necessary methods for the interface to function
+     */
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();

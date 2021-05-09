@@ -20,12 +20,13 @@ public class ClientMapperTest {
 
     public void setup(){
         clDto=new ClientDto("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
+        cl=new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
         clMapper = new ClientMapper();
     }
 
 //    @Test
 //    public void toModel() {
 //        Client result = clMapper.toModel(clDto);
-//        Assert.assertEquals(clDto,result);
+//        Assert.assertEquals(cl,result);
 //    }
 }

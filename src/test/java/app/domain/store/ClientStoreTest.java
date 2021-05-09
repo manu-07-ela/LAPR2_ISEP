@@ -41,12 +41,12 @@ public class ClientStoreTest {
         Assert.assertTrue(result);
     }
 
-//    @Test
-//    public void validateClient2() {
-//        clStore.addClient(cl);
-//        boolean result = clStore.validateClient(cl);
-//        Assert.assertFalse(result);
-//    }
+    @Test
+    public void validateClient2() {
+        clStore.addClient(cl);
+        boolean result = clStore.validateClient(cl);
+        Assert.assertFalse(result);
+    }
 
     @Test
     public void validateLaboratory3(){
@@ -61,12 +61,12 @@ public class ClientStoreTest {
         Assert.assertTrue(result);
     }
 
-//    @Test
-//    public void saveLaboratory2() throws IOException {
-//        clStore.addClient(cl);
-//        boolean result = clStore.saveClient(cl,clauth);
-//        assertFalse(result);
-//    }
+    @Test
+    public void saveLaboratory2() throws IOException {
+        clStore.addClient(cl);
+        boolean result = clStore.saveClient(cl,clauth);
+        assertFalse(result);
+    }
 
     @Test
     public void saveLaboratory3() throws IOException {
