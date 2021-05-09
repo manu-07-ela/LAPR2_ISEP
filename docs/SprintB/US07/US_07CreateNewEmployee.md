@@ -301,7 +301,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 7. Observations
 
-* In the future, the user story will be developed with a graphical interface, and the option to select the organizational role will be added.
+`* In the future, the user story will be developed with a graphical interface, and the option to select the organizational role will be added.`
   
 
 * The responsibility of generating a random password maturely may in the future be delegated to a new class for greater maintenance of the code.

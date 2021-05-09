@@ -100,7 +100,7 @@ n/a
 | Step 2  		 |                                                                 |                          |                                                                                                                           |
 | Step 3  		 | ... saving the inputted data?                                   | TestType                 | IE: object created in step 1 has its own data.                                                                            |
 | Step 4  		 | ... knowing the parameter categories to show?                   | ParameterCategoryStore   | IE: knows all the categories of parameters.                                                                               |
-|                |                                                                 | ParameterCategoryMapper  | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
+|                | ... process the data and convert it to dto                      | ParameterCategoryMapper  | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
 | Step 5  		 | ... saving the selected categories?                             | TestType                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
 | Step 6  		 |                                                                 |                          |                                                                                                                           |
 | Step 7  		 | ... validating all data (local validation)?                     | TestType                 | IE: owns its data.                                                                                                        |
@@ -115,7 +115,6 @@ According to the taken rationale, the conceptual classes promoted to software cl
  * Company
  * TestType
  * ParameterCategory
- 
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
@@ -123,6 +122,7 @@ Other software classes (i.e. Pure Fabrication) identified:
  * CreateTestTypeController
  * ParameterCategoryStore  
  * TestTypeStore
+ * ParameterCategoryMapper
 
 
 ## 3.2. Sequence Diagram (SD)
@@ -142,10 +142,66 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **_DO NOT COPY ALL DEVELOPED TESTS HERE_**
 
-**Test 1:** 
 
+**Test 1:** Check that it is not possible to create an instance of the Test Type class with null values.
 
-*It is also recommended to organize this content by subsections.* 
+	@Test(expected = IllegalArgumentException.class)
+    public void ensureNullIsNotAllowed(){
+        TestType tt = new TestType(null,null,null,null);
+    }
+
+**Test 2:** Check that it is not possible to create an instance of the Test Type class with a code invalid - AC1.
+
+	@Test(expected = IllegalArgumentException.class)
+    public void ensureCodeMeetsAC1_1(){
+        TestType tt = new TestType("1g3d7h","description","method",listPC);
+    }
+
+	@Test(expected = IllegalArgumentException.class)
+	public void ensureCodeMeetsAC1_2(){
+		TestType tt = new TestType("1g3","description","method",listPC);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+    public void ensureCodeMeetsAC1_3(){
+        TestType tt = new TestType("1.3","description","method",listPC);
+    }
+
+**Test 3:** Check that it is not possible to create an instance of the Test Type class with a description invalid - AC2.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureDescriptionMeetsAC2(){
+        TestType tt = new TestType("1g3d7","descriptionteste","collectingMethodTest",listPC);
+    }
+
+    @Test
+    public void ensureDescriptionMeetsAC2_1(){
+        TestType tt = new TestType("1g354","descriptiontest","collectingsmethod",listPC);
+        Assert.assertNotNull(tt);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureBlankDescriptioNotAllowed(){
+        TestType tt = new TestType("1g3d7","","collectingMethodTest",listPC);
+    }
+
+**Test 4:** Check that it is not possible to create an instance of the Test Type class with a collecting method invalid - AC3.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureCollectingMethodMeetsAC3(){
+        TestType tt = new TestType("1g354","description","collectingsmethodsteste",listPC);
+    }
+
+    @Test
+    public void ensureCollectingMethodMeetsAC3_1(){
+        TestType tt = new TestType("1g354","description","collectingsmethodstt",listPC);
+        Assert.assertNotNull(tt);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureBlankCollectingMethodNotAllowed(){
+        TestType tt = new TestType("1g354","description","",listPC);
+    }
 
 # 5. Construction (Implementation)
 *In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
@@ -200,7 +256,15 @@ Other software classes (i.e. Pure Fabrication) identified:
 		return parameterCategoryStore;
 	}
 
-## Class TestType Store
+	 /**
+     * Get the instance of TestTypeStore.
+     * @return the instance of TestTypeStore.
+     */
+    public TestTypeStore getTestTypeStore(){
+        return testTypeStore;
+    }
+
+## Class TestTypeStore
 
 	/**
      * New test type.
@@ -236,6 +300,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
 
+* In the future, the user story will be developed with a graphical interface, making the user experience more appealing.
 
 
 
