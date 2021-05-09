@@ -105,9 +105,6 @@ All information is required.
 
 ### 1.7 Other Relevant Remarks
 
-* This Us is going to be used frequently in the beginning to register the Clinical Analysis Laboratories 
-  that they have but later its use will become rarer.
-
 
 ## 2. OO Analysis
 
@@ -182,7 +179,7 @@ Other software classes (i.e. Pure Fabrication) identified:
     }
 	
 
-**Test 2:** Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a laboratoryId containing less than five chars - AC2. 
+**Test 2:** Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a laboratoryId containing different from five chars - AC2. 
 
 	@Test(expected = IllegalArgumentException.class)
     public void LaboratoryIdValidation1(){
@@ -203,14 +200,14 @@ Other software classes (i.e. Pure Fabrication) identified:
         ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas assadas no forno","12345678912","1234567891","12ki3",testTypeList);
     }
 
-**Test 5:**  Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a Phone Number with less than 11 digit - AC5
+**Test 5:**  Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a Phone Number with different from 11 digit - AC5
 
     @Test(expected = IllegalArgumentException.class)
     public void PhoneNumberValidation2(){
         ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678","1234567891","12ki3",testTypeList);
     }
 
-**Test 6:**  Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a Tin with more than 10 digit - AC6
+**Test 6:**  Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a Tin different from 10 digit - AC6
 
      @Test(expected = IllegalArgumentException.class)
     public void TinValidation2(){
@@ -261,13 +258,6 @@ Other software classes (i.e. Pure Fabrication) identified:
         return store.saveClinicalAnalysisLaboratory(cal);
     }
 
-## Class Company
-
-    /**
-     * Gets the list containing the ClinicalAnalysisLaboratoryStore
-     * @return The ClinicalAnalysisLaboratoryStore
-     */
-    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){ return clinicalnAlysisLaboratoryStore; }
 
 ## Class ClinicalAnalysisLaboratoryStore
 

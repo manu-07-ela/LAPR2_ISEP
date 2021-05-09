@@ -17,20 +17,17 @@ class Company{
 
 
 class ClinicalAnalysisLaboratory {
-  -String laboratoryId
-  -List<TestType> listOfTestTypes
-  create (name, address, phoneNumber , TIN ,laboratoryId,selectedTestTypesList)
-
-
-}
-
-class Laboratory {
   -String name
   -String address
   -int phoneNumber
   -int tin
+  -String laboratoryId
+  -List<TestType> listOfTestTypes
+
+
 
 }
+
 
 class TestTypeStore{
 +getTestTypeList()
@@ -39,11 +36,12 @@ class TestTypeStore{
 class ClinicalAnalysisLaboratoryStore{
   +createClinicalAnalysisLaboratory(calDTO)
   +validateClinicalAnalysisLaboratory(cal)
+  +validateClinicalAnalysisLaboratoryglobal(cal)
   +addClinicalAnalysisLaboratory(cal)
 }
 
 class ClinicalAnalysisLaboratoryMapper {
-   +toDTO(listTestType)
+   +toDomain(calDTO)
 
 }
 
@@ -91,7 +89,6 @@ CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryStore
 CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratory
 CreateClinicalAnalysisLaboratoryController ..> TestTypeMapper
 ClinicalAnalysisLaboratoryStore"1" --> "1" ClinicalAnalysisLaboratory : conducts
-Laboratory  <|- ClinicalAnalysisLaboratory
 ClinicalAnalysisLaboratoryMapper ..> ClinicalAnalysisLaboratoryDTO
 ClinicalAnalysisLaboratoryMapper ...> ClinicalAnalysisLaboratory
 Company "1" --> "1" TestTypeStore : uses
