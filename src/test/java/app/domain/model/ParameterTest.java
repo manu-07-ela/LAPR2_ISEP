@@ -12,12 +12,14 @@ import static org.junit.Assert.*;
 public class ParameterTest {
 
     ParameterCategory pc;
+    ParameterCategory pc1;
     List<Parameter> listParameter;
     Parameter p;
 
     @Before
     public void setup(){
         pc = new ParameterCategory("55Y7V","Covid-19");
+        pc1 = new ParameterCategory("FTB01","Hemogram");
         p = new Parameter("98765","test","method", pc);
     }
 
@@ -73,19 +75,26 @@ public class ParameterTest {
     @Test
     public void ParameterCodesEquals(){
         Parameter p1 = new Parameter("TT030","rbc","Red Blood Cells",pc);
-        Parameter p2 = new Parameter("TT030","wbc","While Blood Cells",pc);
+        Parameter p2 = new Parameter("TT030","wbc","While Blood Cells",pc1);
         Assert.assertEquals(p1,p2);
     }
 
     @Test
     public void ParameterShortNameEquals(){
         Parameter p1 = new Parameter("TT030","rbc","Red Blood Cells",pc);
-        Parameter p2 = new Parameter("TT031","rbc","While Blood Cells",pc);
+        Parameter p2 = new Parameter("TT031","rbc","While Blood Cells",pc1);
         Assert.assertEquals(p1,p2);
     }
 
     @Test
     public void ParameterDescriptionEquals(){
+        Parameter p1 = new Parameter("TT030","rbc","Red Blood Cells",pc);
+        Parameter p2 = new Parameter("TT030","rbc","Red Blood Cells",pc1);
+        Assert.assertEquals(p1,p2);
+    }
+
+    @Test
+    public void ParameterCategoryEquals(){
         Parameter p1 = new Parameter("TT030","rbc","Red Blood Cells",pc);
         Parameter p2 = new Parameter("TT030","rbc","Red Blood Cells",pc);
         Assert.assertEquals(p1,p2);
