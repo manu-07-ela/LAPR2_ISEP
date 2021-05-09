@@ -135,13 +135,13 @@
 | Step 2       |  ... knowing who is responsible for know all Organization role?| Company |  Creator (R1)|
 |              | ...know all the organizational roles for show? | OrganizationRoleStore |HC+LC on the Company. By HC / LC the Company delegates these responsibilities in OrganizationRoleStore. |
 | Step 3       | ... saving the selected role ?    | OrganizationRole | IE: object created to have all the information about a role |
-| Step 4       | n/a                               |  n/a         | n/a |
-| Step 5       | ... saving the inputted data ?    | Employee | IE: the object created in step 1 has its own data |
-|              |                                   | EmployeeDto | IE: dto from the object created in step 1 and has its data |
-| Step 6       | ... who shows the output ?        | CreateEmployeeUI | IE: responsible for user interactions with the system |
-| Step 7       | ... validating all data (local validation) ? | OrgRole | IE: holds the role data and creates the employee |
-|              | ... validating all data (global validation) ? | Company | IE: knows all its tasks |
-|              | ... saving the created task ? | Company | IE: knows all its tasks |
+| Step 4       |                               |         |  |
+| Step 5       | | | 
+| Step 6       | ... saving the inputted data ?    | Employee | IE: the object created in step 1 has its own data |
+| Step 7      | ... who shows the output ?        | CreateEmployeeUI | IE: responsible for user interactions with the system |
+| Step 8       | ... validating all data (local validation) ? | Employee | IE: holds the role data and creates the employee |
+|              | ... validating all data (global validation) ? | EmployeeStore | IE: knows all its Employees |
+|              | ... saving the created task ? | EmployeeStore | IE: knows all its Employees|
 | Step 8       | ... informing operation success ?  | CreateEmployeeUI | IE: responsible for user interactions with the system |
 ### Systematization ##
 
@@ -301,7 +301,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 7. Observations
 
-* In the future, the user story will be developed with a graphical interface, and the option to select the organizational role will be added.
+`* In the future, the user story will be developed with a graphical interface, and the option to select the organizational role will be added.`
   
 
 * The responsibility of generating a random password maturely may in the future be delegated to a new class for greater maintenance of the code.

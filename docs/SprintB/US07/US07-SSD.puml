@@ -15,7 +15,7 @@ activate sy
 opt employees role = specialist doctor
 sy --> Adm : request data (name, address, phoneNumber, email,socCode, doctorIndexNumber)
 else
-sy --> Adm : request data (name, adress, phoneNumber, email, socCode)
+sy --> Adm : request data (name, address, phoneNumber, email, socCode)
 deactivate sy
 end
 Adm -> sy: types requested data
