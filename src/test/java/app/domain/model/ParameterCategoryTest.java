@@ -12,8 +12,8 @@ public class ParameterCategoryTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureBlankIsNotAllowed() {
-        ParameterCategory pc = new ParameterCategory("", "");
+    public void ensureBlankNameIsNotAllowed() {
+        ParameterCategory pc = new ParameterCategory("12345", "");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -53,6 +53,13 @@ public class ParameterCategoryTest {
     public void parameterCategoriesNamesEquals(){
         ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
         ParameterCategory pc2 = new ParameterCategory("1f5dc", "Category");
+        Assert.assertEquals(pc1,pc2);
+    }
+
+    @Test
+    public void parameterCategoriesEquals(){
+        ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
+        ParameterCategory pc2 = new ParameterCategory("1f5ac", "Category");
         Assert.assertEquals(pc1,pc2);
     }
 
