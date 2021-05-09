@@ -12,6 +12,11 @@ public class ParameterCategoryTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
+    public void ensureBlankNameIsNotAllowed() {
+        ParameterCategory pc = new ParameterCategory("12345", "");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
     public void ensureCodeMeetsAC2_1() {
         ParameterCategory pc = new ParameterCategory("10d5th", "Category");
     }
@@ -52,6 +57,13 @@ public class ParameterCategoryTest {
     }
 
     @Test
+    public void parameterCategoriesEquals(){
+        ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
+        ParameterCategory pc2 = new ParameterCategory("1f5ac", "Category");
+        Assert.assertEquals(pc1,pc2);
+    }
+
+    @Test
     public void parameterCategoriesRefEquals(){
         ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
         ParameterCategory pc2 = pc1;
@@ -66,10 +78,17 @@ public class ParameterCategoryTest {
     }
 
     @Test
-    public void parameterCategoriesNotEquals(){
+    public void parameterCategoriesNotEqualsClass(){
         ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
         Parameter p1 = new Parameter("12345","test","test",pc1);
         Assert.assertNotEquals(pc1,p1);
+    }
+
+    @Test
+    public void parameterCategoriesNotEquals(){
+        ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
+        ParameterCategory pc2 = new ParameterCategory("1f5dc", "Test");
+        Assert.assertNotEquals(pc1,pc2);
     }
 
 
