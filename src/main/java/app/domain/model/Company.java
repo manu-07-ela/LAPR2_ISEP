@@ -19,44 +19,44 @@ public class Company {
     /**
      * Company's designation
      */
-    private String designation;
+    private final String designation;
 
     /**
      * Represents an instance Auth facade
      */
-    private AuthFacade authFacade;
+    private final AuthFacade authFacade;
 
     /**
      * Represents an instance of the store of TestTypes
      */
-    private TestTypeStore testTypeStore;
+    private final TestTypeStore testTypeStore;
 
     /**
      * Represents an instance of the store of ParameterCategories
      */
-    private ParameterCategoryStore parameterCategoryStore;
+    private final ParameterCategoryStore parameterCategoryStore;
 
     /**
      * Represents an instance of the store of Parameters
      */
-    private ParameterStore parameterStore;
+    private final ParameterStore parameterStore;
 
     /**
      * Represents an instance of the store of ClinicalAnalysisLaboratories
      */
-    private ClinicalAnalysisLaboratoryStore clinicalnAlysisLaboratoryStore;
+    private final ClinicalAnalysisLaboratoryStore clinicalnAlysisLaboratoryStore;
     /**
      * Represents a instance of the store of employees
      */
-    private EmployeeStore employeeStore;
+    private final EmployeeStore employeeStore;
     /**
      * Represents a instance of the store of organization roles
      */
-    private OrganizationRoleStore organizationRoleStore;
+    private final OrganizationRoleStore organizationRoleStore;
     /**
      * Represents a instance of the store of Client
      */
-    private ClientStore clientStore;
+    private final ClientStore clientStore;
 
     /**
      * Creates an instance of Company

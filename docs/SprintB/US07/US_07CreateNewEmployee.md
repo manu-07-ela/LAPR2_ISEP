@@ -60,7 +60,7 @@
 - *_AC1:_* Each user must have a single role defined in the System. 
 - *_AC2:_* The "auth" component available on the repository must be reused (without modifications).
 - *_AC3:_* Every employee must be a user of the system.
-- *_AC4:_* The employeeId must be generated automatically.
+- *_AC4:_* The employeeId must be generated automatically with this following format: "XXXX00000".
 - *_AC5:_* The phone number must have 11 digits.
 - *_AC6:_* Doctor index number has 6 digits.
 - *_AC7:_* Soc number must have 4 digits.
@@ -115,10 +115,9 @@
 ![US07-MD](US07-MD.svg)
 
 ### 2.2. Other Remarks
+* Exert of the domain model of the Auth component relevant to the development of the acceptance criteria 3.
 
-*Use this section to capture some additional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
-
-
+![MD-USER](MD-USER.svg)
 
 ## 3. Design - User Story Realization 
 
@@ -250,17 +249,62 @@ Other software classes (i.e. Pure Fabrication) identified:
         if (!validateEmployee(employee)) return false;
         return this.addEmployee(employee);
     }
+##Class EmployeeDTO
 
+    /**
+     * Creates a new instance of EmployeeDto with the following attributes: name, email, address, phone number, soc code, organizational role and doctor index number
+     * @param name employer's name
+     * @param email employer's email
+     * @param address employer's address
+     * @param phoneNumber employer's phone number
+     * @param socCode employer's socCode
+     * @param organizationRole employer's organization role
+     * @param doctorIndexNumber employer's doctor index number
+     */
+    public EmployeeDTO(Name name, Email email, Address address, PhoneNumber phoneNumber, SocCode socCode, OrganizationRole organizationRole, DoctorIndexNumber doctorIndexNumber) {
+        this.name = new Name(name);
+        this.email = new Email(email);
+        this.address = new Address(address);
+        this.phoneNumber = new PhoneNumber(phoneNumber);
+        this.socCode = new SocCode(socCode);
+        this.organizationRole = new OrganizationRole(organizationRole);
+        this.doctorIndexNumber = new DoctorIndexNumber(doctorIndexNumber);
+    }
+
+    /**
+     * Creates a new instance of EmployeeDto with the following attributes: name, email, address, phone number, soc code and organizational role
+     * @param name employer's name
+     * @param email employer's email
+     * @param address employer's address
+     * @param phoneNumber employer's phone number
+     * @param socCode employer's SOC code
+     * @param organizationRole employer's organization role
+     */
+    public EmployeeDTO(Name name, Email email, Address address, PhoneNumber phoneNumber,SocCode socCode, OrganizationRole organizationRole) {
+        this.name = new Name(name);
+        this.email = new Email(email);
+        this.address = new Address(address);
+        this.phoneNumber = new PhoneNumber(phoneNumber);
+        this.socCode = new SocCode(socCode);
+        this.organizationRole = new OrganizationRole(organizationRole);
+    }
 
 
 # 6. Integration and Demo 
 
-*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
+* For some demo purposes, some user roles are bootstrapped while the system starts.
+  
+
+* Integration with the AuthFacade class was required for the registered employee to become a user of the system.
+
 
 
 # 7. Observations
 
-*In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
+* In the future, the user story will be developed with a graphical interface, and the option to select the organizational role will be added.
+  
+
+* The responsibility of generating a random password maturely may in the future be delegated to a new class for greater maintenance of the code.
 
 
 
