@@ -13,30 +13,30 @@ public class SocCode {
     /**
      * The SOC code of an employee
      */
-    private String  socCode;
+    private String code;
 
     /**
      * Create a SOC code instance receiving a SOC code by parameter
-     * @param socCode the SOC code of an employee
+     * @param code the SOC code of an employee
      */
-    public SocCode(String socCode) {
-        checkRulesForSocCode(socCode);
-        this.socCode = socCode;
+    public SocCode(String code) {
+        checkRulesForSocCode(code);
+        this.code = code;
     }
 
     /**
      * Copy builder of SOC code
-     * @param socCode the SOC code
+     * @param code the SOC code
      */
-    public SocCode(SocCode socCode){
-            this.socCode = socCode.getSocCode();
+    public SocCode(SocCode code){
+            this.code = code.getCode();
     }
     /**
      * Get the SOC code of an employee
      * @return the SOC code
      */
-    public String getSocCode() {
-        return socCode;
+    public String getCode() {
+        return code;
     }
 
     /**
@@ -60,7 +60,7 @@ public class SocCode {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         SocCode socCode1 = (SocCode) other;
-        return Objects.equals(socCode, socCode1.socCode);
+        return Objects.equals(code, socCode1.code);
     }
 
 }

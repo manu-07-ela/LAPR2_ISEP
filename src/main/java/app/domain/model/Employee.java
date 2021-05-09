@@ -68,7 +68,7 @@ public class Employee {
      */
     private String nameId(Name name){
         String n = "";
-        String[] nameAux = name.getName().split(" ");
+        String[] nameAux = name.getDesignation().split(" ");
         for (int i=0; i<nameAux.length; i++){
             n += nameAux[i].charAt(0);
         }
@@ -147,7 +147,7 @@ public class Employee {
      */
     @Override
     public String toString() {
-        return String.format("-> Name= %s%n-> Email= %s%n-> Address= %s%n-> PhoneNumber= %s%n-> Employee ID= %s%n-> SOC code= %s%n-> Organization Role= %s%n", name.getName(), email.getEmail(), address.getAddress(), phoneNumber.getPhoneNumber(), employeeId, socCode.getSocCode(), organizationRole.getDesignation());
+        return String.format("-> Name= %s%n-> Email= %s%n-> Address= %s%n-> PhoneNumber= %s%n-> Employee ID= %s%n-> SOC code= %s%n-> Organization Role= %s%n", name.getDesignation(), email.getEmail(), address.getDesignation(), phoneNumber.getNumber(), employeeId, socCode.getCode(), organizationRole.getDesignation());
     }
 
     /**

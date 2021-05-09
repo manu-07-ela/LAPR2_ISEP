@@ -13,7 +13,7 @@ public class Name {
     /**
      *The name of an employee
      */
-    private String name;
+    private String designation;
 
     /**
      *Create a name instance receiving a name by parameter
@@ -21,7 +21,7 @@ public class Name {
      */
     public Name(String name){
         checkRulesForName(name);
-        this.name = name.trim();
+        this.designation = name.trim();
     }
 
     /**
@@ -29,14 +29,14 @@ public class Name {
      * @param name the name
      */
     public Name(Name name){
-        this.name = name.getName();
+        this.designation = name.getDesignation();
     }
     /**
      *Get the name of an employee
      * @return the name
      */
-    public String getName() {
-        return name;
+    public String getDesignation() {
+        return designation;
     }
 
     /**
@@ -58,7 +58,7 @@ public class Name {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Name name1 = (Name) other;
-        return Objects.equals(name, name1.name);
+        return Objects.equals(designation, name1.designation);
     }
 
 

@@ -45,7 +45,7 @@ public class SpecialistDoctor extends Employee{
      */
     @Override
     public String toString() {
-        return String.format("%s-> Doctor Index Number= %s%n", super.toString(), doctorIndexNumber.getDoctorIndexNumber());
+        return String.format("%s-> Doctor Index Number= %s%n", super.toString(), doctorIndexNumber.getNumber());
     }
 
     /**

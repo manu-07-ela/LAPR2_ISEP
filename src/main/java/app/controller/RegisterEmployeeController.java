@@ -4,7 +4,6 @@ import app.domain.model.*;
 import app.domain.model.attributes.OrganizationRole;
 import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;
-import app.mappers.EmployeeMapper;
 import app.mappers.OrganizationRoleMapper;
 import app.mappers.dto.EmployeeDTO;
 import app.mappers.dto.OrganizationRoleDTO;
@@ -135,7 +134,7 @@ public class RegisterEmployeeController {
         finally {
             fw.close();
         }
-        return this.authFacade.addUserWithRole(emp.getName().getName(), emp.getEmail().getEmail(),password,orgRole.getDesignation());
+        return this.authFacade.addUserWithRole(emp.getName().getDesignation(), emp.getEmail().getEmail(),password,orgRole.getDesignation());
 
     }
 

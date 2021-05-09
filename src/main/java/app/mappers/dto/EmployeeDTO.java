@@ -13,27 +13,27 @@ public class EmployeeDTO {
     /**
      * The name of the data transfer object of the type employed
      */
-    private Name name;
+    private final Name name;
     /**
      *The email of the data transfer object of the type employed
      */
-    private Email email;
+    private final Email email;
     /**
      *The address of the data transfer object of the type employed
      */
-    private Address address;
+    private final Address address;
     /**
      *The phone number of the data transfer object of the type employed
      */
-    private PhoneNumber phoneNumber;
+    private final PhoneNumber phoneNumber;
     /**
      *The SOC code of the data transfer object of the type employed
      */
-    private SocCode socCode;
+    private final SocCode socCode;
     /**
      *The organization role of the data transfer object of the type employed
      */
-    private OrganizationRole organizationRole;
+    private final OrganizationRole organizationRole;
     /**
      *The doctor index number of the data transfer object of the type specialist doctor
      */
@@ -51,13 +51,13 @@ public class EmployeeDTO {
      * @param doctorIndexNumber employer's doctor index number
      */
     public EmployeeDTO(Name name, Email email, Address address, PhoneNumber phoneNumber, SocCode socCode, OrganizationRole organizationRole, DoctorIndexNumber doctorIndexNumber) {
-        this.name = new Name(name.getName());
-        this.email = new Email(email.getEmail());
-        this.address = new Address(address.getAddress());
-        this.phoneNumber = new PhoneNumber(phoneNumber.getPhoneNumber());
-        this.socCode = new SocCode(socCode.getSocCode());
-        this.organizationRole = new OrganizationRole(organizationRole.getDesignation());
-        this.doctorIndexNumber = new DoctorIndexNumber(doctorIndexNumber.getDoctorIndexNumber());
+        this.name = new Name(name);
+        this.email = new Email(email);
+        this.address = new Address(address);
+        this.phoneNumber = new PhoneNumber(phoneNumber);
+        this.socCode = new SocCode(socCode);
+        this.organizationRole = new OrganizationRole(organizationRole);
+        this.doctorIndexNumber = new DoctorIndexNumber(doctorIndexNumber);
     }
 
     /**
@@ -70,12 +70,12 @@ public class EmployeeDTO {
      * @param organizationRole employer's organization role
      */
     public EmployeeDTO(Name name, Email email, Address address, PhoneNumber phoneNumber,SocCode socCode, OrganizationRole organizationRole) {
-        this.name = new Name(name.getName());
-        this.email = new Email(email.getEmail());
-        this.address = new Address(address.getAddress());
-        this.phoneNumber = new PhoneNumber(phoneNumber.getPhoneNumber());
-        this.socCode = new SocCode(socCode.getSocCode());
-        this.organizationRole = new OrganizationRole(organizationRole.getDesignation());
+        this.name = new Name(name);
+        this.email = new Email(email);
+        this.address = new Address(address);
+        this.phoneNumber = new PhoneNumber(phoneNumber);
+        this.socCode = new SocCode(socCode);
+        this.organizationRole = new OrganizationRole(organizationRole);
     }
 
     /**

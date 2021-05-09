@@ -14,31 +14,31 @@ public class PhoneNumber {
     /**
      * The phone number of an employee
      */
-    private String phoneNumber;
+    private String number;
 
     /**
      * Builds a phone number instance by receiving an phone number by parameter
-     * @param phoneNumber
+     * @param number
      */
-    public PhoneNumber(String phoneNumber) {
-        checkRulesForPhoneNumber(phoneNumber);
-        this.phoneNumber = phoneNumber;
+    public PhoneNumber(String number) {
+        checkRulesForPhoneNumber(number);
+        this.number = number;
     }
 
     /**
      * Copy builder of phone number
-     * @param phoneNumber the phone number
+     * @param number the phone number
      */
-    public PhoneNumber(PhoneNumber phoneNumber){
-        this.phoneNumber = phoneNumber.getPhoneNumber();
+    public PhoneNumber(PhoneNumber number){
+        this.number = number.getNumber();
     }
 
     /**
      * Get the phone number
      * @return the phone number
      */
-    public String  getPhoneNumber() {
-        return phoneNumber;
+    public String getNumber() {
+        return number;
     }
 
     /**
@@ -61,7 +61,7 @@ public class PhoneNumber {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         PhoneNumber that = (PhoneNumber) other;
-        return Objects.equals(phoneNumber, that.phoneNumber);
+        return Objects.equals(number, that.number);
     }
 
 }

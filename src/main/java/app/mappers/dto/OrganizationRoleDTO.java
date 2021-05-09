@@ -8,7 +8,7 @@ public class OrganizationRoleDTO {
     /**
      * The designation of the data transfer object of the type organization role
      */
-    private String designation;
+    private final String designation;
 
     /**
      * Creates a new instance of OrganizationRoleDto receiving its designation as a parameter

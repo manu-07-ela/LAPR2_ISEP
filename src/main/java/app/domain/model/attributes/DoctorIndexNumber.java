@@ -13,7 +13,7 @@ public class DoctorIndexNumber {
     /**
      * The doctor index number of a specialist doctor
      */
-    private String  doctorIndexNumber;
+    private String number;
 
     /**
      * Create a doctor index number instance receiving a doctor index number by parameter
@@ -21,7 +21,7 @@ public class DoctorIndexNumber {
      */
     public DoctorIndexNumber(String  doctorIndexNumber) {
         checkRulesForDoctorIndexNumber(doctorIndexNumber);
-        this.doctorIndexNumber = doctorIndexNumber;
+        this.number = doctorIndexNumber;
     }
 
     /**
@@ -29,15 +29,15 @@ public class DoctorIndexNumber {
      * @param doctorIndexNumber the doctor index number
      */
     public DoctorIndexNumber(DoctorIndexNumber doctorIndexNumber) {
-        this.doctorIndexNumber = doctorIndexNumber.getDoctorIndexNumber();
+        this.number = doctorIndexNumber.getNumber();
     }
 
     /**
      * Get the doctor index number
      * @return the doctor index number
      */
-    public String getDoctorIndexNumber() {
-        return doctorIndexNumber;
+    public String getNumber() {
+        return number;
     }
 
     /**
@@ -61,7 +61,7 @@ public class DoctorIndexNumber {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         DoctorIndexNumber that = (DoctorIndexNumber) other;
-        return Objects.equals(doctorIndexNumber, that.doctorIndexNumber);
+        return Objects.equals(number, that.number);
     }
 
 

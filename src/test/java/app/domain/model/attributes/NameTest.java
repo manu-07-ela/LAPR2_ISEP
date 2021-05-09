@@ -3,8 +3,6 @@ package app.domain.model.attributes;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class NameTest {
 
     @Test(expected = NullPointerException.class)
@@ -17,7 +15,7 @@ public class NameTest {
     public void getName(){
         Name name1 = new Name("Manuela de Araujo Leite");
         String expectedResult = "Manuela de Araujo Leite";
-        Assert.assertEquals(expectedResult, name1.getName());
+        Assert.assertEquals(expectedResult, name1.getDesignation());
 
     }
 

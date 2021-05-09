@@ -11,7 +11,7 @@ public class Address {
     /**
      * The adress of an employee
      */
-    private String address;
+    private String designation;
 
     /**
      * Builds an address instance by receiving an address by parameter
@@ -19,7 +19,7 @@ public class Address {
      */
     public Address(String address) {
         checkRulesForAddress(address);
-        this.address = address;
+        this.designation = address;
     }
 
     /**
@@ -27,7 +27,7 @@ public class Address {
      * @param address the address
      */
     public Address(Address address){
-        this.address = address.getAddress();
+        this.designation = address.getDesignation();
     }
 
 
@@ -41,15 +41,15 @@ public class Address {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Address address1 = (Address) other;
-        return address.equals(address1.address);
+        return designation.equals(address1.designation);
     }
 
     /**
      * Get the address of an employee
      * @return the address
      */
-    public String getAddress() {
-        return address;
+    public String getDesignation() {
+        return designation;
     }
 
     /**

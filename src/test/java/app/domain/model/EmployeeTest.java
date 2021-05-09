@@ -85,15 +85,15 @@ public class EmployeeTest {
         Employee emp1 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
         Employee emp2 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
 
-        Assert.assertNotEquals(emp1, emp2);
+        Assert.assertTrue(emp1.getName().equals(emp2.getName()) && emp1.getEmail().equals(emp2.getEmail()) && emp1.getPhoneNumber().equals(emp2.getPhoneNumber()));
     }
 
     @Test
     public void namePhoneNumberEquals() {
         Employee emp1 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
-        Employee emp2 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 30"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
+        Employee emp2 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 30"),new PhoneNumber("12338345367"),new SocCode("1234"), new OrganizationRole("Administrator"));
 
-        Assert.assertNotEquals(emp1, emp2);
+        Assert.assertFalse(emp1.getName().equals(emp2.getName()) && emp1.getEmail().equals(emp2.getEmail()) && emp1.getPhoneNumber().equals(emp2.getPhoneNumber()));
     }
 
     @Test
@@ -101,14 +101,14 @@ public class EmployeeTest {
         Employee emp1 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12332725337"),new SocCode("1234"), new OrganizationRole("Administrator"));
         Employee emp2 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
 
-        Assert.assertNotEquals(emp1, emp2);
+        Assert.assertFalse(emp1.getName().equals(emp2.getName()) && emp1.getEmail().equals(emp2.getEmail()) && emp1.getPhoneNumber().equals(emp2.getPhoneNumber()));
     }
     @Test
     public void addressPhoneNumberEquals() {
         Employee emp1 = new Employee(new Name("Manuela de Araujo Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
         Employee emp2 = new Employee(new Name("Manuela Leite"), new Email("1200720@isep.ipp.pt"), new Address("Rua 15"),new PhoneNumber("12338725367"),new SocCode("1234"), new OrganizationRole("Administrator"));
 
-        Assert.assertNotEquals(emp1, emp2);
+        Assert.assertFalse(emp1.getName().equals(emp2.getName()) && emp1.getEmail().equals(emp2.getEmail()) && emp1.getPhoneNumber().equals(emp2.getPhoneNumber()));
     }
 
     @Test

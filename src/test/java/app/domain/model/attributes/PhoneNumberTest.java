@@ -3,8 +3,6 @@ package app.domain.model.attributes;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class PhoneNumberTest {
     @Test(expected = NullPointerException.class)
     public void ensurePhoneNumberNullIsNotAllowed(){new PhoneNumber("");}
@@ -22,7 +20,7 @@ public class PhoneNumberTest {
     public void getPhoneNumber(){
         PhoneNumber pn1 = new PhoneNumber("12345678901");
         String expectedResult = "12345678901";
-        Assert.assertEquals(expectedResult, pn1.getPhoneNumber());
+        Assert.assertEquals(expectedResult, pn1.getNumber());
     }
 
     @Test

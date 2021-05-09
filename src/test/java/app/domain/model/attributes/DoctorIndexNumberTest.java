@@ -21,7 +21,7 @@ public class DoctorIndexNumberTest {
     public void getDoctorIndexNumber(){
         DoctorIndexNumber docNum1 = new DoctorIndexNumber("123456");
         String expectedResult = "123456";
-        Assert.assertEquals(expectedResult, docNum1.getDoctorIndexNumber());
+        Assert.assertEquals(expectedResult, docNum1.getNumber());
 
     }
     @Test

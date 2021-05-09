@@ -13,7 +13,7 @@ public class AddressTest {
     public void getAddress(){
         Address adr1 = new Address("Rua do fojo");
         String expectedResult = "Rua do fojo";
-        Assert.assertEquals(expectedResult, adr1.getAddress());
+        Assert.assertEquals(expectedResult, adr1.getDesignation());
 
     }
 

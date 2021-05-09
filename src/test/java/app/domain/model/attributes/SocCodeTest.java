@@ -3,8 +3,6 @@ package app.domain.model.attributes;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class SocCodeTest {
     @Test(expected = NullPointerException.class)
     public void ensureSocCodeNullIsNotAllowed(){new SocCode("");}
@@ -22,7 +20,7 @@ public class SocCodeTest {
     public void getSocCode(){
         SocCode sc1 = new SocCode("1234");
         String expectedResult = "1234";
-        Assert.assertEquals(expectedResult, sc1.getSocCode());
+        Assert.assertEquals(expectedResult, sc1.getCode());
     }
 
 
