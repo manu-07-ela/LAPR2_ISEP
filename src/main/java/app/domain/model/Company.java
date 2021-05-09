@@ -22,7 +22,7 @@ public class Company {
     private String designation;
 
     /**
-     *
+     * Represents an instance Auth facade
      */
     private AuthFacade authFacade;
 
@@ -142,7 +142,7 @@ public class Company {
 
     /**
      * Gets the instance of ClientStore
-     * @return
+     * @return the instance of clientStore.
      */
     public ClientStore getClientStore() {
         return clientStore;

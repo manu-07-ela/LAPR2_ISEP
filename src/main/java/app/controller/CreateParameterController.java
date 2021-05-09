@@ -17,34 +17,34 @@ import java.util.List;
 public class CreateParameterController {
 
     /**
-     *
+     * Represents an instance of app.
      */
     private App app;
 
     /**
-     *
+     * Represents a instance of company.
      */
-    private Company company;
+    private final Company company;
 
     /**
-     *
+     * Represents an instance of parameter.
      */
     private Parameter p;
 
     /**
-     *
+     * Represents an instance of the parameter category store.
      */
-    private ParameterCategoryStore pcStore;
+    private final ParameterCategoryStore pcStore;
 
     /**
-     *
+     * Represents an instance of the parameter store.
      */
-    private ParameterStore pStore;
+    private final ParameterStore pStore;
 
     /**
-     *
+     * Represents an instance of the parameter category mapper.
      */
-    private ParameterCategoryMapper pcMapper;
+    private final ParameterCategoryMapper pcMapper;
 
 
 
@@ -85,9 +85,8 @@ public class CreateParameterController {
      * @param shortName the parameter code.
      * @param description The description of the parameter.
      * @param selectedCategoryDto The category of the parameter.
-     * @return false if the parameter already exists or is null. Otherwise, it returns true.
+     * @return Parameter created.
      */
-
     public Parameter createParameter(String code, String shortName, String description, ParameterCategoryDto selectedCategoryDto){
         ParameterCategory selected = pcStore.getParameterCategoryByCode(selectedCategoryDto.getCode());
         p = pStore.createParameter(code,shortName,description,selected);
@@ -110,10 +109,5 @@ public class CreateParameterController {
     public String toString(){
         return p.toString();
     }
-
-
-
-
-
 
 }

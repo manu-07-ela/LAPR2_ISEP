@@ -1,8 +1,10 @@
 package app.domain.model;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -12,6 +14,12 @@ public class ParameterTest {
     ParameterCategory pc;
     List<Parameter> listParameter;
     Parameter p;
+
+    @Before
+    public void setup(){
+        pc = new ParameterCategory("55Y7V","Covid-19");
+        p = new Parameter("98765","test","method", pc);
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNullIsNotAllowed(){
@@ -45,7 +53,7 @@ public class ParameterTest {
     public void getCode() {
         Parameter p = new Parameter("TT030","rbc","Red Blood Cells",pc);
         String result = p.getCode();
-        Assert.assertEquals("TT030",result);
+        Assert.assertEquals(result,"TT030");
     }
 
     @Test
@@ -86,8 +94,7 @@ public class ParameterTest {
     @Test
     public void ParameterNotEqualsNull(){
         Parameter p1 = new Parameter("TT030","rbc","Red Blood Cells",pc);
-        Parameter p2 = null;
-        Assert.assertNotEquals(p1,p2);
+        Assert.assertNotEquals(p1, null);
     }
 
     @Test

@@ -31,6 +31,18 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7749) No. Each parameter has only one category. There are no subcategories.
 
+> **Question:** When specifying more than one parameter at the same time, all that parameters will be categorized to one single category or should I ask the category to each parameter?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7888) You should always ask the category of each parameter.
+
+> **Question:** Is the code of a parameter the same as its respective category? Or can they be different?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041) No, they are different things.
+
+> **Question:** Will the administrator give the reference values for the new parameter?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041) A: In Sprint C we will make available an API that returns the reference values.
+
  
 >**Question:** Is the categorization of a parameter mandatory or optional?
 >
@@ -44,30 +56,6 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 > **Question:** Does the client want to specify more than one new parameter at a time?
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7616) Yes.
-
-
-> **Question:**  In case the category doesn't exist in the system, would be possible for the admin to create directly when creating the parameters or does he/she needs to create first the category and only after the parameters?
-for the second option this would mean that the Admin will have duplicate work: (A)  starts to create a parameter and he notices that the category does not exist - needs to exit and create category
-(B) start creating the parameter again, now that the category exists.
-> 
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7649&parent=10196#p10297)
-
-
-> **Question:** When specifying more than one parameter at the same time, all that parameters will be categorized to one single category or should I ask the category to each parameter?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7888) You should always ask the category of each parameter.
-
-> **Question:** Is the code of a parameter the same as its respective category? Or can they be different?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041) No, they are different things.
-
-> **Question:** Will the administrator give the reference values for the new parameter?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8041) A: In Sprint C we will make available an API that returns the reference values.
-
-> **Question:**
->
-> [**Awnser:**]()
 
 
 ### 1.3. Acceptance Criteria
@@ -142,7 +130,7 @@ for the second option this would mean that the Admin will have duplicate work: (
 | 			     |	... coordinating the US? | CreateParameterController | Controller                             |
 |                |  ... knowing who is responsible for creating the Parameter? | Company | Creator (R1) |
 | 			  	 |	... instantiating a new Parameter? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
-| 			  	 |	... showing the existing parameter categories? | ParameterCategoryStore | IE: has registed all Organizations |
+| 			  	 |	... showing the existing parameter categories? | ParameterCategoryStoreDto | IE: has registed all Organizations |
 |                | ... knowing the user using the system? | UserSession |            |
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |	...saving the inputted data? | Parameter  | IE: object created in step 1 has its own data.  |
