@@ -55,6 +55,7 @@ public class ClinicalAnalysisLaboratory  {
         phoneNumberValidation(phoneNumber);
         tinValidation(tin);
         laboratoryIdValidation(laboratoryId);
+        listOfTestTypesValidation(listOfTestTypes);
         this.name=name;
         this.address=address;
         this.phoneNumber=phoneNumber;
@@ -118,7 +119,6 @@ public class ClinicalAnalysisLaboratory  {
         }
 
     }
-
     /**
      * Checks whether the address contains all business rules
      * @param address     Clinical Analysis Laboratory's address
@@ -128,7 +128,6 @@ public class ClinicalAnalysisLaboratory  {
             throw  new IllegalArgumentException("The address mustn't have more than 30 characters and cannot be blank");
         }
     }
-
     /**
      * Checks whether the Phone Number contains all business rules
      * @param phoneNumber Clinical Analysis Laboratory's phone number
@@ -138,7 +137,6 @@ public class ClinicalAnalysisLaboratory  {
             throw  new IllegalArgumentException("Phone number is a number with 11 digits");
         }
     }
-
     /**
      * Checks whether the tax identification number contains all business rules
      * @param tin Clinical Analysis Laboratory's tax identification number
@@ -148,7 +146,6 @@ public class ClinicalAnalysisLaboratory  {
             throw  new IllegalArgumentException("Tin is a number with 10 digits");
         }
     }
-
     /**
      * Checks whether the LaboratoryId contains all business rule
      * @param laboratoryId Clinical Analysis Laboratory's ID
@@ -156,6 +153,15 @@ public class ClinicalAnalysisLaboratory  {
     private void laboratoryIdValidation(String laboratoryId){
         if (StringUtils.isBlank(laboratoryId) || !StringUtils.isAlphanumeric(laboratoryId) || laboratoryId.length() != 5 ) {
             throw new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
+        }
+    }
+    /**
+     * Checks whether the LaboratoryId contains all business rule
+     * @param listOfTestTypes List of Test Type that the Clinical Analysis Laboratory does
+     */
+    private void listOfTestTypesValidation(List<TestType> listOfTestTypes) {
+        if (listOfTestTypes==null){
+            throw new IllegalArgumentException("The list of Test Types mustn't be null");
         }
     }
 

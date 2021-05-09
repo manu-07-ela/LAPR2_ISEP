@@ -103,6 +103,11 @@ public class ClinicalAnalysisLaboratoryTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
+    public void TestTypeListValidation(){
+        ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567891","12ki3",null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
     public void LaboratoryIdValidation1(){
         ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567891","12k",testTypeList);
     }
