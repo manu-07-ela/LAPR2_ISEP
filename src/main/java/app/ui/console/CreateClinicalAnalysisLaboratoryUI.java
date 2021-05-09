@@ -57,35 +57,38 @@ public class CreateClinicalAnalysisLaboratoryUI implements Runnable {
                 String resposta;
 
                 do {
-                    TestTypeDTO testDTO = (TestTypeDTO) Utils.selectsObject(clinicalcontroller.getTestTypeList());
+                    Object option = Utils.selectsObject(clinicalcontroller.getTestTypeList());
+                    if (option == null){
+                        throw  new IllegalArgumentException("The Test Type list mustn't be empty");
+                    }
+                    TestTypeDTO testDTO = (TestTypeDTO) option;
                     lista.add(testDTO);
                     System.out.println("Do you want to choose other TestTypes?");
                     resposta = Utils.readLineFromConsole("S/N:");
 
                 }while (resposta.equalsIgnoreCase("S"));
-                ClinicalAnalysisLaboratoryDTO calDto = new ClinicalAnalysisLaboratoryDTO(name,address,phoneNumber,tin,laboratoryId,lista);
-                boolean result = clinicalcontroller.CreateClinicalAnalysisLaboratory(calDto);
-                dadosInvalidos=false;
 
-                if (result){
-                    System.out.printf("Do you really want to create a Clinical Analysis Laboratory with the name: %s ,address: %s, phone number: %s , Tin : %s , LaboratoryId: %s and with the list of Test Types you selected?",name, address,phoneNumber,tin,laboratoryId);
-                    String confirmaçao = Utils.readLineFromConsole("S/N:");
+                    ClinicalAnalysisLaboratoryDTO calDto = new ClinicalAnalysisLaboratoryDTO(name,address,phoneNumber,tin,laboratoryId,lista);
+                    boolean result = clinicalcontroller.CreateClinicalAnalysisLaboratory(calDto);
+                    dadosInvalidos=false;
 
-                    if(confirmaçao.equalsIgnoreCase("S")){
-                        if(clinicalcontroller.saveClinicalAnalysisLaboratory()){
-                            System.out.println("The Clinical Analysis Laboratory was created successfully");
-                        }else {
-                            System.out.println("There is already an equivalent Clinical Analysis Laboratory in the system");
-                            System.out.println("The Clinical Analysis Laboratory has not been saved.");
+                    if (result){
+                        System.out.printf("Do you really want to create a Clinical Analysis Laboratory with the name: %s ,address: %s, phone number: %s , Tin : %s , LaboratoryId: %s and with the list of Test Types you selected?",name, address,phoneNumber,tin,laboratoryId);
+                        String confirmaçao = Utils.readLineFromConsole("S/N:");
+
+                        if(confirmaçao.equalsIgnoreCase("S")){
+                            if(clinicalcontroller.saveClinicalAnalysisLaboratory()){
+                                System.out.println("The Clinical Analysis Laboratory was created successfully");
+                            }else {
+                                System.out.println("There is already an equivalent Clinical Analysis Laboratory in the system");
+                                System.out.println("The Clinical Analysis Laboratory has not been saved.");
+                            }
                         }
+                    }else {
+                        System.out.println("There is already an equivalent specification of Clinical Analysis Laboratory (example : equal address) in the system");
+                        System.out.println("The Clinical Analysis Laboratory has not been created.");
+
                     }
-                }else {
-                    System.out.println("There is already an equivalent specification of Clinical Analysis Laboratory (example : equal address) in the system");
-                    System.out.println("The Clinical Analysis Laboratory has not been created.");
-
-                }
-
-
             } catch (IllegalArgumentException e){
                 System.out.printf("%nMessage: %s%n" ,e.getMessage());
             }
