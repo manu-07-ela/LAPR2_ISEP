@@ -56,7 +56,7 @@ public class EmployeeStore {
      * @return true if the employee was saved. Otherwise, false.
      */
     public boolean saveEmployee(Employee employee){
-        if (validateEmployee(employee)) return false;
+        if (validateEmployee(employee) || employee == null) return false;
         return this.addEmployee(employee);
     }
     /**
