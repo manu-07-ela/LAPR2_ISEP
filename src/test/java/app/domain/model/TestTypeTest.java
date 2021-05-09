@@ -62,6 +62,12 @@ public class TestTypeTest {
         TestType tt = new TestType("1g354","description","collectingsmethodsteste",listPC);
     }
 
+    @Test
+    public void ensureCollectingMethodMeetsAC3_1(){
+        TestType tt = new TestType("1g354","description","collectingsmethodstt",listPC);
+        Assert.assertNotNull(tt);
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureBlankCollectingMethodNotAllowed(){
         TestType tt = new TestType("1g354","description","",listPC);
