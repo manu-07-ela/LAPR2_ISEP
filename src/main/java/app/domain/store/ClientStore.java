@@ -1,6 +1,7 @@
 package app.domain.store;
 
 import app.domain.model.Client;
+import app.domain.model.ClinicalAnalysisLaboratory;
 import app.mappers.ClientMapper;
 import app.mappers.dto.ClientDto;
 import auth.AuthFacade;
@@ -42,7 +43,12 @@ public class ClientStore {
             return false;
         return !this.clientList.contains(cl);
     }
-        public static String generatelogin(Client cl) throws IOException {
+
+    public boolean addClient(Client cl) {
+        return clientList.add(cl);
+    }
+
+    public static String generatelogin(Client cl) throws IOException {
             String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
             SecureRandom random = new SecureRandom();
