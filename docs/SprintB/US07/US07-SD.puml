@@ -140,8 +140,11 @@ deactivate STORE
 STORE ->STORE : addEmployee(emp)
 activate STORE
 deactivate STORE
-CTRL->AUTHFACADE : addUserWithRole(name, email, orgRole, psw)
+CTRL->COMP : Authfacade = getAuthfacade();
+activate COMP
+deactivate COMP
 deactivate STORE
+CTRL->AUTHFACADE : addUserWithRole(name, email, orgRole, psw)
 activate AUTHFACADE
 
 
