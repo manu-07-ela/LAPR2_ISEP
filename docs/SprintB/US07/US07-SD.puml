@@ -140,7 +140,7 @@ deactivate STORE
 STORE ->STORE : addEmployee(emp)
 activate STORE
 deactivate STORE
-CTRL->COMP : Authfacade = getAuthfacade();
+CTRL->COMP : Authfacade = getAuthfacade()
 activate COMP
 deactivate COMP
 deactivate STORE
