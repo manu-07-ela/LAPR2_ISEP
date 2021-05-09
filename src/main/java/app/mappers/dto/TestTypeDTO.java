@@ -70,8 +70,8 @@ public class TestTypeDTO {
     }
 
     /**
-     *
-     * @return
+     * Textual description of the TestTypeDTO
+     * @return Information about the TestTypeDTO
      */
     @Override
     public String toString() {

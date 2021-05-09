@@ -72,13 +72,9 @@
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
-
 * No dependencies found
 
 ### 1.5 Input and Output Data
-
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
 **Input Data:**
       
@@ -113,9 +109,6 @@
 ![US3_MD](US3_MD.svg)
 
 ### 2.2. Other Remarks
-
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).*
-
 
 ## 3. Design - User Story Realization 
 
@@ -230,29 +223,183 @@ Other software classes (i.e. Pure Fabrication) identified:
         return store.validateClient(cl);
     }
 
+	/**
+     * Saves the client
+     * @return True if the client is saved in the client store, false otherwise
+     */
+    public boolean saveClient() throws IOException {
+        return store.saveClient(cl,clAuthFacade);
+    }
 
-## Class Organization
-
-
-		public Task createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Category cat)() {
-		
-	
-			Task task = new Task(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			if (this.validateTask(task))
-				return task;
-			return null;
-		}
+## Class Company
 
 
+	/**
+	* Gets the instance of ClientStore
+	* @return the instance of clientStore.
+	*/
+	public ClientStore getClientStore() {
+	return clientStore;
+	}		
+
+## Class ClientStore
+
+	/**
+     * Creates an instance of Client receiving a Client DTO and Client Mapper by parameter
+     * @param cldto a client DTO
+     * @param clMapper a instance of Client Mapper
+     * @return
+     */
+    public Client createClient(ClientDto cldto, ClientMapper clMapper) {
+        return clMapper.toModel(cldto);
+    }
+
+	/**
+     * Global validation of a Client
+     * @param cl Client that we intend to validate
+     * @return false if the client already exists or is null. Otherwise, it returns true.
+     */
+    public boolean validateClient(Client cl) {
+        if (cl == null)
+            return false;
+        return !this.clientList.contains(cl);
+    }
+
+	/**
+     * Saves the client sent as parameter
+     * @param cl a client
+     * @param clAuthFacade a instance of Auth Facade
+     * @return True if the employee has been transformed into a user of the system, false otherwise
+     */
+    public boolean saveClient(Client cl,AuthFacade clAuthFacade) throws IOException {
+        if (!validateClient(cl)) {
+            return false;
+        } else {
+            this.clientList.add(cl);
+            return clAuthFacade.addUser(cl.getName(),cl.getEmail(), generatelogin(cl));
+        }
+    }
+
+## Class ClientMapper
+
+	/**
+     *Transforms an object of type Client into an object of type ClientDto
+     * @param cl an Client object
+     * @return an instance of ClientDto
+     */
+    public Client toModel(ClientDto cl){
+        return new Client(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());
+    }
+
+## Class ClientDto
+
+	/**
+     * Get the name of the Client
+     * @return the name of ClientDto
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Get the Citizen card number of the Client
+     * @return the Citizen card number of ClientDto
+     */
+    public String getCitizencardnumber() {
+        return citizencardnumber;
+    }
+
+    /**
+     * Get the National Healthcare Service number of the Client
+     * @return the National Healthcare Service number of ClientDto
+     */
+    public String getNhs() {
+        return nhs;
+    }
+
+    /**
+     * Get the birth date of the Client
+     * @return the birth date of ClientDto
+     */
+    public String getDate() {
+        return date;
+    }
+
+    /**
+     * Get the gender of the Client
+     * @return the gender of ClientDto
+     */
+    public String getSex() {
+        return sex;
+    }
+
+    /**
+     * Get the Tax identification number of the Client
+     * @return the Tax identification number of ClientDto
+     */
+    public String getTin() {
+        return tin;
+    }
+
+    /**
+     * Get the phone number of the Client
+     * @return the phone number of ClientDto
+     */
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    /**
+     * Get the e-mail of the Client
+     * @return the e-mail of ClientDto
+     */
+    public String getEmail() {
+        return email;
+    }
+
+## Class Client
+
+	/**
+     * Constructs an instance of {@code Client} receiving the name, Citizen card number, National Healthcare Service number, birth date, gender, tax identification number, phone number and e-mail
+     * @param name
+     * @param citizencardnumber
+     * @param nhs
+     * @param date
+     * @param sex
+     * @param tin
+     * @param phonenumber
+     * @param email
+     */
+    public Client(String name, String citizencardnumber, String nhs, String date, String sex, String tin, String phonenumber, String email) {
+        nameValidation(name);
+        citizencardnumberValidation(citizencardnumber);
+        nhsValidation(nhs);
+        dateValidation(date);
+        sexValidation(sex);
+        tinValidation(tin);
+        phonenumberValidation(phonenumber);
+        emailValidation(email);
+        this.name = name;
+        this.citizencardnumber = citizencardnumber;
+        this.nhs = nhs;
+        this.date = date;
+        this.sex = sex;
+        this.tin = tin;
+        this.phonenumber = phonenumber;
+        this.email = email;
+    }
+
+## Class AuthFacade
+
+	public boolean addUser(String name, String email, String pwd)
+    {
+        User user = this.users.create(name, email, pwd);
+        return this.users.add(user);
+    }
 
 # 6. Integration and Demo 
 
-*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
-
 # 7. Observations
-
-*In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
 
 
 
