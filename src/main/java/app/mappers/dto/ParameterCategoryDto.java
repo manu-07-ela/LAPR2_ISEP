@@ -31,16 +31,16 @@ public class ParameterCategoryDto {
     }
 
     /**
-     * Get the code of the parameter category.
-     * @return
+     * Get the code of the parameter category dto.
+     * @return the code of ParameterCategoryDto.
      */
     public String getCode() {
         return code;
     }
 
     /**
-     * Get the name of the parameter category.
-     * @return
+     * Get the name of the parameter category dto.
+     * @return the name of ParameterCategoryDto.
      */
     public String getName() {
         return name;
@@ -57,7 +57,7 @@ public class ParameterCategoryDto {
 
     /**
      * Compare the parameter category dto with the other object provided.
-     * @param o Object we want to compare with the parameter category.
+     * @param o Object we want to compare with the parameter category dto.
      * @return true if the received object represents another parameter category dto equivalent to the parameter category dto. Otherwise, it returns false.
      */
     @Override

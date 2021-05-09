@@ -8,26 +8,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Represents an interface with the user to be able to register a new test type.
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
 public class CreateTestTypeUI implements Runnable {
 
     /**
-     *
+     * Represents a instance of create test type controller.
      */
     private CreateTestTypeController createTestTypectrl;
 
 
     /**
-     *
+     * Initializes the controller.
      */
     public CreateTestTypeUI(){
         createTestTypectrl = new CreateTestTypeController();
     }
 
     /**
-     *
+     * Invokes the necessary methods for the interface to function.
      */
     @Override
     public void run(){
@@ -40,7 +40,7 @@ public class CreateTestTypeUI implements Runnable {
     }
 
     /**
-     *
+     * Create an instance of test type.
      */
     public void createTestType(){
 
