@@ -69,6 +69,13 @@ public class TestTypeStoreTest {
     }
 
     @Test
+    public void getNonexistentParameterCategoryByCode_2(){
+        ttStore.addTestType(tt);
+        TestType result=ttStore.getTestTypeByCode("12s4D");
+        Assert.assertEquals(null,result);
+    }
+
+    @Test
     public void saveValidTestType() {
         boolean result = ttStore.saveTestType(tt);
         Assert.assertTrue(result);
