@@ -50,13 +50,10 @@ public class CreateTestTypeUI implements Runnable {
             try {
                 System.out.printf("%nEnter the following data about the Test Type you want to create%n");
 
-                System.out.printf("%nThe code must be 5 alphanumeric characters.%n");
                 String code = Utils.readLineFromConsole("Code: ");
 
-                System.out.printf("%nThe description must be a maximum of 15 characters.%n");
                 String description = Utils.readLineFromConsole("Description: ");
 
-                System.out.printf("%nThe collection method must be a maximum of 20 characters.%n");
                 String collectingMethod = Utils.readLineFromConsole("Collecting Method: ");
 
                 Utils.showList(createTestTypectrl.getParameterCategories(),"Choose the category of parameters associated with the test type");
