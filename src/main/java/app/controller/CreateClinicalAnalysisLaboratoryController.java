@@ -16,15 +16,37 @@ import java.util.List;
  */
 public class CreateClinicalAnalysisLaboratoryController {
 
+    /**
+     * Represents a instance of company
+     */
     private Company company;
+    /**
+     * Represents an instance of ClinicalAnalysisLaboratory
+     */
     private ClinicalAnalysisLaboratory cal;
+    /**
+     * Represents an instance of ClinicalAnalysisLaboratory Store
+     */
     private ClinicalAnalysisLaboratoryStore store;
+    /**
+     * Represents an instance of TestType Mapper
+     */
     private TestTyperMapper ttmapper;
+    /**
+     * Represents an instance of ClinicalAnalysisLaboratory Mapper
+     */
     private CreateClinicalAnalysisLaboratoryMapper calMapper;
 
+    /**
+     * Creates an instance of CreateClinicalAnalysisLaboratoryController
+     */
     public CreateClinicalAnalysisLaboratoryController() {
         this(App.getInstance().getCompany());
     }
+    /**
+     * Creates an instance of CreateClinicalAnalysisLaboratoryController receiving the company
+     * @param company The comany
+     */
     public CreateClinicalAnalysisLaboratoryController(Company company) {
         this.company = company;
         this.store = company.getClinicalAnalysisLaboratoryStore();
@@ -34,8 +56,8 @@ public class CreateClinicalAnalysisLaboratoryController {
     }
 
     /**
-     *
-     * @return
+     * Get a list of objects of TestTYpeDTO
+     * @return list of TestTypeDTO
      */
     public List<TestTypeDTO> getTestTypeList(){
        TestTypeStore store = company.getTestTypeStore();
@@ -43,9 +65,9 @@ public class CreateClinicalAnalysisLaboratoryController {
     }
 
     /**
-     *
-     * @param calDTO
-     * @return
+     * Creates a  new Clinical Analysis Laboratory
+     * @param calDTO An object of the type ClinicalAnalysisLaboratoryDTO with the information to create a ClinicalAnalysisLaboratory
+     * @return false if the ClinicalAnalysisLaboratory created has an attribute with the same information as an already created. Otherwise return true.
      */
    public boolean CreateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
         this.cal = store.createClinicalAnalysisLaboratory(calDTO,calMapper);
@@ -54,8 +76,8 @@ public class CreateClinicalAnalysisLaboratoryController {
 
 
     /**
-     *
-     * @return
+     * Save the ClinicalAnalysisLaboratory if it is valid
+     * @return true if the ClinicalAnalysisLaboratory was saved. Otherwise, false
      */
     public boolean saveClinicalAnalysisLaboratory() {
         return store.saveClinicalAnalysisLaboratory(cal);

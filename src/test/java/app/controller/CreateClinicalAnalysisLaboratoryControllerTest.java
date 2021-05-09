@@ -69,13 +69,16 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
         calDTO = new ClinicalAnalysisLaboratoryDTO("Carlos","Rua das cavalas","12345678912","1234567891","12ki3",ttlistDTO);
 
     }
-/*
+
+    /*
     @Test
     public void getTestTypeList(){
         List<TestTypeDTO> result = ctrl.getTestTypeList();
         Assert.assertEquals(ttlistDTO,result);
     }
-*/
+    */
+
+
 
     @Test
     public void CreateClinicalAnalysisLaboratory1(){

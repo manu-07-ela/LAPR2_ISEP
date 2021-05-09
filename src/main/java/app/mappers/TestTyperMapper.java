@@ -10,7 +10,11 @@ import java.util.List;
 
 public class TestTyperMapper {
 
-
+    /**
+     * Transforms the list of TestType into a list of TestTypeDTO
+     * @param testTypeList A list of TestType
+     * @return A list of TestTypeDTO
+     */
     public List<TestTypeDTO> toDTO(List<TestType> testTypeList) {
         List<TestTypeDTO> testTypeListDTO =new ArrayList();
         TestTypeDTO objDTO;
@@ -23,11 +27,20 @@ public class TestTyperMapper {
         return testTypeListDTO;
     }
 
+    /**
+     * Transforms a TestType into a TestTypeDTO
+     * @param obj a TestType
+     * @return a TestTypeDTO
+     */
     public TestTypeDTO toDTO(TestType obj){
         return new TestTypeDTO(obj.getCode(), obj.getDescription(),obj.getCollectingMethod(),toDtopclist(obj.getListOfParameterCategories()));
     }
 
-
+    /**
+     * Transforms a list of objects of type ParameterCategory into a list of objects of type ParameterCategoryDTO.
+     * @param parameterCategories A list of ParameterCategory.
+     * @return A list of ParameterCategoryDTO
+     */
     public List<ParameterCategoryDto> toDtopclist (List<ParameterCategory> parameterCategories){
         List<ParameterCategoryDto> parameterCategoryDTO = new ArrayList<>();
         for(ParameterCategory parameterCategory:parameterCategories) {
@@ -35,6 +48,12 @@ public class TestTyperMapper {
         }
         return parameterCategoryDTO;
     }
+
+    /**
+     * Transforms an object of type ParameterCategory into an object of type ParameterCategoryDTO.
+     * @param parameterCategory An ParameterCategory object.
+     * @return An instance of ParameterCategoryDTO.
+     */
     public ParameterCategoryDto toDtopc(ParameterCategory parameterCategory) {
         return new ParameterCategoryDto(parameterCategory.getCode(),parameterCategory.getName());
     }

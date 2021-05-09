@@ -37,11 +37,13 @@ public class ClinicalAnalysisLaboratoryDTO {
 
 
     /**
-     *
+     * Build an instance of ClinicalAnalysisLaboratoryDTO
      * @param name                    Clinical Analysis Laboratory's name
      * @param address                 Clinical Analysis Laboratory's address
      * @param phoneNumber             Clinical Analysis Laboratory's phone number
      * @param tin                     Clinical Analysis Laboratory's tax identification number
+     * @param laboratoryId            Clinical Analysis Laboratory's ID
+     * @param listOfTestTypes         List of Test Type that the Clinical Analysis Laboratory does
      */
     public ClinicalAnalysisLaboratoryDTO (String name, String address, String phoneNumber , String tin,String laboratoryId, List<TestTypeDTO> listOfTestTypes){
         this.name=name;
@@ -53,81 +55,47 @@ public class ClinicalAnalysisLaboratoryDTO {
     }
 
     /**
-     *
-     * @return
+     * Get the name of the Clinical Analysis Laboratory
+     * @return  Clinical Analysis Laboratory's name
      */
     public String getName() {
         return name;
     }
+
     /**
-     *
-     * @return
+     * Get the address of the Clinical Analysis Laboratory
+     * @return Clinical Analysis Laboratory's address
      */
     public String getAddress() {
         return address;
     }
+
     /**
-     *
-     * @return
+     * Get the Phone Number of the Clinical Analysis Laboratory
+     * @return Clinical Analysis Laboratory's Phone Number
      */
     public String getPhoneNumber() {
         return phoneNumber;
     }
     /**
-     *
-     * @return
+     * Get the tax identification number of the Clinical Analysis Laboratory
+     * @return Clinical Analysis Laboratory's tax identification number
      */
     public String getTin() {
         return tin;
     }
     /**
-     *
-     * @return
+     * Get the laboratoryId of the Clinical Analysis Laboratory
+     * @return Clinical Analysis Laboratory's ID
      */
     public String getLaboratoryId() {
         return laboratoryId;
     }
     /**
-     *
-     * @return
+     *  Get the list of Test Types of the Clinical Analysis Laboratory
+     * @return List of Test Type that the Clinical Analysis Laboratory
      */
     public List<TestTypeDTO> getListOfTestTypes() {
         return listOfTestTypes;
     }
-    /**
-     *
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-    /**
-     *
-     * @param address
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    /**
-     *
-     * @param phoneNumber
-     */
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-    /**
-     *
-     * @param tin
-     */
-    public void setTin(String tin) {
-        this.tin = tin;
-    }
-    /**
-     *
-     * @param laboratoryId
-     */
-    public void setLaboratoryId(String laboratoryId) {
-        this.laboratoryId = laboratoryId;
-    }
-
 }

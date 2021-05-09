@@ -1,7 +1,9 @@
 package app.mappers;
 
+import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import app.mappers.dto.ParameterCategoryDto;
 import app.mappers.dto.TestTypeDTO;
 import org.junit.Assert;
@@ -23,6 +25,8 @@ public class CreateClinicalAnalysisLaboratoryMapperTest {
     List<ParameterCategoryDto> listPCDto;
     List<TestType> testTypeList;
     List<TestTypeDTO> testTypeListDTO;
+    ClinicalAnalysisLaboratory cal;
+    ClinicalAnalysisLaboratoryDTO calDTO;
     CreateClinicalAnalysisLaboratoryMapper calMapper;
 
 
@@ -44,6 +48,9 @@ public class CreateClinicalAnalysisLaboratoryMapperTest {
         testTypeListDTO = new ArrayList<>();
         testTypeListDTO.add(ttDTO);
 
+
+        cal = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567891","12ki3",testTypeList);
+        calDTO = new ClinicalAnalysisLaboratoryDTO("Carlos","Rua das cavalas","12345678912","1234567891","12ki3",testTypeListDTO);
         calMapper = new CreateClinicalAnalysisLaboratoryMapper();
 
 
@@ -68,9 +75,15 @@ public class CreateClinicalAnalysisLaboratoryMapperTest {
     }
 
     @Test
-    public void toModel() {
+    public void toModel2() {
         List<TestType> result = calMapper.toModel(testTypeListDTO);
         Assert.assertEquals(testTypeList,result);
+    }
+
+    @Test
+    public void toModel1() {
+        ClinicalAnalysisLaboratory result = calMapper.ToModel(calDTO);
+        Assert.assertEquals(cal,result);
     }
 
 
