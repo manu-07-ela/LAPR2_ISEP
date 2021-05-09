@@ -122,7 +122,7 @@ public class RegisterEmployeeController {
      */
     public boolean transformEmployeeInUser(Employee emp) throws IOException {
         String password = generatePassword();
-        File archive = new File("./" + emp.getEmployeeId() + ".txt");
+        File archive = new File("loginCredentials\\" + emp.getEmployeeId() + ".txt");
         FileWriter fw = new FileWriter(archive, true);
 
         try {
