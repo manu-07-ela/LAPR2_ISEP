@@ -11,8 +11,6 @@ participant "store : EmployeeStore" as STORE
 participant ":OrganizationRoleMapper" as MAPPER
 participant ":EmployeeMapper" as MAPPEREMP
 participant "orgRoleDto : \n organizationRoleDto" as ORGROLEDTO
-participant "listOrgRoles : \n List<OrganizationRole>" as LISTORGROLE
-participant "listOrgRolesDto : \n  List<OrganizationRoleDto>" as LISTORGROLEDTO
 participant "empDto : EmployeeDto" as EMPDTO
 participant ":AuthFacade" as AUTHFACADE
 
@@ -26,9 +24,12 @@ activate COMP
 deactivate COMP
 CTRL->ORGSTORE : listOrgRoles = getListOfOrgRoles()
 activate ORGSTORE
-UI-->ADM : show the employees roles
 deactivate ORGSTORE
+CTRL->MAPPER : listOrgRolesDto = toDto(orgRole)
+activate MAPPER
 deactivate MAPPER
+UI-->ADM : show the employees roles
+CTRL-->UI : listOrgRolesDto
 deactivate COMP
 deactivate CTRL
 deactivate UI
@@ -43,7 +44,7 @@ CTRL -> ORGSTORE: orgRole = createOrganizationRole(orgRoleDto)
 activate ORGSTORE
 ORGSTORE -> MAPPER : orgRole = toOrgRole(orgRoleDto)
 activate MAPPER
-MAPPER -> ORGROLEDTO : designation = getDesignationDto()
+MAPPER -> ORGROLEDTO : designation = getDesignation()
 activate ORGROLEDTO
 deactivate ORGROLEDTO
 MAPPER-->"orgRole : \n OrganizationRole"** : create(designation)
@@ -88,6 +89,7 @@ activate MAPPEREMP
 MAPPEREMP ->EMPDTO : name = getName()
 activate EMPDTO
 MAPPEREMP->EMPDTO : address = getAddress()
+MAPPEREMP->EMPDTO : email = getEmail()
 MAPPEREMP->EMPDTO : phoneNumber = getPhoneNumber()
 MAPPEREMP->EMPDTO : socCode = getSocCode()
 MAPPEREMP->EMPDTO : doctorIndexNumber = getDoctorIndexNumber()
@@ -114,6 +116,7 @@ activate MAPPEREMP
 MAPPEREMP ->EMPDTO : name = getname()
 activate EMPDTO
 MAPPEREMP->EMPDTO : address = getAdress()
+MAPPEREMP->EMPDTO : email = getEmail()
 MAPPEREMP->EMPDTO : phoneNumber = getPhoneNumber()
 MAPPEREMP->EMPDTO : socCode = getSocCode()
 deactivate EMPDTO
@@ -137,11 +140,13 @@ deactivate STORE
 STORE ->STORE : addEmployee(emp)
 activate STORE
 deactivate STORE
-STORE->AUTHFACADE : addUserWithRole(name, email, roleId, psw)
+CTRL->AUTHFACADE : addUserWithRole(name, email, orgRole, psw)
+deactivate STORE
 activate AUTHFACADE
 
 
-UI --> ADM : informs operation success
+
+UI --> ADM : informs operation (in)success
 deactivate AUTHFACADE
 deactivate CTRL
 deactivate UI

@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
