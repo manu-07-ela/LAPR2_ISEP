@@ -6,15 +6,7 @@ skinparam classAttributeIconSize 0
 class Company
 class Parameter
 class ParameterCategory
-class Administrator
-
-Company -- Parameter : capable of analyzing >
-Company -- ParameterCategory : adopts >
-Company -- Administrator : knows >
-
-Parameter -- ParameterCategory : presented under >
-
-ParameterCategory -- Administrator : created by >
+class Employee
 
 
 class Company{
@@ -37,7 +29,7 @@ class ParameterCategory{
 -nhsid
 }
 
-class Administrator {
+class Employee {
 -name
 -address
 -phoneNumber
@@ -46,5 +38,14 @@ class Administrator {
 -organizationRole
 -socCode
 }
+
+
+Company "1"---"1..*" Parameter : capable of analyzing >
+Company "1"---"1..*" ParameterCategory : adopts >
+Company "1"---"1..*" Employee : employ >
+Parameter "*"---"1" ParameterCategory : presented under >
+Parameter "*" --- "1" Employee : specified by >
+ParameterCategory "*"--"1" Employee : specified by >
+
 
 @enduml

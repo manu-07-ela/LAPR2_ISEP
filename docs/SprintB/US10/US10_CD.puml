@@ -59,11 +59,11 @@ CreateParameterController ..> Company
 CreateParameterController ..> ParameterCategoryMapper : uses
 CreateParameterController ..> ParameterCategoryStore : uses
 CreateParameterController ..> ParameterStore : uses
-Company "1" --> "1" ParameterStore : uses
-Company "1" ..> "1" ParameterCategoryMapper
-Company "1" ..> "1" ParameterCategoryStore : uses
+Company "1"---"1..*" ParameterCategory : adopts >
+Company ..> ParameterCategoryMapper
+Company ..>  ParameterCategoryStore : uses
 ParameterStore ..> Parameter : Capable of analyzing
-ParameterCategoryStore "1" ..> "*" ParameterCategory : adopts
-Parameter "1" --> "*" ParameterCategory : presented under
+ParameterCategoryStore ..>  ParameterCategory : adopts
+Parameter "*"---"1" ParameterCategory : presented under >
 
 @enduml

@@ -2,9 +2,7 @@ package app.domain.store;
 
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
 import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,9 +49,9 @@ public class ParameterStore {
     }
 
     /**
-     * Adds a new test type to the List.
-     * @param p The type of test we intend to add.
-     * @return true if the test type was added. Otherwise, false.
+     * Adds a new Parameter to the List.
+     * @param p The parameter we intend to add.
+     * @return true if the parameter was added. Otherwise, false.
      */
     public boolean addParameter(Parameter p) {
         return listParameter.add(p);
@@ -87,10 +85,11 @@ public class ParameterStore {
     public List<Parameter> getParameterList() {
         return listParameter;
     }
+
     /**
-     * Get test type through code.
-     * @param code The code of the type of test we want to get.
-     * @return The type of test associated with that code. If there is no type of test that has that code it returns null.
+     * Get parameter through code.
+     * @param code The code of the parameter we want to get.
+     * @return The parameter associated with that code. If there is no parameter that has that code it returns null.
      */
     public Parameter getParameterByCode(String code) {
         for (Parameter param : listParameter) {
@@ -100,8 +99,5 @@ public class ParameterStore {
         }
         return null;
     }
-
-
-
 
 }
