@@ -25,7 +25,7 @@ public class ClientStoreTest {
         clStore = new ClientStore();
         clMapper = new ClientMapper();
         clauth = new AuthFacade();
-        cl = new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
+        cl = new Client("Test","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
     }
 
     @Test
@@ -49,27 +49,27 @@ public class ClientStoreTest {
     }
 
     @Test
-    public void validateLaboratory3(){
+    public void validateClient3(){
         Client cl = null;
         boolean result = clStore.validateClient(cl);
         Assert.assertFalse(result);
     }
 
     @Test
-    public void saveLaboratory1() throws IOException {
+    public void saveClient1() throws IOException {
         boolean result = clStore.saveClient(cl,clauth);
         Assert.assertTrue(result);
     }
 
     @Test
-    public void saveLaboratory2() throws IOException {
+    public void saveClient2() throws IOException {
         clStore.addClient(cl);
         boolean result = clStore.saveClient(cl,clauth);
         assertFalse(result);
     }
 
     @Test
-    public void saveLaboratory3() throws IOException {
+    public void saveClient3() throws IOException {
         Client cl = null;
         boolean result = clStore.saveClient(cl,clauth);
         Assert.assertFalse(result);
