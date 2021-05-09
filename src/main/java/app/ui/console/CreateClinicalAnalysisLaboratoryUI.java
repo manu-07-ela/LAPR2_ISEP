@@ -42,7 +42,7 @@ public class CreateClinicalAnalysisLaboratoryUI implements Runnable {
 
         do{
             try {
-                System.out.printf("%nEnter the following data aboutClinical Analysis Laboratory you want to create%n");
+                System.out.printf("%nEnter the following data about Clinical Analysis Laboratory you want to create%n");
                 String name = Utils.readLineFromConsole("Name: ");
                 String address = Utils.readLineFromConsole("address: ");
                 String phoneNumber = Utils.readLineFromConsole("phoneNumber: ");

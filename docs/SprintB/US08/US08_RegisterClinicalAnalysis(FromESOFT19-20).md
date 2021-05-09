@@ -103,16 +103,9 @@ All information is required.
 ![US08_SSD](US08_SSD.svg)
 
 
-**Alternative 2**
-
-![US08_SSD_v2](US08_SSD_v2.svg)
-
-
-**Other alternatives might exist.**
-
 ### 1.7 Other Relevant Remarks
 
-* This Us is going to be used frequently in the beggining to register the Clinical Analysis Laboratories 
+* This Us is going to be used frequently in the beginning to register the Clinical Analysis Laboratories 
   that they have but later its use will become rarer.
 
 
@@ -139,15 +132,15 @@ n/a
 | 			     |	... coordinating the US? | CreateClinicalAnalysisLaboratoryController | Controller                             |
 | 			     |	... knowing who is responsible for creating Clinical Analysis Laboratory instances? | Company   | Creator (R1)   |
 | 			  	 | ... knowing the user using the system?  | UserSession  |   |
-| 			  	 |	... creates Clinical Analysis Laboratory instance? | Laboratory  | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore. |
+| 			  	 |	... creates Clinical Analysis Laboratory instance? | ClinicalAnalysisLaboratoryStore  | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore. |
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |	...saving the inputted data? | ClinicalAnalysisLaboratory  | IE: object created in step 1 has its own data.  |
 | Step 4  		 |	...knowing the TestType to show? | TestTypeStore  | IE: knows all the TestTypes. |
 | Step 5  		 |	... saving the selected TestTypes? | ClinicalAnalysisLaboratory  | IE: the object created contains one or more TestTypes.  |
 | Step 6  		 |							 |             |                              |              
 | Step 7  		 |	... validating all data (local validation)? | ClinicalAnalysisLaboratory | IE: owns its data.| 
-| 			  		 |	... validating all data (global validation)? | Laboratory | IE: knows all its Clinical Analysis Laboratories.| 
-| 			  		 |	... saving the created task? | Laboratory | IE: owns all its Clinical Analysis Laboratories.| 
+| 			  		 |	... validating all data (global validation)? | ClinicalAnalysisLaboratoryStore| IE: knows all its Clinical Analysis Laboratories.| 
+| 			  		 |	... saving the created task? | ClinicalAnalysisLaboratoryStore | IE: owns all its Clinical Analysis Laboratories.| 
 | Step 8  		 |	... informing operation success?| CreateClinicalAnalysisLaboratoryUI  | IE: is responsible for user interactions.  | 
 
 ### Systematization ##
@@ -156,23 +149,22 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Company
  * ClinicalAnalysisLaboratory
- * TestTypeStore
+ * TestType
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
  * CreateClinicalAnalysisLaboratoryUI  
  * CreateClinicalAnalysisLaboratoryController
-
+ * CreateClinicalAnalysisLaboratoryMapper
+ * ClinicalAnalysisLaboratoryStore
+ * TestTypeStore
+ * TestTypeMapper
 
 ## 3.2. Sequence Diagram (SD)
 
 **Alternative 1**
 
 ![US08_SD](US08_SD.svg)
-
-**Alternative 2**
-
-![US08_SD](US08_SD_v2.svg)
 
 ## 3.3. Class Diagram (CD)
 
@@ -182,33 +174,191 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 4. Tests 
 
-**Test 1:** Check that it is not possible to create an instance of the Task class with null values. 
+**Test 1:** Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with null values. 
 
 	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Task instance = new Task(null, null, null, null, null, null, null);
-	}
+    public void ensureNullIsNotAllowed(){
+        ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory(null,null,null,null,null,null);
+    }
 	
 
-**Test 2:** Check that it is not possible to create an instance of the Task class with a reference containing less than five chars - AC2. 
+**Test 2:** Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a laboratoryId containing less than five chars - AC2. 
 
 	@Test(expected = IllegalArgumentException.class)
-		public void ensureReferenceMeetsAC2() {
-		Category cat = new Category(10, "Category 10");
-		
-		Task instance = new Task("Ab1", "Task Description", "Informal Data", "Technical Data", 3, 3780, cat);
-	}
+    public void LaboratoryIdValidation1(){
+        ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567891","12k",testTypeList);
+    }
 
+**Test 3:** Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a name with more than 20 characters - AC3
 
-*It is also recommended to organize this content by subsections.* 
+    @Test(expected = IllegalArgumentException.class)
+    public void NameValidation1(){
+        ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos Jose da Silva Pinheiro","Rua das cavalas","12345678912","1234567891","12ki3",testTypeList);
+    }
+
+**Test 4:**  Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with an address with more than 30 characters - AC4
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void AddressValidation1(){
+        ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas assadas no forno","12345678912","1234567891","12ki3",testTypeList);
+    }
+
+**Test 5:**  Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a Phone Number with less than 11 digit - AC5
+
+    @Test(expected = IllegalArgumentException.class)
+    public void PhoneNumberValidation2(){
+        ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678","1234567891","12ki3",testTypeList);
+    }
+
+**Test 6:**  Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with a Tin with more than 10 digit - AC6
+
+     @Test(expected = IllegalArgumentException.class)
+    public void TinValidation2(){
+        ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567891123","12ki3",testTypeList);
+    }
+
+**Test 7:**  Check that it is not possible to create an instance of the Clinical Analysis Laboratory class with an attribute with equal information as an attribute of other Clinical Analysis Laboratory instance - AC8
+
+     @Test
+    public void validateGlobalLaboratory1(){
+        ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Ricardo","Rua das cavalas","12345678913","1234567892","12ki7",testTypeList);
+        calStore.addClinicalAnalysisLaboratory(call);
+        boolean result = calStore.validateClinicalAnalysisLaboratoryglobal(cal);
+        Assert.assertFalse(result);
+    }
+
 
 # 5. Construction (Implementation)
 
 
 ## Class CreateClinicalAnalysisLaboratoryController 
+  
+    /**
+     * Get a list of objects of TestTYpeDTO
+     * @return list of TestTypeDTO
+     */
+    public List<TestTypeDTO> getTestTypeList(){
+       TestTypeStore store = company.getTestTypeStore();
+       return ttmapper.toDTO(store.getTestTypeList());
+    }
 
+    /**
+     * Creates a  new Clinical Analysis Laboratory
+     * @param calDTO An object of the type ClinicalAnalysisLaboratoryDTO with the information to create a ClinicalAnalysisLaboratory
+     * @return false if the ClinicalAnalysisLaboratory created has an attribute with the same information as an already created. Otherwise return true.
+     */
+     public boolean CreateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
+     this.cal = store.createClinicalAnalysisLaboratory(calDTO,calMapper);
+     return store.validateClinicalAnalysisLaboratoryglobal(cal);
+     }
+
+
+    /**
+     * Save the ClinicalAnalysisLaboratory if it is valid
+     * @return true if the ClinicalAnalysisLaboratory was saved. Otherwise, false
+     */
+    public boolean saveClinicalAnalysisLaboratory() {
+        return store.saveClinicalAnalysisLaboratory(cal);
+    }
 
 ## Class Company
+
+    /**
+     * Gets the list containing the ClinicalAnalysisLaboratoryStore
+     * @return The ClinicalAnalysisLaboratoryStore
+     */
+    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){ return clinicalnAlysisLaboratoryStore; }
+
+## Class ClinicalAnalysisLaboratoryStore
+
+     /**
+     * Creates a new ClinicalAnalysisLaboratory
+     * @param calDTO An Object of the Type ClinicalAnalysisLaboratoryDTO with all information to create the ClinicalAnalysisLaboratory
+     * @param calMapper The ClinicalAnalysisLaboratory Mapper that will transform the information in Object of the Type ClinicalAnalysisLaboratoryDTO
+     * @return The ClinicalAnalysisLaboratory
+     */
+    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO, CreateClinicalAnalysisLaboratoryMapper calMapper){
+        return calMapper.ToModel(calDTO);
+    }
+
+    /**
+     * Checks if the ClinicalAnalysisLaboratory already exist
+     * @param clinicalAnalysisLaboratory the ClinicalAnalysisLaboratory we want to validate
+     * @return false if the ClinicalAnalysisLaboratory already exist or it is null. Otherwise return true
+     */
+    public boolean validateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory) {
+        if (clinicalAnalysisLaboratory == null)
+            return false;
+        return !this.clinicalAnalysisLaboratoryList.contains(clinicalAnalysisLaboratory);
+    }
+
+    /**
+     * Checks if the ClinicalAnalysisLaboratory has an attribute with the same information as an already created
+     * @param clinicalAnalysisLaboratory  the ClinicalAnalysisLaboratory we want to validate
+     * @return false the ClinicalAnalysisLaboratory has an attribute with the same information as an already created . Otherwise it return true
+     */
+    public boolean validateClinicalAnalysisLaboratoryglobal (ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+        for (ClinicalAnalysisLaboratory cal: clinicalAnalysisLaboratoryList) {
+            if (clinicalAnalysisLaboratory.equals(cal)){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    /**
+     * Get the list of all ClinicalAnalysisLaboratory that exist in the company
+     * @return list of all ClinicalAnalysisLaboratory that exist in the company
+     */
+    public List<ClinicalAnalysisLaboratory> getClinicalAnalysisLaboratoryList() {
+        return clinicalAnalysisLaboratoryList;
+    }
+
+    /**
+     * Save the ClinicalAnalysisLaboratory if it is valid
+     * @param clinicalAnalysisLaboratory a ClinicalAnalysisLaboratory we want to save
+     * @return true if the ClinicalAnalysisLaboratory was saved. Otherwise it returns false
+     */
+    public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory) {
+        if (!validateClinicalAnalysisLaboratory(clinicalAnalysisLaboratory)) {
+            return false;
+        }else {
+            this.clinicalAnalysisLaboratoryList.add(clinicalAnalysisLaboratory);
+            return true;
+        }
+    }
+
+## Class CreateClinicalAnalysisLaboratoryMapper
+
+     /**
+     * Transforms an Objects of the type ClinicalAnalysisLaboratoryDTO into an Objects of the type ClinicalAnalysisLaboratory
+     * @param calDTO an Object of the type ClinicalAnalysisLaboratoryDTO
+     * @return an Object of the type ClinicalAnalysisLaboratory
+     */
+     public ClinicalAnalysisLaboratory ToModel(ClinicalAnalysisLaboratoryDTO calDTO){
+       return new ClinicalAnalysisLaboratory(calDTO.getName(),calDTO.getAddress(), calDTO.getPhoneNumber(), calDTO.getTin(), calDTO.getLaboratoryId(),toModel(calDTO.getListOfTestTypes()));
+     }
+
+## Class TestTypeMapper
+
+      /**
+     * Transforms the list of TestType into a list of TestTypeDTO
+     * @param testTypeList A list of TestType
+     * @return A list of TestTypeDTO
+     */
+    public List<TestTypeDTO> toDTO(List<TestType> testTypeList) {
+        List<TestTypeDTO> testTypeListDTO =new ArrayList();
+        TestTypeDTO objDTO;
+        for (TestType lista : testTypeList) {
+            if (lista != null){
+                objDTO = toDTO(lista);
+                testTypeListDTO.add(objDTO);
+            }
+        }
+        return testTypeListDTO;
+    }
+
 
 
 # 6. Integration and Demo
