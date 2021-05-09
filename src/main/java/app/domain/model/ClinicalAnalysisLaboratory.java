@@ -8,7 +8,28 @@ import java.util.*;
 /**
  * @author Carlos Rodrigues <1201001@isep.ipp.pt>
  */
-public class ClinicalAnalysisLaboratory extends Laboratory {
+public class ClinicalAnalysisLaboratory  {
+
+    /**
+     * Clinical Analysis Laboratory's name
+     */
+    private String name;
+
+    /**
+     * Clinical Analysis Laboratory's address
+     */
+    private String address;
+
+    /**
+     * Clinical Analysis Laboratory's phone number
+     */
+    private String phoneNumber;
+
+    /**
+     * Clinical Analysis Laboratory's tax identification number
+     */
+    private String tin;
+
     /**
      * Clinical Analysis Laboratory's ID
      */
@@ -30,8 +51,15 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
      * @param listOfTestTypes         List of Test Type that the Clinical Analysis Laboratory does
      */
     public ClinicalAnalysisLaboratory(String name, String address, String phoneNumber , String tin, String laboratoryId, List<TestType> listOfTestTypes){
-        super(name, address, phoneNumber, tin);
+        nameValidation(name);
+        AddressValidation(address);
+        phoneNumberValidation(phoneNumber);
+        tinValidation(tin);
         laboratoryIdValidation(laboratoryId);
+        this.name=name;
+        this.address=address;
+        this.phoneNumber=phoneNumber;
+        this.tin=tin;
         this.laboratoryId=laboratoryId;
         this.listOfTestTypes= listOfTestTypes;
     }
@@ -41,11 +69,19 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
      * @param calDTO
      */
     public ClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
-        super(calDTO.getName(), calDTO.getAddress(), calDTO.getPhoneNumber(), calDTO.getTin());
+        nameValidation(calDTO.getName());
+        AddressValidation(calDTO.getAddress());
+        phoneNumberValidation(calDTO.getPhoneNumber());
+        tinValidation(calDTO.getTin());
         laboratoryIdValidation(calDTO.getLaboratoryId());
+        this.name=calDTO.getName();
+        this.address=calDTO.getAddress();
+        this.phoneNumber=calDTO.getPhoneNumber();
+        this.tin=calDTO.getTin();
         this.laboratoryId= calDTO.getLaboratoryId();
         this.listOfTestTypes= new ArrayList((Collection) calDTO.getListOfTestTypes());
     }
+
 
     /**
      *
@@ -61,6 +97,70 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
     public List<TestType> getListOfTestTypes() {
         return listOfTestTypes;
     }
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getTin() {
+        return tin;
+    }
+
+    /**
+     *
+     * @param name   Clinical Analysis Laboratory's name
+     */
+    private void nameValidation(String name){
+        if (StringUtils.isBlank(name)){
+            throw  new IllegalArgumentException("The name mustn't have more than 20 characters");
+        }else if(name.length()>20){
+            throw  new IllegalArgumentException("The name mustn't have more than 20 characters");
+        }
+
+    }
+
+    /**
+     *
+     * @param address     Clinical Analysis Laboratory's address
+     */
+    private void AddressValidation(String address){
+        if (StringUtils.isBlank(address)){
+            throw  new IllegalArgumentException("The address mustn't have more than 30 characters");
+        }else if (address.length()>30){
+            throw  new IllegalArgumentException("The address mustn't have more than 30 characters");
+        }
+    }
+
+    /**
+     *
+     * @param phoneNumber
+     */
+    private void phoneNumberValidation(String phoneNumber){
+        if (StringUtils.isBlank(phoneNumber)){
+            throw  new IllegalArgumentException("Phone number has to have 11 digits");
+        }else if (phoneNumber.length()!=11){
+            throw  new IllegalArgumentException("Phone number has to have 11 digits");
+        }
+    }
+
+    /**
+     *
+     * @param tin
+     */
+    private void tinValidation(String tin){
+        if (StringUtils.isBlank(tin)){
+            throw  new IllegalArgumentException("Tin has to have 10 digits");
+        }else if (tin.length()!=10){
+            throw  new IllegalArgumentException("Tin has to have 10 digits");
+        }
+    }
 
     /**
      *
@@ -73,7 +173,6 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
             throw  new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
     }
 
-
     /**
      *
      * @param o
@@ -85,8 +184,9 @@ public class ClinicalAnalysisLaboratory extends Laboratory {
         if (o == null || getClass() != o.getClass()) return false;
 
         ClinicalAnalysisLaboratory that = (ClinicalAnalysisLaboratory) o;
-        return this.getAddress().equals((that).getAddress()) || this.getLaboratoryId().equals((that).getLaboratoryId()) || this.getTin()==(that).getTin() || this.getPhoneNumber()==(that).getPhoneNumber();
+        return this.getAddress().equals((that).getAddress()) || this.getLaboratoryId().equals((that).getLaboratoryId()) || this.getTin().equals((that).getTin()) || this.getPhoneNumber().equals((that).getPhoneNumber());
     }
+
     /**
      *
      * @return

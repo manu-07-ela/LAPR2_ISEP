@@ -4,6 +4,8 @@ import app.controller.CreateClientController;
 import app.mappers.dto.ClientDto;
 import app.ui.console.utils.Utils;
 
+import java.io.IOException;
+
 public class CreateClientUI implements Runnable {
 
     private CreateClientController createClientctrl;
@@ -41,9 +43,10 @@ public class CreateClientUI implements Runnable {
                 if (resposta.equalsIgnoreCase("S")) {
                     if (createClientctrl.saveClient()) {
                         System.out.println("The Client was registered successfully");
+                        System.out.println("Your credentials are in the file named:" + cldto.getName());
                     }
                 }
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException | IOException e) {
                 System.out.printf("%nMessage: %s%n", e.getMessage());
             }
         } while (dadosInvalidos);

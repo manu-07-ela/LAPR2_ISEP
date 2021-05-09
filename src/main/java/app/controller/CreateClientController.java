@@ -7,6 +7,8 @@ import app.mappers.ClientMapper;
 import app.mappers.dto.ClientDto;
 import auth.AuthFacade;
 
+import java.io.IOException;
+
 public class CreateClientController {
     /**
      *
@@ -62,7 +64,7 @@ public class CreateClientController {
      *
      * @return
      */
-    public boolean saveClient() {
+    public boolean saveClient() throws IOException {
         return store.saveClient(cl,clAuthFacade);
     }
 }

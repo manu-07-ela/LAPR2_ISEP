@@ -40,6 +40,22 @@
 > 
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7462#p9872) The password should be randomly generated. It should have ten alphanumeric characters.
 
+> **Question:** Recently you said that the maximum acceptable age is 150 years old, so the client can be born in 1870 and the data format is DD/MM/YY, this format can be tricky because, for example, if the data is DD/MM/70 the data can indicate that he born on 1870 or 1970. How can we solve this? Or I am understanding wrong?
+> 
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7962#p10532) Thank you for identifying this issue. Please consider DD / MM / YYYY format for all dates.
+
+> **Question:** What should be the maximum length of the String with the name of the Client?
+>
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7945#p10383) A string with no more than 35 characters.
+
+> **Question:** Is there any restrictions to the client age?
+>
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7918#p10388) A client should not have more than 150 years of age. Although there are important developments in the pursuit of eternal youth, for now this value is ok.
+
+> **Question:** How should the system send a email to the client with the password?
+> 
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7808#p10545) Considering a set of technical restrictions, during the development of the Integrative Project we will not use any e-mail or SMS API services to send messages. All the e-mail and SMS messages should be written to a file with the name emailAndSMSMessages.txt. This file simulates the use of e-mail and SMS API services.
+
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
@@ -47,7 +63,13 @@
 * **AC1:** The client must become a system user. The "auth" component available on the repository must be reused (without modifications).
 * **AC2:** All fields are required (excluding sex).
 * **AC3:** The Client's password must be generated randomly and sent in the e-mail informing that the registration was successful.
-* **AC4:** The password has ten alphanumeric characters.
+* **AC4:** The password must have ten alphanumeric characters.
+* **AC5:** The Citizen Card number must have 16 digits.
+* **AC6:** The National Healthcare Service number must have 10 digits.
+* **AC7:** The Birth date should be in this format: DD/MM/YYYY.
+* **AC8:** A client should not have more than 150 years of age.
+* **AC9:** The gender should only be Male/Female or include more options.
+* **AC10:** The phone number must be a 11 digit number.
 
 ### 1.4. Found out Dependencies
 
@@ -69,7 +91,7 @@
 	* TIF,
 	* phone number,
 	* e-mail,
-	* name,
+	* name
 	
 * Selected data:
 	* None
@@ -107,54 +129,45 @@
 
 **The rationale grounds on the SSD interactions and the identified input/output data.**
 
-**SSD - Alternative 1 is adopted.**
-
 | Interaction ID | Question: Which class is responsible for...                     | Answer                   | Justification (with patterns)                                                                                             |
 |:-------------  |:--------------------------------------------------------------- |:------------------------:|:------------------------------------------------------------------------------------------------------------------------- |
 | Step 1  		 | ... interacting with the actor?                                 | CreateClientUI           | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
 |                | ... coordinating the US?                                        | CreateClientController   | Controller                                                                                                                |
-|                | ... knowing who is responsible for creating Client instances?   | Company                  | Creator (Rule 1)                                                                                                          |
-|                | ... creates Client instance?                                    | ClientStore              | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore.                           |
-|                | ... knowing the user using the system?                          | UserSession              |                                                                                                                           |
+|                | ... creates Client instance?                                    | ClientStore              | ClientStore is the class that registers the Client, so is the one assign to this task                                     |
+|                | ... knowing the user using the system?                          | UserSession              | IE: A&A component documentation                                                                                           |
 | Step 2  		 |                                                                 |                          |                                                                                                                           |
-| Step 3  		 | ... saving the inputted data?                                   | TestType                 | IE: object created in step 1 has its own data.                                                                            |
-| Step 4  		 | ... knowing the parameter categories to show?                   | ParameterCategoryStore   | IE: knows all the categories of parameters.                                                                               |
-| Step 5  		 | ... saving the selected categories?                             | TestType                 | IE: the object created in step 1 contains one or more categories of parameters                                            |
-| Step 6  		 |                                                                 |                          |                                                                                                                           |
-| Step 7  		 | ... validating all data (local validation)?                     | TestType                 | IE: owns its data.                                                                                                        |
-|                | ... validating all data (global validation)?                    | TestTypeStore            | IE: knows all types of tests.                                                                                             |
-|                | ... saving the created test type?                               | TestTypeStore            | IE: owns all types of tests.                                                                                              |
-| Step 8  		 | ... informing operation success?                                | CreateTestTypeUI         | IE: is responsible for user interactions.                                                                                 |
+| Step 3  		 | ... saving the inputted data?                                   | Client                   | IE: object created in step 1 has its own data.                                                                            |
+|                |                                                                 | ClientDto                | IE: dto from the object created in step 1 and has its data                                                                |
+| Step 4  		 |                                                                 |                          |                                                                                                                           |
+| Step 5  		 | ... who shows the output ?                                      | CreateClientUI           | IE: responsible for user interactions with the system                                                                     |
+| Step 6 		 | ... validating all data (local validation)?                     | Client                   | IE: owns its data.                                                                                                        |
+|                | ... validating all data (global validation)?                    | ClientStore              | IE: knows all Clients.                                                                                                    |
+|                | ... saving the created Client?                                  | ClientStore              | IE: owns all Clients.                                                                                                     |
+| Step 7  		 | ... informing operation success?                                | CreateClientUI           | IE: is responsible for user interactions.                                                                                 |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Organization
- * Platform
- * Task
+ * Company
+ * Client
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * CreateTaskUI  
- * CreateTaskController
+ * CreateClientUI
+ * CreateClientController
+ * ClientStore
+ * ClientDto
+ * ClientMapper
 
 
 ## 3.2. Sequence Diagram (SD)
 
-**Alternative 1**
-
-![US006_SD](US006_SD.svg)
-
-**Alternative 2**
-
-![US006_SD](US006_SD_v2.svg)
+![US3_SD](US3_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
-**From alternative 1**
-
-![US006_CD](US006_CD.svg)
+![US3_CD](US3_CD.svg)
 
 # 4. Tests 
 
