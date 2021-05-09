@@ -39,17 +39,17 @@ public class CreateParameterCategoryControllerTest {
     }
 
     @Test
-    public void saveValidTestType() {
-        boolean creator = ctrl.createParameterCategory("12345","test");
-        boolean result = ctrl.saveTestType();
+    public void saveValidParameterCategory() {
+        ctrl.createParameterCategory("12345","test");
+        boolean result = ctrl.saveParameterCategory();
         Assert.assertTrue(result);
     }
 
     @Test
-    public void saveInvalidTestType() {
-        boolean creator = ctrl.createParameterCategory("12345","test");
+    public void saveInvalidParmeterCategory() {
+        ctrl.createParameterCategory("12345","test");
         pcStore.addParameterCategory(pc);
-        boolean result = ctrl.saveTestType();
+        boolean result = ctrl.saveParameterCategory();
         Assert.assertFalse(result);
     }
 }
