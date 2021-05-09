@@ -17,7 +17,7 @@ import java.util.List;
 public class Company {
 
     /**
-     *
+     * Company's designation
      */
     private String designation;
 
@@ -27,22 +27,22 @@ public class Company {
     private AuthFacade authFacade;
 
     /**
-     *
+     * Represents an instance of the store of TestTypes
      */
     private TestTypeStore testTypeStore;
 
     /**
-     *
+     * Represents an instance of the store of ParameterCategories
      */
     private ParameterCategoryStore parameterCategoryStore;
 
     /**
-     *
+     * Represents an instance of the store of Parameters
      */
     private ParameterStore parameterStore;
 
     /**
-     *
+     * Represents an instance of the store of ClinicalAnalysisLaboratories
      */
     private ClinicalAnalysisLaboratoryStore clinicalnAlysisLaboratoryStore;
     /**
@@ -57,11 +57,11 @@ public class Company {
      * Represents a instance of the store of Client
      */
     private ClientStore clientStore;
-    /**
-     *
-     * @param designation
-     */
 
+    /**
+     * Creates an instance of Company
+     * @param designation Company's designation
+     */
     public Company(String designation) {
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
@@ -86,8 +86,8 @@ public class Company {
     }
 
     /**
-     *
-     * @return
+     * Gets AuthFacade
+     * @return The AuthFacade
      */
     public AuthFacade getAuthFacade() {
         return authFacade;
@@ -127,7 +127,7 @@ public class Company {
 
     /**
      * Gets the list containing the company's parameters.
-     * @return
+     * @return The ParameterStore
      */
     public ParameterStore getParameterStore(){
         return parameterStore;
@@ -135,8 +135,8 @@ public class Company {
 
 
     /**
-     *
-     * @return
+     * Gets the list containing the ClinicalAnalysisLaboratoryStore
+     * @return The ClinicalAnalysisLaboratoryStore
      */
     public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){ return clinicalnAlysisLaboratoryStore; }
 

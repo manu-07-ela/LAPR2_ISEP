@@ -2,8 +2,6 @@
 
 ## 1. Requirements Engineering
 
-*In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.*
-
 ### 1.1. User Story Description
 
 
@@ -70,16 +68,13 @@
 * **AC8:** A client should not have more than 150 years of age.
 * **AC9:** The gender should only be Male/Female or include more options.
 * **AC10:** The phone number must be a 11 digit number.
+* **AC11:** The tax identification number must have 10 digits.
 
 ### 1.4. Found out Dependencies
-
-*Identify here any found out dependency to other US and/or requirements.*
 
 * No dependencies found
 
 ### 1.5 Input and Output Data
-
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
 **Input Data:**
       
@@ -102,26 +97,18 @@
 
 ### 1.6. System Sequence Diagram (SSD)
 
-*Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
-
 ![US3_SSD](US3_SSD.svg)
 
 ### 1.7 Other Relevant Remarks
 
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.*
-
+* All clients need to become a user of the system.
 ## 2. OO Analysis
 
 ### 2.1. Relevant Domain Model Excerpt
 
-*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.*
-
 ![US3_MD](US3_MD.svg)
 
 ### 2.2. Other Remarks
-
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).*
-
 
 ## 3. Design - User Story Realization 
 
@@ -171,73 +158,248 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 4. Tests 
 
-**Test 1:** Check that it is not possible to create an instance of the Task class with null values. 
+**Test 1:** Check that it is not possible to create an instance of the Client class with null values.
+
+    @Test(expected = NullPointerException.class)
+    public void ensureNullIsNotAllowed(){
+    new Client(null,null,null,null,null,null,null,null); }
+
+
+
+**Test 2:** Check that it is not possible to create an instance of Citizen Card Number without 16 digits - AC5.
 
 	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Task instance = new Task(null, null, null, null, null, null, null);
-	}
+    public void citizenCardNumberNumericValidation(){
+        new Client("José Pessoa","123456789123aaaa","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
+    }
+
+**Test 3:** Check that it is not possible to create an instance of National Healthcare Service number without 10 digits - AC6.
 	
-
-**Test 2:** Check that it is not possible to create an instance of the Task class with a reference containing less than five chars - AC2. 
-
 	@Test(expected = IllegalArgumentException.class)
-		public void ensureReferenceMeetsAC2() {
-		Category cat = new Category(10, "Category 10");
-		
-		Task instance = new Task("Ab1", "Task Description", "Informal Data", "Technical Data", 3, 3780, cat);
+	public void nhsLengthValidation(){
+	new Client("José Pessoa","1234567891231111","123456789111","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
 	}
 
+**Test 4:** Check that it is not possible to create an instance of birth date without the format: DD/MM/YYYY - AC7.
 
-*It is also recommended to organize this content by subsections.* 
+	@Test(expected = IllegalArgumentException.class)
+    public void dateformatValidation(){
+        new Client("José Pessoa","1234567891231111","123456789111","12/12/1869","Male","1234567891","12345678910","pessoa@gmail.com");
+    }
+
+**Test 5:** Check that it is not possible to create an instance of sex without being Male/Female or leaving the option blank - AC9.
+
+	@Test(expected = IllegalArgumentException.class)
+    public void sexValidation(){
+        new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Transgender","1234567891","12345678910","pessoa@gmail.com");
+    }
+
+**Test 6:** Check that it is not possible to create an instance of phone number without 11 digits - AC10.
+
+	@Test(expected = IllegalArgumentException.class)
+    public void phonenumberLengthValidation(){
+        new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","1234567891011","pessoa@gmail.com");
+    }
+
+**Test 7:** Check that it is not possible to create an instance of tax identification number without 10 digits - AC11.
+
+	@Test(expected = IllegalArgumentException.class)
+    public void tinLengthValidation(){
+        new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","123456789111","12345678910","pessoa@gmail.com");
+    }
 
 # 5. Construction (Implementation)
 
 
-## Class CreateTaskController 
+## Class CreateClientController 
 
-		public boolean createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Integer catId)() {
-		
-			Category cat = this.platform.getCategoryById(catId);
-			
-			Organization org;
-			// ... (omitted)
-			
-			this.task = org.createTask(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			
-			return (this.task != null);
-		}
+	/**
+     * Create a client by receiving a client DTO as a parameter
+     * @param cldto The client DTO
+     * @return the client
+     */
+    public boolean CreateClient(ClientDto cldto) {
+        this.cl = store.createClient(cldto,clMapper);
+        return store.validateClient(cl);
+    }
 
+	/**
+     * Saves the client
+     * @return True if the client is saved in the client store, false otherwise
+     */
+    public boolean saveClient() throws IOException {
+        return store.saveClient(cl,clAuthFacade);
+    }
 
-## Class Organization
-
-
-		public Task createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Category cat)() {
-		
-	
-			Task task = new Task(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			if (this.validateTask(task))
-				return task;
-			return null;
-		}
+## Class Company
 
 
+	/**
+	* Gets the instance of ClientStore
+	* @return the instance of clientStore.
+	*/
+	public ClientStore getClientStore() {
+	return clientStore;
+	}		
+
+## Class ClientStore
+
+	/**
+     * Creates an instance of Client receiving a Client DTO and Client Mapper by parameter
+     * @param cldto a client DTO
+     * @param clMapper a instance of Client Mapper
+     * @return
+     */
+    public Client createClient(ClientDto cldto, ClientMapper clMapper) {
+        return clMapper.toModel(cldto);
+    }
+
+	/**
+     * Global validation of a Client
+     * @param cl Client that we intend to validate
+     * @return false if the client already exists or is null. Otherwise, it returns true.
+     */
+    public boolean validateClient(Client cl) {
+        if (cl == null)
+            return false;
+        return !this.clientList.contains(cl);
+    }
+
+	/**
+     * Saves the client sent as parameter
+     * @param cl a client
+     * @param clAuthFacade a instance of Auth Facade
+     * @return True if the employee has been transformed into a user of the system, false otherwise
+     */
+    public boolean saveClient(Client cl,AuthFacade clAuthFacade) throws IOException {
+        if (!validateClient(cl)) {
+            return false;
+        } else {
+            this.clientList.add(cl);
+            return clAuthFacade.addUser(cl.getName(),cl.getEmail(), generatelogin(cl));
+        }
+    }
+
+## Class ClientMapper
+
+	/**
+     *Transforms an object of type Client into an object of type ClientDto
+     * @param cl an Client object
+     * @return an instance of ClientDto
+     */
+    public Client toModel(ClientDto cl){
+        return new Client(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());
+    }
+
+## Class ClientDto
+
+	/**
+     * Get the name of the Client
+     * @return the name of ClientDto
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Get the Citizen card number of the Client
+     * @return the Citizen card number of ClientDto
+     */
+    public String getCitizencardnumber() {
+        return citizencardnumber;
+    }
+
+    /**
+     * Get the National Healthcare Service number of the Client
+     * @return the National Healthcare Service number of ClientDto
+     */
+    public String getNhs() {
+        return nhs;
+    }
+
+    /**
+     * Get the birth date of the Client
+     * @return the birth date of ClientDto
+     */
+    public String getDate() {
+        return date;
+    }
+
+    /**
+     * Get the gender of the Client
+     * @return the gender of ClientDto
+     */
+    public String getSex() {
+        return sex;
+    }
+
+    /**
+     * Get the Tax identification number of the Client
+     * @return the Tax identification number of ClientDto
+     */
+    public String getTin() {
+        return tin;
+    }
+
+    /**
+     * Get the phone number of the Client
+     * @return the phone number of ClientDto
+     */
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    /**
+     * Get the e-mail of the Client
+     * @return the e-mail of ClientDto
+     */
+    public String getEmail() {
+        return email;
+    }
+
+## Class Client
+
+	/**
+     * Constructs an instance of {@code Client} receiving the name, Citizen card number, National Healthcare Service number, birth date, gender, tax identification number, phone number and e-mail
+     * @param name
+     * @param citizencardnumber
+     * @param nhs
+     * @param date
+     * @param sex
+     * @param tin
+     * @param phonenumber
+     * @param email
+     */
+    public Client(String name, String citizencardnumber, String nhs, String date, String sex, String tin, String phonenumber, String email) {
+        nameValidation(name);
+        citizencardnumberValidation(citizencardnumber);
+        nhsValidation(nhs);
+        dateValidation(date);
+        sexValidation(sex);
+        tinValidation(tin);
+        phonenumberValidation(phonenumber);
+        emailValidation(email);
+        this.name = name;
+        this.citizencardnumber = citizencardnumber;
+        this.nhs = nhs;
+        this.date = date;
+        this.sex = sex;
+        this.tin = tin;
+        this.phonenumber = phonenumber;
+        this.email = email;
+    }
+
+## Class AuthFacade
+
+	public boolean addUser(String name, String email, String pwd)
+    {
+        User user = this.users.create(name, email, pwd);
+        return this.users.add(user);
+    }
 
 # 6. Integration and Demo 
 
-* A new option on the Employee menu options was added.
-
-* Some demo purposes some tasks are bootstrapped while system starts.
-
-
 # 7. Observations
-
-Platform and Organization classes are getting too many responsibilities due to IE pattern and, therefore, they are becoming huge and harder to maintain. 
-
-Is there any way to avoid this to happen?
-
 
 
 

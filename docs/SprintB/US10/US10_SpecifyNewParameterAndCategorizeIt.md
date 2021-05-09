@@ -90,7 +90,6 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
     *  category
 
 **Output Data:**
-* List of existing Parameter Categories
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -110,7 +109,7 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![US10_MD](US10_MD.svg)
+![US10_DM](US10_DM.svg)
 
 ### 2.2. Other Remarks
 
@@ -130,7 +129,7 @@ Each parameter is associated with one category. Each parameter has a Code, a Sho
 | 			     |	... coordinating the US? | CreateParameterController | Controller                             |
 |                |  ... knowing who is responsible for creating the Parameter? | Company | Creator (R1) |
 | 			  	 |	... instantiating a new Parameter? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
-| 			  	 |	... showing the existing parameter categories? | ParameterCategoryStoreDto | IE: has registed all Organizations |
+| 			  	 |	... showing the existing parameter categories? | CreateParameterUI | IE: has registed all Organizations |
 |                | ... knowing the user using the system? | UserSession |            |
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |	...saving the inputted data? | Parameter  | IE: object created in step 1 has its own data.  |
@@ -172,14 +171,37 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
 
-**_DO NOT COPY ALL DEVELOPED TESTS HERE_**
+**Test 1:** Check that the Code is five alphanumeric characters - AC1.
 
-**Test 1:** Check that it is not possible to create an instance of the Example class with null values. 
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureCodeMeetsAC1() {
+      Parameter p = new Parameter("TT0","shortName","description",pc);
+    }
 
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Exemplo instance = new Exemplo(null, null);
-	}
+**Test 2:** The Short Name is a String with no more than 8 characters - AC2.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureCodeMeetsAC2() {
+      Parameter p = new Parameter("code","RBC","description",pc);
+    }
+
+
+**Test 3:** The Description is a String with no more than 20 characters - AC3 
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureCodeMeetsAC3() {
+      Parameter p = new Parameter("code","shortName","Red Blood Cells",pc);
+    }
+
+**Test 4:** The parameter code must be different from the parameter category code - AC5.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureCodeMeetsAC5() {
+      Parameter p = new Parameter("code","shortName","Red Blood Cells",pc);
+      String codeParam = p.getCode();
+      String codeCatParam = pc.getCode();
+      Assert.assertNotEquals(codeParam,codeCatParam);
+    }
 
 *It is also recommended to organize this content by subsections.* 
 
@@ -188,6 +210,60 @@ Other software classes (i.e. Pure Fabrication) identified:
 *In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
 
 *It is also recommended to organize this content by subsections.* 
+
+##ParameterStore
+    /**
+    * Save the parameter case it is in a valid state.
+    * @param parameter The parameter we intend to save.
+    * @return true if the parameter was saved. Otherwise, false.
+    */
+    public boolean saveParameter(Parameter parameter) {
+      if (!validateParameter(parameter))
+        return false;
+      return this.addParameter(parameter);
+    }
+
+    /**
+     * Global validation of a parameter.
+     * @param p parameter that we intend to validate.
+     * @return false if the parameter already exists or is null. Otherwise, it returns true.
+     */
+    public boolean validateParameter(Parameter p) {
+        if (p == null)
+            return false;
+        return !this.listParameter.contains(p);
+    }
+    /**
+    * Adds a new Parameter to the List.
+    * @param p The parameter we intend to add.
+    * @return true if the parameter was added. Otherwise, false.
+    */
+    public boolean addParameter(Parameter p) {
+    return listParameter.add(p);
+    }
+
+    /**
+     * New Parameter.
+     * @param code The Parameter code.
+     * @param shortName The Parameter short name.
+     * @param description The Parameter description.
+     * @param category The Parameter category.
+     */
+    public Parameter createParameter(String code, String shortName, String description,ParameterCategory category){
+        return new Parameter(code,shortName,description,category);
+    }
+
+##Class CreateParameterController
+    /**
+    * New parameter category.
+    * @param code The parameter category code.
+    * @param name The parameter category name.
+    * @return false if the parameter category already exists or is null. Otherwise, it returns true.
+    */
+    public boolean createParameterCategory(String code, String name){
+    this.pc=pcStore.createParameterCategory(code,name);
+    return this.pcStore.validateParameterCategory(pc);
+    }
 
 # 6. Integration and Demo 
 

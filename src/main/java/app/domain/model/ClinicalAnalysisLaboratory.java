@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
@@ -42,7 +41,7 @@ public class ClinicalAnalysisLaboratory  {
 
 
     /**
-     *
+     * Build an instance of Clinical Analysis Laboratory
      * @param name                    Clinical Analysis Laboratory's name
      * @param address                 Clinical Analysis Laboratory's address
      * @param phoneNumber             Clinical Analysis Laboratory's phone number
@@ -65,56 +64,52 @@ public class ClinicalAnalysisLaboratory  {
     }
 
     /**
-     *
-     * @param calDTO
-     */
-    public ClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
-        nameValidation(calDTO.getName());
-        AddressValidation(calDTO.getAddress());
-        phoneNumberValidation(calDTO.getPhoneNumber());
-        tinValidation(calDTO.getTin());
-        laboratoryIdValidation(calDTO.getLaboratoryId());
-        this.name=calDTO.getName();
-        this.address=calDTO.getAddress();
-        this.phoneNumber=calDTO.getPhoneNumber();
-        this.tin=calDTO.getTin();
-        this.laboratoryId= calDTO.getLaboratoryId();
-        this.listOfTestTypes= new ArrayList((Collection) calDTO.getListOfTestTypes());
-    }
-
-
-    /**
-     *
-     * @return
+     * Get the laboratoryId of the Clinical Analysis Laboratory
+     * @return Clinical Analysis Laboratory's ID
      */
     public String getLaboratoryId() {
         return laboratoryId;
     }
     /**
-     *
-     * @return
+     *  Get the list of Test Types of the Clinical Analysis Laboratory
+     * @return List of Test Type that the Clinical Analysis Laboratory
      */
     public List<TestType> getListOfTestTypes() {
         return listOfTestTypes;
     }
+
+    /**
+     * Get the name of the Clinical Analysis Laboratory
+     * @return  Clinical Analysis Laboratory's name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get the address of the Clinical Analysis Laboratory
+     * @return Clinical Analysis Laboratory's address
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * Get the Phone Number of the Clinical Analysis Laboratory
+     * @return Clinical Analysis Laboratory's Phone Number
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
+    /**
+     * Get the tax identification number of the Clinical Analysis Laboratory
+     * @return Clinical Analysis Laboratory's tax identification number
+     */
     public String getTin() {
         return tin;
     }
-
     /**
-     *
+     * Checks whether the name contains all business rules
      * @param name   Clinical Analysis Laboratory's name
      */
     private void nameValidation(String name){
@@ -125,7 +120,7 @@ public class ClinicalAnalysisLaboratory  {
     }
 
     /**
-     *
+     * Checks whether the address contains all business rules
      * @param address     Clinical Analysis Laboratory's address
      */
     private void AddressValidation(String address){
@@ -135,8 +130,8 @@ public class ClinicalAnalysisLaboratory  {
     }
 
     /**
-     *
-     * @param phoneNumber
+     * Checks whether the Phone Number contains all business rules
+     * @param phoneNumber Clinical Analysis Laboratory's phone number
      */
     private void phoneNumberValidation(String phoneNumber){
         if (StringUtils.isBlank(phoneNumber) || phoneNumber.length()!=11){
@@ -145,8 +140,8 @@ public class ClinicalAnalysisLaboratory  {
     }
 
     /**
-     *
-     * @param tin
+     * Checks whether the tax identification number contains all business rules
+     * @param tin Clinical Analysis Laboratory's tax identification number
      */
     private void tinValidation(String tin){
         if (StringUtils.isBlank(tin) || tin.length()!=10){
@@ -155,7 +150,7 @@ public class ClinicalAnalysisLaboratory  {
     }
 
     /**
-     *
+     * Checks whether the LaboratoryId contains all business rule
      * @param laboratoryId Clinical Analysis Laboratory's ID
      */
     private void laboratoryIdValidation(String laboratoryId){
@@ -165,9 +160,9 @@ public class ClinicalAnalysisLaboratory  {
     }
 
     /**
-     *
-     * @param o
-     * @return
+     * Compare an Object with other.
+     * @param o An Object we want to compare
+     * @return True if the object contains one atribute equal to one of the atributes of the other except the name and the list of Test Types . Otherwise, it return false.
      */
     @Override
     public boolean equals(Object o) {
@@ -179,8 +174,8 @@ public class ClinicalAnalysisLaboratory  {
     }
 
     /**
-     *
-     * @return
+     * Textual description of the Laboratory
+     * @return Information about the Laboratory
      */
     @Override
     public String toString() {

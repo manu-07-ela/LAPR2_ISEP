@@ -1,6 +1,5 @@
 package app.mappers.dto;
 
-import app.domain.model.Client;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
