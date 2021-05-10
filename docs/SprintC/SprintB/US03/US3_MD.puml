@@ -1,0 +1,40 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+class Receptionist {
+
+}
+
+class Client {
+  -name
+  -citizencardnumber
+  -nhs
+  -date
+  -sex
+  -tin
+  -phonenumber
+  -email
+}
+
+class Email {
+  -message
+  -password
+}
+
+class Employee {
+  -name
+  -function
+  -phone
+  -email
+}
+
+
+Receptionist "1" -- "*" Client : register the >
+Client "*" -- "1*" Email: receives >
+Receptionist --|> Employee
+
+
+@enduml

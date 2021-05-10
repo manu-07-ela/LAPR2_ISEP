@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ":ClientMapper" as CM
+participant "cldto: ClientDto" as CDTO
+
+
+ -> CM : cl = toModel(cldto)
+ activate CM
+
+CM -> CDTO : name = getname()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : citizencardnumber = getcitizencardnumber()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : nhs = getnhs()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : date = getdate()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : sex = getsex()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : tin = gettin()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : phonenumber = getphonenumber()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : email = getemail()
+activate CDTO
+deactivate CDTO
+CM --> : create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+deactivate CM
+@enduml

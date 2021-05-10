@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Administrator as Adm
+participant ": System" as sy
+
+autonumber
+activate Adm
+Adm -> sy: starts the creation of a new employee
+activate sy
+sy --> Adm : show the employees roles
+deactivate sy
+Adm -> sy : select the desired role
+activate sy
+opt employees role = specialist doctor
+sy --> Adm : request data (name, address, phoneNumber, email,socCode, doctorIndexNumber)
+else
+sy --> Adm : request data (name, address, phoneNumber, email, socCode)
+deactivate sy
+end
+Adm -> sy: types requested data
+activate sy
+sy --> Adm : shows the data and requests a confirmation
+deactivate sy
+Adm -> sy: confirms the data
+activate sy
+sy --> Adm : informs the operation success
+deactivate sy
+deactivate Adm
+
+
+@enduml

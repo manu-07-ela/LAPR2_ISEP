@@ -1,0 +1,108 @@
+@startuml
+autonumber
+actor "Administrator" as ADM
+
+participant ":CreateClinicalAnalysisLaboratoryUI" as UI
+participant ":CreateClinicalAnalysisLaboratoryController" as CTRL
+participant ": Company" as Comp
+participant "store: TestTypeStore" as TTS
+participant ":TestTypeMapper" as MapperTT
+participant "store: ClinicalAnalysisLaboratoryStore" as CALStore
+participant ":ClinicalAnalysisLaboratoryMapper" as MapperCal
+participant "DTO:ClinicalAnalysisLaboratoryDTO" as CALDTO
+participant "cal: ClinicalAnalysisLaboratory" as CAL
+participant "t: TestType" as TT
+
+activate ADM
+ADM -> UI : asks to create a new Clinical Analysis Laboratory
+activate UI
+UI -> CTRL : getTestTypeList()
+activate CTRL
+
+CTRL -> Comp : store=getClinicalAnalysisLaboratoryStore
+CTRL -> TTS : getTestTypeList()
+activate TTS
+TTS -> "listTestType:List<TestType>"** : get()
+
+|||
+
+TTS --> CTRL : listTestType
+deactivate TTS
+
+CTRL -> MapperTT :toDTO(listTestType)
+activate MapperTT
+ref over MapperTT
+SD_populateList
+end ref
+MapperTT --> CTRL : TestTypeListDTO
+deactivate MapperTT
+CTRL --> UI : TestTypeListDTO
+deactivate CTRL
+loop while user selects TestTypes
+UI --> ADM : shows a TestType list and ask to choose the ones intended
+deactivate UI
+
+ADM -> UI : select a TestType
+activate UI
+end
+UI --> ADM : requests data (name, address, phoneNumber , TIN, laboratoryId)
+deactivate UI
+
+ADM -> UI : types requested data
+activate UI
+
+UI -> CTRL : createClinicalAnalysisLaboratory(calDTO)
+activate CTRL
+
+
+
+CTRL -> Comp : store = getClinicalAnalysisLaboratoryStore()
+activate Comp
+|||
+deactivate Comp
+CTRL -> CALStore: cal = createClinicalAnalysisLaboratory(calDTO)
+activate CALStore
+CALStore -> MapperCal : ToModel(calDTO)
+deactivate CALStore
+deactivate Comp
+
+
+ref over MapperCal
+SD_ToModel
+end ref
+
+CTRL -> CALStore : validateClinicalAnalysisLaboratoryglobal(cal)
+activate CALStore
+deactivate CALStore
+deactivate CTRL
+
+UI --> ADM: shows all data and requests confirmation
+deactivate CTRL
+deactivate UI
+
+ADM -> UI : confirms the data
+activate UI
+UI -> CTRL : saveClinicalAnalysisLaboratory()
+activate CTRL
+
+CTRL -> CALStore : saveClinicalAnalysisLaboratory(cal)
+activate CALStore
+
+CALStore -> CALStore: validateClinicalAnalysisLaboratory(cal)
+activate CALStore
+deactivate CALStore
+
+CALStore -> CALStore: addClinicalAnalysisLaboratory(cal)
+activate CALStore
+deactivate CALStore
+deactivate CALStore
+
+CTRL --> UI : result
+
+UI --> ADM : informs operation success
+deactivate CTRL
+deactivate UI
+
+deactivate ADM
+
+@enduml

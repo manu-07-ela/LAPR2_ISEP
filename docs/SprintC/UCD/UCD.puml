@@ -1,0 +1,61 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+actor "Administrator" as Adm
+actor "Recepcionist" as Recp
+actor "Med lab technician" as MedLab
+actor "Clinical chemistry technologist" as ClinTec
+actor "Specialist Doctor" as Doc
+actor "Laboratory Coordinator" as LabCod
+actor "Timer" as Timer
+actor "Client" as Client
+
+
+rectangle ManyLabs{
+
+usecase "UC03: Register a new client" as UC03
+usecase "UC20: View the results of the test" as UC20
+usecase "UC04: Register a test to be performed to a registered client" as UC04
+usecase "UC14: Register the tests performed locally" as UC14
+usecase "UC17: Record the result of chemistry analysis" as UC17
+usecase "UC09: Specify a new type of test and its collecting methods" as UC09
+usecase "UC10: Specify a new test parameter and categorize it" as UC10
+usecase "UC11: Specify a new parameter category" as UC11
+usecase "UC06: Access the internal process of a client" as UC06
+usecase "UC01: Validation of test performed" as UC01
+usecase "UC02: Access the company response efficiency" as UC02
+usecase "UC05: Record the samples collected in a scope of a given Test" as UC05
+usecase "UC19: Send daily Covid-19 data" as UC19
+usecase "UC07: Register a new employee" as UC07
+usecase "UC08: Register a new clinical analysis laboratory stating which kind of test(s) it operates." as UC08
+usecase "UC15: Write a Report" as UC15
+}
+
+Recp -- UC03
+Recp -- UC04
+Client --- UC20
+MedLab -- UC14
+MedLab --- UC20
+ClinTec --- UC20
+ClinTec -- UC17
+UC07 --- Adm
+UC08 --- Adm
+UC09 --- Adm
+UC11 --- Adm
+UC10 --- Adm
+UC05 --- MedLab
+UC06 --- Doc
+UC20 --- Doc
+UC15 --- Doc
+UC01 --- LabCod
+UC02 --- LabCod
+UC20 -- LabCod
+Timer -- UC19
+
+
+
+
+
+
+
+@enduml

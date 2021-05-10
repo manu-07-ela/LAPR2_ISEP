@@ -1,0 +1,81 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class CreateClientUI {
+
+}
+
+class Client {
+  -int citizen card number
+  -int NHS number
+  -int birth date
+  -String sex
+  -int TIF
+  -int phone number
+  -String e-mail
+  -String name
+  create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+}
+
+class ClientStore {
+  +createClient(cldto)
+  +validateClient(cl)
+  +saveClient(cl)
+  +addClient(cl)
+}
+
+class ClientDto {
+  -int citizen card number
+  -int NHS number
+  -int birth date
+  -String sex
+  -int TIF
+  -int phone number
+  -String e-mail
+  -String name
+  ClientDto(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+  +getname()
+  +getnhs()
+  +getdate()
+  +getsex()
+  +gettin()
+  +getphonenumber()
+  +getemail()
+}
+
+class ClientMapper {
+
+}
+
+class Company {
+  +getClientStore()
+}
+
+
+class CreateClientController {
+  +createClient()
+  +saveClient()
+}
+
+class AuthFacade {
+  +addUser(name,email,pwd)
+}
+
+
+
+CreateClientUI ..> CreateClientController
+CreateClientUI ..> ClientDto
+CreateClientController ..> Company
+CreateClientController ..> ClientDto
+CreateClientController ..> ClientMapper
+CreateClientController ..> Client
+CreateClientController ..> ClientStore
+ClientMapper ..> ClientDto
+ClientMapper ..> Client
+ClientStore "1" -> "*" Client : register the
+ClientStore "1" -> "1" AuthFacade : uses
+Company "1" -> "1" ClientStore : uses
+
+
+
+@enduml
