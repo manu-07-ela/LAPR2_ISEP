@@ -30,18 +30,18 @@ Throughout the project's development period, the distribution of _tasks / requir
 | US 01 (SDP Activities)  | |    |   |  |
 | US 02 (SDP Activities)  | |    |   |  |
 | US 03 (SDP Activities)  | |  [1201007](SprintB/US03.md)  |   |  |
-| US 04 (SDP Activities)  | |    |   |  |
-| US 05 (SDP Activities)  | |    |   |  |
+| US 04 (SDP Activities)  | |    |  [1201007](SprintB/US04.md) |  |
+| US 05 (SDP Activities)  | |    | [1200720](SprintB/US05.md)  |  |
 | US 06 (SDP Activities)  | |    |   |  |
 | US 07 (SDP Activities)  | |  [1200720](SprintB/US07.md) |   |  |
 | US 08 (SDP Activities)  | |  [1201001](SprintB/US08.md) |   |  |
 | US 09 (SDP Activities)  | |  [1201386](SprintB/US09.md)  |   |  |
 | US 10 (SDP Activities)  | |  [1201382](SprintB/US10.md) |   |  |
 | US 11 (SDP Activities)  | |  [all](SprintB/US11.md) |   |  |
-| US 12 (SDP Activities)  | |    |   |  |
+| US 12 (SDP Activities)  | |    | [1201001](SprintB/US12.md)  |  |
 | US 13 (SDP Activities)  | |    |   |  |
-| US 14 (SDP Activities)  | |    |   |  |
-| US 15 (SDP Activities)  | |    |   |  |
+| US 14 (SDP Activities)  | |    |  [1201386](SprintB/US14.md) |  |
+| US 15 (SDP Activities)  | |    |  [1201382](SprintB/US15.md)|  |
 | US 16 (SDP Activities)  | |    |   |  |
 | US 17 (SDP Activities)  | |    |   |  |
 | US 18 (SDP Activities)  | |    |   |  |
