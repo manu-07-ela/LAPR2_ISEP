@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide methods
+skinparam classAttributeIconSize 0
+
+class Company
+class LabCoordinatorValidation
+class Employee
+class MedicalReport
+class ParameterResult
+class Test
+
+
+class Company{
+-name
+-designation
+-category
+-address
+-headquarters
+}
+
+class LabCoordinatorValidation {
+-dateAndTime
+}
+
+class Employee {
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-organizationRole
+-socCode
+}
+
+class MedicalReport{
+-diagnosis
+-dateAndTime
+}
+
+class ParameterResult{
+-parameterValue
+}
+
+class Test{
+-internalCode
+-nhsCode
+-description
+}
+
+Company "1"---"1..*" Test : performs >
+Company "1"---"1..*" Employee : employ >
+MedicalReport "*"---"1" LabCoordinatorValidation : validated by >
+Test "*" --- "1" LabCoordinatorValidation : request >
+ParameterResult "1..*"---"1" LabCoordinatorValidation : validated by >
+LabCoordinatorValidation "*"--"1" Employee : made by >
+
+@enduml
