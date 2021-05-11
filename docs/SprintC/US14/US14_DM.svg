@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="838.5px" preserveAspectRatio="none" style="width:399px;height:838px;" version="1.1" viewBox="0 0 399 838" width="399px" zoomAndPan="magnify"><defs><filter height="300%" id="f7txilk7w52co" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><rect codeLine="5" fill="#FEFECE" filter="url(#f7txilk7w52co)" height="80.7539" id="Company" style="stroke:#A80036;stroke-width:2.25;" width="127.5" x="10.5" y="322.5"/><ellipse cx="33" cy="346.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M36,341.25 Q36.3047,340.5 36.6563,340.125 Q37.0078,339.75 37.4063,339.75 Q38.1094,339.75 38.5547,340.1719 Q39,340.5938 39,341.5781 L39,343.9219 Q39,344.9063 38.5781,345.3281 Q38.1563,345.75 37.5,345.75 Q36.9141,345.75 36.5391,345.4922 Q36.1641,345.2344 36,344.5547 Q35.9297,344.0859 35.6719,343.8281 Q35.2031,343.3359 34.3594,343.0547 Q33.5156,342.75 32.6719,342.75 Q31.6172,342.75 30.7266,343.1719 Q29.8594,343.5938 29.1797,344.5313 Q28.5,345.4688 28.5,346.7578 L28.5,348.1406 Q28.5,349.6875 29.7656,350.7188 Q31.0313,351.75 33.2813,351.75 Q34.6172,351.75 35.5547,351.4453 Q36.0938,351.2813 36.7031,350.7422 Q37.1016,350.4375 37.3125,350.3438 Q37.5234,350.25 37.7813,350.25 Q38.2734,350.25 38.625,350.6484 Q39,351.0234 39,351.5625 Q39,352.0781 38.4844,352.6875 Q37.7344,353.5781 36.5391,354.0703 Q34.9688,354.75 33.0469,354.75 Q30.7969,354.75 28.9922,353.8594 Q27.5391,353.1563 26.5078,351.6328 Q25.5,350.1094 25.5,348.3047 L25.5,346.6641 Q25.5,344.7891 26.3906,343.1484 Q27.3047,341.5078 28.875,340.6406 Q30.4688,339.75 32.25,339.75 Q33.3281,339.75 34.2656,340.125 Q35.2031,340.5 36,341.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="79.5" x="54" y="353.8652">Company</text><line style="stroke:#A80036;stroke-width:2.25;" x1="12" x2="136.5" y1="370.5" y2="370.5"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="88.5" x="19.5" y="393.6284">-designation</text><!--MD5=[7421f545a0d8420c5bec41e74b387d9c]
+class Employee--><rect codeLine="10" fill="#FEFECE" filter="url(#f7txilk7w52co)" height="205.2773" id="Employee" style="stroke:#A80036;stroke-width:2.25;" width="144" x="84.75" y="613.5"/><ellipse cx="113.325" cy="637.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M116.325,632.25 Q116.6297,631.5 116.9812,631.125 Q117.3328,630.75 117.7312,630.75 Q118.4344,630.75 118.8797,631.1719 Q119.325,631.5938 119.325,632.5781 L119.325,634.9219 Q119.325,635.9063 118.9031,636.3281 Q118.4812,636.75 117.825,636.75 Q117.2391,636.75 116.8641,636.4922 Q116.4891,636.2344 116.325,635.5547 Q116.2547,635.0859 115.9969,634.8281 Q115.5281,634.3359 114.6844,634.0547 Q113.8406,633.75 112.9969,633.75 Q111.9422,633.75 111.0516,634.1719 Q110.1844,634.5938 109.5047,635.5313 Q108.825,636.4688 108.825,637.7578 L108.825,639.1406 Q108.825,640.6875 110.0906,641.7188 Q111.3562,642.75 113.6062,642.75 Q114.9422,642.75 115.8797,642.4453 Q116.4187,642.2813 117.0281,641.7422 Q117.4266,641.4375 117.6375,641.3438 Q117.8484,641.25 118.1062,641.25 Q118.5984,641.25 118.95,641.6484 Q119.325,642.0234 119.325,642.5625 Q119.325,643.0781 118.8094,643.6875 Q118.0594,644.5781 116.8641,645.0703 Q115.2937,645.75 113.3719,645.75 Q111.1219,645.75 109.3172,644.8594 Q107.8641,644.1563 106.8328,642.6328 Q105.825,641.1094 105.825,639.3047 L105.825,637.6641 Q105.825,635.7891 106.7156,634.1484 Q107.6297,632.5078 109.2,631.6406 Q110.7937,630.75 112.575,630.75 Q113.6531,630.75 114.5906,631.125 Q115.5281,631.5 116.325,632.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="82.5" x="135.675" y="644.8652">Employee</text><line style="stroke:#A80036;stroke-width:2.25;" x1="86.25" x2="227.25" y1="661.5" y2="661.5"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="45" x="93.75" y="684.6284">-name</text><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="66" x="93.75" y="705.3823">-address</text><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="106.5" x="93.75" y="726.1362">-phoneNumber</text><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="42" x="93.75" y="746.8901">-email</text><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="87" x="93.75" y="767.644">-employeeId</text><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="126" x="93.75" y="788.3979">-organizationRole</text><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="70.5" x="93.75" y="809.1519">-socCode</text><!--MD5=[7d96fd15f3014691d2fcaf89c5791e2a]
+class SpecialistDoctor--><rect codeLine="20" fill="#FEFECE" filter="url(#f7txilk7w52co)" height="80.7539" id="SpecialistDoctor" style="stroke:#A80036;stroke-width:2.25;" width="183" x="191.25" y="322.5"/><ellipse cx="213.75" cy="346.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M216.75,341.25 Q217.0547,340.5 217.4063,340.125 Q217.7578,339.75 218.1563,339.75 Q218.8594,339.75 219.3047,340.1719 Q219.75,340.5938 219.75,341.5781 L219.75,343.9219 Q219.75,344.9063 219.3281,345.3281 Q218.9063,345.75 218.25,345.75 Q217.6641,345.75 217.2891,345.4922 Q216.9141,345.2344 216.75,344.5547 Q216.6797,344.0859 216.4219,343.8281 Q215.9531,343.3359 215.1094,343.0547 Q214.2656,342.75 213.4219,342.75 Q212.3672,342.75 211.4766,343.1719 Q210.6094,343.5938 209.9297,344.5313 Q209.25,345.4688 209.25,346.7578 L209.25,348.1406 Q209.25,349.6875 210.5156,350.7188 Q211.7813,351.75 214.0313,351.75 Q215.3672,351.75 216.3047,351.4453 Q216.8438,351.2813 217.4531,350.7422 Q217.8516,350.4375 218.0625,350.3438 Q218.2734,350.25 218.5313,350.25 Q219.0234,350.25 219.375,350.6484 Q219.75,351.0234 219.75,351.5625 Q219.75,352.0781 219.2344,352.6875 Q218.4844,353.5781 217.2891,354.0703 Q215.7188,354.75 213.7969,354.75 Q211.5469,354.75 209.7422,353.8594 Q208.2891,353.1563 207.2578,351.6328 Q206.25,350.1094 206.25,348.3047 L206.25,346.6641 Q206.25,344.7891 207.1406,343.1484 Q208.0547,341.5078 209.625,340.6406 Q211.2188,339.75 213,339.75 Q214.0781,339.75 215.0156,340.125 Q215.9531,340.5 216.75,341.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="135" x="234.75" y="353.8652">SpecialistDoctor</text><line style="stroke:#A80036;stroke-width:2.25;" x1="192.75" x2="372.75" y1="370.5" y2="370.5"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="147" x="200.25" y="393.6284">-doctorIndexNumber</text><!--MD5=[b2d1f399f1909a0bb241ed0598ba126f]
+class MedicalReport--><rect codeLine="24" fill="#FEFECE" filter="url(#f7txilk7w52co)" height="101.5078" id="MedicalReport" style="stroke:#A80036;stroke-width:2.25;" width="166.5" x="199.5" y="10.5"/><ellipse cx="222" cy="34.5" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke:#A80036;stroke-width:1.5;"/><path d="M225,29.25 Q225.3047,28.5 225.6563,28.125 Q226.0078,27.75 226.4063,27.75 Q227.1094,27.75 227.5547,28.1719 Q228,28.5938 228,29.5781 L228,31.9219 Q228,32.9063 227.5781,33.3281 Q227.1563,33.75 226.5,33.75 Q225.9141,33.75 225.5391,33.4922 Q225.1641,33.2344 225,32.5547 Q224.9297,32.0859 224.6719,31.8281 Q224.2031,31.3359 223.3594,31.0547 Q222.5156,30.75 221.6719,30.75 Q220.6172,30.75 219.7266,31.1719 Q218.8594,31.5938 218.1797,32.5313 Q217.5,33.4688 217.5,34.7578 L217.5,36.1406 Q217.5,37.6875 218.7656,38.7188 Q220.0313,39.75 222.2813,39.75 Q223.6172,39.75 224.5547,39.4453 Q225.0938,39.2813 225.7031,38.7422 Q226.1016,38.4375 226.3125,38.3438 Q226.5234,38.25 226.7813,38.25 Q227.2734,38.25 227.625,38.6484 Q228,39.0234 228,39.5625 Q228,40.0781 227.4844,40.6875 Q226.7344,41.5781 225.5391,42.0703 Q223.9688,42.75 222.0469,42.75 Q219.7969,42.75 217.9922,41.8594 Q216.5391,41.1563 215.5078,39.6328 Q214.5,38.1094 214.5,36.3047 L214.5,34.6641 Q214.5,32.7891 215.3906,31.1484 Q216.3047,29.5078 217.875,28.6406 Q219.4688,27.75 221.25,27.75 Q222.3281,27.75 223.2656,28.125 Q224.2031,28.5 225,29.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="118.5" x="243" y="41.8652">MedicalReport</text><line style="stroke:#A80036;stroke-width:2.25;" x1="201" x2="364.5" y1="58.5" y2="58.5"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="75" x="208.5" y="81.6284">-diagnosis</text><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacing" textLength="100.5" x="208.5" y="102.3823">-dateAndTime</text><!--MD5=[09366576ee87d48d594df10cacc83f45]
+link Company to Employee--><path codeLine="31" d="M83.55,403.995 C95.4,454.275 116.28,542.97 132.72,612.765 " fill="none" id="Company-Employee" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#000000" points="120.9694,516.0639,122.15,501.847,113.568,503.8683,120.9694,516.0639" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="63" x="132.75" y="516.7427">employ</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="10.5" x="73.8853" y="435.2477">1</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="30" x="98.695" y="597.137">1..*</text><!--MD5=[e66f8c4fa516e197a55cf1b13c3927b3]
+link SpecialistDoctor to Employee--><path codeLine="32" d="M268.545,403.995 C252.825,447.69 226.665,520.41 203.595,584.52 " fill="none" id="SpecialistDoctor-to-Employee" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="none" points="213.48,588.09,193.44,612.765,193.71,580.98,213.48,588.09" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[998e2ee25e4f5c17bcb5810d33ccda6e]
+link MedicalReport to SpecialistDoctor--><path codeLine="33" d="M282.75,112.965 C282.75,171.885 282.75,268.575 282.75,322.35 " fill="none" id="MedicalReport-SpecialistDoctor" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#000000" points="290.25,225.2637,294.6584,211.696,285.8416,211.696,290.25,225.2637" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="84" x="303.75" y="225.7427">written by</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="7.5" x="274.6055" y="144.2033">*</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="10.5" x="271.0359" y="306.5068">1</text><!--MD5=[b88f0dd0f913a60641142bac3b2a95fc]
+@startuml
+hide methods
+'left to right direction
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-organizationRole
+-socCode
+}
+
+class SpecialistDoctor{
+-doctorIndexNumber
+}
+
+class MedicalReport{
+-diagnosis
+-dateAndTime
+}
+
+
+
+Company "1"- - -"1..*" Employee : employ >
+SpecialistDoctor - - -|> Employee
+MedicalReport "*"- - -"1" SpecialistDoctor : written by >
+
+@enduml
+
+@startuml
+hide methods
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-organizationRole
+-socCode
+}
+
+class SpecialistDoctor{
+-doctorIndexNumber
+}
+
+class MedicalReport{
+-diagnosis
+-dateAndTime
+}
+
+
+
+Company "1"- - -"1..*" Employee : employ >
+SpecialistDoctor - - -|> Employee
+MedicalReport "*"- - -"1" SpecialistDoctor : written by >
+
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

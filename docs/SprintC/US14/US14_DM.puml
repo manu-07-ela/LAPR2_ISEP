@@ -1,0 +1,36 @@
+@startuml
+hide methods
+'left to right direction
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-organizationRole
+-socCode
+}
+
+class SpecialistDoctor{
+-doctorIndexNumber
+}
+
+class MedicalReport{
+-diagnosis
+-dateAndTime
+}
+
+
+
+Company "1"---"1..*" Employee : employ >
+SpecialistDoctor ---|> Employee
+MedicalReport "*"---"1" SpecialistDoctor : written by >
+
+@enduml

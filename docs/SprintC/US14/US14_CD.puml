@@ -1,0 +1,19 @@
+@startuml
+
+class Company{
+-String designation
+
+}
+
+class CreateMedicalReportUI{
+
+}
+
+class CreateMedicalReporController{
+
+}
+
+CreateMedicalReportUI ..> CreateMedicalReporController
+CreateMedicalReporController ..> Company
+
+@enduml

@@ -1,0 +1,48 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as Adm
+
+participant ": CreateMedicalReportUI" as UI
+participant ": CreateMedicalReportController" as CTRL
+participant ": Company" as Comp
+
+
+activate Adm
+Adm -> UI :
+activate UI
+UI --> Adm :
+deactivate UI
+
+Adm -> UI :
+activate UI
+
+UI --> Adm :
+deactivate UI
+
+Adm -> UI :
+activate UI
+
+UI -> CTRL :
+activate CTRL
+
+CTRL --> UI:
+deactivate CTRL
+UI --> Adm :
+deactivate UI
+Adm -> UI:
+activate UI
+UI -> CTRL:
+activate CTRL
+
+CTRL --> UI:
+deactivate CTRL
+UI --> Adm :
+deactivate UI
+
+deactivate Adm
+
+
+
+
+@enduml

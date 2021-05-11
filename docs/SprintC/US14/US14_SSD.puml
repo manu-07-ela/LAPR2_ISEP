@@ -1,0 +1,30 @@
+@startuml
+autonumber
+actor "Administrator" as Adm
+
+activate Adm
+Adm -> ":System" :
+activate ":System"
+":System" --> Adm :
+deactivate ":System"
+
+Adm -> ":System" :
+activate ":System"
+":System" --> Adm :
+deactivate ":System"
+
+Adm -> ":System" :
+activate ":System"
+
+
+":System" --> Adm :
+deactivate ":System"
+
+Adm -> ":System" :
+activate ":System"
+":System" --> Adm :
+deactivate ":System"
+
+deactivate Adm
+
+@enduml
