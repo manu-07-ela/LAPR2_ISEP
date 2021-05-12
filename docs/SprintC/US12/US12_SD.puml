@@ -1,0 +1,13 @@
+@startuml
+autonumber
+'hide footbox
+actor "Clinical Chemistry Technologist" as CCT
+
+participant ": RecordTestResultsUI" as UI
+participant ": RecordTestResultsController" as CTRL
+participant ": Company" as Comp
+
+
+
+
+@enduml

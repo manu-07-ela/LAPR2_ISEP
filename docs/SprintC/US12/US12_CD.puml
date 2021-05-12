@@ -1,0 +1,19 @@
+@startuml
+
+class Company{
+-String designation
+
+}
+
+class RecordTestResultsUI{
+
+}
+
+class RecordTestResultsController{
+
+}
+
+RecordTestResultsUI ..> RecordTestResultsController
+RecordTestResultsController ..> Company
+
+@enduml

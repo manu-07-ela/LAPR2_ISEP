@@ -32,9 +32,37 @@ test type (whether it is blood test or Covid test).
 
 **From the client clarifications:**
 
-> **Question:** 
+> **Question:**  Does the laboratory coordinator have the option to not validate the work done by the specialist doctor and clinical chemistry technologist?
 >
-> [**Awnser:**]() 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8165) 
+
+> **Question:** Can he validate separately? For example only validate the clinical chemistry technologist work? Or he can only validate both at the same time?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8165)
+
+> **Question:** What states should we consider for the validation of the samples and diagnosis report? For example: "Validated", "Not validated" and "To validate"?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8174)
+
+> **Question:** Should the laboratory coordinator choose which tests he wants to validate or we assume he wants to validate all tests available?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8174)
+
+> **Question:** : When the laboratory coordinator wants to validate a test does all the tests available show up for him or does he search using a code that identifies a specific test?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8177) 
+
+> **Question:** What should happen to a test if either the test report or the results are invalid? Should we prompt for a redo of either process or simply erase the test?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8177)
+
+> **Question:** Should the laboratory coordinator validate the test results one by one or should he do only one validation of all of them?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8180)
+
+> **Question:**
+>
+> [**Awnser:**]()
 
 ### 1.3. Acceptance Criteria
 
@@ -71,7 +99,7 @@ test type (whether it is blood test or Covid test).
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![US15-MD](US15-MD.svg)
+![US15_DM](US15_DM.svg)
 
 ### 2.2. Other Remarks
 
