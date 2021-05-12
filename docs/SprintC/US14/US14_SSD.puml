@@ -3,17 +3,17 @@ autonumber
 actor "Administrator" as Adm
 
 activate Adm
-Adm -> ":System" :
+Adm -> ":System" : Initiates the process of elaborate a medical report.
+'activate ":System"
+'":System" --> Adm : Shows the tests that are waiting for the \n medical report and asks to select one.
+'deactivate ":System"
+
+'Adm -> ":System" :  Select the desired test.
 activate ":System"
-":System" --> Adm :
+":System" --> Adm : Shows the parameter results and request the diagnosis.
 deactivate ":System"
 
-Adm -> ":System" :
-activate ":System"
-":System" --> Adm :
-deactivate ":System"
-
-Adm -> ":System" :
+Adm -> ":System" : Introduces the diagnosis.
 activate ":System"
 
 
