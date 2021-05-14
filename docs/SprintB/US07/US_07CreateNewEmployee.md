@@ -23,6 +23,7 @@
 > * Standard Occupational Classification (SOC) code.
 >
 > The Specialist Doctor has an additional attribute:
+> 
 > * Doctor Index Number.
 
 > _**Question:**_ What format should the phone number be?
