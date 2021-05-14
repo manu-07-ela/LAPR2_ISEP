@@ -9,13 +9,19 @@
 > 
 > [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126#p9455) All the roles that exist in the Many Labs company are characterized by the following attributes:
 > * Employee ID;
-> * Organization Role;
-> * Name;
-> * Address;
-> * Phone Number;
-> * E-Mail;
-> * Standard Occupational Classification (SOC) code.
 > 
+> * Organization Role;
+> 
+> * Name;
+> 
+> * Address;
+> 
+> * Phone Number;
+> 
+> * E-Mail;
+> 
+> * Standard Occupational Classification (SOC) code.
+>
 > The Specialist Doctor has an additional attribute:
 > * Doctor Index Number.
 
