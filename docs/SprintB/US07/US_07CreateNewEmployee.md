@@ -143,7 +143,9 @@
 |              | ... validating all data (global validation) ? | EmployeeStore | IE: knows all its Employees |
 |              | ... saving the created task ? | EmployeeStore | IE: knows all its Employees|
 | Step 8       | ... informing operation success ?  | CreateEmployeeUI | IE: responsible for user interactions with the system |
-### Systematization ##
+
+
+### Systematization
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
@@ -151,6 +153,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
  * Employee
 
 Other software classes (i.e. Pure Fabrication) identified: 
+
  * CreateEmployeeUI  
  * CreateEmployeeController
  * EmployeeStore
@@ -218,7 +221,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 5. Construction (Implementation)
 
-##Class RegisterEmployeeController
+## Class RegisterEmployeeController
   
     /**
      * Returns a DTO-type list of organizational roles present in the company
@@ -228,7 +231,7 @@ Other software classes (i.e. Pure Fabrication) identified:
        return this.mapperOrgRole.listOrgRolesDto(this.organizationRoleStore.getListOrgRoles());
     }
 
-##Class EmployeeStore
+## Class EmployeeStore
 
     /**
      * Global validation of a Employee
@@ -249,7 +252,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         if (!validateEmployee(employee)) return false;
         return this.addEmployee(employee);
     }
-##Class EmployeeDTO
+## Class EmployeeDTO
 
     /**
      * Creates a new instance of EmployeeDto with the following attributes: name, email, address, phone number, soc code, organizational role and doctor index number
@@ -301,7 +304,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 7. Observations
 
-`* In the future, the user story will be developed with a graphical interface, and the option to select the organizational role will be added.`
+* In the future, the user story will be developed with a graphical interface, and the option to select the organizational role will be added.
   
 
 * The responsibility of generating a random password maturely may in the future be delegated to a new class for greater maintenance of the code.

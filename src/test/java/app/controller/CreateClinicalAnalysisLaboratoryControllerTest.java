@@ -70,13 +70,13 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
 
     }
 
-    /*
-    @Test
+
+    /*@Test
     public void getTestTypeList(){
         List<TestTypeDTO> result = ctrl.getTestTypeList();
         Assert.assertEquals(ttlistDTO,result);
-    }
-    */
+    }*/
+
 
 
 
