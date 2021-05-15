@@ -19,7 +19,9 @@ activate UI
 UI -> CTRL : getTestTypeList()
 activate CTRL
 
-CTRL -> Comp : store=getClinicalAnalysisLaboratoryStore
+CTRL -> Comp : store=getTestTypeStore()
+activate Comp
+deactivate Comp
 CTRL -> TTS : getTestTypeList()
 activate TTS
 TTS -> "listTestType:List<TestType>"** : get()

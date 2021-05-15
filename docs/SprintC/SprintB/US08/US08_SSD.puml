@@ -11,9 +11,9 @@ deactivate ":System"
 
 Adm -> ":System" : types requested data
 activate ":System"
+loop * while the user selects the TestTypes intended
 ":System" --> Adm : shows a TestType list and ask to choose the ones intended
 deactivate ":System"
-loop * while the user selects the TestTypes intended
 Adm -> ":System" : selects the TestTypes intended
 activate ":System"
 end
