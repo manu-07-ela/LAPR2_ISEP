@@ -26,10 +26,16 @@ values.
 
 
 **From the client clarifications:**
-> **Question:** "Which type/format has LaboratoryID, address, name, phone number, and TIN number on Clinical Analysis Laboratory?"
+> **Question:** "When the Clinical Chemistry Technologist wants to record the results of a test, how does he has access to that test? By internal code, NHS code?"
 >  
-> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7636)
->Each Clinical Analysis Laboratory is characterized by the following attributes:
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8301)
+>Each sample has a unique barcode. The clinical chemistry technologist should use the sample barcode number to find the test for which the sample was collected.
+> 
+> > **Question:** "Should the system present a result for each test parameter or a single result for the test to be recorded?"
+>
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8301)
+> The Clinical Chemistry Technologist should register a value/result for each parameter of the test.
+
 
 ### 1.3. Acceptance Criteria
 
@@ -49,10 +55,10 @@ values.
 **Input Data:**
 
 * Typed data:
-	*  
+	*  Barcode number
 	
 * Selected data:
-	* 
+	* Test parameter
 
 
 **Output Data:**
