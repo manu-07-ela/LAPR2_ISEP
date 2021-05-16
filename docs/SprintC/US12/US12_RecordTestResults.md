@@ -45,7 +45,7 @@ values.
 ### 1.4. Found out Dependencies
 
 
-* There is a dependency to "US10 Specify a new parameter and categorize it" since at least the parameter must exist to record the results .
+* There is a dependency to "US04 Register a test to be performed to a registered client " since at least the test must exist to record the results .
 
 
 
@@ -56,6 +56,8 @@ values.
 
 * Typed data:
 	*  Barcode number
+	*  Parameter Result
+	*  Metric
 	
 * Selected data:
 	* Test parameter
