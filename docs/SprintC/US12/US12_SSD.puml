@@ -3,9 +3,25 @@ autonumber
 actor "Clinical Chemistry Technologist" as CCT
 
 activate CCT
-CCT -> ":System" :
+CCT -> ":System" : asks to register the test results
 activate ":System"
-":System" --> CCT :
+":System" --> CCT : request the barcode number
 deactivate ":System"
+CCT -> ":System" : types requested data
+activate ":System"
+loop *for each test parameter being analysed
+":System" -> CCT : Show list of test parameters
+deactivate ":System"
+CCT -> ":System" : selects test parameter
+activate ":System"
+":System" -> CCT : request the result and metric
+deactivate ":System"
+CCT -> ":System" : types requested data
+activate ":System"
+deactivate ":System"
+end
+
+
+deactivate CCT
 
 @enduml
