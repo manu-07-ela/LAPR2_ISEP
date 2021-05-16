@@ -4,52 +4,41 @@ left to right direction
 skinparam classAttributeIconSize 0
 
 
-class Platform {
+class Client {
+   - name
+   - email
+   - phoneNumber
+   - sex
+   - tin
+   - birthDate
+   - nhsNumber
+   - citizenCardNumber
+}
+
+class LabOrder {
+}
+
+class TestType {
+  -code
+  -description
+  -collectingMethod
+}
+
+class Company {
   -designation
 }
 
-class Organization {
-  -name
-  -VatNumber
-  -website
-  -phoneNumber
-  -email
-}
-
-class Task {
-  -reference
-  -designation
-  -informalDesc
-  -technicalDesc
-  -duration
-  -cost
-}
-
-class Category {
-  -id
+class Test {
+  -internalCode
+  -nhsCode
   -description
 }
 
-class Employee {
-  -name
-  -function
-  -phone
-  -email
-}
-
-class User {
-  -name
-  -email
-  -password
-}
-
-Platform "1" -- "*" Organization : has registered >
-Platform "1" -- "*" Category : defines >
-Organization "1" -- "1..*" Employee : has >
-Organization "1" -- "*" Task: owns >
-Task "*" -- "1" Employee: created by >
-Employee "0..1" -- "1" User: acts as >
-Task "*" -- "1" Category: classified as >
+Company "1" -- "*" Test : performs >
+Test "1" -- "*" Client : associated a >
+Client "1" -- "1..*" LabOrder : has a >
+LabOrder "1" -- "*" TestType: contains the >
+Company "*" -- "1" TestType: conducts >
 
 
 

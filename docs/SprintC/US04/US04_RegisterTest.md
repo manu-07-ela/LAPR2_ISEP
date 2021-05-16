@@ -5,52 +5,32 @@
 
 ### 1.1. User Story Description
 
-
-As an organization employee, I want to create a new task in order to be further published.
-
-
+As a receptionist of the laboratory, I intend to register a test to be performed to a registered client.
 
 ### 1.2. Customer Specifications and Clarifications 
 
 
 **From the specifications document:**
 
->	Each task is characterized by having a unique reference per organization, a designation, an informal and a technical description, an estimated duration and cost as well as the its classifying task category. 
-
-
->	As long as it is not published, access to the task is exclusive to the employees of the respective organization. 
-
-
+>Once there, a receptionist asks the client’s citizen card number, the lab order (which
+contains the type of test and parameters to be measured), and registers in the application the test to
+be performed to that client.
 
 **From the client clarifications:**
 
-> **Question:** Which is the unit of measurement used to estimate duration?
+> **Question:** 
 >  
-> **Answer:** Duration is estimated in days.
-
--
-
-> **Question:** Monetary data is expressed in any particular currency?
->  
-> **Answer:** Monetary data (e.g. estimated cost of a task) is indicated in POTs (virtual currency internal to the platform).
-
+> **Answer:** 
 
 ### 1.3. Acceptance Criteria
 
-
-* **AC1:** All required fiels must be filled in.
-* **AC2:** Task reference must have at least 5 alphanumeric chars.
-* **AC3:** When creating a task with an already existing reference, the system must reject such operation and the user must have the change to modify the typed reference.
-
+* **AC1:** The receptionist must select the parameters to be analysed from all possible parameters in accordance with the test type.
 
 ### 1.4. Found out Dependencies
 
-
-* There is a dependency to "US003 Create a task category" since at least a task category must exist to classify the task being created.
-
+* There is a dependency to US03 since at least a client must exist to register a test to be performed.
 
 ### 1.5 Input and Output Data
-
 
 **Input Data:**
 
@@ -73,17 +53,7 @@ As an organization employee, I want to create a new task in order to be further 
 
 ### 1.6. System Sequence Diagram (SSD)
 
-**Alternative 1**
-
-![US006_SSD](US006_SSD.svg)
-
-
-**Alternative 2**
-
-![US006_SSD_v2](US006_SSD_v2.svg)
-
-
-**Other alternatives might exist.**
+![US04_SSD](US04_SSD.svg)
 
 ### 1.7 Other Relevant Remarks
 
@@ -94,7 +64,7 @@ As an organization employee, I want to create a new task in order to be further 
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![US006_MD](US006_MD.svg)
+![US04_MD](US04_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -142,19 +112,11 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## 3.2. Sequence Diagram (SD)
 
-**Alternative 1**
-
-![US006_SD](US006_SD.svg)
-
-**Alternative 2**
-
-![US006_SD](US006_SD_v2.svg)
+![US04_SD](US04_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
-**From alternative 1**
-
-![US006_CD](US006_CD.svg)
+![US04_CD](US04_CD.svg)
 
 # 4. Tests 
 
