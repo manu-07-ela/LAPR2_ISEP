@@ -204,7 +204,7 @@ ChemicalAnalysis "1"---"1..*" ParameterResult: generates >
 SpecialistDoctor ---|> Employee
 
 MedicalReport "1..*"---"1" Client : sent to >
-MedicalReport "1"---"1..*" ParameterResult : contains >
+'MedicalReport "1"---"1..*" ParameterResult : contains >
 MedicalReport "*"---"1" LabCoordinatorValidation : validated by >
 MedicalReport "*"---"1" SpecialistDoctor : written by >
 
