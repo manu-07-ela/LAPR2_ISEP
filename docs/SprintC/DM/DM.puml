@@ -182,7 +182,6 @@ ParameterResult "*"---"1" ReferenceValue : compared with >
 ParameterResult "1..*"---"1" SpecialistDoctor : analyzed by >
 
 Sample "*"---"1" ChemicalLaboratory : sent to >
-Sample "1..*"---"1" Test : associated >
 Sample "1"---"1" Barcode : identified by >
 Sample "*"---"1" Employee : registered by >
 

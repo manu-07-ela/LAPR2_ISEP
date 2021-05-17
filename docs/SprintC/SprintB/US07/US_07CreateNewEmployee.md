@@ -3,8 +3,11 @@
 ## 1. Requirements Engineering
 
 ### 1.1. User Story Description
+
 *As an Administrator, I want register a new employee.*
+
 ### 1.2. Customer Specifications and Clarifications
+
 >_**Question:**_ What data characterizes a Manylabs employee?
 > 
 > [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126#p9455) All the roles that exist in the Many Labs company are characterized by the following attributes:
@@ -57,6 +60,7 @@
 > [_**Answer**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7863#p10541) The administrator should write the role when he is registering a new employee.
 
 ### 1.3. Acceptance Criteria
+
 - *_AC1:_* Each user must have a single role defined in the System. 
 - *_AC2:_* The "auth" component available on the repository must be reused (without modifications).
 - *_AC3:_* Every employee must be a user of the system.
