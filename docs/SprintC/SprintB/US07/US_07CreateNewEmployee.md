@@ -3,8 +3,11 @@
 ## 1. Requirements Engineering
 
 ### 1.1. User Story Description
+
 *As an Administrator, I want register a new employee.*
+
 ### 1.2. Customer Specifications and Clarifications
+
 >_**Question:**_ What data characterizes a Manylabs employee?
 > 
 > [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7126#p9455) All the roles that exist in the Many Labs company are characterized by the following attributes:
@@ -57,10 +60,11 @@
 > [_**Answer**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7863#p10541) The administrator should write the role when he is registering a new employee.
 
 ### 1.3. Acceptance Criteria
+
 - *_AC1:_* Each user must have a single role defined in the System. 
 - *_AC2:_* The "auth" component available on the repository must be reused (without modifications).
 - *_AC3:_* Every employee must be a user of the system.
-- *_AC4:_* The employeeId must be generated automatically with this following format: "XXXX00000".
+- *_AC4:_* The employeeID should be generated automatically with the employee's initials and five numbers, which will be incremented when a new employee is created.
 - *_AC5:_* The phone number must have 11 digits.
 - *_AC6:_* Doctor index number has 6 digits.
 - *_AC7:_* Soc number must have 4 digits.
@@ -70,7 +74,9 @@
 - *_AC11:_* Password must have ten alphanumerics characters.
 
 ### 1.4. Found out Dependencies
+
 - The "Auth" component
+
 ### 1.5 Input and Output Data
 
 **Input Data:**
@@ -104,6 +110,7 @@
 ### 1.7 Other Relevant Remarks
 
 * All employees need to become a user of the system.
+  
 * This US will be used more frequently in the first use of the system, then it will only be necessary in the case of a new contract.
 
 
@@ -115,6 +122,7 @@
 ![US07-MD](US07-MD.svg)
 
 ### 2.2. Other Remarks
+
 * Exert of the domain model of the Auth component relevant to the development of the acceptance criteria 3.
 
 ![MD-USER](MD-USER.svg)
@@ -129,7 +137,7 @@
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1  	   |	... interacting with the actor ? | CreateEmployeeUI | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model. |
 |              | ... knowing the user using the system ? | UserSession | IE: A&A component documentation |
-|              | ... coordinating the US ? | CreateEmployeeController | This task is assign to a Controller to make the connection from the UI and all the classes |
+|              | ... coordinating the US ? | CreateEmployeeController | Controller: This task is assign to a Controller to make the connection from the UI and all the classes |
 |              | ... knowing who is responsible for creating Employee instances?| Company | Creator (R1)|
 |              | ... creates Employee instance?                                 | EmployeeStore       | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in EmployeeStore.|
 | Step 2       |  ... knowing who is responsible for know all Organization role?| Company |  Creator (R1)|
@@ -293,7 +301,6 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 6. Integration and Demo 
 
 * For some demo purposes, some user roles are bootstrapped while the system starts.
-  
 
 * Integration with the AuthFacade class was required for the registered employee to become a user of the system.
 
@@ -301,8 +308,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 7. Observations
 
-`* In the future, the user story will be developed with a graphical interface, and the option to select the organizational role will be added.`
-  
+* In the future, the user story will be developed with a graphical interface, and the option to select the organizational role will be added.
 
 * The responsibility of generating a random password maturely may in the future be delegated to a new class for greater maintenance of the code.
 

@@ -1,0 +1,28 @@
+@startuml
+autonumber
+actor "Receptionist" as OE
+
+activate OE
+OE -> ":System" : asks to register a test to be \n performed to a registered client
+activate ":System"
+":System" --> OE : requests data (citizencardnumber, laborder)
+deactivate ":System"
+
+OE -> ":System" : types requested data
+activate ":System"
+":System" --> OE : shows test types list and ask to select one
+deactivate ":System"
+
+OE -> ":System" : selects a test type
+activate ":System"
+":System" --> OE : shows all data and requests confirmation
+deactivate ":System"
+
+OE -> ":System" : confirms the data
+activate ":System"
+":System" --> OE : informs operation success
+deactivate ":System"
+
+deactivate OE
+
+@enduml

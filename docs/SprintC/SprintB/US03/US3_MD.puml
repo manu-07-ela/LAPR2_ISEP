@@ -4,8 +4,8 @@ left to right direction
 skinparam classAttributeIconSize 0
 
 
-class Receptionist {
-
+class Company {
+-designation
 }
 
 class Client {
@@ -19,22 +19,8 @@ class Client {
   -email
 }
 
-class Email {
-  -message
-  -password
-}
-
-class Employee {
-  -name
-  -function
-  -phone
-  -email
-}
-
-
-Receptionist "1" -- "*" Client : register the >
-Client "*" -- "1*" Email: receives >
-Receptionist --|> Employee
+Company "1" -- "*" Client : knows >
+Client -- "1" User: becomes
 
 
 @enduml

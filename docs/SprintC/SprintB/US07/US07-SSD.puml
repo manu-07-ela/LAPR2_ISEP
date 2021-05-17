@@ -10,9 +10,9 @@ Adm -> sy: starts the creation of a new employee
 activate sy
 sy --> Adm : show the employees roles
 deactivate sy
-Adm -> sy : select the desired role
+Adm -> sy : type the desired role
 activate sy
-opt employees role = specialist doctor
+alt employees role = specialist doctor
 sy --> Adm : request data (name, address, phoneNumber, email,socCode, doctorIndexNumber)
 else
 sy --> Adm : request data (name, address, phoneNumber, email, socCode)

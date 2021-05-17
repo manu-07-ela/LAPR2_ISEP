@@ -24,12 +24,10 @@ class ClinicalAnalysisLaboratory {
   -laboratoryId
 }
 
-class Test{
--internalCode
--nhsCode
+class TestType{
+-code
 -description
--dateValidationLabCordinator
--timeValidationLabCordinator
+-collectionMethod
 }
 
 class ChemicalLaboratory{
@@ -48,7 +46,7 @@ class Employee{
 
 Company "1"---- "1..*" Laboratory : owns >
 ClinicalAnalysisLaboratory ----|> Laboratory
-ClinicalAnalysisLaboratory "1..*"----"*" Test : performs >
+ClinicalAnalysisLaboratory "1..*"----"*" TestType : performs >
 Employee "1"---"1..*"ClinicalAnalysisLaboratory : creates >
 ChemicalLaboratory ----|> Laboratory
 

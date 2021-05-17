@@ -21,7 +21,8 @@ class ClientStore {
   +createClient(cldto)
   +validateClient(cl)
   +saveClient(cl)
-  +addClient(cl)
+  +generatelogin(cl)
+  -addClient(cl)
 }
 
 class ClientDto {
@@ -48,6 +49,7 @@ class ClientMapper {
 }
 
 class Company {
+  -designation
   +getClientStore()
 }
 
