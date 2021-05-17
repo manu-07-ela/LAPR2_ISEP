@@ -75,10 +75,9 @@ automatically generated using an external API.
 
 ## 2. OO Analysis
 
-### 2.1. Relevant Domain Model Excerpt 
-*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
+### 2.1. Relevant Domain Model Excerpt  
 
-![US05-MD](US05-MD.svg)
+![US05-DM](US05_DM.svg)
 
 ### 2.2. Other Remarks
 
