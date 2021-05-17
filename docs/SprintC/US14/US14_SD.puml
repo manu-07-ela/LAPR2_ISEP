@@ -1,47 +1,42 @@
 @startuml
 autonumber
 'hide footbox
-actor "Administrator" as Adm
+actor "Specialist Doctor" as Doctor
 
 participant ": CreateMedicalReportUI" as UI
 participant ": CreateMedicalReportController" as CTRL
 participant ": Company" as Comp
 
-
-activate Adm
-Adm -> UI :
+activate Doctor
+Doctor -> UI : Initiates the process of elaborate a medical report.
 activate UI
-UI --> Adm :
-deactivate UI
-
-Adm -> UI :
-activate UI
-
-UI --> Adm :
-deactivate UI
-
-Adm -> UI :
-activate UI
-
-UI -> CTRL :
+UI -> CTRL
 activate CTRL
-
-CTRL --> UI:
+CTRL -> Comp :
+activate Comp
+deactivate Comp
 deactivate CTRL
-UI --> Adm :
+UI --> Doctor : Shows the tests that are waiting for the \n medical report and asks to select one.
 deactivate UI
-Adm -> UI:
+
+Doctor -> UI :  Select the desired test.
 activate UI
-UI -> CTRL:
-activate CTRL
-
-CTRL --> UI:
-deactivate CTRL
-UI --> Adm :
+UI --> Doctor : Shows the parameter results and request the medical report.
 deactivate UI
 
-deactivate Adm
+Doctor-> UI : Introduces the medical report.
+activate UI
 
+
+UI --> Doctor : Displays the data and requests confirmation.
+deactivate UI
+
+Doctor-> UI : Confirms the data.
+activate UI
+UI --> Doctor : Informs operation success.
+deactivate UI
+
+deactivate Doctor
 
 
 

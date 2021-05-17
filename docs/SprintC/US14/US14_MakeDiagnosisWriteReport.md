@@ -88,22 +88,21 @@ n/a
 
 **SSD - Alternative 1 is adopted.**
 
-| Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                             |
-|:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------- |
-| Step 1  		 | ... interacting with the actor?                                 | WriteMedicalReportUI          | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
-|                | ... coordinating the US?                                        | WriteMedicalReportController  | Controller                                                                                                                |
-|                | ... knowing who is responsible for creating test type instances?| Company                       | Creator (R1)                                                                                                              |
-|                | ... creates Test Type instance?                                 | TestTypeStore                 | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore.                           |
-| Step 2  		 |                                                                 |                               |                                                                                                                           |
-| Step 3  		 | ... saving the inputted data?                                   | TestType                      | IE: object created in step 1 has its own data.                                                                            |
-| Step 4  		 | ... knowing the parameter categories to show?                   | ParameterCategoryStore        | IE: knows all the categories of parameters.                                                                               |
-|                | ... process the data and convert it to dto                      | ParameterCategoryMapper       | Pure Fabrication: there is no justification for assigning this responsibility to any existing class in the Domain Model.  |
-| Step 5  		 | ... saving the selected categories?                             | TestType                      | IE: the object created in step 1 contains one or more categories of parameters                                            |
-| Step 6  		 |                                                                 |                               |                                                                                                                           |
-| Step 7  		 | ... validating all data (local validation)?                     | TestType                      | IE: owns its data.                                                                                                        |
-|                | ... validating all data (global validation)?                    | TestTypeStore                 | IE: knows all types of tests.                                                                                             |
-|                | ... saving the created test type?                               | TestTypeStore                 | IE: owns all types of tests.                                                                                              |
-| Step 8  		 | ... informing operation success?                                | CreateTestTypeUI              | IE: is responsible for user interactions.                                                                                 |
+| Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
+|:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Step 1  		 | ... interacting with the actor?                                 | CreateMedicalReportUI         | **Pure Fabrication**: there is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
+|                | ... coordinating the US?                                        | CreateMedicalReportController | **Controller**                                                                                                                                                                                         |
+| Step 2  		 | ... knowing the tests to show?                                  |                               |                                                                                                                                                                                                        |
+|                | ... process the data and convert it to dto                      |                               |                                                                                                                                                                                                        |
+| Step 3  		 | ... saving the selected test?                                   |                               |                                                                                                                                                                                                        |
+| Step 4  		 | ... knowing the parameter results to show?                      |                               |                                                                                                                                                                                                        |
+|                | ... process the data and convert it to dto                      |                               |                                                                                                                                                                                                        |
+| Step 5  		 | ... saving the inputted data?                                   |                               |                                                                                                                                                                                                        |
+| 		         | ... instantiating a new Medical Report?                         |                               | **Creator (R1)** and **HC+LC**: By the application of the Creator (R1) it would be the "Company". But, by applying HC + LC to the "Company", this delegates that responsibility to the ""              |
+|        		 | ... validating all data (local validation)?                     |                               | IE: owns its data.                                                                                                                                                                                     |
+| Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 7  		 | ... validating all data (global validation)?                    |                               | IE: owns its data.                                                                                                                                                                                     |
+| Step 8  		 | ... informing operation success?                                | CreateMedicalReportUI         | IE: is responsible for user interactions.                                                                                                                                                              |
 
 
 ### Systematization ##
@@ -114,8 +113,8 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * WriteMedicalReportUI
- * WriteMedicalReportController
+ * CreateMedicalReportUI
+ * CreateMedicalReportController
 
 ## 3.2. Sequence Diagram (SD)
 
