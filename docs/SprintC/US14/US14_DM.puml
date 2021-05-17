@@ -31,6 +31,7 @@ class Test{
 class MedicalReport{
 -diagnosis
 -dateAndTime
+-state
 }
 
 class ParameterResult{
