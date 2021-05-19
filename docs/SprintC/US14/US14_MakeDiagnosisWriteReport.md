@@ -40,7 +40,6 @@ client.
 
 * **AC1:** The report is free text and should have no more than 400 words.
 
-
 ### 1.4. Found out Dependencies
 
 * There is a dependency to "US12 Record the results of a given test" because the results of the chemical analysis have to be in the system for the specialist doctor to be able to make a diagnosis.
@@ -57,6 +56,7 @@ client.
 
 **Output Data:**
 
+* List of existing tests in the Samples Analyzed state 
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -69,7 +69,7 @@ client.
 
 ### 1.7 Other Relevant Remarks
 
-* The medical report stays in a "to validate" state in order to distinguish from "validated" medical reports.
+* The test goes to the Diagnosis made status after the conclusion of the medical report.
 
 ## 2. OO Analysis
 
@@ -80,7 +80,6 @@ client.
 ### 2.2. Other Remarks
 
 n/a
-
 
 ## 3. Design - User Story Realization 
 
@@ -103,7 +102,6 @@ n/a
 | Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
 | Step 7  		 | ... validating all data (global validation)?                    |                               | IE: owns its data.                                                                                                                                                                                     |
 | Step 8  		 | ... informing operation success?                                | CreateMedicalReportUI         | IE: is responsible for user interactions.                                                                                                                                                              |
-
 
 ### Systematization ##
 
