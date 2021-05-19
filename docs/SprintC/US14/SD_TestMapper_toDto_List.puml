@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'hide footbox
+autonumber
+
+participant ": TestMapper" as MAPPER
+
+
+
+@enduml
