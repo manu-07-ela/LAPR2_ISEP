@@ -1,19 +1,45 @@
 @startuml
 
+package UI{
+class CreateMedicalReportUI{
+
+}
+}
+
+package Controller{
+class CreateMedicalReporController{
+
+}
+}
+
+package Domain{
 class Company{
 -String designation
 
 }
 
-class CreateMedicalReportUI{
+class TestStore{
 
 }
 
-class CreateMedicalReporController{
+class Test{
+
+}
+
+class MedicalReport{
+
+}
+
+class TestMapper{
+
+}
+
+class TestDto{
 
 }
 
 CreateMedicalReportUI ..> CreateMedicalReporController
 CreateMedicalReporController ..> Company
+Company"1"--> "1" TestStore : uses
 
 @enduml
