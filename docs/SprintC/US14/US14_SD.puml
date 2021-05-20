@@ -1,47 +1,82 @@
 @startuml
 autonumber
 'hide footbox
-actor "Administrator" as Adm
+actor "Specialist Doctor" as Doctor
 
 participant ": CreateMedicalReportUI" as UI
 participant ": CreateMedicalReportController" as CTRL
 participant ": Company" as Comp
+participant "testStore:\nTestStore" as TS
+participant ": TestMapper" as MAPPER
+participant "testList: \nList<Test>" as List
+participant "testListDto :\nList<TestDto> " as TDto
+participant "dto: TestDto" as TDto
+participant "t:Test" as TEST
+participant "md: MedicalReport" as REPORT
 
-
-activate Adm
-Adm -> UI :
+activate Doctor
+Doctor -> UI : Initiates the process of elaborate a medical report.
 activate UI
-UI --> Adm :
-deactivate UI
-
-Adm -> UI :
-activate UI
-
-UI --> Adm :
-deactivate UI
-
-Adm -> UI :
-activate UI
-
-UI -> CTRL :
+UI -> CTRL : testListDto = getTestList()
 activate CTRL
-
-CTRL --> UI:
+CTRL -> Comp : testStore = getTestStore()
+activate Comp
+deactivate Comp
+CTRL -> TS : testList = getTestList()
+activate TS
+deactivate TS
+CTRL -> MAPPER : toDto(testList)
+activate MAPPER
+ref over MAPPER
+SD_TestMapper_toDto_List
+end ref
+MAPPER --> CTRL : testListDto
+deactivate MAPPER
+CTRL --> UI : testListDto
 deactivate CTRL
-UI --> Adm :
+UI --> Doctor : Shows the tests that are waiting for the \n medical report and asks to select one.
 deactivate UI
-Adm -> UI:
+
+Doctor -> UI :  Select the desired test.
 activate UI
-UI -> CTRL:
+UI -> CTRL : parametersResultListDto = getParametersResulList()
 activate CTRL
-
-CTRL --> UI:
+CTRL -> TS : parametersResultList = getParametersResulList()
+activate TS
+deactivate TS
+CTRL -> MAPPER : toDto(parametersResultList)
+activate MAPPER
+ref over MAPPER
+SD_ParametersResultMapper_toDto_List
+end ref
+MAPPER --> CTRL : parametersResultListDto
+deactivate MAPPER
+CTRL --> UI : parametersResultListDto
 deactivate CTRL
-UI --> Adm :
+UI --> Doctor : Shows the parameter results and request the medical report.
 deactivate UI
 
-deactivate Adm
+Doctor-> UI : Introduces the medical report.
+activate UI
 
+UI --> Doctor : Displays the data and requests confirmation.
+deactivate UI
+
+Doctor-> UI : Confirms the data.
+activate UI
+
+UI -> CTRL: createMedicalReport(report)
+activate CTRL
+CTRL -> TEST : md = createMedicalReport(report)
+activate TEST
+TEST --> REPORT** : create(report)
+deactivate TEST
+CTRL --> UI : result
+deactivate CTRL
+UI --> Doctor : Informs operation success.
+deactivate UI
+
+deactivate Doctor
 
 
 

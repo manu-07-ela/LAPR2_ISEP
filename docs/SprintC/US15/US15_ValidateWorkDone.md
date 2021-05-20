@@ -29,40 +29,58 @@ code, a description that identifies the sample collection method, the date and t
 were collected, the date and time of the chemical analysis, the date and time of the diagnosis made
 by the specialist doctor, the date and time when the laboratory coordinator validated the test, and the
 test type (whether it is blood test or Covid test).
+> 
+> Once the laboratory coordinator
+confirms that everything was done correctly, the client receives a notification alerting that the
+results are already available in the central application and informing that he/she must access the
+application to view those results. The client receives the notification by SMS and e-mail.
+> 
+> 
 
 **From the client clarifications:**
 
-> **Question:**  Does the laboratory coordinator have the option to not validate the work done by the specialist doctor and clinical chemistry technologist?
+> **Question:** Should the laboratory coordinator validate the test results one by one or should he do only one validation of all of them?
 >
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8165) 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8180) The coordinator can validate all or a subset of test results. The system does not show client personal information but shows all dates (test registration date, chemical analysys date and diagnosis date).
 
-> **Question:** Can he validate separately? For example only validate the clinical chemistry technologist work? Or he can only validate both at the same time?
+> **Question:** Regarding the process of validating a certain test/result, what validation states should be considered by the laboratory coordinator?
+> For example, can "Valid" or "Invalid" be accepted as a confirmation for the chemical test/result and its diagnosis?
 >
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8165)
-
-> **Question:** What states should we consider for the validation of the samples and diagnosis report? For example: "Validated", "Not validated" and "To validate"?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8174)
-
-> **Question:** Should the laboratory coordinator choose which tests he wants to validate or we assume he wants to validate all tests available?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8174)
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8251) Only Valid state. The system shows all tests ready to validate (tests that already have the test registration date, the chemical analysys date and the diagnosis date registered in the system) and the laboratory coordinator selects one or more tests to mark as validated.
 
 > **Question:** : When the laboratory coordinator wants to validate a test does all the tests available show up for him or does he search using a code that identifies a specific test?
 >
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8177) 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8177) The system shows all tests ready to validate (tests that already have the test registration date, the chemical analysys date and the diagnosis date registered in the system) and the laboratory coordinator selects one or more tests to mark as validated.
 
 > **Question:** What should happen to a test if either the test report or the results are invalid? Should we prompt for a redo of either process or simply erase the test?
 >
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8177)
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8177) The laboratory coordinator only sees the test dates of tests that already have all dates registered in the system (test registration date, the chemical analysys date and the diagnosis date). 
+> **The objective of this user story is only for the laboratory coordinator to be aware of the work developed in the chemical laboratory and to mark the job as done.**
 
-> **Question:** Should the laboratory coordinator validate the test results one by one or should he do only one validation of all of them?
+> **Question:** Can the Specialist Doctor edit a report after the Laboratory Coordinator has already approved the report?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8268) No.
+
+> **Question:** How should the laboratory coordinator choose the test to operate on, from a list of all the tests with a result and report or by inputting the code unique to a specific test?
 >
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8180)
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8264) From a list of all tests that have a test registration date, a chemical analysis date and a diagnosis date.
+
+> **Question:** What information does the laboratory coordinator needs to be able do validate a test? We got from the description that it's suposed to show all dates. Should the system provide any more information?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8270) Only the dates. Moreover, the system should record the validation date.
+
+> **Question:** Does the laboratory coordinator choose which client's results to validate?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8256) The laboratory coordinator chooses a set of tests he wants to validate.
+
+> **Question:** Does the notification sent to client informing them that they have their results on the central application get sent automatically after the laboratory coordinator confirms the clinical chemistry technologist and specialist doctor's work?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8256) From the Project Description: "Once the laboratory coordinator confirms that everything was done correctly, the client receives a notification alerting that the results are already available in the central application and informing that he/she must access the application to view those results."
 
 > **Question:**
 >
 > [**Awnser:**]()
+
 
 ### 1.3. Acceptance Criteria
 
@@ -71,15 +89,26 @@ test type (whether it is blood test or Covid test).
 * **AC1:** The system does not show client personal information but
   shows all dates (test registration date, chemical analysis date and diagnosis date).
 
-* **AC2:** 
+* **AC2:** The coordinator can validate all or a subset of test results.
+
+* **AC3:** The laboratory coordinator selects one or more tests to mark as validated
 
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
 
+* *There is a dependency to "US12 - record the results of a given test" since the work of the clinical chemistry technologist must be evaluated*
+* *There is a dependency to "US14 - make the diagnosis and write a report for a given test" since the work of the specialist doctor must be evaluated*
+
+
 ### 1.5 Input and Output Data
 
 *Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
+
+**Input Data:**
+
+**Output Data:**
+* (In)Success of the operation
 
 
 ### 1.6. System Sequence Diagram (SSD)

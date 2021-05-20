@@ -182,7 +182,6 @@ ParameterResult "*"---"1" ReferenceValue : compared with >
 ParameterResult "1..*"---"1" SpecialistDoctor : analyzed by >
 
 Sample "*"---"1" ChemicalLaboratory : sent to >
-Sample "1..*"---"1" Test : associated >
 Sample "1"---"1" Barcode : identified by >
 Sample "*"---"1" Employee : registered by >
 
@@ -205,7 +204,7 @@ ChemicalAnalysis "1"---"1..*" ParameterResult: generates >
 SpecialistDoctor ---|> Employee
 
 MedicalReport "1..*"---"1" Client : sent to >
-MedicalReport "1"---"1..*" ParameterResult : contains >
+'MedicalReport "1"---"1..*" ParameterResult : contains >
 MedicalReport "*"---"1" LabCoordinatorValidation : validated by >
 MedicalReport "*"---"1" SpecialistDoctor : written by >
 

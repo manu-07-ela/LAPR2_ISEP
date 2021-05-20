@@ -6,8 +6,67 @@ actor "Clinical Chemistry Technologist" as CCT
 participant ": RecordTestResultsUI" as UI
 participant ": RecordTestResultsController" as CTRL
 participant ": Company" as Comp
+participant ": ParameterMapper" as PMapper
+participant ": TestStore" as TStore
+participant "test: Test" as Test
+
+activate CCT
+CCT -> UI : asks to register the test results
+activate UI
+UI -> CCT : request the barcode number
+deactivate UI
+CCT -> UI : types requested data
+activate UI
+UI -> CTRL : getParameterList()
+activate CTRL
+CTRL -> Comp : store = getTestStore()
+activate Comp
+deactivate Comp
+CTRL -> TStore : test=getTestByBarcode()
+activate TStore
+deactivate TStore
+CTRL -> Test : getParameterList()
+activate Test
+Test --> CTRL : ParameterList
+deactivate Test
+CTRL -> PMapper : ToDTO(ParameterList)
+activate PMapper
+PMapper --> CTRL : ParameterListDTO
+deactivate PMapper
+
+
+CTRL --> UI : ParameterListDTO
+deactivate CTRL
+loop *for each test parameter being analysed
+UI -> CCT : shows a Parameter list
+deactivate UI
+CCT -> UI : selects test parameter
+activate UI
+UI -> CCT : request the result value and metric
+deactivate UI
+CCT -> UI : types requested data
+activate UI
+UI -> CTRL : addTestResult(parameterSelected,result,metric)
+activate CTRL
+CTRL -> Test : addTestResult(parameterSelected,result,metric)
+activate Test
+ref over Test
+SD_AddResult
+end ref
+Test --> CTRL : success
+deactivate Test
+
+CTRL --> UI : success
+deactivate CTRL
+UI --> CCT : success
+deactivate UI
+
+
+end
 
 
 
 
+
+deactivate CCT
 @enduml

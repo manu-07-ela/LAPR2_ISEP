@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Med Lab Technician" as MEDLAB
+participant ": System" as SYSTEM
+
+
+MEDLAB -> SYSTEM : start recording samples for a test
+activate SYSTEM
+activate MEDLAB
+SYSTEM --> MEDLAB : shows the tests that are waiting \n to be associated with a sample
+deactivate SYSTEM
+MEDLAB -> SYSTEM : select a test
+activate SYSTEM
+SYSTEM --> MEDLAB : asks the number of samples that will \n be recorded for the selected test
+deactivate SYSTEM
+MEDLAB ->SYSTEM : enter the number of samples that \n will be associated with the test
+activate SYSTEM
+SYSTEM --> MEDLAB : shows the data and request confirmation
+deactivate SYSTEM
+MEDLAB -> SYSTEM : confirms the data
+activate SYSTEM
+SYSTEM --> MEDLAB : informs the operation success
+deactivate SYSTEM
+@enduml
