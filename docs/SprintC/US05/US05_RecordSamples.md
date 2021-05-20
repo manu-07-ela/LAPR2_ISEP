@@ -63,9 +63,7 @@ automatically generated using an external API.
 
 ### 1.6. System Sequence Diagram (SSD)
 
-*Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
-
-![USXX-SSD](USXX-SSD.svg)
+![US05-SSD](US05_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
