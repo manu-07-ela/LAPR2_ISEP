@@ -30,17 +30,28 @@ values.
 >  
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8301)
 >Each sample has a unique barcode. The clinical chemistry technologist should use the sample barcode number to find the test for which the sample was collected.
-> 
-> > **Question:** "Should the system present a result for each test parameter or a single result for the test to be recorded?"
+
+> **Question:** "Should the system present a result for each test parameter or a single result for the test to be recorded?"
 >
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8301)
 > The Clinical Chemistry Technologist should register a value/result for each parameter of the test.
+
+
+> **Question:** "What information is the system going to have to ask the clinical chemistry technologist to be able to create the test results?"
+>
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8272)
+>  Some answers I already gave here in this forum:
+>     The clinical chemistry technologist should use the sample barcode number to find (in the system) the test for which the sample was collected.
+>     The Clinical Chemistry Technologist should register a value/result for each parameter of the (selected) test.
+>     All parameter values of the test should be filled/defined (by the Clinical Chemistry Technologist) when the use case finishes.
 
 
 ### 1.3. Acceptance Criteria
 
 
 * **AC1:** The application should use an external module that is responsible for providing the test reference values.
+* **AC2:** All parameter values of the test should be filled/defined (by the Clinical Chemistry Technologist) when the use case finishes.
+
 
 ### 1.4. Found out Dependencies
 
@@ -119,7 +130,8 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * 
+ * RecordTestResultsUI
+ * RecordTestResultsController
 
 ## 3.2. Sequence Diagram (SD)
 
