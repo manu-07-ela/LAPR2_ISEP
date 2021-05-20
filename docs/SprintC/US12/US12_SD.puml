@@ -60,8 +60,6 @@ CTRL --> UI : success
 deactivate CTRL
 UI --> CCT : success
 deactivate UI
-
-
 end
 
 
