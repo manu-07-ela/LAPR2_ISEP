@@ -6,74 +6,138 @@ actor "Receptionist" as REP
 participant ":RegisterTestUI" as UI
 participant ":RegisterTestController" as CTRL
 participant "Company" as COMP
-participant "TestStore" as TS
-participant "store: TestTypeStore" as TTS
+participant "tstore:TestStore" as TS
+participant "store: ClientStore" as CS
+participant "ttstore: TestTypeStore" as TTS
+participant ":ClientMapper" as MapperC
 participant ":TestTypeMapper" as MapperTT
-participant "tt: Test" as TT
-
+participant "pmstore:ParameterStore" as PMS
+participant ":ParameterMapper" as MapperPM
+participant "t: Test" as T
+participant "TTS:List<TestType>"
+participant "TTSDto:List<TestTypeDTO>"
+participant "PM:List<Parameter>"
+participant "PMDto:List<ParameterDTO>"
 
 activate REP
 REP -> UI : asks to register a test to be \n performed to a registered client
 activate UI
-UI --> REP : requests data (citizencardnumber, laborder)
+UI --> REP : requests data (citizencardnumber)
 deactivate UI
 
 REP -> UI : types requested data
 activate UI
 
-UI -> CTRL : getTestTypeList()
+UI -> CTRL : CreateTest(CLDto)
 activate CTRL
 
-CTRL -> COMP : store=getTestTypeStore()
+CTRL -> COMP : store = getClientStore()
 activate COMP
 deactivate COMP
 
-CTRL -> TTS : getTestTypeList()
-activate TTS
-TTS -> "listTestType:List<TestType>"** : get()
+CTRL -> CS : CL = getCitizencardnumber()
+activate CS
+deactivate CS
+CTRL -> MapperC : CLDto = toDTO(CL)
+activate MapperC
+deactivate MapperC
 
-|||
+CTRL -> COMP : tstore = getTestStore()
+activate COMP
+deactivate COMP
+CTRL -> TS : t = CreateTest(CLDto)
 
-TTS --> CTRL : listTestType
-deactivate TTS
+activate TS
+TS --> T**: create(citizencardnumber)
+deactivate TS
 
-CTRL -> MapperTT :toDTO(listTestType)
-activate MapperTT
-ref over MapperTT
-SD_populateList
-end ref
-MapperTT --> CTRL : TestTypeListDTO
-deactivate MapperTT
-CTRL --> UI : TestTypeListDTO
+CTRL -> TS : validateTest(t)
+activate TS
+deactivate TS
 deactivate CTRL
-UI --> REP : shows test types list and ask to select one
+
+UI -> CTRL : TTSDto = getTestTypeList()
+
+activate CTRL
+
+CTRL -> COMP : ttstore = getTestTypeStore()
+activate COMP
+deactivate COMP
+
+CTRL -> TTS : TTS = getTestTypeList()
+activate TTS
+deactivate TTS
+CTRL -> MapperTT : TTSDto = toDTO(TTS)
+activate MapperTT
+deactivate MapperTT
+deactivate CTRL
+
+
+UI --> REP : shows test types and asks to select one
 deactivate UI
 
 REP -> UI : selects a test type
 activate UI
 
-UI -> CTRL : CreateTest(citizencardnumber, laborder)
+UI -> CTRL : addTestType(ttld)
+
 activate CTRL
 
-CTRL -> COMP : store = getTestStore()
-activate COMP
-|||
-deactivate COMP
+CTRL -> TTS : tt = getTestType(ttld)
+activate TTS
+deactivate TTS
 
-deactivate COMP
-
-CTRL -> TS : tt = CreateTest(citizencardnumber, laborder)
-
-activate TS
-TS --> TT**: create(citizencardnumber, laborder)
-deactivate TS
-
-CTRL -> TS : validateTest(tt)
-activate TS
-deactivate TS
+CTRL -> T : b = addTestType(tt)
+activate T
+deactivate T
+CTRL --> UI : ok
 deactivate CTRL
 
-UI --> REP : shows test types list and ask to select one
+UI --> REP : added with success
+
+UI -> CTRL : PMDto = getParameterList()
+
+activate CTRL
+
+CTRL -> COMP : pmstore = getParameterStore()
+activate COMP
+deactivate COMP
+
+CTRL -> PMS : PM = getParameterList()
+activate PMS
+deactivate PMS
+CTRL -> MapperPM : PMDto = toDTO(PM)
+activate MapperPM
+deactivate MapperPM
+deactivate CTRL
+
+UI --> REP : shows parameters to be selected
+deactivate UI
+
+loop
+REP -> UI : selects a parameter
+activate UI
+
+UI -> CTRL : addParameter(pmld)
+
+activate CTRL
+
+CTRL -> PMS : pm = getParameter(pmld)
+activate PMS
+deactivate PMS
+
+CTRL -> T : b = addParameter(pm)
+activate T
+deactivate T
+CTRL --> UI : ok
+deactivate CTRL
+
+UI --> REP : added with success
+end
+UI --> REP : shows all data and requests confirmation
+deactivate UI
+
+|||
 
 deactivate TS
 deactivate COMP
@@ -85,13 +149,16 @@ activate UI
 UI -> CTRL : saveTest()
 activate CTRL
 
-CTRL -> TS : saveTest(tt)
+CTRL -> TS : saveTest(t)
 activate TS
 
-TS -> TS: validateTest(tt)
-TS -> TS: addTest(tt)
-
-CTRL --> UI: result
+TS -> TS: validateTest(t)
+activate TS
+deactivate TS
+TS -> TS: addTest(t)
+activate TS
+deactivate TS
+deactivate TS
 
 UI --> REP : informs operation success
 deactivate TS
