@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor Administrator
+activate Administrator
+Administrator -> System: starts validation
+activate System
+System --> Administrator : shows the tests to validate
+deactivate System
+Administrator -> System:select a tests to validate
+activate System
+
+System --> Administrator : shows the test result and asks for validation
+deactivate System
+Administrator -> System: validate test result
+activate System
+System --> Administrator : shows the report and asks for confirmation
+deactivate System
+Administrator -> System: confirms the report
+activate System
+
+System --> Administrator : informs the operation success
+deactivate System
+deactivate Administrator
+
+@enduml

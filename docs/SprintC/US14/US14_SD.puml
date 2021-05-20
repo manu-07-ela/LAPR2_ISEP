@@ -22,7 +22,7 @@ activate CTRL
 CTRL -> Comp : testStore = getTestStore()
 activate Comp
 deactivate Comp
-CTRL -> TS : testList = getTestListByState()
+CTRL -> TS : testList = getTestList()
 activate TS
 deactivate TS
 CTRL -> MAPPER : toDto(testList)
@@ -39,8 +39,19 @@ deactivate UI
 
 Doctor -> UI :  Select the desired test.
 activate UI
-UI -> CTRL :
+UI -> CTRL : parametersResultListDto = getParametersResulList()
 activate CTRL
+CTRL -> TS : parametersResultList = getParametersResulList()
+activate TS
+deactivate TS
+CTRL -> MAPPER : toDto(parametersResultList)
+activate MAPPER
+ref over MAPPER
+SD_ParametersResultMapper_toDto_List
+end ref
+MAPPER --> CTRL : parametersResultListDto
+deactivate MAPPER
+CTRL --> UI : parametersResultListDto
 deactivate CTRL
 UI --> Doctor : Shows the parameter results and request the medical report.
 deactivate UI
@@ -60,6 +71,7 @@ CTRL -> TEST : md = createMedicalReport(report)
 activate TEST
 TEST --> REPORT** : create(report)
 deactivate TEST
+CTRL --> UI : result
 deactivate CTRL
 UI --> Doctor : Informs operation success.
 deactivate UI
