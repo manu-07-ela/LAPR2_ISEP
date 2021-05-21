@@ -2,7 +2,7 @@
 
 class Company{
 -String designation
-
++getTestStore()
 }
 
 class RecordTestResultsUI{
@@ -10,7 +10,8 @@ class RecordTestResultsUI{
 }
 
 class RecordTestResultsController{
-
++getParameterList()
++AddResult(parameterSelected,result,metric)
 }
 
 class ParameterMapper{
@@ -22,6 +23,11 @@ class Test {
 -NhsCode
 -createdAt
 +AddResult(refValue,result,metric)
++getParameterList()
+}
+
+class TestStore{
++getTestByBarcode
 }
 
 class TestParameter{
@@ -39,6 +45,9 @@ class Parameter{
 -code
 -shortName
 -description
+}
+
+class ParameterDTO{
 }
 
 class ReferenceValue{
@@ -61,8 +70,16 @@ interface ExternalModule{
 
 
 RecordTestResultsUI ..> RecordTestResultsController
+RecordTestResultsUI ..> ParameterDTO
 RecordTestResultsController ..> Company
+RecordTestResultsController ..> ParameterMapper
+RecordTestResultsController ..> Test
+RecordTestResultsController ..> TestStore
+Company ---> TestStore : uses
+ParameterMapper ......> Parameter
+ParameterMapper ..> ParameterDTO
 TestType"*" -> "1" ExternalModule : makes use of
+TestStore "1" -> "*" Test : conducts
 Test "*" -> "1" TestType : is of
 Test "1" ---> "1..*" TestParameter : requests analysis of
 Parameter "1" <- "*" TestParameter : refers to
