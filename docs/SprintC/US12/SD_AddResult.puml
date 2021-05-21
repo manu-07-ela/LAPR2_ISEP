@@ -8,16 +8,22 @@ participant "test: Test" as Test
 participant "em: External Module" as EM
 participant ": TestType" as TT
 participant ": TestParameter" as TestParam
+participant ": Parameter" as Param
 participant ":TestParameterResult" as TestPResult
 
 
-CTRL -> Test : addTestResult(parameterSelected,result,metric)
+
+CTRL -> Test : addTestResult(testparameterSelected,result,metric)
 activate Test
+Test -> TestParam : getParameter()
+activate TestParam
+TestParam --> Test : parameter
+deactivate TestParam
 Test -> TT : getExternalModule()
 activate TT
 TT--> Test : em
 deactivate TT
-Test -> EM : getReferenceValue(parameterSelected)
+Test -> EM : getReferenceValue(parameter)
 activate EM
 EM --> Test : refValue
 deactivate EM

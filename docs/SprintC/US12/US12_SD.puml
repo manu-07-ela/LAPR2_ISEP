@@ -17,7 +17,7 @@ UI -> CCT : request the barcode number
 deactivate UI
 CCT -> UI : types requested data
 activate UI
-UI -> CTRL : getParameterList()
+UI -> CTRL : getTestParameterList()
 activate CTRL
 CTRL -> Comp : store = getTestStore()
 activate Comp
@@ -29,16 +29,16 @@ CTRL -> Test : getParameterList()
 activate Test
 Test --> CTRL : ParameterList
 deactivate Test
-CTRL -> PMapper : ToDTO(ParameterList)
+CTRL -> PMapper : ToDTO(TestParameterList)
 activate PMapper
-PMapper --> CTRL : ParameterListDTO
+PMapper --> CTRL : TestParameterListDTO
 deactivate PMapper
 
 
-CTRL --> UI : ParameterListDTO
+CTRL --> UI : TestParameterListDTO
 deactivate CTRL
 loop *for each test parameter being analysed
-UI -> CCT : shows a Parameter list
+UI -> CCT : shows a Test Parameter list
 deactivate UI
 CCT -> UI : selects test parameter
 activate UI
@@ -46,9 +46,9 @@ UI -> CCT : request the result value and metric
 deactivate UI
 CCT -> UI : types requested data
 activate UI
-UI -> CTRL : addTestResult(parameterSelected,result,metric)
+UI -> CTRL : addTestResult(testparameterSelected,result,metric)
 activate CTRL
-CTRL -> Test : addTestResult(parameterSelected,result,metric)
+CTRL -> Test : addTestResult(testparameterSelected,result,metric)
 activate Test
 ref over Test
 SD_AddResult
@@ -58,7 +58,7 @@ deactivate Test
 
 CTRL --> UI : success
 deactivate CTRL
-UI --> CCT : success
+UI -> CCT :  inform operation success
 deactivate UI
 end
 
