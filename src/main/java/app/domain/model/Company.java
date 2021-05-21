@@ -57,6 +57,10 @@ public class Company {
      * Represents a instance of the store of Client
      */
     private final ClientStore clientStore;
+    /**
+     *  Represents a instance of the store of Tests
+     */
+    private final TestStore testStore;
 
     /**
      * Creates an instance of Company
@@ -75,6 +79,7 @@ public class Company {
         this.employeeStore = new EmployeeStore();
         this.organizationRoleStore = new OrganizationRoleStore();
         this.clientStore = new ClientStore();
+        this.testStore = new TestStore();
     }
 
     /**
@@ -146,5 +151,12 @@ public class Company {
      */
     public ClientStore getClientStore() {
         return clientStore;
+    }
+    /**
+     * Gets the instance of TestStore
+     * @return the instance of testStore
+     */
+    public TestStore getTestStore(){
+        return testStore;
     }
 }
