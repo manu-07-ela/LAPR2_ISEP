@@ -23,6 +23,14 @@ public class TestStore {
      *
      * @return
      */
+    public List<Test> getTestList() {
+        return testList;
+    }
+
+    /**
+     *
+     * @return
+     */
   //  private Test getTestByBarcode(){
 
 
