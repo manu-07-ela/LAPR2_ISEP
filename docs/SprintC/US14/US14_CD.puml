@@ -2,44 +2,62 @@
 
 package UI{
 class CreateMedicalReportUI{
-
 }
 }
 
 package Controller{
 class CreateMedicalReporController{
-
++getTestHasSamplesAnalyzedList()
++getTestParameterList()
++createMedicalReport()
 }
 }
 
-package Domain{
 class Company{
 -String designation
-
++getTestStore()
 }
 
 class TestStore{
-
++getTestHasSamplesAnalyzedList()
++getTestByInternalCode(code)
 }
 
 class Test{
-
++getParametersResulList()
++createMedicalReport(report)
 }
 
 class MedicalReport{
-
 }
 
 class TestMapper{
-
 }
 
 class TestDto{
+}
 
+class TestParameter{
+}
+
+class TestParameterDto{
+}
+
+class TestParameterMapper{
 }
 
 CreateMedicalReportUI ..> CreateMedicalReporController
+CreateMedicalReportUI ..> TestDto
+CreateMedicalReportUI ..> TestParameterDto
 CreateMedicalReporController ..> Company
+CreateMedicalReporController ..> TestMapper
+CreateMedicalReporController ..> TestParameterMapper
+TestParameterMapper ..> TestParameterDto
+TestParameterMapper ..> TestParameter
+TestMapper ..> TestDto
+TestMapper ..> Test
+Company --> Test
+Test --> MedicalReport
 Company"1"--> "1" TestStore : uses
 
 @enduml
