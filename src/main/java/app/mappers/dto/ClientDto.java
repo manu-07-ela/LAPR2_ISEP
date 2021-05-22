@@ -1,7 +1,7 @@
 package app.mappers.dto;
 
 /**
- * Represents the controller used to register a client
+ * Represents a data transfer object of Client
  * @author José Pessoa <1201007@isep.ipp.pt>
  */
 
