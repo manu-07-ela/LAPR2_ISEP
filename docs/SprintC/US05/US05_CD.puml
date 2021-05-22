@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+class ExternalModule
+
+package ui{
+class RecordSampleUI
+}
+package controller{
+class RecordSampleController
+}
+package domain{
+
+package model{
+class Company
+class Test
+}
+package store{
+class TestStore
+class SampleStore
+}
+package mappers{
+
+class TestMapper
+
+package dto{
+class TestDTO
+
+}
+}
+}
+
+class Test{
+-nhsCode
+-testCode
+
+
+}
+
+class Company{
+-designation
+-testStore
+-sampleStore
++getSampleStore()
++getTestStore()
+}
+
+
+
+@enduml
