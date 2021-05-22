@@ -25,6 +25,7 @@ public class ReceptionistUI implements Runnable {
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Register a Client", new CreateClientUI()));
+        options.add(new MenuItem("Register a Test to be performed to a registered client", new RegisterTestUI()));
 
         int option = 0;
     do {

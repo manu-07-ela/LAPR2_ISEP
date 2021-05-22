@@ -98,10 +98,19 @@ public class Parameter {
     }
 
     /**
+     * Get the category of the parameter.
+     * @return The category of the parameter.
+     */
+    public ParameterCategory getCategory() {
+        return category;
+    }
+
+    /**
      * Compare the parameter with the other object provided.
      * @param obj Object we want to compare with the parameter.
      * @return true if the received object represents another parameter equivalent to the parameter. Otherwise, it returns false.
      */
+
     @Override
     public boolean equals(Object obj){
         if(this == obj){
