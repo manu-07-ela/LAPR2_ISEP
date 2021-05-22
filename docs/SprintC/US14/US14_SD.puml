@@ -7,11 +7,12 @@ participant ": CreateMedicalReportUI" as UI
 participant ": CreateMedicalReportController" as CTRL
 participant ": Company" as Comp
 participant "testStore:\nTestStore" as TS
-participant ": TestMapper" as MAPPER
+participant ": TestMapper" as tMAPPER
 participant "testHasSamplesAnalyzedList: \nList<Test>" as List
 participant "testHasSamplesAnalyzedListDto :\nList<TestDto> " as TDto
 participant "dto: TestDto" as TDto
 participant "test:Test" as TEST
+participant ": TestParameterMapper" as tpMAPPER
 participant "md: MedicalReport" as REPORT
 
 activate Doctor
@@ -25,13 +26,13 @@ deactivate Comp
 CTRL -> TS : testHasSamplesAnalyzedList = getTestHasSamplesAnalyzedList()
 activate TS
 deactivate TS
-CTRL -> MAPPER : toDto(testHasSamplesAnalyzedList)
-activate MAPPER
-ref over MAPPER
+CTRL -> tMAPPER : toDto(testHasSamplesAnalyzedList)
+activate tMAPPER
+ref over tMAPPER
 SD_TestMapper_toDto_List
 end ref
-MAPPER --> CTRL : testHasSamplesAnalyzedListDto
-deactivate MAPPER
+tMAPPER --> CTRL : testHasSamplesAnalyzedListDto
+deactivate tMAPPER
 CTRL --> UI : testHasSamplesAnalyzedListDto
 deactivate CTRL
 UI --> Doctor : Shows the tests that are waiting for the \n medical report and asks to select one.
@@ -47,13 +48,13 @@ deactivate TS
 CTRL -> TEST : testParameterList = getParametersResulList()
 activate TEST
 deactivate TEST
-CTRL -> MAPPER : toDto(testParameterList)
-activate MAPPER
-ref over MAPPER
+CTRL -> tpMAPPER : toDto(testParameterList)
+activate tpMAPPER
+ref over tpMAPPER
 SD_TestParameterMapper_toDto_List
 end ref
-MAPPER --> CTRL : testParameterListDto
-deactivate MAPPER
+tpMAPPER --> CTRL : testParameterListDto
+deactivate tpMAPPER
 CTRL --> UI : testParameterListDto
 deactivate CTRL
 UI --> Doctor : Shows the parameter results and request the medical report.

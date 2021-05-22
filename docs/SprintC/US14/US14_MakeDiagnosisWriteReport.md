@@ -32,13 +32,18 @@ client.
 >
 > [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8250#p10889) <br /> The system shows all tests ready to make the diagnosis and the Specialist Doctor selects one test.
 
-> **Question:**<br /> What fields should the specialist doctor report have?
+> **Question:**<br /> Once the specialist doctor decides to write the report for a given test, should the results of the chemical analysis and the reference values be presented on the screen?
 >
-> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8178#p10705) <br />
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8497#p11183) <br /> After selecting a test (to make the diagnosis/report) the results of the chemical analysis and the reference values should be presented on the screen. Then the Specialist Doctor should write the report.
+
+> **Question:**<br /> While in the "Make a diagnosis and write a report" option of the main menu, should the specialist doctor be able to make a diagnosis and write a report for more than one test?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8497#p11183) <br /> After writing a report the SD can choose to write other reports without leaving the use case.
 
 ### 1.3. Acceptance Criteria
 
 * **AC1:** The report is free text and should have no more than 400 words.
+* **AC2:** The medical report cannot be edited.
 
 ### 1.4. Found out Dependencies
 
@@ -57,7 +62,7 @@ client.
 **Output Data:**
 
 * List of existing tests in the Samples Analyzed state
-* List of parameters tests
+* List of test parameters
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -76,7 +81,7 @@ client.
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![US14_MD](US14_MD.svg)
+![US14_DM](US14_DM.svg)
 
 ### 2.2. Other Remarks
 
@@ -97,13 +102,13 @@ n/a
 |                | ... transfer domain data in DTO?                                | TestDto                       | **DTO**:                                                                                                                                                                                               |
 | Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
 | Step 4  		 | ... knowing the test parameters?                                | Test                          | **IE**:                                                                                                                                                                                                |
-|                | ... process the data and convert it to dto                      |                               |                                                                                                                                                                                                        |
+|                | ... transfer domain data in DTO?                                |                               | **DTO**:                                                                                                                                                                                               |
 | Step 5  		 | ... saving the inputted data?                                   |                               |                                                                                                                                                                                                        |
-| 		         | ... instantiating a new Medical Report?                         |                               | **Creator (R1)** and **HC+LC**: By the application of the Creator (R1) it would be the "Company". But, by applying HC + LC to the "Company", this delegates that responsibility to the ""              |
-|        		 | ... validating all data (local validation)?                     |                               | IE: owns its data.                                                                                                                                                                                     |
+| 		         | ... instantiating a new Medical Report?                         | Test                          | **Creator (R1)**: By the application of the Creator (R1) it would be the "Test".                                                                                                                       |
+|        		 | ... validating all data (local validation)?                     | MedicalReport                 | **IE**: owns its data.                                                                                                                                                                                 |
 | Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 7  		 | ... validating all data (global validation)?                    |                               | IE: owns its data.                                                                                                                                                                                     |
-| Step 8  		 | ... informing operation success?                                | CreateMedicalReportUI         | IE: is responsible for user interactions.                                                                                                                                                              |
+| Step 7  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 8  		 | ... informing operation success?                                | CreateMedicalReportUI         | **IE**: is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 
@@ -111,6 +116,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Company
  * Test
+ * MedicalReport
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
