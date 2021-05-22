@@ -224,9 +224,8 @@ An association is a relationship between instances of objects that indicates a r
 |                                 | specified by  	        	    | Employee                     |
 | Parameter Category              | specified by                    | Employee                     |
 | Test Parameter                  | contains                        | Test Parameter Result        |
-| Test Parameter Result  	      | associated with    	    	    | Parameter                    | 
-|                                 | associated with         	    | Test                         |
-|                                 | registered by           	    | Employee                     |
+|                                 | associated with         	    | Parameter                    |
+| Test Parameter Result  	      | registered by           	    | Employee                     |
 |                                 | validated by  	        	    | Lab Coordinator Validation   |
 |                                 | compared with                   | Reference Value              |
 |                                 | analyzed by                     | Specialist Doctor            |
