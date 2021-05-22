@@ -1,0 +1,177 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Administrator" as ADM
+
+participant ": ValidateWorkUI" as UI
+participant ": ValidateWorkController" as CTRL
+participant ": Company" as COMP
+participant "testStore: TestStore" as TSTORE
+participant ": TestMapper" as MAPPER
+participant "listTestWaitingForResult: \nList<Test>" as LWFR
+participant "listTestsToValidateDto: \nList<TestDto>" as LISTTWFV
+participant "listDatesDto: \nList<TestDto>" as LISTDDTO
+participant "test : Test" as TEST
+participant "testDto : TestDTO" as TESTDTO
+participant "registrationDateDTO : \nRegistrationDateDTO" as RDDTO
+participant "chemicalAnalysisDateDTO : \nChemicalAnalysisDateDTO" as CADDTO
+participant "diagnosisDateDto : \nDiagnosisDateDto" as DDDTO
+participant "tv: TestValidation" as TV
+
+autonumber
+
+activate ADM
+ADM -> UI : starts validation
+activate UI
+UI -> CTRL : listTestsToValidateDto = getTestsToValidateList()
+activate CTRL
+CTRL -> COMP : testStore = getTestStore
+activate COMP
+deactivate COMP
+CTRL -> TSTORE : testHasReportList = getTestHasReportList()
+activate TSTORE
+deactivate TSTORE
+CTRL -> MAPPER : toDto(testHasReportList)
+activate MAPPER
+MAPPER --> LISTTWFV** : create()
+loop for each object in listTestWaitingForResult
+MAPPER -> LWFR : testAux = get(i)
+activate LWFR
+deactivate LWFR
+MAPPER -> TEST : nhsCode = getNhsCode()
+activate TEST
+deactivate TEST
+MAPPER -> TEST : testCode = getTestCode()
+activate TEST
+deactivate TEST
+MAPPER --> TESTDTO** : create(nhsCode, testCode)
+MAPPER -> LISTTWFV : add(testDto)
+activate LISTTWFV
+deactivate LISTTWFV
+end
+MAPPER --> CTRL : listTestsToValidateDto
+deactivate MAPPER
+CTRL --> UI : listTestsToValidateDto
+deactivate CTRL
+UI --> ADM : shows the tests to validate
+deactivate UI
+
+
+
+
+
+
+ADM -> UI:select a tests to validate (selectedTest)
+activate UI
+UI -> CTRL : selectedTestRegistrationDate(selectedTest)
+activate CTRL
+CTRL -> TV : create(selectedTest)
+activate TV
+deactivate TV
+CTRL -> TSTORE : test = getTestByInternalCode(code)
+activate TSTORE
+deactivate TSTORE
+CTRL -> TEST : registrationDate = getRegistrationDate()
+activate TEST
+deactivate TEST
+CTRL -> MAPPER : dateToDto(registrationDate)
+activate MAPPER
+MAPPER -> RDDTO** : create(registrationDate)
+MAPPER -> LISTDDTO : add(registrationDateDTO)
+activate LISTDDTO
+deactivate LISTDDTO
+MAPPER --> CTRL : registrationDateDto
+deactivate MAPPER
+CTRL --> UI : registrationDateDto
+deactivate CTRL
+UI --> ADM : shows the test registration \n date and asks for validation
+deactivate UI
+
+
+
+
+
+
+ADM -> UI: validate date
+activate UI
+UI -> CTRL : showChemicalAnalysisDate(selectedTest)
+activate CTRL
+CTRL -> TEST : chemicalAnalysisDate = getChemicalAnalysis()
+activate TEST
+deactivate TEST
+CTRL -> MAPPER : dateToDto(rchemicalAnalysisDate)
+activate MAPPER
+MAPPER -> CADDTO** : create(chemicalAnalysisDate)
+MAPPER -> LISTDDTO : add(chemicalAnalysisDateDTO)
+activate LISTDDTO
+deactivate LISTDDTO
+MAPPER --> CTRL : chemicalAnalysisDateDto
+deactivate MAPPER
+CTRL --> UI : chemicalAnalysisDateDto
+deactivate CTRL
+UI --> ADM : shows the chemical analysis \n date and asks for validation
+deactivate UI
+
+
+
+
+
+
+
+
+ADM -> UI: validate date
+activate UI
+UI -> CTRL : showDiagnosisDate(selectedTest)
+activate CTRL
+CTRL -> TEST : diagnosisDate = getDiagnosisDate()
+activate TEST
+deactivate TEST
+CTRL -> MAPPER : dateToDto(diagnosisDate)
+activate MAPPER
+MAPPER -> DDDTO** : create(diagnosisDate)
+MAPPER -> LISTDDTO : add(diagnosisDateDTO)
+activate LISTDDTO
+deactivate LISTDDTO
+MAPPER --> CTRL : diagnosisDateDto
+deactivate MAPPER
+CTRL --> UI : diagnosisDateDto
+deactivate CTRL
+UI --> ADM : shows the diagnosis \n date and asks for validation
+deactivate UI
+
+
+
+
+
+ADM -> UI: validate date
+activate UI
+UI -> CTRL : showDates()
+activate CTRL
+CTRL -> LISTDDTO : registrationDate = getRegistrationDate()
+activate LISTDDTO
+CTRL -> LISTDDTO : chemicalAnalysisDate = getChemicalAnalysisDate()
+CTRL -> LISTDDTO : diagnosisDate = getDiagnosisDate()
+deactivate LISTDDTO
+CTRL --> UI : showDates (registrationDate,chemicalAnalysisDate,diagnosisDate)
+deactivate CTRL
+UI --> ADM : shows the dates (test registration, \n chemical analysis and diagnosis)
+deactivate UI
+
+
+
+
+
+
+
+
+ADM -> UI: confirms the validation
+activate UI
+UI --> ADM : informs the operation success
+deactivate UI
+deactivate ADM
+
+
+
+@enduml
