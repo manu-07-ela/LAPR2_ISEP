@@ -56,7 +56,8 @@ client.
 
 **Output Data:**
 
-* List of existing tests in the Samples Analyzed state 
+* List of existing tests in the Samples Analyzed state
+* List of parameters tests
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -91,10 +92,11 @@ n/a
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Step 1  		 | ... interacting with the actor?                                 | CreateMedicalReportUI         | **Pure Fabrication**: there is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
 |                | ... coordinating the US?                                        | CreateMedicalReportController | **Controller**                                                                                                                                                                                         |
-| Step 2  		 | ... knowing the tests to show?                                  |                               |                                                                                                                                                                                                        |
-|                | ... process the data and convert it to dto                      |                               |                                                                                                                                                                                                        |
-| Step 3  		 | ... saving the selected test?                                   |                               |                                                                                                                                                                                                        |
-| Step 4  		 | ... knowing the parameter results to show?                      |                               |                                                                                                                                                                                                        |
+| Step 2  		 | ... know the existing tests?                                    | TestStore                     | **IE**:                                                                                                                                                                                                |
+|                | ... knows TestStore?                                            | Company                       | **IE**:                                                                                                                                                                                                |
+|                | ... transfer domain data in DTO?                                | TestDto                       | **DTO**:                                                                                                                                                                                               |
+| Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 4  		 | ... knowing the test parameters?                                | Test                          | **IE**:                                                                                                                                                                                                |
 |                | ... process the data and convert it to dto                      |                               |                                                                                                                                                                                                        |
 | Step 5  		 | ... saving the inputted data?                                   |                               |                                                                                                                                                                                                        |
 | 		         | ... instantiating a new Medical Report?                         |                               | **Creator (R1)** and **HC+LC**: By the application of the Creator (R1) it would be the "Company". But, by applying HC + LC to the "Company", this delegates that responsibility to the ""              |
@@ -107,12 +109,15 @@ n/a
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- *
+ * Company
+ * Test
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
  * CreateMedicalReportUI
  * CreateMedicalReportController
+ * TestStore
+ * TestDto
 
 ## 3.2. Sequence Diagram (SD)
 
