@@ -77,28 +77,40 @@ application to view those results. The client receives the notification by SMS a
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8256) From the Project Description: "Once the laboratory coordinator confirms that everything was done correctly, the client receives a notification alerting that the results are already available in the central application and informing that he/she must access the application to view those results."
 
+> **Question:** After validation do we need to have the time and date of the validation?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8408) Yes, the system should record the date (DD/MM/YYYY) and time (HH:MM) when the validation was made.
+Moreover, in this US, when the system shows to the laboratory coordinator all the dates (test registration date, chemical analysis date and diagnosis date), the system should show the date (DD/MM/YYYY) and the time (HH:MM).
+
+> **Question:** About the US 15, in the clarification says that the program just validates dates, but in the statement of work, referues the use of a external model that validate the reference values of the parameters.
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8505) Where did you saw that the program just validates dates? In the acceptance criteria of US 15 we get: "The system does not show client personal information but shows all dates (test registration date, chemical analysys date and diagnosis date)".
+
 > **Question:**
 >
 > [**Awnser:**]()
-
 
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
 
-* **AC1:** The system does not show client personal information but
-  shows all dates (test registration date, chemical analysis date and diagnosis date).
+* **AC1:** The system does not show client personal information but shows all dates (test registration date, chemical analysis date and diagnosis date).
 
 * **AC2:** The coordinator can validate all or a subset of test results.
 
 * **AC3:** The laboratory coordinator selects one or more tests to mark as validated
 
+* **AC4:** After validation, the report cannot be changed
+
+* **AC5:** The system should record the date (DD/MM/YYYY) and time (HH:MM) when the validation was made.
+
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
 
-* *There is a dependency to "US12 - record the results of a given test" since the work of the clinical chemistry technologist must be evaluated*
-* *There is a dependency to "US14 - make the diagnosis and write a report for a given test" since the work of the specialist doctor must be evaluated*
+* *There is a dependency to "US4 - See the date when the test was registered.*
+* *There is a dependency to "US12 - See the date when the Chemical Analysis was performed.*
+* *There is a dependency to "US14 - See the date when the Diagnosis was made.*
 
 
 ### 1.5 Input and Output Data
@@ -106,6 +118,9 @@ application to view those results. The client receives the notification by SMS a
 *Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
 **Input Data:**
+
+* Selected data:
+  Test results
 
 **Output Data:**
 * (In)Success of the operation
@@ -122,6 +137,7 @@ application to view those results. The client receives the notification by SMS a
 
 *Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
 
+* The objective of this user story is only for the laboratory coordinator to be aware of the work developed in the chemical laboratory and to mark the job as done.
 
 ## 2. OO Analysis
 
@@ -144,7 +160,11 @@ application to view those results. The client receives the notification by SMS a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
+| Step 1  		 |	... interacting with the actor? | CreateClinicalAnalysisLaboratoryUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
+| 			     |	... coordinating the US? | CreateClinicalAnalysisLaboratoryController | Controller                             |
+| 			     |	... knowing who is responsible for creating Clinical Analysis Laboratory instances? | Company   | Creator (R1)   |
+| 			  	 | ... knowing the user using the system?  | UserSession  |   |
+| 			  	 |	... creates Clinical Analysis Laboratory instance? | ClinicalAnalysisLaboratoryStore  | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore. |
 | Step 2  		 |							 |             |                              |
 | Step 3  		 |							 |             |                              |
 | Step 4  		 |							 |             |                              |

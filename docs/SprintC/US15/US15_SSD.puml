@@ -11,15 +11,23 @@ deactivate System
 Administrator -> System:select a tests to validate
 activate System
 
-System --> Administrator : shows the test result and asks for validation
+System --> Administrator : shows the test registration \n date and asks for validation
 deactivate System
-Administrator -> System: validate test result
+Administrator -> System: validate date
 activate System
-System --> Administrator : shows the report and asks for confirmation
+System --> Administrator : shows the chemical analysis \n date and asks for validation
 deactivate System
-Administrator -> System: confirms the report
+Administrator -> System: validate date
 activate System
+System --> Administrator : shows the diagnosis \n date and asks for validation
+deactivate System
+Administrator -> System: validate date
 
+activate System
+System --> Administrator : shows the dates (test registration, \n chemical analysis and diagnosis)
+deactivate System
+Administrator -> System: confirms the validation
+activate System
 System --> Administrator : informs the operation success
 deactivate System
 deactivate Administrator
