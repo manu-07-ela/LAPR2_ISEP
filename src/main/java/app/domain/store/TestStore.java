@@ -36,4 +36,29 @@ public class TestStore {
 
     //}
 
+    public boolean validateTest(Test test) {
+        if (test == null)
+            return false;
+        return !this.testList.contains(test);
+    }
+
+    public Test createTest(String citizencardnumber, String nhscode){
+        return new Test(citizencardnumber,nhscode);
+    }
+//    public static String generateTestCode(Test t){
+//
+//    }
+
+    public boolean saveTest(Test t) {
+        if (!validateTest(t)){
+            return false;
+        }else{
+            return this.addTest(t);
+        }
+    }
+
+    public boolean addTest(Test t) {
+        return testList.add(t);
+    }
+    
 }

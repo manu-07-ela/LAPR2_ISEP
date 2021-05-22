@@ -4,15 +4,15 @@ actor "Med Lab Technician" as MEDLAB
 participant ": RecordSampleUI" as UI
 participant ": RecordeSampleController" as CONTROLLER
 participant ": Company" as COMPANY
-participant ": TestStore" as TESTSTORE
-participant ": Test" as TEST
-participant ": listTestWaitingForSample" as TESTLIST
+participant "store : \nTestStore" as TESTSTORE
+participant "store : \nSampleStore" as SAMPLESTORE
+participant "test : Test" as TEST
+participant "listTestWaitingForSample :\nList<Test>" as TESTLIST
 participant ": TestMapper" as MAPPER
-participant ": TestDto" as TESTDTO
-participant ": ListTestWaitingForSamplesDto" as TESTDTOLIST
-participant ": Sample" as SAMPLE
-participant ": SampleStore" as SAMPLESTORE
-participant ": ExternalModule" as EXTERNALMODULE
+participant "testDto :\nTestDto" as TESTDTO
+participant "listTestWaitingForSamplesDto :\nList<TestDto>" as TESTDTOLIST
+
+
 
 
 
@@ -26,6 +26,8 @@ activate UI
 UI -> CONTROLLER : listTestWaitingForSampleDto = getListTestDto()
 activate CONTROLLER
 CONTROLLER -> COMPANY : store = getTestStore()
+activate COMPANY
+deactivate COMPANY
 CONTROLLER -> TESTSTORE : listTestWaitingForResult = getListTestWantingForSamples()
 activate TESTSTORE
 deactivate TESTSTORE
@@ -51,8 +53,34 @@ activate UI
 UI --> MEDLAB : asks the number of samples that will \n be recorded for the selected test
 deactivate UI
 MEDLAB ->UI : enter the number of samples that \nwill be associated with the test
-
 activate UI
+loop for the number of samples entered
+UI->CONTROLLER : createSample()
+activate CONTROLLER
+CONTROLLER->COMPANY : store = getSampleStore()
+activate COMPANY
+deactivate COMPANY
+CONTROLLER->SAMPLESTORE : createSample()
+activate SAMPLESTORE
+
+SAMPLESTORE->"sample : Sample"** : create()
+activate "sample : Sample"
+"sample : Sample" -> ": ExternalModule" : generateBarcodes()
+
+activate ": ExternalModule"
+": ExternalModule" --> "barcode : Barcode"** : create()
+"sample : Sample"->"sample : Sample" : associateBarcodeWithSample(barcode)
+activate "sample : Sample"
+deactivate "sample : Sample"
+deactivate SAMPLESTORE
+deactivate "sample : Sample"
+deactivate ": ExternalModule"
+end loop
+CONTROLLER->TEST : generateDataAndTimeForSamplesCollected()
+activate TEST
+deactivate TEST
+deactivate CONTROLLER
+
 UI --> MEDLAB : shows the data and request confirmation
 deactivate UI
 MEDLAB -> UI : confirms the data

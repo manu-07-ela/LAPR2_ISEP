@@ -49,20 +49,23 @@ class Test{
 -internalCode
 -nhsCode
 -description
--Data and Time
+-dateOfSampleCollected
+-timeOfSampleCollected
+-dateOfSampleAnalysis
+-timeOfSampleAnalysis
+-state
 }
 
 class TestParameter{
 }
 
 class TestParameterResult{
--Data and Time
 -value
 -metric
 }
 
 class Sample{
--dateAndTime
+
 }
 
 class LabCoordinatorValidation {
@@ -172,6 +175,7 @@ Test "*" --- "1" LabCoordinatorValidation : request >
 (Test,Parameter) . TestParameter
 
 TestParameter "1" --- "0..1" TestParameterResult : contains >
+TestParameter "1" --- "1" Parameter : associated with >
 
 LabCoordinatorValidation "*"--"1" Employee : made by >
 
@@ -185,11 +189,8 @@ TestType "*"---"1..*" ParameterCategory : has a set of >
 TestType "*"---"1" Employee : specified by >
 TestType "*" -- "1" ExternalModule : resort to >
 
-'TestParameterResult "1..*" --- "1" Test : associated with >'
-TestParameterResult "1" --- "1" Parameter : associated with >
 TestParameterResult "1..*"---"1" LabCoordinatorValidation : validated by >
 TestParameterResult "1..*"---"1" Employee: registered by >
-TestParameterResult "*"---"1" ReferenceValue : compared with >
 TestParameterResult "1..*"---"1" SpecialistDoctor : analyzed by >
 TestParameterResult "1" --- "1" ReferenceValue : records >
 
@@ -216,7 +217,6 @@ ChemicalAnalysis "1"---"1..*" TestParameterResult: generates >
 SpecialistDoctor ---|> Employee
 
 MedicalReport "1..*"---"1" Client : sent to >
-'MedicalReport "1"---"1..*" ParameterResult : contains >
 MedicalReport "*"---"1" LabCoordinatorValidation : validated by >
 MedicalReport "*"---"1" SpecialistDoctor : written by >
 

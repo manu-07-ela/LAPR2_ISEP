@@ -14,7 +14,6 @@ class Client{
 }
 
 class Sample{
--dateAndTime
 }
 
 class Test{
