@@ -17,7 +17,7 @@ UI -> CCT : request the barcode number
 deactivate UI
 CCT -> UI : types requested data
 activate UI
-UI -> CTRL : getTestParameterList()
+UI -> CTRL : getTestParameterList(barcode)
 activate CTRL
 CTRL -> Comp : store = getTestStore()
 activate Comp
@@ -25,9 +25,9 @@ deactivate Comp
 CTRL -> TStore : test=getTestByBarcode()
 activate TStore
 deactivate TStore
-CTRL -> Test : getParameterList()
+CTRL -> Test : getTestParameterList()
 activate Test
-Test --> CTRL : ParameterList
+Test --> CTRL : TestParameterList
 deactivate Test
 CTRL -> PMapper : ToDTO(TestParameterList)
 activate PMapper
