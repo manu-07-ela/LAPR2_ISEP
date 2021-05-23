@@ -5,7 +5,6 @@ import app.domain.model.Test;
 import app.domain.model.TestParameter;
 import app.domain.store.TestStore;
 import app.mappers.TestParameterMapper;
-import app.mappers.TestTyperMapper;
 import app.mappers.dto.TestParameterDTO;
 
 import java.util.List;
@@ -53,20 +52,26 @@ public class RecordResultsController {
      * @param barcode
      * @return
      */
-    /*public List<TestParameterDTO>  getTestParameterList(String barcode){
+   /* public List<TestParameterDTO>  getTestParameterList(String barcode){
         test = store.getTestByBarcode(barcode);
-        return tpMapper.ToDTO(test.getTestParameterList);
+        return tpMapper.toDTO(test.getTestParameterList);
     }
 */
     /**
      *
-     * @param testparameterSelected
+     * @param testparameterSelectedDTO
      * @param result
      * @param metric
      */
-    /*public boolean addTestResult(TestParameter testparameterSelected,String result,String metric){
-        test.addTestResult(testparameterSelected,result,metric);
+    public boolean addTestResult(TestParameterDTO testparameterSelectedDTO,String result,String metric){
+        try {
+            TestParameter testparameterSelected = tpMapper.toModel(testparameterSelectedDTO);
+            test.addTestResult(testparameterSelected, result, metric);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
-*/
+
 
 }

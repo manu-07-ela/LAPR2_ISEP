@@ -22,6 +22,16 @@ public class TestParameter {
 
     /**
      *
+     * @param param
+     * @param tparamresult
+     */
+    public TestParameter (Parameter param,TestParameterResult tparamresult){
+        this.param=param;
+        this.tparamresult=tparamresult;
+    }
+
+    /**
+     *
      * @return
      */
     public TestParameterResult getTparamresult() {
@@ -43,7 +53,11 @@ public class TestParameter {
      * @return
      */
     public boolean AddResult(String refValue,String result,String metric){
-        tparamresult = new TestParameterResult(refValue,result,metric);
-        return true;
+        try {
+            tparamresult = new TestParameterResult(refValue, result, metric);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 }
