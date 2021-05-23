@@ -1,4 +1,6 @@
 package app.domain.model;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Represents a medical report.
@@ -8,16 +10,22 @@ package app.domain.model;
 public class MedicalReport {
 
     /**
-     * The report of the test.
+     * The diagnosis of the test.
      */
-    private String report;
+    private String diagnosis;
 
     /**
-     * Build an instance of {@code MedicalReport} by receiving the report.
-     * @param report The report of the test.
+     * The date and time the medical report was created.
      */
-    public MedicalReport(String report){
-        this.report=report;
+    private Date createdAt;
+
+    /**
+     * Build an instance of {@code MedicalReport} by receiving the diagnosis.
+     * @param diagnosis The report of the test.
+     */
+    public MedicalReport(String diagnosis){
+        this.diagnosis=diagnosis;
+        this.createdAt=Calendar.getInstance().getTime();
     }
 
 }
