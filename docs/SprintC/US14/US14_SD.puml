@@ -10,9 +10,13 @@ participant "testStore:\nTestStore" as TS
 participant ": TestMapper" as tMAPPER
 participant "testHasSamplesAnalyzedList: \nList<Test>" as List
 participant "testHasSamplesAnalyzedListDto :\nList<TestDto> " as TDto
-participant "dto: TestDto" as TDto
 participant "test:Test" as TEST
+participant "testDto: TestDto" as TestDtoc
 participant ": TestParameterMapper" as tpMAPPER
+participant "testParametersList:\n List<TestParameter>" as lTP
+participant "testParametersListDto:\n List<TestParameterDto>" as lTPDto
+participant "tp:\n TestParameter" as TP
+participant "dto:\n TestParameterDto" as TPDto
 participant "md: MedicalReport" as REPORT
 
 activate Doctor
@@ -40,22 +44,22 @@ deactivate UI
 
 Doctor -> UI :  Select the desired test.
 activate UI
-UI -> CTRL : testParameterListDto = getTestParameterList()
+UI -> CTRL : testParametersListDto = getTestParameterList()
 activate CTRL
 CTRL -> TS : test = getTestByInternalCode(code)
 activate TS
 deactivate TS
-CTRL -> TEST : testParameterList = getParametersResulList()
+CTRL -> TEST : testParametersList= getTestParametersList()
 activate TEST
 deactivate TEST
-CTRL -> tpMAPPER : toDto(testParameterList)
+CTRL -> tpMAPPER : toDto(testParametersList)
 activate tpMAPPER
 ref over tpMAPPER
 SD_TestParameterMapper_toDto_List
 end ref
-tpMAPPER --> CTRL : testParameterListDto
+tpMAPPER --> CTRL : testParametersListDto
 deactivate tpMAPPER
-CTRL --> UI : testParameterListDto
+CTRL --> UI : testParametersListDto
 deactivate CTRL
 UI --> Doctor : Shows the parameter results and request the medical report.
 deactivate UI

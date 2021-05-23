@@ -3,7 +3,31 @@
 'hide footbox
 autonumber
 
-participant ": Test" as Test
+participant ": TestParameterMapper" as Mapper
+participant "testParametersList:\n List<TestParameter>" as lTP
+participant "testParametersListDto:\n List<TestParameterDto>" as lTPDto
+participant "tp:\n TestParameter" as TP
+participant "dto:\n TestParameterDto" as TPDto
+
+-> Mapper : toDto(testParametersList)
+activate Mapper
+Mapper --> lTPDto** : create()
+loop for each object in testParametersList
+Mapper -> lTP : testParameterAux = get(i)
+activate lTP
+deactivate lTP
+Mapper -> TP: parameter = getParameter()
+activate TP
+deactivate TP
+Mapper -> TP: testParameterResult = getTestParameterResult()
+activate TP
+deactivate TP
+Mapper --> TPDto** : create(parameter,testParameterResult)
+Mapper -> lTPDto : add(dto)
+activate lTPDto
+deactivate lTPDto
+end
+<-- Mapper : testParametersListDto
 
 
 

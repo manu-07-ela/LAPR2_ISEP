@@ -4,18 +4,18 @@
 autonumber
 
 participant ": testMapper" as MAPPER
-participant "listTestWaitingForResult: \nList<Test>" as LWFR
-participant "listTestWaitingForResultDto: \nList<TestDto>" as LWFRDTO
+participant "testHasSamplesAnalyzedList: \nList<Test>" as LTestSA
+participant "testHasSamplesAnalyzedListDto: \nList<TestDto>" as LTestSADTO
 participant "test : Test" as TEST
-participant "testDto : TestDTO" as TESTDTO
+participant "testDto : TestDto" as TESTDTO
 
--> MAPPER : toDto(listWaitingForSample)
+-> MAPPER : toDto(testHasSamplesAnalyzedList)
 activate MAPPER
-MAPPER --> LWFRDTO** : create()
-loop for each object in listTestWaitingForResult
-MAPPER -> LWFR : testAux = get(i)
-activate LWFR
-deactivate LWFR
+MAPPER --> LTestSADTO** : create()
+loop for each object in testHasSamplesAnalyzedList
+MAPPER -> LTestSA : testAux = get(i)
+activate LTestSA
+deactivate LTestSA
 MAPPER -> TEST : nhsCode = getNhsCode()
 activate TEST
 deactivate TEST
@@ -23,9 +23,9 @@ MAPPER -> TEST : testCode = getTestCode()
 activate TEST
 deactivate TEST
 MAPPER --> TESTDTO** : create(nhsCode, testCode)
-MAPPER -> LWFRDTO : add(testDto)
-activate LWFRDTO
-deactivate LWFRDTO
+MAPPER -> LTestSADTO : add(testDto)
+activate LTestSADTO
+deactivate LTestSADTO
 end
 deactivate MAPPER
 <-- MAPPER : listTestWaitingForResultDto
