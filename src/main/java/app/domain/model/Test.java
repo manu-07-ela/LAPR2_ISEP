@@ -46,6 +46,10 @@ public class Test {
         return nhscode;
     }
 
+    public TestType getTestType() {
+        return testType;
+    }
+
     public List<TestParameter> getTestParameterList() { return testParameterList; }
 
     private void citizencardnumberValidation(String citizencardnumber){
