@@ -150,6 +150,10 @@ public class TestType {
         return String.format("<Test Type> %s <Code> %s / <Collecting Method> %s / <Parameter Categories> %s",description,code,collectingMethod,parameterCategories);
     }
 
+    /*public ExternalModule getExternalModule(){
+
+    }
+     */
 
 
 }

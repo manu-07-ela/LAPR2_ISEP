@@ -10,12 +10,13 @@ participant ": TestType" as TT
 participant ": TestParameter" as TestParam
 participant ": Parameter" as Param
 participant ":TestParameterResult" as TestPResult
+participant "refValue :ReferenceValue" as Ref
 
 
 
 CTRL -> Test : addTestResult(testparameterSelected,result,metric)
 activate Test
-Test -> TestParam : getParameter()
+Test -> TestParam : getParam()
 activate TestParam
 TestParam --> Test : parameter
 deactivate TestParam
@@ -25,6 +26,7 @@ TT--> Test : em
 deactivate TT
 Test -> EM : getReferenceValue(parameter)
 activate EM
+EM -> Ref** : create()
 EM --> Test : refValue
 deactivate EM
 Test -> TestParam :AddResult(refValue,result,metric)
