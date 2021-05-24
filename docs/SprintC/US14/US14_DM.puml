@@ -19,7 +19,7 @@ class Test{
 
 class MedicalReport{
 -diagnosis
--dateAndTime
+-createAt
 }
 
 class TestParameter{
@@ -27,7 +27,7 @@ class TestParameter{
 }
 
 Company "1"---"1..*" Test : performs >
-Test "1" ---"1..*" TestParameter : generates >
+Test "1" ---"1..*" TestParameter : requests analysis of >
 Test "1" ---"1" MedicalReport : request >
 TestParameter "1..*"---"1" SpecialistDoctor : analyzed by >
 
