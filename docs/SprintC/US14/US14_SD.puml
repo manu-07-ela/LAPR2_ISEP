@@ -3,8 +3,8 @@ autonumber
 'hide footbox
 actor "Specialist Doctor" as Doctor
 
-participant ": CreateMedicalReportUI" as UI
-participant ": CreateMedicalReportController" as CTRL
+participant ": WriteMedicalReportUI" as UI
+participant ": WriteMedicalReportController" as CTRL
 participant ": Company" as Comp
 participant "testStore:\nTestStore" as TS
 participant ": TestMapper" as tMAPPER
