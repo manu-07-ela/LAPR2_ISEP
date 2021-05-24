@@ -10,8 +10,9 @@ class ChemicalAnalysis
 class SpecialistDoctor
 class MedicalReport
 class ParameterResult
-class ReferenceValue
 class Test
+class EmailResult
+class SMSResult
 
 
 class Company{
@@ -53,16 +54,21 @@ class ParameterResult{
 -parameterValue
 }
 
-class ReferenceValue{
--lowerLimitValue
--upperLimitValue
-}
 
 class Test{
 -internalCode
 -nhsCode
 -description
 }
+
+class EmailResult{
+-message
+}
+
+class SMSResult{
+-message
+}
+
 
 ChemicalAnalysis "1"---"1..*" ParameterResult: generates >
 
@@ -81,7 +87,9 @@ Test "*" --- "1" LabCoordinatorValidation : request >
 ParameterResult "1..*"---"1" Employee: registered by >
 ParameterResult "1..*"---"1" LabCoordinatorValidation : validated by >
 ParameterResult "1..*"---"1" SpecialistDoctor : analyzed by >
-ParameterResult "*"---"1" ReferenceValue : compared with >
 
+EmailResult "1"---"1" Test : associated to >
+
+SMSResult "1"---"1" Test : associated to >
 
 @enduml
