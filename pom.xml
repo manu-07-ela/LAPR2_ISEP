@@ -7,6 +7,8 @@
     <groupId>isep.lei.sem2</groupId>
     <artifactId>Sem2App</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+
     <build>
         <plugins>
             <plugin>
@@ -38,6 +40,7 @@
 			</dependencies>
 			-->
 	</plugin>
+
 		<!-- Required for generating coverage report -->
 	<plugin>
 		<groupId>org.jacoco</groupId>
@@ -122,5 +125,11 @@
 	    <version>4.12</version>
 	    <scope>test</scope>
         </dependency>
+		<dependency>
+			<groupId>net.sourceforge.barbecue</groupId>
+			<artifactId>barbecue</artifactId>
+			<version>1.5-beta1</version>
+		</dependency>
     </dependencies>
+
 </project>
