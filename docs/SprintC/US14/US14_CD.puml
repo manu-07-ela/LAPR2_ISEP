@@ -1,12 +1,12 @@
 @startuml
 
 package UI{
-class CreateMedicalReportUI{
+class WriteMedicalReportUI{
 }
 }
 
 package Controller{
-class CreateMedicalReporController{
+class WriteMedicalReportController{
 +getTestHasSamplesAnalyzedList()
 +getTestParameterList()
 +createMedicalReport()
@@ -20,17 +20,24 @@ class Company{
 }
 
 class Test{
+-String internalCode
+-String nhsCode
+-String description
 +getParametersResulList()
-+createMedicalReport(report)
++getDescription()
++getInternalCode()
++addMedicalReport(diagnosis)
 }
 
 class MedicalReport{
 -String diagnosis
 -Date createdAt
 + MedicalReport(diagnosis)
++ addCreationDate()
 }
 
 class TestParameter{
++ getParameterName()
 }
 }
 
@@ -58,17 +65,22 @@ class TestParameterDto{
 }
 
 
-CreateMedicalReportUI ..> CreateMedicalReporController
-CreateMedicalReportUI ..> TestDto
-CreateMedicalReportUI ..> TestParameterDto
-CreateMedicalReporController ..> Company
-CreateMedicalReporController ..> TestMapper
-CreateMedicalReporController ..> TestParameterMapper
+WriteMedicalReportUI ..> WriteMedicalReportController
+WriteMedicalReportUI ..> TestDto
+WriteMedicalReportUI ..> TestParameterDto
+WriteMedicalReportController ..> Company
+WriteMedicalReportController ..> TestMapper
+WriteMedicalReportController ...> TestParameterDto
+WriteMedicalReportController ...> TestDto
+WriteMedicalReportController ...> TestParameter
+WriteMedicalReportController ...> Test
+WriteMedicalReportController ..> TestParameterMapper
 TestParameterMapper ..> TestParameterDto
 TestParameterMapper ..> TestParameter
 TestMapper ..> TestDto
 TestMapper ..> Test
-Company --> Test
+Company "1"--"1..*" Test : performs >
+TestParameter "1..*" --"1" Test : requests analysis of <
 Test "*"--"1" MedicalReport : request >
 Company"1"--> "1" TestStore : uses
 

@@ -14,11 +14,6 @@ public class Test {
     }
 
     /**
-     * Client's citizen card number
-     */
-    private String citizencardnumber;
-
-    /**
      * Client's National Healthcare Service code
      */
     private String nhscode;
@@ -40,15 +35,26 @@ public class Test {
      */
     private StateOfTest state;
 
+    private Client cl;
+
     /**
-     * Constructs an instance of {@code Test} receiving the Client's citizen card number and National Healthcare Service code
-     * @param citizencardnumber
-     * @param nhscode
+     *
      */
-    public Test(String citizencardnumber, String nhscode ,TestType testType ,List<TestParameter> testParameterList) {
-        citizencardnumberValidation(citizencardnumber);
+    private String internalCode;
+
+    /**
+     *
+     */
+    private String description;
+
+    /**
+     *
+     */
+    private MedicalReport md;
+
+    public Test(Client cl, String nhscode ,TestType testType ,List<TestParameter> testParameterList) {
         nhscodeValidation(nhscode);
-        this.citizencardnumber = citizencardnumber;
+        this.cl = cl;
         this.nhscode = nhscode;
         this.testType =testType;
         this.testParameterList= testParameterList;
@@ -56,11 +62,10 @@ public class Test {
     }
 
     /**
-     * Change the state of a test
-     * @param state the new state of a test
+     *  Change the status of a test for Samples collected
      */
-    public void setState(StateOfTest state) {
-        this.state = state;
+    public void changeStateForSamplesCollected() {
+        this.state = StateOfTest.SamplesCollected;
     }
 
     /**
@@ -71,40 +76,41 @@ public class Test {
         return state;
     }
 
-    public String getCitizencardnumber() {
-        return citizencardnumber;
+    public Client getCl() {
+        return cl;
     }
 
     public String getNhscode() {
         return nhscode;
     }
 
-    public TestType getTestType() {
+    public String getInternalCode(){
+        return internalCode;
+    }
+
+    public TestType getTestType () {
         return testType;
     }
 
-    public List<TestParameter> getTestParameterList() { return testParameterList; }
-
-    private void citizencardnumberValidation(String citizencardnumber){
-        if (!StringUtils.isNumeric(citizencardnumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
-        if (citizencardnumber.length()!=16){
-            throw  new IllegalArgumentException("The citizen card number must have 16 digits");
-        }
+    public List<TestParameter> getTestParameterList () {
+        return testParameterList;
     }
 
-    private void nhscodeValidation(String nhscode){
-        if (!StringUtils.isNumeric(nhscode)) throw new IllegalArgumentException("National Healthcare Service code is numeric only.");
-        if (nhscode.length()!=12){
-            throw  new IllegalArgumentException("The National Healthcare Service code must have 12 digits");
-        }
+
+    private void nhscodeValidation (String nhscode){
+           if (!StringUtils.isNumeric(nhscode))
+               throw new IllegalArgumentException("National Healthcare Service code is numeric only.");
+           if (nhscode.length() != 12) {
+               throw new IllegalArgumentException("The National Healthcare Service code must have 12 digits");
+           }
     }
 
     @Override
-    public boolean equals(Object other) {
+    public boolean equals (Object other){
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Test test = (Test) other;
-        return this.getCitizencardnumber().equals((test).getCitizencardnumber()) || this.getNhscode().equals((test).getNhscode());
+        return this.getCl().equals((test).getCl()) || this.getNhscode().equals((test).getNhscode());
     }
 
     /**
@@ -113,7 +119,7 @@ public class Test {
      * @param result
      * @param metric
      */
-    public void addTestResult(TestParameter testparameterSelected, String result, String metric) {
+    public void addTestResult (TestParameter testparameterSelected, String result, String metric){
        /* for (TestParameter testParameter: testParameterList) {
             if (testParameter.equals(testparameterSelected)){
                 testType.getExternalModule();
@@ -126,4 +132,14 @@ public class Test {
         */
     }
 
-}
+    /**
+     *
+     * @param diagnosis
+     */
+    public void addMedicalReport(String diagnosis){
+        this.md= new MedicalReport(diagnosis);
+        this.state = StateOfTest.SamplesAnalyzed;
+    }
+
+
+    }

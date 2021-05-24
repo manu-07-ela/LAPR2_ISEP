@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Transform objects of type Test into objects of type TestDTO
  * @author Manuela Leite <1200720@isep.ipp.pt>
+ * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
 
 
@@ -19,7 +20,7 @@ public class TestMapper {
      * @return an instance of TestDTO
      */
     public TestDTO toDto(Test test){
-        return new TestDTO(test.getCitizencardnumber(), test.getNhscode(), test.getTestParameterList(), test.getTestType());
+        return new TestDTO(test.getInternalCode());
     }
 
     /**
@@ -27,7 +28,7 @@ public class TestMapper {
      * @param tests a list of Test
      * @return a list of TestDTO
      */
-    public List<TestDTO> toDtoList(List<Test> tests){
+    public List<TestDTO> toDto(List<Test> tests){
         List<TestDTO> testDto = new ArrayList<>();
 
         for (Test t : tests){

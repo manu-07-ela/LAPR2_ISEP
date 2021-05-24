@@ -1,6 +1,8 @@
 package app.domain.store;
 
+import app.domain.model.Client;
 import app.domain.model.Test;
+import app.domain.model.TestType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +54,10 @@ public class TestStore {
         return !this.testList.contains(test);
     }
 
+    //public Test createTest(Client cl, String nhscode){
+       // return new Test(cl,nhscode);
+   //}
+
    // public Test createTest(String citizencardnumber, String nhscode){
    //     return new Test(citizencardnumber,nhscode);
    // }
@@ -80,5 +86,33 @@ public class TestStore {
     public boolean addTest(Test t) {
         return testList.add(t);
     }
-    
+
+    /**
+     *
+     * @return
+     */
+    public List<Test> getTestHasSamplesAnalyzedList(){
+        List<Test> testHasSamplesAnalyzedList = new ArrayList();
+        for(Test test : testList){
+            if(test.getState().equals("SamplesAnalyzed")){
+                testHasSamplesAnalyzedList.add(test);
+            }
+        }
+        return testHasSamplesAnalyzedList;
+    }
+
+    /**
+     *
+     * @param code
+     * @return
+     */
+    public Test getTestByInternalCode(String code){
+       for (Test test : testList) {
+            if (test.getInternalCode().equals(code)) {
+              return test;
+            }
+      }
+       return null;
+    }
+
 }
