@@ -14,7 +14,7 @@ public class EmployeeStore {
     /**
      * List of all existing employees in the company.
      */
-    List<Employee>  employees;
+    List<Employee> employees;
 
     /**
      * Instantiates a new EmployeeStore.

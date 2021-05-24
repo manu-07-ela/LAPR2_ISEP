@@ -89,7 +89,7 @@ automatically generated using an external API.
 
 ### 1.4. Found out Dependencies
 
-* This user story has a dependency with user story 4 since it is only possible to collect and identify samples from a test.
+* This user story has a dependency with user story 4 since it is only possible to collect and identify samples from a test registered.
 
 ### 1.5 Input and Output Data
 
@@ -170,9 +170,11 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ![US05-SD](US05_SD.svg)
 
+### 3.2.1 Reference to Sequence Diagram using the Interaction use principle
+![US05-SDREF](SD_TestMapper_toDto_List.svg)
+
 ## 3.3. Class Diagram (CD)
 
-*In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
 ![US05-CD](US05_CD.svg)
 

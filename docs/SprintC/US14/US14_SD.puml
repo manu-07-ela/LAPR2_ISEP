@@ -10,10 +10,14 @@ participant "testStore:\nTestStore" as TS
 participant ": TestMapper" as tMAPPER
 participant "testHasSamplesAnalyzedList: \nList<Test>" as List
 participant "testHasSamplesAnalyzedListDto :\nList<TestDto> " as TDto
-participant "dto: TestDto" as TDto
 participant "test:Test" as TEST
+participant "testDto: TestDto" as TestDtoc
 participant ": TestParameterMapper" as tpMAPPER
-participant "md: MedicalReport" as REPORT
+participant "testParametersList:\n List<TestParameter>" as lTP
+participant "testParametersListDto:\n List<TestParameterDto>" as lTPDto
+participant "tp:\n TestParameter" as TP
+participant "dto:\n TestParameterDto" as TPDto
+participant " : MedicalReport" as REPORT
 
 activate Doctor
 Doctor -> UI : Initiates the process of elaborate a medical report.
@@ -29,7 +33,7 @@ deactivate TS
 CTRL -> tMAPPER : toDto(testHasSamplesAnalyzedList)
 activate tMAPPER
 ref over tMAPPER
-SD_TestMapper_toDto_List
+SD_TestHasSamplesAnalyzedMapper_toDto_List
 end ref
 tMAPPER --> CTRL : testHasSamplesAnalyzedListDto
 deactivate tMAPPER
@@ -40,22 +44,22 @@ deactivate UI
 
 Doctor -> UI :  Select the desired test.
 activate UI
-UI -> CTRL : testParameterListDto = getTestParameterList()
+UI -> CTRL : testParametersListDto = getTestParameterList(selectedTest)
 activate CTRL
 CTRL -> TS : test = getTestByInternalCode(code)
 activate TS
 deactivate TS
-CTRL -> TEST : testParameterList = getParametersResulList()
+CTRL -> TEST : testParametersList= getTestParametersList()
 activate TEST
 deactivate TEST
-CTRL -> tpMAPPER : toDto(testParameterList)
+CTRL -> tpMAPPER : toDto(testParametersList)
 activate tpMAPPER
 ref over tpMAPPER
 SD_TestParameterMapper_toDto_List
 end ref
-tpMAPPER --> CTRL : testParameterListDto
+tpMAPPER --> CTRL : testParametersListDto
 deactivate tpMAPPER
-CTRL --> UI : testParameterListDto
+CTRL --> UI : testParametersListDto
 deactivate CTRL
 UI --> Doctor : Shows the parameter results and request the medical report.
 deactivate UI
@@ -68,11 +72,14 @@ deactivate UI
 
 Doctor-> UI : Confirms the data.
 activate UI
-UI -> CTRL: createMedicalReport()
+UI -> CTRL: addMedicalReport(diagnosis)
 activate CTRL
-CTRL -> TEST : md = createMedicalReport(report)
+CTRL -> TEST : addMedicalReport(diagnosis)
 activate TEST
-TEST --> REPORT** : create(report)
+TEST --> REPORT** : create(diagnosis)
+REPORT -> REPORT : addCreationDate()
+activate REPORT
+deactivate REPORT
 deactivate TEST
 CTRL --> UI : result
 deactivate CTRL

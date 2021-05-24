@@ -13,14 +13,10 @@ class CreateMedicalReporController{
 }
 }
 
+package Model{
 class Company{
 -String designation
 +getTestStore()
-}
-
-class TestStore{
-+getTestHasSamplesAnalyzedList()
-+getTestByInternalCode(code)
 }
 
 class Test{
@@ -29,22 +25,38 @@ class Test{
 }
 
 class MedicalReport{
-}
-
-class TestMapper{
-}
-
-class TestDto{
+-String diagnosis
+-Date createdAt
++ MedicalReport(diagnosis)
 }
 
 class TestParameter{
 }
+}
 
-class TestParameterDto{
+package Store{
+class TestStore{
++getTestHasSamplesAnalyzedList()
++getTestByInternalCode(code)
+}
+}
+
+package Mappers{
+class TestMapper{
 }
 
 class TestParameterMapper{
 }
+}
+
+package DTO{
+class TestDto{
+}
+
+class TestParameterDto{
+}
+}
+
 
 CreateMedicalReportUI ..> CreateMedicalReporController
 CreateMedicalReportUI ..> TestDto
@@ -57,7 +69,7 @@ TestParameterMapper ..> TestParameter
 TestMapper ..> TestDto
 TestMapper ..> Test
 Company --> Test
-Test --> MedicalReport
+Test "*"--"1" MedicalReport : request >
 Company"1"--> "1" TestStore : uses
 
 @enduml

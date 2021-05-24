@@ -96,10 +96,6 @@ class OrganizationRoleDto{
 -designation
 +getDesignationDto()
 }
-class OrganizationRoleDto{
-+getDesignationSto()
-
-}
 
 class OrganizationRoleMapper{
 -listOrgRolesDto

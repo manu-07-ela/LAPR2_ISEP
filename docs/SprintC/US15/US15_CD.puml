@@ -1,0 +1,93 @@
+@startuml
+
+class ValidateWorkUI{
+}
+
+class ValidateWorkController{
++getTestToValidateList()
++showRegistrationDate(selectedTest)
++showChemicalAnalysisDate(selectedTest)
++showDiagnosisDate(selectedTest)
++showDates()
++recordValidationDate()
++notifyTheClient()
+}
+
+class Company{
+-String name
+-String shortName
+-category
+-address
+-headquarters
+--
++getTestStore()
+}
+
+class TestStore {
++getTestHasReportList()
++getTestByInternalCode(code)
+}
+
+class TestMapper{
+List<TestDto> listTestsToValidateDto
+List<Test> listTestWaitingForResult
+List<TestDto> listDatesDto
+testDto : TestDto
+registrationDateDto : RegistrationDateDto
+chemicalAnalysisDateDto : ChemicalAnalysisDateDto
+diagnosisDateDto : DiagnosisDateDto
+--
++toDto(testHasReportList)
++dateToDto()
++createDateDto(nhsCode,testCode)
++addDateDto(testDto)
+}
+
+
+class LabCoordinatorValidation {
+-dateAndTime
+--
++createTestValidation(selectedTest)
++recordValidationDate()
+}
+
+class Test{
+-internalCode
+-nhsCode
+-description
+--
++getNhsCode()
++getTestCode()
++getRegistrationDate()
++getChemicalAnalysisDate()
++getDiagnosisDate()
+}
+
+class EmailResult{
++notifyByEmail()
+}
+
+class SMSResult{
++notifyBySMS()
+}
+
+ValidateWorkUI .> ValidateWorkController : uses
+
+ValidateWorkController ..> Company : uses
+ValidateWorkController ..> TestStore : uses
+ValidateWorkController ..> TestMapper : uses
+ValidateWorkController ..> LabCoordinatorValidation : uses
+ValidateWorkController ..> EmailResult : uses
+ValidateWorkController ..> SMSResult : uses
+
+TestMapper ..> Test : uses
+
+
+Company "1"---"1..*" Test : performs >
+
+EmailResult "1"---"1" Test : associated to >
+
+SMSResult "1"---"1" Test : associated to >
+
+
+@enduml

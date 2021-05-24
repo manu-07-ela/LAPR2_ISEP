@@ -6,10 +6,15 @@ import app.domain.model.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Stores laboratory tests provided to customers
+ * @author Group 22
+ */
+
 public class TestStore {
 
     /**
-     *
+     * Represents a list of tests
      */
     List<Test> testList;
 
@@ -37,19 +42,33 @@ public class TestStore {
 
     //}
 
+    /**
+     * Global validation of a Test
+     * @param test Test that we intend to validate
+     * @return false if the employee already exists or is null. Otherwise, it returns true.
+     */
     public boolean validateTest(Test test) {
         if (test == null)
             return false;
         return !this.testList.contains(test);
     }
 
-    public Test createTest(Client cl, String nhscode){
-        return new Test(cl,nhscode);
-    }
+//    public Test createTest(Client cl, String nhscode){
+//        return new Test(cl,nhscode);
+//    }
+
+   // public Test createTest(String citizencardnumber, String nhscode){
+   //     return new Test(citizencardnumber,nhscode);
+   // }
 //    public static String generateTestCode(Test t){
 //
 //    }
 
+    /**
+     * Save the Test case it is in a valid state.
+     * @param t The Test we intend to save
+     * @return true if Test was saved. Otherwise, false.
+     */
     public boolean saveTest(Test t) {
         if (!validateTest(t)){
             return false;
@@ -58,6 +77,11 @@ public class TestStore {
         }
     }
 
+    /**
+     * Adds a new Test to the list
+     * @param t the test to which you want to add
+     * @return true if the test is added to the list, false otherwise
+     */
     public boolean addTest(Test t) {
         return testList.add(t);
     }

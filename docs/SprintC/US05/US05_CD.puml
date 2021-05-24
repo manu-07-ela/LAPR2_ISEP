@@ -1,5 +1,6 @@
 @startuml
 'https://plantuml.com/class-diagram
+
 class ExternalModule
 
 package ui{
@@ -13,6 +14,7 @@ package domain{
 package model{
 class Company
 class Test
+class Sample
 }
 package store{
 class TestStore
@@ -43,6 +45,54 @@ class Company{
 +getSampleStore()
 +getTestStore()
 }
+
+class RecordSampleController{
++getListTestDto()
++createSample()
+}
+
+class TestStore{
++getListTestWaitingForSamples()
+}
+
+class SampleStore{
++createSample()
+}
+
+class Test{
++generateDateAndTimeForSamplesCollected()
++getNhsCode()
++getTestCode()
+}
+
+class TestMapper {
++toDto(listWaitingForSample)
+}
+
+class TestDTO {
+-nhsCodeDto
+-testCodeDto
++getNhsCodeDto()
++getTestCodeDto()
+}
+
+class Sample {
+-barcode
++generateBarcode()
++AssociateBarcodeWithSample(barcode)
+
+}
+
+RecordSampleUI..>RecordSampleController
+RecordSampleController..>Company
+Company"1"---->"1"SampleStore : uses
+Company"1"--->"1"TestStore : uses
+SampleStore "1" --> "*"Sample : knows
+TestStore "1"---->"*"Test : knows
+Test --* Sample
+Company .>ExternalModule
+TestDTO.>TestMapper
+TestMapper..>Test
 
 
 

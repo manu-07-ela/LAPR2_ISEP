@@ -76,7 +76,7 @@ deactivate SAMPLESTORE
 deactivate "sample : Sample"
 deactivate ": ExternalModule"
 end loop
-CONTROLLER->TEST : generateDataAndTimeForSamplesCollected()
+CONTROLLER->TEST : generateDateAndTimeForSamplesCollected()
 activate TEST
 deactivate TEST
 deactivate CONTROLLER

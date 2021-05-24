@@ -13,12 +13,14 @@ participant ": TestMapper" as MAPPER
 participant "listTestWaitingForResult: \nList<Test>" as LWFR
 participant "listTestsToValidateDto: \nList<TestDto>" as LISTTWFV
 participant "listDatesDto: \nList<TestDto>" as LISTDDTO
+participant ": LabCoordinatorValidation" as LCV
 participant "test : Test" as TEST
 participant "testDto : TestDTO" as TESTDTO
 participant "registrationDateDTO : \nRegistrationDateDTO" as RDDTO
 participant "chemicalAnalysisDateDTO : \nChemicalAnalysisDateDTO" as CADDTO
 participant "diagnosisDateDto : \nDiagnosisDateDto" as DDDTO
-participant "tv: TestValidation" as TV
+participant ": EmailResult" as EMAILRESULT
+participant ": SMSResult" as SMSRESULT
 
 autonumber
 
@@ -65,11 +67,11 @@ deactivate UI
 
 ADM -> UI:select a tests to validate (selectedTest)
 activate UI
-UI -> CTRL : selectedTestRegistrationDate(selectedTest)
+UI -> CTRL : showRegistrationDate(selectedTest)
 activate CTRL
-CTRL -> TV : create(selectedTest)
-activate TV
-deactivate TV
+CTRL -> LCV : createTestValidation(selectedTest)
+activate LCV
+deactivate LCV
 CTRL -> TSTORE : test = getTestByInternalCode(code)
 activate TSTORE
 deactivate TSTORE
@@ -78,8 +80,9 @@ activate TEST
 deactivate TEST
 CTRL -> MAPPER : dateToDto(registrationDate)
 activate MAPPER
-MAPPER -> RDDTO** : create(registrationDate)
-MAPPER -> LISTDDTO : add(registrationDateDTO)
+MAPPER --> LISTDDTO** : create()
+MAPPER -> RDDTO** : createDateDto(registrationDate)
+MAPPER -> LISTDDTO : addDateDto(registrationDateDTO)
 activate LISTDDTO
 deactivate LISTDDTO
 MAPPER --> CTRL : registrationDateDto
@@ -98,13 +101,13 @@ ADM -> UI: validate date
 activate UI
 UI -> CTRL : showChemicalAnalysisDate(selectedTest)
 activate CTRL
-CTRL -> TEST : chemicalAnalysisDate = getChemicalAnalysis()
+CTRL -> TEST : chemicalAnalysisDate = getChemicalAnalysisDate()
 activate TEST
 deactivate TEST
 CTRL -> MAPPER : dateToDto(rchemicalAnalysisDate)
 activate MAPPER
-MAPPER -> CADDTO** : create(chemicalAnalysisDate)
-MAPPER -> LISTDDTO : add(chemicalAnalysisDateDTO)
+MAPPER -> CADDTO** : createDateDto(chemicalAnalysisDate)
+MAPPER -> LISTDDTO : addDateDto(chemicalAnalysisDateDTO)
 activate LISTDDTO
 deactivate LISTDDTO
 MAPPER --> CTRL : chemicalAnalysisDateDto
@@ -113,8 +116,6 @@ CTRL --> UI : chemicalAnalysisDateDto
 deactivate CTRL
 UI --> ADM : shows the chemical analysis \n date and asks for validation
 deactivate UI
-
-
 
 
 
@@ -130,8 +131,8 @@ activate TEST
 deactivate TEST
 CTRL -> MAPPER : dateToDto(diagnosisDate)
 activate MAPPER
-MAPPER -> DDDTO** : create(diagnosisDate)
-MAPPER -> LISTDDTO : add(diagnosisDateDTO)
+MAPPER -> DDDTO** : createDateDto(diagnosisDate)
+MAPPER -> LISTDDTO : addDateDto(diagnosisDateDTO)
 activate LISTDDTO
 deactivate LISTDDTO
 MAPPER --> CTRL : diagnosisDateDto
@@ -151,8 +152,12 @@ UI -> CTRL : showDates()
 activate CTRL
 CTRL -> LISTDDTO : registrationDate = getRegistrationDate()
 activate LISTDDTO
+deactivate LISTDDTO
 CTRL -> LISTDDTO : chemicalAnalysisDate = getChemicalAnalysisDate()
+activate LISTDDTO
+deactivate LISTDDTO
 CTRL -> LISTDDTO : diagnosisDate = getDiagnosisDate()
+activate LISTDDTO
 deactivate LISTDDTO
 CTRL --> UI : showDates (registrationDate,chemicalAnalysisDate,diagnosisDate)
 deactivate CTRL
@@ -164,10 +169,23 @@ deactivate UI
 
 
 
-
-
 ADM -> UI: confirms the validation
 activate UI
+UI -> CTRL : recordValidationDate()
+activate CTRL
+CTRL -> LCV : validationDate = recordValidationDate()
+activate LCV
+deactivate LCV
+deactivate CTRL
+UI -> CTRL : notifyTheClient()
+activate CTRL
+CTRL -> EMAILRESULT : notifyByEmail()
+activate EMAILRESULT
+deactivate EMAILRESULT
+CTRL -> SMSRESULT : notifyBySMS()
+activate SMSRESULT
+deactivate SMSRESULT
+deactivate CTRL
 UI --> ADM : informs the operation success
 deactivate UI
 deactivate ADM
