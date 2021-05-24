@@ -21,6 +21,7 @@ participant "chemicalAnalysisDateDTO : \nChemicalAnalysisDateDTO" as CADDTO
 participant "diagnosisDateDto : \nDiagnosisDateDto" as DDDTO
 participant ": EmailResult" as EMAILRESULT
 participant ": SMSResult" as SMSRESULT
+participant ": Client" as CLIENT
 
 autonumber
 
@@ -181,9 +182,15 @@ UI -> CTRL : notifyTheClient()
 activate CTRL
 CTRL -> EMAILRESULT : notifyByEmail()
 activate EMAILRESULT
+EMAILRESULT -> CLIENT : mail = getEmail()
+activate CLIENT
+deactivate CLIENT
 deactivate EMAILRESULT
 CTRL -> SMSRESULT : notifyBySMS()
 activate SMSRESULT
+SMSRESULT -> CLIENT : phoneNumber = getPhonenumber()
+activate CLIENT
+deactivate CLIENT
 deactivate SMSRESULT
 deactivate CTRL
 UI --> ADM : informs the operation success

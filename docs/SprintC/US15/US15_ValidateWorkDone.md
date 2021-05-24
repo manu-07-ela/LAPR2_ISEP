@@ -95,22 +95,18 @@ Moreover, in this US, when the system shows to the laboratory coordinator all th
 *Insert here the client acceptance criteria.*
 
 * **AC1:** The system does not show client personal information but shows all dates (test registration date, chemical analysis date and diagnosis date).
-
 * **AC2:** The coordinator can validate all or a subset of test results.
-
 * **AC3:** The laboratory coordinator selects one or more tests to mark as validated
-
 * **AC4:** After validation, the report cannot be changed
-
 * **AC5:** The system should record the date (DD/MM/YYYY) and time (HH:MM) when the validation was made.
 
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
 
-* *There is a dependency to "US4 - See the date when the test was registered.*
-* *There is a dependency to "US12 - See the date when the Chemical Analysis was performed.*
-* *There is a dependency to "US14 - See the date when the Diagnosis was made.*
+* *There is a dependency to US4 - See the date when the test was registered.*
+* *There is a dependency to US12 - See the date when the Chemical Analysis was performed.*
+* *There is a dependency to US14 - See the date when the Diagnosis was made.*
 
 
 ### 1.5 Input and Output Data
@@ -160,28 +156,41 @@ Moreover, in this US, when the system shows to the laboratory coordinator all th
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | CreateClinicalAnalysisLaboratoryUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			     |	... coordinating the US? | CreateClinicalAnalysisLaboratoryController | Controller                             |
-| 			     |	... knowing who is responsible for creating Clinical Analysis Laboratory instances? | Company   | Creator (R1)   |
-| 			  	 | ... knowing the user using the system?  | UserSession  |   |
-| 			  	 |	... creates Clinical Analysis Laboratory instance? | ClinicalAnalysisLaboratoryStore  | HC+LC on the Company. By HC / LC the Company delegates these responsibilities in TestTypeStore. |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Step 1  		 | ... interacting with the actor?                                 | ValidateWorkUI                | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
+|                | ... coordinating the US?                                        | ValidateWorkController        | **Controller**                                                                                                                                                                                         |
+| Step 2  		 | ... know the existing tests?                                    | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
+|                | ... knows TestStore?                                            | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
+|                | ... transfer domain data in DTO?                                | TestDto                       | **DTO**: So that the UI does not have direct access to objects in the domain it is better to choose to use a DTO.                                                                                      |
+| Step 3  		 | ... transfer the Registration date in DTO?                      | RegistrationDateDto           | **DTO**: So that the UI does not have direct access to objects in the domain it is better to choose to use a DTO.       
+|                | ... transfer the Chemical Analysis date in DTO?                 | ChemicalAnalysisDateDto       | **DTO**: So that the UI does not have direct access to objects in the domain it is better to choose to use a DTO.                                                                                      |
+|                | ... transfer the Diagnosis date in DTO?                         | DiagnosisDateDto              | **DTO**: So that the UI does not have direct access to objects in the domain it is better to choose to use a DTO.                                                                                      |
+| Step 4         | ... instantiating a Lab Coordinator Validation?                 | Test                          | **Creator (R1)**                                                                                                                                                                                       |
+|        		 | ... recording the Validation Date?                              | LabCoordinatorValidation      | **IE**: Owns its data.|
+| Step 5  		 | ... knows Client Data?                                          | Client                        | **IE**: Owns its data.
+|                | ... notify the client by email                                  | EmailResult                   | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                                                                                                    |
+|                | ... notify the client by SMS                                    | SMSResult                     | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.
+| Step 6  		 | ... informing operation success?                                | CreateMedicalReportUI         | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * Company
+ * Test
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+
+ * ValidateWorkUI  
+ * ValidateWorkController
+ * TestStore
+ * TestMapper
+ * TestDto
+ * RegistrationDateDto
+ * ChemicalAnalysisDto
+ * DiagnosisDto
+ * EmailResult
+ * SMSResult
+ * Client
 
 ## 3.2. Sequence Diagram (SD)
 
