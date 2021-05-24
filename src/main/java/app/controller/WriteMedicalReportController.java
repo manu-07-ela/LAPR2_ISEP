@@ -8,6 +8,7 @@ import app.mappers.TestMapper;
 import app.mappers.TestParameterMapper;
 import app.mappers.dto.TestDTO;
 import app.mappers.dto.TestParameterDTO;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -75,8 +76,17 @@ public class WriteMedicalReportController {
      */
     public List<TestDTO> getTestHasSamplesAnalyzedList(){
         this.testStore=company.getTestStore();
+        checkPossibilityOfWriteAReport(testStore.getTestHasSamplesAnalyzedList());
         List<Test> testHasSamplesAnalyzedList = testStore.getTestHasSamplesAnalyzedList();
         return testMapper.toDto(testHasSamplesAnalyzedList);
+    }
+
+    /**
+     *
+     */
+    public void checkPossibilityOfWriteAReport(List<Test> testHasSamplesAnalyzedList){
+        if (testHasSamplesAnalyzedList.size() == 0)
+            throw new IllegalArgumentException("There are no tests with the analyzed samples");
     }
 
     /**

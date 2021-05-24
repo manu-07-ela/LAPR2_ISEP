@@ -138,7 +138,7 @@ public class Test {
      */
     public void addMedicalReport(String diagnosis){
         this.md= new MedicalReport(diagnosis);
-
+        this.state = StateOfTest.SamplesAnalyzed;
     }
 
 

@@ -17,6 +17,7 @@ public class WriteMedicalReportUI implements Runnable{
      *
      */
     public WriteMedicalReportUI(){
+        writeMedicalReportctrl = new WriteMedicalReportController();
 
     }
 
@@ -25,8 +26,20 @@ public class WriteMedicalReportUI implements Runnable{
      */
     @Override
     public void run() {
-
+        writeMedicalReport();
     }
 
+    /**
+     *
+     */
+    public void writeMedicalReport(){
+        try {
+
+            writeMedicalReportctrl.getTestHasSamplesAnalyzedList();
+
+        } catch (IllegalArgumentException e){
+            System.out.printf("%nMessage: %s%n" ,e.getMessage());
+        }
+    }
 
 }
