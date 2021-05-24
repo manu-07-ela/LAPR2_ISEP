@@ -16,13 +16,13 @@ loop for each object in testParametersList
 Mapper -> lTP : testParameterAux = get(i)
 activate lTP
 deactivate lTP
-Mapper -> TP: parameter = getParameter()
+Mapper -> TP: parameterName = getParameterName()
 activate TP
 deactivate TP
 Mapper -> TP: testParameterResult = getTestParameterResult()
 activate TP
 deactivate TP
-Mapper --> TPDto** : create(parameter,testParameterResult)
+Mapper --> TPDto** : create(parameterName,testParameterResult)
 Mapper -> lTPDto : add(dto)
 activate lTPDto
 deactivate lTPDto

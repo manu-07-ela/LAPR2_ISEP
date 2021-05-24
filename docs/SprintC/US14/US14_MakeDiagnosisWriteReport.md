@@ -95,20 +95,19 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Step 1  		 | ... interacting with the actor?                                 | CreateMedicalReportUI         | **Pure Fabrication**: there is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
+| Step 1  		 | ... interacting with the actor?                                 | CreateMedicalReportUI         | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
 |                | ... coordinating the US?                                        | CreateMedicalReportController | **Controller**                                                                                                                                                                                         |
-| Step 2  		 | ... know the existing tests?                                    | TestStore                     | **IE**:                                                                                                                                                                                                |
-|                | ... knows TestStore?                                            | Company                       | **IE**:                                                                                                                                                                                                |
-|                | ... transfer domain data in DTO?                                | TestDto                       | **DTO**:                                                                                                                                                                                               |
+| Step 2  		 | ... know the existing tests?                                    | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
+|                | ... knows TestStore?                                            | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
+|                | ... transfer domain data in DTO?                                | TestDto                       | **DTO**: So that the UI does not have direct access to objects in the domain it is better to choose to use a DTO.                                                                                      |
 | Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 4  		 | ... knowing the test parameters?                                | Test                          | **IE**:                                                                                                                                                                                                |
-|                | ... transfer domain data in DTO?                                |                               | **DTO**:                                                                                                                                                                                               |
-| Step 5  		 | ... saving the inputted data?                                   |                               |                                                                                                                                                                                                        |
-| 		         | ... instantiating a new Medical Report?                         | Test                          | **Creator (R1)**: By the application of the Creator (R1) it would be the "Test".                                                                                                                       |
-|        		 | ... validating all data (local validation)?                     | MedicalReport                 | **IE**: owns its data.                                                                                                                                                                                 |
+| Step 4  		 | ... knowing the test parameters?                                | Test                          | **IE**: The test knows its own results.                                                                                                                                                                |
+|                | ... transfer domain data in DTO?                                | TestParameterDto              | **DTO**: So that the UI does not have direct access to objects in the domain it is better to choose to use a DTO.                                                                                      |
+| Step 5         | ... instantiating a new Medical Report?                         | Test                          | **Creator (R1)**                                                                                                                                                                                       |
+|        		 | ... validating all data (local validation)?                     | MedicalReport                 | **IE**: Owns its data.                                                                                                                                                                                 |
 | Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 7  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 8  		 | ... informing operation success?                                | CreateMedicalReportUI         | **IE**: is responsible for user interactions.                                                                                                                                                          |
+| Step 7  		 | ... saving the creation time?                                   | MedicalReport                 | **IE**: The medical report knows when it was created.                                                                                                                                                  |
+| Step 8  		 | ... informing operation success?                                | CreateMedicalReportUI         | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 
@@ -116,7 +115,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Company
  * Test
- * MedicalReport
+ * MedicalReport 
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
@@ -124,6 +123,7 @@ Other software classes (i.e. Pure Fabrication) identified:
  * CreateMedicalReportController
  * TestStore
  * TestDto
+ * TestParameterDto
 
 ## 3.2. Sequence Diagram (SD)
 
