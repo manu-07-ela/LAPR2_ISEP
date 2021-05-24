@@ -16,13 +16,13 @@ loop for each object in testHasSamplesAnalyzedList
 MAPPER -> LTestSA : testAux = get(i)
 activate LTestSA
 deactivate LTestSA
-MAPPER -> TEST : nhsCode = getNhsCode()
+MAPPER -> TEST : testDescription = getDescription()
 activate TEST
 deactivate TEST
 MAPPER -> TEST : testCode = getTestCode()
 activate TEST
 deactivate TEST
-MAPPER --> TESTDTO** : create(nhsCode, testCode)
+MAPPER --> TESTDTO** : create(testDescription, testCode)
 MAPPER -> LTestSADTO : add(testDto)
 activate LTestSADTO
 deactivate LTestSADTO

@@ -74,9 +74,9 @@ Doctor-> UI : Confirms the data.
 activate UI
 UI -> CTRL: createMedicalReport()
 activate CTRL
-CTRL -> TEST : md = createMedicalReport(report)
+CTRL -> TEST : md = createMedicalReport(diagnosis)
 activate TEST
-TEST --> REPORT** : create(report)
+TEST --> REPORT** : create(diagnosis)
 deactivate TEST
 CTRL --> UI : result
 deactivate CTRL
