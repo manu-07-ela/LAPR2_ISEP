@@ -19,7 +19,7 @@ deactivate LTestSA
 MAPPER -> TEST : testDescription = getDescription()
 activate TEST
 deactivate TEST
-MAPPER -> TEST : testCode = getTestCode()
+MAPPER -> TEST : testInternalCode = getInternalCode()
 activate TEST
 deactivate TEST
 MAPPER --> TESTDTO** : create(testDescription, testCode)
