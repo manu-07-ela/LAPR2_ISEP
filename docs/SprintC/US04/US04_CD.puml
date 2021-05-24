@@ -1,33 +1,79 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class ApplicationPOT
-{
-  +static getInstance()
-  +getCurrentSession()
+class TestTypeStore{
+
 }
 
-class UserSession
-{
-  +getUserEmail()
+class TestType{
+
 }
 
-class Task {
-  -String reference
-  -String designation
-  -String informalDescription
-  -String technicalDescription
-  -Integer duration
-  -Double cost
-  +Task(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
+class TestTypeMapper{
+
 }
 
-class Category {
-  -String id
-  -String description
+class TestTypeDTO{
+
 }
 
-class Organization {
+class ParameterCategoryStore {
+
+}
+
+class ParameterCategory {
+
+}
+
+class ParameterCategoryMapper{
+
+}
+
+class ParameterCategoryDTO{
+
+}
+
+class ClientStore{
+
+}
+
+class Client{
+
+}
+
+class ClientMapper{
+
+}
+
+class ClientDto{
+
+}
+
+class Test{
+
+}
+
+class TestStore{
+
+}
+
+class ParameterStore {
+
+}
+
+class Parameter {
+
+}
+
+class ParameterMapper{
+
+}
+
+class ParameterDTO{
+
+}
+
+class Company {
   -String name
   -String VatNumber
   -String website
@@ -40,33 +86,23 @@ class Organization {
   -validateTask(task)
 }
 
-class Platform {
-  -String designation
-  +getCategories()
-  +getCategoryById(catId)
-  +getOrganizationByUserEmail(email)
-}
-
-class CreateTaskController {
-  +getCategories()
-  +createTask(ref,designation,informalDesc,technicalDesc,duration,cost,categoryId)
-  +saveTask()
-}
-
-class CreateTaskUI {
+class RegisterTestController {
 
 }
 
-CreateTaskUI ..> CreateTaskController
-CreateTaskController ..> Platform
-CreateTaskController ..> Category
-CreateTaskController ..> Task
-CreateTaskController ..> Organization
-CreateTaskController ..> ApplicationPOT
-CreateTaskController ..> UserSession
-Task "*" -> "1" Category : classified in
-Platform "1" --> "*" Category : defines
-Organization "1" --> "*" Task : owns
+class RegisterTestUI {
+
+}
+
+RegisterTestUI ..> RegisterTestController
+RegisterTestController ..> Parameter
+RegisterTestController ..> ParameterStore
+RegisterTestController ..> Company
+RegisterTestController ..> TestTypeStore
+RegisterTestController ..> TestType
+ParameterStore "*" -> "1" Parameter : classified in
+Platform "1" --> "*" Parameter : defines
+Company "1" --> "*" ParameterStore : owns
 
 
 @enduml
