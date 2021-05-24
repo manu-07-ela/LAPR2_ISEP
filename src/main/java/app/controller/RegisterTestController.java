@@ -60,7 +60,7 @@ public class RegisterTestController {
     }
 
     public boolean createTest(Client cl, String nhscode) {
-        this.t=tStore.createTest(cl,nhscode);
+        //this.t=tStore.createTest(cl,nhscode);
         return this.tStore.validateTest(t);
     }
 

@@ -54,9 +54,9 @@ public class TestStore {
         return !this.testList.contains(test);
     }
 
-//    public Test createTest(Client cl, String nhscode){
-//        return new Test(cl,nhscode);
-//    }
+    //public Test createTest(Client cl, String nhscode){
+       // return new Test(cl,nhscode);
+   //}
 
    // public Test createTest(String citizencardnumber, String nhscode){
    //     return new Test(citizencardnumber,nhscode);
