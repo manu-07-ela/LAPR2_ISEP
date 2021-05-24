@@ -56,11 +56,10 @@ public class Test {
     }
 
     /**
-     * Change the state of a test
-     * @param state the new state of a test
+     *  Change the status of a test for Samples collected
      */
-    public void setState(StateOfTest state) {
-        this.state = state;
+    public void changeStateForSamplesCollected() {
+        this.state = StateOfTest.SamplesCollected;
     }
 
     /**
