@@ -14,7 +14,7 @@ import java.io.IOException;
 public class CreateClientUI implements Runnable {
 
     /**
-     * Represents a instance of register employee controller
+     * Represents a instance of register client controller
      */
     private final CreateClientController createClientctrl;
 

@@ -111,4 +111,18 @@ public class ClientStore {
             return clAuthFacade.addUser(cl.getName(),cl.getEmail(), pwd);
         }
     }
+
+    /**
+     * Get a client through his citizen card number
+     * @param citizencardnumber The citizen card number of the client we want to get
+     * @return The client associated with that citizen card number
+     */
+    public Client getClientbycitizencardnumber(String citizencardnumber) {
+        for (Client cl : clientList) {
+            if (cl.getCitizencardnumber().equals(citizencardnumber)) {
+                return cl;
+            }
+        }
+        return null;
+    }
 }
