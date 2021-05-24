@@ -5,7 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 public class Test {
-
+    /**
+     * Represents the states of a test
+     */
     public static enum StateOfTest{
         TestRegistered, SamplesCollected, SamplesAnalyzed,
         DiagnosisMade, Validated

@@ -49,7 +49,7 @@ public class Name {
     }
 
     /**
-     *Compare the doctor name with other object received
+     * Compare the name of an employee with other object received
      * @param other Object we want to compare with the name
      * @return true if the received object represents another name equivalent to the name. Otherwise, it returns false.
      */

@@ -16,13 +16,13 @@ loop for each object in listTestWaitingForResult
 MAPPER -> LWFR : testAux = get(i)
 activate LWFR
 deactivate LWFR
-MAPPER -> TEST : nhsCode = getNhsCode()
+MAPPER -> TEST : testDescription = getDescription()
 activate TEST
 deactivate TEST
-MAPPER -> TEST : testCode = getTestCode()
+MAPPER -> TEST : testInternalCode = getInternalCode()
 activate TEST
 deactivate TEST
-MAPPER --> TESTDTO** : create(nhsCode, testCode)
+MAPPER --> TESTDTO** : create(testDescription, testCode)
 MAPPER -> LWFRDTO : add(testDto)
 activate LWFRDTO
 deactivate LWFRDTO
