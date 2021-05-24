@@ -37,6 +37,20 @@ public class Test {
 
     private Client cl;
 
+    /**
+     *
+     */
+    private String internalCode;
+
+    /**
+     *
+     */
+    private String description;
+
+    /**
+     *
+     */
+    private MedicalReport md;
 
     public Test(Client cl, String nhscode ,TestType testType ,List<TestParameter> testParameterList) {
         nhscodeValidation(nhscode);
@@ -70,38 +84,42 @@ public class Test {
         return nhscode;
     }
 
-        public TestType getTestType () {
-            return testType;
-        }
+    public String getInternalCode(){
+        return internalCode;
+    }
 
-        public List<TestParameter> getTestParameterList () {
-            return testParameterList;
-        }
+    public TestType getTestType () {
+        return testType;
+    }
+
+    public List<TestParameter> getTestParameterList () {
+        return testParameterList;
+    }
 
 
-        private void nhscodeValidation (String nhscode){
-            if (!StringUtils.isNumeric(nhscode))
-                throw new IllegalArgumentException("National Healthcare Service code is numeric only.");
-            if (nhscode.length() != 12) {
-                throw new IllegalArgumentException("The National Healthcare Service code must have 12 digits");
-            }
-        }
+    private void nhscodeValidation (String nhscode){
+           if (!StringUtils.isNumeric(nhscode))
+               throw new IllegalArgumentException("National Healthcare Service code is numeric only.");
+           if (nhscode.length() != 12) {
+               throw new IllegalArgumentException("The National Healthcare Service code must have 12 digits");
+           }
+    }
 
-        @Override
-        public boolean equals (Object other){
-            if (this == other) return true;
-            if (other == null || getClass() != other.getClass()) return false;
-            Test test = (Test) other;
-            return this.getCl().equals((test).getCl()) || this.getNhscode().equals((test).getNhscode());
-        }
+    @Override
+    public boolean equals (Object other){
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        Test test = (Test) other;
+        return this.getCl().equals((test).getCl()) || this.getNhscode().equals((test).getNhscode());
+    }
 
-        /**
-         *
-         * @param testparameterSelected
-         * @param result
-         * @param metric
-         */
-        public void addTestResult (TestParameter testparameterSelected, String result, String metric){
+    /**
+     *
+     * @param testparameterSelected
+     * @param result
+     * @param metric
+     */
+    public void addTestResult (TestParameter testparameterSelected, String result, String metric){
        /* for (TestParameter testParameter: testParameterList) {
             if (testParameter.equals(testparameterSelected)){
                 testType.getExternalModule();
@@ -112,5 +130,16 @@ public class Test {
             }
         }
         */
-        }
+    }
+
+    /**
+     *
+     * @param diagnosis
+     */
+    public void addMedicalReport(String diagnosis){
+        this.md= new MedicalReport(diagnosis);
+
+    }
+
+
     }

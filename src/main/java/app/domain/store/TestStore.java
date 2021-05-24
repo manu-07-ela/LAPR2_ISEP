@@ -106,13 +106,13 @@ public class TestStore {
      * @param code
      * @return
      */
-//    public Test getTestByInternalCode(String code){
-//        for (Test test : testList) {
-//            if (test.getInternalCode().equals(code)) {
-//                return test;
-//            }
-//        }
-//        return null;
-//    }
+    public Test getTestByInternalCode(String code){
+       for (Test test : testList) {
+            if (test.getInternalCode().equals(code)) {
+              return test;
+            }
+      }
+       return null;
+    }
 
 }
