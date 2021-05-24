@@ -1,5 +1,6 @@
 package app.domain.store;
 
+import app.domain.model.Client;
 import app.domain.model.Test;
 
 import java.util.ArrayList;
@@ -42,8 +43,8 @@ public class TestStore {
         return !this.testList.contains(test);
     }
 
-    public Test createTest(String citizencardnumber, String nhscode){
-        return new Test(citizencardnumber,nhscode);
+    public Test createTest(Client cl, String nhscode){
+        return new Test(cl,nhscode);
     }
 //    public static String generateTestCode(Test t){
 //
@@ -60,5 +61,5 @@ public class TestStore {
     public boolean addTest(Test t) {
         return testList.add(t);
     }
-    
+
 }

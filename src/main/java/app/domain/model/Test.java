@@ -5,40 +5,43 @@ import org.apache.commons.lang3.StringUtils;
 public class Test {
 
     /**
-     * Client's citizen card number
-     */
-    private String citizencardnumber;
-
-    /**
      * Client's National Healthcare Service code
      */
     private String nhscode;
 
+    private String description;
+
+    private String internalcode;
+
+    private Client cl;
+
     /**
      * Constructs an instance of {@code Test} receiving the Client's citizen card number and National Healthcare Service code
-     * @param citizencardnumber
+     * @param cl
      * @param nhscode
      */
-    public Test(String citizencardnumber, String nhscode) {
-        citizencardnumberValidation(citizencardnumber);
+    public Test(Client cl, String nhscode,String description,String internalcode) {
         nhscodeValidation(nhscode);
-        this.citizencardnumber = citizencardnumber;
+        this.cl = cl;
         this.nhscode = nhscode;
+        this.description = description;
+        this. internalcode = internalcode;
     }
 
-    public String getCitizencardnumber() {
-        return citizencardnumber;
+    public Client getCl() {
+        return cl;
     }
 
     public String getNhscode() {
         return nhscode;
     }
 
-    private void citizencardnumberValidation(String citizencardnumber){
-        if (!StringUtils.isNumeric(citizencardnumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
-        if (citizencardnumber.length()!=16){
-            throw  new IllegalArgumentException("The citizen card number must have 16 digits");
-        }
+    public String getDescription() {
+        return description;
+    }
+
+    public String getInternalcode() {
+        return internalcode;
     }
 
     private void nhscodeValidation(String nhscode){
@@ -53,6 +56,6 @@ public class Test {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Test test = (Test) other;
-        return this.getCitizencardnumber().equals((test).getCitizencardnumber()) || this.getNhscode().equals((test).getNhscode());
+        return this.getCl().equals((test).getCl()) || this.getNhscode().equals((test).getNhscode());
     }
 }
