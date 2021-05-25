@@ -19,8 +19,8 @@ participant "testDto : TestDTO" as TESTDTO
 participant "registrationDateDTO : \nRegistrationDateDTO" as RDDTO
 participant "chemicalAnalysisDateDTO : \nChemicalAnalysisDateDTO" as CADDTO
 participant "diagnosisDateDto : \nDiagnosisDateDto" as DDDTO
-participant ": EmailResult" as EMAILRESULT
-participant ": SMSResult" as SMSRESULT
+participant ": EmailNotification" as EMAILNOTF
+participant ": SMSNotification" as SMSNOTF
 participant ": Client" as CLIENT
 
 autonumber
@@ -46,7 +46,7 @@ deactivate LWFR
 MAPPER -> TEST : nhsCode = getNhsCode()
 activate TEST
 deactivate TEST
-MAPPER -> TEST : testCode = getTestCode()
+MAPPER -> TEST : testInternalCode = getInternalCode()
 activate TEST
 deactivate TEST
 MAPPER --> TESTDTO** : create(nhsCode, testCode)
@@ -180,18 +180,18 @@ deactivate LCV
 deactivate CTRL
 UI -> CTRL : notifyTheClient()
 activate CTRL
-CTRL -> EMAILRESULT : notifyByEmail()
-activate EMAILRESULT
-EMAILRESULT -> CLIENT : mail = getEmail()
+CTRL -> EMAILNOTF : notifyByEmail()
+activate EMAILNOTF
+EMAILNOTF -> CLIENT : mail = getEmail()
 activate CLIENT
 deactivate CLIENT
-deactivate EMAILRESULT
-CTRL -> SMSRESULT : notifyBySMS()
-activate SMSRESULT
-SMSRESULT -> CLIENT : phoneNumber = getPhonenumber()
+deactivate EMAILNOTF
+CTRL -> SMSNOTF : notifyBySMS()
+activate SMSNOTF
+SMSNOTF -> CLIENT : phoneNumber = getPhonenumber()
 activate CLIENT
 deactivate CLIENT
-deactivate SMSRESULT
+deactivate SMSNOTF
 deactivate CTRL
 UI --> ADM : informs the operation success
 deactivate UI
