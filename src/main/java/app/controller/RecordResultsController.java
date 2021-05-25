@@ -27,10 +27,6 @@ public class RecordResultsController {
      *
      */
     private Test test;
-    /**
-     * Represents an instance of the test mapper
-     */
-    private TestMapper testMapper;
 
 
     /**
@@ -47,7 +43,6 @@ public class RecordResultsController {
         this.company = company;
         this.store = company.getTestStore();
         this.tpMapper = new TestParameterMapper();
-        this.testMapper = new TestMapper();
         this.test= null;
     }
 
@@ -77,7 +72,7 @@ public class RecordResultsController {
         }
     }
 
-    /*
+
     public boolean PossibilityOfRecordResult(){
         if (store.getTestWithSamplesCollectedList().size() == 0){
             return true;
@@ -87,7 +82,7 @@ public class RecordResultsController {
 
     }
 
-     */
+
 
 
 }

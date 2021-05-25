@@ -1,7 +1,10 @@
-/*
-package app.domain.model;
+
+package app.adapter;
 
 
+import app.domain.model.Parameter;
+import app.domain.model.RefValue;
+import com.example2.ExternalModule2API;
 
 public class ExternalModule2APIAdapter implements ExternalModuleReferencesValue {
 
@@ -12,6 +15,8 @@ public class ExternalModule2APIAdapter implements ExternalModuleReferencesValue 
         double maxValue = externalAPI.getReferenceFor(parameter.getCode()).getMaxValue();
         return new RefValue(metric,minValue,maxValue);
     }
+
+
 }
 
- */
+

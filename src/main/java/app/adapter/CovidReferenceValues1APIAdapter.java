@@ -1,7 +1,11 @@
-/*
-package app.domain.model;
 
-public class CovidReferenceValues1APIAdapter  implements ExternalModuleReferencesValue{
+package app.adapter;
+
+import app.domain.model.Parameter;
+import app.domain.model.RefValue;
+import com.example3.CovidReferenceValues1API;
+
+public class CovidReferenceValues1APIAdapter  implements ExternalModuleReferencesValue {
 
     @Override
     public RefValue getRefValue(Parameter parameter) {
@@ -14,4 +18,4 @@ public class CovidReferenceValues1APIAdapter  implements ExternalModuleReference
 
 }
 
- */
+
