@@ -76,6 +76,9 @@ UI -> CTRL: addMedicalReport(diagnosis)
 activate CTRL
 CTRL -> TEST : addMedicalReport(diagnosis)
 activate TEST
+TEST -> TEST : validateMedicalReport()
+activate TEST
+deactivate TEST
 TEST --> REPORT** : create(diagnosis)
 REPORT -> REPORT : addCreationDate()
 activate REPORT

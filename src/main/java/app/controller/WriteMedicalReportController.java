@@ -86,7 +86,7 @@ public class WriteMedicalReportController {
      */
     public void checkPossibilityOfWriteAReport(List<Test> testHasSamplesAnalyzedList){
         if (testHasSamplesAnalyzedList.size() == 0)
-            throw new IllegalArgumentException("There are no tests with the analyzed samples");
+            throw new IllegalArgumentException("There are no tests with the samples analyzed.");
     }
 
     /**
@@ -100,12 +100,14 @@ public class WriteMedicalReportController {
         return testPMapper.toDTO(testParametersList);
     }
 
+
     /**
      *
      * @param diagnosis
+     * @return
      */
-    public void addMedicalReport(String diagnosis){
-        test.addMedicalReport(diagnosis);
+    public boolean addMedicalReport(String diagnosis){
+        return test.addMedicalReport(diagnosis);
     }
 
 }
