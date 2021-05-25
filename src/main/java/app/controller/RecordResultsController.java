@@ -4,7 +4,9 @@ import app.domain.model.Company;
 import app.domain.model.Test;
 import app.domain.model.TestParameter;
 import app.domain.store.TestStore;
+import app.mappers.TestMapper;
 import app.mappers.TestParameterMapper;
+import app.mappers.dto.TestDTO;
 import app.mappers.dto.TestParameterDTO;
 
 import java.util.List;
@@ -28,6 +30,10 @@ public class RecordResultsController {
      *
      */
     private Test test;
+    /**
+     * Represents an instance of the test mapper
+     */
+    private TestMapper testMapper;
 
 
     /**
@@ -44,6 +50,7 @@ public class RecordResultsController {
         this.company = company;
         this.store = company.getTestStore();
         this.tpMapper = new TestParameterMapper();
+        this.testMapper = new TestMapper();
         this.test= null;
     }
 
@@ -71,6 +78,15 @@ public class RecordResultsController {
         }catch (Exception e){
             return false;
         }
+    }
+
+    public boolean PossibilityOfRecordResult(){
+        if (store.getTestWithSamplesCollectedList().size() == 0){
+            return true;
+        }else {
+            return  false;
+        }
+
     }
 
 
