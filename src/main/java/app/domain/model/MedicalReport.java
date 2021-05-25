@@ -1,4 +1,6 @@
 package app.domain.model;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -24,8 +26,21 @@ public class MedicalReport {
      * @param diagnosis The report of the test.
      */
     public MedicalReport(String diagnosis){
+        checkReportRules(diagnosis);
         this.diagnosis=diagnosis;
         this.createdAt=Calendar.getInstance().getTime();
+    }
+
+    /**
+     *
+     * @param diagnosis
+     */
+    private void checkReportRules (String diagnosis) {
+        if (StringUtils.isBlank(diagnosis))
+            throw new IllegalArgumentException("Report cannot be blank.");
+        String[] aux = diagnosis.split(" ");
+        if ( aux.length > 400 )
+            throw new IllegalArgumentException("The report should have no more than 400 words.");
     }
 
 }

@@ -12,7 +12,7 @@ public class TestParameterResult {
     /**
      *
      */
-    private String refValue;
+    private RefValue refValue;
 
     /**
      *
@@ -20,7 +20,7 @@ public class TestParameterResult {
      * @param result
      * @param metric
      */
-    public TestParameterResult(String refValue ,String result , String metric){
+    public TestParameterResult(RefValue refValue , String result , String metric){
         this.refValue=refValue;
         this.result = result;
         this.metric = metric;
@@ -44,7 +44,7 @@ public class TestParameterResult {
      *
      * @return
      */
-    public String getRefValue() {
+    public RefValue getRefValue() {
         return refValue;
     }
 

@@ -64,12 +64,20 @@ class Test{
 }
 
 class EmailResult{
+-String email
 +notifyByEmail()
 }
 
 class SMSResult{
+-String phoneNumber
 +notifyBySMS()
 }
+
+class Client{
++getEmail()
++getPhonenumber()
+}
+
 
 ValidateWorkUI .> ValidateWorkController : uses
 
@@ -80,14 +88,16 @@ ValidateWorkController ..> LabCoordinatorValidation : uses
 ValidateWorkController ..> EmailResult : uses
 ValidateWorkController ..> SMSResult : uses
 
-TestMapper ..> Test : uses
-
-
 Company "1"---"1..*" Test : performs >
+
+TestMapper ..> Test : uses
 
 EmailResult "1"---"1" Test : associated to >
 
 SMSResult "1"---"1" Test : associated to >
+
+Client "*"---"1..*" SMSResult : receives >
+Client "*"---"1..*" EmailResult : receives >
 
 
 @enduml

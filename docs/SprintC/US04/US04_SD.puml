@@ -11,24 +11,28 @@ participant "store: ClientStore" as CS
 participant "ttstore: TestTypeStore" as TTS
 participant ":ClientMapper" as MapperC
 participant ":TestTypeMapper" as MapperTT
+participant "pmcstore:ParameterCategoryStore" as PMCS
 participant "pmstore:ParameterStore" as PMS
+participant ":ParameterCategoryMapper" as MapperPMC
 participant ":ParameterMapper" as MapperPM
 participant "t: Test" as T
 participant "TTS:List<TestType>"
 participant "TTSDto:List<TestTypeDTO>"
+participant "PMC:List<ParameterCategory>"
+participant "PMCDto:List<ParameterCategoryDTO>"
 participant "PM:List<Parameter>"
 participant "PMDto:List<ParameterDTO>"
 
 activate REP
 REP -> UI : asks to register a test to be \n performed to a registered client
 activate UI
-UI --> REP : requests data (citizencardnumber)
+UI --> REP : requests data (citizencardnumber,nhscode)
 deactivate UI
 
 REP -> UI : types requested data
 activate UI
 
-UI -> CTRL : CreateTest(CLDto)
+UI -> CTRL : CreateTest(citizencardnumber,nhscode)
 activate CTRL
 
 CTRL -> COMP : store = getClientStore()
@@ -45,10 +49,10 @@ deactivate MapperC
 CTRL -> COMP : tstore = getTestStore()
 activate COMP
 deactivate COMP
-CTRL -> TS : t = CreateTest(CLDto)
+CTRL -> TS : t = CreateTest(citizencardnumber,nhscode)
 
 activate TS
-TS --> T**: create(citizencardnumber)
+TS --> T**: create(citizencardnumber,nhscode)
 deactivate TS
 
 CTRL -> TS : validateTest(t)
@@ -77,6 +81,44 @@ UI --> REP : shows test types and asks to select one
 deactivate UI
 
 REP -> UI : selects a test type
+activate UI
+
+UI -> CTRL : addParameterCategory(pmcld)
+
+activate CTRL
+
+CTRL -> TTS : pmc = getParameterCategory(pmcld)
+activate TTS
+deactivate TTS
+
+CTRL -> T : b = addParameterCategory(pmc)
+activate T
+deactivate T
+CTRL --> UI : ok
+deactivate CTRL
+
+UI --> REP : added with success
+
+UI -> CTRL : PMCDto = getParameterCategoryList()
+
+activate CTRL
+
+CTRL -> COMP : pmcstore = getParameterCategoryStore()
+activate COMP
+deactivate COMP
+
+CTRL -> PMCS : PMC = getParameterCategoryList()
+activate PMCS
+deactivate PMCS
+CTRL -> MapperPMC : PMCDto = toDTO(PMC)
+activate MapperPMC
+deactivate MapperPMC
+deactivate CTRL
+
+UI --> REP : shows parameter categories to be selected
+deactivate UI
+
+REP -> UI : selects a parameter category
 activate UI
 
 UI -> CTRL : addTestType(ttld)
@@ -153,6 +195,9 @@ CTRL -> TS : saveTest(t)
 activate TS
 
 TS -> TS: validateTest(t)
+activate TS
+deactivate TS
+TS -> TS: generateTestCode(t)
 activate TS
 deactivate TS
 TS -> TS: addTest(t)

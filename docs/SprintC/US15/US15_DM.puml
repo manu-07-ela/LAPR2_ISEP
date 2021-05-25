@@ -37,6 +37,17 @@ class Employee {
 -socCode
 }
 
+class Client{
+ - name
+ - email
+ - phoneNumber
+ - sex
+ - tin
+ - birthDate
+ - nhsNumber
+ - citizenCardNumber
+}
+
 class ChemicalAnalysis{
 -dateAndTime
 }
@@ -74,6 +85,9 @@ ChemicalAnalysis "1"---"1..*" ParameterResult: generates >
 
 Company "1"---"1..*" Employee : employ >
 Company "1"---"1..*" Test : performs >
+
+Client "*"---"1..*" SMSResult : receives >
+Client "*"---"1..*" EmailResult : receives >
 
 LabCoordinatorValidation "*"--"1" Employee : made by >
 

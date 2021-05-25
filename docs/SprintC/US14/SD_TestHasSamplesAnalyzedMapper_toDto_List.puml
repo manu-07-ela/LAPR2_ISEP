@@ -22,7 +22,7 @@ deactivate TEST
 MAPPER -> TEST : testInternalCode = getInternalCode()
 activate TEST
 deactivate TEST
-MAPPER --> TESTDTO** : create(testDescription, testCode)
+MAPPER --> TESTDTO** : create(testDescription, testInternalCode)
 MAPPER -> LTestSADTO : add(testDto)
 activate LTestSADTO
 deactivate LTestSADTO

@@ -16,6 +16,12 @@ deactivate ":System"
 REP -> ":System" : selects a test type
 activate ":System"
 
+":System" --> REP : shows parameter categories to be selected
+deactivate ":System"
+
+REP -> ":System" : selects parameter category
+activate ":System"
+
 ":System" --> REP : shows parameters to be selected
 deactivate ":System"
 

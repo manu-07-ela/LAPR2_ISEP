@@ -52,12 +52,12 @@ public class TestParameter {
      * @param metric
      * @return
      */
-    public boolean AddResult(String refValue,String result,String metric){
+    public boolean AddResult(RefValue refValue,String result,String metric){
         try {
             tparamresult = new TestParameterResult(refValue, result, metric);
-            return true;
         }catch (Exception e){
             return false;
         }
+        return true;
     }
 }
