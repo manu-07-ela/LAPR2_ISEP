@@ -63,6 +63,22 @@ class TestType{
 
 }
 
+class ExternalModule2APIAdapter{
+ +ReferenceValue getReferenceValue(Parameter param)
+}
+
+class ExternalModule3APIAdapter{
+ +ReferenceValue getReferenceValue(Parameter param)
+}
+
+class CovidReferenceValues1APIAdapter{
+ +ReferenceValue getReferenceValue(Parameter param)
+}
+
+class ExternalModuleAdapter2{
+ +ReferenceValue getReferenceValue(Parameter param)
+}
+
 interface ExternalModule{
 +getReferenceValue(Parameter param)
 }
@@ -85,6 +101,9 @@ Test "1" ---> "1..*" TestParameter : requests analysis of
 Parameter "1" <- "*" TestParameter : refers to
 TestParameter "1" -> "0..1" TestParameterResult : contains
 TestParameterResult "1" -> "1" ReferenceValue :records
+CovidReferenceValues1APIAdapter ..|> ExternalModule
+ExternalModule2APIAdapter ..|> ExternalModule
+ExternalModule3APIAdapter ..|> ExternalModule
 
 
 
