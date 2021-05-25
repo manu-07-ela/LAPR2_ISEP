@@ -8,8 +8,6 @@ import app.domain.store.*;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.List;
-
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
@@ -61,12 +59,17 @@ public class Company {
      *  Represents a instance of the store of Tests
      */
     private final TestStore testStore;
+    /**
+     * Represents a instance of the store of samples
+     */
+    private final SampleStore sampleStore;
 
     /**
      * Creates an instance of Company
      * @param designation Company's designation
      */
     public Company(String designation) {
+
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
@@ -80,6 +83,15 @@ public class Company {
         this.organizationRoleStore = new OrganizationRoleStore();
         this.clientStore = new ClientStore();
         this.testStore = new TestStore();
+        this.sampleStore = new SampleStore();
+    }
+
+    /**
+     * Get the instance of sample store
+     * @return the instance of sample store
+     */
+    public SampleStore getSampleStore() {
+        return sampleStore;
     }
 
     /**

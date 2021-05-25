@@ -1,11 +1,10 @@
 package app.domain.store;
 
-import app.domain.model.Client;
 import app.domain.model.Test;
-import app.domain.model.TestType;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import static app.domain.model.Test.StateOfTest.*;
 
 /**
  * Stores laboratory tests provided to customers
@@ -23,7 +22,7 @@ public class TestStore {
      * Instantiates a new TestStore.
      */
     public TestStore(){
-        testList=new ArrayList();
+        testList = new ArrayList();
     }
 
     /**
@@ -88,13 +87,25 @@ public class TestStore {
     }
 
     /**
+     * Get a list of test waiting for the collection of samples
+     * @return a list of test waiting for samples
+     */
+    public List<Test> getListOfTestWaitingForSample(){
+        List<Test> testsWaintingForSamples = new ArrayList<>();
+        for (Test test : testList){
+            if (test.getState() == TestRegistered) testsWaintingForSamples.add(test);
+        }
+        return testsWaintingForSamples;
+    }
+
+    /**
      *
      * @return
      */
     public List<Test> getTestHasSamplesAnalyzedList(){
         List<Test> testHasSamplesAnalyzedList = new ArrayList();
         for(Test test : testList){
-            if(test.getState().equals("SamplesAnalyzed")){
+            if(test.getState() == SamplesAnalyzed){
                 testHasSamplesAnalyzedList.add(test);
             }
         }
@@ -105,27 +116,42 @@ public class TestStore {
      *
      * @return
      */
+    public List<Test> getTestWithSamplesCollectedList(){
+        List<Test> testWithSamplesCollectedList = new ArrayList();
+        for(Test test : testList){
+            if(test.getState() == SamplesCollected){
+                testWithSamplesCollectedList.add(test);
+            }
+        }
+        return testWithSamplesCollectedList;
+    }
+
+    /**
+     *
+     * @return
+     */
     public List<Test> getTestHasReportList(){
         List<Test> testHasReportList = new ArrayList();
         for(Test test : testList){
-            if(test.getState().equals("Validated")){
+            if(test.getState() == Validated){
                 testHasReportList.add(test);
             }
         }
         return testHasReportList;
     }
 
+
     /**
-     *
-     * @param code
-     * @return
+     * identifies and returns the test instance corresponding to the internal code passed by parameter
+     * @param code the internal code of a test
+     * @return the test corresponding to the internal code
      */
     public Test getTestByInternalCode(String code){
-       for (Test test : testList) {
+        for (Test test : testList) {
             if (test.getInternalCode().equals(code)) {
               return test;
             }
-      }
+        }
        return null;
     }
 

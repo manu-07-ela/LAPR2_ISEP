@@ -7,7 +7,6 @@ import app.domain.model.TestType;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.TestTypeStore;
-import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import app.mappers.dto.ParameterCategoryDto;
 import app.mappers.dto.TestTypeDTO;
@@ -17,8 +16,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class CreateClinicalAnalysisLaboratoryControllerTest {
 
