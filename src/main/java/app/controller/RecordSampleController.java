@@ -41,7 +41,7 @@ public class RecordSampleController {
 
     /**
      * Returns a DTO-type list of test waiting for samples in the system
-     * @return A DTO-type list of tests waiting for samples 
+     * @return A DTO-type list of tests waiting for samples
      */
     public List<TestDTO> getListOfTestswaitingForSample(){
         return testMapper.toDto(testStore.getListOfTestWaitingForSample());

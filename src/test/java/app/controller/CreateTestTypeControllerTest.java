@@ -28,7 +28,7 @@ public class CreateTestTypeControllerTest {
     @Before
     public void setup(){
         App app = App.getInstance();
-        company = new Company("Many Labs", sampleStore);
+        company = new Company("Many Labs");
         lpcDto = new ArrayList();
         pcStore = company.getParameterCategoryStore();
         ttStore = company.getTestTypeStore();

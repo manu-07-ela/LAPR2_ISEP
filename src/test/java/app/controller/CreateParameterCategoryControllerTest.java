@@ -16,7 +16,7 @@ public class CreateParameterCategoryControllerTest {
 
     @Before
     public void setup(){
-        company= new Company("Many Labs", sampleStore);
+        company= new Company("Many Labs");
         ctrl = new CreateParameterCategoryController(company);
         pcStore = company.getParameterCategoryStore();
         pc = new ParameterCategory("12345","test");
