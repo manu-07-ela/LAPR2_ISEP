@@ -63,7 +63,7 @@ public class Test {
      */
     private Data chemicalAnalysisDate;
     /**
-     * Represents the date when the test was registered in the system 
+     * Represents the date when the test was registered in the system
      */
     private Data registerTestDate;
     /**

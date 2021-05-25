@@ -1,5 +1,5 @@
 
-package app.adapter;
+/*package app.adapter;
 
 import app.domain.model.Parameter;
 import app.domain.model.RefValue;
@@ -16,6 +16,6 @@ public class CovidReferenceValues1APIAdapter  implements ExternalModuleReference
         return new RefValue(metric,minValue,maxValue);
     }
 
-}
+}*/
 
 

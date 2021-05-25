@@ -1,4 +1,4 @@
-
+/*
 package app.adapter;
 
 
@@ -17,6 +17,6 @@ public class ExternalModule2APIAdapter implements ExternalModuleReferencesValue 
     }
 
 
-}
+}*/
 
 
