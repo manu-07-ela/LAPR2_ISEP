@@ -103,6 +103,20 @@ public class TestStore {
 
     /**
      *
+     * @return
+     */
+    public List<Test> getTestHasReportList(){
+        List<Test> testHasReportList = new ArrayList();
+        for(Test test : testList){
+            if(test.getState().equals("Validated")){
+                testHasReportList.add(test);
+            }
+        }
+        return testHasReportList;
+    }
+
+    /**
+     *
      * @param code
      * @return
      */

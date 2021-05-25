@@ -57,18 +57,18 @@ class Test{
 -description
 --
 +getNhsCode()
-+getTestCode()
++getInternalCode()
 +getRegistrationDate()
 +getChemicalAnalysisDate()
 +getDiagnosisDate()
 }
 
-class EmailResult{
+class EmailNotification{
 -String email
 +notifyByEmail()
 }
 
-class SMSResult{
+class SMSNotification{
 -String phoneNumber
 +notifyBySMS()
 }
@@ -85,19 +85,19 @@ ValidateWorkController ..> Company : uses
 ValidateWorkController ..> TestStore : uses
 ValidateWorkController ..> TestMapper : uses
 ValidateWorkController ..> LabCoordinatorValidation : uses
-ValidateWorkController ..> EmailResult : uses
-ValidateWorkController ..> SMSResult : uses
+ValidateWorkController ..> EmailNotification : uses
+ValidateWorkController ..> SMSNotification : uses
 
 Company "1"---"1..*" Test : performs >
 
 TestMapper ..> Test : uses
 
-EmailResult "1"---"1" Test : associated to >
+EmailNotification "1"---"1" Test : associated to >
 
-SMSResult "1"---"1" Test : associated to >
+SMSNotification "1"---"1" Test : associated to >
 
-Client "*"---"1..*" SMSResult : receives >
-Client "*"---"1..*" EmailResult : receives >
+Client "*"---"1..*" SMSNotification : receives >
+Client "*"---"1..*" EmailNotification : receives >
 
 
 @enduml

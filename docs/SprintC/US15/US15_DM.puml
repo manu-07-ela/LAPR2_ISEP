@@ -11,8 +11,8 @@ class SpecialistDoctor
 class MedicalReport
 class ParameterResult
 class Test
-class EmailResult
-class SMSResult
+class EmailNotification
+class SMSNotification
 
 
 class Company{
@@ -72,11 +72,11 @@ class Test{
 -description
 }
 
-class EmailResult{
+class EmailNotification{
 -message
 }
 
-class SMSResult{
+class SMSNotification{
 -message
 }
 
@@ -86,8 +86,8 @@ ChemicalAnalysis "1"---"1..*" ParameterResult: generates >
 Company "1"---"1..*" Employee : employ >
 Company "1"---"1..*" Test : performs >
 
-Client "*"---"1..*" SMSResult : receives >
-Client "*"---"1..*" EmailResult : receives >
+Client "*"---"1..*" SMSNotification : receives >
+Client "*"---"1..*" EmailNotification : receives >
 
 LabCoordinatorValidation "*"--"1" Employee : made by >
 
@@ -102,8 +102,8 @@ ParameterResult "1..*"---"1" Employee: registered by >
 ParameterResult "1..*"---"1" LabCoordinatorValidation : validated by >
 ParameterResult "1..*"---"1" SpecialistDoctor : analyzed by >
 
-EmailResult "1"---"1" Test : associated to >
+EmailNotification "1"---"1" Test : associated to >
 
-SMSResult "1"---"1" Test : associated to >
+SMSNotification "1"---"1" Test : associated to >
 
 @enduml
