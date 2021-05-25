@@ -7,7 +7,7 @@ package app.mappers.dto;
  */
 
 
-public class TestDTO {
+public class TestDto {
 
     /**
      *
@@ -23,7 +23,7 @@ public class TestDTO {
      *
      * @param internalCodeDto
      */
-    public TestDTO(String internalCodeDto) {
+    public TestDto(String internalCodeDto) {
         this.internalCode= internalCodeDto;
     }
 
