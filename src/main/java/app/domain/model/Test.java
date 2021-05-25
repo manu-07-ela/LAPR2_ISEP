@@ -34,8 +34,10 @@ public class Test {
      * indicates the state in which the test is
      */
     private StateOfTest state;
-
-    private Client cl;
+    /**
+     *
+     */
+    private Client client;
 
     /**
      *
@@ -54,7 +56,7 @@ public class Test {
 
     public Test(Client cl, String nhscode, TestType testType, List<TestParameter> testParameterList) {
         nhscodeValidation(nhscode);
-        this.cl = cl;
+        this.client = cl;
         this.nhscode = nhscode;
         this.testType = testType;
         this.testParameterList = testParameterList;
@@ -79,7 +81,7 @@ public class Test {
     }
 
     public Client getCl() {
-        return cl;
+        return client;
     }
 
     public String getNhscode() {
