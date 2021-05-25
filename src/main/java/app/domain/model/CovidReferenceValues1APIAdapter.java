@@ -1,6 +1,5 @@
+/*
 package app.domain.model;
-
-import com.example3.CovidReferenceValues1API;
 
 public class CovidReferenceValues1APIAdapter  implements ExternalModuleReferencesValue{
 
@@ -14,3 +13,5 @@ public class CovidReferenceValues1APIAdapter  implements ExternalModuleReference
     }
 
 }
+
+ */

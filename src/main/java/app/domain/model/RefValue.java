@@ -1,7 +1,5 @@
 package app.domain.model;
 
-import com.example2.EMRefValue;
-
 import java.util.Date;
 import java.util.Objects;
 

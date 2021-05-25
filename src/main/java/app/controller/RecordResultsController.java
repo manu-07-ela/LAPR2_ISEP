@@ -80,6 +80,7 @@ public class RecordResultsController {
         }
     }
 
+    /*
     public boolean PossibilityOfRecordResult(){
         if (store.getTestWithSamplesCollectedList().size() == 0){
             return true;
@@ -88,6 +89,8 @@ public class RecordResultsController {
         }
 
     }
+
+     */
 
 
 }
