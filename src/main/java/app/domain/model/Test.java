@@ -2,6 +2,8 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 
+import javax.xml.crypto.Data;
+import java.sql.Time;
 import java.util.List;
 
 public class Test {
@@ -48,7 +50,22 @@ public class Test {
      *
      */
     private String description;
-
+    /**
+     * Represents the date when the samples were added to the test
+     */
+    private Data samplesAddDate;
+    /**
+     * Represents the time when th samples were added to the test
+     */
+    private Time samplesAddTime;
+    /**
+     * Represents the date when the chemical analysis were added to the test
+     */
+    private Data chemicalAnalysisDate;
+    /**
+     * Represents the date when the test was registered in the system 
+     */
+    private Data registerTestDate;
     /**
      * The medical report of the test.
      */
@@ -61,8 +78,10 @@ public class Test {
         this.testType = testType;
         this.testParameterList = testParameterList;
         this.state = StateOfTest.TestRegistered;
+        this.description = testType.getCollectingMethod();
         this.md = null;
     }
+
 
     /**
      * Change the status of a test for Samples collected
@@ -100,6 +119,9 @@ public class Test {
         return testParameterList;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
     private void nhscodeValidation(String nhscode) {
         if (!StringUtils.isNumeric(nhscode))

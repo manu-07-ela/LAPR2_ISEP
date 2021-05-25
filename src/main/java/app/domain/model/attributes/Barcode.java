@@ -49,7 +49,7 @@ public class Barcode {
 
     /**
      * Get the total instances of barcode
-     * @return the instances of barcode 
+     * @return the instances of barcode
      */
     public static int getInstancesOfBarcodes() {
         return instancesOfBarcodes;
