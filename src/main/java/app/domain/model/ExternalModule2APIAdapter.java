@@ -1,6 +1,7 @@
+/*
 package app.domain.model;
 
-import com.example2.ExternalModule2API;
+
 
 public class ExternalModule2APIAdapter implements ExternalModuleReferencesValue {
 
@@ -12,3 +13,5 @@ public class ExternalModule2APIAdapter implements ExternalModuleReferencesValue 
         return new RefValue(metric,minValue,maxValue);
     }
 }
+
+ */

@@ -7,6 +7,8 @@ import app.domain.model.TestType;
 import java.util.ArrayList;
 import java.util.List;
 
+import static app.domain.model.Test.StateOfTest.SamplesCollected;
+
 /**
  * Stores laboratory tests provided to customers
  * @author Group 22
@@ -100,6 +102,35 @@ public class TestStore {
         }
         return testHasSamplesAnalyzedList;
     }
+
+    /**
+     *
+     * @return
+     */
+    public List<Test> getTestWithSamplesCollectedList(){
+        List<Test> testWithSamplesCollectedList = new ArrayList();
+        for(Test test : testList){
+            if(test.getState() == SamplesCollected){
+                testWithSamplesCollectedList.add(test);
+            }
+        }
+        return testWithSamplesCollectedList;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<Test> getTestHasReportList(){
+        List<Test> testHasReportList = new ArrayList();
+        for(Test test : testList){
+            if(test.getState().equals("Validated")){
+                testHasReportList.add(test);
+            }
+        }
+        return testHasReportList;
+    }
+
 
     /**
      *

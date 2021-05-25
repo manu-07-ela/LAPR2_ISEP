@@ -1,6 +1,7 @@
 package app.ui.console;
 
 import app.controller.WriteMedicalReportController;
+import app.ui.console.utils.Utils;
 
 /**
  * Represents an interface with the user to be able to write a new medical report.
@@ -34,9 +35,15 @@ public class WriteMedicalReportUI implements Runnable{
      */
     public void writeMedicalReport(){
         try {
-
-            writeMedicalReportctrl.getTestHasSamplesAnalyzedList();
-
+            int testIndex = Utils.showAndSelectIndex(writeMedicalReportctrl.getTestHasSamplesAnalyzedList(),"Choose the test for which you want to make the diagnosis and write the report.");
+            Utils.showList(writeMedicalReportctrl.getTestParameterList(writeMedicalReportctrl.getTestHasSamplesAnalyzedList().get(testIndex)),"The results of each analyzed parameter and the respective reference values.");
+            System.out.printf("%nInsert the medical test report%n");
+            String diagnosis = Utils.readLineFromConsole("");
+            boolean confirm = Utils.confirm("Do you want to add this report to the test? (S/N)");
+            if (confirm){
+                writeMedicalReportctrl.addMedicalReport(diagnosis);
+                System.out.println("The medical report was successfully associated with the test.");
+            }
         } catch (IllegalArgumentException e){
             System.out.printf("%nMessage: %s%n" ,e.getMessage());
         }
