@@ -130,6 +130,27 @@
 			<artifactId>barbecue</artifactId>
 			<version>1.5-beta1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.covid.references.values.api</groupId>
+			<artifactId>covid-api</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/CovidReferenceValues1API.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.external.module</groupId>
+			<artifactId>api-2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/ExternalModule2API.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.external.module</groupId>
+			<artifactId>api-3</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/ExternalModule3API.jar</systemPath>
+		</dependency>
     </dependencies>
 
 </project>
