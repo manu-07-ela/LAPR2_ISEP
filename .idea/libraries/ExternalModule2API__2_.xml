@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ExternalModule2API (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libraries/ExternalModule2API.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
