@@ -27,7 +27,7 @@ public class CreateParameterControllerTest {
     @Before
     public void setup(){
         App app = App.getInstance();
-        company = new Company("Many Labs");
+        company = new Company("Many Labs", sampleStore);
         lpcDto = new ArrayList();
         pcStore = company.getParameterCategoryStore();
         pStore = company.getParameterStore();

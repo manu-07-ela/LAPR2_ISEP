@@ -20,7 +20,7 @@ public class CreateClientControllerTest {
 
     @Before
     public void setup(){
-        company = new Company("Many Labs");
+        company = new Company("Many Labs", sampleStore);
         controller = new CreateClientController();
         clDto = new ClientDto("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
         cl = new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");

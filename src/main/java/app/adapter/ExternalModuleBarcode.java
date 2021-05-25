@@ -1,8 +1,6 @@
-package app.domain.model;
+package app.adapter;
 
 import net.sourceforge.barbecue.Barcode;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -14,5 +12,5 @@ public interface ExternalModuleBarcode {
      * Method that will generate and return the barcode that will be associated with a sample
      * @return A barcode
      */
-    Barcode getBarcode() throws IOException;
+    Barcode getBarcode() throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException;
 }

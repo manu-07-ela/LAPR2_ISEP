@@ -7,8 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class CreateParameterCategoryControllerTest {
 
     CreateParameterCategoryController ctrl;
@@ -18,7 +16,7 @@ public class CreateParameterCategoryControllerTest {
 
     @Before
     public void setup(){
-        company= new Company("Many Labs");
+        company= new Company("Many Labs", sampleStore);
         ctrl = new CreateParameterCategoryController(company);
         pcStore = company.getParameterCategoryStore();
         pc = new ParameterCategory("12345","test");
