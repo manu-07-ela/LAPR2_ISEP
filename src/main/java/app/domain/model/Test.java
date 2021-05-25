@@ -8,7 +8,7 @@ public class Test {
     /**
      * Represents the states of a test
      */
-    public static enum StateOfTest{
+    public static enum StateOfTest {
         TestRegistered, SamplesCollected, SamplesAnalyzed,
         DiagnosisMade, Validated
     }
@@ -48,21 +48,22 @@ public class Test {
     private String description;
 
     /**
-     *
+     * The medical report of the test.
      */
     private MedicalReport md;
 
-    public Test(Client cl, String nhscode ,TestType testType ,List<TestParameter> testParameterList) {
+    public Test(Client cl, String nhscode, TestType testType, List<TestParameter> testParameterList) {
         nhscodeValidation(nhscode);
         this.cl = cl;
         this.nhscode = nhscode;
-        this.testType =testType;
-        this.testParameterList= testParameterList;
+        this.testType = testType;
+        this.testParameterList = testParameterList;
         this.state = StateOfTest.TestRegistered;
+        this.md = null;
     }
 
     /**
-     *  Change the status of a test for Samples collected
+     * Change the status of a test for Samples collected
      */
     public void changeStateForSamplesCollected() {
         this.state = StateOfTest.SamplesCollected;
@@ -70,6 +71,7 @@ public class Test {
 
     /**
      * Get the state of a test
+     *
      * @return the state of the test
      */
     public StateOfTest getState() {
@@ -84,29 +86,29 @@ public class Test {
         return nhscode;
     }
 
-    public String getInternalCode(){
+    public String getInternalCode() {
         return internalCode;
     }
 
-    public TestType getTestType () {
+    public TestType getTestType() {
         return testType;
     }
 
-    public List<TestParameter> getTestParameterList () {
+    public List<TestParameter> getTestParameterList() {
         return testParameterList;
     }
 
 
-    private void nhscodeValidation (String nhscode){
-           if (!StringUtils.isNumeric(nhscode))
-               throw new IllegalArgumentException("National Healthcare Service code is numeric only.");
-           if (nhscode.length() != 12) {
-               throw new IllegalArgumentException("The National Healthcare Service code must have 12 digits");
-           }
+    private void nhscodeValidation(String nhscode) {
+        if (!StringUtils.isNumeric(nhscode))
+            throw new IllegalArgumentException("National Healthcare Service code is numeric only.");
+        if (nhscode.length() != 12) {
+            throw new IllegalArgumentException("The National Healthcare Service code must have 12 digits");
+        }
     }
 
     @Override
-    public boolean equals (Object other){
+    public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Test test = (Test) other;
@@ -114,12 +116,11 @@ public class Test {
     }
 
     /**
-     *
      * @param testparameterSelected
      * @param result
      * @param metric
      */
-    public void addTestResult (TestParameter testparameterSelected, String result, String metric){
+    public void addTestResult(TestParameter testparameterSelected, String result, String metric) {
        /* for (TestParameter testParameter: testParameterList) {
             if (testParameter.equals(testparameterSelected)){
                 testType.getExternalModule();
@@ -133,13 +134,28 @@ public class Test {
     }
 
     /**
-     *
-     * @param diagnosis
+     * Adds the medical report to the test.
+     * @param diagnosis The diagnosis made by the specialist doctor.
+     * @return true if the medical report was added. Otherwise, false.
      */
-    public void addMedicalReport(String diagnosis){
-        this.md= new MedicalReport(diagnosis);
-        this.state = StateOfTest.SamplesAnalyzed;
+    public boolean addMedicalReport(String diagnosis) {
+        if (validateMedicalReport()) {
+            this.md = new MedicalReport(diagnosis);
+            this.state = StateOfTest.SamplesAnalyzed;
+            return true;
+        }
+        return false;
     }
 
-
+    /**
+     * Global validation of a medical report.
+     * @return false if the medical report already exists. Otherwise, it returns true.
+     */
+    private boolean validateMedicalReport() {
+        if (this.md != null) {
+            return false;
+        }
+        return true;
     }
+
+}
