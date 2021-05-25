@@ -6,10 +6,7 @@ import app.domain.model.TestParameter;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
 import app.mappers.TestParameterMapper;
-import app.mappers.dto.TestDTO;
 import app.mappers.dto.TestParameterDTO;
-
-import java.util.List;
 
 
 public class RecordResultsController {

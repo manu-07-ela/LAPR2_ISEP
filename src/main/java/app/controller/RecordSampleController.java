@@ -4,7 +4,7 @@ import app.domain.model.Company;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
-import app.mappers.dto.TestDTO;
+import app.mappers.dto.TestDto;
 import java.util.List;
 
 /**
@@ -43,7 +43,7 @@ public class RecordSampleController {
      * Returns a DTO-type list of test waiting for samples in the system
      * @return A DTO-type list of tests waiting for samples
      */
-    public List<TestDTO> getListOfTestswaitingForSample(){
+    public List<TestDto> getListOfTestswaitingForSample(){
         return testMapper.toDto(testStore.getListOfTestWaitingForSample());
     }
 
