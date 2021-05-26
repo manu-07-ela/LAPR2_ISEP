@@ -40,7 +40,7 @@ public class TestDTO {
 
     /**
      * Textual description of a test
-     * @return Information that characterizes a test 
+     * @return Information that characterizes a test
      */
     @Override
     public String toString() {
