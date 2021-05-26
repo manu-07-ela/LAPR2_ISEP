@@ -42,19 +42,28 @@ public class RegisterTestUI implements Runnable{
         do {
             try {
                     System.out.printf("%nType the citizen card number of the user you want to register a Test on%n");
-                    String citizencardnumber = Utils.readLineFromConsole("Citizen card number: ");
-                    Client cl = registerTestctrl.getClient(citizencardnumber);
+                Client cl;
                     do {
-                        if (cl == null) {
-                            System.out.printf("%nThat number isnt registered in the system%n");
-                            citizencardnumber = Utils.readLineFromConsole("Citizen card number: ");
-                            cl = registerTestctrl.getClient(citizencardnumber);
+                        String citizencardnumber = Utils.readLineFromConsole("Citizen card number: ");
+                        cl= registerTestctrl.getClient(citizencardnumber);
+                        if (cl == null){
+                            throw new IllegalArgumentException("That citizen card number isnt registered in the system.");
                         }
-                    } while (cl == null);
+                        System.out.println();
+                        System.out.println("Is this the client that you want to register a test on?");
+                        System.out.println("Name:" + cl.getName());
+                        System.out.println("Email: " + cl.getCitizencardnumber());
+                        System.out.println("National Healthcare Service number: " + cl.getNhs());
+                        System.out.println("Birth Date: " + cl.getDate());
+                        System.out.println("Gender: " + cl.getSex());
+                        System.out.println("Tax identification number: " + cl.getTin());
+                        System.out.println("Phone number: " + cl.getPhonenumber());
+                        System.out.println("Email: " + cl.getEmail());
+                        dadosInvalidos = false;
+                    } while (dadosInvalidos);
                     String nhscode = Utils.readLineFromConsole("National Healthcare Service code: ");
-                    registerTestctrl.createTest(cl, nhscode);
-                    dadosInvalidos = false;
-                    System.out.printf("Do you want to register a test with the citizen card number %s and National Healthcare Service code %s", citizencardnumber, nhscode);
+
+                    System.out.printf("Do you want to register a test with the National Healthcare Service code %s ?",nhscode);
                     String resposta = Utils.readLineFromConsole("S/N:");
                     if (resposta.equalsIgnoreCase("S")) {
 
@@ -99,6 +108,11 @@ public class RegisterTestUI implements Runnable{
                             System.out.println("Do you want to choose another Parameter Categorie?");
                             resposta = Utils.readLineFromConsole("S/N:");
                         }while(resposta.equalsIgnoreCase("S"));
+                        if(cl==null){
+                            System.out.println("LOL");
+                        }
+                        registerTestctrl.createTest(cl, nhscode);
+                        System.out.printf("%nThe test was registered successfully%n");
                     }
                 }catch(IllegalArgumentException e){
                     System.out.printf("%nMessage: %s%n", e.getMessage());

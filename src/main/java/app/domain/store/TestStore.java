@@ -57,9 +57,6 @@ public class TestStore {
        // return new Test(cl,nhscode);
    //}
 
-   // public Test createTest(String citizencardnumber, String nhscode){
-   //     return new Test(citizencardnumber,nhscode);
-   // }
 //    public static String generateTestCode(Test t){
 //
 //    }
