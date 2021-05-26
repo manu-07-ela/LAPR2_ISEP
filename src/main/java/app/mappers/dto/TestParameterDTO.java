@@ -68,7 +68,7 @@ public class TestParameterDTO {
      */
     @Override
     public String toString() {
-        return String.format("**********%s Parameter Information**********%nResult: %s%nResult Metrics: %s%nMin. Reference Value: %f%nMax. Reference Value: %f%nReference Values Metrics: %s",parameterName,testParameterResult,testParameterMetric,testParameterMinRefValue,testParameterMaxRefValue,refValueMetric);
+        return String.format("----------* %s Parameter Information *----------%nResult: %s%nResult Metrics: %s%nMin. Reference Value: %f%nMax. Reference Value: %f%nReference Values Metrics: %s",parameterName,testParameterResult,testParameterMetric,testParameterMinRefValue,testParameterMaxRefValue,refValueMetric);
     }
 
 }
