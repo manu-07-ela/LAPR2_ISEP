@@ -17,15 +17,13 @@ public class RecordResultsUI implements  Runnable {
 
     @Override
     public void run() {
-        /*
+
         if (controller.PossibilityOfRecordResult()){
             System.out.println("There are no tests available to record it's results");
         }else {
             System.out.println("\nRecording the Results");
             RecordResults();
         }
-        
-         */
     }
 
 

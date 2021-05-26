@@ -20,7 +20,7 @@ public class Test {
      */
     private String nhscode;
     /**
-     *
+     * A list of TestParameters
      */
     private List<TestParameter> testParameterList;
     /**
@@ -140,9 +140,10 @@ public class Test {
     }
 
     /**
-     * @param testparameterSelected
-     * @param result
-     * @param metric
+     * It adds the result of a TestParameter
+     * @param testparameterSelected The TestParameter we want to add the result
+     * @param result the result of the TestParameter
+     * @param metric the metric of the result
      */
     public void addTestResult(TestParameter testparameterSelected, String result, String metric) {
        /* for (TestParameter testParameter: testParameterList) {
