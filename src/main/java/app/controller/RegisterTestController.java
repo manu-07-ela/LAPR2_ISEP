@@ -1,8 +1,6 @@
 package app.controller;
 
-import app.domain.model.Client;
-import app.domain.model.Company;
-import app.domain.model.Test;
+import app.domain.model.*;
 import app.domain.store.*;
 import app.mappers.ClientMapper;
 import app.mappers.ParameterCategoryMapper;
@@ -12,6 +10,10 @@ import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.ParameterDTO;
 import app.mappers.dto.TestTypeDTO;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.List;
 
 public class RegisterTestController {
@@ -58,8 +60,8 @@ public class RegisterTestController {
         clmapper = new ClientMapper();
     }
 
-    public boolean createTest(Client cl, String nhscode) {
-        //this.t=tStore.createTest(cl,nhscode);
+    public boolean createTest(Client cl, String nhscode, TestType testType, List<TestParameter> testParameterList) {
+        this.t=tStore.createTest(cl,nhscode,testType,testParameterList);
         return this.tStore.validateTest(t);
     }
 
@@ -72,17 +74,19 @@ public class RegisterTestController {
         return store.getClientbycitizencardnumber(citizencardnumber);
     }
 
-    public List<TestTypeDTO> getTestTypeList(){
+    public List<TestType> getTestTypeList(){
         TestTypeStore store = company.getTestTypeStore();
-        return ttmapper.toDTO(store.getTestTypeList());
+        return store.getTestTypeList();
     }
-    public List<ParameterCategoryDTO> getParameterCategoryList(){
+
+    public List<ParameterCategory> getParameterCategoryList(){
         ParameterCategoryStore store = company.getParameterCategoryStore();
-        return pmcmapper.toDto(store.getParameterCategoryList());
+        return store.getParameterCategoryList();
     }
-    public List<ParameterDTO> getParameterList(){
+
+    public List<Parameter> getParameterList(){
         ParameterStore store = company.getParameterStore();
-        return pmmapper.toDto(store.getParameterList());
+        return store.getParameterList();
     }
 
 }
