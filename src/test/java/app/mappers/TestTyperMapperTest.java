@@ -2,7 +2,7 @@ package app.mappers;
 
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
-import app.mappers.dto.ParameterCategoryDto;
+import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.TestTypeDTO;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,22 +11,20 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 public class TestTyperMapperTest {
-    ParameterCategoryDto pcDto;
+    ParameterCategoryDTO pcDto;
     ParameterCategory pc;
     TestType tt;
     TestTypeDTO ttDTO;
     List<ParameterCategory> listPC;
-    List<ParameterCategoryDto> listPCDto;
+    List<ParameterCategoryDTO> listPCDto;
     List<TestType> testTypeList;
     List<TestTypeDTO> testTypeListDTO;
     TestTyperMapper ttMapper;
 
     @Before
     public void setup() {
-        pcDto = new ParameterCategoryDto("12345", "test");
+        pcDto = new ParameterCategoryDTO("12345", "test");
         pc = new ParameterCategory("12345", "test");
         listPC = new ArrayList();
         listPCDto = new ArrayList();
@@ -64,13 +62,13 @@ public class TestTyperMapperTest {
 
     @Test
     public void toDTOpclist() {
-        List<ParameterCategoryDto> result = ttMapper.toDtopclist(listPC);
+        List<ParameterCategoryDTO> result = ttMapper.toDtopclist(listPC);
         Assert.assertEquals(listPCDto,result);
     }
 
     @Test
     public void toDTOlistpc() {
-        ParameterCategoryDto result = ttMapper.toDtopc(pc);
+        ParameterCategoryDTO result = ttMapper.toDtopc(pc);
         Assert.assertEquals(pcDto,result);
     }
 

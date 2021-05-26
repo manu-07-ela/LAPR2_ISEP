@@ -1,13 +1,11 @@
 package app.mappers.dto;
 
-import app.domain.model.ParameterCategory;
-
 /**
  * Represents a data transfer object of parameter category.
  *
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
-public class ParameterCategoryDto {
+public class ParameterCategoryDTO {
 
     /**
      * The code of the data transfer object of the type parameter category.
@@ -25,7 +23,7 @@ public class ParameterCategoryDto {
      * @param code parameter category's code.
      * @param name parameter category's name.
      */
-    public ParameterCategoryDto(String code,String name){
+    public ParameterCategoryDTO(String code, String name){
         this.code=code;
         this.name=name;
     }
@@ -70,8 +68,8 @@ public class ParameterCategoryDto {
             return false;
         }
 
-        ParameterCategoryDto otherParameterCategoryDto = (ParameterCategoryDto) o;
+        ParameterCategoryDTO otherParameterCategoryDTO = (ParameterCategoryDTO) o;
 
-        return this.getCode().equals(otherParameterCategoryDto.getCode()) && this.getName().equalsIgnoreCase(otherParameterCategoryDto.getName());
+        return this.getCode().equals(otherParameterCategoryDTO.getCode()) && this.getName().equalsIgnoreCase(otherParameterCategoryDTO.getName());
     }
 }

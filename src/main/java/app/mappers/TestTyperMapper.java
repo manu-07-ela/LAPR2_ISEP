@@ -2,7 +2,7 @@ package app.mappers;
 
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
-import app.mappers.dto.ParameterCategoryDto;
+import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.TestTypeDTO;
 
 import java.util.ArrayList;
@@ -41,8 +41,8 @@ public class TestTyperMapper {
      * @param parameterCategories A list of ParameterCategory.
      * @return A list of ParameterCategoryDTO
      */
-    public List<ParameterCategoryDto> toDtopclist (List<ParameterCategory> parameterCategories){
-        List<ParameterCategoryDto> parameterCategoryDTO = new ArrayList<>();
+    public List<ParameterCategoryDTO> toDtopclist (List<ParameterCategory> parameterCategories){
+        List<ParameterCategoryDTO> parameterCategoryDTO = new ArrayList<>();
         for(ParameterCategory parameterCategory:parameterCategories) {
             parameterCategoryDTO.add(this.toDtopc(parameterCategory));
         }
@@ -54,7 +54,7 @@ public class TestTyperMapper {
      * @param parameterCategory An ParameterCategory object.
      * @return An instance of ParameterCategoryDTO.
      */
-    public ParameterCategoryDto toDtopc(ParameterCategory parameterCategory) {
-        return new ParameterCategoryDto(parameterCategory.getCode(),parameterCategory.getName());
+    public ParameterCategoryDTO toDtopc(ParameterCategory parameterCategory) {
+        return new ParameterCategoryDTO(parameterCategory.getCode(),parameterCategory.getName());
     }
 }

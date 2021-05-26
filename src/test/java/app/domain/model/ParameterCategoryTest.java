@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import app.mappers.dto.ParameterCategoryDto;
 import org.junit.Assert;
 import org.junit.Test;
 

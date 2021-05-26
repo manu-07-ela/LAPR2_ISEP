@@ -4,13 +4,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ClientDtoTest {
+public class ClientDTOTest {
 
-    ClientDto clDto;
+    ClientDTO clDto;
 
     @Before
     public void setup(){
-        clDto=new ClientDto("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
+        clDto=new ClientDTO("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
     }
 
     @Test

@@ -1,7 +1,7 @@
 package app.ui.console;
 
 import app.controller.CreateClientController;
-import app.mappers.dto.ClientDto;
+import app.mappers.dto.ClientDTO;
 import app.ui.console.utils.Utils;
 
 import java.io.IOException;
@@ -51,7 +51,7 @@ public class CreateClientUI implements Runnable {
                 String tin = Utils.readLineFromConsole("Tax identification number: ");
                 String phonenumber = Utils.readLineFromConsole("Phone number: ");
                 String email = Utils.readLineFromConsole("E-mail: ");
-                ClientDto cldto = new ClientDto(name,citizencardnumber,nhs,date,sex,tin,phonenumber,email);
+                ClientDTO cldto = new ClientDTO(name,citizencardnumber,nhs,date,sex,tin,phonenumber,email);
                 createClientctrl.CreateClient(cldto);
                 dadosInvalidos = false;
                 System.out.printf("Do you want to create a Client with the name %s, citizen card number %s, National Healthcare Service number %s, \n birth date %s, gender %s, phone number %s, and e-mail %s?",name,citizencardnumber,nhs,date,sex,tin,phonenumber,email);

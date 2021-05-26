@@ -7,13 +7,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class ParameterCategoryDtoTest {
+public class ParameterCategoryDTOTest {
 
-    ParameterCategoryDto pcDto;
+    ParameterCategoryDTO pcDto;
 
     @Before
     public void setup(){
-        pcDto=new ParameterCategoryDto("12345","test");
+        pcDto=new ParameterCategoryDTO("12345","test");
     }
 
     @Test
@@ -30,43 +30,43 @@ public class ParameterCategoryDtoTest {
 
     @Test
     public void parameterCategoriesDtoEquals(){
-        ParameterCategoryDto pc1 = new ParameterCategoryDto("1f5dc", "Category");
-        ParameterCategoryDto pc2 = new ParameterCategoryDto("1f5dc", "Category");
+        ParameterCategoryDTO pc1 = new ParameterCategoryDTO("1f5dc", "Category");
+        ParameterCategoryDTO pc2 = new ParameterCategoryDTO("1f5dc", "Category");
         Assert.assertEquals(pc1,pc2);
     }
 
     @Test
     public void parameterCategoriesDtoRefEquals(){
-        ParameterCategoryDto pc1 = new ParameterCategoryDto("1f5ac", "Category");
-        ParameterCategoryDto pc2 = pc1;
+        ParameterCategoryDTO pc1 = new ParameterCategoryDTO("1f5ac", "Category");
+        ParameterCategoryDTO pc2 = pc1;
         Assert.assertEquals(pc1,pc2);
     }
 
     @Test
     public void parameterCategoriesDtoCodeEquals(){
-        ParameterCategoryDto pc1 = new ParameterCategoryDto("1f5ac", "Category");
-        ParameterCategoryDto pc2 = new ParameterCategoryDto("1f5ac", "Category test");
+        ParameterCategoryDTO pc1 = new ParameterCategoryDTO("1f5ac", "Category");
+        ParameterCategoryDTO pc2 = new ParameterCategoryDTO("1f5ac", "Category test");
         Assert.assertNotEquals(pc1,pc2);
     }
 
     @Test
     public void parameterCategoriesDtoNameEquals(){
-        ParameterCategoryDto pc1 = new ParameterCategoryDto("1f5ac", "Category");
-        ParameterCategoryDto pc2 = new ParameterCategoryDto("1f5ab", "Category");
+        ParameterCategoryDTO pc1 = new ParameterCategoryDTO("1f5ac", "Category");
+        ParameterCategoryDTO pc2 = new ParameterCategoryDTO("1f5ab", "Category");
         Assert.assertNotEquals(pc1,pc2);
     }
 
     @Test
     public void parameterCategoriesDtoNotEqualsNull(){
-        ParameterCategoryDto pc1 = new ParameterCategoryDto("1f5ac", "Category");
-        ParameterCategoryDto pc2 = null;
+        ParameterCategoryDTO pc1 = new ParameterCategoryDTO("1f5ac", "Category");
+        ParameterCategoryDTO pc2 = null;
         Assert.assertNotEquals(pc1,pc2);
     }
 
     @Test
     public void parameterCategoriesDtoNotEquals(){
         ParameterCategory pc1 = new ParameterCategory("1f5ac", "Category");
-        ParameterCategoryDto pc2 = new ParameterCategoryDto("12345","test");
+        ParameterCategoryDTO pc2 = new ParameterCategoryDTO("12345","test");
         Assert.assertNotEquals(pc1,pc2);
     }
 }

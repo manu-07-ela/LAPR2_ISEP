@@ -1,8 +1,7 @@
 package app.ui.console;
 
 import app.controller.CreateParameterController;
-import app.domain.model.Parameter;
-import app.mappers.dto.ParameterCategoryDto;
+import app.mappers.dto.ParameterCategoryDTO;
 import app.ui.console.utils.Utils;
 
 /**
@@ -51,7 +50,7 @@ public class CreateParameterUI implements Runnable {
                 if (option == null){
                     throw new IllegalArgumentException("There must be at least one parameter category associated.");
                 }
-                ParameterCategoryDto selectedCategoryDto = (ParameterCategoryDto) option;
+                ParameterCategoryDTO selectedCategoryDto = (ParameterCategoryDTO) option;
                 System.out.printf("%nEnter the following data about the parameter you want to create%n");
                 String code = Utils.readLineFromConsole("Code: ");
                 String shortName = Utils.readLineFromConsole("Short Name: ");

@@ -3,7 +3,7 @@ package app.controller;
 import app.domain.model.Client;
 import app.domain.model.Company;
 import app.domain.store.ClientStore;
-import app.mappers.dto.ClientDto;
+import app.mappers.dto.ClientDTO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import java.io.IOException;
 public class CreateClientControllerTest {
 
     CreateClientController controller;
-    ClientDto clDto;
+    ClientDTO clDto;
     Client cl;
     ClientStore clStore;
     Company company;
@@ -22,7 +22,7 @@ public class CreateClientControllerTest {
     public void setup(){
         company = new Company("Many Labs");
         controller = new CreateClientController();
-        clDto = new ClientDto("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
+        clDto = new ClientDTO("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
         cl = new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
         clStore = company.getClientStore();
     }

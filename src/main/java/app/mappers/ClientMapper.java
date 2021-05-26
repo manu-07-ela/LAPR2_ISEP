@@ -1,7 +1,7 @@
 package app.mappers;
 
 import app.domain.model.Client;
-import app.mappers.dto.ClientDto;
+import app.mappers.dto.ClientDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class ClientMapper {
      * @param cl an ClientDto object
      * @return an instance of Client
      */
-    public Client toModel(ClientDto cl){
+    public Client toModel(ClientDTO cl){
         return new Client(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());
     }
 
@@ -25,8 +25,8 @@ public class ClientMapper {
      * @param clients A list of Client.
      * @return A list of ClientDTO.
      */
-    public List<ClientDto> toDto(List<Client> clients){
-        List<ClientDto> clientDto = new ArrayList<>();
+    public List<ClientDTO> toDto(List<Client> clients){
+        List<ClientDTO> clientDto = new ArrayList<>();
         for(Client client: clients) {
             clientDto.add(this.toDto(client));
         }
@@ -37,8 +37,8 @@ public class ClientMapper {
      * @param cl An client object.
      * @return An instance of ClientDTO.
      */
-    public ClientDto toDto(Client cl){
-        return new ClientDto(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());
+    public ClientDTO toDto(Client cl){
+        return new ClientDTO(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());
     }
 
 }

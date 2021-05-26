@@ -1,7 +1,8 @@
 package app.mappers;
 
 import app.domain.model.Test;
-import app.mappers.dto.TestDto;
+import app.mappers.dto.TestDTO;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +20,8 @@ public class TestMapper {
      * @param test a Test object
      * @return an instance of TestDTO
      */
-    public TestDto toDto(Test test){
-        return new TestDto(test);
+    public TestDTO toDto(Test test){
+        return new TestDTO(test);
     }
 
     /**
@@ -28,13 +29,13 @@ public class TestMapper {
      * @param tests a list of Test
      * @return a list of TestDTO
      */
-    public List<TestDto> toDto(List<Test> tests){
-        List<TestDto> testDto = new ArrayList<>();
+    public List<TestDTO> toDto(List<Test> tests){
+        List<TestDTO> TestDTO = new ArrayList<>();
 
         for (Test t : tests){
-            testDto.add(this.toDto(t));
+            TestDTO.add(this.toDto(t));
         }
-        return  testDto;
+        return TestDTO;
     }
 
 

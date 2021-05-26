@@ -3,7 +3,7 @@ package app.domain.store;
 import app.domain.model.Client;
 
 import app.mappers.ClientMapper;
-import app.mappers.dto.ClientDto;
+import app.mappers.dto.ClientDTO;
 import auth.AuthFacade;
 import org.junit.Assert;
 import org.junit.Before;
@@ -30,7 +30,7 @@ public class ClientStoreTest {
 
     @Test
     public void createClient() {
-        ClientDto clDTO = new ClientDto("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
+        ClientDTO clDTO = new ClientDTO("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
         Client result = clStore.createClient(clDTO,clMapper);
         Assert.assertEquals(cl, result);
     }

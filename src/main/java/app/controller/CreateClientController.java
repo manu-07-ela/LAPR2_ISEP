@@ -4,7 +4,7 @@ import app.domain.model.Client;
 import app.domain.model.Company;
 import app.domain.store.ClientStore;
 import app.mappers.ClientMapper;
-import app.mappers.dto.ClientDto;
+import app.mappers.dto.ClientDTO;
 import auth.AuthFacade;
 
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class CreateClientController {
      * @param cldto The client DTO
      * @return the client
      */
-    public boolean CreateClient(ClientDto cldto) {
+    public boolean CreateClient(ClientDTO cldto) {
         this.cl = store.createClient(cldto,clMapper);
         return store.validateClient(cl);
     }

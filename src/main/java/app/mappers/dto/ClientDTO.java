@@ -5,7 +5,7 @@ package app.mappers.dto;
  * @author José Pessoa <1201007@isep.ipp.pt>
  */
 
-public class ClientDto {
+public class ClientDTO {
     /**
      * Client's name
      */
@@ -56,7 +56,7 @@ public class ClientDto {
      * @param phonenumber Phone number of Client
      * @param email E-mail of Client
      */
-    public ClientDto(String name, String citizencardnumber, String nhs, String date, String sex, String tin, String phonenumber, String email) {
+    public ClientDTO(String name, String citizencardnumber, String nhs, String date, String sex, String tin, String phonenumber, String email) {
         this.name = name;
         this.citizencardnumber = citizencardnumber;
         this.nhs = nhs;

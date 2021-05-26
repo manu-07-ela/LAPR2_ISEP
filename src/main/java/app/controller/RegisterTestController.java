@@ -8,8 +8,8 @@ import app.mappers.ClientMapper;
 import app.mappers.ParameterCategoryMapper;
 import app.mappers.ParameterMapper;
 import app.mappers.TestTyperMapper;
-import app.mappers.dto.ClientDto;
-import app.mappers.dto.ParameterCategoryDto;
+import app.mappers.dto.ClientDTO;
+import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.ParameterDTO;
 import app.mappers.dto.TestTypeDTO;
 
@@ -68,7 +68,7 @@ public class RegisterTestController {
         return this.tStore.saveTest(t);
     }
 
-    public List<ClientDto> getClientList(){
+    public List<ClientDTO> getClientList(){
         ClientStore store = company.getClientStore();
         return clmapper.toDto(store.getClientList());
     }
@@ -77,7 +77,7 @@ public class RegisterTestController {
         TestTypeStore store = company.getTestTypeStore();
         return ttmapper.toDTO(store.getTestTypeList());
     }
-    public List<ParameterCategoryDto> getParameterCategoryList(){
+    public List<ParameterCategoryDTO> getParameterCategoryList(){
         ParameterCategoryStore store = company.getParameterCategoryStore();
         return pmcmapper.toDto(store.getParameterCategoryList());
     }

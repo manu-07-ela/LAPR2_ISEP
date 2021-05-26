@@ -2,7 +2,7 @@ package app.domain.store;
 
 import app.domain.model.Client;
 import app.mappers.ClientMapper;
-import app.mappers.dto.ClientDto;
+import app.mappers.dto.ClientDTO;
 import auth.AuthFacade;
 
 import java.io.File;
@@ -36,7 +36,7 @@ public class ClientStore {
      * @param clMapper a instance of Client Mapper
      * @return an instance of Client
      */
-    public Client createClient(ClientDto cldto, ClientMapper clMapper) {
+    public Client createClient(ClientDTO cldto, ClientMapper clMapper) {
         return clMapper.toModel(cldto);
     }
 

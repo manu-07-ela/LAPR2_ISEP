@@ -9,7 +9,7 @@ import app.domain.model.Test;
  */
 
 
-public class TestDto {
+public class TestDTO {
 
     /**
      * Represents the internal code associated with a test
@@ -25,7 +25,7 @@ public class TestDto {
      * Builds a DTO test instantiation by receiving one test per meter
      * @param test the test that will be copied
      */
-    public TestDto(Test test) {
+    public TestDTO(Test test) {
         this.internalCode = test.getInternalCode();
         this.description = test.getTestType().getCollectingMethod();
     }
