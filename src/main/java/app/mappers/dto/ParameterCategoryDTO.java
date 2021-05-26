@@ -5,7 +5,7 @@ package app.mappers.dto;
  *
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
-public class ParameterCategoryDtoTest {
+public class ParameterCategoryDTO {
 
     /**
      * The code of the data transfer object of the type parameter category.
@@ -23,7 +23,7 @@ public class ParameterCategoryDtoTest {
      * @param code parameter category's code.
      * @param name parameter category's name.
      */
-    public ParameterCategoryDtoTest(String code, String name){
+    public ParameterCategoryDTO(String code, String name){
         this.code=code;
         this.name=name;
     }
@@ -68,8 +68,8 @@ public class ParameterCategoryDtoTest {
             return false;
         }
 
-        ParameterCategoryDtoTest otherParameterCategoryDtoTest = (ParameterCategoryDtoTest) o;
+        ParameterCategoryDTO otherParameterCategoryDTO = (ParameterCategoryDTO) o;
 
-        return this.getCode().equals(otherParameterCategoryDtoTest.getCode()) && this.getName().equalsIgnoreCase(otherParameterCategoryDtoTest.getName());
+        return this.getCode().equals(otherParameterCategoryDTO.getCode()) && this.getName().equalsIgnoreCase(otherParameterCategoryDTO.getName());
     }
 }

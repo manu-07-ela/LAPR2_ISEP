@@ -4,7 +4,8 @@ import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
-import app.mappers.dto.ParameterCategoryDtoTest;
+import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDTOTest;
 import app.mappers.dto.TestTypeDTO;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,12 +16,12 @@ import java.util.List;
 
 public class CreateClinicalAnalysisLaboratoryMapperTest {
 
-    ParameterCategoryDtoTest pcDto;
+    ParameterCategoryDTO pcDto;
     ParameterCategory pc;
     TestType tt;
     TestTypeDTO ttDTO;
     List<ParameterCategory> listPC;
-    List<ParameterCategoryDtoTest> listPCDto;
+    List<ParameterCategoryDTO> listPCDto;
     List<TestType> testTypeList;
     List<TestTypeDTO> testTypeListDTO;
     ClinicalAnalysisLaboratory cal;
@@ -30,7 +31,7 @@ public class CreateClinicalAnalysisLaboratoryMapperTest {
 
     @Before
     public void setup(){
-        pcDto=new ParameterCategoryDtoTest("12345","test");
+        pcDto = new ParameterCategoryDTO("12345","test");
         pc = new ParameterCategory("12345","test");
         listPC = new ArrayList();
         listPCDto = new ArrayList();

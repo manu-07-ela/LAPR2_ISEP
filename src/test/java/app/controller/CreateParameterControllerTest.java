@@ -5,7 +5,8 @@ import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
-import app.mappers.dto.ParameterCategoryDtoTest;
+import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDTOTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,11 +16,11 @@ import java.util.List;
 public class CreateParameterControllerTest {
 
     CreateParameterController pCtrl;
-    List<ParameterCategoryDtoTest> lpcDto;
+    List<ParameterCategoryDTO> lpcDto;
     List<ParameterCategory> lpc;
     ParameterCategoryStore pcStore;
     ParameterStore pStore;
-    ParameterCategoryDtoTest pcDto;
+    ParameterCategoryDTO pcDto;
     ParameterCategory pc;
     Company company;
     Parameter p;
@@ -34,7 +35,7 @@ public class CreateParameterControllerTest {
         pc = new ParameterCategory("AAA00","Hemogram");
         pcStore.addParameterCategory(pc);
         lpc=pcStore.getParameterCategoryList();
-        pcDto = new ParameterCategoryDtoTest("AAA00","Hemogram");
+        pcDto = new ParameterCategoryDTO("AAA00","Hemogram");
         lpcDto.add(pcDto);
         pCtrl = new CreateParameterController(company);
         p = new Parameter ("TT030","rbc","Red Blood Cells",pc);
@@ -42,7 +43,7 @@ public class CreateParameterControllerTest {
 
     @Test
     public void getParameterCategories() {
-        List<ParameterCategoryDtoTest> result = pCtrl.getParameterCategories();
+        List<ParameterCategoryDTO> result = pCtrl.getParameterCategories();
         Assert.assertEquals(lpcDto,result);
     }
 

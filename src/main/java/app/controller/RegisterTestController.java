@@ -8,7 +8,7 @@ import app.mappers.ClientMapper;
 import app.mappers.ParameterCategoryMapper;
 import app.mappers.ParameterMapper;
 import app.mappers.TestTyperMapper;
-import app.mappers.dto.ParameterCategoryDtoTest;
+import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.ParameterDTO;
 import app.mappers.dto.TestTypeDTO;
 
@@ -76,7 +76,7 @@ public class RegisterTestController {
         TestTypeStore store = company.getTestTypeStore();
         return ttmapper.toDTO(store.getTestTypeList());
     }
-    public List<ParameterCategoryDtoTest> getParameterCategoryList(){
+    public List<ParameterCategoryDTO> getParameterCategoryList(){
         ParameterCategoryStore store = company.getParameterCategoryStore();
         return pmcmapper.toDto(store.getParameterCategoryList());
     }

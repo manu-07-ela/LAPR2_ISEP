@@ -5,7 +5,8 @@ import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
-import app.mappers.dto.ParameterCategoryDtoTest;
+import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDTOTest;
 import app.mappers.dto.TestTypeDTO;
 import org.junit.Assert;
 import org.junit.Before;
@@ -25,11 +26,11 @@ public class ClinicalAnalysisLaboratoryStoreTest {
 
     ParameterCategory pc1;
     ParameterCategory pc2;
-    ParameterCategoryDtoTest pcDto;
+    ParameterCategoryDTO pcDto;
     List<ParameterCategory> listPC1;
     List<ParameterCategory> listPC2;
     List<ParameterCategory> listPC3;
-    List<ParameterCategoryDtoTest> listPC1DTO;
+    List<ParameterCategoryDTO> listPC1DTO;
     TestType tt1;
     TestType tt2;
     TestType tt3;
@@ -48,7 +49,7 @@ public class ClinicalAnalysisLaboratoryStoreTest {
 
         pc1 = new ParameterCategory("12A4D","Covid-19");
         pc2 = new ParameterCategory("345vH","Covid-19");
-        pcDto = new ParameterCategoryDtoTest("345vH","Covid-19");
+        pcDto = new ParameterCategoryDTO("345vH","Covid-19");
         listPC1 = new ArrayList();
         listPC1.add(pc1);
 
