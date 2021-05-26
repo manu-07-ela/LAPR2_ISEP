@@ -56,16 +56,17 @@ public class RecordResultsController {
         return tpMapper.toDTO(test.getTestParameterList);
     }
 */
+
     /**
      *
-     * @param testparameterSelectedDTO
+     * @param parameterID
      * @param result
      * @param metric
+     * @return
      */
-    public boolean addTestResult(TestParameterDTO testparameterSelectedDTO,String result,String metric){
+    public boolean addTestResult(String parameterID,String result,String metric){
         try {
-            //TestParameter testparameterSelected = tpMapper.toModel(testparameterSelectedDTO);
-            //test.addTestResult(testparameterSelected, result, metric);
+            test.addTestResult(parameterID, result, metric);
             return true;
         }catch (Exception e){
             return false;

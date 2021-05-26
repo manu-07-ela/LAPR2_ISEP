@@ -29,8 +29,8 @@ public class RecordResultsUI implements  Runnable {
 
     public  void RecordResults(){
         try {
-            String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
-           /* List<TestParameterDTO> listaDeParametros = controller.getTestParameterList(barcode);
+          /*  String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
+            List<TestParameterDTO> listaDeParametros = controller.getTestParameterList(barcode);
             for (int i =0; i < listaDeParametros.size();i++){
                 Utils.showList(listaDeParametros,"Choose the Parameter you want to register the results");
                 TestParameterDTO parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
@@ -38,8 +38,10 @@ public class RecordResultsUI implements  Runnable {
                 System.out.println("\nEnter the result and the metric to record the results of the test");
                 String result = Utils.readLineFromConsole("Result: ");
                 String metric = Utils.readLineFromConsole("Metric: ");
-                controller.addTestResult(parameter,result,metric);
-                listaDeParametros.remove(parameter);
+                if (controller.addTestResult(parameter.getParameterId(),result,metric)){
+                    listaDeParametros.remove(parameter);
+                }
+
             }
 
             */

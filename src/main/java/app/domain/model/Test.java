@@ -141,15 +141,15 @@ public class Test {
 
     /**
      * It adds the result of a TestParameter
-     * @param testparameterSelected The TestParameter we want to add the result
+     * @param parameterID The code of the parameter
      * @param result the result of the TestParameter
      * @param metric the metric of the result
      */
-    public void addTestResult(TestParameter testparameterSelected, String result, String metric) {
+    public void addTestResult(String  parameterID, String result, String metric) {
        /* for (TestParameter testParameter: testParameterList) {
-            if (testParameter.equals(testparameterSelected)){
+            if (testParameter.getParameterId().equals(parameterID)){
                 testType.getExternalModule();
-                getReferenceValue(testParameter.getParam());
+                getReferenceValue(testParameter.getParameterId());
 
 
                 testParameter.AddResult(refValue,result,metric);

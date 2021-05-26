@@ -73,6 +73,12 @@ public class TestParameter {
      *
      * @return
      */
+    public String getParameterId(){ return param.getCode(); }
+
+    /**
+     *
+     * @return
+     */
     public String getParameterMetric() {
         return tparamresult.getMetric();
     }
@@ -101,6 +107,10 @@ public class TestParameter {
         return tparamresult.getRefValue().getMaxValue();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRefValueMetric() {
         return tparamresult.getRefValue().getMetric();
     }

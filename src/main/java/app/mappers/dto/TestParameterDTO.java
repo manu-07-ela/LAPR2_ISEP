@@ -6,6 +6,10 @@ public class TestParameterDTO {
      * The parameter name.
      */
     private String parameterName;
+    /**
+     *
+     */
+    private String parameterId;
 
     /**
      * The parameter result.
@@ -42,14 +46,21 @@ public class TestParameterDTO {
      * @param testParameterMaxRefValue The maximum reference value of the parameter.
      * @param refValueMetric The metric of the reference values.
      */
-    public TestParameterDTO (String parameterName, String  testParameterResult, String testParameterMetric, double testParameterMinRefValue, double testParameterMaxRefValue, String refValueMetric){
+    public TestParameterDTO (String parameterName,String parameterId, String  testParameterResult, String testParameterMetric, double testParameterMinRefValue, double testParameterMaxRefValue, String refValueMetric){
         this.parameterName=parameterName;
+        this.parameterId=parameterId;
         this.testParameterResult=testParameterResult;
         this.testParameterMetric=testParameterMetric;
         this.testParameterMinRefValue=testParameterMinRefValue;
         this.testParameterMaxRefValue=testParameterMaxRefValue;
         this.refValueMetric=refValueMetric;
     }
+
+    /**
+     * 
+     * @return
+     */
+    public String getParameterId() { return parameterId; }
 
     /**
      * Textual description of the TestParameterDTO
