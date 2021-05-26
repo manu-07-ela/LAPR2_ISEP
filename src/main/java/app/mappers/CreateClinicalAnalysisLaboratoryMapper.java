@@ -4,7 +4,7 @@ import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
-import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDtoTest;
 import app.mappers.dto.TestTypeDTO;
 
 import java.util.ArrayList;
@@ -55,9 +55,9 @@ public class CreateClinicalAnalysisLaboratoryMapper {
      * @param parameterCategories A list of ParameterCategoryDTO.
      * @return A list of ParameterCategory
      */
-    public List<ParameterCategory> toDomainpclist (List<ParameterCategoryDTO> parameterCategories){
+    public List<ParameterCategory> toDomainpclist (List<ParameterCategoryDtoTest> parameterCategories){
         List<ParameterCategory> parameterCategory = new ArrayList<>();
-        for(ParameterCategoryDTO lista : parameterCategories) {
+        for(ParameterCategoryDtoTest lista : parameterCategories) {
             parameterCategory.add(this.toDomainpc(lista));
         }
         return parameterCategory;
@@ -68,7 +68,7 @@ public class CreateClinicalAnalysisLaboratoryMapper {
      * @param parameterCategory An ParameterCategoryDto object.
      * @return An instance of ParameterCategory.
      */
-    public ParameterCategory toDomainpc(ParameterCategoryDTO parameterCategory) {
+    public ParameterCategory toDomainpc(ParameterCategoryDtoTest parameterCategory) {
         return new ParameterCategory (parameterCategory.getCode(),parameterCategory.getName());
     }
 

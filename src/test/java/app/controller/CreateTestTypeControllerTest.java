@@ -5,7 +5,7 @@ import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.TestTypeStore;
-import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDtoTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,11 +16,11 @@ import java.util.List;
 public class CreateTestTypeControllerTest {
 
     CreateTestTypeController ctrl;
-    List<ParameterCategoryDTO> lpcDto;
+    List<ParameterCategoryDtoTest> lpcDto;
     List<ParameterCategory> lpc;
     ParameterCategoryStore pcStore;
     TestTypeStore ttStore;
-    ParameterCategoryDTO pcDto;
+    ParameterCategoryDtoTest pcDto;
     ParameterCategory pc;
     Company company;
     TestType tt;
@@ -35,7 +35,7 @@ public class CreateTestTypeControllerTest {
         pc = new ParameterCategory("12A4D","Covid-19");
         pcStore.addParameterCategory(pc);
         lpc=pcStore.getParameterCategoryList();
-        pcDto = new ParameterCategoryDTO("12A4D","Covid-19");
+        pcDto = new ParameterCategoryDtoTest("12A4D","Covid-19");
         lpcDto.add(pcDto);
         ctrl = new CreateTestTypeController(company);
         tt= new TestType("12345","test","collecting",lpc);
@@ -43,7 +43,7 @@ public class CreateTestTypeControllerTest {
 
     @Test
     public void getParameterCategories(){
-        List<ParameterCategoryDTO> result = ctrl.getParameterCategories();
+        List<ParameterCategoryDtoTest> result = ctrl.getParameterCategories();
         Assert.assertEquals(lpcDto,result);
     }
 

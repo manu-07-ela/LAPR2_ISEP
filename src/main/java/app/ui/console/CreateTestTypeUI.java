@@ -1,7 +1,7 @@
 package app.ui.console;
 
 import app.controller.CreateTestTypeController;
-import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDtoTest;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class CreateTestTypeUI implements Runnable {
 
                 Utils.showList(createTestTypectrl.getParameterCategories(),"Choose the category of parameters associated with the test type");
 
-                List<ParameterCategoryDTO> listOfParameterCategories = new ArrayList();
+                List<ParameterCategoryDtoTest> listOfParameterCategories = new ArrayList();
                 boolean confirmation;
                 int aux=0;
                 do{
@@ -66,7 +66,7 @@ public class CreateTestTypeUI implements Runnable {
                     if (option == null){
                         throw new IllegalArgumentException("There must be at least one parameter category associated.");
                     }
-                    ParameterCategoryDTO pcDto = (ParameterCategoryDTO) option;
+                    ParameterCategoryDtoTest pcDto = (ParameterCategoryDtoTest) option;
                     if (!listOfParameterCategories.contains(pcDto)){
                         listOfParameterCategories.add(pcDto);
                     }

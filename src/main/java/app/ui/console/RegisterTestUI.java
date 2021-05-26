@@ -2,7 +2,7 @@ package app.ui.console;
 
 import app.controller.RegisterTestController;
 import app.domain.model.Client;
-import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDtoTest;
 import app.mappers.dto.ParameterDTO;
 import app.mappers.dto.TestTypeDTO;
 import app.ui.console.utils.Utils;
@@ -73,13 +73,13 @@ public class RegisterTestUI implements Runnable{
                         do {
                             Utils.showList(registerTestctrl.getParameterCategoryList(), "Choose what kind of Parameter Categories should be associated with the test");
 
-                            List<ParameterCategoryDTO> listapmc = new ArrayList<>();
+                            List<ParameterCategoryDtoTest> listapmc = new ArrayList<>();
 
                             option = Utils.selectsObject(registerTestctrl.getParameterCategoryList());
                             if (option == null) {
                                 throw new IllegalArgumentException("The Parameter Category list mustn't be empty");
                             }
-                            ParameterCategoryDTO pmcDTO = (ParameterCategoryDTO) option;
+                            ParameterCategoryDtoTest pmcDTO = (ParameterCategoryDtoTest) option;
                             listapmc.add(pmcDTO);
                             //Parameter
                             List<ParameterDTO> listapm = new ArrayList<>();

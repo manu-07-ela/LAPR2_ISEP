@@ -8,7 +8,7 @@ import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.TestTypeStore;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
-import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDtoTest;
 import app.mappers.dto.TestTypeDTO;
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,13 +20,13 @@ import java.util.List;
 public class CreateClinicalAnalysisLaboratoryControllerTest {
 
     CreateClinicalAnalysisLaboratoryController ctrl;
-    List<ParameterCategoryDTO> lpcDto;
+    List<ParameterCategoryDtoTest> lpcDto;
     List<ParameterCategory> lpc;
     List<TestType> ttlist;
     List<TestTypeDTO> ttlistDTO;
     ParameterCategoryStore pcStore;
     TestTypeStore ttStore;
-    ParameterCategoryDTO pcDto;
+    ParameterCategoryDtoTest pcDto;
     ParameterCategory pc;
     Company company;
     TestType tt;
@@ -46,11 +46,11 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
         calStore = company.getClinicalAnalysisLaboratoryStore();
 
         pc = new ParameterCategory("12A4D","Covid-19");
-        pcDto = new ParameterCategoryDTO("12A4D","Covid-19");
+        pcDto = new ParameterCategoryDtoTest("12A4D","Covid-19");
         pcStore.addParameterCategory(pc);
 
         lpc=pcStore.getParameterCategoryList();
-        pcDto = new ParameterCategoryDTO("12A4D","Covid-19");
+        pcDto = new ParameterCategoryDtoTest("12A4D","Covid-19");
         lpcDto.add(pcDto);
 
         ctrl = new CreateClinicalAnalysisLaboratoryController(company);

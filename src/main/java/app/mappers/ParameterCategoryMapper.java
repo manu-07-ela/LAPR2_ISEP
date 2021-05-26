@@ -1,7 +1,7 @@
 package app.mappers;
 
 import app.domain.model.ParameterCategory;
-import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDtoTest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +17,12 @@ public class ParameterCategoryMapper {
      * @param parameterCategories A list of ParameterCategory.
      * @return A list of ParameterCategoryDTO
      */
-    public List<ParameterCategoryDTO> toDto (List<ParameterCategory> parameterCategories){
-        List<ParameterCategoryDTO> parameterCategoryDTO = new ArrayList<>();
+    public List<ParameterCategoryDtoTest> toDto (List<ParameterCategory> parameterCategories){
+        List<ParameterCategoryDtoTest> parameterCategoryDtoTest = new ArrayList<>();
         for(ParameterCategory parameterCategory:parameterCategories) {
-            parameterCategoryDTO.add(this.toDto(parameterCategory));
+            parameterCategoryDtoTest.add(this.toDto(parameterCategory));
         }
-        return parameterCategoryDTO;
+        return parameterCategoryDtoTest;
     }
 
     /**
@@ -30,8 +30,8 @@ public class ParameterCategoryMapper {
      * @param parameterCategory An ParameterCategory object.
      * @return An instance of ParameterCategoryDTO.
      */
-    public ParameterCategoryDTO toDto(ParameterCategory parameterCategory) {
-        return new ParameterCategoryDTO(parameterCategory.getCode(),parameterCategory.getName());
+    public ParameterCategoryDtoTest toDto(ParameterCategory parameterCategory) {
+        return new ParameterCategoryDtoTest(parameterCategory.getCode(),parameterCategory.getName());
     }
 
 }

@@ -1,7 +1,7 @@
 package app.mappers;
 
 import app.domain.model.ParameterCategory;
-import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDtoTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,15 +11,15 @@ import java.util.List;
 
 public class ParameterCategoryMapperTest {
 
-    ParameterCategoryDTO pcDto;
+    ParameterCategoryDtoTest pcDto;
     ParameterCategory pc;
     List<ParameterCategory> listPC;
-    List<ParameterCategoryDTO> listPCDto;
+    List<ParameterCategoryDtoTest> listPCDto;
     ParameterCategoryMapper pcMapper;
 
     @Before
     public void setup(){
-        pcDto=new ParameterCategoryDTO("12345","test");
+        pcDto=new ParameterCategoryDtoTest("12345","test");
         pc = new ParameterCategory("12345","test");
         listPC = new ArrayList();
         listPCDto = new ArrayList();
@@ -31,13 +31,13 @@ public class ParameterCategoryMapperTest {
 
     @Test
     public void pcToDto() {
-        ParameterCategoryDTO result = pcMapper.toDto(pc);
+        ParameterCategoryDtoTest result = pcMapper.toDto(pc);
         Assert.assertEquals(pcDto,result);
     }
 
     @Test
     public void listToDto() {
-        List<ParameterCategoryDTO> result = pcMapper.toDto(listPC);
+        List<ParameterCategoryDtoTest> result = pcMapper.toDto(listPC);
         Assert.assertEquals(listPCDto,result);
     }
 }

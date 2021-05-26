@@ -6,7 +6,7 @@ import app.domain.model.ParameterCategory;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
 import app.mappers.ParameterCategoryMapper;
-import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDtoTest;
 import java.util.List;
 
 /**
@@ -74,7 +74,7 @@ public class CreateParameterController {
      * Get a list of objects of type ParameterCategoryDTO
      * @return list with parameterCategoriesDto
      */
-    public List<ParameterCategoryDTO> getParameterCategories(){
+    public List<ParameterCategoryDtoTest> getParameterCategories(){
         List<ParameterCategory> listParameterCategories = pcStore.getParameterCategoryList();
         return pcMapper.toDto(listParameterCategories);
     }
@@ -87,7 +87,7 @@ public class CreateParameterController {
      * @param selectedCategoryDto The category of the parameter.
      * @return Parameter created.
      */
-    public boolean createParameter(String code, String shortName, String description, ParameterCategoryDTO selectedCategoryDto){
+    public boolean createParameter(String code, String shortName, String description, ParameterCategoryDtoTest selectedCategoryDto){
         ParameterCategory selected = pcStore.getParameterCategoryByCode(selectedCategoryDto.getCode());
         p = pStore.createParameter(code,shortName,description,selected);
         return pStore.validateParameter(p);
