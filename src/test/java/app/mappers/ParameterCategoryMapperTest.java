@@ -2,7 +2,6 @@ package app.mappers;
 
 import app.domain.model.ParameterCategory;
 import app.mappers.dto.ParameterCategoryDTO;
-import app.mappers.dto.ParameterCategoryDTOTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

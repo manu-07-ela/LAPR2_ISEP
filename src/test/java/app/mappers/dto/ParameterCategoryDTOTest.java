@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-/*public class ParameterCategoryDTOTest {
+public class ParameterCategoryDTOTest {
 
     ParameterCategoryDTO pcDto;
 
@@ -69,4 +69,4 @@ import org.junit.Test;
         ParameterCategoryDTO pc2 = new ParameterCategoryDTO("12345","test");
         Assert.assertNotEquals(pc1,pc2);
     }
-}*/
+}

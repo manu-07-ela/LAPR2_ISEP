@@ -6,7 +6,6 @@ import app.domain.model.ParameterCategory;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
 import app.mappers.dto.ParameterCategoryDTO;
-import app.mappers.dto.ParameterCategoryDTOTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -6,7 +6,6 @@ import app.domain.model.TestType;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import app.mappers.dto.ParameterCategoryDTO;
-import app.mappers.dto.ParameterCategoryDTOTest;
 import app.mappers.dto.TestTypeDTO;
 import org.junit.Assert;
 import org.junit.Before;
