@@ -47,9 +47,9 @@ public class RecordResultsController {
     }
 
     /**
-     *
-     * @param barcode
-     * @return
+     * Gets an list of TestParameterDTO
+     * @param barcode the barcode of a Sample
+     * @return A list Of TestParameterDTO
      */
    /* public List<TestParameterDTO>  getTestParameterList(String barcode){
         test = store.getTestByBarcode(barcode);
@@ -58,11 +58,11 @@ public class RecordResultsController {
 */
 
     /**
-     *
-     * @param parameterID
-     * @param result
-     * @param metric
-     * @return
+     * It adds the result of the test
+     * @param parameterID The code of the parameter
+     * @param result The result of the test
+     * @param metric The metric of the result
+     * @return True if the result was added successful. Otherwise return False
      */
     public boolean addTestResult(String parameterID,String result,String metric){
         try {
@@ -73,7 +73,10 @@ public class RecordResultsController {
         }
     }
 
-
+    /**
+     * It checks if the test List has tests with Samples Collected
+     * @return True if the list has a test with Samples Collected
+     */
     public boolean PossibilityOfRecordResult(){
         if (store.getTestWithSamplesCollectedList().size() == 0){
             return true;
