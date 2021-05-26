@@ -19,7 +19,7 @@ public class Sample {
      * @param barcodeDomain the barcode that will be associated with a sample
      */
     public Sample(BarcodeDomain barcodeDomain) {
-        this.barcodeDomain = barcodeDomain;
+        this.barcodeDomain = new BarcodeDomain(barcodeDomain);
     }
 
     /**
