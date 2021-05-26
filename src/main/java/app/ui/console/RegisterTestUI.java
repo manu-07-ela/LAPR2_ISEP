@@ -18,14 +18,11 @@ public class RegisterTestUI implements Runnable{
      */
     private final RegisterTestController registerTestctrl;
 
-    private final ClientStore clientStore;
-
     /**
      * Initializes the controller
      */
     public RegisterTestUI(){
         registerTestctrl = new RegisterTestController();
-        clientStore = new ClientStore();
     }
 
     /**
@@ -46,12 +43,12 @@ public class RegisterTestUI implements Runnable{
             try {
                     System.out.printf("%nType the citizen card number of the user you want to register a Test on%n");
                     String citizencardnumber = Utils.readLineFromConsole("Citizen card number: ");
-                    Client cl = clientStore.getClientbycitizencardnumber(citizencardnumber);
+                    Client cl = registerTestctrl.getClient(citizencardnumber);
                     do {
                         if (cl == null) {
                             System.out.printf("%nThat number isnt registered in the system%n");
                             citizencardnumber = Utils.readLineFromConsole("Citizen card number: ");
-                            cl = clientStore.getClientbycitizencardnumber(citizencardnumber);
+                            cl = registerTestctrl.getClient(citizencardnumber);
                         }
                     } while (cl == null);
                     String nhscode = Utils.readLineFromConsole("National Healthcare Service code: ");

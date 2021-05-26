@@ -68,9 +68,9 @@ public class RegisterTestController {
         return this.tStore.saveTest(t);
     }
 
-    public List<ClientDTO> getClientList(){
+    public Client getClient(String citizencardnumber){
         ClientStore store = company.getClientStore();
-        return clmapper.toDto(store.getClientList());
+        return store.getClientbycitizencardnumber(citizencardnumber);
     }
 
     public List<TestTypeDTO> getTestTypeList(){
