@@ -10,11 +10,11 @@ public class ExternalModule3APIAdapter implements ExternalModuleReferencesValue{
 
 
     @Override
-    public RefValue getRefValue(Parameter parameter) {
+    public RefValue getRefValue(String parameterId) {
         ExternalModule3API externalAPI = new ExternalModule3API();
-        String metric = externalAPI.usedMetric(parameter.getCode(), 12345);
-        double minValue = externalAPI.getMinReferenceValue(parameter.getCode(), 12345);
-        double maxValue = externalAPI.getMaxReferenceValue(parameter.getCode(), 12345);
+        String metric = externalAPI.usedMetric(parameterId, 12345);
+        double minValue = externalAPI.getMinReferenceValue(parameterId, 12345);
+        double maxValue = externalAPI.getMaxReferenceValue(parameterId, 12345);
         return new RefValue(metric,minValue,maxValue);
     }
 

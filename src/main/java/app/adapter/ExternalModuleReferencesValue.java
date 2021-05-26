@@ -6,6 +6,6 @@ import app.domain.model.RefValue;
 
 public interface ExternalModuleReferencesValue {
 
-    public RefValue getRefValue(Parameter parameter);
+    public RefValue getRefValue(String parameterId);
 
 }
