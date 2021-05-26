@@ -67,7 +67,7 @@ deactivate UI
 
 ADM -> UI:select a tests to validate (selectedTestDto)
 activate UI
-UI -> CTRL : createTestValidation(selectedTestDto)
+UI -> CTRL : createTestValidation(selectedTest)
 activate CTRL
 CTRL -> TEST : createTestValidation(selectedTest)
 activate TEST
@@ -205,7 +205,7 @@ activate LCV
 deactivate LCV
 deactivate TEST
 deactivate CTRL
-UI -> CTRL : notifyTheClient()
+UI -> CTRL : notifyTheClient(Client)
 activate CTRL
 CTRL -> EMAILNOTF : notifyByEmail(Client)
 activate EMAILNOTF

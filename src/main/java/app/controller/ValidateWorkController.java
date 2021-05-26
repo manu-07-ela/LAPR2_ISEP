@@ -71,11 +71,16 @@ public class ValidateWorkController {
 
     /**
      *
-     * @param selectedTestDto
+     * @param selectedTest
      * @return
      */
-    public boolean createTestValidation(TestDTO selectedTestDto){
-        return test.validateWork(selectedTestDto);
+    public boolean createTestValidation(Test selectedTest){
+        return test.validateWork(selectedTest);
     }
 
+
+    /**
+     *
+     */
+    //public boolean showRegistrationDate(Test selectedTest) { return test.}
 }

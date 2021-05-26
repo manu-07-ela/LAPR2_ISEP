@@ -179,7 +179,7 @@ public class Test {
         return false;
     }
 
-    public boolean validateWork(TestDTO selectedTestDto) {
+    public boolean validateWork(Test selectedTest) {
         if (validateLabCoordinatorValidation()) {
             this.lcv = new LabCoordinatorValidation();
             return true;

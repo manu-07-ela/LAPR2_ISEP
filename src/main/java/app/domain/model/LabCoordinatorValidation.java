@@ -23,8 +23,6 @@ public class LabCoordinatorValidation {
         System.out.println("Lab Coordinator Validation created with sucess.");
     }
 
-    //this.labCoordinatorValidationDate = Calendar.getInstance().getTime();
-    //System.out.println(labCoordinatorValidationDate);
 
 
 }
