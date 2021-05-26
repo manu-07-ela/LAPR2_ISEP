@@ -10,7 +10,6 @@ import app.domain.store.TestStore;
 import app.mappers.TestMapper;
 import app.mappers.dto.TestDTO;
 import net.sourceforge.barbecue.BarcodeException;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -59,20 +58,20 @@ public class RecordSampleController {
     }
 
     /**
-     *
-     * @param testDto
-     * @return
+     * Get a test by its internal code
+     * @param testDto a test dto which the internal code will be taken to compare with the tests stored in the TestStore
+     * @return the test corresponding to the desired internal code
      */
     public Test getTestByInternalCode(TestDTO testDto){
         return testStore.getTestByInternalCode(testDto.getInternalCode());
     }
 
     /**
-     *
-     * @return
-     * @throws ClassNotFoundException
-     * @throws InstantiationException
-     * @throws IllegalAccessException
+     * Builds an instance of the API that will be used to generate the bar codes.
+     * @return an instance of the External module to be used by system
+     * @throws ClassNotFoundException if the class I try to instantiate does not exist
+     * @throws InstantiationException if the class instance is unsuccessful
+     * @throws IllegalAccessException if I try to access a method of the class that I don't have permission
      */
     public ExternalModuleBarcode getExternalModule() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         Properties props = new Properties();
@@ -83,13 +82,13 @@ public class RecordSampleController {
     }
 
     /**
-     *
-     * @return
-     * @throws ClassNotFoundException
-     * @throws InstantiationException
-     * @throws IllegalAccessException
-     * @throws IOException
-     * @throws BarcodeException
+     * Generates the barcodes that will be associated with the samples in the future
+     * @return the barcode
+     * @throws ClassNotFoundException if the class I try to instantiate does not exist
+     * @throws InstantiationException if the class instance is unsuccessful
+     * @throws IllegalAccessException if I try to access a method of the class that I don't have permission
+     * @throws IOException if an input or output error occurs
+     * @throws BarcodeException if the barcode cannot be generated
      */
     public BarcodeDomain generateBarcode() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, BarcodeException {
         DecimalFormat df = new DecimalFormat("00000000000");
@@ -101,8 +100,8 @@ public class RecordSampleController {
     }
 
     /**
-     *
-     * @param barcode
+     * Show the barcodes
+     * @param barcode the barcode that will be shown
      */
     public void showBarcodes(BarcodeDomain barcode){
 
@@ -117,22 +116,27 @@ public class RecordSampleController {
     }
 
     /**
-     *
-     * @param barcode
-     * @return
+     * Associates a barcode with a sample
+     * @param barcode the barcode that will be associated with the sample
+     * @return the sample
      */
     public Sample associateBarcodeWithSample(BarcodeDomain barcode){
         return sampleStore.createSample(barcode);
+
     }
 
     /**
-     *
-     * @param test
-     * @param samples
-     * @return
+     * Associate a test with the samples
+     * @param test the test we desired to associated with the sample
+     * @param samples the sample we desired to associated with the test
+     * @return true, if the association successful. False, otherwise.
      */
     public boolean associateSamplesWithTest(Test test, Sample samples){
-        return test.addSamples(samples);
+        if (sampleStore.validateSample(samples)){
+            test.addSamples(samples);
+            return true;
+        }
+        return false;
     }
 
 

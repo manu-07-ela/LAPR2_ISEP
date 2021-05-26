@@ -32,13 +32,7 @@ public class TestParameterMapper {
      * @return a TestParameterDTO
      */
     public TestParameterDTO toDTO(TestParameter obj){
-        return new TestParameterDTO(obj.getParameterName(), obj.getParameterResult(), obj.getParameterMetric(), obj.getParameterMinRefValue(), obj.getParameterMaxRefValue(),obj.getRefValueMetric());
+        return new TestParameterDTO(obj.getParameterName(), obj.getParameterId(), obj.getParameterResult(), obj.getParameterMetric(), obj.getParameterMinRefValue(), obj.getParameterMaxRefValue(),obj.getRefValueMetric());
     }
 
-    /*
-    public TestParameter toModel (TestParameterDTO obj){
-        return new TestParameter(obj.getParam(),obj.getTparamresult());
-    }
-
-     */
 }

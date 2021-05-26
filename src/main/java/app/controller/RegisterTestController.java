@@ -8,7 +8,6 @@ import app.mappers.ClientMapper;
 import app.mappers.ParameterCategoryMapper;
 import app.mappers.ParameterMapper;
 import app.mappers.TestTyperMapper;
-import app.mappers.dto.ClientDTO;
 import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.ParameterDTO;
 import app.mappers.dto.TestTypeDTO;

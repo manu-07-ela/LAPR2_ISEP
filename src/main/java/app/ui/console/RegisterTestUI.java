@@ -2,7 +2,6 @@ package app.ui.console;
 
 import app.controller.RegisterTestController;
 import app.domain.model.Client;
-import app.domain.store.ClientStore;
 import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.ParameterDTO;
 import app.mappers.dto.TestTypeDTO;

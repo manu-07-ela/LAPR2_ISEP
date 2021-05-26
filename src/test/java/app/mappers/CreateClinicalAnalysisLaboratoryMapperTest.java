@@ -30,7 +30,7 @@ public class CreateClinicalAnalysisLaboratoryMapperTest {
 
     @Before
     public void setup(){
-        pcDto=new ParameterCategoryDTO("12345","test");
+        pcDto = new ParameterCategoryDTO("12345","test");
         pc = new ParameterCategory("12345","test");
         listPC = new ArrayList();
         listPCDto = new ArrayList();

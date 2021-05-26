@@ -21,7 +21,6 @@ participant "chemicalAnalysisDateDTO : \nChemicalAnalysisDateDTO" as CADDTO
 participant "diagnosisDateDto : \nDiagnosisDateDto" as DDDTO
 participant ": EmailNotification" as EMAILNOTF
 participant ": SMSNotification" as SMSNOTF
-participant ": Client" as CLIENT
 
 autonumber
 
@@ -180,17 +179,11 @@ deactivate LCV
 deactivate CTRL
 UI -> CTRL : notifyTheClient()
 activate CTRL
-CTRL -> EMAILNOTF : notifyByEmail()
+CTRL -> EMAILNOTF : notifyByEmail(Client)
 activate EMAILNOTF
-EMAILNOTF -> CLIENT : mail = getEmail()
-activate CLIENT
-deactivate CLIENT
 deactivate EMAILNOTF
-CTRL -> SMSNOTF : notifyBySMS()
+CTRL -> SMSNOTF : notifyBySMS(Client)
 activate SMSNOTF
-SMSNOTF -> CLIENT : phoneNumber = getPhonenumber()
-activate CLIENT
-deactivate CLIENT
 deactivate SMSNOTF
 deactivate CTRL
 UI --> ADM : informs the operation success

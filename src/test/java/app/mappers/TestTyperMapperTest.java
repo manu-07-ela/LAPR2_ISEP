@@ -3,6 +3,7 @@ package app.mappers;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.TestTypeDTO;
 import org.junit.Assert;
 import org.junit.Before;
