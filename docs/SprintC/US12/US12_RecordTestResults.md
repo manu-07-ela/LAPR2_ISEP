@@ -29,7 +29,7 @@ values.
 > **Question:** "When the Clinical Chemistry Technologist wants to record the results of a test, how does he has access to that test? By internal code, NHS code?"
 >  
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8301)
->Each sample has a unique barcode. The clinical chemistry technologist should use the sample barcode number to find the test for which the sample was collected.
+>Each sample has a unique barcodeDomain. The clinical chemistry technologist should use the sample barcodeDomain number to find the test for which the sample was collected.
 
 > **Question:** "Should the system present a result for each test parameter or a single result for the test to be recorded?"
 >
@@ -41,7 +41,7 @@ values.
 >
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8272)
 >  Some answers I already gave here in this forum:
->     The clinical chemistry technologist should use the sample barcode number to find (in the system) the test for which the sample was collected.
+>     The clinical chemistry technologist should use the sample barcodeDomain number to find (in the system) the test for which the sample was collected.
 >     The Clinical Chemistry Technologist should register a value/result for each parameter of the (selected) test.
 >     All parameter values of the test should be filled/defined (by the Clinical Chemistry Technologist) when the use case finishes.
 

@@ -143,7 +143,7 @@ system being developed with other external systems._
 
 - The application uses an external module that is responsible for doing an automatic validation using test reference values.
 
-- Identifying each sample with a barcode that is automatically generated using an external API.
+- Identifying each sample with a barcodeDomain that is automatically generated using an external API.
 
 
 ### Physical Constraints

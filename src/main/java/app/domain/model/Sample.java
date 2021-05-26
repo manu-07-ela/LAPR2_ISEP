@@ -1,6 +1,6 @@
 package app.domain.model;
 
-import app.domain.model.attributes.Barcode;
+import app.domain.model.attributes.BarcodeDomain;
 
 import java.util.Objects;
 
@@ -12,22 +12,30 @@ public class Sample {
     /**
      * Represents the Barcode associated with a sample
      */
-    private final Barcode barcode;
+    private final BarcodeDomain barcodeDomain;
 
     /**
      * Builds a barcode instance by receiving a barcode by parameter
-     * @param barcode the barcode that will be associated with a sample
+     * @param barcodeDomain the barcode that will be associated with a sample
      */
-    public Sample(Barcode barcode) {
-        this.barcode = barcode;
+    public Sample(BarcodeDomain barcodeDomain) {
+        this.barcodeDomain = barcodeDomain;
+    }
+
+    /**
+     * Copy builder for a sample
+     * @param sample the sample that will be copied
+     */
+    public Sample(Sample sample){
+        this.barcodeDomain = sample.getBarcode();
     }
 
     /**
      * Get the barcode associated with a sample
      * @return the barcode
      */
-    public Barcode getBarcode() {
-        return barcode;
+    public BarcodeDomain getBarcode() {
+        return barcodeDomain;
     }
 
     /**

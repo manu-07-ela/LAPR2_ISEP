@@ -37,4 +37,13 @@ public class TestDTO {
     public String getInternalCode(){
         return internalCode;
     }
+
+    /**
+     * Textual description of a test
+     * @return Information that characterizes a test 
+     */
+    @Override
+    public String toString() {
+        return String.format("Internal Code: %s%nDescription: %s%n", internalCode, description);
+    }
 }

@@ -1,20 +1,16 @@
 package app.adapter;
 
 
-import app.domain.model.attributes.Barcode;
-
-import java.util.Properties;
+import app.domain.model.attributes.BarcodeDomain;
+import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.BarcodeFactory;
 
 public class BarcodeAdapter implements ExternalModuleBarcode {
 
     @Override
-    public Barcode getBarcode() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        Properties props = new Properties();
-        // Getting class name to instantiate
-        String classAux = props.getProperty("Controller.BarcodeAdapter.Class");
-        // Getting class name to instantiate
-        Class<?> oClass = Class.forName(classAux);
-        Barcode barcode = (Barcode) oClass.newInstance();
-        return barcode;
+    public BarcodeDomain getBarcode(String barcodeNumber) throws BarcodeException {
+       Barcode barcode = BarcodeFactory.createUPCA(barcodeNumber);
+       return new BarcodeDomain(barcode, barcodeNumber);
     }
 }

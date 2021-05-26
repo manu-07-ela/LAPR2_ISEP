@@ -1,6 +1,7 @@
 package app.adapter;
 
-import app.domain.model.attributes.Barcode;
+import app.domain.model.attributes.BarcodeDomain;
+import net.sourceforge.barbecue.BarcodeException;
 
 import java.io.IOException;
 
@@ -13,5 +14,5 @@ public interface ExternalModuleBarcode {
      * Method that will generate and return the barcode that will be associated with a sample
      * @return A barcode
      */
-    Barcode getBarcode() throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException;
+    BarcodeDomain getBarcode(String barcodeNumber) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, BarcodeException;
 }

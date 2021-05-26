@@ -1,7 +1,7 @@
 package app.domain.store;
 
 import app.domain.model.Sample;
-import net.sourceforge.barbecue.Barcode;
+import app.domain.model.attributes.BarcodeDomain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class SampleStore {
      * @param barcode the barcode
      * @return a new instance of sample
      */
-    public Sample createSample(Barcode barcode){
+    public Sample createSample(BarcodeDomain barcode){
         return new Sample(barcode);
     }
 
@@ -56,7 +56,9 @@ public class SampleStore {
      * @return true if the sample was saved. Otherwise, false.
      */
     public boolean saveSample(Sample sample) {
-        return validateSample(sample) && this.addSample(sample);
+        if (!validateSample(sample))
+            return false;
+        return this.addSample(sample);
     }
 
     /**

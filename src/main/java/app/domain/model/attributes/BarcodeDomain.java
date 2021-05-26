@@ -1,12 +1,11 @@
 package app.domain.model.attributes;
 
-import java.text.DecimalFormat;
 
 /**
  * Represents a barcode that will be associated with a sample
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
-public class Barcode {
+public class BarcodeDomain {
     /**
      * Represents a barcode
      */
@@ -15,20 +14,14 @@ public class Barcode {
      * Represents the number associated with a barcode
      */
     private String barcodeNumber;
-    /**
-     * Account of the instances of bar code
-     */
-    private static int instancesOfBarcodes;
 
     /**
      * Builds a barcode instance by receiving a barcode by parameter
      * @param barcode the barcode
      */
-    public Barcode(Object barcode){
-        DecimalFormat df  = new DecimalFormat("00000000000");
+    public BarcodeDomain(Object barcode, String barcodeNumber){
         this.barcode = barcode;
-        barcodeNumber = df.format(instancesOfBarcodes);
-        instancesOfBarcodes++;
+        this.barcodeNumber = barcodeNumber;
     }
 
     /**
@@ -48,10 +41,16 @@ public class Barcode {
     }
 
     /**
-     * Get the total instances of barcode
-     * @return the instances of barcode
+     * Compare the barcode with other object received
+     * @param other Object we want to compare with the barcode
+     * @return true if the received object represents another barcode equivalent to the barcode. Otherwise, it returns false.
      */
-    public static int getInstancesOfBarcodes() {
-        return instancesOfBarcodes;
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (!(other instanceof BarcodeDomain)) return false;
+        BarcodeDomain that = (BarcodeDomain) other;
+        return barcode.equals(that.barcode) && barcodeNumber.equals(that.barcodeNumber);
     }
+
 }

@@ -173,6 +173,14 @@ public class Test {
     }
 
     /**
+     * Adds the samples to the test
+     * @param sample the sample that will be added to the test
+     * @return true, if the copy of the sample list passed by parameter is successful, false otherwise
+     */
+    public boolean addSamples(Sample sample){
+      return this.samples.add(sample);
+    }
+    /**
      * Global validation of a medical report.
      * @return false if the medical report already exists. Otherwise, it returns true.
      */
@@ -182,5 +190,6 @@ public class Test {
         }
         return true;
     }
+
 
 }

@@ -19,7 +19,7 @@ However, be aware, this is a pedagogical simplification. On further projects and
 | US03   | |
 | US04   | [As a receptionist of the laboratory, I intend to register a test to be performed to a registered client.](US04.md)             |
 | US05   | [As a medical lab technician, I want to record the samples collected in the scope of a given test.](US05.md)                      |
-| US06   | [As a medical lab technician, I want to associate a barcode to each sample collected.](US06.md)              |
+| US06   | [As a medical lab technician, I want to associate a barcodeDomain to each sample collected.](US06.md)              |
 | US07   | [As a medical lab technician, I want to register the tests perfomed locally.](US07.md)                       |
 | US08   | [As a medical lab technician , I want to associate the samples to the client/test.](US08.md)        |
 | US09   | [As an administrator, I want to specify a new type of test and its collecting methods.](US09.md)                                        |
