@@ -6,7 +6,7 @@ import app.domain.model.TestType;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.TestTypeStore;
 import app.mappers.ParameterCategoryMapper;
-import app.mappers.dto.ParameterCategoryDtoTest;
+import app.mappers.dto.ParameterCategoryDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +75,7 @@ public class CreateTestTypeController {
      * Get a list of objects of type ParameterCategoryDTO
      * @return list with parameterCategoriesDto
      */
-    public List<ParameterCategoryDtoTest> getParameterCategories(){
+    public List<ParameterCategoryDTO> getParameterCategories(){
         List<ParameterCategory> listParameterCategories = pcStore.getParameterCategoryList();
         return pcMapper.toDto(listParameterCategories);
     }
@@ -88,9 +88,9 @@ public class CreateTestTypeController {
      * @param listOfParameterCategoriesDto List of parameter categories that the test type has associated.
      * @return false if the test type already exists or is null. Otherwise, it returns true.
      */
-    public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategoryDtoTest> listOfParameterCategoriesDto){
+    public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategoryDTO> listOfParameterCategoriesDto){
         List<ParameterCategory> listOfParameterCategories = new ArrayList();
-        for ( ParameterCategoryDtoTest pcDto : listOfParameterCategoriesDto){
+        for ( ParameterCategoryDTO pcDto : listOfParameterCategoriesDto){
             listOfParameterCategories.add(pcStore.getParameterCategoryByCode(pcDto.getCode()));
         }
         this.tt=ttStore.createTestType(code,description,collectingMethod,listOfParameterCategories);

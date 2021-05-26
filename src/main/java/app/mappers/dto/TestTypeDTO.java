@@ -21,7 +21,7 @@ public class TestTypeDTO {
     /**
      * List of parameter categories that the test type has associated.
      */
-    private List<ParameterCategoryDtoTest> listOfParameterCategories;
+    private List<ParameterCategoryDTO> listOfParameterCategories;
 
     /**
      * Build an instance of {@code TestTypeDto} by receiving the code, description, collection method and associated parameter categories.
@@ -30,7 +30,7 @@ public class TestTypeDTO {
      * @param collectingMethod The test type collecting method.
      * @param listOfParameterCategories List of parameter categories that the test type has associated.
      */
-    public TestTypeDTO (String code, String description, String collectingMethod, List<ParameterCategoryDtoTest> listOfParameterCategories){
+    public TestTypeDTO (String code, String description, String collectingMethod, List<ParameterCategoryDTO> listOfParameterCategories){
         this.code=code;
         this.description=description;
         this.collectingMethod=collectingMethod;
@@ -65,7 +65,7 @@ public class TestTypeDTO {
      * Get the categories of parameters associated with the type of test.
      * @return List of parameter categories that the test type has associated.
      */
-    public List<ParameterCategoryDtoTest> getListOfParameterCategories() {
+    public List<ParameterCategoryDTO> getListOfParameterCategories() {
         return listOfParameterCategories;
     }
 
