@@ -9,32 +9,36 @@ import java.util.List;
 public class TestParameterMapper {
 
     /**
-     *
-     * @param testParameters
-     * @return
+     * Transforms the list of TestParameter into a list of TestParameterDTO
+     * @param testParametersList A list of TestParameter
+     * @return A list of TestParameterDTO
      */
-    public List<TestParameterDTO> toDTO(List<TestParameter> testParameters) {
-        List<TestParameterDTO> testParameterDTOList =new ArrayList();
+    public List<TestParameterDTO> toDTO(List<TestParameter> testParametersList) {
+        List<TestParameterDTO> testParametersListDto =new ArrayList();
         TestParameterDTO objDTO;
-        for (TestParameter lista : testParameters) {
+        for (TestParameter lista : testParametersList) {
             if (lista != null){
                 objDTO = toDTO(lista);
-                testParameterDTOList.add(objDTO);
+                testParametersListDto.add(objDTO);
             }
         }
-        return testParameterDTOList;
+        return testParametersListDto;
     }
+
 
     /**
-     *
-     * @param obj
-     * @return
+     * Transforms a TestParameter into a TestParameterDTO
+     * @param obj a TestParameter
+     * @return a TestParameterDTO
      */
     public TestParameterDTO toDTO(TestParameter obj){
-        return new TestParameterDTO(obj.getParam(), obj.getTparamresult());
+        return new TestParameterDTO(obj.getParameterName(), obj.getParameterResult(), obj.getParameterMetric(), obj.getParameterMinRefValue(), obj.getParameterMaxRefValue(),obj.getRefValueMetric());
     }
 
+    /*
     public TestParameter toModel (TestParameterDTO obj){
         return new TestParameter(obj.getParam(),obj.getTparamresult());
     }
+
+     */
 }

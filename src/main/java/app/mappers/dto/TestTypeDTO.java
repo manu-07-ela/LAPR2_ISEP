@@ -24,7 +24,7 @@ public class TestTypeDTO {
     private List<ParameterCategoryDto> listOfParameterCategories;
 
     /**
-     * Build an instance of {@code TestType} by receiving the code, description, collection method and associated parameter categories.
+     * Build an instance of {@code TestTypeDto} by receiving the code, description, collection method and associated parameter categories.
      * @param code The test type code.
      * @param description The description of the test type.
      * @param collectingMethod The test type collecting method.

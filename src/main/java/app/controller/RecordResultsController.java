@@ -64,8 +64,8 @@ public class RecordResultsController {
      */
     public boolean addTestResult(TestParameterDTO testparameterSelectedDTO,String result,String metric){
         try {
-            TestParameter testparameterSelected = tpMapper.toModel(testparameterSelectedDTO);
-            test.addTestResult(testparameterSelected, result, metric);
+            //TestParameter testparameterSelected = tpMapper.toModel(testparameterSelectedDTO);
+            //test.addTestResult(testparameterSelected, result, metric);
             return true;
         }catch (Exception e){
             return false;

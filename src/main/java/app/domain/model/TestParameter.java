@@ -60,4 +60,48 @@ public class TestParameter {
         }
         return true;
     }
+
+    /**
+     *
+     * @return
+     */
+    public String getParameterName() {
+        return param.getShortName();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getParameterMetric() {
+        return tparamresult.getMetric();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getParameterResult() {
+        return tparamresult.getResult();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public double getParameterMinRefValue() {
+        return tparamresult.getRefValue().getMinValue();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public double getParameterMaxRefValue() {
+        return tparamresult.getRefValue().getMaxValue();
+    }
+
+    public String getRefValueMetric() {
+        return tparamresult.getRefValue().getMetric();
+    }
 }

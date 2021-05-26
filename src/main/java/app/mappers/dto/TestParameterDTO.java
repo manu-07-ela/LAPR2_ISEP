@@ -1,41 +1,63 @@
 package app.mappers.dto;
 
-import app.domain.model.Parameter;
-import app.domain.model.TestParameterResult;
-
 public class TestParameterDTO {
 
     /**
-     *
+     * The parameter name.
      */
-    private TestParameterResult tparamresult;
-    /**
-     *
-     */
-    private Parameter param;
+    private String parameterName;
 
     /**
-     *
-     * @param param
-     * @param tparamresult
+     * The parameter result.
      */
-    public TestParameterDTO (Parameter param,TestParameterResult tparamresult){
-        this.param=param;
-        this.tparamresult=tparamresult;
+    private String testParameterResult;
+
+    /**
+     * The metric of the parameter result.
+     */
+    private String testParameterMetric;
+
+    /**
+     * The minimum reference value of the parameter.
+     */
+    private double testParameterMinRefValue;
+
+    /**
+     * The maximum reference value of the parameter.
+     */
+    private double testParameterMaxRefValue;
+
+    /**
+     * The metric of the reference values.
+     */
+    private String refValueMetric;
+
+
+    /**
+     * Build an instance of {@code TestParameterDto}.
+     * @param parameterName The parameter name.
+     * @param testParameterResult The parameter result.
+     * @param testParameterMetric The metric of the parameter result.
+     * @param testParameterMinRefValue The minimum reference value of the parameter.
+     * @param testParameterMaxRefValue The maximum reference value of the parameter.
+     * @param refValueMetric The metric of the reference values.
+     */
+    public TestParameterDTO (String parameterName, String  testParameterResult, String testParameterMetric, double testParameterMinRefValue, double testParameterMaxRefValue, String refValueMetric){
+        this.parameterName=parameterName;
+        this.testParameterResult=testParameterResult;
+        this.testParameterMetric=testParameterMetric;
+        this.testParameterMinRefValue=testParameterMinRefValue;
+        this.testParameterMaxRefValue=testParameterMaxRefValue;
+        this.refValueMetric=refValueMetric;
     }
 
     /**
-     *
-     * @return
+     * Textual description of the TestParameterDTO
+     * @return Information about the TestParameterDTO
      */
-    public TestParameterResult getTparamresult() {
-        return tparamresult;
+    @Override
+    public String toString() {
+        return String.format("**********%s Parameter Information**********%nResult: %s%nResult Metrics: %s%nMin. Reference Value: %f%nMax. Reference Value: %f%nReference Values Metrics: %s",parameterName,testParameterResult,testParameterMetric,testParameterMinRefValue,testParameterMaxRefValue,refValueMetric);
     }
-    /**
-     *
-     * @return
-     */
-    public Parameter getParam() {
-        return param;
-    }
+
 }

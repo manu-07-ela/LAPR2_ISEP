@@ -31,6 +31,9 @@ deactivate TP
 Mapper -> TP: testParameterMaxRefValue= getParameterMaxRefValue()
 activate TP
 deactivate TP
+Mapper -> TP: refValueMetric= getRefValueMetric()
+activate TP
+deactivate TP
 Mapper --> TPDto** : create(parameterName,testParameterResult,testParameterMetric,testParameterMinRefValue,testParameterMaxRefValue)
 Mapper -> lTPDto : add(dto)
 activate lTPDto
