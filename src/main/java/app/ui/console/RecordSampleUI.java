@@ -29,7 +29,7 @@ public class RecordSampleUI implements Runnable{
     }
 
     /**
-     *
+     * Invokes the necessary methods for the interface to function
      */
     @Override
     public void run() {
@@ -41,20 +41,24 @@ public class RecordSampleUI implements Runnable{
     }
 
     /**
-     *
-     * @param testDTO
-     * @return
+     * asks the user the number of samples to be associated with the selected test
+     * @param testDTO serves to show the data related to the test selected by the user
+     * @return the number of samples entered by the user
      */
     private int askTheAmountOfSamples(TestDTO testDTO){
+        int samples;
         System.out.println("----------* Test Selected *----------");
         System.out.println(testDTO.toString());
-        return Utils.readIntegerFromConsole("Enter the number of samples you want to associate with this test: ");
+       do {
+           samples = Utils.readIntegerFromConsole("Enter the number of samples you want to associate with this test: ");
+       }while (samples<=0);
+        return samples;
     }
 
     /**
-     *
-     * @param i
-     * @return
+     * Generates the amount of barcode entered by the user
+     * @param i the amount of samples entered by the user
+     * @return a list of bar codes the same size as the number of samples entered by the user
      */
     private List<BarcodeDomain> generateBarcodes(int i){
         List<BarcodeDomain> barcodes = new ArrayList<>();
@@ -84,9 +88,9 @@ public class RecordSampleUI implements Runnable{
     }
 
     /**
-     *
-     * @param barcodes
-     * @param testDTO
+     * Associates the list of bar codes generated with the respective samples and the test selected by the user
+     * @param barcodes the list of barcodes
+     * @param testDTO the test that the samples will be associated
      */
     private void associateBarcodesWithSamples(List<BarcodeDomain> barcodes, TestDTO testDTO){
         Sample sample;

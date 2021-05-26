@@ -25,6 +25,15 @@ public class BarcodeDomain {
     }
 
     /**
+     * Barcode Copy Builder
+     * @param barcodeDomain the barcode that will be copy
+     */
+    public BarcodeDomain(BarcodeDomain barcodeDomain){
+        this.barcode = barcodeDomain.getBarcode();
+        this.barcode = barcodeDomain.getBarcodeNumber();
+    }
+
+    /**
      * Get the barcode
      * @return the barcode
      */
