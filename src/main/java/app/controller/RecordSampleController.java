@@ -10,7 +10,6 @@ import app.domain.store.TestStore;
 import app.mappers.TestMapper;
 import app.mappers.dto.TestDTO;
 import net.sourceforge.barbecue.BarcodeException;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -59,16 +58,16 @@ public class RecordSampleController {
     }
 
     /**
-     *
-     * @param testDto
-     * @return
+     * Get a test by its internal code
+     * @param testDto a test dto which the internal code will be taken to compare with the tests stored in the TestStore
+     * @return the test corresponding to the desired internal code
      */
     public Test getTestByInternalCode(TestDTO testDto){
         return testStore.getTestByInternalCode(testDto.getInternalCode());
     }
 
     /**
-     *
+     * Builds an instance of the API that will be used to generate the bar codes.
      * @return
      * @throws ClassNotFoundException
      * @throws InstantiationException
@@ -123,6 +122,7 @@ public class RecordSampleController {
      */
     public Sample associateBarcodeWithSample(BarcodeDomain barcode){
         return sampleStore.createSample(barcode);
+
     }
 
     /**
@@ -132,7 +132,11 @@ public class RecordSampleController {
      * @return
      */
     public boolean associateSamplesWithTest(Test test, Sample samples){
-        return test.addSamples(samples);
+        if (sampleStore.validateSample(samples)){
+            test.addSamples(samples);
+            return true;
+        }
+        return false;
     }
 
 
