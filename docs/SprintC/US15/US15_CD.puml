@@ -64,18 +64,14 @@ class Test{
 }
 
 class EmailNotification{
--String email
-+notifyByEmail()
++notifyByEmail(Client)
 }
 
 class SMSNotification{
--String phoneNumber
-+notifyBySMS()
++notifyBySMS(Client)
 }
 
 class Client{
-+getEmail()
-+getPhonenumber()
 }
 
 
@@ -89,6 +85,8 @@ ValidateWorkController ..> EmailNotification : uses
 ValidateWorkController ..> SMSNotification : uses
 
 Company "1"---"1..*" Test : performs >
+
+LabCoordinatorValidation "1"---"1" Test : associated to
 
 TestMapper ..> Test : uses
 
