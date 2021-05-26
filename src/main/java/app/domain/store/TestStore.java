@@ -1,6 +1,10 @@
 package app.domain.store;
 
+import app.domain.model.Client;
 import app.domain.model.Test;
+import app.domain.model.TestParameter;
+import app.domain.model.TestType;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,9 +57,9 @@ public class TestStore {
         return !this.testList.contains(test);
     }
 
-    //public Test createTest(Client cl, String nhscode){
-       // return new Test(cl,nhscode);
-   //}
+    public Test createTest(Client cl, String nhscode, TestType testType, List<TestParameter> testParameterList){
+        return new Test(cl,nhscode,testType,testParameterList);
+   }
 
 //    public static String generateTestCode(Test t){
 //
@@ -72,6 +76,20 @@ public class TestStore {
         }else{
             return this.addTest(t);
         }
+    }
+
+    public static String generateInternalcode() {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        SecureRandom random = new SecureRandom();
+        StringBuilder code = new StringBuilder();
+
+        for (int i = 0; i < 12; i++) {
+            int randomIndex = random.nextInt(chars.length());
+            code.append(chars.charAt(randomIndex));
+        }
+
+        return code.toString();
     }
 
     /**

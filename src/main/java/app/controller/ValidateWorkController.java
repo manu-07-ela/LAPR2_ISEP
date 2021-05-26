@@ -78,10 +78,4 @@ public class ValidateWorkController {
         return test.validateWork(selectedTestDto);
     }
 
-    /**
-     *
-     */
-    public boolean showRegistrationDate(TestDTO selectedTestDto){
-
-    }
 }

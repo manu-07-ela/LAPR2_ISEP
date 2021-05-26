@@ -1,10 +1,9 @@
 package app.domain.model;
 
-import app.controller.ValidateWorkController;
+
 import app.domain.store.TestStore;
 import app.mappers.dto.TestDTO;
 import org.apache.commons.lang3.StringUtils;
-
 import javax.xml.crypto.Data;
 import java.sql.Time;
 import java.util.List;
@@ -85,6 +84,7 @@ public class Test {
         this.testType = testType;
         this.testParameterList = testParameterList;
         this.state = StateOfTest.TestRegistered;
+        this.internalCode = TestStore.generateInternalcode();
         this.description = testType.getCollectingMethod();
         this.md = null;
     }

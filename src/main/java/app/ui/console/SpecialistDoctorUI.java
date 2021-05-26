@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Represents the interface where the specialist doctor selects what he wants to accomplish.
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
 public class SpecialistDoctorUI implements Runnable{
 
     /**
-     *
+     * Initializes the Specialist Doctor Interface.
      */
     public SpecialistDoctorUI(){
 
     }
 
     /**
-     *
+     * Invokes the necessary methods for the interface to function.
      */
     @Override
     public void run() {

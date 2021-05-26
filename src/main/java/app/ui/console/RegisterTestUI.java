@@ -1,9 +1,10 @@
 package app.ui.console;
 
 import app.controller.RegisterTestController;
-import app.domain.model.Client;
+import app.domain.model.*;
 import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.ParameterDTO;
+import app.mappers.dto.TestParameterDTO;
 import app.mappers.dto.TestTypeDTO;
 import app.ui.console.utils.Utils;
 
@@ -41,7 +42,8 @@ public class RegisterTestUI implements Runnable{
         do {
             try {
                     System.out.printf("%nType the citizen card number of the user you want to register a Test on%n");
-                Client cl;
+                    Client cl;
+                    List<TestParameter> listpm = new ArrayList<>();
                     do {
                         String citizencardnumber = Utils.readLineFromConsole("Citizen card number: ");
                         cl= registerTestctrl.getClient(citizencardnumber);
@@ -51,7 +53,7 @@ public class RegisterTestUI implements Runnable{
                         System.out.println();
                         System.out.println("Is this the client that you want to register a test on?");
                         System.out.println("Name:" + cl.getName());
-                        System.out.println("Email: " + cl.getCitizencardnumber());
+                        System.out.println("Citizen card number: " + cl.getCitizencardnumber());
                         System.out.println("National Healthcare Service number: " + cl.getNhs());
                         System.out.println("Birth Date: " + cl.getDate());
                         System.out.println("Gender: " + cl.getSex());
@@ -69,49 +71,48 @@ public class RegisterTestUI implements Runnable{
                         //TEST TYPE
                         Utils.showList(registerTestctrl.getTestTypeList(), "Choose what kind of Test Type should be registered");
 
-                        List<TestTypeDTO> listatt = new ArrayList<>();
-
                         Object option = Utils.selectsObject(registerTestctrl.getTestTypeList());
                         if (option == null) {
                             throw new IllegalArgumentException("The Test Type list mustn't be empty");
                         }
-                        TestTypeDTO ttDTO = (TestTypeDTO) option;
-                        listatt.add(ttDTO);
+                        TestType tt = (TestType) option;
 
                         //Parameter Category
                         do {
                             Utils.showList(registerTestctrl.getParameterCategoryList(), "Choose what kind of Parameter Categories should be associated with the test");
 
-                            List<ParameterCategoryDTO> listapmc = new ArrayList<>();
-
                             option = Utils.selectsObject(registerTestctrl.getParameterCategoryList());
                             if (option == null) {
                                 throw new IllegalArgumentException("The Parameter Category list mustn't be empty");
                             }
-                            ParameterCategoryDTO pmcDTO = (ParameterCategoryDTO) option;
-                            listapmc.add(pmcDTO);
                             //Parameter
-                            List<ParameterDTO> listapm = new ArrayList<>();
+
                             do {
                                 Utils.showList(registerTestctrl.getParameterList(), "Choose what kind of Parameters should be associated with the test");
 
                                 option = Utils.selectsObject(registerTestctrl.getParameterList());
+                                registerTestctrl.getParameterList().remove(option);
                                 if (option == null) {
                                     throw new IllegalArgumentException("The Parameter list mustn't be empty");
                                 }
-                                ParameterDTO pmDTO = (ParameterDTO) option;
-                                listapm.add(pmDTO);
+                                Parameter pm = (Parameter) option;
+                                TestParameter tpm = new TestParameter(pm);
+                                listpm.add(tpm);
                                 System.out.println("Do you want to choose another Parameter?");
                                 resposta = Utils.readLineFromConsole("S/N:");
-                            }while(resposta.equalsIgnoreCase("S"));
+                            } while (resposta.equalsIgnoreCase("S"));
                             System.out.println("Do you want to choose another Parameter Categorie?");
                             resposta = Utils.readLineFromConsole("S/N:");
-                        }while(resposta.equalsIgnoreCase("S"));
-                        if(cl==null){
-                            System.out.println("LOL");
+                        } while (resposta.equalsIgnoreCase("S"));
+
+                        registerTestctrl.createTest(cl,nhscode,tt,listpm);
+                        System.out.printf("Do you want to register the test?");
+                        resposta = Utils.readLineFromConsole("S/N:");
+                        if (resposta.equalsIgnoreCase("S")) {
+                            if (registerTestctrl.saveTest()) {
+                                System.out.printf("%nThe test was registered successfully%n");
+                            }
                         }
-                        registerTestctrl.createTest(cl, nhscode);
-                        System.out.printf("%nThe test was registered successfully%n");
                     }
                 }catch(IllegalArgumentException e){
                     System.out.printf("%nMessage: %s%n", e.getMessage());

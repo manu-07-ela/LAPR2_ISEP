@@ -42,7 +42,7 @@ public class ValidateWorkUI implements Runnable{
                 throw new IllegalArgumentException("There's no tests to validate.");
             }
             validateWorkController.createTestValidation(validateWorkController.getTestsToValidateList().get(index));
-            validateWorkController.showRegistrationDate(validateWorkController.getTestsToValidateList().get(index));
+            //validateWorkController.showRegistrationDate(validateWorkController.getTestsToValidateList().get(index));
 
 
 
