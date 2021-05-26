@@ -1,6 +1,7 @@
 package app.adapter;
 
-import net.sourceforge.barbecue.Barcode;
+
+import app.domain.model.attributes.Barcode;
 
 import java.util.Properties;
 

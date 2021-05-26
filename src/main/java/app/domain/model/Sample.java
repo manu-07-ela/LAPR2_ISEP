@@ -1,6 +1,6 @@
 package app.domain.model;
 
-import net.sourceforge.barbecue.Barcode;
+import app.domain.model.attributes.Barcode;
 
 import java.util.Objects;
 

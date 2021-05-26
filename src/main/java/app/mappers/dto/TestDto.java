@@ -1,5 +1,7 @@
 package app.mappers.dto;
 
+import app.domain.model.Test;
+
 /**
  * Represents a data transfer object of Test
  * @author Manuela Leite <1200720@isep.ipp.pt>
@@ -10,21 +12,22 @@ package app.mappers.dto;
 public class TestDto {
 
     /**
-     *
+     * Represents the internal code associated with a test
      */
     private String internalCode;
 
     /**
-     *
+     * Represents the description of a test
      */
     private String description;
 
     /**
-     *
-     * @param internalCodeDto
+     * Builds a DTO test instantiation by receiving one test per meter
+     * @param test the test that will be copied
      */
-    public TestDto(String internalCodeDto) {
-        this.internalCode= internalCodeDto;
+    public TestDto(Test test) {
+        this.internalCode = test.getInternalCode();
+        this.description = test.getTestType().getCollectingMethod();
     }
 
     /**
