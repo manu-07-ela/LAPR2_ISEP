@@ -1,3 +1,4 @@
+
 package app.domain.model;
 
 import app.domain.model.attributes.*;
@@ -24,7 +25,9 @@ public class EmployeeTest {
         String result2 = empAux.getEmployeeId();
         Assert.assertEquals(expectedResult1, result1);
         Assert.assertEquals(expectedResult2, result2);
-    }*/
+    }
+
+ */
 
     @Test(expected = NullPointerException.class)
     public void ensureNullIsNotAllowed(){new Employee(null, null, null, null, null, null);}

@@ -1,3 +1,4 @@
+/*
 package app.domain.model;
 
 import app.domain.model.attributes.*;
@@ -40,3 +41,5 @@ public class SpecialistDoctorTest {
 
     }
 }
+
+ */

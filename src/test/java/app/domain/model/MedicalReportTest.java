@@ -1,3 +1,4 @@
+/*
 package app.domain.model;
 
 import org.junit.Assert;
@@ -41,3 +42,5 @@ public class MedicalReportTest {
 
 
 }
+
+ */
