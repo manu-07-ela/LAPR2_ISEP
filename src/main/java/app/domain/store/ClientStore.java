@@ -113,13 +113,13 @@ public class ClientStore {
     }
 
     /**
-     * Get a client through his citizen card number
-     * @param citizencardnumber The citizen card number of the client we want to get
-     * @return The client associated with that citizen card number
+     * Get a client through his Tax indentification number
+     * @param tin The Tax indentification number of the client we want to get
+     * @return The client associated with that Tax indentification number
      */
-    public Client getClientbycitizencardnumber(String citizencardnumber) {
+    public Client getClientbytin(String tin) {
         for (Client cl : clientList) {
-            if (cl.getCitizencardnumber().equals(citizencardnumber)) {
+            if (cl.getTin().equals(tin)) {
                 return cl;
             }
         }
