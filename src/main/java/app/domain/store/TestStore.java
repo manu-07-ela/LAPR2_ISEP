@@ -4,10 +4,6 @@ import app.domain.model.Client;
 import app.domain.model.Test;
 import app.domain.model.TestParameter;
 import app.domain.model.TestType;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +74,7 @@ public class TestStore {
         if (!validateTest(t)){
             return false;
         }else{
-            return this.addTest(t);
+            return testList.add(t);
         }
     }
 

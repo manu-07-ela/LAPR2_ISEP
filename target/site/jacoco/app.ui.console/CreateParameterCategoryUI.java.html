@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateParameterCategoryUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.ui.console</a> &gt; <span class="el_source">CreateParameterCategoryUI.java</span></div><h1>CreateParameterCategoryUI.java</h1><pre class="source lang-java linenums">package app.ui.console;
+
+import app.controller.CreateParameterCategoryController;
+import app.ui.console.utils.Utils;
+
+
+
+/**
+ * Represents an interface with the user to be able to register a new parameter category.
+ * @author Rita Ariana Sobral &lt;1201386@isep.ipp.pt&gt;
+ */
+public class CreateParameterCategoryUI implements Runnable {
+
+    /**
+     * Represents a instance of create parameter category controller.
+     */
+    private CreateParameterCategoryController createParameterCategoryctrl;
+
+    /**
+     * Initializes the controller.
+     */
+<span class="nc" id="L22">    public CreateParameterCategoryUI(){</span>
+<span class="nc" id="L23">        createParameterCategoryctrl = new CreateParameterCategoryController();</span>
+<span class="nc" id="L24">    }</span>
+
+    /**
+     * Invokes the necessary methods for the interface to function.
+     */
+    @Override
+    public void run() {
+<span class="nc" id="L31">        System.out.printf(&quot;%nCreating a Parameter Category%n&quot;);</span>
+<span class="nc" id="L32">        createParameterCategory();</span>
+
+<span class="nc" id="L34">    }</span>
+
+    /**
+     * Create an instance of parameter category.
+     */
+    public void createParameterCategory(){
+
+
+<span class="nc" id="L42">        boolean dadosInvalidos=true;</span>
+
+        do{
+            try{
+<span class="nc" id="L46">                System.out.printf(&quot;%nEnter the following data about the parameter category you want to create%n&quot;);</span>
+
+<span class="nc" id="L48">                String code = Utils.readLineFromConsole(&quot;Code: &quot;);</span>
+
+<span class="nc" id="L50">                String name = Utils.readLineFromConsole(&quot;Name: &quot;);</span>
+
+<span class="nc" id="L52">                boolean result =createParameterCategoryctrl.createParameterCategory(code,name);</span>
+<span class="nc" id="L53">                dadosInvalidos=false;</span>
+
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                if(result){</span>
+<span class="nc" id="L56">                    System.out.printf(&quot;%nDo you want to create a Parameter Category with the following data:%n%s&quot;,createParameterCategoryctrl.toString());</span>
+
+<span class="nc" id="L58">                    boolean confirmation = Utils.confirm(&quot;S/N:&quot;);</span>
+
+<span class="nc bnc" id="L60" title="All 2 branches missed.">                    if(confirmation) {</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">                        if (createParameterCategoryctrl.saveParameterCategory()) {</span>
+<span class="nc" id="L62">                            System.out.println(&quot;The parameter category was created successfully&quot;);</span>
+
+<span class="nc" id="L64">                            boolean confirm = Utils.confirm(&quot;Do you want to create another one? (S/N)&quot;);</span>
+
+<span class="nc bnc" id="L66" title="All 2 branches missed.">                            if (confirm)</span>
+<span class="nc" id="L67">                                dadosInvalidos = true;</span>
+<span class="nc" id="L68">                        } else {</span>
+<span class="nc" id="L69">                            System.out.println(&quot;A parameter category with that name or code already exists&quot;);</span>
+                        }
+                    } else {
+<span class="nc" id="L72">                        System.out.println(&quot;The parameter category has not been created.&quot;);</span>
+                    }
+<span class="nc" id="L74">                } else {</span>
+<span class="nc" id="L75">                    System.out.println(&quot;A parameter category with that name or code already exists&quot;);</span>
+<span class="nc" id="L76">                    System.out.println(&quot;The parameter category has not been created.&quot;);</span>
+                }
+<span class="nc" id="L78">            } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L79">                System.out.printf(&quot;%nMessage: %s%n&quot; ,e.getMessage());</span>
+<span class="nc" id="L80">            }</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        } while (dadosInvalidos);</span>
+
+
+
+<span class="nc" id="L85">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

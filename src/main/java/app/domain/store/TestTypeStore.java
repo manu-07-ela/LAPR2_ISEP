@@ -33,8 +33,8 @@ public class TestTypeStore {
      * @param listOfParameterCategories List of parameter categories that the test type has associated.
      * @return The test type.
      */
-    public TestType createTestType(String code, String description, String collectingMethod, List<ParameterCategory> listOfParameterCategories){
-        return new TestType(code,description,collectingMethod,listOfParameterCategories);
+    public TestType createTestType(String code, String description, String collectingMethod, List<ParameterCategory> listOfParameterCategories,String referenceAdapter){
+        return new TestType(code,description,collectingMethod,listOfParameterCategories,referenceAdapter);
     }
 
     /**

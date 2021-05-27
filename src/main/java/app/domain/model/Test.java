@@ -1,10 +1,13 @@
 package app.domain.model;
 
-import app.domain.store.TestStore;
-import org.apache.commons.lang3.StringUtils;
 
+import app.domain.store.TestStore;
+import app.mappers.dto.TestDTO;
+import org.apache.commons.lang3.StringUtils;
 import javax.xml.crypto.Data;
 import java.sql.Time;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Test {
@@ -54,7 +57,7 @@ public class Test {
     /**
      * Represents the date when the samples were added to the test
      */
-    private Data samplesAddDate;
+    private Date samplesAddDate;
     /**
      * Represents the time when th samples were added to the test
      */
@@ -62,7 +65,7 @@ public class Test {
     /**
      * Represents the date when the chemical analysis were added to the test
      */
-    private Data chemicalAnalysisDate;
+    private Date chemicalAnalysisDate;
     /**
      * Represents the date when the test was registered in the system
      */
@@ -71,6 +74,10 @@ public class Test {
      * The medical report of the test.
      */
     private MedicalReport md;
+    /**
+     * The lab coordinator validation of the test.
+     */
+    private LabCoordinatorValidation lcv;
 
     public Test(Client cl, String nhscode, TestType testType, List<TestParameter> testParameterList) {
         nhscodeValidation(nhscode);
@@ -174,6 +181,24 @@ public class Test {
         return false;
     }
 
+    public boolean validateWork(Test selectedTest) {
+        if (validateLabCoordinatorValidation()) {
+            this.lcv = new LabCoordinatorValidation();
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Global validation of a lab coordinator validation.
+     * @return false if the lab coordinator validation already exists. Otherwise, it returns true.
+     */
+    private boolean validateLabCoordinatorValidation() {
+        if (this.lcv != null) {
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Adds the samples to the test
      * @param sample the sample that will be added to the test
@@ -181,6 +206,13 @@ public class Test {
      */
     public boolean addSamples(Sample sample){
       return this.samples.add(sample);
+    }
+
+    /**
+     * Generates the date and time when the samples were associated with a test
+     */
+    public void generateDataAndTimeForSamplesCollected(){
+        this.samplesAddDate = Calendar.getInstance().getTime();
     }
     /**
      * Global validation of a medical report.
@@ -192,6 +224,7 @@ public class Test {
         }
         return true;
     }
+
 
 
 }

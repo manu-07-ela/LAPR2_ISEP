@@ -33,13 +33,19 @@ public class TestType {
     private List<ParameterCategory> listOfParameterCategories;
 
     /**
-     * Build an instance of {@code TestType} by receiving the code, description, collection method and associated parameter categories.
+     * The name of the adapter of the api that has the reference values
+     */
+    private String referenceAdapter;
+
+    /**
+     * Build an instance of {@code TestType} by receiving the code, description, collection method ,associated parameter categories and referenceAdapter.
      * @param code The test type code.
      * @param description The description of the test type.
      * @param collectingMethod The test type collecting method.
      * @param listOfParameterCategories List of parameter categories that the test type has associated.
+     * @param referenceAdapter The name of the adapter of the api that has the reference values
      */
-    public TestType (String code, String description, String collectingMethod, List<ParameterCategory> listOfParameterCategories){
+    public TestType (String code, String description, String collectingMethod, List<ParameterCategory> listOfParameterCategories, String referenceAdapter){
         checkCodeRules(code);
         checkDescriptionRules(description);
         checkcollectingMethodRules(collectingMethod);
@@ -47,6 +53,7 @@ public class TestType {
         this.description=description;
         this.collectingMethod=collectingMethod;
         this.listOfParameterCategories=listOfParameterCategories;
+        this.referenceAdapter = referenceAdapter;
     }
 
     /**
@@ -82,12 +89,21 @@ public class TestType {
             throw new IllegalArgumentException("The collection method must be a maximum of 20 characters.");
     }
 
+
     /**
      * Get the test type code.
      * @return The test type code.
      */
     public String getCode (){
         return code;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getReferenceAdapter() {
+        return referenceAdapter;
     }
 
     /**
@@ -150,10 +166,14 @@ public class TestType {
         return String.format("<Test Type> %s <Code> %s / <Collecting Method> %s / <Parameter Categories> %s",description,code,collectingMethod,parameterCategories);
     }
 
-    /*public ExternalModule getExternalModule(){
-
-    }
+    /**
+     * It returns the path of the adapter of the API used to generate the references values
+     * @return the path of the adapter of the API used to generate the references values
      */
+    public String getExternalModule(){
+        return String.format("app.adapter.%s",referenceAdapter.replace("API","Adapter"));
+    }
+
 
 
 }

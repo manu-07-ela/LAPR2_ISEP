@@ -24,17 +24,24 @@ public class TestTypeDTO {
     private List<ParameterCategoryDTO> listOfParameterCategories;
 
     /**
+     * The path of the adapter of the api that has the reference values
+     */
+    private String referenceAdapter;
+
+    /**
      * Build an instance of {@code TestTypeDto} by receiving the code, description, collection method and associated parameter categories.
      * @param code The test type code.
      * @param description The description of the test type.
      * @param collectingMethod The test type collecting method.
      * @param listOfParameterCategories List of parameter categories that the test type has associated.
+     * @param referenceAdapter The path of the adapter of the api that has the reference values
      */
-    public TestTypeDTO (String code, String description, String collectingMethod, List<ParameterCategoryDTO> listOfParameterCategories){
+    public TestTypeDTO (String code, String description, String collectingMethod, List<ParameterCategoryDTO> listOfParameterCategories,String referenceAdapter){
         this.code=code;
         this.description=description;
         this.collectingMethod=collectingMethod;
         this.listOfParameterCategories=listOfParameterCategories;
+        this.referenceAdapter = referenceAdapter;
     }
 
     /**
@@ -67,6 +74,14 @@ public class TestTypeDTO {
      */
     public List<ParameterCategoryDTO> getListOfParameterCategories() {
         return listOfParameterCategories;
+    }
+
+    /**
+     * Gets the name of the adapter odf the api that has the reference values
+     * @return the name of the adapter odf the api that has the reference values
+     */
+    public String getReferenceAdapter() {
+        return referenceAdapter;
     }
 
     /**

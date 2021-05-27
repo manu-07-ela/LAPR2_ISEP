@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TestType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model</a> &gt; <span class="el_source">TestType.java</span></div><h1>TestType.java</h1><pre class="source lang-java linenums">package app.domain.model;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
+
+/**
+ * Represents a type of test.
+ *
+ * @author Rita Ariana Sobral &lt;1201386@isep.ipp.pt&gt;
+ */
+
+public class TestType {
+
+    /**
+     * The test type code.
+     */
+    private String code;
+
+    /**
+     * The description of the test type.
+     */
+    private String description;
+
+    /**
+     * The test type collecting method.
+     */
+    private String collectingMethod;
+
+    /**
+     * List of parameter categories that the test type has associated.
+     */
+    private List&lt;ParameterCategory&gt; listOfParameterCategories;
+
+    /**
+     * The name of the adapter of the api that has the reference values
+     */
+    private String referenceAdapter;
+
+    /**
+     * Build an instance of {@code TestType} by receiving the code, description, collection method ,associated parameter categories and referenceAdapter.
+     * @param code The test type code.
+     * @param description The description of the test type.
+     * @param collectingMethod The test type collecting method.
+     * @param listOfParameterCategories List of parameter categories that the test type has associated.
+     * @param referenceAdapter The name of the adapter of the api that has the reference values
+     */
+<span class="nc" id="L48">    public TestType (String code, String description, String collectingMethod, List&lt;ParameterCategory&gt; listOfParameterCategories, String referenceAdapter){</span>
+<span class="nc" id="L49">        checkCodeRules(code);</span>
+<span class="nc" id="L50">        checkDescriptionRules(description);</span>
+<span class="nc" id="L51">        checkcollectingMethodRules(collectingMethod);</span>
+<span class="nc" id="L52">        this.code=code;</span>
+<span class="nc" id="L53">        this.description=description;</span>
+<span class="nc" id="L54">        this.collectingMethod=collectingMethod;</span>
+<span class="nc" id="L55">        this.listOfParameterCategories=listOfParameterCategories;</span>
+<span class="nc" id="L56">        this.referenceAdapter = referenceAdapter;</span>
+<span class="nc" id="L57">    }</span>
+
+    /**
+     * Checks whether the code associated with the type of test we intend to create complies with all business rules.
+     * @param code The test type code.
+     */
+    private void checkCodeRules (String code) {
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (StringUtils.isBlank(code))</span>
+<span class="nc" id="L65">            throw new IllegalArgumentException(&quot;Code cannot be blank.&quot;);</span>
+<span class="nc bnc" id="L66" title="All 4 branches missed.">        if ( !StringUtils.isAlphanumeric(code) || code.length() != 5 )</span>
+<span class="nc" id="L67">            throw new IllegalArgumentException(&quot;The code must be 5 alphanumeric characters.&quot;);</span>
+<span class="nc" id="L68">    }</span>
+
+    /**
+     * Checks whether the description associated with the type of test we intend to create complies with all business rules.
+     * @param description The description of the test type.
+     */
+    private void checkDescriptionRules (String description) {
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if (StringUtils.isBlank(description))</span>
+<span class="nc" id="L76">            throw new IllegalArgumentException(&quot;Description cannot be blank.&quot;);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (description.length() &gt; 15)</span>
+<span class="nc" id="L78">            throw new IllegalArgumentException(&quot;The description must be a maximum of 15 characters.&quot;);</span>
+<span class="nc" id="L79">    }</span>
+
+    /**
+     * Checks whether the collecting Method associated with the type of test we intend to create complies with all business rules.
+     * @param collectingMethod The test type collecting method.
+     */
+    private void checkcollectingMethodRules (String collectingMethod) {
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (StringUtils.isBlank(collectingMethod))</span>
+<span class="nc" id="L87">            throw new IllegalArgumentException(&quot;Collecting Method cannot be blank.&quot;);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        if (collectingMethod.length() &gt; 20)</span>
+<span class="nc" id="L89">            throw new IllegalArgumentException(&quot;The collection method must be a maximum of 20 characters.&quot;);</span>
+<span class="nc" id="L90">    }</span>
+
+
+    /**
+     * Get the test type code.
+     * @return The test type code.
+     */
+    public String getCode (){
+<span class="nc" id="L98">        return code;</span>
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getReferenceAdapter() {
+<span class="nc" id="L106">        return referenceAdapter;</span>
+    }
+
+    /**
+     * Get the test type description.
+     * @return The test type description.
+     */
+    public String getDescription() {
+<span class="nc" id="L114">        return description;</span>
+    }
+
+    /**
+     * Get the method of collecting the test type.
+     * @return The test type collecting method.
+     */
+    public String getCollectingMethod() {
+<span class="nc" id="L122">        return collectingMethod;</span>
+    }
+
+    /**
+     * Get the categories of parameters associated with the type of test.
+     * @return List of parameter categories that the test type has associated.
+     */
+    public List&lt;ParameterCategory&gt; getListOfParameterCategories() {
+<span class="nc" id="L130">        return listOfParameterCategories;</span>
+    }
+
+    /**
+     * Compare the type of test with the other object provided.
+     * @param o Object we want to compare with the type of test.
+     * @return true if the received object represents another type of test equivalent to the type of test. Otherwise, it returns false.
+     */
+    @Override
+    public boolean equals(Object o){
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        if(this == o){</span>
+<span class="nc" id="L141">            return true;</span>
+        }
+
+<span class="nc bnc" id="L144" title="All 4 branches missed.">        if(o == null || this.getClass() != o.getClass()){</span>
+<span class="nc" id="L145">            return false;</span>
+        }
+
+<span class="nc" id="L148">        TestType otherTestType = (TestType) o;</span>
+
+<span class="nc bnc" id="L150" title="All 4 branches missed.">        return this.getCode().equals(otherTestType.getCode()) || this.getDescription().equalsIgnoreCase(otherTestType.getDescription()) ;</span>
+    }
+
+    /**
+     * Textual description of the test type.
+     * @return Information about the characteristics of the test type.
+     */
+    @Override
+    public String toString(){
+
+<span class="nc" id="L160">        StringBuilder parameterCategories = new StringBuilder();</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        for (ParameterCategory pc : listOfParameterCategories) {</span>
+<span class="nc" id="L162">            parameterCategories.append(pc.getName());</span>
+<span class="nc" id="L163">            parameterCategories.append(&quot; &quot;);</span>
+<span class="nc" id="L164">        }</span>
+
+<span class="nc" id="L166">        return String.format(&quot;&lt;Test Type&gt; %s &lt;Code&gt; %s / &lt;Collecting Method&gt; %s / &lt;Parameter Categories&gt; %s&quot;,description,code,collectingMethod,parameterCategories);</span>
+    }
+
+    /**
+     * It returns the path of the adapter of the API used to generate the references values
+     * @return the path of the adapter of the API used to generate the references values
+     */
+    public String getExternalModule(){
+<span class="nc" id="L174">        return String.format(&quot;app.adapter.%s&quot;,referenceAdapter.replace(&quot;API&quot;,&quot;Adapter&quot;));</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,4 +1,4 @@
-package app.controller;
+/*package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.Employee;
@@ -96,5 +96,5 @@ public class RegisterEmployeeControllerTest {
     public void transformEmployeeInUser() throws IOException {
         boolean result = controller.transformEmployeeInUser(controller.createEmployee(employeeDTO1));
         Assert.assertTrue(result);
-    }*/
-}
+    }
+}*/

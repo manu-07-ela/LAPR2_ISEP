@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RegisterTestController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.controller</a> &gt; <span class="el_source">RegisterTestController.java</span></div><h1>RegisterTestController.java</h1><pre class="source lang-java linenums">package app.controller;
+
+import app.domain.model.*;
+import app.domain.store.*;
+import app.mappers.ClientMapper;
+import app.mappers.ParameterCategoryMapper;
+import app.mappers.ParameterMapper;
+import app.mappers.TestTyperMapper;
+import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterDTO;
+import app.mappers.dto.TestTypeDTO;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.security.SecureRandom;
+import java.util.List;
+
+public class RegisterTestController {
+    /**
+     * Represents an instance of app.
+     */
+    private App app;
+    /**
+     * Represents a instance of company
+     */
+    private Company company;
+    /**
+     * Represents an instance of test
+     */
+    private Test t;
+    /**
+     * Represents an instance of the parameter category store.
+     */
+    private TestStore tStore;
+
+    /**
+     * Represents an instance of TestType Mapper
+     */
+    private TestTyperMapper ttmapper;
+
+    private ClientMapper clmapper;
+
+    private ParameterCategoryMapper pmcmapper;
+
+    private ParameterMapper pmmapper;
+
+
+    public RegisterTestController() {
+<span class="nc" id="L50">        this(App.getInstance().getCompany());</span>
+<span class="nc" id="L51">    }</span>
+<span class="nc" id="L52">    public RegisterTestController(Company company) {</span>
+<span class="nc" id="L53">        this.app=App.getInstance();</span>
+<span class="nc" id="L54">        this.company=app.getCompany();</span>
+<span class="nc" id="L55">        this.tStore=company.getTestStore();</span>
+<span class="nc" id="L56">        this.t = null;</span>
+<span class="nc" id="L57">        ttmapper = new TestTyperMapper();</span>
+<span class="nc" id="L58">        pmcmapper = new ParameterCategoryMapper();</span>
+<span class="nc" id="L59">        pmmapper = new ParameterMapper();</span>
+<span class="nc" id="L60">        clmapper = new ClientMapper();</span>
+<span class="nc" id="L61">    }</span>
+
+    public boolean createTest(Client cl, String nhscode, TestType testType, List&lt;TestParameter&gt; testParameterList) {
+<span class="nc" id="L64">        this.t=tStore.createTest(cl,nhscode,testType,testParameterList);</span>
+<span class="nc" id="L65">        return this.tStore.validateTest(t);</span>
+    }
+
+    public boolean saveTest() {
+<span class="nc" id="L69">        return this.tStore.saveTest(t);</span>
+    }
+
+    public Client getClient(String citizencardnumber){
+<span class="nc" id="L73">        ClientStore store = company.getClientStore();</span>
+<span class="nc" id="L74">        return store.getClientbycitizencardnumber(citizencardnumber);</span>
+    }
+
+    public List&lt;TestType&gt; getTestTypeList(){
+<span class="nc" id="L78">        TestTypeStore store = company.getTestTypeStore();</span>
+<span class="nc" id="L79">        return store.getTestTypeList();</span>
+    }
+
+    public List&lt;ParameterCategory&gt; getParameterCategoryList(){
+<span class="nc" id="L83">        ParameterCategoryStore store = company.getParameterCategoryStore();</span>
+<span class="nc" id="L84">        return store.getParameterCategoryList();</span>
+    }
+
+    public List&lt;Parameter&gt; getParameterList(){
+<span class="nc" id="L88">        ParameterStore store = company.getParameterStore();</span>
+<span class="nc" id="L89">        return store.getParameterList();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
