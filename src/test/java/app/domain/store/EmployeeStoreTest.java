@@ -1,4 +1,4 @@
-/*package app.domain.store;
+package app.domain.store;
 
 import app.domain.model.Employee;
 import app.domain.model.SpecialistDoctor;
@@ -96,4 +96,3 @@ public class EmployeeStoreTest {
     }
 }
 
- */

@@ -1,4 +1,4 @@
-/*package app.domain.store;
+package app.domain.store;
 
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
@@ -107,5 +107,3 @@ public class TestTypeStoreTest {
     }
 
 }
-
- */

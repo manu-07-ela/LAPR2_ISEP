@@ -1,4 +1,4 @@
-/*package app.domain.store;
+package app.domain.store;
 
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
@@ -82,5 +82,3 @@ public class ParameterStoreTest {
         Assert.assertEquals(null,result);
     }
 }
-
- */

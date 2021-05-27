@@ -1,4 +1,4 @@
-/*package app.domain.store;
+package app.domain.store;
 
 import app.domain.model.attributes.OrganizationRole;
 import org.junit.Assert;
@@ -59,5 +59,3 @@ public class OrganizationRoleStoreTest {
         Assert.assertTrue(result);
     }
 }
-
- */
