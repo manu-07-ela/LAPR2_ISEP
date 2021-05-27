@@ -1,4 +1,5 @@
-/*ackage app.controller;
+/*
+package app.controller;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.Company;
@@ -106,4 +107,6 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
         boolean result = ctrl.saveClinicalAnalysisLaboratory();
         Assert.assertTrue(result);
     }
-}*/
+}
+
+ */
