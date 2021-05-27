@@ -1,4 +1,4 @@
-package app.domain.store;
+/*package app.domain.store;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.ParameterCategory;
@@ -150,3 +150,5 @@ public class ClinicalAnalysisLaboratoryStoreTest {
     }
 
 }
+
+ */
