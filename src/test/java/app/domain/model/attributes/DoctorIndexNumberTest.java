@@ -39,4 +39,7 @@ public class DoctorIndexNumberTest {
     }
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b3c9975c809d82a5f3c797c97ea3b449326966a
