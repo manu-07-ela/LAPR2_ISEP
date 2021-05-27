@@ -1,4 +1,4 @@
-package app.domain.store;
+/*package app.domain.store;
 
 import app.domain.model.ParameterCategory;
 import org.junit.Assert;
@@ -98,3 +98,5 @@ public class ParameterCategoryStoreTest {
 
 
 }
+
+ */
