@@ -1,3 +1,4 @@
+
 package app.domain.store;
 
 import app.domain.model.Employee;
@@ -46,7 +47,7 @@ public class EmployeeStoreTest {
     }
 
 
-   @Test
+    @Test
     public void validateValidEmployee() {
         boolean result1 = empStore.validateEmployee(emp);
         boolean result2 = empStore.validateEmployee(spcDoc);
