@@ -2,6 +2,7 @@ package app.domain.store;
 
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
+import com.example1.ExternalModule3API;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import static org.junit.Assert.*;
 
 public class TestTypeStoreTest {
 
+    String api;
     TestType tt;
     ParameterCategory pc;
     List<ParameterCategory> listPC;
@@ -21,17 +23,18 @@ public class TestTypeStoreTest {
 
     @Before
     public void setup(){
+        String api = "ExternalModule3Adapter";
         ttStore = new TestTypeStore();
         pc = new ParameterCategory("12A4D","Covid-19");
         listPC = new ArrayList();
         listPC.add(pc);
-        tt = new TestType ("12345","test","collecting",listPC);
+        tt = new TestType ("12345","test","collecting",listPC,api);
         listTT = new ArrayList();
     }
 
     @Test
     public void createTestType(){
-        TestType result = ttStore.createTestType("12345","test","collecting",listPC);
+        TestType result = ttStore.createTestType("12345","test","collecting",listPC,api);
         Assert.assertEquals(tt, result);
     }
 

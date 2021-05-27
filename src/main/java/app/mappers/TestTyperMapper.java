@@ -33,7 +33,7 @@ public class TestTyperMapper {
      * @return a TestTypeDTO
      */
     public TestTypeDTO toDTO(TestType obj){
-        return new TestTypeDTO(obj.getCode(), obj.getDescription(),obj.getCollectingMethod(),toDtopclist(obj.getListOfParameterCategories()));
+        return new TestTypeDTO(obj.getCode(), obj.getDescription(),obj.getCollectingMethod(),toDtopclist(obj.getListOfParameterCategories()), obj.getReferenceAdapter());
     }
 
     /**

@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestTyperMapperTest {
+
+    String api;
     ParameterCategoryDTO pcDto;
     ParameterCategory pc;
     TestType tt;
@@ -25,6 +27,8 @@ public class TestTyperMapperTest {
 
     @Before
     public void setup() {
+
+        String api = "ExternalModule3Adapter";
         pcDto = new ParameterCategoryDTO("12345", "test");
         pc = new ParameterCategory("12345", "test");
         listPC = new ArrayList();
@@ -32,8 +36,8 @@ public class TestTyperMapperTest {
         listPC.add(pc);
         listPCDto.add(pcDto);
 
-        tt = new TestType("98765", "test", "method", listPC);
-        ttDTO = new TestTypeDTO("98765", "test", "method", listPCDto);
+        tt = new TestType("98765", "test", "method", listPC,api);
+        ttDTO = new TestTypeDTO("98765", "test", "method", listPCDto,api);
 
 
         testTypeList = new ArrayList();

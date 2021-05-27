@@ -47,7 +47,7 @@ public class CreateClinicalAnalysisLaboratoryMapper {
      * @return a TestType
      */
     public TestType toDomain (TestTypeDTO testTypeDTO){
-        return new TestType (testTypeDTO.getCode(), testTypeDTO.getDescription(),testTypeDTO.getCollectingMethod(),toDomainpclist(testTypeDTO.getListOfParameterCategories()));
+        return new TestType (testTypeDTO.getCode(), testTypeDTO.getDescription(),testTypeDTO.getCollectingMethod(),toDomainpclist(testTypeDTO.getListOfParameterCategories()), testTypeDTO.getReferenceAdapter());
     }
 
     /**

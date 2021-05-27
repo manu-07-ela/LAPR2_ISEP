@@ -88,12 +88,12 @@ public class CreateTestTypeController {
      * @param listOfParameterCategoriesDto List of parameter categories that the test type has associated.
      * @return false if the test type already exists or is null. Otherwise, it returns true.
      */
-    public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategoryDTO> listOfParameterCategoriesDto){
+    public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategoryDTO> listOfParameterCategoriesDto,String referenceAdapter){
         List<ParameterCategory> listOfParameterCategories = new ArrayList();
         for ( ParameterCategoryDTO pcDto : listOfParameterCategoriesDto){
             listOfParameterCategories.add(pcStore.getParameterCategoryByCode(pcDto.getCode()));
         }
-        this.tt=ttStore.createTestType(code,description,collectingMethod,listOfParameterCategories);
+        this.tt=ttStore.createTestType(code,description,collectingMethod,listOfParameterCategories,referenceAdapter);
         return this.ttStore.validateTestType(tt);
     }
 
