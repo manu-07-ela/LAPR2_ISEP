@@ -22,12 +22,13 @@ public class TestDTO {
     private String description;
 
     /**
-     * Builds a DTO test instantiation by receiving one test per meter
-     * @param test the test that will be copied
+     * Creates a new instance of TestDto with the following attributes: internal code and description.
+     * @param internalCode internal test code.
+     * @param description test description.
      */
-    public TestDTO(Test test) {
-        this.internalCode = test.getInternalCode();
-        this.description = test.getTestType().getCollectingMethod();
+    public TestDTO(String internalCode, String description) {
+        this.internalCode = internalCode;
+        this.description = description;
     }
 
     /**

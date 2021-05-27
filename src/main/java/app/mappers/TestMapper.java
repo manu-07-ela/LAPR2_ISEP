@@ -21,7 +21,7 @@ public class TestMapper {
      * @return an instance of TestDTO
      */
     public TestDTO toDto(Test test){
-        return new TestDTO(test);
+        return new TestDTO(test.getInternalCode(),test.getDescription());
     }
 
     /**
