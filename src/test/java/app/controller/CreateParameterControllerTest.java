@@ -1,4 +1,4 @@
-/*package app.controller;
+package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.Parameter;
@@ -76,4 +76,4 @@ public class CreateParameterControllerTest {
     }
 
 
-}*/
+}

@@ -1,4 +1,4 @@
-/*package app.controller;
+package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.Employee;
@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,10 +92,10 @@ public class RegisterEmployeeControllerTest {
         Assert.assertTrue(result);
     }
 
-    /*
-    @Test
+
+    /*@Test
     public void transformEmployeeInUser() throws IOException {
         boolean result = controller.transformEmployeeInUser(controller.createEmployee(employeeDTO1));
         Assert.assertTrue(result);
-    }
-}*/
+    }*/
+}
