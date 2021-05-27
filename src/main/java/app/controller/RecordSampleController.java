@@ -96,7 +96,7 @@ public class RecordSampleController {
         String barcodeNumber = df.format(instancesOfBarcode);
         ExternalModuleBarcode api = getExternalModule();
         instancesOfBarcode++;
-        return api.getBarcode(df.format(barcodeNumber));
+        return api.getBarcode(barcodeNumber);
     }
 
     /**

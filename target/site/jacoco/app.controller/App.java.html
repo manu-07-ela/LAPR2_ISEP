@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.controller</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package app.controller;
+
+import app.domain.model.Company;
+import app.domain.shared.Constants;
+import auth.AuthFacade;
+import auth.UserSession;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+/**
+ *
+ * @author Paulo Maio &lt;pam@isep.ipp.pt&gt;
+ */
+public class App {
+
+    private Company company;
+    private AuthFacade authFacade;
+
+    private App()
+<span class="nc" id="L23">    {</span>
+<span class="nc" id="L24">        Properties props = getProperties();</span>
+<span class="nc" id="L25">        this.company = new Company(props.getProperty(Constants.PARAMS_COMPANY_DESIGNATION));</span>
+<span class="nc" id="L26">        this.authFacade = this.company.getAuthFacade();</span>
+<span class="nc" id="L27">        bootstrap();</span>
+<span class="nc" id="L28">    }</span>
+
+    public Company getCompany()
+    {
+<span class="nc" id="L32">        return this.company;</span>
+    }
+
+
+    public UserSession getCurrentUserSession()
+    {
+<span class="nc" id="L38">        return this.authFacade.getCurrentUserSession();</span>
+    }
+
+    public boolean doLogin(String email, String pwd)
+    {
+<span class="nc" id="L43">        return this.authFacade.doLogin(email,pwd).isLoggedIn();</span>
+    }
+
+    public void doLogout()
+    {
+<span class="nc" id="L48">        this.authFacade.doLogout();</span>
+<span class="nc" id="L49">    }</span>
+
+    private Properties getProperties()
+    {
+<span class="nc" id="L53">        Properties props = new Properties();</span>
+
+        // Add default properties and values
+<span class="nc" id="L56">        props.setProperty(Constants.PARAMS_COMPANY_DESIGNATION, &quot;Many Labs&quot;);</span>
+
+
+        // Read configured values
+        try
+        {
+<span class="nc" id="L62">            InputStream in = new FileInputStream(Constants.PARAMS_FILENAME);</span>
+<span class="nc" id="L63">            props.load(in);</span>
+<span class="nc" id="L64">            in.close();</span>
+        }
+<span class="nc" id="L66">        catch(IOException ex)</span>
+        {
+
+<span class="nc" id="L69">        }</span>
+<span class="nc" id="L70">        return props;</span>
+    }
+
+
+    private void bootstrap()
+    {
+<span class="nc" id="L76">        this.authFacade.addUserRole(Constants.ROLE_ADMIN,Constants.ROLE_ADMIN);</span>
+<span class="nc" id="L77">        this.authFacade.addUserRole(Constants.ROLE_RECP,Constants.ROLE_RECP);</span>
+<span class="nc" id="L78">        this.authFacade.addUserRole(Constants.ROLE_MED_LAB_TEC,Constants.ROLE_MED_LAB_TEC);</span>
+<span class="nc" id="L79">        this.authFacade.addUserRole(Constants.ROLE_CLI_CHE_TEC,Constants.ROLE_CLI_CHE_TEC);</span>
+<span class="nc" id="L80">        this.authFacade.addUserRole(Constants.ROLE_SPE_DOCTOR,Constants.ROLE_SPE_DOCTOR);</span>
+<span class="nc" id="L81">        this.authFacade.addUserRole(Constants.ROLE_LAB_COD, Constants.ROLE_LAB_COD);</span>
+
+<span class="nc" id="L83">        this.authFacade.addUserWithRole(&quot;Main Administrator&quot;, &quot;admin@lei.sem2.pt&quot;, &quot;123456&quot;,Constants.ROLE_ADMIN);</span>
+<span class="nc" id="L84">        this.authFacade.addUserWithRole(&quot;Specialist Doctor&quot;,&quot;doctor@manylabs.pt&quot;,&quot;654321&quot;,Constants.ROLE_SPE_DOCTOR);</span>
+<span class="nc" id="L85">        this.authFacade.addUserWithRole(&quot;Receptionist&quot;, &quot;rep@manylabs.pt&quot;, &quot;abcdef&quot;, Constants.ROLE_RECP);</span>
+<span class="nc" id="L86">        this.authFacade.addUserWithRole(&quot;Medical lab Technician&quot;, &quot;medLabtec@manylabs.pt&quot;, &quot;01928&quot;, Constants.ROLE_MED_LAB_TEC);</span>
+<span class="nc" id="L87">    }</span>
+
+    // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2
+<span class="nc" id="L90">    private static App singleton = null;</span>
+    public static App getInstance()
+    {
+<span class="nc bnc" id="L93" title="All 2 branches missed.">        if(singleton == null)</span>
+        {
+<span class="nc" id="L95">            synchronized(App.class)</span>
+            {
+<span class="nc" id="L97">                singleton = new App();</span>
+<span class="nc" id="L98">            }</span>
+        }
+<span class="nc" id="L100">        return singleton;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,4 +1,5 @@
 app\domain\model\TestTypeTest.class
+app\mappers\dto\ClientDTOTest.class
 app\domain\store\ClientStoreTest.class
 app\domain\store\TestTypeStoreTest.class
 app\domain\store\ClinicalAnalysisLaboratoryStoreTest.class
@@ -13,7 +14,6 @@ app\mappers\CreateClinicalAnalysisLaboratoryMapperTest.class
 app\domain\model\attributes\PhoneNumberTest.class
 app\mappers\TestTyperMapperTest.class
 app\domain\model\EmployeeTest.class
-app\mappers\dto\ClientDtoTest.class
 app\domain\model\ParameterCategoryTest.class
 app\controller\CreateClinicalAnalysisLaboratoryControllerTest.class
 app\controller\RegisterEmployeeControllerTest.class

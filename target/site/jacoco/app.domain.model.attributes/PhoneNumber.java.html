@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PhoneNumber.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model.attributes</a> &gt; <span class="el_source">PhoneNumber.java</span></div><h1>PhoneNumber.java</h1><pre class="source lang-java linenums">package app.domain.model.attributes;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Objects;
+
+/**
+ * Represents a phone number of an employee
+ * @author Manuela Leite &lt;1200720@isep.ipp.pt&gt;
+ */
+
+public class PhoneNumber {
+
+    /**
+     * The phone number of an employee
+     */
+    private String number;
+
+    /**
+     * Builds a phone number instance by receiving an phone number by parameter
+     * @param number
+     */
+<span class="nc" id="L23">    public PhoneNumber(String number) {</span>
+<span class="nc" id="L24">        checkRulesForPhoneNumber(number);</span>
+<span class="nc" id="L25">        this.number = number;</span>
+<span class="nc" id="L26">    }</span>
+
+    /**
+     * Copy builder of phone number
+     * @param number the phone number
+     */
+<span class="nc" id="L32">    public PhoneNumber(PhoneNumber number){</span>
+<span class="nc" id="L33">        this.number = number.getNumber();</span>
+<span class="nc" id="L34">    }</span>
+
+    /**
+     * Get the phone number
+     * @return the phone number
+     */
+    public String getNumber() {
+<span class="nc" id="L41">        return number;</span>
+    }
+
+    /**
+     * Checks if the business rules applied to the phone number are respected
+     * @param phoneNumber the phone number
+     */
+    private void checkRulesForPhoneNumber(String phoneNumber){
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (StringUtils.isBlank(phoneNumber)) throw  new NullPointerException(&quot;ERROR: Phone number can't be blank.&quot;);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (!StringUtils.isNumeric(phoneNumber)) throw new IllegalArgumentException(&quot;ERROR: Phone number is numeric only.&quot;);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if(phoneNumber.length() != 11) throw  new IllegalArgumentException(&quot;ERROR: Phone number must have 11 digits.&quot;);</span>
+<span class="nc" id="L52">    }</span>
+
+    /**
+     * Compare the phone number with other object received
+     * @param other Object we want to compare with the phone number
+     * @return true if the received object represents another phone number equivalent to the phone number. Otherwise, it returns false.
+     */
+    @Override
+    public boolean equals(Object other) {
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (this == other) return true;</span>
+<span class="nc bnc" id="L62" title="All 4 branches missed.">        if (other == null || getClass() != other.getClass()) return false;</span>
+<span class="nc" id="L63">        PhoneNumber that = (PhoneNumber) other;</span>
+<span class="nc" id="L64">        return Objects.equals(number, that.number);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
