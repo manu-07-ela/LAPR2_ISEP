@@ -1,4 +1,4 @@
-/*package app.controller;
+package app.controller;
 
 import app.domain.model.Client;
 import app.domain.model.Company;
@@ -54,4 +54,4 @@ public class CreateClientControllerTest {
         Assert.assertFalse(result);
     }
 
-}*/
+}
