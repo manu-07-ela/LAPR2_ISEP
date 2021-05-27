@@ -2,12 +2,7 @@ package app.ui.console;
 
 import app.controller.RegisterTestController;
 import app.domain.model.*;
-import app.domain.model.attributes.Name;
 import app.domain.model.attributes.NhsCode;
-import app.mappers.dto.ParameterCategoryDTO;
-import app.mappers.dto.ParameterDTO;
-import app.mappers.dto.TestParameterDTO;
-import app.mappers.dto.TestTypeDTO;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
@@ -58,83 +53,85 @@ public class RegisterTestUI implements Runnable{
         boolean dadosInvalidos=true;
         do {
             try {
-                    System.out.printf("%nType the Tax identification number of the user you want to register a Test on%n");
-                    Client cl;
-                    List<TestParameter> listpm = new ArrayList<>();
-                    String resposta;
-                    do {
-                        String tin = Utils.readLineFromConsole("Tax identification number: ");
-                        cl= registerTestctrl.getClient(tin);
-                        if (cl == null){
-                            throw new IllegalArgumentException("That Tax identification number isnt registered in the system.");
-                        }
-                        System.out.println();
-                        System.out.println("Is this the client that you want to register a test on?");
-                        System.out.println("Name:" + cl.getName());
-                        System.out.println("Citizen card number: " + cl.getCitizencardnumber());
-                        System.out.println("National Healthcare Service number: " + cl.getNhs());
-                        System.out.println("Birth Date: " + cl.getDate());
-                        System.out.println("Gender: " + cl.getSex());
-                        System.out.println("Tax identification number: " + cl.getTin());
-                        System.out.println("Phone number: " + cl.getPhonenumber());
-                        System.out.println("Email: " + cl.getEmail());
-                        resposta = Utils.readLineFromConsole("S/N:");
-                    } while(resposta.equalsIgnoreCase("S"));
-                    NhsCode nhscode = nhscode();
-                    System.out.printf("Do you want to register a test with the National Healthcare Service code %s ?",nhscode);
+                System.out.printf("%nType the Tax identification number of the user you want to register a Test on%n");
+                Client cl;
+                List<TestParameter> listpm = new ArrayList<>();
+                String resposta;
+                do {
+                    String tin = Utils.readLineFromConsole("Tax identification number: ");
+                    cl= registerTestctrl.getClient(tin);
+                    if (cl == null){
+                        throw new IllegalArgumentException("That Tax identification number isnt registered in the system.");
+                    }
+                    System.out.println();
+                    System.out.println("Is this the client that you want to register a test on?");
+                    System.out.println("Name:" + cl.getName());
+                    System.out.println("Citizen card number: " + cl.getCitizencardnumber());
+                    System.out.println("National Healthcare Service number: " + cl.getNhs());
+                    System.out.println("Birth Date: " + cl.getDate());
+                    System.out.println("Gender: " + cl.getSex());
+                    System.out.println("Tax identification number: " + cl.getTin());
+                    System.out.println("Phone number: " + cl.getPhonenumber());
+                    System.out.println("Email: " + cl.getEmail());
                     resposta = Utils.readLineFromConsole("S/N:");
-                    if (resposta.equalsIgnoreCase("S")) {
+                } while(resposta.equalsIgnoreCase("S"));
+                NhsCode nhscode = nhscode();
+                System.out.printf("Do you want to register a test with the National Healthcare Service code %s ?",nhscode);
+                resposta = Utils.readLineFromConsole("S/N:");
+                if (resposta.equalsIgnoreCase("S")) {
 
-                        //TEST TYPE
-                        Utils.showList(registerTestctrl.getTestTypeList(), "Choose what kind of Test Type should be registered");
+                    //TEST TYPE
+                    Utils.showList(registerTestctrl.getTestTypeList(), "Choose what kind of Test Type should be registered");
 
-                        Object option = Utils.selectsObject(registerTestctrl.getTestTypeList());
+                    Object option = Utils.selectsObject(registerTestctrl.getTestTypeList());
+                    if (option == null) {
+                        throw new IllegalArgumentException("The Test Type list mustn't be empty");
+                    }
+                    TestType tt = (TestType) option;
+
+                    //Parameter Category
+                    do {
+                        Utils.showList(registerTestctrl.getParameterCategoryList(), "Choose what kind of Parameter Categories should be associated with the test");
+
+                        option = Utils.selectsObject(registerTestctrl.getParameterCategoryList());
                         if (option == null) {
-                            throw new IllegalArgumentException("The Test Type list mustn't be empty");
+                            throw new IllegalArgumentException("The Parameter Category list mustn't be empty");
                         }
-                        TestType tt = (TestType) option;
+                        registerTestctrl.getParameterCategoryList().remove(option);
+                        //Parameter
 
-                        //Parameter Category
                         do {
-                            Utils.showList(registerTestctrl.getParameterCategoryList(), "Choose what kind of Parameter Categories should be associated with the test");
+                            Utils.showList(registerTestctrl.getParameterList(), "Choose what kind of Parameters should be associated with the test");
 
-                            option = Utils.selectsObject(registerTestctrl.getParameterCategoryList());
+                            option = Utils.selectsObject(registerTestctrl.getParameterList());
+                            registerTestctrl.getParameterList().remove(option);
                             if (option == null) {
-                                throw new IllegalArgumentException("The Parameter Category list mustn't be empty");
+                                throw new IllegalArgumentException("The Parameter list mustn't be empty");
                             }
-                            //Parameter
-
-                            do {
-                                Utils.showList(registerTestctrl.getParameterList(), "Choose what kind of Parameters should be associated with the test");
-
-                                option = Utils.selectsObject(registerTestctrl.getParameterList());
-                                registerTestctrl.getParameterList().remove(option);
-                                if (option == null) {
-                                    throw new IllegalArgumentException("The Parameter list mustn't be empty");
-                                }
-                                Parameter pm = (Parameter) option;
-                                TestParameter tpm = new TestParameter(pm);
-                                listpm.add(tpm);
-                                System.out.println("Do you want to choose another Parameter?");
-                                resposta = Utils.readLineFromConsole("S/N:");
-                            } while (resposta.equalsIgnoreCase("S"));
-                            System.out.println("Do you want to choose another Parameter Categorie?");
+                            Parameter pm = (Parameter) option;
+                            TestParameter tpm = new TestParameter(pm);
+                            listpm.add(tpm);
+                            System.out.println("Do you want to choose another Parameter?");
                             resposta = Utils.readLineFromConsole("S/N:");
                         } while (resposta.equalsIgnoreCase("S"));
-
-                        registerTestctrl.createTest(cl,nhscode,tt,listpm);
-                        System.out.printf("Do you want to register the test?");
+                        System.out.println("Do you want to choose another Parameter Category?");
                         resposta = Utils.readLineFromConsole("S/N:");
-                        if (resposta.equalsIgnoreCase("S")) {
-                            if (registerTestctrl.saveTest()) {
-                                System.out.printf("%nThe test was registered successfully%n");
-                            }
+                    } while (resposta.equalsIgnoreCase("S"));
+
+                    registerTestctrl.createTest(cl,nhscode,tt,listpm);
+                    System.out.printf("Do you want to register the test?");
+                    resposta = Utils.readLineFromConsole("S/N:");
+                    if (resposta.equalsIgnoreCase("S")) {
+                        if (registerTestctrl.saveTest()) {
+                            System.out.printf("%nThe test was registered successfully%n");
                         }
                     }
-                }catch(IllegalArgumentException e){
-                    System.out.printf("%nMessage: %s%n", e.getMessage());
                 }
+            }catch(IllegalArgumentException e){
+                System.out.printf("%nMessage: %s%n", e.getMessage());
+            }
         }while (dadosInvalidos);
     }
 
 }
+
