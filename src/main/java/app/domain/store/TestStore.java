@@ -74,7 +74,7 @@ public class TestStore {
         if (!validateTest(t)){
             return false;
         }else{
-            return this.addTest(t);
+            return testList.add(t);
         }
     }
 
