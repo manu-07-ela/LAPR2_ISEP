@@ -7,27 +7,7 @@ import java.util.*;
 /**
  * @author Carlos Rodrigues <1201001@isep.ipp.pt>
  */
-public class ClinicalAnalysisLaboratory  {
-
-    /**
-     * Clinical Analysis Laboratory's name
-     */
-    private String name;
-
-    /**
-     * Clinical Analysis Laboratory's address
-     */
-    private String address;
-
-    /**
-     * Clinical Analysis Laboratory's phone number
-     */
-    private String phoneNumber;
-
-    /**
-     * Clinical Analysis Laboratory's tax identification number
-     */
-    private String tin;
+public class ClinicalAnalysisLaboratory extends Laboratory {
 
     /**
      * Clinical Analysis Laboratory's ID
@@ -50,16 +30,9 @@ public class ClinicalAnalysisLaboratory  {
      * @param listOfTestTypes         List of Test Type that the Clinical Analysis Laboratory does
      */
     public ClinicalAnalysisLaboratory(String name, String address, String phoneNumber , String tin, String laboratoryId, List<TestType> listOfTestTypes){
-        nameValidation(name);
-        AddressValidation(address);
-        phoneNumberValidation(phoneNumber);
-        tinValidation(tin);
+        super(name,address,phoneNumber,tin);
         laboratoryIdValidation(laboratoryId);
         listOfTestTypesValidation(listOfTestTypes);
-        this.name=name;
-        this.address=address;
-        this.phoneNumber=phoneNumber;
-        this.tin=tin;
         this.laboratoryId=laboratoryId;
         this.listOfTestTypes= listOfTestTypes;
     }
@@ -71,6 +44,7 @@ public class ClinicalAnalysisLaboratory  {
     public String getLaboratoryId() {
         return laboratoryId;
     }
+
     /**
      *  Get the list of Test Types of the Clinical Analysis Laboratory
      * @return List of Test Type that the Clinical Analysis Laboratory
@@ -80,73 +54,6 @@ public class ClinicalAnalysisLaboratory  {
     }
 
     /**
-     * Get the name of the Clinical Analysis Laboratory
-     * @return  Clinical Analysis Laboratory's name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Get the address of the Clinical Analysis Laboratory
-     * @return Clinical Analysis Laboratory's address
-     */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * Get the Phone Number of the Clinical Analysis Laboratory
-     * @return Clinical Analysis Laboratory's Phone Number
-     */
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-    /**
-     * Get the tax identification number of the Clinical Analysis Laboratory
-     * @return Clinical Analysis Laboratory's tax identification number
-     */
-    public String getTin() {
-        return tin;
-    }
-    /**
-     * Checks whether the name contains all business rules
-     * @param name   Clinical Analysis Laboratory's name
-     */
-    private void nameValidation(String name){
-        if (StringUtils.isBlank(name) || name.length()>20){
-            throw  new IllegalArgumentException("The name mustn't have more than 20 characters and cannot be blank");
-        }
-
-    }
-    /**
-     * Checks whether the address contains all business rules
-     * @param address     Clinical Analysis Laboratory's address
-     */
-    private void AddressValidation(String address){
-        if (StringUtils.isBlank(address) || address.length()>30 ){
-            throw  new IllegalArgumentException("The address mustn't have more than 30 characters and cannot be blank");
-        }
-    }
-    /**
-     * Checks whether the Phone Number contains all business rules
-     * @param phoneNumber Clinical Analysis Laboratory's phone number
-     */
-    private void phoneNumberValidation(String phoneNumber){
-        if (StringUtils.isBlank(phoneNumber) || phoneNumber.length()!=11){
-            throw  new IllegalArgumentException("Phone number is a number with 11 digits");
-        }
-    }
-    /**
-     * Checks whether the tax identification number contains all business rules
-     * @param tin Clinical Analysis Laboratory's tax identification number
-     */
-    private void tinValidation(String tin){
-        if (StringUtils.isBlank(tin) || tin.length()!=10){
-            throw  new IllegalArgumentException("Tin is a number with 10 digits");
-        }
-    }
-    /**
      * Checks whether the LaboratoryId contains all business rule
      * @param laboratoryId Clinical Analysis Laboratory's ID
      */
@@ -155,6 +62,7 @@ public class ClinicalAnalysisLaboratory  {
             throw new IllegalArgumentException("The laboratoryId must have only 5 alphanumeric characters");
         }
     }
+
     /**
      * Checks whether the LaboratoryId contains all business rule
      * @param listOfTestTypes List of Test Type that the Clinical Analysis Laboratory does
