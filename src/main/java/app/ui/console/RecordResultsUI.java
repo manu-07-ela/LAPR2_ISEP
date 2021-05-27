@@ -20,20 +20,20 @@ public class RecordResultsUI implements  Runnable {
     @Override
     public void run() {
 
-        //if (controller.PossibilityOfRecordResult()){
-         //   System.out.println("There are no tests available to record it's results");
-        //}else {
+        if (controller.PossibilityOfRecordResult()){
+            System.out.println("There are no tests available to record it's results");
+        }else {
             System.out.println("\nRecording the Results");
             RecordResults();
-        //}
+        }
     }
 
 
     public  void RecordResults(){
         try {
-            //String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
-            // List<TestParameterDTO> listaDeParametros = controller.getTestParameterList(barcode);
-            List<TestParameter> listaDeParametros = new ArrayList<>();
+            String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
+            List<TestParameterDTO> listaDeParametros = controller.getTestParameterList(barcode);
+           /* List<TestParameter> listaDeParametros = new ArrayList<>();
             ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
             List<ParameterCategory> listPC = new ArrayList();
             listPC.add(pc);
@@ -55,10 +55,18 @@ public class RecordResultsUI implements  Runnable {
             Test test = new Test(la,nhs,tt,listaDeParametros);
             int i=0;
             controller.setTest(test);
-            while (i <= listaDeParametrosDTO.size()){
-                Utils.showList(listaDeParametrosDTO,"Choose the Parameter you want to register the results");
-                TestParameterDTO parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametrosDTO);
 
+            */
+            int i=0;
+            while (i <= listaDeParametros.size()){
+                TestParameterDTO parameter;
+                do {
+                    Utils.showList(listaDeParametros, "Choose the Parameter you want to register the results");
+                    parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
+                    if (parameter==null){
+                        System.out.println("You must choose a parameter to record it's results");
+                    }
+                }while (parameter==null);
                 String result;
                 String metric;
                 String resposta;
@@ -76,32 +84,22 @@ public class RecordResultsUI implements  Runnable {
                 }while (!resposta.equalsIgnoreCase("S"));
 
                 if (controller.addTestResult(parameter.getParameterId(),result,metric)){
-                    listaDeParametrosDTO.remove(parameter);
+                    listaDeParametros.remove(parameter);
                     i++;
-                    System.out.println("fregthjyuiy");
-                    System.out.println(test.toString());
-                    System.out.println(test.getState());
                 }else {
                     throw new IllegalArgumentException("The Results were not added");
                 }
-
             }
-
-
-
-
+            System.out.println("The results were successful added");
 
         }catch (IllegalArgumentException e){
             System.out.printf("%n Message: %s%n",e.getMessage());
         } catch (IllegalAccessException e) {
             e.printStackTrace();
-            System.out.println("vuyguyugguy");
         } catch (InstantiationException e) {
             e.printStackTrace();
-            System.out.println("vuyguyugguy");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            System.out.println("vuyguyugguy");
         }
 
 
