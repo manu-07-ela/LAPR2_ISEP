@@ -1,6 +1,7 @@
 package app.domain.model;
 
 
+import app.domain.model.attributes.NhsCode;
 import app.domain.store.TestStore;
 import app.mappers.dto.TestDTO;
 import org.apache.commons.lang3.StringUtils;
@@ -22,7 +23,7 @@ public class Test {
     /**
      * Client's National Healthcare Service code
      */
-    private String nhscode;
+    private NhsCode nhscode;
     /**
      * A list of TestParameters
      */
@@ -79,10 +80,9 @@ public class Test {
      */
     private LabCoordinatorValidation lcv;
 
-    public Test(Client cl, String nhscode, TestType testType, List<TestParameter> testParameterList) {
-        nhscodeValidation(nhscode);
+    public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList) {
         this.client = cl;
-        this.nhscode = nhscode;
+        this.nhscode = new NhsCode(nhscode);
         this.testType = testType;
         this.testParameterList = testParameterList;
         this.state = StateOfTest.TestRegistered;
@@ -112,7 +112,7 @@ public class Test {
         return client;
     }
 
-    public String getNhscode() {
+    public NhsCode getNhscode() {
         return nhscode;
     }
 

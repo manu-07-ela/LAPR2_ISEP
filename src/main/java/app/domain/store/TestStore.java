@@ -4,6 +4,8 @@ import app.domain.model.Client;
 import app.domain.model.Test;
 import app.domain.model.TestParameter;
 import app.domain.model.TestType;
+import app.domain.model.attributes.NhsCode;
+
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +59,7 @@ public class TestStore {
         return !this.testList.contains(test);
     }
 
-    public Test createTest(Client cl, String nhscode, TestType testType, List<TestParameter> testParameterList){
+    public Test createTest(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList){
         return new Test(cl,nhscode,testType,testParameterList);
    }
 
