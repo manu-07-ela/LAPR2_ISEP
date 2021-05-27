@@ -138,9 +138,12 @@ public class Test {
         return description;
     }
 
+
     public MedicalReport getMedicalReport() { return this.md;}
 
     public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
+
+    public List<Sample> getSamples() { return samples; }
 
     private void nhscodeValidation(String nhscode) {
         if (!StringUtils.isNumeric(nhscode))
@@ -168,13 +171,8 @@ public class Test {
         Boolean la=false;
         for (TestParameter testParameter: testParameterList) {
             if (testParameter.getParameterId().equals(parameterID)){
-                System.out.println("sdfghkil");
-
-                //testType.getExternalModule().getReferenceValue(testParameter.getParameterId());
                     la =  testParameter.AddResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
-
                 if (!la){
-
                     return false;
                 }
                 countAddResult++;

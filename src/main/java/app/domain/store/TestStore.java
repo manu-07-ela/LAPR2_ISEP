@@ -1,9 +1,6 @@
 package app.domain.store;
 
-import app.domain.model.Client;
-import app.domain.model.Test;
-import app.domain.model.TestParameter;
-import app.domain.model.TestType;
+import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -42,10 +39,16 @@ public class TestStore {
      *
      * @return
      */
-  //  private Test getTestByBarcode(){
-
-
-    //}
+    public Test getTestByBarcode(String barcodenumber){
+        for (Test test: testList ) {
+            for (Sample sample: test.getSamples() ) {
+                if (sample.getBarcode().getBarcodeNumber().equals(barcodenumber)){
+                    return test;
+                }
+            }
+        }
+        return null;
+    }
 
     /**
      * Global validation of a Test
