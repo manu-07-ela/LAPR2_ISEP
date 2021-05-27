@@ -1,7 +1,7 @@
-package app.mappers.dto;
+/*package app.mappers.dto;
 
 import static org.junit.Assert.*;
 
 public class TestParameterDTOTest {
 
-}
+}*/
