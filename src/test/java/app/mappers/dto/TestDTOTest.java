@@ -1,4 +1,4 @@
-/*package app.mappers.dto;
+package app.mappers.dto;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,4 +13,4 @@ public class TestDTOTest {
 
     }
 
-}*/
+}
