@@ -1,4 +1,4 @@
-package app.controller;
+/*package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.ParameterCategory;
@@ -24,7 +24,6 @@ public class CreateTestTypeControllerTest {
     ParameterCategory pc;
     Company company;
     TestType tt;
-    /*
 
     @Before
     public void setup(){
@@ -39,7 +38,7 @@ public class CreateTestTypeControllerTest {
         pcDto = new ParameterCategoryDTO("12A4D","Covid-19");
         lpcDto.add(pcDto);
         ctrl = new CreateTestTypeController(company);
-        tt= new TestType("12345","test","collecting",lpc);
+        tt= new TestType("12345","test","collecting", lpc, );
     }
 
     @Test
@@ -76,6 +75,6 @@ public class CreateTestTypeControllerTest {
         Assert.assertFalse(result);
     }
 
-*/
 
-}
+
+}*/

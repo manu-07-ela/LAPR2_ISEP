@@ -60,6 +60,7 @@ app\mappers\ParameterMapper.class
 app\controller\ValidateWorkController.class
 auth\domain\model\User.class
 app\controller\CreateParameterController.class
+app\ui\console\LabCoordinatorUI.class
 app\mappers\dto\EmployeeDTO.class
 app\domain\store\OrganizationRoleStore.class
 app\domain\store\TestTypeStore.class
