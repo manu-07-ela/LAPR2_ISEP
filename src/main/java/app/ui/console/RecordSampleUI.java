@@ -1,10 +1,12 @@
 package app.ui.console;
 
+import app.controller.App;
 import app.controller.RecordSampleController;
-import app.domain.model.Sample;
-import app.domain.model.Test;
+import app.domain.model.*;
 import app.domain.model.attributes.BarcodeDomain;
+import app.domain.model.attributes.NhsCode;
 import app.mappers.dto.TestDTO;
+import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
 import java.io.IOException;
@@ -33,10 +35,33 @@ public class RecordSampleUI implements Runnable{
      */
     @Override
     public void run() {
+
+        /*List<TestParameter> listaDeParametros = new ArrayList<>();
+        ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
+        List<ParameterCategory> listPC = new ArrayList();
+        listPC.add(pc);
+        Parameter p = new Parameter("HB000","test","method", pc);
+        Parameter p2 = new Parameter("PLT00","test","method", pc);
+
+
+        TestParameterDTO temDto2 = new TestParameterDTO("frefrfe","PTL00");
+        List<TestParameterDTO> listaDeParametrosDTO = new ArrayList<>();
+        listaDeParametrosDTO.add(temDto2);
+
+        TestParameter tpm1 = new TestParameter(p);
+        TestParameter tpm2 = new TestParameter(p2);
+        listaDeParametros.add(tpm1);
+        listaDeParametros.add(tpm2);
+        Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
+        TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3Adapter");
+        NhsCode nhs = new NhsCode("123456789012");
+        Test test = new Test(la,nhs,tt,listaDeParametros);
+        TestDTO testDTO = new TestDTO(test);*/
+
         TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
         int loop = askTheAmountOfSamples(testDTO);
         List<BarcodeDomain> barcodes = generateBarcodes(loop);
-        Boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples?");
+        boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
         if (flag) associateBarcodesWithSamples(barcodes, testDTO);
 
     }
@@ -96,6 +121,7 @@ public class RecordSampleUI implements Runnable{
     private void associateBarcodesWithSamples(List<BarcodeDomain> barcodes, TestDTO testDTO){
         Sample sample;
         Test test = recordSampleController.getTestByInternalCode(testDTO);
+
         for (BarcodeDomain b : barcodes){
             sample = recordSampleController.associateBarcodeWithSample(b);
             recordSampleController.associateSamplesWithTest(test, sample);
