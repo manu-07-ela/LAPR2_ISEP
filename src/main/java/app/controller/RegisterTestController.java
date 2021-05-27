@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.*;
+import app.domain.model.attributes.NhsCode;
 import app.domain.store.*;
 import app.mappers.ClientMapper;
 import app.mappers.ParameterCategoryMapper;
@@ -60,7 +61,7 @@ public class RegisterTestController {
         clmapper = new ClientMapper();
     }
 
-    public boolean createTest(Client cl, String nhscode, TestType testType, List<TestParameter> testParameterList) {
+    public boolean createTest(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList) {
         this.t=tStore.createTest(cl,nhscode,testType,testParameterList);
         return this.tStore.validateTest(t);
     }

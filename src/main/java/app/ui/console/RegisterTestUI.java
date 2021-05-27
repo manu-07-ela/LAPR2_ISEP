@@ -2,6 +2,8 @@ package app.ui.console;
 
 import app.controller.RegisterTestController;
 import app.domain.model.*;
+import app.domain.model.attributes.Name;
+import app.domain.model.attributes.NhsCode;
 import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.ParameterDTO;
 import app.mappers.dto.TestParameterDTO;
@@ -34,6 +36,21 @@ public class RegisterTestUI implements Runnable{
         createTest();
     }
 
+    private NhsCode nhscode(){
+        boolean invalidData = true;
+        NhsCode nhscAux = null;
+        do{
+            try {
+                String nhsc = Utils.readLineFromConsole("National Healthcare Service code: ");
+                nhscAux = new NhsCode(nhsc);
+                invalidData = false;
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }while (invalidData);
+        return nhscAux;
+    }
+
     /**
      * Create an instance of client
      */
@@ -41,14 +58,15 @@ public class RegisterTestUI implements Runnable{
         boolean dadosInvalidos=true;
         do {
             try {
-                    System.out.printf("%nType the citizen card number of the user you want to register a Test on%n");
+                    System.out.printf("%nType the Tax identification number of the user you want to register a Test on%n");
                     Client cl;
                     List<TestParameter> listpm = new ArrayList<>();
+                    String resposta;
                     do {
-                        String citizencardnumber = Utils.readLineFromConsole("Citizen card number: ");
-                        cl= registerTestctrl.getClient(citizencardnumber);
+                        String tin = Utils.readLineFromConsole("Tax identification number: ");
+                        cl= registerTestctrl.getClient(tin);
                         if (cl == null){
-                            throw new IllegalArgumentException("That citizen card number isnt registered in the system.");
+                            throw new IllegalArgumentException("That Tax identification number isnt registered in the system.");
                         }
                         System.out.println();
                         System.out.println("Is this the client that you want to register a test on?");
@@ -60,12 +78,11 @@ public class RegisterTestUI implements Runnable{
                         System.out.println("Tax identification number: " + cl.getTin());
                         System.out.println("Phone number: " + cl.getPhonenumber());
                         System.out.println("Email: " + cl.getEmail());
-                        dadosInvalidos = false;
-                    } while (dadosInvalidos);
-                    String nhscode = Utils.readLineFromConsole("National Healthcare Service code: ");
-
+                        resposta = Utils.readLineFromConsole("S/N:");
+                    } while(resposta.equalsIgnoreCase("S"));
+                    NhsCode nhscode = nhscode();
                     System.out.printf("Do you want to register a test with the National Healthcare Service code %s ?",nhscode);
-                    String resposta = Utils.readLineFromConsole("S/N:");
+                    resposta = Utils.readLineFromConsole("S/N:");
                     if (resposta.equalsIgnoreCase("S")) {
 
                         //TEST TYPE
