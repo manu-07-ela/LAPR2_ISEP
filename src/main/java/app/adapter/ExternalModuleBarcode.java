@@ -14,5 +14,5 @@ public interface ExternalModuleBarcode {
      * Method that will generate and return the barcode that will be associated with a sample
      * @return A barcode
      */
-    BarcodeDomain getBarcode(String barcodeNumber) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, BarcodeException;
+    BarcodeDomain generateBarcode(String barcodeNumber) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, BarcodeException;
 }

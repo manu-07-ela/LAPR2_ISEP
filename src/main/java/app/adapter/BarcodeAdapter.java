@@ -9,7 +9,7 @@ import net.sourceforge.barbecue.BarcodeFactory;
 public class BarcodeAdapter implements ExternalModuleBarcode {
 
     @Override
-    public BarcodeDomain getBarcode(String barcodeNumber) throws BarcodeException {
+    public BarcodeDomain generateBarcode(String barcodeNumber) throws BarcodeException {
        Barcode barcode = BarcodeFactory.createUPCA(barcodeNumber);
        return new BarcodeDomain(barcode, barcodeNumber);
     }

@@ -139,17 +139,21 @@ automatically generated using an external API.
 ## 3. Design - User Story Realization 
 
 ### 3.1. Rationale
-
-**The rationale grounds on the SSD interactions and the identified input/output data.**
-
-| Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
-|:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
+|:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Step 1  		 | ... interacting with the actor?                                 | RecordSampleUI                | **Pure Fabrication**: none of the domain models classes had the responsability of interactiong with the user.                                                                                          |
+|                | ... coordinating the US?                                        | RecordSampleController        | **Controller**                                                                                                                                                                                         |
+| Step 2  		 | ... knowing the tests to show?                                  | TestStore                     | **Information Expert**: Owns the existing tests.                                                                                                                                                       |
+|                | ... process the data and convert it to dto                      | TestDTO                       | **DTO**: So that the UI can't interact directly with the domain.                                                                                                                                       |
+| Step 3  		 | ... saving the selected test?                                   | Sample                        | **Information Expert**: knowing to which test is associated                                                                                                                                            |
+| Step 4  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 5  		 | ... knowing the number of samples?                              | Test                          |**Information Expert**: knowing how many samples were collected.                                                                                                                                        |
+| 		         | ... instantiating a new Sample?                                 | Test                          | **Creator (R1)** and **HC+LC**: Applying the Creator (R1) would be in the "Company". But, by applying HC + LC to the "Company", this transfers the responsibility to the test class                    |
+|        		 | ... validating all data (local validation)?                     | Sample                        | IE: owns its data.                                                                                                                                                                                     |
+|        		 | ... validating all data (global validation)?                    | Test                          | IE: owns its data.                                                                                                                                                                                     |
+| Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 7  		 | ... validating all data (global validation)?                    | Test                          | IE: owns its data.                                                                                                                                                                                     |
+| Step 8  		 | ... informing operation success?                                | RecordSampleUI
 
 ### Systematization ##
 
@@ -164,6 +168,11 @@ According to the taken rationale, the conceptual classes promoted to software cl
 Other software classes (i.e. Pure Fabrication) identified: 
  * RecordSampleUI  
  * RecordSampleController
+ * TestStore
+ * SampleStore
+ * BarcodeAdapter
+ * TestMapper
+ * TestDTO
 
 ## 3.2. Sequence Diagram (SD)
 

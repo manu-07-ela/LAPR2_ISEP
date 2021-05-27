@@ -74,7 +74,7 @@ public class RecordSampleController {
      * @throws IllegalAccessException if I try to access a method of the class that I don't have permission
      */
     public ExternalModuleBarcode getExternalModule() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        Properties props = new Properties();
+        Properties props = App.getInstance().getPropeties();
         String classAux = props.getProperty("Controller.BarcodeAdapter.Class");
         Class<?> oClass = Class.forName(classAux);
         ExternalModuleBarcode api = (ExternalModuleBarcode) oClass.newInstance();
@@ -96,7 +96,7 @@ public class RecordSampleController {
         String barcodeNumber = df.format(instancesOfBarcode);
         ExternalModuleBarcode api = getExternalModule();
         instancesOfBarcode++;
-        return api.getBarcode(barcodeNumber);
+        return api.generateBarcode(barcodeNumber);
     }
 
     /**

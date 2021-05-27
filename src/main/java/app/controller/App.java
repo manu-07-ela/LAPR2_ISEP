@@ -69,7 +69,9 @@ public class App {
         }
         return props;
     }
-
+    public Properties getPropeties(){
+        return getPropeties();
+    }
 
     private void bootstrap()
     {
@@ -80,6 +82,7 @@ public class App {
         this.authFacade.addUserRole(Constants.ROLE_SPE_DOCTOR,Constants.ROLE_SPE_DOCTOR);
         this.authFacade.addUserRole(Constants.ROLE_LAB_COD, Constants.ROLE_LAB_COD);
 
+        this.authFacade.addUserWithRole("Clinical Chemistry Technologist", "cheTec@manylabs.pt", "carlos", Constants.ROLE_CLI_CHE_TEC);
         this.authFacade.addUserWithRole("Main Administrator", "admin@lei.sem2.pt", "123456",Constants.ROLE_ADMIN);
         this.authFacade.addUserWithRole("Specialist Doctor","doctor@manylabs.pt","654321",Constants.ROLE_SPE_DOCTOR);
         this.authFacade.addUserWithRole("Receptionist", "rep@manylabs.pt", "abcdef", Constants.ROLE_RECP);
