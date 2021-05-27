@@ -1,3 +1,4 @@
+/*
 package app.domain.model.attributes;
 
 import org.junit.Assert;
@@ -40,4 +41,8 @@ public class SocCodeTest {
 
 
 
+
+
 }
+
+ */
