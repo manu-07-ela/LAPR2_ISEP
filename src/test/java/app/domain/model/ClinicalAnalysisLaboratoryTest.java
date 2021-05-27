@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 
 public class ClinicalAnalysisLaboratoryTest {
 
+    String api;
     ParameterCategory pc1;
     ParameterCategory pc2;
     List<ParameterCategory> listPC1;
@@ -24,6 +25,8 @@ public class ClinicalAnalysisLaboratoryTest {
 
     @Before
     public void setup(){
+
+        String api = "ExternalModule3Adapter";
         pc1 = new ParameterCategory("12A4D","Covid-19");
         pc2 = new ParameterCategory("345vH","Covid-19");
         listPC1 = new ArrayList();
@@ -36,9 +39,9 @@ public class ClinicalAnalysisLaboratoryTest {
         listPC3.add(pc1);
         listPC3 = new ArrayList();
         listPC3.add(pc2);
-        tt1 = new TestType("98765","test","method",listPC1);
-        tt2 = new TestType("32424","Teste","swab",listPC2);
-        tt3 = new TestType("47832","Teste","swab",listPC3);
+        tt1 = new TestType("98765","test","method",listPC1,api);
+        tt2 = new TestType("32424","Teste","swab",listPC2,api);
+        tt3 = new TestType("47832","Teste","swab",listPC3,api);
 
         testTypeList = new ArrayList();
         testTypeList.add(tt1);

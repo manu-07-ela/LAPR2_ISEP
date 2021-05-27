@@ -19,6 +19,7 @@ import java.util.List;
 
 public class CreateClinicalAnalysisLaboratoryControllerTest {
 
+    String api;
     CreateClinicalAnalysisLaboratoryController ctrl;
     List<ParameterCategoryDTO> lpcDto;
     List<ParameterCategory> lpc;
@@ -38,6 +39,7 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
     @Before
     public void setup(){
         App app = App.getInstance();
+        String api = "ExternalModule3Adapter";
 
         company = new Company("Many Labs");
         lpcDto = new ArrayList();
@@ -54,11 +56,11 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
         lpcDto.add(pcDto);
 
         ctrl = new CreateClinicalAnalysisLaboratoryController(company);
-        tt= new TestType("12345","test","collecting",lpc);
+        tt= new TestType("12345","test","collecting",lpc,api);
         ttStore.addTestType(tt);
         ttlist = new ArrayList<>();
         ttlist.add(tt);
-        ttDTO = new TestTypeDTO("12345","test","collecting",lpcDto);
+        ttDTO = new TestTypeDTO("12345","test","collecting",lpcDto,api);
         ttlistDTO = new ArrayList<>();
         ttlistDTO.add(ttDTO);
 

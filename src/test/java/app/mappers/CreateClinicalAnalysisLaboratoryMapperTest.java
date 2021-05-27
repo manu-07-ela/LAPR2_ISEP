@@ -15,6 +15,7 @@ import java.util.List;
 
 public class CreateClinicalAnalysisLaboratoryMapperTest {
 
+    String api;
     ParameterCategoryDTO pcDto;
     ParameterCategory pc;
     TestType tt;
@@ -30,6 +31,8 @@ public class CreateClinicalAnalysisLaboratoryMapperTest {
 
     @Before
     public void setup(){
+
+        String api = "ExternalModule3Adapter";
         pcDto = new ParameterCategoryDTO("12345","test");
         pc = new ParameterCategory("12345","test");
         listPC = new ArrayList();
@@ -37,8 +40,8 @@ public class CreateClinicalAnalysisLaboratoryMapperTest {
         listPC.add(pc);
         listPCDto.add(pcDto);
 
-        tt = new TestType("98765","test","method",listPC);
-        ttDTO = new TestTypeDTO("98765","test","method",listPCDto);
+        tt = new TestType("98765","test","method",listPC,api);
+        ttDTO = new TestTypeDTO("98765","test","method",listPCDto,api);
 
 
         testTypeList = new ArrayList();

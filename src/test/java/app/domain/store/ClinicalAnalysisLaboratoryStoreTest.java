@@ -16,6 +16,7 @@ import java.util.List;
 
 public class ClinicalAnalysisLaboratoryStoreTest {
 
+    String api;
     TestType tt;
     ParameterCategory pc;
     List<ParameterCategory> listPC;
@@ -44,7 +45,7 @@ public class ClinicalAnalysisLaboratoryStoreTest {
     public void setup() {
         calStore = new ClinicalAnalysisLaboratoryStore();
         calMapper = new CreateClinicalAnalysisLaboratoryMapper();
-
+        String api = "ExternalModule3Adapter";
 
         pc1 = new ParameterCategory("12A4D","Covid-19");
         pc2 = new ParameterCategory("345vH","Covid-19");
@@ -62,10 +63,10 @@ public class ClinicalAnalysisLaboratoryStoreTest {
         listPC1DTO = new ArrayList<>();
         listPC1DTO.add(pcDto);
 
-        tt1 = new TestType("98765","test","method",listPC1);
-        tt2 = new TestType("32424","Teste","swab",listPC2);
-        tt3 = new TestType("47832","Teste","swab",listPC3);
-        tt1DTO = new TestTypeDTO("98765","test","method",listPC1DTO);
+        tt1 = new TestType("98765","test","method",listPC1,api);
+        tt2 = new TestType("32424","Teste","swab",listPC2,api);
+        tt3 = new TestType("47832","Teste","swab",listPC3,api);
+        tt1DTO = new TestTypeDTO("98765","test","method",listPC1DTO,api);
 
         testTypeList = new ArrayList();
         testTypeList.add(tt1);

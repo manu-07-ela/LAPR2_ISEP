@@ -44,6 +44,11 @@ public class CreateTestTypeUI implements Runnable {
      */
     public void createTestType(){
 
+        List <String> ListaDeAPI = new ArrayList();
+        ListaDeAPI.add("CovidReferenceValues1API");
+        ListaDeAPI.add("ExternalModule2API");
+        ListaDeAPI.add("ExternalModule3API");
+
         boolean dadosInvalidos=true;
 
         do{
@@ -78,7 +83,14 @@ public class CreateTestTypeUI implements Runnable {
                     }
                 } while (confirmation);
 
-                boolean result = createTestTypectrl.createTestType(code,description,collectingMethod,listOfParameterCategories);
+                Utils.showList(ListaDeAPI,"Choose the API the will generate it's reference values");
+                Object optionAPI = Utils.selectsObject(ListaDeAPI);
+                if (optionAPI == null){
+                    throw new IllegalArgumentException("There must be at least one API associated");
+                }
+                String api = (String) optionAPI;
+
+                boolean result = createTestTypectrl.createTestType(code,description,collectingMethod,listOfParameterCategories,api);
                 dadosInvalidos = false;
 
                 if(result){
