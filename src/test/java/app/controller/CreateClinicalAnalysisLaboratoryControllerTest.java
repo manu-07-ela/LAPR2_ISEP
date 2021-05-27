@@ -1,4 +1,4 @@
-package app.controller;
+/*ackage app.controller;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.Company;
@@ -53,7 +53,7 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
         pcDto = new ParameterCategoryDTO("12A4D","Covid-19");
         lpcDto.add(pcDto);
 
-        /*
+
         ctrl = new CreateClinicalAnalysisLaboratoryController(company);
         tt= new TestType("12345","test","collecting",lpc);
         ttStore.addTestType(tt);
@@ -62,7 +62,7 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
         ttDTO = new TestTypeDTO("12345","test","collecting",lpcDto);
         ttlistDTO = new ArrayList<>();
         ttlistDTO.add(ttDTO);
-        */
+
 
         cal = new ClinicalAnalysisLaboratory("Carlos","Rua das cavalas","12345678912","1234567891","12ki3",ttlist);
         calDTO = new ClinicalAnalysisLaboratoryDTO("Carlos","Rua das cavalas","12345678912","1234567891","12ki3",ttlistDTO);
@@ -70,11 +70,11 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
     }
 
 
-    /*@Test
+    @Test
     public void getTestTypeList(){
         List<TestTypeDTO> result = ctrl.getTestTypeList();
         Assert.assertEquals(ttlistDTO,result);
-    }*/
+    }
 
 
 
@@ -106,4 +106,4 @@ public class CreateClinicalAnalysisLaboratoryControllerTest {
         boolean result = ctrl.saveClinicalAnalysisLaboratory();
         Assert.assertTrue(result);
     }
-}
+}*/
