@@ -202,10 +202,59 @@ Other software classes (i.e. Pure Fabrication) identified:
 *It is also recommended to organize this content by subsections.* 
 
 # 5. Construction (Implementation)
+ 
+##Class RecordSamplesController
 
-*In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
+    /**
+     * Generates the date and time when the samples were associated with a test
+     * @param test the test that will be associated with the date and time of sample collection
+     */
+    public void generateDataAndTimeForSamplesCollected(Test test) {
+        testStore.generateDataAndTimeForSamplesCollected(test);
+    }
 
-*It is also recommended to organize this content by subsections.* 
+    /**
+     * After the samples are added to the test, it needs to change its status to SamplesCollected
+     * @param test the test that needs to change state
+     */
+    public void changeTheStatusOfTest(Test test){
+        testStore.changeTheStatusOfTest(test);
+    }
+
+##Class TestStore
+
+    /**
+     * Generates the date and time when the samples were associated with a test
+     * @param test the test that will be associated with the date and time of sample collection
+     */
+    public void generateDataAndTimeForSamplesCollected(Test test){
+        test.generateDataAndTimeForSamplesCollected();
+    }
+
+    /**
+     * After the samples are added to the test, it needs to change its status to SamplesCollected
+     * @param test the test that needs to change state
+     */
+    public void changeTheStatusOfTest(Test test){
+        test.changeStateForSamplesCollected();
+    }
+
+##Class Test
+
+    /**
+     * Change the status of a test for Samples collected
+     */
+    public void changeStateForSamplesCollected() {
+        this.state = StateOfTest.SamplesCollected;
+    }
+    /**
+    * Generates the date and time when the samples were associated with a test
+    */
+    public void generateDataAndTimeForSamplesCollected(){
+    this.samplesAddDate = Calendar.getInstance().getTime();
+    }
+
+
 
 # 6. Integration and Demo 
 

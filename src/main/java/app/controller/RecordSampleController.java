@@ -143,8 +143,8 @@ public class RecordSampleController {
      * Generates the date and time when the samples were associated with a test
      * @param test the test that will be associated with the date and time of sample collection
      */
-    public void generateDataAndTimeForSamplesCollected(Test test){
-        test.generateDataAndTimeForSamplesCollected();
+    public void generateDataAndTimeForSamplesCollected(Test test) {
+        testStore.generateDataAndTimeForSamplesCollected(test);
     }
 
     /**
@@ -152,7 +152,7 @@ public class RecordSampleController {
      * @param test the test that needs to change state
      */
     public void changeTheStatusOfTest(Test test){
-        test.changeStateForSamplesCollected();
+        testStore.changeTheStatusOfTest(test);
     }
 
 
