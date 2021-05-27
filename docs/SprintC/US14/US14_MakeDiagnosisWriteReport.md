@@ -14,6 +14,13 @@ As a specialist doctor, I intend to make the diagnosis and write a report for a 
 specialist doctor who makes a diagnosis and writes a report that afterwards will be delivered to the
 client.
 
+>To facilitate and simplify the validation work performed by the specialist doctor, the application
+uses an external module that is responsible for doing an automatic validation using test reference
+values.
+
+> Each test is characterized by [...] , the date and time of the diagnosis made
+by the specialist doctor, [...].
+
 **From the client clarifications:**
 
 > **Question:**<br /> Is there a limit of characters for the report and the diagnosis that will be made by the Specialist Doctor?

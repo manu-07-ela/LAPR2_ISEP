@@ -1,6 +1,7 @@
 package app.ui.console;
 
 import app.controller.WriteMedicalReportController;
+import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;
 
 /**
@@ -15,7 +16,7 @@ public class WriteMedicalReportUI implements Runnable{
     private WriteMedicalReportController writeMedicalReportctrl;
 
     /**
-     *
+     * Initializes the Write Medical Report Interface and the controller.
      */
     public WriteMedicalReportUI(){
         writeMedicalReportctrl = new WriteMedicalReportController();
@@ -27,25 +28,47 @@ public class WriteMedicalReportUI implements Runnable{
      */
     @Override
     public void run() {
-        writeMedicalReport();
+        try {
+            boolean flag;
+            do {
+                TestDTO selectedTest = (TestDTO) Utils.showAndSelectOne(writeMedicalReportctrl.getTestHasSamplesAnalyzedList(), "Select the desired test.");
+                Utils.showList(writeMedicalReportctrl.getTestParameterList(selectedTest), "The results of each analyzed parameter and the respective reference values.");
+                askTheMedicalReport();
+                if (writeMedicalReportctrl.getTestHasSamplesAnalyzedList().size() > 0){
+                    flag = Utils.confirm("Do you want to write any more medical report? (S/N)");
+                } else {
+                    flag = false;
+                }
+            }while (flag);
+        } catch (IllegalArgumentException e){
+            System.out.printf("%nMessage: %s%n" ,e.getMessage());
+        }
+
     }
 
     /**
-     *
+     * Asks the user for the medical report to be associated with the selected test.
      */
-    public void writeMedicalReport(){
-        try {
-            int testIndex = Utils.showAndSelectIndex(writeMedicalReportctrl.getTestHasSamplesAnalyzedList(),"Choose the test for which you want to make the diagnosis and write the report.");
-            Utils.showList(writeMedicalReportctrl.getTestParameterList(writeMedicalReportctrl.getTestHasSamplesAnalyzedList().get(testIndex)),"The results of each analyzed parameter and the respective reference values.");
+    public void askTheMedicalReport(){
+        boolean result = false;
+        boolean invalidData = true;
+        do {
             System.out.printf("%nInsert the medical test report%n");
             String diagnosis = Utils.readLineFromConsole("");
-            boolean confirm = Utils.confirm("Do you want to add this report to the test? (S/N)");
-            if (confirm){
-                writeMedicalReportctrl.addMedicalReport(diagnosis);
-                System.out.println("The medical report was successfully associated with the test.");
+            boolean flag = Utils.confirm("Do you really intend to associate these report with the test? (S/N)");
+            if (flag) {
+                try {
+                    result = writeMedicalReportctrl.addMedicalReport(diagnosis);
+                }catch (IllegalArgumentException e){
+                    System.out.printf("%nMessage: %s%n" ,e.getMessage());
+                }
+                invalidData = false;
             }
-        } catch (IllegalArgumentException e){
-            System.out.printf("%nMessage: %s%n" ,e.getMessage());
+        }while (invalidData);
+        if(result){
+            System.out.println("The medical report was successfully associated with the test.");
+        } else {
+            System.out.println("It was not possible to add the medical report to the test.");
         }
     }
 

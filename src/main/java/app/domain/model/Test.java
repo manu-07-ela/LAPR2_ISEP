@@ -1,7 +1,9 @@
 package app.domain.model;
 
-import org.apache.commons.lang3.StringUtils;
 
+import app.domain.store.TestStore;
+import app.mappers.dto.TestDTO;
+import org.apache.commons.lang3.StringUtils;
 import javax.xml.crypto.Data;
 import java.sql.Time;
 import java.util.Calendar;
@@ -72,6 +74,10 @@ public class Test {
      * The medical report of the test.
      */
     private MedicalReport md;
+    /**
+     * The lab coordinator validation of the test.
+     */
+    private LabCoordinatorValidation lcv;
 
     public Test(Client cl, String nhscode, TestType testType, List<TestParameter> testParameterList) {
         nhscodeValidation(nhscode);
@@ -80,6 +86,7 @@ public class Test {
         this.testType = testType;
         this.testParameterList = testParameterList;
         this.state = StateOfTest.TestRegistered;
+        this.internalCode = TestStore.generateInternalcode();
         this.description = testType.getCollectingMethod();
         this.md = null;
     }
@@ -174,6 +181,24 @@ public class Test {
         return false;
     }
 
+    public boolean validateWork(Test selectedTest) {
+        if (validateLabCoordinatorValidation()) {
+            this.lcv = new LabCoordinatorValidation();
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Global validation of a lab coordinator validation.
+     * @return false if the lab coordinator validation already exists. Otherwise, it returns true.
+     */
+    private boolean validateLabCoordinatorValidation() {
+        if (this.lcv != null) {
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Adds the samples to the test
      * @param sample the sample that will be added to the test
@@ -199,6 +224,7 @@ public class Test {
         }
         return true;
     }
+
 
 
 }

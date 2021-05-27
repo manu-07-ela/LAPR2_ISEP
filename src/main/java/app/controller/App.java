@@ -81,7 +81,7 @@ public class App {
         this.authFacade.addUserRole(Constants.ROLE_LAB_COD, Constants.ROLE_LAB_COD);
 
         this.authFacade.addUserWithRole("Main Administrator", "admin@lei.sem2.pt", "123456",Constants.ROLE_ADMIN);
-        this.authFacade.addUserWithRole("Specialist Doctor","doctor@many.labs.pt","654321",Constants.ROLE_SPE_DOCTOR);
+        this.authFacade.addUserWithRole("Specialist Doctor","doctor@manylabs.pt","654321",Constants.ROLE_SPE_DOCTOR);
         this.authFacade.addUserWithRole("Receptionist", "rep@manylabs.pt", "abcdef", Constants.ROLE_RECP);
         this.authFacade.addUserWithRole("Medical lab Technician", "medLabtec@manylabs.pt", "01928", Constants.ROLE_MED_LAB_TEC);
     }
