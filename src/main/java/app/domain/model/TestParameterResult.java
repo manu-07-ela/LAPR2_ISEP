@@ -48,5 +48,12 @@ public class TestParameterResult {
         return refValue;
     }
 
-
+    @Override
+    public String toString() {
+        return "TestParameterResult{" +
+                "metric='" + metric + '\'' +
+                ", result='" + result + '\'' +
+                ", refValue=" + refValue +
+                '}';
+    }
 }

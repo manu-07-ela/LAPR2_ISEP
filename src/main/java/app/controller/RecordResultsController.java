@@ -57,6 +57,10 @@ public class RecordResultsController {
     }
 */
 
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
     /**
      * It adds the result of the test
      * @param parameterID The code of the parameter
@@ -64,13 +68,9 @@ public class RecordResultsController {
      * @param metric The metric of the result
      * @return True if the result was added successful. Otherwise return False
      */
-    public boolean addTestResult(String parameterID,String result,String metric){
-        try {
-            test.addTestResult(parameterID, result, metric);
-            return true;
-        }catch (Exception e){
-            return false;
-        }
+    public boolean addTestResult(String parameterID,String result,String metric) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
+            return test.addTestResult(parameterID, result, metric);
+
     }
 
     /**

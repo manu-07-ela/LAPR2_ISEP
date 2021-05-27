@@ -1,7 +1,8 @@
 package app.ui.console;
 
 import app.controller.RecordResultsController;
-import app.domain.model.Parameter;
+import app.domain.model.*;
+import app.domain.model.attributes.NhsCode;
 import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 
@@ -19,26 +20,44 @@ public class RecordResultsUI implements  Runnable {
     @Override
     public void run() {
 
-        if (controller.PossibilityOfRecordResult()){
-            System.out.println("There are no tests available to record it's results");
-        }else {
+        //if (controller.PossibilityOfRecordResult()){
+         //   System.out.println("There are no tests available to record it's results");
+        //}else {
             System.out.println("\nRecording the Results");
             RecordResults();
-        }
+        //}
     }
 
 
     public  void RecordResults(){
         try {
-            String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
+            //String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
             // List<TestParameterDTO> listaDeParametros = controller.getTestParameterList(barcode);
-            List<TestParameterDTO> listaDeParametros = new ArrayList<>();
-            TestParameterDTO tpm1= new TestParameterDTO("White Cell Count","HBOOO");
-            listaDeParametros.add(tpm1);
+            List<TestParameter> listaDeParametros = new ArrayList<>();
+            ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
+            List<ParameterCategory> listPC = new ArrayList();
+            listPC.add(pc);
+            Parameter p = new Parameter("HB000","test","method", pc);
+            Parameter p2 = new Parameter("PLT00","test","method", pc);
+
+
+            TestParameterDTO temDto2 = new TestParameterDTO("frefrfe","PLT00");
+            List<TestParameterDTO> listaDeParametrosDTO = new ArrayList<>();
+            listaDeParametrosDTO.add(temDto2);
+
+            TestParameter tpm1 = new TestParameter(p);
+            TestParameter tpm2 = new TestParameter(p2);
+           // listaDeParametros.add(tpm1);
+            listaDeParametros.add(tpm2);
+            Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
+            TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
+            NhsCode nhs = new NhsCode("123456789012");
+            Test test = new Test(la,nhs,tt,listaDeParametros);
             int i=0;
-            while (i <= listaDeParametros.size()){
-                Utils.showList(listaDeParametros,"Choose the Parameter you want to register the results");
-                TestParameterDTO parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
+            controller.setTest(test);
+            while (i <= listaDeParametrosDTO.size()){
+                Utils.showList(listaDeParametrosDTO,"Choose the Parameter you want to register the results");
+                TestParameterDTO parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametrosDTO);
 
                 String result;
                 String metric;
@@ -54,10 +73,16 @@ public class RecordResultsUI implements  Runnable {
                     System.out.printf("Metric: %s\n",metric);
                     resposta = Utils.readLineFromConsole("S/N:");
 
-                }while (resposta.equalsIgnoreCase("S"));
+                }while (!resposta.equalsIgnoreCase("S"));
+
                 if (controller.addTestResult(parameter.getParameterId(),result,metric)){
-                    listaDeParametros.remove(parameter);
+                    listaDeParametrosDTO.remove(parameter);
                     i++;
+                    System.out.println("fregthjyuiy");
+                    System.out.println(test.toString());
+                    System.out.println(test.getState());
+                }else {
+                    throw new IllegalArgumentException("The Results were not added");
                 }
 
             }
@@ -65,10 +90,19 @@ public class RecordResultsUI implements  Runnable {
 
 
 
+
         }catch (IllegalArgumentException e){
             System.out.printf("%n Message: %s%n",e.getMessage());
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            System.out.println("vuyguyugguy");
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+            System.out.println("vuyguyugguy");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("vuyguyugguy");
         }
-
 
 
     }
