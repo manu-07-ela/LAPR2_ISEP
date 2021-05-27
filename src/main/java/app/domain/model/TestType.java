@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.adapter.ExternalModuleReferencesValue;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -170,9 +171,16 @@ public class TestType {
      * It returns the path of the adapter of the API used to generate the references values
      * @return the path of the adapter of the API used to generate the references values
      */
-    public String getExternalModule(){
-        return String.format("app.adapter.%s",referenceAdapter.replace("API","Adapter"));
+    public ExternalModuleReferencesValue getExternalModule() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        String api= String.format("app.adapter.%s",referenceAdapter.replace("API","Adapter"));
+
+        Class <?> oClass = Class.forName(api);
+
+        return (ExternalModuleReferencesValue) oClass.newInstance();
     }
+
+
+
 
 
 

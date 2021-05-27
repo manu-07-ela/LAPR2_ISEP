@@ -79,6 +79,10 @@ public class Test {
      * The lab coordinator validation of the test.
      */
     private LabCoordinatorValidation lcv;
+    /**
+     * It counts how many times it was added a result in a test
+     */
+    private static int countAddResult;
 
     public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList) {
         this.client = cl;
@@ -154,17 +158,19 @@ public class Test {
      * @param result the result of the TestParameter
      * @param metric the metric of the result
      */
-    public void addTestResult(String  parameterID, String result, String metric) {
-       /* for (TestParameter testParameter: testParameterList) {
+    public void addTestResult(String  parameterID, String result, String metric) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        for (TestParameter testParameter: testParameterList) {
             if (testParameter.getParameterId().equals(parameterID)){
-                testType.getExternalModule();
-                getReferenceValue(testParameter.getParameterId());
 
-
-                testParameter.AddResult(refValue,result,metric);
+                //testType.getExternalModule().getReferenceValue(testParameter.getParameterId());
+                testParameter.AddResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()),result,metric);
+                countAddResult++;
             }
         }
-        */
+        if (countAddResult==testParameterList.size()){
+            state= StateOfTest.SamplesCollected;
+        }
+
     }
 
     /**
