@@ -139,5 +139,21 @@ public class RecordSampleController {
         return false;
     }
 
+    /**
+     * Generates the date and time when the samples were associated with a test
+     * @param test the test that will be associated with the date and time of sample collection
+     */
+    public void generateDataAndTimeForSamplesCollected(Test test){
+        test.generateDataAndTimeForSamplesCollected();
+    }
+
+    /**
+     * After the samples are added to the test, it needs to change its status to SamplesCollected
+     * @param test the test that needs to change state
+     */
+    public void changeTheStatusOfTest(Test test){
+        test.changeStateForSamplesCollected();
+    }
+
 
 }

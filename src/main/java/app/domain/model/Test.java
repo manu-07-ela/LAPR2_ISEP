@@ -4,6 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.xml.crypto.Data;
 import java.sql.Time;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Test {
@@ -53,7 +55,7 @@ public class Test {
     /**
      * Represents the date when the samples were added to the test
      */
-    private Data samplesAddDate;
+    private Date samplesAddDate;
     /**
      * Represents the time when th samples were added to the test
      */
@@ -61,7 +63,7 @@ public class Test {
     /**
      * Represents the date when the chemical analysis were added to the test
      */
-    private Data chemicalAnalysisDate;
+    private Date chemicalAnalysisDate;
     /**
      * Represents the date when the test was registered in the system
      */
@@ -179,6 +181,13 @@ public class Test {
      */
     public boolean addSamples(Sample sample){
       return this.samples.add(sample);
+    }
+
+    /**
+     * Generates the date and time when the samples were associated with a test
+     */
+    public void generateDataAndTimeForSamplesCollected(){
+        this.samplesAddDate = Calendar.getInstance().getTime();
     }
     /**
      * Global validation of a medical report.

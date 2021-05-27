@@ -38,6 +38,7 @@ public class RecordSampleUI implements Runnable{
         List<BarcodeDomain> barcodes = generateBarcodes(loop);
         Boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples?");
         if (flag) associateBarcodesWithSamples(barcodes, testDTO);
+
     }
 
     /**
@@ -99,9 +100,9 @@ public class RecordSampleUI implements Runnable{
             sample = recordSampleController.associateBarcodeWithSample(b);
             recordSampleController.associateSamplesWithTest(test, sample);
         }
+        recordSampleController.generateDataAndTimeForSamplesCollected(test);
+        recordSampleController.changeTheStatusOfTest(test);
+
     }
-
-
-
 
 }
