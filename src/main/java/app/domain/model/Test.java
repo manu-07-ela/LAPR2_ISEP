@@ -138,6 +138,10 @@ public class Test {
         return description;
     }
 
+    public MedicalReport getMedicalReport() { return this.md;}
+
+    public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
+
     private void nhscodeValidation(String nhscode) {
         if (!StringUtils.isNumeric(nhscode))
             throw new IllegalArgumentException("National Healthcare Service code is numeric only.");

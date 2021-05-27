@@ -16,14 +16,14 @@ public class CreateParameterUI implements Runnable {
     private CreateParameterController createParameterCtrl;
 
     /**
-     *
+     * Initializes the Create Parameter Interface and the controller.
      */
     public CreateParameterUI(){
        createParameterCtrl = new CreateParameterController();
     }
 
     /**
-     *
+     * Invokes the necessary methods for the interface to function.
      */
     @Override
     public void run(){
