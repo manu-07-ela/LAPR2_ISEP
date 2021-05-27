@@ -75,4 +75,3 @@ public class ClientStoreTest {
         Assert.assertFalse(result);
     }
 }
-

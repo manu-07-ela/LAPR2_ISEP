@@ -37,6 +37,5 @@ public class DoctorIndexNumberTest {
         DoctorIndexNumber docNum2 = docNum1;
         Assert.assertEquals(docNum1, docNum2);
     }
-
 }
 

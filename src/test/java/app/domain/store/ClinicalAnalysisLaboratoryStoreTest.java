@@ -1,3 +1,4 @@
+
 package app.domain.store;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
