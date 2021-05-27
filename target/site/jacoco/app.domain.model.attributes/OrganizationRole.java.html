@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrganizationRole.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model.attributes</a> &gt; <span class="el_source">OrganizationRole.java</span></div><h1>OrganizationRole.java</h1><pre class="source lang-java linenums">package app.domain.model.attributes;
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * Represents a role in organization
+ * @author Manuela Leite &lt;1200720@isep.ipp.pt&gt;
+ */
+
+public class OrganizationRole {
+    /**
+     * The designation of a role in organization.
+     */
+    String designation;
+
+    /**
+     * Constructs an instance of {@code OrganizationRole} receiving the designation.
+     * @param designation characterizes the role in the organization.
+     */
+<span class="nc" id="L19">    public OrganizationRole(String designation){</span>
+<span class="nc" id="L20">       checkRulesForDesignation(designation);</span>
+<span class="nc" id="L21">        this.designation = designation;</span>
+<span class="nc" id="L22">    }</span>
+
+    /**
+     * Copy builder of organizationRole
+     * @param orgRole the organization role
+     */
+<span class="nc" id="L28">    public OrganizationRole(OrganizationRole orgRole){</span>
+<span class="nc" id="L29">        this.designation = orgRole.getDesignation();</span>
+<span class="nc" id="L30">    }</span>
+
+    /**
+     * Get the designation.
+     * @return The designation of an Organization Role.
+     */
+    public String getDesignation() {
+<span class="nc" id="L37">        return designation;</span>
+    }
+
+    /**
+     * Textual description of an Organization Role
+     * @return Information that characterizes an organization role.
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L46">        return String.format(&quot;designation= %s%n&quot;, designation);</span>
+    }
+
+    /**
+     * Checks whether the designation associated with the organization role we intend to create complies with all business rules.
+     * @param designation true if the designation obeys the rules imposed by the business, false otherwise.
+     */
+    public void checkRulesForDesignation(String designation){
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (StringUtils.isBlank(designation)) throw new NullPointerException(&quot;ERROR: designation can't be blank.&quot;);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        if (designation.length() &gt; 35) throw new IllegalArgumentException(&quot;ERROR: designation must have maximum 35 characters.&quot;);</span>
+<span class="nc" id="L56">    }</span>
+
+    /**
+     * Compare the organization role with the other object provided.
+     * @param other Object we want to compare with the organization role.
+     * @return true if the received object represents another organization role equivalent to the organization role. Otherwise, it returns false.
+     */
+    @Override
+    public boolean equals(Object other) {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (this == other) return true;</span>
+<span class="nc bnc" id="L66" title="All 4 branches missed.">        if (other == null || getClass() != other.getClass()) return false;</span>
+<span class="nc" id="L67">        OrganizationRole that = (OrganizationRole) other;</span>
+<span class="nc" id="L68">        return designation.equalsIgnoreCase(that.designation);</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

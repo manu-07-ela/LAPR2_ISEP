@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmployeeMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.mappers</a> &gt; <span class="el_source">EmployeeMapper.java</span></div><h1>EmployeeMapper.java</h1><pre class="source lang-java linenums">package app.mappers;
+
+import app.domain.model.Employee;
+import app.domain.model.SpecialistDoctor;
+import app.mappers.dto.EmployeeDTO;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Transform objects of type Employee into objects of type EmployeeDTO and vice versa
+ * @author Manuela Leite &lt;1200720@isep.ipp.pt&gt;
+ */
+
+<span class="nc" id="L14">public class EmployeeMapper {</span>
+    /**
+     *Transforms an object of type Employee into an object of type EmployeeDTO
+     * @param emp an Employee object
+     * @return an instance of EmployeeDTO
+     */
+    public EmployeeDTO toDTO(Employee emp){
+<span class="nc" id="L21">        return new EmployeeDTO(emp.getName(), emp.getEmail(), emp.getAddress(),emp.getPhoneNumber(), emp.getSocCode(), emp.getEmployeeRole());</span>
+    }
+
+    /**
+     * Transforms a list of objects of type Employee into a list of objects of type EmployeeDTO
+     * @param employee a list of employees
+     * @return a list of employees DTO
+     */
+    public List&lt;EmployeeDTO&gt; listEmployeeDto(List&lt;Employee&gt; employee){
+<span class="nc" id="L30">        List&lt;EmployeeDTO&gt; employeeDto = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        for (Employee emp : employee){</span>
+<span class="nc" id="L33">            employeeDto.add(this.toDTO(emp));</span>
+<span class="nc" id="L34">        }</span>
+<span class="nc" id="L35">        return employeeDto;</span>
+    }
+
+    /**
+     *Transforms an object of type EmployeeDTO into an object of type Employee
+     * @param empDto an EmployeeDTO object
+     * @return an instance of Employee
+     */
+    public Employee toEmployee(EmployeeDTO empDto){
+<span class="nc" id="L44">        return new Employee(empDto.getName(), empDto.getEmail(), empDto.getAddress(),empDto.getPhoneNumber(), empDto.getSocCode(), empDto.getOrganizationRole());</span>
+    }
+
+    /**
+     *Transforms an object of type EmployeeDTO into an object of type SpecialistDoctor
+     * @param empDto an EmployeeDTO object
+     * @return an instance of SpecialistDoctor
+     */
+    public SpecialistDoctor toSpecialistDoctor(EmployeeDTO empDto){
+<span class="nc" id="L53">        return new SpecialistDoctor(empDto.getName(), empDto.getEmail(), empDto.getAddress(),empDto.getPhoneNumber(), empDto.getSocCode(), empDto.getOrganizationRole(), empDto.getDoctorIndexNumber());</span>
+    }
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

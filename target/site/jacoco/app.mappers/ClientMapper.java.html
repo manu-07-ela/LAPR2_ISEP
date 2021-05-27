@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClientMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.mappers</a> &gt; <span class="el_source">ClientMapper.java</span></div><h1>ClientMapper.java</h1><pre class="source lang-java linenums">package app.mappers;
+
+import app.domain.model.Client;
+import app.mappers.dto.ClientDTO;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Transform objects of type Client into objects of type ClientDto and vice versa
+ * @author José Pessoa &lt;1201007@isep.ipp.pt&gt;
+ */
+<span class="nc" id="L13">public class ClientMapper {</span>
+    /**
+     *Transforms an object of type ClientDto into an object of type Client
+     * @param cl an ClientDto object
+     * @return an instance of Client
+     */
+    public Client toModel(ClientDTO cl){
+<span class="nc" id="L20">        return new Client(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());</span>
+    }
+
+    /**
+     * Transforms a list of objects of type Client into a list of objects of type ClientDTO.
+     * @param clients A list of Client.
+     * @return A list of ClientDTO.
+     */
+    public List&lt;ClientDTO&gt; toDto(List&lt;Client&gt; clients){
+<span class="nc" id="L29">        List&lt;ClientDTO&gt; clientDto = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        for(Client client: clients) {</span>
+<span class="nc" id="L31">            clientDto.add(this.toDto(client));</span>
+<span class="nc" id="L32">        }</span>
+<span class="nc" id="L33">        return clientDto;</span>
+    }
+    /**
+     * Transforms an object of type Client into an object of type ParameterDTO.
+     * @param cl An client object.
+     * @return An instance of ClientDTO.
+     */
+    public ClientDTO toDto(Client cl){
+<span class="nc" id="L41">        return new ClientDTO(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
