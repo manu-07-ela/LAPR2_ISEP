@@ -70,9 +70,9 @@ public class RegisterTestController {
         return this.tStore.saveTest(t);
     }
 
-    public Client getClient(String citizencardnumber){
+    public Client getClient(String tin){
         ClientStore store = company.getClientStore();
-        return store.getClientbycitizencardnumber(citizencardnumber);
+        return store.getClientbytin(tin);
     }
 
     public List<TestType> getTestTypeList(){

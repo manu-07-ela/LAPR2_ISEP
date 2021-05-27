@@ -7,6 +7,7 @@ import app.mappers.dto.TestDTO;
 import org.apache.commons.lang3.StringUtils;
 import javax.xml.crypto.Data;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -93,6 +94,7 @@ public class Test {
         this.internalCode = TestStore.generateInternalcode();
         this.description = testType.getCollectingMethod();
         this.md = null;
+        this.samples = new ArrayList<>();
     }
 
 

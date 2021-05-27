@@ -31,12 +31,11 @@ public class RegisterTestUI implements Runnable{
         createTest();
     }
 
-    private NhsCode nhscode(){
+    private NhsCode nhscode(String nhsc){
         boolean invalidData = true;
         NhsCode nhscAux = null;
         do{
             try {
-                String nhsc = Utils.readLineFromConsole("National Healthcare Service code: ");
                 nhscAux = new NhsCode(nhsc);
                 invalidData = false;
             }catch (Exception e){
@@ -50,8 +49,6 @@ public class RegisterTestUI implements Runnable{
      * Create an instance of client
      */
     public void createTest() {
-        boolean dadosInvalidos=true;
-        do {
             try {
                 System.out.printf("%nType the Tax identification number of the user you want to register a Test on%n");
                 Client cl;
@@ -74,12 +71,12 @@ public class RegisterTestUI implements Runnable{
                     System.out.println("Phone number: " + cl.getPhonenumber());
                     System.out.println("Email: " + cl.getEmail());
                     resposta = Utils.readLineFromConsole("S/N:");
-                } while(resposta.equalsIgnoreCase("S"));
-                NhsCode nhscode = nhscode();
-                System.out.printf("Do you want to register a test with the National Healthcare Service code %s ?",nhscode);
+                } while(resposta.equalsIgnoreCase("N"));
+                String nhsc = Utils.readLineFromConsole("National Healthcare Service code: ");
+                System.out.printf("Do you want to register a test with the National Healthcare Service code %s ?",nhsc);
                 resposta = Utils.readLineFromConsole("S/N:");
+                NhsCode nhscode = nhscode(nhsc);
                 if (resposta.equalsIgnoreCase("S")) {
-
                     //TEST TYPE
                     Utils.showList(registerTestctrl.getTestTypeList(), "Choose what kind of Test Type should be registered");
 
@@ -130,8 +127,6 @@ public class RegisterTestUI implements Runnable{
             }catch(IllegalArgumentException e){
                 System.out.printf("%nMessage: %s%n", e.getMessage());
             }
-        }while (dadosInvalidos);
     }
-
 }
 
