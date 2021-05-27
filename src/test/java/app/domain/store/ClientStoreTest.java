@@ -1,4 +1,4 @@
-/* package app.domain.store;
+package app.domain.store;
 
 import app.domain.model.Client;
 
@@ -76,4 +76,3 @@ public class ClientStoreTest {
     }
 }
 
- */
