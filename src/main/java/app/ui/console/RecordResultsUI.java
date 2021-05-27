@@ -5,6 +5,7 @@ import app.domain.model.Parameter;
 import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecordResultsUI implements  Runnable {
@@ -29,8 +30,11 @@ public class RecordResultsUI implements  Runnable {
 
     public  void RecordResults(){
         try {
-          /*  String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
-            List<TestParameterDTO> listaDeParametros = controller.getTestParameterList(barcode);
+            String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
+            // List<TestParameterDTO> listaDeParametros = controller.getTestParameterList(barcode);
+            List<TestParameterDTO> listaDeParametros = new ArrayList<>();
+            TestParameterDTO tpm1= new TestParameterDTO("White Cell Count","HBOOO");
+            listaDeParametros.add(tpm1);
             int i=0;
             while (i <= listaDeParametros.size()){
                 Utils.showList(listaDeParametros,"Choose the Parameter you want to register the results");
@@ -58,7 +62,7 @@ public class RecordResultsUI implements  Runnable {
 
             }
 
-           */
+
 
 
         }catch (IllegalArgumentException e){
