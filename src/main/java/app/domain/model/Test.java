@@ -158,18 +158,26 @@ public class Test {
      * @param result the result of the TestParameter
      * @param metric the metric of the result
      */
-    public void addTestResult(String  parameterID, String result, String metric) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+    public boolean addTestResult(String  parameterID, String result, String metric) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        Boolean la=false;
         for (TestParameter testParameter: testParameterList) {
             if (testParameter.getParameterId().equals(parameterID)){
+                System.out.println("sdfghkil");
 
                 //testType.getExternalModule().getReferenceValue(testParameter.getParameterId());
-                testParameter.AddResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()),result,metric);
+                    la =  testParameter.AddResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
+
+                if (!la){
+
+                    return false;
+                }
                 countAddResult++;
             }
         }
         if (countAddResult==testParameterList.size()){
-            state= StateOfTest.SamplesCollected;
+            state= StateOfTest.SamplesAnalyzed;
         }
+        return la;
 
     }
 
@@ -231,6 +239,11 @@ public class Test {
         return true;
     }
 
-
-
+    @Override
+    public String toString() {
+        for (TestParameter la: testParameterList) {
+            return String.format("%s",la.getTparamresult().toString());
+        }
+        return "la";
+    }
 }
