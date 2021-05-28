@@ -8,6 +8,8 @@ import app.mappers.TestMapper;
 import app.mappers.TestParameterMapper;
 import app.mappers.dto.TestParameterDTO;
 
+import java.util.List;
+
 
 public class RecordResultsController {
 
@@ -51,11 +53,15 @@ public class RecordResultsController {
      * @param barcode the barcode of a Sample
      * @return A list Of TestParameterDTO
      */
-   /* public List<TestParameterDTO>  getTestParameterList(String barcode){
+    public List<TestParameterDTO> getTestParameterList(String barcode){
         test = store.getTestByBarcode(barcode);
-        return tpMapper.toDTO(test.getTestParameterList);
+        return tpMapper.toDTO(test.getTestParameterList());
     }
-*/
+
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
 
     /**
      * It adds the result of the test
@@ -64,13 +70,9 @@ public class RecordResultsController {
      * @param metric The metric of the result
      * @return True if the result was added successful. Otherwise return False
      */
-    public boolean addTestResult(String parameterID,String result,String metric){
-        try {
-            test.addTestResult(parameterID, result, metric);
-            return true;
-        }catch (Exception e){
-            return false;
-        }
+    public boolean addTestResult(String parameterID,String result,String metric) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
+            return test.addTestResult(parameterID, result, metric);
+
     }
 
     /**

@@ -39,10 +39,16 @@ public class TestStore {
      *
      * @return
      */
-  //  private Test getTestByBarcode(){
-
-
-    //}
+    public Test getTestByBarcode(String barcodenumber){
+        for (Test test: testList ) {
+            for (Sample sample: test.getSamples() ) {
+                if (sample.getBarcode().getBarcodeNumber().equals(barcodenumber)){
+                    return test;
+                }
+            }
+        }
+        return null;
+    }
 
     /**
      * Global validation of a Test

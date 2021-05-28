@@ -32,6 +32,15 @@ public class TestDTO {
     }
 
     /**
+     *
+     * @param test
+     */
+    public TestDTO(Test test){
+        this.internalCode = test.getInternalCode();
+        this.description = test.getDescription();
+    }
+
+    /**
      * Takes the internal code associated with a test
      * @return the internal code
      */

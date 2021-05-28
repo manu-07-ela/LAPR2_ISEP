@@ -86,6 +86,15 @@ Moreover, in this US, when the system shows to the laboratory coordinator all th
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8505) Where did you saw that the program just validates dates? In the acceptance criteria of US 15 we get: "The system does not show client personal information but shows all dates (test registration date, chemical analysys date and diagnosis date)".
 
+> **Question:** What's the Criteria to the validation of the test? We only receive dates but what do we have to do to check if everything is "ok" to validate?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8538) The lab coordinator only checks the dates (date and time) and validates a subset of tests that he selects. The lab coordinador does not check any other information.
+From a previous post: "The system shows all tests ready to validate (tests that already have the test registration date, the chemical analysis date and the diagnosis date registered in the system) and the laboratory coordinator selects one or more tests to mark as validated".
+
+> **Question:** After we validate, we send the email saying they can check the app for the results. But what happens to the test ifself? Does it stay within the system or is deleted?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8538) The tests should not be eliminated.
+
 > **Question:**
 >
 > [**Awnser:**]()

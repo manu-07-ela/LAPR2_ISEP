@@ -1,5 +1,8 @@
 package app.domain.model;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class TestParameterResult {
     /**
      * The metric of the result
@@ -13,6 +16,10 @@ public class TestParameterResult {
      * An object of RefValue with the reference values
      */
     private RefValue refValue;
+    /**
+     * Date and Time of the Chemical Analysis
+     */
+    private Date chemicalAnalysisDate;
 
     /**
      * Constructs an instance of the TestParameterResult
@@ -24,6 +31,7 @@ public class TestParameterResult {
         this.refValue=refValue;
         this.result = result;
         this.metric = metric;
+        this.chemicalAnalysisDate = Calendar.getInstance().getTime();
     }
 
     /**
@@ -48,5 +56,12 @@ public class TestParameterResult {
         return refValue;
     }
 
-
+    @Override
+    public String toString() {
+        return "TestParameterResult{" +
+                "metric='" + metric + '\'' +
+                ", result='" + result + '\'' +
+                ", refValue=" + refValue +
+                '}';
+    }
 }

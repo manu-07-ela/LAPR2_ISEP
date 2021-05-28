@@ -172,7 +172,7 @@ public class TestType {
      * @return the path of the adapter of the API used to generate the references values
      */
     public ExternalModuleReferencesValue getExternalModule() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        String api= String.format("app.adapter.%s",referenceAdapter.replace("API","Adapter"));
+        String api= String.format("app.adapter.%sAdapter",referenceAdapter);
 
         Class <?> oClass = Class.forName(api);
 
