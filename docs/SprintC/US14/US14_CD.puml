@@ -8,8 +8,8 @@ class WriteMedicalReportUI{
 package Controller{
 class WriteMedicalReportController{
 +getTestHasSamplesAnalyzedList()
-+getTestParameterList()
-+createMedicalReport()
++getTestParameterList(selectedTest)
++addMedicalReport(diagnosis)
 }
 }
 
@@ -38,6 +38,11 @@ class MedicalReport{
 
 class TestParameter{
 + getParameterName()
++ getParameterResult()
++ getParameterMetric()
++ getParameterMinRefValue()
++ getParameterMaxRefValue()
++ getRefValueMetric()
 }
 }
 

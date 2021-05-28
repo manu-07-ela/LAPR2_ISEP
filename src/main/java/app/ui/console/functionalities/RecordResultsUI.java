@@ -1,10 +1,14 @@
 package app.ui.console.functionalities;
 
+<<<<<<< HEAD
 import app.mappers.dto.TestParameterDTO;
+=======
+>>>>>>> d1e921a448e8a9bf99ef496bc651e55e2a50e8bd
 
 import app.controller.RecordResultsController;
 
 
+import app.mappers.dto.TestParameterDto;
 import app.ui.console.utils.Utils;
 
 import java.util.List;
@@ -33,7 +37,7 @@ public class RecordResultsUI implements  Runnable {
         try {
             String barcode;
             boolean verificacao=true;
-            List<TestParameterDTO> listaDeParametros = null;
+            List<TestParameterDto> listaDeParametros = null;
             do {
                 try {
                     barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
@@ -43,10 +47,15 @@ public class RecordResultsUI implements  Runnable {
                     System.out.printf("%n Message: %s%n",e.getMessage());
                 }
             }while (verificacao);
+<<<<<<< HEAD
 
             barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
             listaDeParametros = controller.getTestParameterList(barcode);
 
+=======
+           // String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
+           // List<TestParameterDto> listaDeParametros = controller.getTestParameterList(barcode);
+>>>>>>> d1e921a448e8a9bf99ef496bc651e55e2a50e8bd
            /* List<TestParameter> listaDeParametros = new ArrayList<>();
             ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
             List<ParameterCategory> listPC = new ArrayList();
