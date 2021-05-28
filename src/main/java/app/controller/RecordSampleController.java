@@ -9,9 +9,16 @@ import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
 import app.mappers.dto.TestDTO;
+import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.BarcodeImageHandler;
+import net.sourceforge.barbecue.output.OutputException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
@@ -49,7 +56,7 @@ public class RecordSampleController {
     public RecordSampleController() {
         this.company = App.getInstance().getCompany();
         this.testStore = company.getTestStore();
-        this.sampleStore = company.getSampleStore();
+        this.sampleStore = company.getChemicalLaboratory().getSampleStore();
         this.testMapper = new TestMapper();
     }
 
@@ -130,29 +137,44 @@ public class RecordSampleController {
      * @param samples the sample we desired to associated with the test
      * @return true, if the association successful. False, otherwise.
      */
-    public boolean associateSamplesWithTest(Test test, Sample samples){
+    public boolean associateSamplesWithTest(Test test, Sample samples, int flag){
         if (sampleStore.validateSample(samples)){
-            test.addSamples(samples);
+            test.addSamples(samples, flag);
             return true;
         }
         return false;
     }
 
     /**
-     * Generates the date and time when the samples were associated with a test
-     * @param test the test that will be associated with the date and time of sample collection
+     * Method responsible for writing the barcodes in a folder
+     * @param image the barcode that will be saved
+     * @param fileName the name of the file associated with the barcode
      */
-    public void generateDataAndTimeForSamplesCollected(Test test) {
-        testStore.generateDataAndTimeForSamplesCollected(test);
+    public void imageIoWrite(BufferedImage image, String fileName) {
+        try {
+            String pwd = System.getProperty("user.dir");
+
+            File barcodes = new File(pwd + "/src/main/barcodes");
+            if (!barcodes.exists()) {
+                barcodes.mkdirs();
+            }
+            File outputFile = new File(pwd + "/src/main/barcodes"+fileName+".jpg");
+
+            ImageIO.write(image, "jpg", outputFile);
+        } catch (IOException e) {
+            System.out.println("Exception occured :" + e.getMessage());
+        }
+        System.out.println("Images were written succesfully.");
     }
 
     /**
-     * After the samples are added to the test, it needs to change its status to SamplesCollected
-     * @param test the test that needs to change state
+     * Transforms a BarcodeDomain in a BufferedImage
+     * @param barcode the BarcodeDomain that will be converted
+     * @return the bufferedImage
+     * @throws OutputException if the conversion is not successful
      */
-    public void changeTheStatusOfTest(Test test){
-        testStore.changeTheStatusOfTest(test);
+    public BufferedImage barcodeImage(BarcodeDomain barcode) throws OutputException {
+        return BarcodeImageHandler.getImage((Barcode) barcode.getBarcode());
     }
-
 
 }

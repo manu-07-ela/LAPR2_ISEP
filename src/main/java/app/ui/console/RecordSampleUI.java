@@ -9,6 +9,9 @@ import app.mappers.dto.TestDTO;
 import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
+
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +39,7 @@ public class RecordSampleUI implements Runnable{
     @Override
     public void run() {
 
-        List<TestParameter> listaDeParametros = new ArrayList<>();
+        /*List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
         listPC.add(pc);
@@ -56,11 +59,11 @@ public class RecordSampleUI implements Runnable{
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3Adapter");
         NhsCode nhs = new NhsCode("123456789012");
         Test test = new Test(la,nhs,tt,listaDeParametros);
-        TestDTO testDTO = new TestDTO(test);
+        TestDTO testDTO = new TestDTO(test);*/
 
-        //TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
+        TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
         int loop = askTheAmountOfSamples(testDTO);
-        List<BarcodeDomain> barcodes = generateBarcodes(loop);
+        List<BarcodeDomain> barcodes = generateBarcodes(loop, testDTO);
         boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
         if (flag) associateBarcodesWithSamples(barcodes, testDTO);
 
@@ -86,13 +89,14 @@ public class RecordSampleUI implements Runnable{
      * @param i the amount of samples entered by the user
      * @return a list of bar codes the same size as the number of samples entered by the user
      */
-    private List<BarcodeDomain> generateBarcodes(int i){
+    private List<BarcodeDomain> generateBarcodes(int i, TestDTO testDTO){
         List<BarcodeDomain> barcodes = new ArrayList<>();
-        for (int j=0; j<=i; j++){
+        for (int j=0; j<i; j++){
             boolean invalidData = true;
             do {
                 try {
                     BarcodeDomain barcodeDomain = recordSampleController.generateBarcode();
+                    recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
                     barcodes.add(barcodeDomain);
                     recordSampleController.showBarcodes(barcodeDomain);
                     invalidData = false;
@@ -105,6 +109,8 @@ public class RecordSampleUI implements Runnable{
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (BarcodeException e) {
+                    e.printStackTrace();
+                } catch (OutputException e) {
                     e.printStackTrace();
                 }
             }while (invalidData);
@@ -122,12 +128,11 @@ public class RecordSampleUI implements Runnable{
         Sample sample;
         Test test = recordSampleController.getTestByInternalCode(testDTO);
 
+
         for (BarcodeDomain b : barcodes){
             sample = recordSampleController.associateBarcodeWithSample(b);
-            recordSampleController.associateSamplesWithTest(test, sample);
+            recordSampleController.associateSamplesWithTest(test, sample, barcodes.size());
         }
-        recordSampleController.generateDataAndTimeForSamplesCollected(test);
-        recordSampleController.changeTheStatusOfTest(test);
 
     }
 

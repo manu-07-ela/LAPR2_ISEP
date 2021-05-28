@@ -222,8 +222,12 @@ public class Test {
      * @param sample the sample that will be added to the test
      * @return true, if the copy of the sample list passed by parameter is successful, false otherwise
      */
-    public boolean addSamples(Sample sample){
-      return this.samples.add(sample);
+    public boolean addSamples(Sample sample, int flag){
+        if (this.samples.size()==flag) {
+            changeStateForSamplesCollected();
+            generateDataAndTimeForSamplesCollected();
+        }
+        return this.samples.add(sample);
     }
 
     /**
