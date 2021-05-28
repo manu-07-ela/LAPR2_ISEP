@@ -255,7 +255,6 @@ public class Test {
         return true;
     }
 
-<<<<<<< HEAD:src/main/java/app/domain/model/Test.java
     /**
      * Generates the date and time when the samples were associated with a test
      */
@@ -270,6 +269,4 @@ public class Test {
         }
         return "la";
     }
-=======
->>>>>>> 58bd95b64fcac10326d1ff69eab00c2696a7fbb6:src/main/java/app/domain/model/testRelated/Test.java
 }

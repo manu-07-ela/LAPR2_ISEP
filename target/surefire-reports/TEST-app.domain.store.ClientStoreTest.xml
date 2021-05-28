@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.store.ClientStoreTest" time="0.011" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.store.ClientStoreTest" time="0.01" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -63,10 +63,10 @@
     <property name="java.class.version" value="59.0"/>
   </properties>
   <testcase name="createClient" classname="app.domain.store.ClientStoreTest" time="0.001"/>
-  <testcase name="validateClient1" classname="app.domain.store.ClientStoreTest" time="0"/>
+  <testcase name="validateClient1" classname="app.domain.store.ClientStoreTest" time="0.001"/>
   <testcase name="validateClient2" classname="app.domain.store.ClientStoreTest" time="0"/>
-  <testcase name="validateClient3" classname="app.domain.store.ClientStoreTest" time="0.001"/>
+  <testcase name="validateClient3" classname="app.domain.store.ClientStoreTest" time="0"/>
   <testcase name="saveClient1" classname="app.domain.store.ClientStoreTest" time="0.006"/>
-  <testcase name="saveClient2" classname="app.domain.store.ClientStoreTest" time="0"/>
-  <testcase name="saveClient3" classname="app.domain.store.ClientStoreTest" time="0.001"/>
+  <testcase name="saveClient2" classname="app.domain.store.ClientStoreTest" time="0.001"/>
+  <testcase name="saveClient3" classname="app.domain.store.ClientStoreTest" time="0"/>
 </testsuite>

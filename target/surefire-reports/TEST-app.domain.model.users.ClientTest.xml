@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.users.ClientTest" time="0.011" tests="23" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.users.ClientTest" time="0.018" tests="23" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -63,26 +63,26 @@
     <property name="java.class.version" value="59.0"/>
   </properties>
   <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="nameEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="nameEquals" classname="app.domain.model.users.ClientTest" time="0.002"/>
   <testcase name="dateageLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="citizenCardNumberLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="nhsNumericValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="nameLengthValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
-  <testcase name="sexEquals" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="nameLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="sexEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
   <testcase name="citizenCardNumberNumericValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="phonenumberLengthValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="phonenumberLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="emailformatValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="citizencardnumberEquals" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="citizencardnumberEquals" classname="app.domain.model.users.ClientTest" time="0.002"/>
   <testcase name="tinEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
   <testcase name="dateEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
   <testcase name="dateformatValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="nhsEquals" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="phonenumberNumericValidation" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="nhsEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="phonenumberNumericValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
   <testcase name="phonenumberEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
   <testcase name="tinNumericValidation" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="nullReferenceEquals" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="nhsLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="tinLengthValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
-  <testcase name="emailEquals" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="sexValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="emailEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="sexValidation" classname="app.domain.model.users.ClientTest" time="0"/>
 </testsuite>

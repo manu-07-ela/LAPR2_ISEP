@@ -64,5 +64,5 @@
   <testcase name="createValidParameterCategory" classname="app.controller.CreateParameterCategoryControllerTest" time="0"/>
   <testcase name="createInvalidParameterCategory" classname="app.controller.CreateParameterCategoryControllerTest" time="0"/>
   <testcase name="saveInvalidParmeterCategory" classname="app.controller.CreateParameterCategoryControllerTest" time="0"/>
-  <testcase name="saveValidParameterCategory" classname="app.controller.CreateParameterCategoryControllerTest" time="0"/>
+  <testcase name="saveValidParameterCategory" classname="app.controller.CreateParameterCategoryControllerTest" time="0.001"/>
 </testsuite>

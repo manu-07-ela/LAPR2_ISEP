@@ -62,7 +62,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.testRelated.MedicalReportTest" time="0.002"/>
+  <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.testRelated.MedicalReportTest" time="0.001"/>
   <testcase name="ensureDiagnosisMeetsAC1_1" classname="app.domain.model.testRelated.MedicalReportTest" time="0"/>
   <testcase name="ensureDiagnosisMeetsAC1_2" classname="app.domain.model.testRelated.MedicalReportTest" time="0.001"/>
   <testcase name="ensureDiagnosisMeetsAC1_3" classname="app.domain.model.testRelated.MedicalReportTest" time="0"/>

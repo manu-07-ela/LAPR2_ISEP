@@ -1,11 +1,7 @@
 package app.ui.console.functionalities;
 
 import app.controller.ValidateWorkController;
-<<<<<<< HEAD:src/main/java/app/ui/console/ValidateWorkUI.java
-import app.controller.WriteMedicalReportController;
-import app.domain.model.LabCoordinatorValidation;
-=======
->>>>>>> 58bd95b64fcac10326d1ff69eab00c2696a7fbb6:src/main/java/app/ui/console/functionalities/ValidateWorkUI.java
+import app.domain.model.testRelated.LabCoordinatorValidation;
 import app.domain.store.TestStore;
 import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;

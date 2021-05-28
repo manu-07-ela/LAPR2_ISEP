@@ -68,7 +68,7 @@
   <testcase name="validateInvalidTestType" classname="app.domain.store.ParameterStoreTest" time="0"/>
   <testcase name="validateNullTestType" classname="app.domain.store.ParameterStoreTest" time="0"/>
   <testcase name="createParameter" classname="app.domain.store.ParameterStoreTest" time="0"/>
-  <testcase name="saveValidParameter" classname="app.domain.store.ParameterStoreTest" time="0.001"/>
+  <testcase name="saveValidParameter" classname="app.domain.store.ParameterStoreTest" time="0"/>
   <testcase name="saveNullParameter" classname="app.domain.store.ParameterStoreTest" time="0"/>
   <testcase name="saveInvalidParameter" classname="app.domain.store.ParameterStoreTest" time="0"/>
 </testsuite>

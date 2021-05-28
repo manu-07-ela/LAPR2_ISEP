@@ -61,9 +61,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="getDesignation" classname="app.domain.model.attributes.OrganizationRoleTest" time="0"/>
+  <testcase name="getDesignation" classname="app.domain.model.attributes.OrganizationRoleTest" time="0.001"/>
   <testcase name="organizationRoleReferenceEquals" classname="app.domain.model.attributes.OrganizationRoleTest" time="0"/>
   <testcase name="organizationRoleEquals" classname="app.domain.model.attributes.OrganizationRoleTest" time="0"/>
   <testcase name="ensureOrganizationRoleNullIsNotAllow" classname="app.domain.model.attributes.OrganizationRoleTest" time="0"/>
-  <testcase name="ensureOrganizationRoleObeyAC7" classname="app.domain.model.attributes.OrganizationRoleTest" time="0.001"/>
+  <testcase name="ensureOrganizationRoleObeyAC7" classname="app.domain.model.attributes.OrganizationRoleTest" time="0"/>
 </testsuite>

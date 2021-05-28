@@ -69,5 +69,5 @@
   <testcase name="parameterCategoriesDtoCodeEquals" classname="app.mappers.dto.ParameterCategoryDtoTest" time="0"/>
   <testcase name="parameterCategoriesDtoNameEquals" classname="app.mappers.dto.ParameterCategoryDtoTest" time="0"/>
   <testcase name="parameterCategoriesDtoEquals" classname="app.mappers.dto.ParameterCategoryDtoTest" time="0"/>
-  <testcase name="parameterCategoriesDtoNotEquals" classname="app.mappers.dto.ParameterCategoryDtoTest" time="0"/>
+  <testcase name="parameterCategoriesDtoNotEquals" classname="app.mappers.dto.ParameterCategoryDtoTest" time="0.001"/>
 </testsuite>

@@ -62,7 +62,7 @@
     <property name="java.class.version" value="59.0"/>
   </properties>
   <testcase name="getSocCode" classname="app.domain.model.attributes.SocCodeTest" time="0"/>
-  <testcase name="socCodeReferenceEquals" classname="app.domain.model.attributes.SocCodeTest" time="0"/>
+  <testcase name="socCodeReferenceEquals" classname="app.domain.model.attributes.SocCodeTest" time="0.001"/>
   <testcase name="ensureSocCodeNullIsNotAllowed" classname="app.domain.model.attributes.SocCodeTest" time="0"/>
   <testcase name="socCodeEquals" classname="app.domain.model.attributes.SocCodeTest" time="0"/>
   <testcase name="ensureSocCodeMeetsAC7_1" classname="app.domain.model.attributes.SocCodeTest" time="0"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0.011" tests="29" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0.01" tests="29" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -68,22 +68,22 @@
   <testcase name="LaboratoryIdValidation1" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="LaboratoryIdValidation2" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="LaboratoryIdValidation3" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
-  <testcase name="getPhoneNumber" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
-  <testcase name="NameValidation1" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0.001"/>
+  <testcase name="getPhoneNumber" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0.001"/>
+  <testcase name="NameValidation1" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="NameValidation2" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
-  <testcase name="getTin" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
-  <testcase name="LaboratoryNotEquals2" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0.001"/>
+  <testcase name="getTin" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0.001"/>
+  <testcase name="LaboratoryNotEquals2" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="getLaboratoryId" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="getAddress" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
-  <testcase name="LaboratoryNotEquals1l" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0.001"/>
+  <testcase name="LaboratoryNotEquals1l" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="getName" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="LaboratoryRefEquals" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="LaboratoryNameEquals" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="LaboratoryLaboratoryIdEquals" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="TinValidation1" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="TinValidation2" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
-  <testcase name="TinValidation3" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0.001"/>
+  <testcase name="TinValidation3" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="AddressValidation1" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="AddressValidation2" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>
   <testcase name="LaboratoryAddressEquals" classname="app.domain.model.laboratories.ClinicalAnalysisLaboratoryTest" time="0"/>

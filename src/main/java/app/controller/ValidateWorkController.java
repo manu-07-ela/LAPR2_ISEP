@@ -1,18 +1,13 @@
 package app.controller;
 
 import app.domain.model.Company;
-<<<<<<< HEAD
-import app.domain.model.EmailNotification;
-import app.domain.model.SMSNotification;
-import app.domain.model.Test;
-=======
+import app.domain.model.testRelated.EmailNotification;
+import app.domain.model.testRelated.SMSNotification;
 import app.domain.model.testRelated.Test;
->>>>>>> 58bd95b64fcac10326d1ff69eab00c2696a7fbb6
 import app.domain.store.TestStore;
 import app.mappers.DateMapper;
 import app.mappers.TestMapper;
 import app.mappers.dto.TestDTO;
-
 import java.io.IOException;
 import java.util.List;
 

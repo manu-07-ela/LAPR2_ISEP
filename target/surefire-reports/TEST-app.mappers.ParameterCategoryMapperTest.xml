@@ -62,6 +62,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="listToDto" classname="app.mappers.ParameterCategoryMapperTest" time="0"/>
+  <testcase name="listToDto" classname="app.mappers.ParameterCategoryMapperTest" time="0.001"/>
   <testcase name="pcToDto" classname="app.mappers.ParameterCategoryMapperTest" time="0"/>
 </testsuite>
