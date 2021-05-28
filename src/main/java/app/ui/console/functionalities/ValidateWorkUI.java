@@ -1,9 +1,16 @@
 package app.ui.console.functionalities;
 
 import app.controller.ValidateWorkController;
+<<<<<<< HEAD:src/main/java/app/ui/console/ValidateWorkUI.java
+import app.controller.WriteMedicalReportController;
+import app.domain.model.LabCoordinatorValidation;
+=======
+>>>>>>> 58bd95b64fcac10326d1ff69eab00c2696a7fbb6:src/main/java/app/ui/console/functionalities/ValidateWorkUI.java
 import app.domain.store.TestStore;
 import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;
+
+import java.io.IOException;
 
 /**
  * Represents an interface with the user to be able to validate the work done by the clinical chemistry technologist and specialist doctor .
@@ -22,11 +29,17 @@ public class ValidateWorkUI implements Runnable{
     private TestStore ts;
 
     /**
+     * Represents a instance of validate work controller.
+     */
+    private LabCoordinatorValidation lcv;
+
+    /**
      * Constructs an instance of {@code ValidateWorkUI}.
      */
     public ValidateWorkUI(){
        validateWorkController = new ValidateWorkController();
        ts = new TestStore();
+       lcv = new LabCoordinatorValidation();
 
     }
 
@@ -35,31 +48,69 @@ public class ValidateWorkUI implements Runnable{
      */
     @Override
     public void run() {
-        validateWork();
+        try {
+            System.out.println("/========== Work Validation ==========/");
+            Boolean flag;
+            do {
+                TestDTO selectedTest = (TestDTO) Utils.showAndSelectOne(validateWorkController.getTestsToValidateList(), "Select test to Validate.");
+                validateWork(selectedTest);
+                if (validateWorkController.getTestsToValidateList().size() > 0) {
+                    flag = Utils.confirm("Do you want to Validate another Test? (S/N)");
+                } else {
+                    flag = false;
+                }
+            }while(flag);
+        }catch (IllegalArgumentException e){
+            System.out.printf("%nMessage: %s%n" ,e.getMessage());
+        }
     }
+
 
     /**
      *
      */
-    public void validateWork(){
+    public void validateWork(TestDTO selectedTest){
         try {
-            Object option = Utils.selectsObject(validateWorkController.getTestsToValidateList());
-            if (option == null){
-                throw new IllegalArgumentException("There's no tests to validate.");
+            boolean flag;
+            String resposta;
+            validateWorkController.createTestValidation(ts.getTestByInternalCode(selectedTest.getInternalCode()));
+            validateWorkController.showRegistrationDate(ts.getTestByInternalCode(selectedTest.getInternalCode()));
+            resposta = Utils.readLineFromConsole("S/N:");
+            if (resposta.equalsIgnoreCase("S")) {
+                lcv.checkRegisterDateValidation();
+                System.out.printf("%nRegistration Validation Date validated with sucess.%n");
+            } else {
+                flag = false;
             }
-            TestDTO index = (TestDTO) Utils.showAndSelectOne(validateWorkController.getTestsToValidateList(),"Choose the test for which you want to validate.");
-            validateWorkController.createTestValidation(ts.getTestByInternalCode(index.getInternalCode()));
-            //validateWorkController.showRegistrationDate();
-            //validateWorkController.showChamicalAnalysisDate();
-            validateWorkController.showDiagnosisDate(ts.getTestByInternalCode(index.getInternalCode()));
-            //validateWorkController.showDates()
-            //validateWorkController.recordValidationDate()
-            //validateWorkController.notifyTheClient();
+            validateWorkController.showChemicalAnalysisDate(ts.getTestByInternalCode(selectedTest.getInternalCode()));
+            resposta = Utils.readLineFromConsole("S/N:");
+            if (resposta.equalsIgnoreCase("S")) {
+                lcv.checkChemicalAnalysisDateValidation();
+                System.out.printf("%nChemical Analysis Date validated with sucess.%n");
+            } else {
+                flag = false;
+            }
+            validateWorkController.showDiagnosisDate(ts.getTestByInternalCode(selectedTest.getInternalCode()));
+            resposta = Utils.readLineFromConsole("S/N:");
+            if (resposta.equalsIgnoreCase("S")) {
+                lcv.checkDiagnosisDateValidation();
+                System.out.printf("%nDiagnosis Validation Date validated with sucess.%n");
+            } else {
+                flag = false;
+            }
+            System.out.println("Do you check the three validated dates?");
+            validateWorkController.showDates(ts.getTestByInternalCode(selectedTest.getInternalCode()));
+            resposta = Utils.readLineFromConsole("S/N:");
+            if (resposta.equalsIgnoreCase("S")) {
+                validateWorkController.recordValidationDate(ts.getTestByInternalCode(selectedTest.getInternalCode()));
+                System.out.printf("%nDiagnosis Validation Date validated with sucess.%n");
+                validateWorkController.notifyTheClient(ts.getTestByInternalCode(selectedTest.getInternalCode()));
+                System.out.println("%n Client successfully informed.");
+            } else {
+                flag = false;
+            }
 
-
-
-
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException | IOException e){
             System.out.printf("%nMessage: %s%n" ,e.getMessage());
         }
     }
