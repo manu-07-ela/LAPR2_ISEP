@@ -1,13 +1,14 @@
 package app.controller;
 
+import app.controller.App;
 import app.domain.model.Company;
-import app.domain.model.Test;
-import app.domain.model.TestParameter;
+import app.domain.model.testRelated.Test;
+import app.domain.model.testRelated.TestParameter;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
 import app.mappers.TestParameterMapper;
-import app.mappers.dto.TestDTO;
-import app.mappers.dto.TestParameterDTO;
+import app.mappers.dto.TestDto;
+import app.mappers.dto.TestParameterDto;
 
 import java.util.List;
 
@@ -73,7 +74,7 @@ public class WriteMedicalReportController {
      *
      * @return
      */
-    public List<TestDTO> getTestHasSamplesAnalyzedList(){
+    public List<TestDto> getTestHasSamplesAnalyzedList(){
         this.testStore=company.getTestStore();
         checkPossibilityOfWriteAReport(testStore.getTestHasSamplesAnalyzedList());
         List<Test> testHasSamplesAnalyzedList = testStore.getTestHasSamplesAnalyzedList();
@@ -93,7 +94,7 @@ public class WriteMedicalReportController {
      * @param selectedTest
      * @return
      */
-    public List<TestParameterDTO> getTestParameterList(TestDTO selectedTest){
+    public List<TestParameterDto> getTestParameterList(TestDto selectedTest){
         test = testStore.getTestByInternalCode(selectedTest.getInternalCode());
         List<TestParameter> testParametersList =test.getTestParameterList();
         return testPMapper.toDTO(testParametersList);

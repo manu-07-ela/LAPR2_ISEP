@@ -2,12 +2,11 @@
 package app.domain.model;
 
 import app.domain.model.attributes.*;
+import app.domain.model.users.SpecialistDoctor;
 import auth.domain.model.Email;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class SpecialistDoctorTest {
 

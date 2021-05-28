@@ -8,8 +8,8 @@ participant ": WriteMedicalReportController" as CTRL
 participant ": Company" as Comp
 participant "testStore:\nTestStore" as TS
 participant ": TestMapper" as tMAPPER
-participant "testHasSamplesAnalyzedList: \nList<Test>" as List
-participant "testHasSamplesAnalyzedListDto :\nList<TestDto> " as TDto
+participant "testList: \nList<Test>" as List
+participant "testListDto :\nList<TestDto> " as TDto
 participant "test:Test" as TEST
 participant "testDto: TestDto" as TestDtoc
 participant ": TestParameterMapper" as tpMAPPER
@@ -22,22 +22,22 @@ participant " : MedicalReport" as REPORT
 activate Doctor
 Doctor -> UI : Initiates the process of elaborate a medical report.
 activate UI
-UI -> CTRL : testHasSamplesAnalyzedListDto = getTestHasSamplesAnalyzedList()
+UI -> CTRL : testListDto = getTestHasSamplesAnalyzedList()
 activate CTRL
 CTRL -> Comp : testStore = getTestStore()
 activate Comp
 deactivate Comp
-CTRL -> TS : testHasSamplesAnalyzedList = getTestHasSamplesAnalyzedList()
+CTRL -> TS : testList = getTestHasSamplesAnalyzedList()
 activate TS
 deactivate TS
-CTRL -> tMAPPER : toDto(testHasSamplesAnalyzedList)
+CTRL -> tMAPPER : toDto(testList)
 activate tMAPPER
 ref over tMAPPER
-SD_TestHasSamplesAnalyzedMapper_toDto_List
+SD_TestMapper_toDto_List
 end ref
-tMAPPER --> CTRL : testHasSamplesAnalyzedListDto
+tMAPPER --> CTRL : testListDto
 deactivate tMAPPER
-CTRL --> UI : testHasSamplesAnalyzedListDto
+CTRL --> UI : testListDto
 deactivate CTRL
 UI --> Doctor : Shows the tests that are waiting for the \n medical report and asks to select one.
 deactivate UI

@@ -1,10 +1,10 @@
 /*
 package app.controller;
 
-import app.domain.model.ClinicalAnalysisLaboratory;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.Company;
-import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
+import app.domain.model.testRelated.ParameterCategory;
+import app.domain.model.testRelated.TestType;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.TestTypeStore;

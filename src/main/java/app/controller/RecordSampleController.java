@@ -1,17 +1,25 @@
 package app.controller;
 
-import app.adapter.ExternalModuleBarcode;
+import app.adapter.interfaces.ExternalModuleBarcode;
+import app.controller.App;
 import app.domain.model.Company;
-import app.domain.model.Sample;
-import app.domain.model.Test;
-import app.domain.model.attributes.BarcodeDomain;
+import app.domain.model.testRelated.Sample;
+import app.domain.model.testRelated.Test;
+import app.domain.model.testRelated.BarcodeDomain;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
-import app.mappers.dto.TestDTO;
+import app.mappers.dto.TestDto;
+import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.BarcodeImageHandler;
+import net.sourceforge.barbecue.output.OutputException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
@@ -25,19 +33,23 @@ public class RecordSampleController {
     /**
      * Represents a instance of test store
      */
-    private TestStore testStore;
+    private final TestStore testStore;
     /**
      * Represents a instance of sample store
      */
-    private SampleStore sampleStore;
+    private final SampleStore sampleStore;
     /**
      * Represents a instance of company
      */
-    private Company company;
+    private final Company company;
     /**
      * Represents a instance of test mapper
      */
-    private TestMapper testMapper;
+    private final TestMapper testMapper;
+    /**
+     * Counts the instances of barcodes
+     */
+    private static int instancesOfBarcode;
 
     /**
      * Constructs an instance of {@code RecordSampleController}
@@ -45,7 +57,7 @@ public class RecordSampleController {
     public RecordSampleController() {
         this.company = App.getInstance().getCompany();
         this.testStore = company.getTestStore();
-        this.sampleStore = company.getSampleStore();
+        this.sampleStore = company.getChemicalLaboratory().getSampleStore();
         this.testMapper = new TestMapper();
     }
 
@@ -53,7 +65,7 @@ public class RecordSampleController {
      * Returns a DTO-type list of test waiting for samples in the system
      * @return A DTO-type list of tests waiting for samples
      */
-    public List<TestDTO> getListOfTestsWaitingForSample(){
+    public List<TestDto> getListOfTestsWaitingForSample(){
         return testMapper.toDto(testStore.getListOfTestWaitingForSample());
     }
 
@@ -62,7 +74,7 @@ public class RecordSampleController {
      * @param testDto a test dto which the internal code will be taken to compare with the tests stored in the TestStore
      * @return the test corresponding to the desired internal code
      */
-    public Test getTestByInternalCode(TestDTO testDto){
+    public Test getTestByInternalCode(TestDto testDto){
         return testStore.getTestByInternalCode(testDto.getInternalCode());
     }
 
@@ -92,7 +104,6 @@ public class RecordSampleController {
      */
     public BarcodeDomain generateBarcode() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, BarcodeException {
         DecimalFormat df = new DecimalFormat("00000000000");
-        int instancesOfBarcode = 0;
         String barcodeNumber = df.format(instancesOfBarcode);
         ExternalModuleBarcode api = getExternalModule();
         instancesOfBarcode++;
@@ -104,16 +115,11 @@ public class RecordSampleController {
      * @param barcode the barcode that will be shown
      */
     public void showBarcodes(BarcodeDomain barcode){
-
-        JFrame frame = new JFrame();
-
+        JFrame frame = new JFrame("Barcode");
         frame.getContentPane().add((Component) barcode.getBarcode());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frame.pack();
-        frame.setLocation(500, 500);
+        frame.setSize(200, 200);
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.setVisible(true);
-
     }
 
     /**
@@ -132,29 +138,44 @@ public class RecordSampleController {
      * @param samples the sample we desired to associated with the test
      * @return true, if the association successful. False, otherwise.
      */
-    public boolean associateSamplesWithTest(Test test, Sample samples){
+    public boolean associateSamplesWithTest(Test test, Sample samples, int flag){
         if (sampleStore.validateSample(samples)){
-            test.addSamples(samples);
+            test.addSamples(samples, flag);
             return true;
         }
         return false;
     }
 
     /**
-     * Generates the date and time when the samples were associated with a test
-     * @param test the test that will be associated with the date and time of sample collection
+     * Method responsible for writing the barcodes in a folder
+     * @param image the barcode that will be saved
+     * @param fileName the name of the file associated with the barcode
      */
-    public void generateDataAndTimeForSamplesCollected(Test test) {
-        testStore.generateDataAndTimeForSamplesCollected(test);
+    public void imageIoWrite(BufferedImage image, String fileName) {
+        try {
+            String pwd = System.getProperty("user.dir");
+
+            File barcodes = new File(pwd + "\\src\\main\\barcodes");
+            if (!barcodes.exists()) {
+                barcodes.mkdirs();
+            }
+            File outputFile = new File(pwd + "\\src\\main\\barcodes\\"+fileName+".jpeg");
+
+            ImageIO.write(image, "jpeg", outputFile);
+        } catch (IOException e) {
+            System.out.println("Exception occured :" + e.getMessage());
+        }
+        System.out.println("Images were written succesfully.");
     }
 
     /**
-     * After the samples are added to the test, it needs to change its status to SamplesCollected
-     * @param test the test that needs to change state
+     * Transforms a BarcodeDomain in a BufferedImage
+     * @param barcode the BarcodeDomain that will be converted
+     * @return the bufferedImage
+     * @throws OutputException if the conversion is not successful
      */
-    public void changeTheStatusOfTest(Test test){
-        testStore.changeTheStatusOfTest(test);
+    public BufferedImage barcodeImage(BarcodeDomain barcode) throws OutputException {
+        return BarcodeImageHandler.getImage((Barcode) barcode.getBarcode());
     }
-
 
 }

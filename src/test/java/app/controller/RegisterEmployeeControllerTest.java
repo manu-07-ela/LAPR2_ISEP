@@ -1,8 +1,8 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.Employee;
-import app.domain.model.SpecialistDoctor;
+import app.domain.model.users.Employee;
+import app.domain.model.users.SpecialistDoctor;
 import app.domain.model.attributes.*;
 import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;

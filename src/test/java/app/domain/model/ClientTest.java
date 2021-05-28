@@ -1,6 +1,7 @@
 
 package app.domain.model;
 
+import app.domain.model.users.Client;
 import org.junit.Assert;
 import org.junit.Test;
 

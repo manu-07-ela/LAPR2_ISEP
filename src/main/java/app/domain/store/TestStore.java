@@ -1,14 +1,23 @@
 package app.domain.store;
 
-import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
+<<<<<<< HEAD
 import org.apache.commons.lang3.StringUtils;
 
 import java.security.SecureRandom;
+=======
+import app.domain.model.testRelated.Sample;
+import app.domain.model.testRelated.Test;
+import app.domain.model.testRelated.TestParameter;
+import app.domain.model.testRelated.TestType;
+import app.domain.model.users.Client;
+
+import java.text.DecimalFormat;
+>>>>>>> 7b7047efdc09574dc6e7cc66aacf50a3471746cc
 import java.util.ArrayList;
 import java.util.List;
 
-import static app.domain.model.Test.StateOfTest.*;
+import static app.domain.model.testRelated.Test.StateOfTest.*;
 
 /**
  * Stores laboratory tests provided to customers
@@ -45,7 +54,7 @@ public class TestStore {
     public Test getTestByBarcode(String barcodenumber){
         barcodeValidation(barcodenumber);
         for (Test test: testList ) {
-            for (Sample sample: test.getSamples() ) {
+            for (Sample sample : test.getSamples() ) {
                 if (sample.getBarcode().getBarcodeNumber().equals(barcodenumber)){
                     return test;
                 }
@@ -66,7 +75,7 @@ public class TestStore {
     }
 
     public Test createTest(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList){
-        return new Test(cl,nhscode,testType,testParameterList);
+        return new Test(cl,nhscode,testType,testParameterList, generateInternalCode(testList.size()));
    }
 
 //    public static String generateTestCode(Test t){
@@ -86,18 +95,9 @@ public class TestStore {
         }
     }
 
-    public static String generateInternalcode() {
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-        SecureRandom random = new SecureRandom();
-        StringBuilder code = new StringBuilder();
-
-        for (int i = 0; i < 12; i++) {
-            int randomIndex = random.nextInt(chars.length());
-            code.append(chars.charAt(randomIndex));
-        }
-
-        return code.toString();
+    public static String generateInternalCode(int numtest) {
+        DecimalFormat df = new DecimalFormat("000000000000");
+        return df.format(numtest);
     }
 
     /**
@@ -116,7 +116,7 @@ public class TestStore {
     public List<Test> getListOfTestWaitingForSample(){
         List<Test> testsWaintingForSamples = new ArrayList<>();
         for (Test test : testList){
-            if (test.getState() == TestRegistered) testsWaintingForSamples.add(test);
+            if (test.getStateOfTest() == TestRegistered) testsWaintingForSamples.add(test);
         }
         return testsWaintingForSamples;
     }
@@ -128,7 +128,7 @@ public class TestStore {
     public List<Test> getTestHasSamplesAnalyzedList(){
         List<Test> testHasSamplesAnalyzedList = new ArrayList();
         for(Test test : testList){
-            if(test.getState() == SamplesAnalyzed){
+            if(test.getStateOfTest() == SamplesAnalyzed){
                 testHasSamplesAnalyzedList.add(test);
             }
         }
@@ -142,7 +142,7 @@ public class TestStore {
     public List<Test> getTestWithSamplesCollectedList(){
         List<Test> testWithSamplesCollectedList = new ArrayList();
         for(Test test : testList){
-            if(test.getState() == SamplesCollected){
+            if(test.getStateOfTest() == SamplesCollected){
                 testWithSamplesCollectedList.add(test);
             }
         }
@@ -156,7 +156,7 @@ public class TestStore {
     public List<Test> getTestHasReportList(){
         List<Test> testHasReportList = new ArrayList();
         for(Test test : testList){
-            if(test.getState() == Validated){
+            if(test.getStateOfTest() == Validated){
                 testHasReportList.add(test);
             }
         }
@@ -178,21 +178,6 @@ public class TestStore {
        return null;
     }
 
-    /**
-     * Generates the date and time when the samples were associated with a test
-     * @param test the test that will be associated with the date and time of sample collection
-     */
-    public void generateDataAndTimeForSamplesCollected(Test test){
-        test.generateDataAndTimeForSamplesCollected();
-    }
-
-    /**
-     * After the samples are added to the test, it needs to change its status to SamplesCollected
-     * @param test the test that needs to change state
-     */
-    public void changeTheStatusOfTest(Test test){
-        test.changeStateForSamplesCollected();
-    }
 
     /**
      * Checks if the barcode contains all business rules
