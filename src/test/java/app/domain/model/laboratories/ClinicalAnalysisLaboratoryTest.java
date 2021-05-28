@@ -1,5 +1,5 @@
 
-package app.domain.model;
+package app.domain.model.laboratories;
 
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testRelated.ParameterCategory;
