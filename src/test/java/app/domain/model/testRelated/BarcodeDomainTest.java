@@ -2,8 +2,6 @@ package app.domain.model.testRelated;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class BarcodeDomainTest {
 
     @Test
@@ -17,4 +15,5 @@ public class BarcodeDomainTest {
     @Test
     public void testEquals() {
     }
+
 }
