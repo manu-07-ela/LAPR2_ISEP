@@ -50,6 +50,7 @@ public class RegisterTestController {
     public RegisterTestController() {
         this(App.getInstance().getCompany());
     }
+
     public RegisterTestController(Company company) {
         this.app=App.getInstance();
         this.company=app.getCompany();
