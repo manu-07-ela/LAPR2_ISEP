@@ -53,11 +53,7 @@ public class TestParameter {
      * @return true if the result was successful
      */
     public boolean AddResult(RefValue refValue,String result,String metric){
-        try {
-            tparamresult = new TestParameterResult(refValue, result, metric);
-        }catch (Exception e){
-            return false;
-        }
+        tparamresult = new TestParameterResult(refValue, result, metric);
         return true;
     }
 

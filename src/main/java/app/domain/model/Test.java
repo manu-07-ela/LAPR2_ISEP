@@ -138,6 +138,13 @@ public class Test {
         return description;
     }
 
+
+    public MedicalReport getMedicalReport() { return this.md;}
+
+    public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
+
+    public List<Sample> getSamples() { return samples; }
+
     private void nhscodeValidation(String nhscode) {
         if (!StringUtils.isNumeric(nhscode))
             throw new IllegalArgumentException("National Healthcare Service code is numeric only.");
@@ -160,18 +167,21 @@ public class Test {
      * @param result the result of the TestParameter
      * @param metric the metric of the result
      */
-    public void addTestResult(String  parameterID, String result, String metric) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+    public boolean addTestResult(String  parameterID, String result, String metric) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        Boolean la=false;
         for (TestParameter testParameter: testParameterList) {
             if (testParameter.getParameterId().equals(parameterID)){
-
-                //testType.getExternalModule().getReferenceValue(testParameter.getParameterId());
-                testParameter.AddResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()),result,metric);
+                    la =  testParameter.AddResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
+                if (!la){
+                    return false;
+                }
                 countAddResult++;
             }
         }
         if (countAddResult==testParameterList.size()){
-            state= StateOfTest.SamplesCollected;
+            state= StateOfTest.SamplesAnalyzed;
         }
+        return la;
 
     }
 
@@ -233,6 +243,11 @@ public class Test {
         return true;
     }
 
-
-
+    @Override
+    public String toString() {
+        for (TestParameter la: testParameterList) {
+            return String.format("%s",la.getTparamresult().toString());
+        }
+        return "la";
+    }
 }

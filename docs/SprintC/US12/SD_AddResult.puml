@@ -14,17 +14,13 @@ participant "refValue :ReferenceValue" as Ref
 
 
 
-CTRL -> Test : addTestResult(testparameterSelected,result,metric)
+CTRL -> Test : addTestResult(testparameterID,result,metric)
 activate Test
-Test -> TestParam : getParam()
-activate TestParam
-TestParam --> Test : parameter
-deactivate TestParam
 Test -> TT : getExternalModule()
 activate TT
 TT--> Test : em
 deactivate TT
-Test -> EM : getReferenceValue(parameter)
+Test -> EM : getReferenceValue(parameterID)
 activate EM
 EM -> Ref** : create()
 EM --> Test : refValue

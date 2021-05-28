@@ -1,5 +1,5 @@
 
-/*package app.adapter;
+package app.adapter;
 
 
 import app.domain.model.Parameter;
@@ -17,6 +17,6 @@ public class ExternalModule2APIAdapter implements ExternalModuleReferencesValue 
     }
 
 
-}*/
+}
 
 

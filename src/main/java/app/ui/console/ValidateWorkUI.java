@@ -3,6 +3,7 @@ package app.ui.console;
 import app.controller.ValidateWorkController;
 import app.controller.WriteMedicalReportController;
 import app.domain.store.TestStore;
+import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;
 
 /**
@@ -22,7 +23,7 @@ public class ValidateWorkUI implements Runnable{
     private TestStore ts;
 
     /**
-     *
+     * Constructs an instance of {@code ValidateWorkUI}.
      */
     public ValidateWorkUI(){
        validateWorkController = new ValidateWorkController();
@@ -47,11 +48,11 @@ public class ValidateWorkUI implements Runnable{
             if (option == null){
                 throw new IllegalArgumentException("There's no tests to validate.");
             }
-            int index = Utils.showAndSelectIndex(validateWorkController.getTestsToValidateList(),"Choose the test for which you want to validate.");
-            validateWorkController.createTestValidation(ts.getTestByInternalCode(validateWorkController.getTestsToValidateList().get(index).getInternalCode()));
+            TestDTO index = (TestDTO) Utils.showAndSelectOne(validateWorkController.getTestsToValidateList(),"Choose the test for which you want to validate.");
+            validateWorkController.createTestValidation(ts.getTestByInternalCode(index.getInternalCode()));
             //validateWorkController.showRegistrationDate();
             //validateWorkController.showChamicalAnalysisDate();
-            //validateWorkController.showDiagnosisDate();
+            validateWorkController.showDiagnosisDate(ts.getTestByInternalCode(index.getInternalCode()));
             //validateWorkController.showDates()
             //validateWorkController.recordValidationDate()
             //validateWorkController.notifyTheClient();
