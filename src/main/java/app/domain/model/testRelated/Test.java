@@ -107,7 +107,7 @@ public class Test {
     /**
      * Change the status of a test for Samples collected
      */
-    public void changeStateForSamplesCollected() {
+    private void changeStateForSamplesCollected() {
         this.state = StateOfTest.SamplesCollected;
     }
 
@@ -236,7 +236,7 @@ public class Test {
     /**
      * Generates the date and time when the samples were associated with a test
      */
-    public void generateDataAndTimeForSamplesCollected(){
+    private void generateDataAndTimeForSamplesCollected(){
         this.samplesAddDate = Calendar.getInstance().getTime();
     }
     /**

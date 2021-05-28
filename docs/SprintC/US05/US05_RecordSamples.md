@@ -205,55 +205,73 @@ Other software classes (i.e. Pure Fabrication) identified:
  
 ##Class RecordSamplesController
 
-    /**
-     * Generates the date and time when the samples were associated with a test
-     * @param test the test that will be associated with the date and time of sample collection
-     */
-    public void generateDataAndTimeForSamplesCollected(Test test) {
-        testStore.generateDataAndTimeForSamplesCollected(test);
-    }
+##Class RecordSampleUI
 
     /**
-     * After the samples are added to the test, it needs to change its status to SamplesCollected
-     * @param test the test that needs to change state
+     * Generates the amount of barcode entered by the user
+     * @param i the amount of samples entered by the user
+     * @return a list of bar codes the same size as the number of samples entered by the user
      */
-    public void changeTheStatusOfTest(Test test){
-        testStore.changeTheStatusOfTest(test);
+    private void generateBarcodes(int i, TestDTO testDTO){
+        for (int j=0; j<i; j++){
+            boolean invalidData = true;
+            do {
+                try {
+                    BarcodeDomain barcodeDomain = recordSampleController.generateBarcode();
+                    recordSampleController.showBarcodes(barcodeDomain);
+                    boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
+                    if (flag) {
+                        associateBarcodesWithSamples(barcodeDomain, testDTO, i);
+                        recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
+                    }
+                    invalidData = false;
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (BarcodeException e) {
+                    e.printStackTrace();
+                } catch (OutputException e) {
+                    e.printStackTrace();
+                }
+            }while (invalidData);
+
+        }
     }
 
-##Class TestStore
-
-    /**
-     * Generates the date and time when the samples were associated with a test
-     * @param test the test that will be associated with the date and time of sample collection
-     */
-    public void generateDataAndTimeForSamplesCollected(Test test){
-        test.generateDataAndTimeForSamplesCollected();
-    }
-
-    /**
-     * After the samples are added to the test, it needs to change its status to SamplesCollected
-     * @param test the test that needs to change state
-     */
-    public void changeTheStatusOfTest(Test test){
-        test.changeStateForSamplesCollected();
-    }
 
 ##Class Test
 
     /**
      * Change the status of a test for Samples collected
      */
-    public void changeStateForSamplesCollected() {
+    private void changeStateForSamplesCollected() {
         this.state = StateOfTest.SamplesCollected;
     }
+
     /**
     * Generates the date and time when the samples were associated with a test
     */
-    public void generateDataAndTimeForSamplesCollected(){
+    private void generateDataAndTimeForSamplesCollected(){
     this.samplesAddDate = Calendar.getInstance().getTime();
     }
 
+    /**
+     * Adds the samples to the test
+     * @param sample the sample that will be added to the test
+     * @return true, if the copy of the sample list passed by parameter is successful, false otherwise
+     */
+    public boolean addSamples(Sample sample, int flag){
+        if (this.samples.size()==flag) {
+            changeStateForSamplesCollected();
+            generateDataAndTimeForSamplesCollected();
+        }
+        return this.samples.add(sample);
+    }
 
 
 # 6. Integration and Demo 
