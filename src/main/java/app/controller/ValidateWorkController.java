@@ -1,12 +1,18 @@
 package app.controller;
 
 import app.domain.model.Company;
+<<<<<<< HEAD
 import app.domain.model.testrelated.Test;
+=======
+import app.domain.model.testRelated.EmailNotification;
+import app.domain.model.testRelated.SMSNotification;
+import app.domain.model.testRelated.Test;
+>>>>>>> 7f844169085021e7ab955e828959ab77be857eba
 import app.domain.store.TestStore;
 import app.mappers.DateMapper;
 import app.mappers.TestMapper;
 import app.mappers.dto.TestDTO;
-
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -45,6 +51,16 @@ public class ValidateWorkController {
      * Represents an instance of the test mapper
      */
     private DateMapper dateMapper;
+
+    /**
+     * Represents an instance of the Email Notification
+     */
+    private EmailNotification emailNotification;
+
+    /**
+     * Represents an instance of the SMS Notification
+     */
+    private SMSNotification smsNotification;
 
     /**
      * Constructs an instance of {@code ValidateWorkController}.
@@ -86,11 +102,50 @@ public class ValidateWorkController {
         return test.validateWork(selectedTest);
     }
 
+    /**
+     *
+     */
+    public String showRegistrationDate(Test selectedTest) {
+        return dateMapper.toDto(selectedTest.getRegisterTestDate()).toString();
+    }
+
+    /**
+     *
+     */
+    public String showChemicalAnalysisDate(Test selectedTest) {
+        return dateMapper.toDto(selectedTest.getChemicalAnalysisDate()).toString();
+    }
 
     /**
      *
      */
     public String showDiagnosisDate(Test selectedTest) {
-        return dateMapper.toDto(test.getCreatedAt()).toString();
+        return dateMapper.toDto(selectedTest.getCreatedAt()).toString();
     }
+
+    /**
+     *
+     */
+    public void showDates(Test selectedTest) {
+        showRegistrationDate(selectedTest);
+        showChemicalAnalysisDate(selectedTest);
+        showDiagnosisDate(selectedTest);
+    }
+
+    /**
+     *
+     */
+    public Boolean recordValidationDate(Test selectedTest) {
+        return selectedTest.validateWork(selectedTest);
+    }
+
+    /**
+     *
+     */
+    public void notifyTheClient(Test selectedTest) throws IOException {
+        emailNotification.notifyByEmail(selectedTest);
+        smsNotification.notifyBySMS(selectedTest);
+    }
+
+
 }

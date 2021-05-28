@@ -41,7 +41,7 @@ public class RecordSampleUI implements Runnable{
     @Override
     public void run() {
 
-        List<TestParameter> listaDeParametros = new ArrayList<>();
+        /*List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
         listPC.add(pc);
@@ -61,15 +61,15 @@ public class RecordSampleUI implements Runnable{
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3Adapter");
         NhsCode nhs = new NhsCode("123456789012");
         Test test = new Test(la,nhs,tt,listaDeParametros, "123123123123");
-        TestDTO testDTO = new TestDTO(test);
+        TestDTO testDTO = new TestDTO(test);*/
 
 
-        //TestDto testDTO = (TestDto) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
 
-        //TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
+
+        TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
 
         int loop = askTheAmountOfSamples(testDTO);
-        generateBarcodes(loop, test);
+        generateBarcodes(loop, testDTO);
 
     }
 
@@ -89,11 +89,11 @@ public class RecordSampleUI implements Runnable{
     }
 
     /**
-     * Generates the amount of barcode entered by the user
+     *Generates the amount of barcode entered by the user
      * @param quantityOfSamplesIntroduced the amount of samples entered by the user
-     * @return a list of bar codes the same size as the number of samples entered by the user
+     * @param test the test that we intend to associate with the samples
      */
-    private void generateBarcodes (int quantityOfSamplesIntroduced, Test test){
+    private void generateBarcodes (int quantityOfSamplesIntroduced, TestDTO test){
         Sample sample;
         for (int j=0; j<quantityOfSamplesIntroduced; j++){
 
@@ -130,14 +130,14 @@ public class RecordSampleUI implements Runnable{
     /**
      * Associates a bar codes generated with the respective samples and the test selected by the user
      * @param barcode the barcode
-     * @param test the test that the samples will be associated
+     * @param testDTO the test that the samples will be associated
      * @param quantityOfSamplesIntroduced the amount of samples you want to generate
      * @return the sample generated
      */
-    private Sample associateBarcodesWithSamples(BarcodeDomain barcode, Test test, int quantityOfSamplesIntroduced){
+    private Sample associateBarcodesWithSamples(BarcodeDomain barcode, TestDTO testDTO, int quantityOfSamplesIntroduced){
 
         Sample sample;
-        //Test test = recordSampleController.getTestByInternalCode(testDTO);
+        Test test = recordSampleController.getTestByInternalCode(testDTO);
         sample = recordSampleController.associateBarcodeWithSample(barcode);
         recordSampleController.associateSamplesWithTest(test, sample, quantityOfSamplesIntroduced);
         return sample;

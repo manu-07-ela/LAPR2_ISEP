@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: app.domain.store.OrganizationRoleStoreTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in app.domain.store.OrganizationRoleStoreTest

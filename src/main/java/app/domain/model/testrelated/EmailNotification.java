@@ -15,16 +15,16 @@ public class EmailNotification {
 
     /**
      * Notifies results availability by email
-     * @param client a client
+     * @param selectedTest a client
      */
-    public void notifyByEmail(Client client) throws IOException {
-        File arch = new File("./" + "EmailNotification_"+ client.getNhs() + ".txt");
+    public void notifyByEmail(Test selectedTest) throws IOException {
+        File arch = new File("./" + "EmailNotification_"+ selectedTest.getNhscode() + ".txt");
         FileWriter fw = new FileWriter(arch, true);
 
         try {
             if (arch.exists()) arch.delete();
             fw.write("Sender: noreply@manylabs.com \n");
-            fw.write("Recipient" + client.getEmail() + "\n");
+            fw.write("Recipient" + selectedTest.getCl().getEmail() + "\n");
             fw.write("Subject matter: Results are available ");
             fw.write("Dear Client, \n");
             fw.write("The results are available in the central application, you must access them.");

@@ -68,10 +68,16 @@ public class Test {
      * Represents the date when the chemical analysis were added to the test
      */
     private Date chemicalAnalysisDate;
+
+    /**
+     * The Test Parameter Result of the test.
+     */
+    private TestParameterResult tpr;
+
     /**
      * Represents the date when the test was registered in the system
      */
-    private Data registerTestDate;
+    private Date registerTestDate;
     /**
      * The medical report of the test.
      */
@@ -139,10 +145,13 @@ public class Test {
         return description;
     }
 
+    public Date getChemicalAnalysisDate() { return tpr.getChemicalAnalysisDate();}
 
     public MedicalReport getMedicalReport() { return this.md;}
 
     public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
+
+    public Date getRegisterTestDate() { return this.registerTestDate; }
 
     public List<Sample> getSamples() { return samples; }
 
@@ -245,4 +254,18 @@ public class Test {
         return true;
     }
 
+    /**
+     * Generates the date and time when the samples were associated with a test
+     */
+    public void generateDataAndTimeLabCoordinatorValidation(){
+        lcv.recordLabCoordinatorValidationDate();
+    }
+
+    @Override
+    public String toString() {
+        for (TestParameter la: testParameterList) {
+            return String.format("%s",la.getTparamresult().toString());
+        }
+        return "la";
+    }
 }

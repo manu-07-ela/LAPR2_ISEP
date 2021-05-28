@@ -56,6 +56,12 @@ public class TestParameterResult {
         return refValue;
     }
 
+    /**
+     * Get the Date of the Chemical Analysis
+     * @return the Date of the Chemical Analysis
+     */
+    public Date getChemicalAnalysisDate() { return this.chemicalAnalysisDate;}
+
     @Override
     public String toString() {
         return "TestParameterResult{" +
