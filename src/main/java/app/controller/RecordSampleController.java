@@ -155,13 +155,13 @@ public class RecordSampleController {
         try {
             String pwd = System.getProperty("user.dir");
 
-            File barcodes = new File(pwd + "/src/main/barcodes");
+            File barcodes = new File(pwd + "\\src\\main\\barcodes");
             if (!barcodes.exists()) {
                 barcodes.mkdirs();
             }
-            File outputFile = new File(pwd + "/src/main/barcodes"+fileName+".jpg");
+            File outputFile = new File(pwd + "\\src\\main\\barcodes\\"+fileName+".jpeg");
 
-            ImageIO.write(image, "jpg", outputFile);
+            ImageIO.write(image, "jpeg", outputFile);
         } catch (IOException e) {
             System.out.println("Exception occured :" + e.getMessage());
         }
