@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.MedicalReportTest" time="0.009" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.MedicalReportTest" time="0.002" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -63,7 +63,7 @@
   </properties>
   <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.MedicalReportTest" time="0"/>
   <testcase name="ensureDiagnosisMeetsAC1_1" classname="app.domain.model.MedicalReportTest" time="0"/>
-  <testcase name="ensureDiagnosisMeetsAC1_2" classname="app.domain.model.MedicalReportTest" time="0"/>
+  <testcase name="ensureDiagnosisMeetsAC1_2" classname="app.domain.model.MedicalReportTest" time="0.001"/>
   <testcase name="ensureDiagnosisMeetsAC1_3" classname="app.domain.model.MedicalReportTest" time="0"/>
   <testcase name="ensureDiagnosisMeetsAC1_4" classname="app.domain.model.MedicalReportTest" time="0"/>
   <testcase name="ensureDiagnosisMeetsAC1_5" classname="app.domain.model.MedicalReportTest" time="0"/>
