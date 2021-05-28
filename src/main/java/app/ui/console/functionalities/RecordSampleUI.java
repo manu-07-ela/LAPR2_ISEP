@@ -1,6 +1,6 @@
 package app.ui.console.functionalities;
 
-import app.controller.RecordSampleController;
+import app.controller.funcionalites.RecordSampleController;
 import app.domain.model.attributes.BarcodeDomain;
 import app.domain.model.testRelated.Sample;
 import app.domain.model.testRelated.Test;
@@ -8,10 +8,7 @@ import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Represents an interface with the user to be able to record the sample associated with a test
@@ -60,9 +57,7 @@ public class RecordSampleUI implements Runnable{
 
         TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
         int loop = askTheAmountOfSamples(testDTO);
-        List<BarcodeDomain> barcodes = generateBarcodes(loop, testDTO);
-        boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
-        if (flag) associateBarcodesWithSamples(barcodes, testDTO);
+        generateBarcodes(loop, testDTO);
 
     }
 
@@ -86,16 +81,18 @@ public class RecordSampleUI implements Runnable{
      * @param i the amount of samples entered by the user
      * @return a list of bar codes the same size as the number of samples entered by the user
      */
-    private List<BarcodeDomain> generateBarcodes(int i, TestDTO testDTO){
-        List<BarcodeDomain> barcodes = new ArrayList<>();
+    private void generateBarcodes(int i, TestDTO testDTO){
         for (int j=0; j<i; j++){
             boolean invalidData = true;
             do {
                 try {
                     BarcodeDomain barcodeDomain = recordSampleController.generateBarcode();
-                    recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
-                    barcodes.add(barcodeDomain);
                     recordSampleController.showBarcodes(barcodeDomain);
+                    boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
+                    if (flag) {
+                        associateBarcodesWithSamples(barcodeDomain, testDTO, i);
+                        recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
+                    }
                     invalidData = false;
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
@@ -113,7 +110,6 @@ public class RecordSampleUI implements Runnable{
             }while (invalidData);
 
         }
-        return barcodes;
     }
 
     /**
@@ -121,16 +117,11 @@ public class RecordSampleUI implements Runnable{
      * @param barcodes the list of barcodes
      * @param testDTO the test that the samples will be associated
      */
-    private void associateBarcodesWithSamples(List<BarcodeDomain> barcodes, TestDTO testDTO){
+    private void associateBarcodesWithSamples(BarcodeDomain barcodes, TestDTO testDTO, int flag){
         Sample sample;
         Test test = recordSampleController.getTestByInternalCode(testDTO);
-
-
-        for (BarcodeDomain b : barcodes){
-            sample = recordSampleController.associateBarcodeWithSample(b);
-            recordSampleController.associateSamplesWithTest(test, sample, barcodes.size());
-        }
-
+        sample = recordSampleController.associateBarcodeWithSample(barcodes);
+        recordSampleController.associateSamplesWithTest(test, sample, flag);
     }
 
 }

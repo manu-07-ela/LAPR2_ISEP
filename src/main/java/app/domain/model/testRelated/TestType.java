@@ -1,6 +1,6 @@
 package app.domain.model.testRelated;
 
-import app.adapter.ExternalModuleReferencesValue;
+import app.adapter.interfaces.ExternalModuleReferencesValue;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;

@@ -1,6 +1,7 @@
 
 package app.adapter;
 
+import app.adapter.interfaces.ExternalModuleReferencesValue;
 import app.domain.model.testRelated.RefValue;
 import com.example3.CovidReferenceValues1API;
 

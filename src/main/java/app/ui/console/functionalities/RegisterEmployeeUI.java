@@ -1,6 +1,6 @@
 package app.ui.console.functionalities;
 
-import app.controller.RegisterEmployeeController;
+import app.controller.funcionalites.RegisterEmployeeController;
 import app.domain.model.users.Employee;
 import app.domain.model.attributes.OrganizationRole;
 import app.domain.model.users.SpecialistDoctor;

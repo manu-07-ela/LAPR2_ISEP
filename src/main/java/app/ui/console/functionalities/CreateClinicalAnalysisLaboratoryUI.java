@@ -1,12 +1,10 @@
 package app.ui.console.functionalities;
 
-import app.controller.CreateClinicalAnalysisLaboratoryController;
-import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
+import app.controller.funcionalites.CreateClinicalAnalysisLaboratoryController;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import app.mappers.dto.TestTypeDTO;
 import app.ui.console.utils.Utils;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 

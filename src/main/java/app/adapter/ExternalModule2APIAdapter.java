@@ -2,6 +2,7 @@
 package app.adapter;
 
 
+import app.adapter.interfaces.ExternalModuleReferencesValue;
 import app.domain.model.testRelated.RefValue;
 import com.example2.ExternalModule2API;
 

@@ -1,12 +1,9 @@
 package app.ui.console.functionalities;
 
-import app.controller.RecordResultsController;
-import app.domain.model.*;
-import app.domain.model.attributes.NhsCode;
+import app.controller.funcionalites.RecordResultsController;
 import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecordResultsUI implements  Runnable {
