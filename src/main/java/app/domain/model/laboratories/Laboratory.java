@@ -37,7 +37,7 @@ public abstract class Laboratory {
      */
     public Laboratory(String name, String address, String phoneNumber, String tin){
         nameValidation(name);
-        AddressValidation(address);
+        addressValidation(address);
         phoneNumberValidation(phoneNumber);
         tinValidation(tin);
         this.name=name;
@@ -92,7 +92,7 @@ public abstract class Laboratory {
      * Checks whether the address contains all business rules
      * @param address     Clinical Analysis Laboratory's address
      */
-    private void AddressValidation(String address){
+    private void addressValidation(String address){
         if (StringUtils.isBlank(address) || address.length()>30 ){
             throw  new IllegalArgumentException("The address mustn't have more than 30 characters and cannot be blank");
         }
