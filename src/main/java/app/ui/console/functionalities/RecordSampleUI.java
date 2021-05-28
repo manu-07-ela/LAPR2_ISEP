@@ -3,14 +3,14 @@ package app.ui.console.functionalities;
 
 import app.domain.model.testRelated.Sample;
 import app.domain.model.testRelated.Test;
-import app.mappers.dto.TestDto;
+import app.mappers.dto.TestDTO;
 
 import app.controller.RecordSampleController;
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.testRelated.*;
 import app.domain.model.users.Client;
 
-import app.mappers.dto.TestParameterDto;
+import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
@@ -49,8 +49,8 @@ public class RecordSampleUI implements Runnable{
         Parameter p2 = new Parameter("PLT00","test","method", pc);
 
 
-        TestParameterDto temDto2 = new TestParameterDto("frefrfe","PTL00");
-        List<TestParameterDto> listaDeParametrosDTO = new ArrayList<>();
+        TestParameterDTO temDto2 = new TestParameterDTO("frefrfe","PTL00");
+        List<TestParameterDTO> listaDeParametrosDTO = new ArrayList<>();
         listaDeParametrosDTO.add(temDto2);
 
         TestParameter tpm1 = new TestParameter(p);
@@ -61,7 +61,7 @@ public class RecordSampleUI implements Runnable{
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3Adapter");
         NhsCode nhs = new NhsCode("123456789012");
         Test test = new Test(la,nhs,tt,listaDeParametros, "123123123123");
-        TestDto testDTO = new TestDto(test);
+        TestDTO testDTO = new TestDTO(test);
 
 
         //TestDto testDTO = (TestDto) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
@@ -78,7 +78,7 @@ public class RecordSampleUI implements Runnable{
      * @param testDTO serves to show the data related to the test selected by the user
      * @return the number of samples entered by the user
      */
-    private int askTheAmountOfSamples(TestDto testDTO){
+    private int askTheAmountOfSamples(TestDTO testDTO){
         int samples;
         System.out.println("----------* Test Selected *----------");
         System.out.println(testDTO.toString());

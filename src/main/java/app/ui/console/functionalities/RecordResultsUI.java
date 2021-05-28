@@ -1,12 +1,11 @@
 package app.ui.console.functionalities;
 
-import app.mappers.dto.TestParameterDto;
+import app.mappers.dto.TestParameterDTO;
 
 import app.controller.RecordResultsController;
 
 
 import app.ui.console.utils.Utils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -32,7 +31,6 @@ public class RecordResultsUI implements  Runnable {
 
     public  void RecordResults(){
         try {
-<<<<<<< HEAD:src/main/java/app/ui/console/RecordResultsUI.java
             String barcode;
             boolean verificacao=true;
             List<TestParameterDTO> listaDeParametros = null;
@@ -45,10 +43,10 @@ public class RecordResultsUI implements  Runnable {
                     System.out.printf("%n Message: %s%n",e.getMessage());
                 }
             }while (verificacao);
-=======
-            String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
-            List<TestParameterDto> listaDeParametros = controller.getTestParameterList(barcode);
->>>>>>> 7b7047efdc09574dc6e7cc66aacf50a3471746cc:src/main/java/app/ui/console/functionalities/RecordResultsUI.java
+
+            barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
+            listaDeParametros = controller.getTestParameterList(barcode);
+
            /* List<TestParameter> listaDeParametros = new ArrayList<>();
             ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
             List<ParameterCategory> listPC = new ArrayList();
@@ -75,10 +73,10 @@ public class RecordResultsUI implements  Runnable {
             */
             int i=0;
             while (i <= listaDeParametros.size()){
-                TestParameterDto parameter;
+                TestParameterDTO parameter;
                 do {
                     Utils.showList(listaDeParametros, "Choose the Parameter you want to register the results");
-                    parameter = (TestParameterDto) Utils.selectsObject(listaDeParametros);
+                    parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
                     if (parameter==null){
                         System.out.println("You must choose a parameter to record it's results");
                     }

@@ -1,7 +1,12 @@
-package app.controller;
+/*package app.controller;
 
 import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.testRelated.Parameter;
+import app.domain.model.testRelated.ParameterCategory;
+import app.domain.model.testRelated.TestParameter;
+import app.domain.model.testRelated.TestType;
+import app.domain.model.users.Client;
 import app.domain.store.TestStore;
 import app.mappers.dto.TestParameterDTO;
 import org.junit.Assert;
@@ -38,8 +43,7 @@ public class RecordResultsControllerTest {
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
-        app.domain.model.Test test = new app.domain.model.Test(la,nhs,tt,listaDeParametros);
-
+        app.domain.model.testRelated.Test test = new app.domain.model.testRelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
         RecordResultsController controller = new RecordResultsController();
         boolean verificacao = controller.addTestResult("PLT00","1234","mg");
         Assert.assertTrue(verificacao);
@@ -64,7 +68,7 @@ public class RecordResultsControllerTest {
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
-        app.domain.model.Test test = new app.domain.model.Test(la,nhs,tt,listaDeParametros);
+        app.domain.model.testRelated.Test test = new app.domain.model.testRelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
 
         RecordResultsController controller = new RecordResultsController();
         boolean verificacao = controller.addTestResult("TBF23","1234","mg");
@@ -93,12 +97,12 @@ public class RecordResultsControllerTest {
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
-        app.domain.model.Test test1 = new app.domain.model.Test(la,nhs,tt,listaDeParametros);
-        app.domain.model.Test test2 = new app.domain.model.Test(la,nhs,tt,listaDeParametros);
+        app.domain.model.testRelated.Test test1 = new app.domain.model.testRelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        app.domain.model.testRelated.Test test2 = new app.domain.model.testRelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
 
 
-        List<app.domain.model.Test> testWithSamplesCollectedList = new ArrayList();
-        test1.changeStateForSamplesCollected();
+        List<app.domain.model.testRelated.Test> testWithSamplesCollectedList = new ArrayList();
+        test1.
         testStore.addTest(test1);
 
         boolean verificacao = controller.PossibilityOfRecordResult();
@@ -106,4 +110,4 @@ public class RecordResultsControllerTest {
         Assert.assertTrue(verificacao);
 
     }
-}
+}*/

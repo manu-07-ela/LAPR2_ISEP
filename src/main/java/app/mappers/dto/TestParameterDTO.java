@@ -1,6 +1,6 @@
 package app.mappers.dto;
 
-public class TestParameterDto {
+public class TestParameterDTO {
 
     /**
      * The parameter name.
@@ -42,7 +42,7 @@ public class TestParameterDto {
      * @param parameterName The parameter name.
      * @param parameterId The code of the parameter
      */
-    public TestParameterDto(String parameterName, String parameterId){
+    public TestParameterDTO(String parameterName, String parameterId){
         this.parameterName=parameterName;
         this.parameterId=parameterId;
 
@@ -57,7 +57,7 @@ public class TestParameterDto {
      * @param testParameterMaxRefValue
      * @param refValueMetric
      */
-    public TestParameterDto(String parameterName, String testParameterResult, String testParameterMetric, double testParameterMinRefValue, double testParameterMaxRefValue, String refValueMetric){
+    public TestParameterDTO(String parameterName, String testParameterResult, String testParameterMetric, double testParameterMinRefValue, double testParameterMaxRefValue, String refValueMetric){
         this.parameterName=parameterName;
         this.testParameterResult=testParameterResult;
         this.testParameterMetric=testParameterMetric;
