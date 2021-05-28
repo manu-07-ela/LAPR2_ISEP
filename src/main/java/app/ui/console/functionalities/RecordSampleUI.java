@@ -13,6 +13,7 @@ import app.domain.model.users.Client;
 import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.BarcodeFactory;
 import net.sourceforge.barbecue.output.OutputException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -105,7 +106,11 @@ public class RecordSampleUI implements Runnable{
                     recordSampleController.showBarcodes(barcodeDomain);
                     boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
                     if (flag) {
-                        sample = associateBarcodesWithSamples(barcodeDomain, test, quantityOfSamplesIntroduced);
+                        sample = recordSampleController.associateBarcodeWithSample(barcodeDomain);
+                        System.out.println("BARCODE:"+sample.getBarcode().getBarcode());
+                        System.out.println("BARCODE NUMBER:"+sample.getBarcode().getBarcodeNumber());
+                        recordSampleController.associateSamplesWithTest(test, sample, quantityOfSamplesIntroduced);
+                        //sample = associateBarcodesWithSamples(barcodeDomain, test, quantityOfSamplesIntroduced);
                         recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
                         recordSampleController.saveSample(sample);
                     }
