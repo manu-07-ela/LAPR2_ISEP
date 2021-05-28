@@ -3,7 +3,9 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.Test;
 import app.domain.store.TestStore;
+import app.mappers.DateMapper;
 import app.mappers.TestMapper;
+import app.mappers.dto.DateDTO;
 import app.mappers.dto.TestDTO;
 
 import java.util.List;
@@ -41,12 +43,18 @@ public class ValidateWorkController {
     private TestMapper testMapper;
 
     /**
+     * Represents an instance of the test mapper
+     */
+    private DateMapper dateMapper;
+
+    /**
      * Constructs an instance of {@code ValidateWorkController}.
      */
     public ValidateWorkController(){
         this.app=App.getInstance();
         this.company=app.getCompany();
         testMapper = new TestMapper();
+        dateMapper = new DateMapper();
     }
 
     /**
@@ -57,6 +65,7 @@ public class ValidateWorkController {
         this.app=App.getInstance();
         this.company =company;
         testMapper = new TestMapper();
+        dateMapper = new DateMapper();
     }
 
     /**
@@ -65,8 +74,8 @@ public class ValidateWorkController {
      */
     public List<TestDTO> getTestsToValidateList(){
         this.testStore=company.getTestStore();
-        List<Test> testHasSamplesAnalyzedList = testStore.getTestHasSamplesAnalyzedList();
-        return testMapper.toDto(testHasSamplesAnalyzedList);
+        List<Test> testHasReportList = testStore.getTestHasReportList();
+        return testMapper.toDto(testHasReportList);
     }
 
     /**
@@ -82,5 +91,7 @@ public class ValidateWorkController {
     /**
      *
      */
-    //public boolean showRegistrationDate(Test selectedTest) { return test.}
+    public String showDiagnosisDate(Test selectedTest) {
+        return dateMapper.toDto(test.getCreatedAt()).toString();
+    }
 }

@@ -43,4 +43,9 @@ public class MedicalReport {
             throw new IllegalArgumentException("The report should have no more than 400 words.");
     }
 
+    /**
+     *
+     */
+    public Date getCreatedAt() { return this.createdAt;}
+
 }
