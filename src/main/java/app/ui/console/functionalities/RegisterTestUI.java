@@ -2,10 +2,10 @@ package app.ui.console.functionalities;
 
 import app.controller.RegisterTestController;
 import app.domain.model.attributes.NhsCode;
-import app.domain.model.testRelated.Parameter;
-import app.domain.model.testRelated.ParameterCategory;
-import app.domain.model.testRelated.TestParameter;
-import app.domain.model.testRelated.TestType;
+import app.domain.model.testrelated.Parameter;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.model.testrelated.TestParameter;
+import app.domain.model.testrelated.TestType;
 import app.domain.model.users.Client;
 import app.ui.console.utils.Utils;
 

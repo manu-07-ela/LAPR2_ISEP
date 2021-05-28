@@ -1,13 +1,13 @@
 package app.ui.console.functionalities;
 
 
-import app.domain.model.testRelated.Sample;
-import app.domain.model.testRelated.Test;
+import app.domain.model.testrelated.Sample;
+import app.domain.model.testrelated.Test;
 import app.mappers.dto.TestDTO;
 
 import app.controller.RecordSampleController;
 import app.domain.model.attributes.NhsCode;
-import app.domain.model.testRelated.*;
+import app.domain.model.testrelated.*;
 import app.domain.model.users.Client;
 
 import app.mappers.dto.TestParameterDTO;

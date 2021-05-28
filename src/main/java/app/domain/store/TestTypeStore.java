@@ -1,7 +1,7 @@
 package app.domain.store;
 
-import app.domain.model.testRelated.ParameterCategory;
-import app.domain.model.testRelated.TestType;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.model.testrelated.TestType;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package app.mappers;
 
-import app.domain.model.testRelated.Parameter;
+import app.domain.model.testrelated.Parameter;
 import app.mappers.dto.ParameterDTO;
 
 import java.util.ArrayList;

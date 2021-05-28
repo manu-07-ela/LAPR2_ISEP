@@ -1,6 +1,6 @@
 package app.mappers.dto;
 
-import app.domain.model.testRelated.Test;
+import app.domain.model.testrelated.Test;
 
 /**
  * Represents a data transfer object of Test

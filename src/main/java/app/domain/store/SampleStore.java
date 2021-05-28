@@ -1,7 +1,7 @@
 package app.domain.store;
 
-import app.domain.model.testRelated.Sample;
-import app.domain.model.testRelated.BarcodeDomain;
+import app.domain.model.testrelated.Sample;
+import app.domain.model.testrelated.BarcodeDomain;
 import java.util.ArrayList;
 import java.util.List;
 

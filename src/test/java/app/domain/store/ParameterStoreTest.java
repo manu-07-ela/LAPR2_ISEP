@@ -1,7 +1,7 @@
 package app.domain.store;
 
-import app.domain.model.testRelated.Parameter;
-import app.domain.model.testRelated.ParameterCategory;
+import app.domain.model.testrelated.Parameter;
+import app.domain.model.testrelated.ParameterCategory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

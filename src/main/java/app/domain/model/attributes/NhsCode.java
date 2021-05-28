@@ -61,7 +61,7 @@ public class NhsCode {
         public boolean equals(Object other) {
             if (this == other) return true;
             if (other == null || getClass() != other.getClass()) return false;
-            app.domain.model.attributes.NhsCode NhsCode1 = (app.domain.model.attributes.NhsCode) other;
-            return Objects.equals(code, NhsCode1.code);
+            app.domain.model.attributes.NhsCode nhsCode1 = (app.domain.model.attributes.NhsCode) other;
+            return Objects.equals(code, nhsCode1.code);
         }
 }

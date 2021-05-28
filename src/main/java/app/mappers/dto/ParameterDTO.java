@@ -1,6 +1,6 @@
 package app.mappers.dto;
 
-import app.domain.model.testRelated.ParameterCategory;
+import app.domain.model.testrelated.ParameterCategory;
 
 /**
  * Represents a data transfer object of parameter

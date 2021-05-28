@@ -1,7 +1,7 @@
 package app.mappers.dto;
 
 
-import app.domain.model.testRelated.ParameterCategory;
+import app.domain.model.testrelated.ParameterCategory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

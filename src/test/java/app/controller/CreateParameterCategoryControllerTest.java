@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.testRelated.ParameterCategory;
+import app.domain.model.testrelated.ParameterCategory;
 import app.domain.store.ParameterCategoryStore;
 import org.junit.Assert;
 import org.junit.Before;
