@@ -77,7 +77,7 @@ public class RecordResultsController {
      */
     public boolean PossibilityOfRecordResult(){
 
-        return store.getTestWithSamplesCollectedList().size() == 0;
+        return !(store.getTestWithSamplesCollectedList().size() == 0);
 
 
     }

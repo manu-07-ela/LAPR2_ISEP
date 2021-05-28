@@ -232,6 +232,7 @@ public class Test {
     public boolean addSamples(Sample sample, int flag){
         if (this.samples.size()==flag) {
             changeStateForSamplesCollected();
+            System.out.println("MUDOU ESTADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
             generateDataAndTimeForSamplesCollected();
         }
         return this.samples.add(sample);
