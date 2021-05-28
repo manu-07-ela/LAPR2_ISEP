@@ -1,8 +1,5 @@
-package app.domain.model.testRelated;
+package app.domain.model.testrelated;
 
-
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Represents a Lab Coordinator Validation.

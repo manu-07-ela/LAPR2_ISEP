@@ -1,9 +1,8 @@
 package app.controller;
 
-import app.controller.App;
 import app.domain.model.Company;
-import app.domain.model.testRelated.ParameterCategory;
-import app.domain.model.testRelated.TestType;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.model.testrelated.TestType;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.TestTypeStore;
 import app.mappers.ParameterCategoryMapper;

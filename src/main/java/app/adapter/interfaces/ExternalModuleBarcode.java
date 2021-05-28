@@ -1,6 +1,6 @@
 package app.adapter.interfaces;
 
-import app.domain.model.testRelated.BarcodeDomain;
+import app.domain.model.testrelated.BarcodeDomain;
 import net.sourceforge.barbecue.BarcodeException;
 
 import java.io.IOException;

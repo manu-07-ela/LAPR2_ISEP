@@ -1,4 +1,4 @@
-package app.domain.model.testRelated;
+package app.domain.model.testrelated;
 
 public class TestParameter {
 

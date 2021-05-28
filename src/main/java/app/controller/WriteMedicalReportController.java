@@ -1,8 +1,8 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.testRelated.Test;
-import app.domain.model.testRelated.TestParameter;
+import app.domain.model.testrelated.Test;
+import app.domain.model.testrelated.TestParameter;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
 import app.mappers.TestParameterMapper;

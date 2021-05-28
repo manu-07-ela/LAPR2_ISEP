@@ -1,9 +1,8 @@
 package app.controller;
 
-import app.controller.App;
 import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
-import app.domain.model.testRelated.*;
+import app.domain.model.testrelated.*;
 import app.domain.model.users.Client;
 import app.domain.store.*;
 import app.mappers.ClientMapper;

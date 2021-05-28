@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.testRelated.Test;
+import app.domain.model.testrelated.Test;
 import app.domain.store.TestStore;
 import app.mappers.DateMapper;
 import app.mappers.TestMapper;

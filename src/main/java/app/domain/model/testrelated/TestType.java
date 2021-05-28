@@ -1,4 +1,4 @@
-package app.domain.model.testRelated;
+package app.domain.model.testrelated;
 
 import app.adapter.interfaces.ExternalModuleReferencesValue;
 import org.apache.commons.lang3.StringUtils;

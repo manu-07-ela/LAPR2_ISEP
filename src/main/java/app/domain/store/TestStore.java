@@ -6,16 +6,16 @@ import app.domain.model.attributes.NhsCode;
 import org.apache.commons.lang3.StringUtils;
 
 
-import app.domain.model.testRelated.Sample;
-import app.domain.model.testRelated.Test;
-import app.domain.model.testRelated.TestParameter;
-import app.domain.model.testRelated.TestType;
+import app.domain.model.testrelated.Sample;
+import app.domain.model.testrelated.Test;
+import app.domain.model.testrelated.TestParameter;
+import app.domain.model.testrelated.TestType;
 import app.domain.model.users.Client;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import static app.domain.model.testRelated.Test.StateOfTest.*;
+import static app.domain.model.testrelated.Test.StateOfTest.*;
 
 /**
  * Stores laboratory tests provided to customers

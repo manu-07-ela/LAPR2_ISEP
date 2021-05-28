@@ -1,10 +1,10 @@
 package app.mappers;
 
 import app.domain.model.attributes.NhsCode;
-import app.domain.model.testRelated.Parameter;
-import app.domain.model.testRelated.ParameterCategory;
-import app.domain.model.testRelated.TestParameter;
-import app.domain.model.testRelated.TestType;
+import app.domain.model.testrelated.Parameter;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.model.testrelated.TestParameter;
+import app.domain.model.testrelated.TestType;
 import app.domain.model.users.Client;
 import app.mappers.dto.TestDTO;
 import org.junit.Assert;
@@ -12,8 +12,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class TestMapperTest {
     Client client;
@@ -23,7 +21,7 @@ public class TestMapperTest {
     Parameter parameter;
     TestParameter testParameter;
     List<TestParameter> testParameters;
-    app.domain.model.testRelated.Test test;
+    app.domain.model.testrelated.Test test;
     TestType testType;
     TestDTO testDTO;
     TestMapper testMapper;
@@ -41,7 +39,7 @@ public class TestMapperTest {
         parameterCategories = new ArrayList<>();
         parameterCategories.add(parameterCategory);
         testType = new TestType("bag63", "blood", "blood", parameterCategories, "ExternalModule1");
-        test = new app.domain.model.testRelated.Test(client, nhsCode, testType, testParameters, "123123123123");
+        test = new app.domain.model.testrelated.Test(client, nhsCode, testType, testParameters, "123123123123");
         testMapper = new TestMapper();
         testDTO = new TestDTO(test.getInternalCode(), test.getDescription());
         TestDTO result = testMapper.toDto(test);
@@ -61,7 +59,7 @@ public class TestMapperTest {
         parameterCategories = new ArrayList<>();
         parameterCategories.add(parameterCategory);
         testType = new TestType("bag63", "blood", "blood", parameterCategories, "ExternalModule1");
-        test = new app.domain.model.testRelated.Test(client, nhsCode, testType, testParameters, "123456789012");
+        test = new app.domain.model.testrelated.Test(client, nhsCode, testType, testParameters, "123456789012");
         testMapper = new TestMapper();
         testDTO = new TestDTO(test.getInternalCode(), test.getDescription());
         testDTOS = new ArrayList<>();

@@ -1,11 +1,10 @@
-package app.domain.model.testRelated;
+package app.domain.model.testrelated;
 
 
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.users.Client;
 
 import javax.xml.crypto.Data;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
