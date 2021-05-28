@@ -1,5 +1,5 @@
 
-package app.domain.model;
+package app.domain.model.testRelated;
 
 import app.domain.model.testRelated.Parameter;
 import app.domain.model.testRelated.ParameterCategory;

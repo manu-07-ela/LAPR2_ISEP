@@ -1,5 +1,5 @@
 
-package app.domain.model;
+package app.domain.model.testRelated;
 
 import app.domain.model.testRelated.MedicalReport;
 import org.junit.Assert;

@@ -1,4 +1,4 @@
-package app.domain.model;
+package app.domain.model.users;
 
 import app.domain.model.attributes.*;
 import app.domain.model.users.Employee;

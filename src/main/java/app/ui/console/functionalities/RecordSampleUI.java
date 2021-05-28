@@ -94,6 +94,7 @@ public class RecordSampleUI implements Runnable{
      * @return a list of bar codes the same size as the number of samples entered by the user
      */
     private void generateBarcodes (int quantityOfSamplesIntroduced, Test test){
+        Sample sample;
         for (int j=0; j<quantityOfSamplesIntroduced; j++){
 
             boolean invalidData = true;
@@ -103,8 +104,9 @@ public class RecordSampleUI implements Runnable{
                     recordSampleController.showBarcodes(barcodeDomain);
                     boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
                     if (flag) {
-                        associateBarcodesWithSamples(barcodeDomain, test, quantityOfSamplesIntroduced);
+                        sample = associateBarcodesWithSamples(barcodeDomain, test, quantityOfSamplesIntroduced);
                         recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
+                        recordSampleController.saveSample(sample);
                     }
                     invalidData = false;
                 } catch (ClassNotFoundException e) {
@@ -129,13 +131,16 @@ public class RecordSampleUI implements Runnable{
      * Associates a bar codes generated with the respective samples and the test selected by the user
      * @param barcode the barcode
      * @param test the test that the samples will be associated
+     * @param quantityOfSamplesIntroduced the amount of samples you want to generate
+     * @return the sample generated
      */
-    private void associateBarcodesWithSamples(BarcodeDomain barcode, Test test, int quantityOfSamplesIntroduced){
+    private Sample associateBarcodesWithSamples(BarcodeDomain barcode, Test test, int quantityOfSamplesIntroduced){
 
         Sample sample;
         //Test test = recordSampleController.getTestByInternalCode(testDTO);
         sample = recordSampleController.associateBarcodeWithSample(barcode);
         recordSampleController.associateSamplesWithTest(test, sample, quantityOfSamplesIntroduced);
+        return sample;
     }
 
 }

@@ -177,4 +177,13 @@ public class RecordSampleController {
         return BarcodeImageHandler.getImage((Barcode) barcode.getBarcode());
     }
 
+    /**
+     * Save the sample
+     * @param sample the sample we intend to save
+     * @return true if the sample was saved, false otherwise
+     */
+    public boolean saveSample(Sample sample){
+        return sampleStore.saveSample(sample);
+    }
+
 }
