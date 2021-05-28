@@ -5,6 +5,7 @@ import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
 import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,18 +22,28 @@ public class RecordResultsUI implements  Runnable {
     public void run() {
 
         if (controller.PossibilityOfRecordResult()){
-            System.out.println("There are no tests available to record it's results");
-        }else {
             System.out.println("\nRecording the Results");
             RecordResults();
+        }else {
+            System.out.println("There are no tests available to record it's results");
         }
     }
 
 
     public  void RecordResults(){
         try {
-            String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
-            List<TestParameterDTO> listaDeParametros = controller.getTestParameterList(barcode);
+            String barcode;
+            boolean verificacao=true;
+            List<TestParameterDTO> listaDeParametros = null;
+            do {
+                try {
+                    barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
+                    listaDeParametros = controller.getTestParameterList(barcode);
+                    verificacao=false;
+                }catch (IllegalArgumentException e){
+                    System.out.printf("%n Message: %s%n",e.getMessage());
+                }
+            }while (verificacao);
            /* List<TestParameter> listaDeParametros = new ArrayList<>();
             ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
             List<ParameterCategory> listPC = new ArrayList();
@@ -71,7 +82,6 @@ public class RecordResultsUI implements  Runnable {
                 String metric;
                 String resposta;
                 do {
-
                     System.out.println("\nEnter the result and the metric to record the results of the test");
                     result = Utils.readLineFromConsole("Result: ");
                     metric = Utils.readLineFromConsole("Metric: ");

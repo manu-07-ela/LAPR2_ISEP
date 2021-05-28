@@ -55,12 +55,10 @@ public class RecordResultsController {
      */
     public List<TestParameterDTO> getTestParameterList(String barcode){
         test = store.getTestByBarcode(barcode);
+        if (test==null){
+            throw new IllegalArgumentException("There are no tests with samples associated with this barcode");
+        }
         return tpMapper.toDTO(test.getTestParameterList());
-    }
-
-
-    public void setTest(Test test) {
-        this.test = test;
     }
 
     /**
@@ -81,9 +79,9 @@ public class RecordResultsController {
      */
     public boolean PossibilityOfRecordResult(){
         if (store.getTestWithSamplesCollectedList().size() == 0){
-            return true;
+            return false;
         }else {
-            return  false;
+            return  true;
         }
 
     }

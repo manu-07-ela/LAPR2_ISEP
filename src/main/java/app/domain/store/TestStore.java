@@ -2,6 +2,8 @@ package app.domain.store;
 
 import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
+import org.apache.commons.lang3.StringUtils;
+
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,10 +38,12 @@ public class TestStore {
     }
 
     /**
-     *
-     * @return
+     *  Gets a test by the barcode
+     * @param barcodenumber the barcode
+     * @return the test
      */
     public Test getTestByBarcode(String barcodenumber){
+        barcodeValidation(barcodenumber);
         for (Test test: testList ) {
             for (Sample sample: test.getSamples() ) {
                 if (sample.getBarcode().getBarcodeNumber().equals(barcodenumber)){
@@ -132,8 +136,8 @@ public class TestStore {
     }
 
     /**
-     *
-     * @return
+     * Get a list of test waiting for the analysis of samples
+     * @return  a list of test waiting for the analysis of samples
      */
     public List<Test> getTestWithSamplesCollectedList(){
         List<Test> testWithSamplesCollectedList = new ArrayList();
@@ -188,6 +192,16 @@ public class TestStore {
      */
     public void changeTheStatusOfTest(Test test){
         test.changeStateForSamplesCollected();
+    }
+
+    /**
+     * Checks if the barcode contains all business rules
+     * @param barcode  the barcode
+     */
+    public void barcodeValidation(String barcode){
+        if (StringUtils.isBlank(barcode) || barcode.length() != 11){
+            throw new IllegalArgumentException("The barcode number must be a code with 11 characters");
+        }
     }
 
 }
