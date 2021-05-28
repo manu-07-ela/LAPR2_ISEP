@@ -64,10 +64,7 @@ public class Company {
      *  Represents a instance of the store of Tests
      */
     private final TestStore testStore;
-    /**
-     * Represents a instance of the store of samples
-     */
-    private final SampleStore sampleStore;
+
 
     /**
      * Creates an instance of Company
@@ -87,7 +84,6 @@ public class Company {
         this.organizationRoleStore = new OrganizationRoleStore();
         this.clientStore = new ClientStore();
         this.testStore = new TestStore();
-        this.sampleStore = new SampleStore();
         this.chemicalLaboratory = new ChemicalLaboratory("Chemical Laboratory", "Oxford Street", "23145623781", "7293817263");
     }
 
@@ -99,13 +95,6 @@ public class Company {
         return chemicalLaboratory;
     }
 
-    /**
-     * Get the instance of sample store
-     * @return the instance of sample store
-     */
-    public SampleStore getSampleStore() {
-        return sampleStore;
-    }
 
     /**
      * Get the company designation.

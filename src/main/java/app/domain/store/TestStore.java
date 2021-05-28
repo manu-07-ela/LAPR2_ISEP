@@ -67,7 +67,7 @@ public class TestStore {
     }
 
     public Test createTest(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList){
-        return new Test(cl,nhscode,testType,testParameterList,generateInternalcode(testList.size()));
+        return new Test(cl,nhscode,testType,testParameterList, generateInternalCode(testList.size()));
    }
 
 //    public static String generateTestCode(Test t){
@@ -87,7 +87,7 @@ public class TestStore {
         }
     }
 
-    public static String generateInternalcode(int numtest) {
+    public static String generateInternalCode(int numtest) {
         DecimalFormat df = new DecimalFormat("000000000000");
         return df.format(numtest);
     }
@@ -108,7 +108,7 @@ public class TestStore {
     public List<Test> getListOfTestWaitingForSample(){
         List<Test> testsWaintingForSamples = new ArrayList<>();
         for (Test test : testList){
-            if (test.getState() == TestRegistered) testsWaintingForSamples.add(test);
+            if (test.getStateOfTest() == TestRegistered) testsWaintingForSamples.add(test);
         }
         return testsWaintingForSamples;
     }
@@ -120,7 +120,7 @@ public class TestStore {
     public List<Test> getTestHasSamplesAnalyzedList(){
         List<Test> testHasSamplesAnalyzedList = new ArrayList();
         for(Test test : testList){
-            if(test.getState() == SamplesAnalyzed){
+            if(test.getStateOfTest() == SamplesAnalyzed){
                 testHasSamplesAnalyzedList.add(test);
             }
         }
@@ -134,7 +134,7 @@ public class TestStore {
     public List<Test> getTestWithSamplesCollectedList(){
         List<Test> testWithSamplesCollectedList = new ArrayList();
         for(Test test : testList){
-            if(test.getState() == SamplesCollected){
+            if(test.getStateOfTest() == SamplesCollected){
                 testWithSamplesCollectedList.add(test);
             }
         }
@@ -148,7 +148,7 @@ public class TestStore {
     public List<Test> getTestHasReportList(){
         List<Test> testHasReportList = new ArrayList();
         for(Test test : testList){
-            if(test.getState() == Validated){
+            if(test.getStateOfTest() == Validated){
                 testHasReportList.add(test);
             }
         }

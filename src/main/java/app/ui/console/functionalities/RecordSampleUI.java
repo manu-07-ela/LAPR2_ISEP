@@ -1,7 +1,7 @@
 package app.ui.console.functionalities;
 
 import app.controller.funcionalites.RecordSampleController;
-import app.domain.model.attributes.BarcodeDomain;
+import app.domain.model.testRelated.BarcodeDomain;
 import app.domain.model.testRelated.Sample;
 import app.domain.model.testRelated.Test;
 import app.mappers.dto.TestDTO;
@@ -18,7 +18,7 @@ public class RecordSampleUI implements Runnable{
     /**
      * Represents a instance of record sample controller
      */
-    private RecordSampleController recordSampleController;
+    private final RecordSampleController recordSampleController;
 
     /**
      * Initializes the controller
@@ -78,11 +78,11 @@ public class RecordSampleUI implements Runnable{
 
     /**
      * Generates the amount of barcode entered by the user
-     * @param i the amount of samples entered by the user
+     * @param quantityOfSamplesIntroduced the amount of samples entered by the user
      * @return a list of bar codes the same size as the number of samples entered by the user
      */
-    private void generateBarcodes(int i, TestDTO testDTO){
-        for (int j=0; j<i; j++){
+    private void generateBarcodes(int quantityOfSamplesIntroduced, TestDTO testDTO){
+        for (int j=0; j<quantityOfSamplesIntroduced; j++){
             boolean invalidData = true;
             do {
                 try {
@@ -90,7 +90,7 @@ public class RecordSampleUI implements Runnable{
                     recordSampleController.showBarcodes(barcodeDomain);
                     boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
                     if (flag) {
-                        associateBarcodesWithSamples(barcodeDomain, testDTO, i);
+                        associateBarcodesWithSamples(barcodeDomain, testDTO, quantityOfSamplesIntroduced);
                         recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
                     }
                     invalidData = false;
@@ -113,15 +113,15 @@ public class RecordSampleUI implements Runnable{
     }
 
     /**
-     * Associates the list of bar codes generated with the respective samples and the test selected by the user
-     * @param barcodes the list of barcodes
+     * Associates a bar codes generated with the respective samples and the test selected by the user
+     * @param barcode the barcode
      * @param testDTO the test that the samples will be associated
      */
-    private void associateBarcodesWithSamples(BarcodeDomain barcodes, TestDTO testDTO, int flag){
+    private void associateBarcodesWithSamples(BarcodeDomain barcode, TestDTO testDTO, int quantityOfSamplesIntroduced){
         Sample sample;
         Test test = recordSampleController.getTestByInternalCode(testDTO);
-        sample = recordSampleController.associateBarcodeWithSample(barcodes);
-        recordSampleController.associateSamplesWithTest(test, sample, flag);
+        sample = recordSampleController.associateBarcodeWithSample(barcode);
+        recordSampleController.associateSamplesWithTest(test, sample, quantityOfSamplesIntroduced);
     }
 
 }

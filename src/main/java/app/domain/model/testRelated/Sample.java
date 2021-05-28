@@ -1,7 +1,5 @@
 package app.domain.model.testRelated;
 
-import app.domain.model.attributes.BarcodeDomain;
-
 import java.util.Objects;
 
 /**

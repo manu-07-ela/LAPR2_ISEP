@@ -11,7 +11,7 @@ public class ChemicalLaboratory extends Laboratory {
     /**
      * Represents an instance of sample store
      */
-    private SampleStore sampleStore;
+    private final SampleStore sampleStore;
     /**
      * @param name        the name of the Laboratory.
      * @param address     the address of the Laboratory.
