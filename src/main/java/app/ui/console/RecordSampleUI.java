@@ -36,7 +36,7 @@ public class RecordSampleUI implements Runnable{
     @Override
     public void run() {
 
-        /*List<TestParameter> listaDeParametros = new ArrayList<>();
+        List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
         listPC.add(pc);
@@ -56,9 +56,9 @@ public class RecordSampleUI implements Runnable{
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3Adapter");
         NhsCode nhs = new NhsCode("123456789012");
         Test test = new Test(la,nhs,tt,listaDeParametros);
-        TestDTO testDTO = new TestDTO(test);*/
+        TestDTO testDTO = new TestDTO(test);
 
-        TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
+        //TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
         int loop = askTheAmountOfSamples(testDTO);
         List<BarcodeDomain> barcodes = generateBarcodes(loop);
         boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");

@@ -38,6 +38,10 @@ public class RecordSampleController {
      * Represents a instance of test mapper
      */
     private TestMapper testMapper;
+    /**
+     * Counts the instances of barcodes
+     */
+    private static int instancesOfBarcode;
 
     /**
      * Constructs an instance of {@code RecordSampleController}
@@ -92,7 +96,6 @@ public class RecordSampleController {
      */
     public BarcodeDomain generateBarcode() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, BarcodeException {
         DecimalFormat df = new DecimalFormat("00000000000");
-        int instancesOfBarcode = 0;
         String barcodeNumber = df.format(instancesOfBarcode);
         ExternalModuleBarcode api = getExternalModule();
         instancesOfBarcode++;
@@ -104,16 +107,11 @@ public class RecordSampleController {
      * @param barcode the barcode that will be shown
      */
     public void showBarcodes(BarcodeDomain barcode){
-
-        JFrame frame = new JFrame();
-
+        JFrame frame = new JFrame("Barcode");
         frame.getContentPane().add((Component) barcode.getBarcode());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frame.pack();
-        frame.setLocation(500, 500);
+        frame.setSize(200, 200);
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.setVisible(true);
-
     }
 
     /**
