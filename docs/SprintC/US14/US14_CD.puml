@@ -50,17 +50,31 @@ class TestStore{
 
 package Mappers{
 class TestMapper{
++toDto(test)
++toDto(testList)
 }
 
 class TestParameterMapper{
++toDto(testParametersList)
++toDto(testParameter)
 }
 }
 
 package DTO{
 class TestDto{
+-String internalCode
+-String description
++TestDto(internalCode,description)
 }
 
 class TestParameterDto{
+-String parameterName
+-String testParameterResult
+-String testParameterMetric
+-double testParameterMinRefValue
+-double testParameterMaxRefValue
+-String refValueMetric
++TestParameterDto(parameterName,testParameterResult,\ntestParameterMetric,testParameterMinRefValue,\ntestParameterMaxRefValue,refValueMetric)
 }
 }
 

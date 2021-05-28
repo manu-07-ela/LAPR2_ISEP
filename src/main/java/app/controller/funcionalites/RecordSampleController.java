@@ -9,7 +9,7 @@ import app.domain.model.attributes.BarcodeDomain;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
-import app.mappers.dto.TestDTO;
+import app.mappers.dto.TestDto;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeImageHandler;
@@ -65,7 +65,7 @@ public class RecordSampleController {
      * Returns a DTO-type list of test waiting for samples in the system
      * @return A DTO-type list of tests waiting for samples
      */
-    public List<TestDTO> getListOfTestsWaitingForSample(){
+    public List<TestDto> getListOfTestsWaitingForSample(){
         return testMapper.toDto(testStore.getListOfTestWaitingForSample());
     }
 
@@ -74,7 +74,7 @@ public class RecordSampleController {
      * @param testDto a test dto which the internal code will be taken to compare with the tests stored in the TestStore
      * @return the test corresponding to the desired internal code
      */
-    public Test getTestByInternalCode(TestDTO testDto){
+    public Test getTestByInternalCode(TestDto testDto){
         return testStore.getTestByInternalCode(testDto.getInternalCode());
     }
 

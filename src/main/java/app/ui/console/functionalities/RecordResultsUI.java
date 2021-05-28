@@ -1,7 +1,7 @@
 package app.ui.console.functionalities;
 
 import app.controller.funcionalites.RecordResultsController;
-import app.mappers.dto.TestParameterDTO;
+import app.mappers.dto.TestParameterDto;
 import app.ui.console.utils.Utils;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class RecordResultsUI implements  Runnable {
     public  void RecordResults(){
         try {
             String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
-            List<TestParameterDTO> listaDeParametros = controller.getTestParameterList(barcode);
+            List<TestParameterDto> listaDeParametros = controller.getTestParameterList(barcode);
            /* List<TestParameter> listaDeParametros = new ArrayList<>();
             ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
             List<ParameterCategory> listPC = new ArrayList();
@@ -56,10 +56,10 @@ public class RecordResultsUI implements  Runnable {
             */
             int i=0;
             while (i <= listaDeParametros.size()){
-                TestParameterDTO parameter;
+                TestParameterDto parameter;
                 do {
                     Utils.showList(listaDeParametros, "Choose the Parameter you want to register the results");
-                    parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
+                    parameter = (TestParameterDto) Utils.selectsObject(listaDeParametros);
                     if (parameter==null){
                         System.out.println("You must choose a parameter to record it's results");
                     }

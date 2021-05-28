@@ -1,7 +1,7 @@
 package app.ui.console.functionalities;
 
 import app.controller.funcionalites.WriteMedicalReportController;
-import app.mappers.dto.TestDTO;
+import app.mappers.dto.TestDto;
 import app.ui.console.utils.Utils;
 
 /**
@@ -31,7 +31,7 @@ public class WriteMedicalReportUI implements Runnable{
         try {
             boolean flag;
             do {
-                TestDTO selectedTest = (TestDTO) Utils.showAndSelectOne(writeMedicalReportctrl.getTestHasSamplesAnalyzedList(), "Select the desired test.");
+                TestDto selectedTest = (TestDto) Utils.showAndSelectOne(writeMedicalReportctrl.getTestHasSamplesAnalyzedList(), "Select the desired test.");
                 Utils.showList(writeMedicalReportctrl.getTestParameterList(selectedTest), "The results of each analyzed parameter and the respective reference values.");
                 askTheMedicalReport();
                 if (writeMedicalReportctrl.getTestHasSamplesAnalyzedList().size() > 0){

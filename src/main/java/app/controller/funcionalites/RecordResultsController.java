@@ -5,7 +5,7 @@ import app.domain.model.Company;
 import app.domain.model.testRelated.Test;
 import app.domain.store.TestStore;
 import app.mappers.TestParameterMapper;
-import app.mappers.dto.TestParameterDTO;
+import app.mappers.dto.TestParameterDto;
 
 import java.util.List;
 
@@ -52,7 +52,7 @@ public class RecordResultsController {
      * @param barcode the barcode of a Sample
      * @return A list Of TestParameterDTO
      */
-    public List<TestParameterDTO> getTestParameterList(String barcode){
+    public List<TestParameterDto> getTestParameterList(String barcode){
         test = store.getTestByBarcode(barcode);
         return tpMapper.toDTO(test.getTestParameterList());
     }

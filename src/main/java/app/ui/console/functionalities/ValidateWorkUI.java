@@ -2,7 +2,7 @@ package app.ui.console.functionalities;
 
 import app.controller.funcionalites.ValidateWorkController;
 import app.domain.store.TestStore;
-import app.mappers.dto.TestDTO;
+import app.mappers.dto.TestDto;
 import app.ui.console.utils.Utils;
 
 /**
@@ -47,7 +47,7 @@ public class ValidateWorkUI implements Runnable{
             if (option == null){
                 throw new IllegalArgumentException("There's no tests to validate.");
             }
-            TestDTO index = (TestDTO) Utils.showAndSelectOne(validateWorkController.getTestsToValidateList(),"Choose the test for which you want to validate.");
+            TestDto index = (TestDto) Utils.showAndSelectOne(validateWorkController.getTestsToValidateList(),"Choose the test for which you want to validate.");
             validateWorkController.createTestValidation(ts.getTestByInternalCode(index.getInternalCode()));
             //validateWorkController.showRegistrationDate();
             //validateWorkController.showChamicalAnalysisDate();

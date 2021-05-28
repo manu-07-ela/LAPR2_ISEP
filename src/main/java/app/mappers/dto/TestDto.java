@@ -9,7 +9,7 @@ import app.domain.model.testRelated.Test;
  */
 
 
-public class TestDTO {
+public class TestDto {
 
     /**
      * Represents the internal code associated with a test
@@ -26,7 +26,7 @@ public class TestDTO {
      * @param internalCode internal test code.
      * @param description test description.
      */
-    public TestDTO(String internalCode, String description) {
+    public TestDto(String internalCode, String description) {
         this.internalCode = internalCode;
         this.description = description;
     }
@@ -35,7 +35,7 @@ public class TestDTO {
      *
      * @param test
      */
-    public TestDTO(Test test){
+    public TestDto(Test test){
         this.internalCode = test.getInternalCode();
         this.description = test.getDescription();
     }

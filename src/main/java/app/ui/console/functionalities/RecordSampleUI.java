@@ -4,7 +4,7 @@ import app.controller.funcionalites.RecordSampleController;
 import app.domain.model.attributes.BarcodeDomain;
 import app.domain.model.testRelated.Sample;
 import app.domain.model.testRelated.Test;
-import app.mappers.dto.TestDTO;
+import app.mappers.dto.TestDto;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
@@ -55,7 +55,7 @@ public class RecordSampleUI implements Runnable{
         Test test = new Test(la,nhs,tt,listaDeParametros);
         TestDTO testDTO = new TestDTO(test);*/
 
-        TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
+        TestDto testDTO = (TestDto) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
         int loop = askTheAmountOfSamples(testDTO);
         generateBarcodes(loop, testDTO);
 
@@ -66,7 +66,7 @@ public class RecordSampleUI implements Runnable{
      * @param testDTO serves to show the data related to the test selected by the user
      * @return the number of samples entered by the user
      */
-    private int askTheAmountOfSamples(TestDTO testDTO){
+    private int askTheAmountOfSamples(TestDto testDTO){
         int samples;
         System.out.println("----------* Test Selected *----------");
         System.out.println(testDTO.toString());
@@ -81,7 +81,7 @@ public class RecordSampleUI implements Runnable{
      * @param i the amount of samples entered by the user
      * @return a list of bar codes the same size as the number of samples entered by the user
      */
-    private void generateBarcodes(int i, TestDTO testDTO){
+    private void generateBarcodes(int i, TestDto testDTO){
         for (int j=0; j<i; j++){
             boolean invalidData = true;
             do {
@@ -117,7 +117,7 @@ public class RecordSampleUI implements Runnable{
      * @param barcodes the list of barcodes
      * @param testDTO the test that the samples will be associated
      */
-    private void associateBarcodesWithSamples(BarcodeDomain barcodes, TestDTO testDTO, int flag){
+    private void associateBarcodesWithSamples(BarcodeDomain barcodes, TestDto testDTO, int flag){
         Sample sample;
         Test test = recordSampleController.getTestByInternalCode(testDTO);
         sample = recordSampleController.associateBarcodeWithSample(barcodes);
