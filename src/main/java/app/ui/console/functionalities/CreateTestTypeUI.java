@@ -1,6 +1,6 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.CreateTestTypeController;
+import app.controller.CreateTestTypeController;
 import app.mappers.dto.ParameterCategoryDTO;
 import app.ui.console.utils.Utils;
 

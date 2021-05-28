@@ -1,6 +1,6 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.RecordSampleController;
+import app.controller.RecordSampleController;
 import app.domain.model.testRelated.BarcodeDomain;
 import app.domain.model.testRelated.Sample;
 import app.domain.model.testRelated.Test;

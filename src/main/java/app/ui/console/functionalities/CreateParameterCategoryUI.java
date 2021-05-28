@@ -1,6 +1,6 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.CreateParameterCategoryController;
+import app.controller.CreateParameterCategoryController;
 import app.ui.console.utils.Utils;
 
 

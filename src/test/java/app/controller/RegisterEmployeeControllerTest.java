@@ -1,6 +1,5 @@
 package app.controller;
 
-import app.controller.funcionalites.RegisterEmployeeController;
 import app.domain.model.Company;
 import app.domain.model.users.Employee;
 import app.domain.model.users.SpecialistDoctor;

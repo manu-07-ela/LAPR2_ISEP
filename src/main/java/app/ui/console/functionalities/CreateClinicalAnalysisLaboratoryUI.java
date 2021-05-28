@@ -1,6 +1,6 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.CreateClinicalAnalysisLaboratoryController;
+import app.controller.CreateClinicalAnalysisLaboratoryController;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import app.mappers.dto.TestTypeDTO;
 import app.ui.console.utils.Utils;

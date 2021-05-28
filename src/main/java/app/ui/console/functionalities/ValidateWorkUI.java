@@ -1,6 +1,6 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.ValidateWorkController;
+import app.controller.ValidateWorkController;
 import app.domain.store.TestStore;
 import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;

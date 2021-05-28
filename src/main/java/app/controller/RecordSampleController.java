@@ -1,4 +1,4 @@
-package app.controller.funcionalites;
+package app.controller;
 
 import app.adapter.interfaces.ExternalModuleBarcode;
 import app.controller.App;

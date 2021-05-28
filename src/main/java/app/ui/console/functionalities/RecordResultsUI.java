@@ -1,6 +1,6 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.RecordResultsController;
+import app.controller.RecordResultsController;
 import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 
