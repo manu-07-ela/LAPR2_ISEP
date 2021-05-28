@@ -157,7 +157,6 @@
 			<scope>system</scope>
 			<systemPath>${basedir}/lib/barbecue-2.0-dev.jar</systemPath>
 		</dependency>
-
 	</dependencies>
 </project>
 
