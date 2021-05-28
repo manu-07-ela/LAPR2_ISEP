@@ -27,6 +27,7 @@ class Test{
 +getDescription()
 +getInternalCode()
 +addMedicalReport(diagnosis)
++validateMedicalReport()
 }
 
 class MedicalReport{
