@@ -1,6 +1,9 @@
 package app.domain.model.testrelated;
 
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Represents a Lab Coordinator Validation.
  *
@@ -52,7 +55,7 @@ public class LabCoordinatorValidation {
     }
 
     public Date recordLabCoordinatorValidationDate(){
-        this.labCoordDate=Calendar.getInstance().getTime();
+        this.labCoordDate= Calendar.getInstance().getTime();
         return labCoordDate;
     }
 
