@@ -54,6 +54,6 @@ public class TestDTO {
      */
     @Override
     public String toString() {
-        return String.format("Internal Code: %s%nDescription: %s%n", internalCode, description);
+        return String.format("%nInternal Code: %s%nDescription: %s%n", internalCode, description);
     }
 }
