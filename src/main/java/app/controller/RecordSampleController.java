@@ -1,11 +1,11 @@
-package app.controller.funcionalites;
+package app.controller;
 
 import app.adapter.interfaces.ExternalModuleBarcode;
 import app.controller.App;
 import app.domain.model.Company;
 import app.domain.model.testRelated.Sample;
 import app.domain.model.testRelated.Test;
-import app.domain.model.attributes.BarcodeDomain;
+import app.domain.model.testRelated.BarcodeDomain;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
@@ -33,19 +33,19 @@ public class RecordSampleController {
     /**
      * Represents a instance of test store
      */
-    private TestStore testStore;
+    private final TestStore testStore;
     /**
      * Represents a instance of sample store
      */
-    private SampleStore sampleStore;
+    private final SampleStore sampleStore;
     /**
      * Represents a instance of company
      */
-    private Company company;
+    private final Company company;
     /**
      * Represents a instance of test mapper
      */
-    private TestMapper testMapper;
+    private final TestMapper testMapper;
     /**
      * Counts the instances of barcodes
      */
@@ -155,13 +155,13 @@ public class RecordSampleController {
         try {
             String pwd = System.getProperty("user.dir");
 
-            File barcodes = new File(pwd + "/src/main/barcodes");
+            File barcodes = new File(pwd + "\\src\\main\\barcodes");
             if (!barcodes.exists()) {
                 barcodes.mkdirs();
             }
-            File outputFile = new File(pwd + "/src/main/barcodes"+fileName+".jpg");
+            File outputFile = new File(pwd + "\\src\\main\\barcodes\\"+fileName+".jpeg");
 
-            ImageIO.write(image, "jpg", outputFile);
+            ImageIO.write(image, "jpeg", outputFile);
         } catch (IOException e) {
             System.out.println("Exception occured :" + e.getMessage());
         }

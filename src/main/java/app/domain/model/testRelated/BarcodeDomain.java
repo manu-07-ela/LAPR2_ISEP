@@ -1,4 +1,4 @@
-package app.domain.model.attributes;
+package app.domain.model.testRelated;
 
 
 /**

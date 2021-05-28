@@ -1,4 +1,4 @@
-package app.controller.funcionalites;
+package app.controller;
 
 import app.controller.App;
 import app.domain.model.*;

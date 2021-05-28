@@ -40,7 +40,7 @@ public class Test {
     /**
      * indicates the state in which the test is
      */
-    private StateOfTest state;
+    private StateOfTest stateOfTest;
     /**
      *
      */
@@ -65,10 +65,6 @@ public class Test {
      */
     private Date testAddDate;
 
-    /**
-     * Represents the time when th samples were added to the test
-     */
-    private Time samplesAddTime;
     /**
      * Represents the date when the chemical analysis were added to the test
      */
@@ -95,7 +91,7 @@ public class Test {
         this.nhscode = new NhsCode(nhscode);
         this.testType = testType;
         this.testParameterList = testParameterList;
-        this.state = StateOfTest.TestRegistered;
+        this.stateOfTest = StateOfTest.TestRegistered;
         this.internalCode = internalCode;
         this.testAddDate = Calendar.getInstance().getTime();
         this.description = testType.getCollectingMethod();
@@ -108,7 +104,7 @@ public class Test {
      * Change the status of a test for Samples collected
      */
     private void changeStateForSamplesCollected() {
-        this.state = StateOfTest.SamplesCollected;
+        this.stateOfTest = StateOfTest.SamplesCollected;
     }
 
     /**
@@ -116,8 +112,8 @@ public class Test {
      *
      * @return the state of the test
      */
-    public StateOfTest getState() {
-        return state;
+    public StateOfTest getStateOfTest() {
+        return stateOfTest;
     }
 
     public Client getCl() {
@@ -182,7 +178,7 @@ public class Test {
             }
         }
         if (countAddResult==testParameterList.size()){
-            state= StateOfTest.SamplesAnalyzed;
+            stateOfTest = StateOfTest.SamplesAnalyzed;
         }
         return la;
 
@@ -196,7 +192,7 @@ public class Test {
     public boolean addMedicalReport(String diagnosis) {
         if (validateMedicalReport()) {
             this.md = new MedicalReport(diagnosis);
-            this.state = StateOfTest.SamplesAnalyzed;
+            this.stateOfTest = StateOfTest.SamplesAnalyzed;
             return true;
         }
         return false;

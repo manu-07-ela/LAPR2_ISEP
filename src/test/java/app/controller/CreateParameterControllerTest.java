@@ -1,6 +1,5 @@
 package app.controller;
 
-import app.controller.funcionalites.CreateParameterController;
 import app.domain.model.Company;
 import app.domain.model.testRelated.Parameter;
 import app.domain.model.testRelated.ParameterCategory;

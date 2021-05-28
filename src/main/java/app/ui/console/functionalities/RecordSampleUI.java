@@ -1,14 +1,22 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.RecordSampleController;
-import app.domain.model.attributes.BarcodeDomain;
+
 import app.domain.model.testRelated.Sample;
 import app.domain.model.testRelated.Test;
 import app.mappers.dto.TestDto;
+
+import app.controller.RecordSampleController;
+import app.domain.model.attributes.NhsCode;
+import app.domain.model.testRelated.*;
+import app.domain.model.users.Client;
+
+import app.mappers.dto.TestParameterDto;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents an interface with the user to be able to record the sample associated with a test
@@ -18,7 +26,7 @@ public class RecordSampleUI implements Runnable{
     /**
      * Represents a instance of record sample controller
      */
-    private RecordSampleController recordSampleController;
+    private final RecordSampleController recordSampleController;
 
     /**
      * Initializes the controller
@@ -33,7 +41,7 @@ public class RecordSampleUI implements Runnable{
     @Override
     public void run() {
 
-        /*List<TestParameter> listaDeParametros = new ArrayList<>();
+        List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
         listPC.add(pc);
@@ -41,8 +49,8 @@ public class RecordSampleUI implements Runnable{
         Parameter p2 = new Parameter("PLT00","test","method", pc);
 
 
-        TestParameterDTO temDto2 = new TestParameterDTO("frefrfe","PTL00");
-        List<TestParameterDTO> listaDeParametrosDTO = new ArrayList<>();
+        TestParameterDto temDto2 = new TestParameterDto("frefrfe","PTL00");
+        List<TestParameterDto> listaDeParametrosDTO = new ArrayList<>();
         listaDeParametrosDTO.add(temDto2);
 
         TestParameter tpm1 = new TestParameter(p);
@@ -52,12 +60,16 @@ public class RecordSampleUI implements Runnable{
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3Adapter");
         NhsCode nhs = new NhsCode("123456789012");
-        Test test = new Test(la,nhs,tt,listaDeParametros);
-        TestDTO testDTO = new TestDTO(test);*/
+        Test test = new Test(la,nhs,tt,listaDeParametros, "123123123123");
+        TestDto testDTO = new TestDto(test);
 
-        TestDto testDTO = (TestDto) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
+
+        //TestDto testDTO = (TestDto) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
+
+        //TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
+
         int loop = askTheAmountOfSamples(testDTO);
-        generateBarcodes(loop, testDTO);
+        generateBarcodes(loop, test);
 
     }
 
@@ -78,11 +90,19 @@ public class RecordSampleUI implements Runnable{
 
     /**
      * Generates the amount of barcode entered by the user
-     * @param i the amount of samples entered by the user
+     * @param quantityOfSamplesIntroduced the amount of samples entered by the user
      * @return a list of bar codes the same size as the number of samples entered by the user
      */
-    private void generateBarcodes(int i, TestDto testDTO){
-        for (int j=0; j<i; j++){
+
+    private void generateBarcodes(int i, TestDto testDTO) {
+        for (int j = 0; j < i; j++) {
+
+        }
+    }
+
+    private void generateBarcodes (int quantityOfSamplesIntroduced, Test test){
+        for (int j=0; j<quantityOfSamplesIntroduced; j++){
+
             boolean invalidData = true;
             do {
                 try {
@@ -90,7 +110,7 @@ public class RecordSampleUI implements Runnable{
                     recordSampleController.showBarcodes(barcodeDomain);
                     boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
                     if (flag) {
-                        associateBarcodesWithSamples(barcodeDomain, testDTO, i);
+                        associateBarcodesWithSamples(barcodeDomain, test, quantityOfSamplesIntroduced);
                         recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
                     }
                     invalidData = false;
@@ -113,15 +133,21 @@ public class RecordSampleUI implements Runnable{
     }
 
     /**
-     * Associates the list of bar codes generated with the respective samples and the test selected by the user
-     * @param barcodes the list of barcodes
-     * @param testDTO the test that the samples will be associated
+     * Associates a bar codes generated with the respective samples and the test selected by the user
+     * @param barcode the barcode
+     * @param test the test that the samples will be associated
      */
+
     private void associateBarcodesWithSamples(BarcodeDomain barcodes, TestDto testDTO, int flag){
+
+    }
+
+    private void associateBarcodesWithSamples(BarcodeDomain barcode, Test test, int quantityOfSamplesIntroduced){
+
         Sample sample;
-        Test test = recordSampleController.getTestByInternalCode(testDTO);
-        sample = recordSampleController.associateBarcodeWithSample(barcodes);
-        recordSampleController.associateSamplesWithTest(test, sample, flag);
+        //Test test = recordSampleController.getTestByInternalCode(testDTO);
+        sample = recordSampleController.associateBarcodeWithSample(barcode);
+        recordSampleController.associateSamplesWithTest(test, sample, quantityOfSamplesIntroduced);
     }
 
 }

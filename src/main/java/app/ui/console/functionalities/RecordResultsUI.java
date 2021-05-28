@@ -1,7 +1,10 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.RecordResultsController;
 import app.mappers.dto.TestParameterDto;
+
+import app.controller.RecordResultsController;
+
+
 import app.ui.console.utils.Utils;
 
 import java.util.List;

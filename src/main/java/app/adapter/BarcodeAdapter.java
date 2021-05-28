@@ -2,7 +2,7 @@ package app.adapter;
 
 
 import app.adapter.interfaces.ExternalModuleBarcode;
-import app.domain.model.attributes.BarcodeDomain;
+import app.domain.model.testRelated.BarcodeDomain;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;

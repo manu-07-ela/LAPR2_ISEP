@@ -1,6 +1,6 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.RegisterTestController;
+import app.controller.RegisterTestController;
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.testRelated.Parameter;
 import app.domain.model.testRelated.ParameterCategory;

@@ -1,7 +1,12 @@
 package app.ui.console.functionalities;
 
-import app.controller.funcionalites.WriteMedicalReportController;
+
+
 import app.mappers.dto.TestDto;
+
+import app.controller.WriteMedicalReportController;
+
+
 import app.ui.console.utils.Utils;
 
 /**
