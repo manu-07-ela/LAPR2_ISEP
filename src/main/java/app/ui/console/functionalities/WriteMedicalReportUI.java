@@ -39,7 +39,7 @@ public class WriteMedicalReportUI implements Runnable{
                 TestDTO selectedTest = (TestDTO) Utils.showAndSelectOne(writeMedicalReportctrl.getTestHasSamplesAnalyzedList(), "Select the desired test.");
                 Utils.showList(writeMedicalReportctrl.getTestParameterList(selectedTest), "The results of each analyzed parameter and the respective reference values.");
                 askTheMedicalReport();
-                if (writeMedicalReportctrl.getTestHasSamplesAnalyzedList().size() > 0){
+                if (!writeMedicalReportctrl.getTestHasSamplesAnalyzedList().isEmpty()){
                     flag = Utils.confirm("Do you want to write any more medical report? (S/N)");
                 } else {
                     flag = false;

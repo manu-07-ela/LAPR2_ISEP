@@ -31,7 +31,7 @@ public class CreateTestTypeUI implements Runnable {
      */
     @Override
     public void run(){
-        if(createTestTypectrl.getParameterCategories().size() == 0){
+        if(createTestTypectrl.getParameterCategories().isEmpty()){
             System.out.println("There is no Parameter Category in the system so it is not possible to create a test type.");
         } else {
             System.out.printf("%nCreating a Test Type%n");
@@ -44,10 +44,10 @@ public class CreateTestTypeUI implements Runnable {
      */
     public void createTestType(){
 
-        List <String> ListaDeAPI = new ArrayList();
-        ListaDeAPI.add("CovidReferenceValues1API");
-        ListaDeAPI.add("ExternalModule2API");
-        ListaDeAPI.add("ExternalModule3API");
+        List <String> listaDeAPI = new ArrayList();
+        listaDeAPI.add("CovidReferenceValues1API");
+        listaDeAPI.add("ExternalModule2API");
+        listaDeAPI.add("ExternalModule3API");
 
         boolean dadosInvalidos=true;
 
@@ -83,8 +83,8 @@ public class CreateTestTypeUI implements Runnable {
                     }
                 } while (confirmation);
 
-                Utils.showList(ListaDeAPI,"Choose the API the will generate it's reference values");
-                Object optionAPI = Utils.selectsObject(ListaDeAPI);
+                Utils.showList(listaDeAPI,"Choose the API the will generate it's reference values");
+                Object optionAPI = Utils.selectsObject(listaDeAPI);
                 if (optionAPI == null){
                     throw new IllegalArgumentException("There must be at least one API associated");
                 }
