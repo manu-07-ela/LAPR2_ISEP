@@ -4,7 +4,6 @@ package app.domain.model.testrelated;
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.users.Client;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -266,7 +265,7 @@ public class Test {
     @Override
     public String toString() {
         for (TestParameter la: testParameterList) {
-            return String.format("%s",la.getTparamresult().toString());
+            return String.format("%s",la.getParamResult().toString());
         }
         return "la";
     }

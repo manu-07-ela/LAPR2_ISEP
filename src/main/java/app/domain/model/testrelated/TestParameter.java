@@ -34,7 +34,7 @@ public class TestParameter {
      * Get the TestParameter result
      * @return the TestParameter result
      */
-    public TestParameterResult getTparamresult() {
+    public TestParameterResult getParamResult() {
         return tparamresult;
     }
     /**

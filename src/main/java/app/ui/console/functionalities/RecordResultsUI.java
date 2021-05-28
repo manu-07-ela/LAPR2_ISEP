@@ -5,6 +5,7 @@ import app.mappers.dto.TestParameterDTO;
 import app.controller.RecordResultsController;
 import app.ui.console.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecordResultsUI implements  Runnable {
@@ -31,7 +32,7 @@ public class RecordResultsUI implements  Runnable {
         try {
             String barcode;
             boolean verificacao=true;
-            List<TestParameterDTO> listaDeParametros = null;
+            List<TestParameterDTO> listaDeParametros;
             do {
                 try {
                     barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
