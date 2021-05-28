@@ -1,5 +1,9 @@
 package app.ui.console.functionalities;
 
+<<<<<<< HEAD
+import app.mappers.dto.TestParameterDTO;
+=======
+>>>>>>> d1e921a448e8a9bf99ef496bc651e55e2a50e8bd
 
 import app.controller.RecordResultsController;
 
@@ -43,8 +47,15 @@ public class RecordResultsUI implements  Runnable {
                     System.out.printf("%n Message: %s%n",e.getMessage());
                 }
             }while (verificacao);
+<<<<<<< HEAD
+
+            barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
+            listaDeParametros = controller.getTestParameterList(barcode);
+
+=======
            // String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
            // List<TestParameterDto> listaDeParametros = controller.getTestParameterList(barcode);
+>>>>>>> d1e921a448e8a9bf99ef496bc651e55e2a50e8bd
            /* List<TestParameter> listaDeParametros = new ArrayList<>();
             ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
             List<ParameterCategory> listPC = new ArrayList();
@@ -71,10 +82,10 @@ public class RecordResultsUI implements  Runnable {
             */
             int i=0;
             while (i <= listaDeParametros.size()){
-                TestParameterDto parameter;
+                TestParameterDTO parameter;
                 do {
                     Utils.showList(listaDeParametros, "Choose the Parameter you want to register the results");
-                    parameter = (TestParameterDto) Utils.selectsObject(listaDeParametros);
+                    parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
                     if (parameter==null){
                         System.out.println("You must choose a parameter to record it's results");
                     }

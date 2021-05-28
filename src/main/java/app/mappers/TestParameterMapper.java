@@ -1,7 +1,7 @@
 package app.mappers;
 
 import app.domain.model.testRelated.TestParameter;
-import app.mappers.dto.TestParameterDto;
+import app.mappers.dto.TestParameterDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +13,9 @@ public class TestParameterMapper {
      * @param testParametersList A list of TestParameter.
      * @return A list of TestParameterDTO.
      */
-    public List<TestParameterDto> toDTO(List<TestParameter> testParametersList) {
-        List<TestParameterDto> testParametersListDto =new ArrayList();
-        TestParameterDto objDTO;
+    public List<TestParameterDTO> toDTO(List<TestParameter> testParametersList) {
+        List<TestParameterDTO> testParametersListDto =new ArrayList();
+        TestParameterDTO objDTO;
         for (TestParameter lista : testParametersList) {
             if (lista != null){
                 objDTO = toDTO(lista);
@@ -30,9 +30,9 @@ public class TestParameterMapper {
      * @param objList A list of TestParameter
      * @return A list of TestParameterDTO
      */
-    public List<TestParameterDto> testParameterListToDTO(List<TestParameter> objList) {
-        List<TestParameterDto> testParametersListDto =new ArrayList();
-        TestParameterDto objDTO;
+    public List<TestParameterDTO> testParameterListToDTO(List<TestParameter> objList) {
+        List<TestParameterDTO> testParametersListDto =new ArrayList();
+        TestParameterDTO objDTO;
         for (TestParameter lista : objList) {
             if (lista != null){
                 objDTO = testParameterToDTO(lista);
@@ -48,8 +48,8 @@ public class TestParameterMapper {
      * @param obj a TestParameter
      * @return a TestParameterDTO
      */
-    public TestParameterDto testParameterToDTO(TestParameter obj){
-        return new TestParameterDto(obj.getParameterName(), obj.getParameterId());
+    public TestParameterDTO testParameterToDTO(TestParameter obj){
+        return new TestParameterDTO(obj.getParameterName(), obj.getParameterId());
     }
 
     /**
@@ -57,8 +57,8 @@ public class TestParameterMapper {
      * @param testParameter A TestParameter.
      * @return A TestParameterDTO.
      */
-    public TestParameterDto toDTO(TestParameter testParameter){
-        return new TestParameterDto(testParameter.getParameterName(), testParameter.getParameterResult(), testParameter.getParameterMetric(), testParameter.getParameterMinRefValue(), testParameter.getParameterMaxRefValue(), testParameter.getRefValueMetric() );
+    public TestParameterDTO toDTO(TestParameter testParameter){
+        return new TestParameterDTO(testParameter.getParameterName(), testParameter.getParameterResult(), testParameter.getParameterMetric(), testParameter.getParameterMinRefValue(), testParameter.getParameterMaxRefValue(), testParameter.getRefValueMetric() );
     }
 
 }

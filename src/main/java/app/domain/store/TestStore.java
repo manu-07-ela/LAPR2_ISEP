@@ -1,19 +1,26 @@
 package app.domain.store;
 
 import app.domain.model.attributes.NhsCode;
+<<<<<<< HEAD
+
+import org.apache.commons.lang3.StringUtils;
+=======
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.security.SecureRandom;
 
+>>>>>>> d1e921a448e8a9bf99ef496bc651e55e2a50e8bd
 import app.domain.model.testRelated.Sample;
 import app.domain.model.testRelated.Test;
 import app.domain.model.testRelated.TestParameter;
 import app.domain.model.testRelated.TestType;
 import app.domain.model.users.Client;
-
 import java.text.DecimalFormat;
+<<<<<<< HEAD
+=======
 
+>>>>>>> d1e921a448e8a9bf99ef496bc651e55e2a50e8bd
 import java.util.ArrayList;
 import java.util.List;
 

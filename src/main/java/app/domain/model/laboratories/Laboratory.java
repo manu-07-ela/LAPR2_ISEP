@@ -2,6 +2,10 @@ package app.domain.model.laboratories;
 
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * Represents a Laboratory
+ * @author Rita Ariana
+ */
 public abstract class Laboratory {
 
     /**

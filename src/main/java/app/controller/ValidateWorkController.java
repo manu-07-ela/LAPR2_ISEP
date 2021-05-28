@@ -1,12 +1,11 @@
 package app.controller;
 
-import app.controller.App;
 import app.domain.model.Company;
 import app.domain.model.testRelated.Test;
 import app.domain.store.TestStore;
 import app.mappers.DateMapper;
 import app.mappers.TestMapper;
-import app.mappers.dto.TestDto;
+import app.mappers.dto.TestDTO;
 
 import java.util.List;
 
@@ -72,7 +71,7 @@ public class ValidateWorkController {
      *
      * @return
      */
-    public List<TestDto> getTestsToValidateList(){
+    public List<TestDTO> getTestsToValidateList(){
         this.testStore=company.getTestStore();
         List<Test> testHasReportList = testStore.getTestHasReportList();
         return testMapper.toDto(testHasReportList);
