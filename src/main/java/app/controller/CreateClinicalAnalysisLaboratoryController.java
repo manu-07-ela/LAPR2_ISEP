@@ -1,6 +1,7 @@
 package app.controller;
 
-import app.domain.model.ClinicalAnalysisLaboratory;
+import app.controller.App;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.Company;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.TestTypeStore;

@@ -1,6 +1,6 @@
 package app.mappers.dto;
 
-import app.domain.model.Test;
+import app.domain.model.testRelated.Test;
 
 /**
  * Represents a data transfer object of Test
@@ -14,12 +14,12 @@ public class TestDTO {
     /**
      * Represents the internal code associated with a test
      */
-    private String internalCode;
+    private final String internalCode;
 
     /**
      * Represents the description of a test
      */
-    private String description;
+    private final String description;
 
     /**
      * Creates a new instance of TestDto with the following attributes: internal code and description.
@@ -32,8 +32,8 @@ public class TestDTO {
     }
 
     /**
-     *
-     * @param test
+     * Copy builder for a test
+     * @param test the test to be copied
      */
     public TestDTO(Test test){
         this.internalCode = test.getInternalCode();
@@ -54,6 +54,6 @@ public class TestDTO {
      */
     @Override
     public String toString() {
-        return String.format("Internal Code: %s%nDescription: %s%n", internalCode, description);
+        return String.format("%nInternal Code: %s%nDescription: %s%n", internalCode, description);
     }
 }

@@ -59,7 +59,7 @@ deactivate MAPPER
 deactivate ORGSTORE
 deactivate CTRL
 deactivate UI
-end
+end alt
 
 
 ADM -> UI : types requested data

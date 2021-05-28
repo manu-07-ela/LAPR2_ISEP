@@ -1,20 +1,16 @@
 package app.controller;
 
+import app.controller.App;
 import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.testRelated.*;
+import app.domain.model.users.Client;
 import app.domain.store.*;
 import app.mappers.ClientMapper;
 import app.mappers.ParameterCategoryMapper;
 import app.mappers.ParameterMapper;
 import app.mappers.TestTyperMapper;
-import app.mappers.dto.ParameterCategoryDTO;
-import app.mappers.dto.ParameterDTO;
-import app.mappers.dto.TestTypeDTO;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.security.SecureRandom;
 import java.util.List;
 
 public class RegisterTestController {
@@ -50,6 +46,7 @@ public class RegisterTestController {
     public RegisterTestController() {
         this(App.getInstance().getCompany());
     }
+
     public RegisterTestController(Company company) {
         this.app=App.getInstance();
         this.company=app.getCompany();

@@ -1,10 +1,8 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.Test;
-import app.domain.model.TestParameter;
+import app.domain.model.testRelated.Test;
 import app.domain.store.TestStore;
-import app.mappers.TestMapper;
 import app.mappers.TestParameterMapper;
 import app.mappers.dto.TestParameterDTO;
 
@@ -55,12 +53,10 @@ public class RecordResultsController {
      */
     public List<TestParameterDTO> getTestParameterList(String barcode){
         test = store.getTestByBarcode(barcode);
+        if (test==null){
+            throw new IllegalArgumentException("There are no tests with samples associated with this barcode");
+        }
         return tpMapper.toDTO(test.getTestParameterList());
-    }
-
-
-    public void setTest(Test test) {
-        this.test = test;
     }
 
     /**
@@ -80,11 +76,9 @@ public class RecordResultsController {
      * @return True if the list has a test with Samples Collected
      */
     public boolean PossibilityOfRecordResult(){
-        if (store.getTestWithSamplesCollectedList().size() == 0){
-            return true;
-        }else {
-            return  false;
-        }
+
+        return store.getTestWithSamplesCollectedList().size() == 0;
+
 
     }
 

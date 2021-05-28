@@ -4,11 +4,12 @@ actor "Med Lab Technician" as MEDLAB
 participant ": RecordSampleUI" as UI
 participant ": RecordeSampleController" as CONTROLLER
 participant ": Company" as COMPANY
+participant "chemicalLab : ChemicalLaboratory" as LAB
 participant "store : \nTestStore" as TESTSTORE
 participant "store : \nSampleStore" as SAMPLESTORE
 participant "test : Test" as TEST
 participant "listTestWaitingForSample :\nList<Test>" as TESTLIST
-participant ": BarcodeAdapter" as ADAPTER
+participant ": ExternalModuleBarcode" as INTERFACE
 participant ": TestMapper" as MAPPER
 participant "testDto :\nTestDto" as TESTDTO
 participant "listTestWaitingForSamplesDto :\nList<TestDto>" as TESTDTOLIST
@@ -65,13 +66,13 @@ activate UI
 loop for the number of samples entered
 UI->CONTROLLER : generateBarcode()
 activate CONTROLLER
-CONTROLLER->ADAPTER : generateBarcode()
-activate ADAPTER
-ADAPTER-> "barcode : BarcodeDomain"** : create()
-ADAPTER-->CONTROLLER : barcode
+CONTROLLER->INTERFACE : generateBarcode()
+activate INTERFACE
+INTERFACE-> "barcode : BarcodeDomain"** : create()
+INTERFACE-->CONTROLLER : barcode
 CONTROLLER-->UI : barcode
-deactivate ADAPTER
-end loop
+deactivate INTERFACE
+
 
 deactivate CONTROLLER
 
@@ -79,12 +80,16 @@ UI --> MEDLAB : shows the data and request confirmation
 deactivate UI
 MEDLAB -> UI : confirms the data
 activate UI
-loop for the number of samples entered
 UI->CONTROLLER : associateBarcodeWithSample(barcode)
 activate CONTROLLER
-CONTROLLER->COMPANY : store = getSampleStore()
+CONTROLLER->COMPANY : chemicalLab = getChemicalLaboratory()
 activate COMPANY
 deactivate COMPANY
+CONTROLLER-> LAB : store = getSampleStore()
+activate LAB
+deactivate LAB
+
+
 CONTROLLER->SAMPLESTORE : createSample(barcode)
 activate SAMPLESTORE
 SAMPLESTORE->"sample : Sample"** : create()
@@ -93,23 +98,22 @@ CONTROLLER->TESTSTORE : associateSamplesWithTest(test, sample)
 activate TESTSTORE
 TESTSTORE->TEST : addSample(sample)
 activate TEST
-deactivate TEST
-deactivate TESTSTORE
-end loop
-CONTROLLER->TESTSTORE : generateDataAndTimeForSamplesCollected()
-activate TESTSTORE
-TESTSTORE->TEST : generateDataAndTimeForSamplesCollected()
-activate TEST
-deactivate TEST
-deactivate TESTSTORE
-CONTROLLER->TESTSTORE : changeTheStatusOfTest()
-activate TESTSTORE
-TESTSTORE->TEST : changeStateForSamplesCollected()
-activate TEST
-deactivate TEST
-deactivate TESTSTORE
 
-deactivate CONTROLLER
+deactivate TESTSTORE
+opt listSamplesAssociatedWithTest = number of samples entered by the user
+
+TEST->TEST : changeStateForSamplesCollected()
+activate TEST
+deactivate TEST
+TEST->TEST : generateDataAndTimeForSamplesCollected()
+activate TEST
+deactivate TEST
+
+end opt
+deactivate TEST
+
+end loop
+
 
 UI --> MEDLAB : informs the operation success
 deactivate UI
