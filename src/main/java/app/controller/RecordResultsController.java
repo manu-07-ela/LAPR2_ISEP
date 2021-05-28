@@ -56,7 +56,7 @@ public class RecordResultsController {
         if (test==null){
             throw new IllegalArgumentException("There are no tests with samples associated with this barcode");
         }
-        return tpMapper.toDTO(test.getTestParameterList());
+        return tpMapper.testParameterListToDTO(test.getTestParameterList());
     }
 
     /**
