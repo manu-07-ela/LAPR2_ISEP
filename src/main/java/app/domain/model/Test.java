@@ -60,6 +60,12 @@ public class Test {
      * Represents the date when the samples were added to the test
      */
     private Date samplesAddDate;
+
+    /**
+     * Represents the date when the test was registered
+     */
+    private Date testAddDate;
+
     /**
      * Represents the time when th samples were added to the test
      */
@@ -85,13 +91,14 @@ public class Test {
      */
     private static int countAddResult;
 
-    public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList) {
+    public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList,String internalCode) {
         this.client = cl;
         this.nhscode = new NhsCode(nhscode);
         this.testType = testType;
         this.testParameterList = testParameterList;
         this.state = StateOfTest.TestRegistered;
-        this.internalCode = TestStore.generateInternalcode();
+        this.internalCode = internalCode;
+        this.testAddDate = Calendar.getInstance().getTime();
         this.description = testType.getCollectingMethod();
         this.md = null;
         this.samples = new ArrayList<>();
@@ -145,12 +152,9 @@ public class Test {
 
     public List<Sample> getSamples() { return samples; }
 
-    private void nhscodeValidation(String nhscode) {
-        if (!StringUtils.isNumeric(nhscode))
-            throw new IllegalArgumentException("National Healthcare Service code is numeric only.");
-        if (nhscode.length() != 12) {
-            throw new IllegalArgumentException("The National Healthcare Service code must have 12 digits");
-        }
+
+    public Date getTestAddDate() {
+        return testAddDate;
     }
 
     @Override

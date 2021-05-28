@@ -31,6 +31,10 @@ public class RegisterTestUI implements Runnable{
         createTest();
     }
 
+    /**
+     * Create of National Healthcare Service code
+     * @return the National Healthcare Service code
+     */
     private NhsCode nhscode(String nhsc){
         boolean invalidData = true;
         NhsCode nhscAux = null;
@@ -45,15 +49,36 @@ public class RegisterTestUI implements Runnable{
         return nhscAux;
     }
 
+    private void showClient(Client cl){
+        System.out.println("Name:" + cl.getName());
+        System.out.println("Citizen card number: " + cl.getCitizencardnumber());
+        System.out.println("National Healthcare Service number: " + cl.getNhs());
+        System.out.println("Birth Date: " + cl.getDate());
+        System.out.println("Gender: " + cl.getSex());
+        System.out.println("Tax identification number: " + cl.getTin());
+        System.out.println("Phone number: " + cl.getPhonenumber());
+        System.out.println("Email: " + cl.getEmail());
+    }
+    private List<Parameter> createParameterList(ParameterCategory par,List<Parameter> listpam){
+        for (Parameter param : registerTestctrl.getParameterList()) {
+            if (param.getCategory().equals(par)) {
+                listpam.add(param);
+            }
+        }
+        return listpam;
+    }
+
     /**
-     * Create an instance of client
+     * Create an instance of Test
      */
     public void createTest() {
             try {
                 System.out.printf("%nType the Tax identification number of the user you want to register a Test on%n");
                 Client cl;
                 List<TestParameter> listpm = new ArrayList<>();
+                List<Parameter> listpam = new ArrayList<>();
                 String resposta;
+                boolean confirmation;
                 do {
                     String tin = Utils.readLineFromConsole("Tax identification number: ");
                     cl= registerTestctrl.getClient(tin);
@@ -62,14 +87,7 @@ public class RegisterTestUI implements Runnable{
                     }
                     System.out.println();
                     System.out.println("Is this the client that you want to register a test on?");
-                    System.out.println("Name:" + cl.getName());
-                    System.out.println("Citizen card number: " + cl.getCitizencardnumber());
-                    System.out.println("National Healthcare Service number: " + cl.getNhs());
-                    System.out.println("Birth Date: " + cl.getDate());
-                    System.out.println("Gender: " + cl.getSex());
-                    System.out.println("Tax identification number: " + cl.getTin());
-                    System.out.println("Phone number: " + cl.getPhonenumber());
-                    System.out.println("Email: " + cl.getEmail());
+                    showClient(cl);
                     resposta = Utils.readLineFromConsole("S/N:");
                 } while(resposta.equalsIgnoreCase("N"));
                 String nhsc = Utils.readLineFromConsole("National Healthcare Service code: ");
@@ -89,32 +107,37 @@ public class RegisterTestUI implements Runnable{
                     //Parameter Category
                     do {
                         Utils.showList(registerTestctrl.getParameterCategoryList(), "Choose what kind of Parameter Categories should be associated with the test");
-
                         option = Utils.selectsObject(registerTestctrl.getParameterCategoryList());
                         if (option == null) {
                             throw new IllegalArgumentException("The Parameter Category list mustn't be empty");
                         }
+                        ParameterCategory par = (ParameterCategory) option;
+                        listpam=createParameterList(par,listpam);
                         registerTestctrl.getParameterCategoryList().remove(option);
                         //Parameter
 
                         do {
-                            Utils.showList(registerTestctrl.getParameterList(), "Choose what kind of Parameters should be associated with the test");
-
-                            option = Utils.selectsObject(registerTestctrl.getParameterList());
-                            registerTestctrl.getParameterList().remove(option);
+                            Utils.showList(listpam, "Choose what kind of Parameters should be associated with the test");
+                            option = Utils.selectsObject(listpam);
+                            listpam.remove(option);
                             if (option == null) {
                                 throw new IllegalArgumentException("The Parameter list mustn't be empty");
                             }
                             Parameter pm = (Parameter) option;
                             TestParameter tpm = new TestParameter(pm);
                             listpm.add(tpm);
-                            System.out.println("Do you want to choose another Parameter?");
-                            resposta = Utils.readLineFromConsole("S/N:");
-                        } while (resposta.equalsIgnoreCase("S"));
-                        System.out.println("Do you want to choose another Parameter Category?");
-                        resposta = Utils.readLineFromConsole("S/N:");
-                    } while (resposta.equalsIgnoreCase("S"));
-
+                            confirmation = false;
+                            if(listpam.size()>0) {
+                                System.out.printf("%nDo you want to select another Parameter?%n");
+                                confirmation = Utils.confirm("S/N:");
+                            }
+                        } while (confirmation);
+                        confirmation = false;
+                        if(registerTestctrl.getParameterCategoryList().size()>0) {
+                            System.out.printf("%nDo you want to select another Parameter Category?%n");
+                            confirmation = Utils.confirm("S/N:");
+                        }
+                    } while (confirmation);
                     registerTestctrl.createTest(cl,nhscode,tt,listpm);
                     System.out.printf("Do you want to register the test?");
                     resposta = Utils.readLineFromConsole("S/N:");
