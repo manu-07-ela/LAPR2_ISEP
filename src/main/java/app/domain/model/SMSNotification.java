@@ -13,16 +13,16 @@ public class SMSNotification {
 
     /**
      * Notifies results availability by SMS
-     * @param client a client
+     * @param selectedTest a cl
      */
-    public void notifyBySMS(Client client) throws IOException {
-        File arch = new File("./"+"SMSNotification_"+ client.getNhs() + ".txt");
+    public void notifyBySMS(Test selectedTest) throws IOException {
+        File arch = new File("./"+"SMSNotification_"+ selectedTest.getCl().getNhs() + ".txt");
         FileWriter fw = new FileWriter(arch, true);
 
         try {
             if (arch.exists()) arch.delete();
-            fw.write("Sender: noreply@manylabs.com \n");
-            fw.write("Recipient" + client.getPhonenumber() + "\n");
+            fw.write("Sender: +44 1980 301 565 \n");
+            fw.write("Recipient" + selectedTest.getCl().getPhonenumber() + "\n");
             fw.write("Dear Client, \n");
             fw.write("The results are available in the central application, you must access them.");
             fw.write("Many Labs");
