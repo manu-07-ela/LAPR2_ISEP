@@ -1,4 +1,4 @@
-package app.domain.model;
+package app.domain.model.laboratories;
 
 import org.apache.commons.lang3.StringUtils;
 

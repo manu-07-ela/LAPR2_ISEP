@@ -1,4 +1,4 @@
-package app.domain.model;
+package app.domain.model.testRelated;
 
 public class TestParameter {
 
@@ -52,7 +52,7 @@ public class TestParameter {
      * @param metric the metric of the result
      * @return true if the result was successful
      */
-    public boolean AddResult(RefValue refValue,String result,String metric){
+    public boolean AddResult(RefValue refValue, String result, String metric){
         tparamresult = new TestParameterResult(refValue, result, metric);
         return true;
     }

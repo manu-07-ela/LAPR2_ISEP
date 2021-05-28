@@ -1,14 +1,15 @@
 
 package app.domain.model;
 
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.testRelated.ParameterCategory;
+import app.domain.model.testRelated.TestType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class ClinicalAnalysisLaboratoryTest {
 

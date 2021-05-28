@@ -1,4 +1,4 @@
-package app.ui.console;
+package app.ui.console.functionalities;
 
 import app.controller.ValidateWorkController;
 import app.controller.WriteMedicalReportController;

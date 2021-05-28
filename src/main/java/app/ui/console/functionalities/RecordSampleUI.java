@@ -1,17 +1,14 @@
-package app.ui.console;
+package app.ui.console.functionalities;
 
-import app.controller.App;
 import app.controller.RecordSampleController;
-import app.domain.model.*;
 import app.domain.model.attributes.BarcodeDomain;
-import app.domain.model.attributes.NhsCode;
+import app.domain.model.testRelated.Sample;
+import app.domain.model.testRelated.Test;
 import app.mappers.dto.TestDTO;
-import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

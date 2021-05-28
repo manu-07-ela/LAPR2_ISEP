@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.model.laboratories.ChemicalLaboratory;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;

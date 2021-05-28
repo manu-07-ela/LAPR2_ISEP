@@ -1,7 +1,4 @@
-package app.domain.model;
-
-import java.util.Date;
-import java.util.Objects;
+package app.domain.model.testRelated;
 
 public class RefValue {
 

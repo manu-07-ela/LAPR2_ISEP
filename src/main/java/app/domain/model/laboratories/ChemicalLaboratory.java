@@ -1,4 +1,4 @@
-package app.domain.model;
+package app.domain.model.laboratories;
 
 import app.domain.store.SampleStore;
 
@@ -7,7 +7,7 @@ import app.domain.store.SampleStore;
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 
-public class ChemicalLaboratory extends Laboratory{
+public class ChemicalLaboratory extends Laboratory {
     /**
      * Represents an instance of sample store
      */

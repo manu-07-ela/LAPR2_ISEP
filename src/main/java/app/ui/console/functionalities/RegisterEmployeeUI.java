@@ -1,9 +1,9 @@
-package app.ui.console;
+package app.ui.console.functionalities;
 
 import app.controller.RegisterEmployeeController;
-import app.domain.model.Employee;
+import app.domain.model.users.Employee;
 import app.domain.model.attributes.OrganizationRole;
-import app.domain.model.SpecialistDoctor;
+import app.domain.model.users.SpecialistDoctor;
 import app.domain.model.attributes.*;
 import app.mappers.dto.EmployeeDTO;
 import app.mappers.dto.OrganizationRoleDTO;

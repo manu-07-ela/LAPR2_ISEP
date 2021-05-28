@@ -1,4 +1,4 @@
-package app.domain.model;
+package app.domain.model.users;
 
 import app.domain.model.attributes.*;
 import auth.domain.model.Email;
@@ -10,7 +10,7 @@ import java.util.Objects;
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 
-public class SpecialistDoctor extends Employee{
+public class SpecialistDoctor extends Employee {
     /**
      * The doctor index number of a specialist doctor in the organization
      */

@@ -1,5 +1,6 @@
-package app.domain.model;
+package app.domain.model.laboratories;
 
+import app.domain.model.testRelated.TestType;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;

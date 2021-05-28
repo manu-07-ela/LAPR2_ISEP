@@ -1,4 +1,4 @@
-package app.domain.model;
+package app.domain.model.testRelated;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Calendar;

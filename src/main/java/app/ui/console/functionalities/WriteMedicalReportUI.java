@@ -1,4 +1,4 @@
-package app.ui.console;
+package app.ui.console.functionalities;
 
 import app.controller.WriteMedicalReportController;
 import app.mappers.dto.TestDTO;

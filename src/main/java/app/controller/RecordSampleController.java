@@ -2,8 +2,8 @@ package app.controller;
 
 import app.adapter.ExternalModuleBarcode;
 import app.domain.model.Company;
-import app.domain.model.Sample;
-import app.domain.model.Test;
+import app.domain.model.testRelated.Sample;
+import app.domain.model.testRelated.Test;
 import app.domain.model.attributes.BarcodeDomain;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;

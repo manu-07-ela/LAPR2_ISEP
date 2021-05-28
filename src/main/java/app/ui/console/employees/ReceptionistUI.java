@@ -1,8 +1,8 @@
 package app.ui.console.employees;
 
-import app.ui.console.CreateClientUI;
+import app.ui.console.functionalities.CreateClientUI;
 import app.ui.console.MenuItem;
-import app.ui.console.RegisterTestUI;
+import app.ui.console.functionalities.RegisterTestUI;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;

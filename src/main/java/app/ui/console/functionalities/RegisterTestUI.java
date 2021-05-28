@@ -1,8 +1,12 @@
-package app.ui.console;
+package app.ui.console.functionalities;
 
 import app.controller.RegisterTestController;
-import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.testRelated.Parameter;
+import app.domain.model.testRelated.ParameterCategory;
+import app.domain.model.testRelated.TestParameter;
+import app.domain.model.testRelated.TestType;
+import app.domain.model.users.Client;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
@@ -59,7 +63,7 @@ public class RegisterTestUI implements Runnable{
         System.out.println("Phone number: " + cl.getPhonenumber());
         System.out.println("Email: " + cl.getEmail());
     }
-    private List<Parameter> createParameterList(ParameterCategory par,List<Parameter> listpam){
+    private List<Parameter> createParameterList(ParameterCategory par, List<Parameter> listpam){
         for (Parameter param : registerTestctrl.getParameterList()) {
             if (param.getCategory().equals(par)) {
                 listpam.add(param);
