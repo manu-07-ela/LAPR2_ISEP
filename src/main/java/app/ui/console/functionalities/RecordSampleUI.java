@@ -93,13 +93,6 @@ public class RecordSampleUI implements Runnable{
      * @param quantityOfSamplesIntroduced the amount of samples entered by the user
      * @return a list of bar codes the same size as the number of samples entered by the user
      */
-
-    private void generateBarcodes(int i, TestDto testDTO) {
-        for (int j = 0; j < i; j++) {
-
-        }
-    }
-
     private void generateBarcodes (int quantityOfSamplesIntroduced, Test test){
         for (int j=0; j<quantityOfSamplesIntroduced; j++){
 
@@ -137,11 +130,6 @@ public class RecordSampleUI implements Runnable{
      * @param barcode the barcode
      * @param test the test that the samples will be associated
      */
-
-    private void associateBarcodesWithSamples(BarcodeDomain barcodes, TestDto testDTO, int flag){
-
-    }
-
     private void associateBarcodesWithSamples(BarcodeDomain barcode, Test test, int quantityOfSamplesIntroduced){
 
         Sample sample;
