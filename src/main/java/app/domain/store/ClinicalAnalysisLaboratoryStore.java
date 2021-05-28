@@ -1,7 +1,6 @@
 package app.domain.store;
 
-import app.domain.model.ClinicalAnalysisLaboratory;
-import app.domain.model.TestType;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 

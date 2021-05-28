@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.domain.model.Client;
+import app.domain.model.users.Client;
 import app.domain.model.Company;
 import app.domain.store.ClientStore;
 import app.mappers.ClientMapper;

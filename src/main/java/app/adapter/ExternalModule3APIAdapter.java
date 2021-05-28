@@ -2,8 +2,7 @@
 package app.adapter;
 
 
-import app.domain.model.Parameter;
-import app.domain.model.RefValue;
+import app.domain.model.testRelated.RefValue;
 import com.example1.ExternalModule3API;
 
 public class ExternalModule3APIAdapter implements ExternalModuleReferencesValue{

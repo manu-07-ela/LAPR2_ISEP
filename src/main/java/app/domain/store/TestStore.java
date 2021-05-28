@@ -1,12 +1,17 @@
 package app.domain.store;
 
-import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
-import java.security.SecureRandom;
+import app.domain.model.testRelated.Sample;
+import app.domain.model.testRelated.Test;
+import app.domain.model.testRelated.TestParameter;
+import app.domain.model.testRelated.TestType;
+import app.domain.model.users.Client;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import static app.domain.model.Test.StateOfTest.*;
+import static app.domain.model.testRelated.Test.StateOfTest.*;
 
 /**
  * Stores laboratory tests provided to customers
@@ -41,7 +46,7 @@ public class TestStore {
      */
     public Test getTestByBarcode(String barcodenumber){
         for (Test test: testList ) {
-            for (Sample sample: test.getSamples() ) {
+            for (Sample sample : test.getSamples() ) {
                 if (sample.getBarcode().getBarcodeNumber().equals(barcodenumber)){
                     return test;
                 }
@@ -62,7 +67,7 @@ public class TestStore {
     }
 
     public Test createTest(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList){
-        return new Test(cl,nhscode,testType,testParameterList);
+        return new Test(cl,nhscode,testType,testParameterList,generateInternalcode(testList.size()));
    }
 
 //    public static String generateTestCode(Test t){
@@ -82,18 +87,9 @@ public class TestStore {
         }
     }
 
-    public static String generateInternalcode() {
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-        SecureRandom random = new SecureRandom();
-        StringBuilder code = new StringBuilder();
-
-        for (int i = 0; i < 12; i++) {
-            int randomIndex = random.nextInt(chars.length());
-            code.append(chars.charAt(randomIndex));
-        }
-
-        return code.toString();
+    public static String generateInternalcode(int numtest) {
+        DecimalFormat df = new DecimalFormat("000000000000");
+        return df.format(numtest);
     }
 
     /**

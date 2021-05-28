@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.model.laboratories.ChemicalLaboratory;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
@@ -42,7 +43,11 @@ public class Company {
     /**
      * Represents an instance of the store of ClinicalAnalysisLaboratories
      */
-    private final ClinicalAnalysisLaboratoryStore clinicalnAlysisLaboratoryStore;
+    private final ClinicalAnalysisLaboratoryStore clinicalAnalysisLaboratoryStore;
+    /**
+     *
+     */
+    private final ChemicalLaboratory chemicalLaboratory;
     /**
      * Represents a instance of the store of employees
      */
@@ -69,7 +74,6 @@ public class Company {
      * @param designation Company's designation
      */
     public Company(String designation) {
-
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
@@ -78,12 +82,21 @@ public class Company {
         this.testTypeStore = new TestTypeStore();
         this.parameterStore = new ParameterStore();
         this.parameterCategoryStore = new ParameterCategoryStore();
-        this.clinicalnAlysisLaboratoryStore = new ClinicalAnalysisLaboratoryStore();
+        this.clinicalAnalysisLaboratoryStore = new ClinicalAnalysisLaboratoryStore();
         this.employeeStore = new EmployeeStore();
         this.organizationRoleStore = new OrganizationRoleStore();
         this.clientStore = new ClientStore();
         this.testStore = new TestStore();
         this.sampleStore = new SampleStore();
+        this.chemicalLaboratory = new ChemicalLaboratory("Chemical Laboratory", "Oxford Street", "23145623781", "7293817263");
+    }
+
+    /**
+     * Get the instance of chemical laboratory
+     * @return the chemical laboratory
+     */
+    public ChemicalLaboratory getChemicalLaboratory() {
+        return chemicalLaboratory;
     }
 
     /**
@@ -155,7 +168,7 @@ public class Company {
      * Gets the list containing the ClinicalAnalysisLaboratoryStore
      * @return The ClinicalAnalysisLaboratoryStore
      */
-    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){ return clinicalnAlysisLaboratoryStore; }
+    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){ return clinicalAnalysisLaboratoryStore; }
 
     /**
      * Gets the instance of ClientStore

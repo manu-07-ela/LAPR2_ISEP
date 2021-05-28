@@ -1,8 +1,8 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.Parameter;
-import app.domain.model.ParameterCategory;
+import app.domain.model.testRelated.Parameter;
+import app.domain.model.testRelated.ParameterCategory;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
 import app.mappers.ParameterCategoryMapper;

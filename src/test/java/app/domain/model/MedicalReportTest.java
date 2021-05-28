@@ -1,10 +1,9 @@
 
 package app.domain.model;
 
+import app.domain.model.testRelated.MedicalReport;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class MedicalReportTest {
 

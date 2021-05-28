@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import app.domain.model.attributes.*;
+import app.domain.model.users.Employee;
 import auth.domain.model.Email;
 import org.junit.Assert;
 import org.junit.Before;

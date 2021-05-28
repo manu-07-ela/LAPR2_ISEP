@@ -1,7 +1,7 @@
 package app.domain.store;
 
-import app.domain.model.Employee;
-import app.domain.model.SpecialistDoctor;
+import app.domain.model.users.Employee;
+import app.domain.model.users.SpecialistDoctor;
 import app.mappers.dto.EmployeeDTO;
 import java.util.ArrayList;
 import java.util.List;

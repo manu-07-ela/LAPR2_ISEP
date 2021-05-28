@@ -1,6 +1,6 @@
 package app.adapter;
 
-import app.domain.model.RefValue;
+import app.domain.model.testRelated.RefValue;
 
 public interface ExternalModuleReferencesValue {
 

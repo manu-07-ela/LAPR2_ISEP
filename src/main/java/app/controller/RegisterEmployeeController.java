@@ -2,6 +2,8 @@ package app.controller;
 
 import app.domain.model.*;
 import app.domain.model.attributes.OrganizationRole;
+import app.domain.model.users.Employee;
+import app.domain.model.users.SpecialistDoctor;
 import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;
 import app.mappers.OrganizationRoleMapper;

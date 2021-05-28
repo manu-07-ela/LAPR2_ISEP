@@ -2,7 +2,8 @@
 package app.domain.model;
 
 
-import com.example1.ExternalModule3API;
+import app.domain.model.testRelated.ParameterCategory;
+import app.domain.model.testRelated.TestType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

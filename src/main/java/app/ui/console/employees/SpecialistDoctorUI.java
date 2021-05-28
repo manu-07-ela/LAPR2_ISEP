@@ -1,7 +1,7 @@
 package app.ui.console.employees;
 
 import app.ui.console.MenuItem;
-import app.ui.console.WriteMedicalReportUI;
+import app.ui.console.functionalities.WriteMedicalReportUI;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
