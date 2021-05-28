@@ -76,17 +76,10 @@ public class RecordResultsController {
      * @return True if the list has a test with Samples Collected
      */
     public boolean PossibilityOfRecordResult(){
-<<<<<<< HEAD
 
         return store.getTestWithSamplesCollectedList().size() == 0;
 
-=======
-        if (store.getTestWithSamplesCollectedList().size() == 0){
-            return false;
-        }else {
-            return  true;
-        }
->>>>>>> d1e921a448e8a9bf99ef496bc651e55e2a50e8bd
+
     }
 
 
