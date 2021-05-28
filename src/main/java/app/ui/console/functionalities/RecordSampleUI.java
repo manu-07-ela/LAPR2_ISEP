@@ -91,10 +91,11 @@ public class RecordSampleUI implements Runnable{
     /**
      *Generates the amount of barcode entered by the user
      * @param quantityOfSamplesIntroduced the amount of samples entered by the user
-     * @param test the test that we intend to associate with the samples
+     * @param testDTO the test that we intend to associate with the samples
      */
-    private void generateBarcodes (int quantityOfSamplesIntroduced, TestDTO test){
+    private void generateBarcodes (int quantityOfSamplesIntroduced, TestDTO testDTO){
         Sample sample;
+        Test test = recordSampleController.getTestByInternalCode(testDTO);
         for (int j=0; j<quantityOfSamplesIntroduced; j++){
 
             boolean invalidData = true;
@@ -130,14 +131,12 @@ public class RecordSampleUI implements Runnable{
     /**
      * Associates a bar codes generated with the respective samples and the test selected by the user
      * @param barcode the barcode
-     * @param testDTO the test that the samples will be associated
+     * @param test the test that the samples will be associated
      * @param quantityOfSamplesIntroduced the amount of samples you want to generate
      * @return the sample generated
      */
-    private Sample associateBarcodesWithSamples(BarcodeDomain barcode, TestDTO testDTO, int quantityOfSamplesIntroduced){
-
+    private Sample associateBarcodesWithSamples(BarcodeDomain barcode, Test test, int quantityOfSamplesIntroduced){
         Sample sample;
-        Test test = recordSampleController.getTestByInternalCode(testDTO);
         sample = recordSampleController.associateBarcodeWithSample(barcode);
         recordSampleController.associateSamplesWithTest(test, sample, quantityOfSamplesIntroduced);
         return sample;
