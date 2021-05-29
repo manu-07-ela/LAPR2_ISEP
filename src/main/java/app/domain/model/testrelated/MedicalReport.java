@@ -32,8 +32,8 @@ public class MedicalReport {
     }
 
     /**
-     *
-     * @param diagnosis
+     * Checks whether the diagnosis contains all business rules.
+     * @param diagnosis diagnosis made by specialist doctor.
      */
     private void checkReportRules (String diagnosis) {
         if (StringUtils.isBlank(diagnosis))
@@ -44,7 +44,7 @@ public class MedicalReport {
     }
 
     /**
-     *
+     * Get the medical report creation date.
      */
     public Date getCreatedAt() { return this.createdAt;}
 
