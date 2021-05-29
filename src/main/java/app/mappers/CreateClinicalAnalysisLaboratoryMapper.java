@@ -3,9 +3,6 @@ package app.mappers;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.ParameterCategory;
 import app.domain.model.testrelated.TestType;
-import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
-import app.mappers.dto.ParameterCategoryDTO;
-import app.mappers.dto.TestTypeDTO;
 
 import java.util.ArrayList;
 import java.util.List;

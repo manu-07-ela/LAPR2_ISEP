@@ -3,7 +3,6 @@ package app.controller;
 import app.domain.model.Company;
 
 import app.domain.model.testrelated.EmailNotification;
-import app.domain.model.testrelated.LabCoordinatorValidation;
 import app.domain.model.testrelated.SMSNotification;
 import app.domain.model.testrelated.Test;
 
@@ -11,7 +10,7 @@ import app.domain.model.testrelated.Test;
 import app.domain.store.TestStore;
 import app.mappers.DateMapper;
 import app.mappers.TestMapper;
-import app.mappers.dto.TestDTO;
+import app.mappers.TestDTO;
 import java.io.IOException;
 import java.util.List;
 

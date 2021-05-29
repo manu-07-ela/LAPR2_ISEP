@@ -1,14 +1,13 @@
 package app.controller;
 
-import app.controller.App;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.Company;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.TestTypeStore;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
 import app.mappers.TestTyperMapper;
-import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
-import app.mappers.dto.TestTypeDTO;
+import app.mappers.ClinicalAnalysisLaboratoryDTO;
+import app.mappers.TestTypeDTO;
 
 import java.util.List;
 

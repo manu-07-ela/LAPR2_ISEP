@@ -1,7 +1,7 @@
 package app.ui.console.functionalities;
 
 import app.controller.CreateClientController;
-import app.mappers.dto.ClientDTO;
+import app.mappers.ClientDTO;
 import app.ui.console.utils.Utils;
 
 import java.io.IOException;

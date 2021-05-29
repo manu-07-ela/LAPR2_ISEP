@@ -6,8 +6,8 @@ import app.domain.model.testrelated.TestParameter;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
 import app.mappers.TestParameterMapper;
-import app.mappers.dto.TestDTO;
-import app.mappers.dto.TestParameterDTO;
+import app.mappers.TestDTO;
+import app.mappers.TestParameterDTO;
 
 import java.util.List;
 

@@ -5,8 +5,8 @@ import app.domain.model.users.Employee;
 import app.domain.model.attributes.OrganizationRole;
 import app.domain.model.users.SpecialistDoctor;
 import app.domain.model.attributes.*;
-import app.mappers.dto.EmployeeDTO;
-import app.mappers.dto.OrganizationRoleDTO;
+import app.mappers.EmployeeDTO;
+import app.mappers.OrganizationRoleDTO;
 import app.ui.console.utils.Utils;
 import auth.domain.model.Email;
 

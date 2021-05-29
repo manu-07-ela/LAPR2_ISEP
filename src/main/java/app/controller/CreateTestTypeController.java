@@ -6,7 +6,7 @@ import app.domain.model.testrelated.TestType;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.TestTypeStore;
 import app.mappers.ParameterCategoryMapper;
-import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.ParameterCategoryDTO;
 
 import java.util.ArrayList;
 import java.util.List;

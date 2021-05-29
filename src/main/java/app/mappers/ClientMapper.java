@@ -1,7 +1,6 @@
 package app.mappers;
 
 import app.domain.model.users.Client;
-import app.mappers.dto.ClientDTO;
 
 import java.util.ArrayList;
 import java.util.List;

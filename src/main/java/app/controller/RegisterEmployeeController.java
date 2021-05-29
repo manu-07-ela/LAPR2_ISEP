@@ -1,6 +1,5 @@
 package app.controller;
 
-import app.controller.App;
 import app.domain.model.*;
 import app.domain.model.attributes.OrganizationRole;
 import app.domain.model.users.Employee;
@@ -8,8 +7,8 @@ import app.domain.model.users.SpecialistDoctor;
 import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;
 import app.mappers.OrganizationRoleMapper;
-import app.mappers.dto.EmployeeDTO;
-import app.mappers.dto.OrganizationRoleDTO;
+import app.mappers.EmployeeDTO;
+import app.mappers.OrganizationRoleDTO;
 import auth.AuthFacade;
 
 import java.io.File;

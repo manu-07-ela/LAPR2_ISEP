@@ -4,7 +4,7 @@ import app.domain.model.Company;
 import app.domain.model.testrelated.Test;
 import app.domain.store.TestStore;
 import app.mappers.TestParameterMapper;
-import app.mappers.dto.TestParameterDTO;
+import app.mappers.TestParameterDTO;
 
 import java.util.List;
 

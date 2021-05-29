@@ -3,21 +3,15 @@ package app.ui.console.functionalities;
 
 import app.domain.model.testrelated.Sample;
 import app.domain.model.testrelated.Test;
-import app.mappers.dto.TestDTO;
+import app.mappers.TestDTO;
 
 import app.controller.RecordSampleController;
-import app.domain.model.attributes.NhsCode;
 import app.domain.model.testrelated.*;
-import app.domain.model.users.Client;
 
-import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
-import net.sourceforge.barbecue.BarcodeFactory;
 import net.sourceforge.barbecue.output.OutputException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Represents an interface with the user to be able to record the sample associated with a test

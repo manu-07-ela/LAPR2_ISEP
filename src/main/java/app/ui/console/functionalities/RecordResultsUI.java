@@ -1,11 +1,10 @@
 package app.ui.console.functionalities;
 
 
-import app.mappers.dto.TestParameterDTO;
+import app.mappers.TestParameterDTO;
 import app.controller.RecordResultsController;
 import app.ui.console.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecordResultsUI implements  Runnable {
