@@ -154,7 +154,7 @@ public class TestStore {
     public List<Test> getTestHasReportList(){
         List<Test> testHasReportList = new ArrayList();
         for(Test test : testList){
-            if(test.getStateOfTest() == Validated){
+            if(test.getStateOfTest() == DiagnosisMade){
                 testHasReportList.add(test);
             }
         }
