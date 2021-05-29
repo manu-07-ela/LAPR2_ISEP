@@ -1,6 +1,7 @@
 package app.domain.store;
 
 import app.domain.model.testrelated.ParameterCategory;
+import app.domain.store.ParameterCategoryStore;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -5,7 +5,6 @@ import app.mappers.dto.TestParameterDTO;
 import app.controller.RecordResultsController;
 import app.ui.console.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecordResultsUI implements  Runnable {
@@ -75,7 +74,10 @@ public class RecordResultsUI implements  Runnable {
             while (i <= listaDeParametros.size()){
                 TestParameterDTO parameter;
                 do {
-                    Utils.showList(listaDeParametros, "Choose the Parameter you want to register the results");
+                    System.out.println("Choose the Parameter you want to register the results");
+                    for (TestParameterDTO parameterDTO: listaDeParametros) {
+                        parameterDTO.toString2();
+                    }
                     parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
                     if (parameter==null){
                         System.out.println("You must choose a parameter to record it's results");

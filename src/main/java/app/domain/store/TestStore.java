@@ -3,6 +3,8 @@ package app.domain.store;
 import app.domain.model.attributes.NhsCode;
 
 
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.laboratories.Laboratory;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -80,13 +82,9 @@ public class TestStore {
      * @param testParameterList the list of parameters associated with the test
      * @return the test created
      */
-    public Test createTest(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList){
-        return new Test(cl,nhsCode,testType,testParameterList, generateInternalCode(testList.size()));
+    public Test createTest(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab){
+        return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()));
    }
-
-//    public static String generateTestCode(Test t){
-//
-//    }
 
     /**
      * Save the Test case it is in a valid state.
@@ -161,13 +159,10 @@ public class TestStore {
     }
 
     /**
-<<<<<<< HEAD
      * Get a list of test waiting for the Validation of the Lab Coordinator
      * @return a list of test waiting the Validation of the Lab Coordinator
-=======
      * Get a list of tests with the diagnosis made
      * @return a list of tests with the diagnosis made
->>>>>>> 34c31475da197b9d538787e3ef89effb52874241
      */
     public List<Test> getTestHasReportList(){
         List<Test> testHasReportList = new ArrayList();

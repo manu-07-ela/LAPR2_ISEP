@@ -56,4 +56,24 @@ public class TestDTO {
     public String toString() {
         return String.format("%nInternal Code: %s%nDescription: %s%n", internalCode, description);
     }
+
+    /**
+     * Compare the test dto with the other object provided.
+     * @param o Object we want to compare with the test dto.
+     * @return true if the received object represents another test dto equivalent to the test dto. Otherwise, it returns false.
+     */
+    @Override
+    public boolean equals(Object o){
+        if(this == o){
+            return true;
+        }
+
+        if(o == null || this.getClass() != o.getClass()){
+            return false;
+        }
+
+        TestDTO otherTestParameterDTO = (TestDTO) o;
+
+        return this.getInternalCode().equals(otherTestParameterDTO.getInternalCode());
+    }
 }

@@ -2,6 +2,7 @@ package app.controller;
 
 import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.*;
 import app.domain.model.users.Client;
 import app.domain.store.TestStore;
@@ -13,8 +14,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class RecordResultsControllerTest {
 
@@ -35,8 +34,11 @@ public class RecordResultsControllerTest {
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
 
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
 
         BarcodeDomain barcodeDomain = new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "00000000000");
         Sample sample = new Sample(barcodeDomain);
@@ -75,8 +77,11 @@ public class RecordResultsControllerTest {
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
 
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
 
         BarcodeDomain barcodeDomain = new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "00000000000");
         Sample sample = new Sample(barcodeDomain);
@@ -117,7 +122,10 @@ public class RecordResultsControllerTest {
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
 
 
         BarcodeDomain barcodeDomain = new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "00000000000");
@@ -161,7 +169,10 @@ public class RecordResultsControllerTest {
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
 
 
         BarcodeDomain barcodeDomain = new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "00000000000");
@@ -200,7 +211,10 @@ public class RecordResultsControllerTest {
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
 
         RecordResultsController controller = new RecordResultsController(company);
 

@@ -1,5 +1,6 @@
 package app.domain.model.laboratories;
 
+import app.domain.model.laboratories.ChemicalLaboratory;
 import app.domain.store.SampleStore;
 import org.junit.Assert;
 import org.junit.Test;

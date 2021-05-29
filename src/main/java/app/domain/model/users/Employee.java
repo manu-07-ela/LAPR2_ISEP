@@ -38,6 +38,10 @@ public class Employee {
      *The organization role of an employee in the organization
      */
     private OrganizationRole organizationRole;
+
+    /**
+     * Count the instances of employees created in the system
+     */
     private static int instancesOfEmployee;
 
     /**

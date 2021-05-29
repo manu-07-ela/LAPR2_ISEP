@@ -2,6 +2,8 @@ package app.ui.console.functionalities;
 
 import app.controller.RegisterTestController;
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.laboratories.Laboratory;
 import app.domain.model.testrelated.Parameter;
 import app.domain.model.testrelated.ParameterCategory;
 import app.domain.model.testrelated.TestParameter;
@@ -72,11 +74,21 @@ public class RegisterTestUI implements Runnable{
         return listpam;
     }
 
+    public List<TestParameter> addParameter(Parameter pm, List<TestParameter> listpm){
+        TestParameter tpm = new TestParameter(pm);
+        listpm.add(tpm);
+        return listpm;
+    }
+
     /**
      * Create an instance of Test
      */
     public void createTest() {
             try {
+                ClinicalAnalysisLaboratory lab = (ClinicalAnalysisLaboratory) Utils.showAndSelectOne(registerTestctrl.getLaboratoryList(),"Please choose in which laboratory you are currently working");
+                if (lab == null) {
+                    throw new IllegalArgumentException("The Laboratory list mustn't be empty");
+                }
                 System.out.printf("%nType the Tax identification number of the user you want to register a Test on%n");
                 Client cl;
                 List<TestParameter> listpm = new ArrayList<>();
@@ -128,8 +140,7 @@ public class RegisterTestUI implements Runnable{
                                 throw new IllegalArgumentException("The Parameter list mustn't be empty");
                             }
                             Parameter pm = (Parameter) option;
-                            TestParameter tpm = new TestParameter(pm);
-                            listpm.add(tpm);
+                            listpm = addParameter(pm,listpm);
                             confirmation = false;
                             if(listpam.size()>0) {
                                 System.out.printf("%nDo you want to select another Parameter?%n");
@@ -142,7 +153,7 @@ public class RegisterTestUI implements Runnable{
                             confirmation = Utils.confirm("S/N:");
                         }
                     } while (confirmation);
-                    registerTestctrl.createTest(cl,nhscode,tt,listpm);
+                    registerTestctrl.createTest(cl,nhscode,tt,listpm,lab);
                     System.out.printf("Do you want to register the test?");
                     resposta = Utils.readLineFromConsole("S/N:");
                     if (resposta.equalsIgnoreCase("S")) {

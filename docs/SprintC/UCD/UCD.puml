@@ -17,7 +17,6 @@ usecase "UC03: Register a new client" as UC03
 usecase "UC20: View the results of the test" as UC20
 usecase "UC04: Register a test to be performed to a registered client" as UC04
 usecase "UC14: Make the diagnosis and write a report for a given test" as UC14
-usecase "UC17: Record the result of chemistry analysis" as UC17
 usecase "UC09: Specify a new type of test and its collecting methods" as UC09
 usecase "UC10: Specify a new test parameter and categorize it" as UC10
 usecase "UC11: Specify a new parameter category" as UC11
@@ -38,7 +37,6 @@ UC14 -- Doc
 MedLab --- UC20
 ClinTec -- UC12
 ClinTec --- UC20
-ClinTec -- UC17
 UC07 --- Adm
 UC08 --- Adm
 UC09 --- Adm

@@ -147,19 +147,25 @@ automatically generated using an external API.
 ### 3.1. Rationale
 | Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Step 1  		 | ... interacting with the actor?                                 | RecordSampleUI                | **Pure Fabrication**: none of the domain models classes had the responsability of interactiong with the user.                                                                                          |
+| Step 1  		 | ... interacting with the actor?                                 | RecordSampleUI                | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
 |                | ... coordinating the US?                                        | RecordSampleController        | **Controller**                                                                                                                                                                                         |
-| Step 2  		 | ... knowing the tests to show?                                  | TestStore                     | **Information Expert**: Owns the existing tests.                                                                                                                                                       |
-|                | ... process the data and convert it to dto                      | TestDTO                       | **DTO**: So that the UI can't interact directly with the domain.                                                                                                                                       |
-| Step 3  		 | ... saving the selected test?                                   | Sample                        | **Information Expert**: knowing to which test is associated                                                                                                                                            |
-| Step 4  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 5  		 | ... knowing the number of samples?                              | Test                          |**Information Expert**: knowing how many samples were collected.                                                                                                                                        |
-| 		         | ... instantiating a new Sample?                                 | Test                          | **Creator (R1)** and **HC+LC**: Applying the Creator (R1) would be in the "Company". But, by applying HC + LC to the "Company", this transfers the responsibility to the test class                    |
-|        		 | ... validating all data (local validation)?                     | Sample                        | IE: owns its data.                                                                                                                                                                                     |
-|        		 | ... validating all data (global validation)?                    | Test                          | IE: owns its data.                                                                                                                                                                                     |
-| Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 7  		 | ... validating all data (global validation)?                    | Test                          | IE: owns its data.                                                                                                                                                                                     |
-| Step 8  		 | ... informing operation success?                                | RecordSampleUI
+| Step 2  		 | ... know the tests that are waiting to collect the samples?     | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
+|                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
+|                | ... transferring business data in DTO?                          | TestDto                       | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+| Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 4  		 |   |                          |                                                                                                                                                               |
+| Step 5         | ...generate the barcodes?                                       | BarcodeAdapter                | **Protected Variation**: The system must support several API's.     |                                                                                                                                                                         |
+| Step 6         | ...show the barcodes?                                           | RecordSampleUI                | **IE**: Is responsible for user interactions.  |
+| Step 7         | ...know the chemical laboratory?                                | Company                       | **IE**: The company knows all its laboratories |
+|                | ...create a sample?                                             | SampleStore                   | **HC+LC:** The chemical laboratory delegates the responsibility of managing the samples in the SampleStore |
+|                | ...associate the sample with the barcode?                       | Sample                        | **IE:** The sample owns our on data |
+|                | ...save the sample in system?                                   | sampleStore                   | **IE:** Know all the samples in system. | 
+|                | ...associate the sample with the test?                          | Test                          | **IE:** The test owns your on data. |
+|                | ...changing the status of the test?                             | Test                          | **IE:** Only the test knows our state and it's the only one capable of the change it. |
+|                | ...generate the data end time for sample collection?            | Test                          | **IE:** The test owns our on data. |
+| Step 8  		 | ... informing operation success?                                | RecordSampleUI                | **IE**: Is responsible for user interactions.                                                                                                                                                          |
+
+
 
 ### Systematization ##
 
@@ -208,8 +214,6 @@ Other software classes (i.e. Pure Fabrication) identified:
 *It is also recommended to organize this content by subsections.* 
 
 # 5. Construction (Implementation)
- 
-##Class RecordSamplesController
 
 ##Class RecordSampleUI
 

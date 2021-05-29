@@ -1,5 +1,6 @@
 package app.domain.model.testrelated;
 
+import app.domain.model.testrelated.*;
 import org.junit.Assert;
 import org.junit.Test;
 

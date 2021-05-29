@@ -1,5 +1,6 @@
 package app.domain.model.testrelated;
 
+import app.domain.model.testrelated.BarcodeDomain;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
 import org.junit.Assert;

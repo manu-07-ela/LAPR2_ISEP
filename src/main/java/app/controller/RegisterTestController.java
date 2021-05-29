@@ -2,6 +2,8 @@ package app.controller;
 
 import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.laboratories.Laboratory;
 import app.domain.model.testrelated.*;
 import app.domain.model.users.Client;
 import app.domain.store.*;
@@ -57,8 +59,8 @@ public class RegisterTestController {
         clmapper = new ClientMapper();
     }
 
-    public boolean createTest(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList) {
-        this.t=tStore.createTest(cl,nhscode,testType,testParameterList);
+    public boolean createTest(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab) {
+        this.t=tStore.createTest(cl,nhscode,testType,testParameterList,lab);
         return this.tStore.validateTest(t);
     }
 
@@ -86,4 +88,8 @@ public class RegisterTestController {
         return store.getParameterList();
     }
 
+    public List<ClinicalAnalysisLaboratory> getLaboratoryList(){
+        ClinicalAnalysisLaboratoryStore store = company.getClinicalAnalysisLaboratoryStore();
+        return store.getClinicalAnalysisLaboratoryList();
+    }
 }

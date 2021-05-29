@@ -3,6 +3,8 @@ package app.domain.model.testrelated;
 
 
 import app.adapter.interfaces.ExternalModuleReferencesValue;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.model.testrelated.TestType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

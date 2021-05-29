@@ -1,5 +1,7 @@
 package app.domain.model.testrelated;
 
+import app.domain.model.testrelated.RefValue;
+import app.domain.model.testrelated.TestParameterResult;
 import org.junit.Assert;
 import org.junit.Test;
 

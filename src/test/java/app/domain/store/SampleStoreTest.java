@@ -2,6 +2,7 @@ package app.domain.store;
 
 import app.domain.model.testrelated.BarcodeDomain;
 import app.domain.model.testrelated.Sample;
+import app.domain.store.SampleStore;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
 import org.junit.Assert;

@@ -2,6 +2,7 @@ package app.domain.store;
 
 import app.domain.model.users.Client;
 
+import app.domain.store.ClientStore;
 import app.mappers.ClientMapper;
 import app.mappers.dto.ClientDTO;
 import auth.AuthFacade;

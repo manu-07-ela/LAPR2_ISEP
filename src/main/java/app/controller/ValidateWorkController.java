@@ -3,7 +3,6 @@ package app.controller;
 import app.domain.model.Company;
 
 import app.domain.model.testrelated.EmailNotification;
-import app.domain.model.testrelated.LabCoordinatorValidation;
 import app.domain.model.testrelated.SMSNotification;
 import app.domain.model.testrelated.Test;
 
