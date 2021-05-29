@@ -261,13 +261,8 @@ public class Test {
     }
 
     /**
-<<<<<<< HEAD
      * Creates a Lab Coordinator Validation.
      * @return true if the Lab Coordinator Validation was added. Otherwise, false.
-=======
-     *
-     * @return
->>>>>>> 34c31475da197b9d538787e3ef89effb52874241
      */
     public boolean validateWork() {
         if (validateLabCoordinatorValidation()) {
@@ -315,7 +310,7 @@ public class Test {
      * Global validation of a medical report.
      * @return false if the medical report already exists. Otherwise, it returns true.
      */
-    private boolean validateMedicalReport() {
+    public boolean validateMedicalReport() {
         if (this.md != null) {
             return false;
         }

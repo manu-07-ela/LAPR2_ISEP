@@ -1,5 +1,6 @@
 package app.domain.model.testrelated;
 
+import app.domain.model.Company;
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.users.Client;
 import app.mappers.dto.TestParameterDTO;
@@ -106,4 +107,67 @@ public class TestTest {
 
         Assert.assertFalse(verificacao);
     }
+
+    @Test
+    public void validateValidMedicalReport(){
+        Company company = new Company("Many Labs");
+        ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+        Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+        List<ParameterCategory> list=new ArrayList();
+        list.add(pc1);
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        NhsCode nhs = new NhsCode("123456789012");
+        TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        RefValue rv = new RefValue("mg",10,20);
+        TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
+        TestParameter tp = new TestParameter(p1,tpr);
+        List<TestParameter> tpList = new ArrayList<>();
+        tpList.add(tp);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,"123123123123");
+        boolean result = test.validateMedicalReport();
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void validateInvalidMedicalReport(){
+        Company company = new Company("Many Labs");
+        ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+        Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+        List<ParameterCategory> list=new ArrayList();
+        list.add(pc1);
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        NhsCode nhs = new NhsCode("123456789012");
+        TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        RefValue rv = new RefValue("mg",10,20);
+        TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
+        TestParameter tp = new TestParameter(p1,tpr);
+        List<TestParameter> tpList = new ArrayList<>();
+        tpList.add(tp);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,"123123123123");
+        test.addMedicalReport("The patient is healthy");
+        boolean result = test.validateMedicalReport();
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void addInvalidMedicalReport(){
+        Company company = new Company("Many Labs");
+        ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+        Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+        List<ParameterCategory> list=new ArrayList();
+        list.add(pc1);
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        NhsCode nhs = new NhsCode("123456789012");
+        TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        RefValue rv = new RefValue("mg",10,20);
+        TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
+        TestParameter tp = new TestParameter(p1,tpr);
+        List<TestParameter> tpList = new ArrayList<>();
+        tpList.add(tp);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,"123123123123");
+        test.addMedicalReport("The patient is healthy");
+        boolean result = test.addMedicalReport("The patient is healthy");
+        Assert.assertFalse(result);
+    }
+
 }

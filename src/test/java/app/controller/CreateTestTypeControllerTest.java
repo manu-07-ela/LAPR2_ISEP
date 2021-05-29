@@ -1,9 +1,9 @@
-/*
+
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.testRelated.ParameterCategory;
-import app.domain.model.testRelated.TestType;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.model.testrelated.TestType;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.TestTypeStore;
 import app.mappers.dto.ParameterCategoryDTO;
@@ -39,7 +39,7 @@ public class CreateTestTypeControllerTest {
         pcDto = new ParameterCategoryDTO("12A4D","Covid-19");
         lpcDto.add(pcDto);
         ctrl = new CreateTestTypeController(company);
-        tt= new TestType("12345","test","collecting", lpc, );
+        tt= new TestType("12345","test","collecting", lpc,"ExternalModule2API" );
     }
 
     @Test
@@ -50,27 +50,27 @@ public class CreateTestTypeControllerTest {
 
     @Test
     public void createValidTestType(){
-        boolean result = ctrl.createTestType("12345","test","collecting",lpcDto);
+        boolean result = ctrl.createTestType("12345","test","collecting",lpcDto,"ExternalModule2API");
         Assert.assertTrue(result);
     }
 
     @Test
     public void createInvalidTestType(){
         ttStore.addTestType(tt);
-        boolean result = ctrl.createTestType("12345","test","collecting",lpcDto);
+        boolean result = ctrl.createTestType("12345","test","collecting",lpcDto,"ExternalModule2API");
         Assert.assertFalse(result);
     }
 
     @Test
     public void saveValidTestType() {
-        ctrl.createTestType("12345","test","collecting",lpcDto);
+        ctrl.createTestType("12345","test","collecting",lpcDto,"ExternalModule2API");
         boolean result = ctrl.saveTestType();
         Assert.assertTrue(result);
     }
 
     @Test
     public void saveInvalidTestType() {
-        ctrl.createTestType("12345","test","collecting",lpcDto);
+        ctrl.createTestType("12345","test","collecting",lpcDto,"ExternalModule2API");
         ttStore.addTestType(tt);
         boolean result = ctrl.saveTestType();
         Assert.assertFalse(result);
@@ -79,4 +79,3 @@ public class CreateTestTypeControllerTest {
 
 
 }
-*/
