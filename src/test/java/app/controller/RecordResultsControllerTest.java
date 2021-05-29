@@ -25,6 +25,7 @@ public class RecordResultsControllerTest {
 
     }
 
+    /*
     @Test
     public void addTestResult1() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         List<TestParameter> listaDeParametros = new ArrayList<>();
@@ -52,6 +53,10 @@ public class RecordResultsControllerTest {
         Assert.assertTrue(verificacao);
 
     }
+
+     */
+
+    /*
 
     @Test
     public void addTestResult2() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
@@ -82,6 +87,10 @@ public class RecordResultsControllerTest {
         Assert.assertFalse(verificacao);
 
     }
+
+     */
+
+    /*
 
     @Test
     public void possibilityOfRecordResult() {
@@ -117,4 +126,6 @@ public class RecordResultsControllerTest {
         Assert.assertTrue(verificacao);
 
     }
+
+     */
 }
