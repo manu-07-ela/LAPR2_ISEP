@@ -1,5 +1,6 @@
 package app.mappers.dto;
 
+import junit.framework.TestCase;
 import app.domain.model.testrelated.Parameter;
 import org.junit.Assert;
 import org.junit.Test;
