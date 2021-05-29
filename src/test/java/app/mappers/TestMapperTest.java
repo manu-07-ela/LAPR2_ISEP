@@ -1,6 +1,7 @@
 package app.mappers;
 
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.Parameter;
 import app.domain.model.testrelated.ParameterCategory;
 import app.domain.model.testrelated.TestParameter;
@@ -26,6 +27,8 @@ public class TestMapperTest {
     TestDTO testDTO;
     TestMapper testMapper;
     List<TestDTO> testDTOS;
+    ClinicalAnalysisLaboratory lab;
+    List<TestType> ttlist;
 
     @Test
     public void toDto() {
@@ -35,11 +38,14 @@ public class TestMapperTest {
         parameter = new Parameter("w82ks", "blood", "blood", parameterCategory);
         testParameter = new TestParameter(parameter);
         testParameters = new ArrayList<>();
+        ttlist = new ArrayList<>();
         testParameters.add(testParameter);
         parameterCategories = new ArrayList<>();
         parameterCategories.add(parameterCategory);
         testType = new TestType("bag63", "blood", "blood", parameterCategories, "ExternalModule1");
-        test = new app.domain.model.testrelated.Test(client, nhsCode, testType, testParameters, "123123123123");
+        ttlist.add(testType);
+        lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        test = new app.domain.model.testrelated.Test(client, nhsCode, testType, testParameters,lab,"123123123123");
         testMapper = new TestMapper();
         testDTO = new TestDTO(test.getInternalCode(), test.getDescription());
         TestDTO result = testMapper.toDto(test);
@@ -55,11 +61,14 @@ public class TestMapperTest {
         parameter = new Parameter("w82ks", "blood", "blood", parameterCategory);
         testParameter = new TestParameter(parameter);
         testParameters = new ArrayList<>();
+        ttlist = new ArrayList<>();
         testParameters.add(testParameter);
         parameterCategories = new ArrayList<>();
         parameterCategories.add(parameterCategory);
         testType = new TestType("bag63", "blood", "blood", parameterCategories, "ExternalModule1");
-        test = new app.domain.model.testrelated.Test(client, nhsCode, testType, testParameters, "123456789012");
+        ttlist.add(testType);
+        lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        test = new app.domain.model.testrelated.Test(client, nhsCode, testType, testParameters,lab,"123456789012");
         testMapper = new TestMapper();
         testDTO = new TestDTO(test.getInternalCode(), test.getDescription());
         testDTOS = new ArrayList<>();

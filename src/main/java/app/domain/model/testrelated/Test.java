@@ -2,6 +2,8 @@ package app.domain.model.testrelated;
 
 
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.laboratories.Laboratory;
 import app.domain.model.users.Client;
 
 import java.util.ArrayList;
@@ -86,8 +88,12 @@ public class Test {
      * It counts how many times it was added a result in a test
      */
     private static int countAddResult;
+    /**
+     * Represents an instance of Laboratory
+     */
+    private ClinicalAnalysisLaboratory lab;
 
-    public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList,String internalCode) {
+    public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,String internalCode) {
         this.client = cl;
         this.nhscode = new NhsCode(nhscode);
         this.testType = testType;
@@ -96,6 +102,7 @@ public class Test {
         this.internalCode = internalCode;
         this.testAddDate = Calendar.getInstance().getTime();
         this.description = testType.getCollectingMethod();
+        this.lab = lab;
         this.md = null;
         this.samples = new ArrayList<>();
         this.lcv = null;
@@ -263,7 +270,10 @@ public class Test {
     /**
      * Creates a Lab Coordinator Validation.
      * @return true if the Lab Coordinator Validation was added. Otherwise, false.
+<<<<<<< HEAD
      * @return
+=======
+>>>>>>> 8e0b1499373f73c7d96cdfacebd1baac66c8256c
      */
     public boolean validateWork() {
         if (validateLabCoordinatorValidation()) {
@@ -311,7 +321,7 @@ public class Test {
      * Global validation of a medical report.
      * @return false if the medical report already exists. Otherwise, it returns true.
      */
-    private boolean validateMedicalReport() {
+    public boolean validateMedicalReport() {
         if (this.md != null) {
             return false;
         }

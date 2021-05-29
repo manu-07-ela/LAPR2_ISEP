@@ -1,6 +1,8 @@
 package app.mappers;
 
 import app.domain.model.testrelated.Parameter;
+import app.domain.model.testrelated.ParameterCategory;
+import app.mappers.dto.ParameterCategoryDTO;
 import app.mappers.dto.ParameterDTO;
 
 import java.util.ArrayList;
@@ -31,6 +33,10 @@ public class ParameterMapper {
      * @return An instance of ParameterDTO.
      */
     public ParameterDTO toDto(Parameter parameter) {
-        return new ParameterDTO(parameter.getCode(),parameter.getShortName(),parameter.getDescription(), parameter.getCategory());
+        return new ParameterDTO(parameter.getCode(),parameter.getShortName(),parameter.getDescription(), toDtoParameterCategoryDTo(parameter.getCategory()));
+    }
+
+    public ParameterCategoryDTO toDtoParameterCategoryDTo(ParameterCategory pc){
+        return new ParameterCategoryDTO(pc.getCode(), pc.getName());
     }
 }
