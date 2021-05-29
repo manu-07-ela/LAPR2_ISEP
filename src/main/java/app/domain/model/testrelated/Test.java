@@ -229,9 +229,9 @@ public class Test {
      * @param sample the sample that will be added to the test
      * @return true, if the copy of the sample list passed by parameter is successful, false otherwise
      */
-    public void addSamples(Sample sample, int flag){
+    public void addSamples(Sample sample){
         this.samples.add(sample);
-        if (this.samples.size()==flag) {
+        if (this.samples.size()>0) {
             changeStateForSamplesCollected();
             System.out.println("MUDOU ESTADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
             generateDataAndTimeForSamplesCollected();
