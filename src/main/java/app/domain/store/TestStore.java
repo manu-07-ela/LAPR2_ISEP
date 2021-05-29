@@ -161,13 +161,10 @@ public class TestStore {
     }
 
     /**
-<<<<<<< HEAD
      * Get a list of test waiting for the Validation of the Lab Coordinator
      * @return a list of test waiting the Validation of the Lab Coordinator
-=======
      * Get a list of tests with the diagnosis made
      * @return a list of tests with the diagnosis made
->>>>>>> 34c31475da197b9d538787e3ef89effb52874241
      */
     public List<Test> getTestHasReportList(){
         List<Test> testHasReportList = new ArrayList();
