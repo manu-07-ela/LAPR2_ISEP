@@ -1,6 +1,7 @@
 package app.mappers.dto;
 
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.*;
 import app.domain.model.users.Client;
 import org.junit.Assert;
@@ -32,14 +33,18 @@ public class TestDtoTest {
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
         Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
-        NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         RefValue rv = new RefValue("mg",10,20);
         TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
         TestParameter tp = new TestParameter(p1,tpr);
         List<TestParameter> tpList = new ArrayList<>();
         tpList.add(tp);
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,"123123123123");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        NhsCode nhs = new NhsCode("123456789012");
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab, "123123123123");
         TestDTO tDto1 = new TestDTO(test);
         TestDTO tDto2 = null;
         Assert.assertNotEquals(tDto1,tDto2);

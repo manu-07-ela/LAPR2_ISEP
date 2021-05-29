@@ -248,14 +248,18 @@ public class TestStoreTest {
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
         Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
-        NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        NhsCode nhs = new NhsCode("123456789012");
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+
         RefValue rv = new RefValue("mg",10,20);
         TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
         TestParameter tp = new TestParameter(p1,tpr);
         List<TestParameter> tpList = new ArrayList<>();
         tpList.add(tp);
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,"123123123123");
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab, "123123123123");
         TestStore ttStore = company.getTestStore();
         ttStore.addTest(test);
         app.domain.model.testrelated.Test result = ttStore.getTestByInternalCode("123123123123");
@@ -272,12 +276,15 @@ public class TestStoreTest {
         Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
         NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
         RefValue rv = new RefValue("mg",10,20);
         TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
         TestParameter tp = new TestParameter(p1,tpr);
         List<TestParameter> tpList = new ArrayList<>();
         tpList.add(tp);
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,"123123123123");
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab, "123123123123");
         TestStore ttStore = company.getTestStore();
         app.domain.model.testrelated.Test result = ttStore.getTestByInternalCode("123123123123");
         Assert.assertNull(result);
