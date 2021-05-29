@@ -9,7 +9,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class TestTypeStoreTest {
 
     String api;
@@ -31,73 +30,73 @@ public class TestTypeStoreTest {
     }
 
     @Test
-    public void createTestType(){
+    public void createAnTestType(){
         TestType result = ttStore.createTestType("12345","test","collecting",listPC,api);
         Assert.assertEquals(tt, result);
     }
 
     @Test
-    public void validateValidTestType(){
+    public void validateAnValidTestType(){
         boolean result = ttStore.validateTestType(tt);
         Assert.assertTrue(result);
     }
 
     @Test
-    public void validateInvalidTestType(){
+    public void validateAnInvalidTestType(){
         ttStore.addTestType(tt);
         boolean result = ttStore.validateTestType(tt);
         Assert.assertFalse(result);
     }
 
     @Test
-    public void validateNullTestType(){
+    public void validateAnNullTestType(){
         TestType test = null;
         boolean result = ttStore.validateTestType(test);
         Assert.assertFalse(result);
     }
 
     @Test
-    public void getExistingTestTypeByCode(){
+    public void getAnExistingTestTypeByCode(){
         ttStore.addTestType(tt);
         TestType result=ttStore.getTestTypeByCode("12345");
         Assert.assertEquals(tt,result);
     }
 
     @Test
-    public void getNonexistentTestTypeByCode(){
+    public void getAnNonexistentTestTypeByCode(){
         TestType result=ttStore.getTestTypeByCode("12345");
         Assert.assertEquals(null,result);
     }
 
     @Test
-    public void getNonexistentParameterCategoryByCode_2(){
+    public void getAnNonexistentParameterCategoryByCode_2(){
         ttStore.addTestType(tt);
         TestType result=ttStore.getTestTypeByCode("12s4D");
         Assert.assertEquals(null,result);
     }
 
     @Test
-    public void saveValidTestType() {
+    public void saveAnValidTestType() {
         boolean result = ttStore.saveTestType(tt);
         Assert.assertTrue(result);
     }
 
     @Test
-    public void saveInvalidTestType() {
+    public void saveAnInvalidTestType() {
         ttStore.addTestType(tt);
         boolean result = ttStore.saveTestType(tt);
         Assert.assertFalse(result);
     }
 
     @Test
-    public void saveNullTestType(){
+    public void saveANullTestType(){
         TestType test = null;
         boolean result = ttStore.saveTestType(test);
         Assert.assertFalse(result);
     }
 
     @Test
-    public void getTestTypeList(){
+    public void getAnTestTypeList(){
         listTT.add(tt);
         ttStore.addTestType(tt);
         List<TestType> result = ttStore.getTestTypeList();
@@ -105,3 +104,10 @@ public class TestTypeStoreTest {
     }
 
 }
+
+
+
+
+
+
+
