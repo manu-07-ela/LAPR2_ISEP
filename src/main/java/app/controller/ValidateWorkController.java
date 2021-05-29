@@ -75,6 +75,8 @@ public class ValidateWorkController {
         this.company=app.getCompany();
         testMapper = new TestMapper();
         dateMapper = new DateMapper();
+        emailNotification = new EmailNotification();
+        smsNotification = new SMSNotification();
     }
 
     /**
@@ -154,6 +156,13 @@ public class ValidateWorkController {
     /**
      *
      */
+    public String showLabCoordValidationDate(Test selectedTest) {
+        return dateMapper.toDto(selectedTest.getLabValidationDate()).toString();
+    }
+
+    /**
+     *
+     */
     public String showDates(Test selectedTest) {
         return String.format("%s%n%s%n%s%n",showRegistrationDate(),showChemicalAnalysisDate(selectedTest),showDiagnosisDate(selectedTest));
     }
@@ -170,8 +179,8 @@ public class ValidateWorkController {
      *
      */
     public void notifyTheClient(Test selectedTest) throws IOException {
-        emailNotification.notifyByEmail(selectedTest);
-        smsNotification.notifyBySMS(selectedTest);
+        emailNotification.notification(selectedTest);
+        smsNotification.notification(selectedTest);
     }
 
 

@@ -193,10 +193,15 @@ public class Test {
      */
     public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
 
+<<<<<<< HEAD
     /**
      * Get the list of samples associated with a test
      * @return the list of samples associated with a test
      */
+=======
+    public Date getLabValidationDate() { return lcv.getLabCoordDate();}
+
+>>>>>>> ac92ddc2c6a81fddea6d6abb15ac5c108dd9e558
     public List<Sample> getSamples() { return samples; }
 
     /**
@@ -289,7 +294,10 @@ public class Test {
         this.samples.add(sample);
         if (this.samples.size()>0) {
             changeStateForSamplesCollected();
+<<<<<<< HEAD
             //System.out.println("MUDOU ESTADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+=======
+>>>>>>> ac92ddc2c6a81fddea6d6abb15ac5c108dd9e558
             generateDataAndTimeForSamplesCollected();
         }
 
@@ -320,15 +328,31 @@ public class Test {
         return lcv.recordLabCoordinatorValidationDate();
     }
 
+<<<<<<< HEAD
     /**
      * Textual description of a test
      * @return Information that characterizes a test
      */
+=======
+>>>>>>> ac92ddc2c6a81fddea6d6abb15ac5c108dd9e558
     @Override
     public String toString() {
-        for (TestParameter la: testParameterList) {
-            return String.format("%s",la.getParamResult().toString());
-        }
-        return "la";
+        return "Test{" +
+                "nhscode=" + nhscode +
+                ", testParameterList=" + testParameterList +
+                ", testType=" + testType +
+                ", samples=" + samples +
+                ", stateOfTest=" + stateOfTest +
+                ", client=" + client +
+                ", internalCode='" + internalCode + '\'' +
+                ", description='" + description + '\'' +
+                ", samplesAddDate=" + samplesAddDate +
+                ", testAddDate=" + testAddDate +
+                ", chemicalAnalysisDate=" + chemicalAnalysisDate +
+                ", tpr=" + tpr +
+                ", registerTestDate=" + registerTestDate +
+                ", md=" + md +
+                ", lcv=" + lcv +
+                '}';
     }
 }
