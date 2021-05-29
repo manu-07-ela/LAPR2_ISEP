@@ -145,13 +145,17 @@ public class Test {
         return description;
     }
 
-    public Date getChemicalAnalysisDate() { return tpr.getChemicalAnalysisDate();}
+    public List<Date> getChemicalAnalysisDate() {
+        List<Date> chemicalAnalysisDates = new ArrayList<>();
+        for (TestParameter tp : testParameterList){
+            chemicalAnalysisDates.add(tp.getParamResult().getChemicalAnalysisDate());
+        }
+        return chemicalAnalysisDates;
+    }
 
     public MedicalReport getMedicalReport() { return this.md;}
 
     public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
-
-    public Date getRegisterTestDate() { return this.registerTestDate; }
 
     public List<Sample> getSamples() { return samples; }
 
