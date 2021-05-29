@@ -2,6 +2,7 @@ package app.domain.model.testrelated;
 
 import app.domain.model.Company;
 import app.domain.model.attributes.NhsCode;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.users.Client;
 import app.mappers.dto.TestParameterDTO;
 import org.junit.Assert;
@@ -30,8 +31,10 @@ public class TestTest {
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
-
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
 
         Assert.assertEquals(listaDeParametros,test.getTestParameterList());
     }
@@ -53,9 +56,12 @@ public class TestTest {
         listaDeParametros.add(tpm2);
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
         NhsCode nhs = new NhsCode("123456789012");
 
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
 
 
     }
@@ -76,8 +82,11 @@ public class TestTest {
         listaDeParametros.add(tpm2);
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
         NhsCode nhs = new NhsCode("123456789012");
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
         boolean verificacao = test.addTestResult("PLT00","23","mg");
         Assert.assertTrue(verificacao);
     }
@@ -99,9 +108,12 @@ public class TestTest {
         listaDeParametros.add(tpm2);
         Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
         NhsCode nhs = new NhsCode("123456789012");
 
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
 
         boolean verificacao = test.addTestResult("PRIGF","23","mg");
 
@@ -123,7 +135,10 @@ public class TestTest {
         TestParameter tp = new TestParameter(p1,tpr);
         List<TestParameter> tpList = new ArrayList<>();
         tpList.add(tp);
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,"123123123123");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
         boolean result = test.validateMedicalReport();
         Assert.assertTrue(result);
     }
@@ -143,7 +158,10 @@ public class TestTest {
         TestParameter tp = new TestParameter(p1,tpr);
         List<TestParameter> tpList = new ArrayList<>();
         tpList.add(tp);
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,"123123123123");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
         test.addMedicalReport("The patient is healthy");
         boolean result = test.validateMedicalReport();
         Assert.assertFalse(result);
@@ -164,7 +182,10 @@ public class TestTest {
         TestParameter tp = new TestParameter(p1,tpr);
         List<TestParameter> tpList = new ArrayList<>();
         tpList.add(tp);
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,"123123123123");
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
         test.addMedicalReport("The patient is healthy");
         boolean result = test.addMedicalReport("The patient is healthy");
         Assert.assertFalse(result);

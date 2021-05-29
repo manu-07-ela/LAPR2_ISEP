@@ -3,6 +3,8 @@ package app.domain.store;
 import app.domain.model.attributes.NhsCode;
 
 
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.laboratories.Laboratory;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -80,8 +82,8 @@ public class TestStore {
      * @param testParameterList the list of parameters associated with the test
      * @return the test created
      */
-    public Test createTest(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList){
-        return new Test(cl,nhsCode,testType,testParameterList, generateInternalCode(testList.size()));
+    public Test createTest(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab){
+        return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()));
    }
 
 //    public static String generateTestCode(Test t){
