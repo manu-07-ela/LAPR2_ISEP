@@ -1,21 +1,43 @@
 package app.mappers.dto;
 
 import junit.framework.TestCase;
+import app.domain.model.testrelated.Parameter;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class ParameterDTOTest extends TestCase {
+import static org.junit.Assert.*;
 
-    public void testGetCode() {
+public class ParameterDTOTest {
+
+    @Test
+    public void getCode() {
+        ParameterCategoryDTO pc1 = new ParameterCategoryDTO("1f5dc", "Category");
+        ParameterDTO p = new ParameterDTO ("HB000","test","method",pc1);
+
+        Assert.assertEquals("HB000",p.getCode());
     }
 
-    public void testGetShortName() {
+    @Test
+    public void getShortName() {
+        ParameterCategoryDTO pc1 = new ParameterCategoryDTO("1f5dc", "Category");
+        ParameterDTO p = new ParameterDTO ("HB000","test","method",pc1);
+
+        Assert.assertEquals("test",p.getShortName());
     }
 
-    public void testGetDescription() {
+    @Test
+    public void getDescription() {
+        ParameterCategoryDTO pc1 = new ParameterCategoryDTO("1f5dc", "Category");
+        ParameterDTO p = new ParameterDTO ("HB000","test","method",pc1);
+
+        Assert.assertEquals("method",p.getDescription());
     }
 
-    public void testGetCategory() {
-    }
+    @Test
+    public void getCategory() {
+        ParameterCategoryDTO pc1 = new ParameterCategoryDTO("1f5dc", "Category");
+        ParameterDTO p = new ParameterDTO ("HB000","test","method",pc1);
 
-    public void testTestToString() {
+        Assert.assertEquals(pc1,p.getCategory());
     }
 }
