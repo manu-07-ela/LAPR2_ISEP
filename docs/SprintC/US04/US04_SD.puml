@@ -9,55 +9,42 @@ participant "Company" as COMP
 participant "tstore:TestStore" as TS
 participant "store: ClientStore" as CS
 participant "ttstore: TestTypeStore" as TTS
-participant ":ClientMapper" as MapperC
 participant ":TestTypeMapper" as MapperTT
 participant "pmcstore:ParameterCategoryStore" as PMCS
 participant "pmstore:ParameterStore" as PMS
 participant ":ParameterCategoryMapper" as MapperPMC
 participant ":ParameterMapper" as MapperPM
 participant "t: Test" as T
+participant "tt: TestType"
+participant "pm: Parameter"
+participant "pmc: ParameterCategory"
 participant "TTS:List<TestType>"
 participant "TTSDto:List<TestTypeDTO>"
 participant "PMC:List<ParameterCategory>"
 participant "PMCDto:List<ParameterCategoryDTO>"
 participant "PM:List<Parameter>"
+participant "TPM:List<TestParameter>"
 participant "PMDto:List<ParameterDTO>"
 
 activate REP
 REP -> UI : asks to register a test to be \n performed to a registered client
 activate UI
-UI --> REP : requests data (citizencardnumber,nhscode)
+UI --> REP : requests data (tin,nhscode)
 deactivate UI
 
 REP -> UI : types requested data
 activate UI
 
-UI -> CTRL : CreateTest(citizencardnumber,nhscode)
+UI -> CTRL : getClient(tin)
 activate CTRL
 
 CTRL -> COMP : store = getClientStore()
 activate COMP
 deactivate COMP
 
-CTRL -> CS : CL = getCitizencardnumber()
+CTRL -> CS : cl = getClientbytin(tin)
 activate CS
 deactivate CS
-CTRL -> MapperC : CLDto = toDTO(CL)
-activate MapperC
-deactivate MapperC
-
-CTRL -> COMP : tstore = getTestStore()
-activate COMP
-deactivate COMP
-CTRL -> TS : t = CreateTest(citizencardnumber,nhscode)
-
-activate TS
-TS --> T**: create(citizencardnumber,nhscode)
-deactivate TS
-
-CTRL -> TS : validateTest(t)
-activate TS
-deactivate TS
 deactivate CTRL
 
 UI -> CTRL : TTSDto = getTestTypeList()
@@ -83,21 +70,6 @@ deactivate UI
 REP -> UI : selects a test type
 activate UI
 
-UI -> CTRL : addParameterCategory(pmcld)
-
-activate CTRL
-
-CTRL -> TTS : pmc = getParameterCategory(pmcld)
-activate TTS
-deactivate TTS
-
-CTRL -> T : b = addParameterCategory(pmc)
-activate T
-deactivate T
-CTRL --> UI : ok
-deactivate CTRL
-
-UI --> REP : added with success
 
 UI -> CTRL : PMCDto = getParameterCategoryList()
 
@@ -117,25 +89,9 @@ deactivate CTRL
 
 UI --> REP : shows parameter categories to be selected
 deactivate UI
-
+loop
 REP -> UI : selects a parameter category
 activate UI
-
-UI -> CTRL : addTestType(ttld)
-
-activate CTRL
-
-CTRL -> TTS : tt = getTestType(ttld)
-activate TTS
-deactivate TTS
-
-CTRL -> T : b = addTestType(tt)
-activate T
-deactivate T
-CTRL --> UI : ok
-deactivate CTRL
-
-UI --> REP : added with success
 
 UI -> CTRL : PMDto = getParameterList()
 
@@ -160,21 +116,10 @@ loop
 REP -> UI : selects a parameter
 activate UI
 
-UI -> CTRL : addParameter(pmld)
 
-activate CTRL
-
-CTRL -> PMS : pm = getParameter(pmld)
-activate PMS
-deactivate PMS
-
-CTRL -> T : b = addParameter(pm)
-activate T
-deactivate T
-CTRL --> UI : ok
-deactivate CTRL
 
 UI --> REP : added with success
+end
 end
 UI --> REP : shows all data and requests confirmation
 deactivate UI
@@ -188,6 +133,26 @@ deactivate UI
 
 REP -> UI : confirms the data
 activate UI
+
+UI -> CTRL : createTest(cl,nhscode,tt,TPM)
+activate CTRL
+CTRL -> COMP : tstore = getTestStore()
+activate COMP
+deactivate COMP
+CTRL -> TS : t = CreateTest(tin,nhscode)
+
+activate TS
+TS -> TS: internalcode = generateInternalCode(t)
+activate TS
+deactivate TS
+TS --> T**: create(tin,nhscode,tt,TPM,internalcode)
+deactivate TS
+
+CTRL -> TS : validateTest(t)
+activate TS
+deactivate TS
+deactivate CTRL
+
 UI -> CTRL : saveTest()
 activate CTRL
 
@@ -195,9 +160,6 @@ CTRL -> TS : saveTest(t)
 activate TS
 
 TS -> TS: validateTest(t)
-activate TS
-deactivate TS
-TS -> TS: generateTestCode(t)
 activate TS
 deactivate TS
 TS -> TS: addTest(t)

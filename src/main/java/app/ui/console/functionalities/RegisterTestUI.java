@@ -72,6 +72,12 @@ public class RegisterTestUI implements Runnable{
         return listpam;
     }
 
+    public List<TestParameter> addParameter(Parameter pm, List<TestParameter> listpm){
+        TestParameter tpm = new TestParameter(pm);
+        listpm.add(tpm);
+        return listpm;
+    }
+
     /**
      * Create an instance of Test
      */
@@ -128,8 +134,7 @@ public class RegisterTestUI implements Runnable{
                                 throw new IllegalArgumentException("The Parameter list mustn't be empty");
                             }
                             Parameter pm = (Parameter) option;
-                            TestParameter tpm = new TestParameter(pm);
-                            listpm.add(tpm);
+                            listpm = addParameter(pm,listpm);
                             confirmation = false;
                             if(listpam.size()>0) {
                                 System.out.printf("%nDo you want to select another Parameter?%n");

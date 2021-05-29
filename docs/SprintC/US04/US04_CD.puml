@@ -1,16 +1,59 @@
 @startuml
-skinparam classAttributeIconSize 0
+
+
+package mappers{
+class TestTypeMapper
+class ParameterMapper
+class ParameterCategoryMapper
+}
+package dto{
+class TestTypeDTO
+class ParameterDTO
+class ParameterCategoryDTO
+}
+package model{
+class Company
+class Client
+class TestType
+class Parameter
+class ParameterCategory
+class Test
+}
+package store{
+class TestStore
+class TestTypeStore
+class ParameterStore
+class ParameterCategoryStore
+class ClientStore
+}
+
+package controller{
+class RegisterTestController
+}
+package ui{
+class RegisterTestUI
+}
+
 
 class TestTypeStore{
-
++getTestTypeList()
 }
 
 class TestType{
-
+-code
+-description
+-collectingMethod
+-listOfParameterCategories
+-referenceAdapter
++getCode()
++getReferenceAdapter()
++getDescription()
++getCollectingMethod()
++getListOfParameterCategories()
 }
 
 class TestTypeMapper{
-
++toDTO(TTS)
 }
 
 class TestTypeDTO{
@@ -18,15 +61,18 @@ class TestTypeDTO{
 }
 
 class ParameterCategoryStore {
-
++getParameterCategoryList()
 }
 
 class ParameterCategory {
-
+-name
+-code
++getName()
++getCode()
 }
 
 class ParameterCategoryMapper{
-
++toDTO(PMC)
 }
 
 class ParameterCategoryDTO{
@@ -34,39 +80,60 @@ class ParameterCategoryDTO{
 }
 
 class ClientStore{
-
++getClientbytin(tin)
 }
 
 class Client{
-
-}
-
-class ClientMapper{
-
-}
-
-class ClientDto{
-
+-citizencardnumber
+  -nhs
+  -date
+  -sex
+  -tin
+  -phonenumber
+  -email
+  -name
+  +getCitizencardnumber()
+  +getNhs()
+  +getDate()
+  +getSex()
+  +getTin()
+  +getPhonenumber()
+  +getEmail()
+  +getName()
 }
 
 class Test{
-
+-client
+-nhscode
+-testParameterList
+-stateOfTest
+-internalCode
 }
 
 class TestStore{
-
+-generateInternalCode(t)
++create(tin,nhscode,tt,TPM,internalcode)
++validateTest(t)
++addTest(t)
 }
 
 class ParameterStore {
-
++getParameterList()
 }
 
 class Parameter {
-
++code
++shortName
++description
++category
++getCode()
++getShortName()
++getDescription()
++getCategory()
 }
 
 class ParameterMapper{
-
++toDTO(PM)
 }
 
 class ParameterDTO{
@@ -74,20 +141,21 @@ class ParameterDTO{
 }
 
 class Company {
-  -String name
-  -String VatNumber
-  -String website
-  -String phone
-  -String email
-  +Organization(name, VatNumber, webSite, phone, email, postalAddress, manager)
-  +createTask(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
-  +saveTask(task)
-  -addTask(task)
-  -validateTask(task)
+-String designation
++getTestStore()
++getClientStore()
++getParameterStore()
++getParameterCategoryStore()
++getTestTypeStore()
 }
 
 class RegisterTestController {
-
++getClient(tin)
++getTestTypeList()
++getParameterCategoryList()
++getParameterList()
++createTest(cl,nhscode,tt,TPM)
++saveTest()
 }
 
 class RegisterTestUI {
@@ -95,14 +163,44 @@ class RegisterTestUI {
 }
 
 RegisterTestUI ..> RegisterTestController
-RegisterTestController ..> Parameter
+RegisterTestController ...> Company
+RegisterTestController ...> Client
+RegisterTestController ...> Parameter
+RegisterTestController ...> TestType
+RegisterTestController ...> ParameterCategory
+RegisterTestController ...> Client
+RegisterTestController ...> Test
 RegisterTestController ..> ParameterStore
-RegisterTestController ..> Company
 RegisterTestController ..> TestTypeStore
-RegisterTestController ..> TestType
-ParameterStore "*" -> "1" Parameter : classified in
-Platform "1" --> "*" Parameter : defines
-Company "1" --> "*" ParameterStore : owns
+RegisterTestController ..> ParameterCategoryStore
+RegisterTestController ..> ClientStore
+RegisterTestController ..> TestStore
+RegisterTestController .> ParameterMapper
+RegisterTestController .> TestTypeMapper
+RegisterTestController .> ParameterCategoryMapper
+RegisterTestController ..> ParameterDTO
+RegisterTestController ..> TestTypeDTO
+RegisterTestController ..> ParameterCategoryDTO
+RegisterTestUI ...> TestTypeDTO
+RegisterTestUI ...> ParameterDTO
+RegisterTestUI ...> ParameterCategoryDTO
+ParameterMapper ...> ParameterDTO
+TestTypeMapper ...> TestTypeDTO
+ParameterCategoryMapper ...> ParameterCategoryDTO
+ParameterMapper ..> Parameter
+TestTypeMapper ..> TestType
+ParameterCategoryMapper ..> ParameterCategory
+Company "1" ---> "1" ParameterStore :uses
+Company "1" ---> "1" TestTypeStore :uses
+Company "1" ---> "1" ParameterCategoryStore :uses
+Company "1" ---> "1" ClientStore :uses
+Company "1" ---> "1" TestStore :uses
+TestStore "1" --> "*" Test : registers the
+ParameterStore "1" --> "*" Parameter :knows
+TestTypeStore "1" --> "*" TestType :knows
+ParameterCategoryStore "1" --> "*" ParameterCategory :knows
+ClientStore "1" --> "*" Client :knows
+
 
 
 @enduml
