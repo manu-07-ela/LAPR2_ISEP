@@ -2,6 +2,8 @@ package app.mappers.dto;
 
 import app.domain.model.testrelated.ParameterCategory;
 
+import java.util.Objects;
+
 /**
  * Represents a data transfer object of parameter
  * @author José Pessoa <1201007@isep.ipp.pt>
@@ -25,7 +27,7 @@ public class ParameterDTO {
     /**
      * The Category of the parameter.
      */
-    private ParameterCategory category;
+    private ParameterCategoryDTO category;
 
     /**
      * Build an instance of {@code TestType} by receiving the code, description, collection method and associated parameter categories.
@@ -33,7 +35,7 @@ public class ParameterDTO {
      * @param shortName the parameter short name
      * @param description the parameter description
      */
-    public ParameterDTO(String code, String shortName, String description,ParameterCategory cat){
+    public ParameterDTO(String code, String shortName, String description,ParameterCategoryDTO cat){
         this.code=code;
         this.shortName= shortName;
         this.description=description;
@@ -68,7 +70,7 @@ public class ParameterDTO {
      * Get the category of the parameter.
      * @return The category of the parameter.
      */
-    public ParameterCategory getCategory() {
+    public ParameterCategoryDTO getCategory() {
         return category;
     }
 
@@ -82,4 +84,13 @@ public class ParameterDTO {
     public String toString(){
         return String.format("<Code> %s / <Short Name> %s/ <Description> %s",code,shortName,description);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ParameterDTO that = (ParameterDTO) o;
+        return Objects.equals(code, that.code) && Objects.equals(shortName, that.shortName) && Objects.equals(description, that.description) && Objects.equals(category, that.category);
+    }
+
 }
