@@ -1,13 +1,11 @@
 package app.controller;
 
-import app.controller.App;
-import app.controller.CreateParameterController;
 import app.domain.model.Company;
 import app.domain.model.testrelated.Parameter;
 import app.domain.model.testrelated.ParameterCategory;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
-import app.mappers.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDTO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

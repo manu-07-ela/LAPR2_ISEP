@@ -1,7 +1,7 @@
 package app.ui.console.functionalities;
 
 import app.controller.CreateParameterController;
-import app.mappers.ParameterCategoryDTO;
+import app.mappers.dto.ParameterCategoryDTO;
 import app.ui.console.utils.Utils;
 
 /**

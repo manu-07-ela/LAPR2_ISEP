@@ -1,7 +1,6 @@
 package app.mappers.dto;
 
 import app.domain.model.attributes.*;
-import app.mappers.EmployeeDTO;
 import auth.domain.model.Email;
 import org.junit.Assert;
 import org.junit.Before;

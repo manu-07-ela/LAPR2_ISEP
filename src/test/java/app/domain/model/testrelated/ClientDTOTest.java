@@ -1,6 +1,6 @@
 package app.domain.model.testrelated;
 
-import app.mappers.ClientDTO;
+import app.mappers.dto.ClientDTO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

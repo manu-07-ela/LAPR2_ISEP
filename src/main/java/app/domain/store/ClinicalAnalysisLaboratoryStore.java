@@ -2,7 +2,7 @@ package app.domain.store;
 
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
-import app.mappers.ClinicalAnalysisLaboratoryDTO;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 
 import java.util.ArrayList;
 import java.util.List;

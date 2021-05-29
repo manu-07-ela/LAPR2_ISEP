@@ -7,8 +7,8 @@ import app.domain.model.users.SpecialistDoctor;
 import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;
 import app.mappers.OrganizationRoleMapper;
-import app.mappers.EmployeeDTO;
-import app.mappers.OrganizationRoleDTO;
+import app.mappers.dto.EmployeeDTO;
+import app.mappers.dto.OrganizationRoleDTO;
 import auth.AuthFacade;
 
 import java.io.File;

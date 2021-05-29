@@ -2,6 +2,7 @@ package app.mappers;
 
 import app.domain.model.users.Employee;
 import app.domain.model.users.SpecialistDoctor;
+import app.mappers.dto.EmployeeDTO;
 
 import java.util.ArrayList;
 import java.util.List;

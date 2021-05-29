@@ -1,12 +1,11 @@
 package app.controller;
 
-import app.controller.RecordResultsController;
 import app.domain.model.*;
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.testrelated.*;
 import app.domain.model.users.Client;
 import app.domain.store.TestStore;
-import app.mappers.TestParameterDTO;
+import app.mappers.dto.TestParameterDTO;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
 import org.junit.Assert;

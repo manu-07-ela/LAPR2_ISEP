@@ -2,9 +2,8 @@ package app.mappers;
 
 import app.domain.model.testrelated.ParameterCategory;
 import app.domain.model.testrelated.TestType;
-import app.mappers.TestTyperMapper;
-import app.mappers.ParameterCategoryDTO;
-import app.mappers.TestTypeDTO;
+import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.TestTypeDTO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

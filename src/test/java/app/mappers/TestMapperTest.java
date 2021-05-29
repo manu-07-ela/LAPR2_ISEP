@@ -6,8 +6,7 @@ import app.domain.model.testrelated.ParameterCategory;
 import app.domain.model.testrelated.TestParameter;
 import app.domain.model.testrelated.TestType;
 import app.domain.model.users.Client;
-import app.mappers.TestMapper;
-import app.mappers.TestDTO;
+import app.mappers.dto.TestDTO;
 import org.junit.Assert;
 import org.junit.Test;
 

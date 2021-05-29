@@ -1,14 +1,13 @@
 package app.controller;
 
-import app.controller.RegisterEmployeeController;
 import app.domain.model.Company;
 import app.domain.model.users.Employee;
 import app.domain.model.users.SpecialistDoctor;
 import app.domain.model.attributes.*;
 import app.domain.store.EmployeeStore;
 import app.domain.store.OrganizationRoleStore;
-import app.mappers.EmployeeDTO;
-import app.mappers.OrganizationRoleDTO;
+import app.mappers.dto.EmployeeDTO;
+import app.mappers.dto.OrganizationRoleDTO;
 import auth.domain.model.Email;
 import org.junit.Assert;
 import org.junit.Before;

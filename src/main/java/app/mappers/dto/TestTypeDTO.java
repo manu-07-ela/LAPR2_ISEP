@@ -1,4 +1,6 @@
-package app.mappers;
+package app.mappers.dto;
+
+import app.mappers.dto.ParameterCategoryDTO;
 
 import java.util.List;
 

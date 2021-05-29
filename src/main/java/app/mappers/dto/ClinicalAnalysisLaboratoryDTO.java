@@ -1,4 +1,4 @@
-package app.mappers;
+package app.mappers.dto;
 
 import java.util.List;
 

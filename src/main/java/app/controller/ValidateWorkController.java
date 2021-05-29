@@ -10,7 +10,7 @@ import app.domain.model.testrelated.Test;
 import app.domain.store.TestStore;
 import app.mappers.DateMapper;
 import app.mappers.TestMapper;
-import app.mappers.TestDTO;
+import app.mappers.dto.TestDTO;
 import java.io.IOException;
 import java.util.List;
 

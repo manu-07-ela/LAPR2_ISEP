@@ -2,8 +2,7 @@ package app.mappers;
 
 import app.domain.model.testrelated.*;
 
-import app.mappers.TestParameterMapper;
-import app.mappers.TestParameterDTO;
+import app.mappers.dto.TestParameterDTO;
 import org.junit.Assert;
 import org.junit.Test;
 

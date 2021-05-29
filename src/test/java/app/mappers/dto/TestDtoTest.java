@@ -1,6 +1,5 @@
 package app.mappers.dto;
 
-import app.mappers.TestDTO;
 import org.junit.Assert;
 import org.junit.Test;
 

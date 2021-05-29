@@ -1,6 +1,7 @@
 package app.mappers;
 
 import app.domain.model.attributes.OrganizationRole;
+import app.mappers.dto.OrganizationRoleDTO;
 
 import java.util.ArrayList;
 import java.util.List;

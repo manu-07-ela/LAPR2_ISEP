@@ -6,8 +6,8 @@ import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.TestTypeStore;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
 import app.mappers.TestTyperMapper;
-import app.mappers.ClinicalAnalysisLaboratoryDTO;
-import app.mappers.TestTypeDTO;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
+import app.mappers.dto.TestTypeDTO;
 
 import java.util.List;
 

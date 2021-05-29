@@ -4,7 +4,7 @@ import app.domain.model.users.Client;
 import app.domain.model.Company;
 import app.domain.store.ClientStore;
 import app.mappers.ClientMapper;
-import app.mappers.ClientDTO;
+import app.mappers.dto.ClientDTO;
 import auth.AuthFacade;
 
 import java.io.IOException;

@@ -8,7 +8,7 @@ import app.domain.model.testrelated.BarcodeDomain;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
-import app.mappers.TestDTO;
+import app.mappers.dto.TestDTO;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeImageHandler;

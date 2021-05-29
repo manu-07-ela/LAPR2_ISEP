@@ -2,9 +2,8 @@ package app.domain.store;
 
 import app.domain.model.users.Client;
 
-import app.domain.store.ClientStore;
 import app.mappers.ClientMapper;
-import app.mappers.ClientDTO;
+import app.mappers.dto.ClientDTO;
 import auth.AuthFacade;
 import org.junit.Assert;
 import org.junit.Before;

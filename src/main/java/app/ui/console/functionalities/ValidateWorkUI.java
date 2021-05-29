@@ -1,7 +1,7 @@
 package app.ui.console.functionalities;
 
 import app.controller.ValidateWorkController;
-import app.mappers.TestDTO;
+import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;
 
 import java.io.IOException;

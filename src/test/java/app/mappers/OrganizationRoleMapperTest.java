@@ -1,8 +1,7 @@
 package app.mappers;
 
 import app.domain.model.attributes.OrganizationRole;
-import app.mappers.OrganizationRoleMapper;
-import app.mappers.OrganizationRoleDTO;
+import app.mappers.dto.OrganizationRoleDTO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

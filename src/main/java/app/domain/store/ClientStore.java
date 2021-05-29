@@ -2,7 +2,7 @@ package app.domain.store;
 
 import app.domain.model.users.Client;
 import app.mappers.ClientMapper;
-import app.mappers.ClientDTO;
+import app.mappers.dto.ClientDTO;
 import auth.AuthFacade;
 
 import java.io.File;

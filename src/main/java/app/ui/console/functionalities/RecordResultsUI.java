@@ -1,7 +1,7 @@
 package app.ui.console.functionalities;
 
 
-import app.mappers.TestParameterDTO;
+import app.mappers.dto.TestParameterDTO;
 import app.controller.RecordResultsController;
 import app.ui.console.utils.Utils;
 

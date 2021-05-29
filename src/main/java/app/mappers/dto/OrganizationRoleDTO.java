@@ -1,4 +1,4 @@
-package app.mappers;
+package app.mappers.dto;
 
 /**
  * Represents a data transfer object of organization role

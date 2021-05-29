@@ -1,10 +1,9 @@
 package app.controller;
 
-import app.controller.CreateClientController;
 import app.domain.model.users.Client;
 import app.domain.model.Company;
 import app.domain.store.ClientStore;
-import app.mappers.ClientDTO;
+import app.mappers.dto.ClientDTO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
