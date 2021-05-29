@@ -148,8 +148,8 @@ public class TestStore {
     }
 
     /**
-     *
-     * @return
+     * Get a list of test waiting for the Validation of the Lab Coordinator
+     * @return a list of test waiting the Validation of the Lab Coordinator
      */
     public List<Test> getTestHasReportList(){
         List<Test> testHasReportList = new ArrayList();

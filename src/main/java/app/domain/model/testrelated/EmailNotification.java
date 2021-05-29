@@ -1,8 +1,7 @@
 package app.domain.model.testrelated;
 
-import app.domain.model.users.Client;
-import app.ui.console.functionalities.Notification;
 
+import app.ui.console.functionalities.Notification;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +15,7 @@ public class EmailNotification implements Notification {
 
     /**
      * Notifies results availability by email
-     * @param selectedTest a client
+     * @param selectedTest
      */
     public void notification(Test selectedTest) throws IOException {
         String pwd = System.getProperty("user.dir");

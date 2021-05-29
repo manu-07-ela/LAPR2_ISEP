@@ -73,10 +73,7 @@ public class Test {
      */
     private TestParameterResult tpr;
 
-    /**
-     * Represents the date when the test was registered in the system
-     */
-    private Date registerTestDate;
+
     /**
      * The medical report of the test.
      */
@@ -212,6 +209,10 @@ public class Test {
         return false;
     }
 
+    /**
+     * Creates a Lab Coordinator Validation.
+     * @return true if the Lab Coordinator Validation was added. Otherwise, false.
+     */
     public boolean validateWork() {
         if (validateLabCoordinatorValidation()) {
             this.lcv = new LabCoordinatorValidation();
@@ -262,7 +263,7 @@ public class Test {
     }
 
     /**
-     * Generates the date and time when the samples were associated with a test
+     * Generates the date and time when the Lab Coordinator Validation is made.
      */
     public boolean generateDataAndTimeLabCoordinatorValidation(){
         this.stateOfTest = Test.StateOfTest.Validated;
@@ -281,10 +282,9 @@ public class Test {
                 ", internalCode='" + internalCode + '\'' +
                 ", description='" + description + '\'' +
                 ", samplesAddDate=" + samplesAddDate +
-                ", testAddDate=" + testAddDate +
+                ", registerTestDate=" + testAddDate +
                 ", chemicalAnalysisDate=" + chemicalAnalysisDate +
                 ", tpr=" + tpr +
-                ", registerTestDate=" + registerTestDate +
                 ", md=" + md +
                 ", lcv=" + lcv +
                 '}';
