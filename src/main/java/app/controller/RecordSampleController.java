@@ -164,7 +164,7 @@ public class RecordSampleController {
         } catch (IOException e) {
             System.out.println("Exception occured :" + e.getMessage());
         }
-        System.out.println("Images were written succesfully.");
+        System.out.println("The image was successfully saved to the \"barcodes\" folder.");
     }
 
     /**
