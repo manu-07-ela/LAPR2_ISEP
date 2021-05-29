@@ -18,7 +18,7 @@ public class TestParameterMapperTest {
         TestParameterMapper testParameterMapper = new TestParameterMapper();
         TestParameterDTO result = testParameterMapper.toDTO(tp);
         TestParameterDTO tpDto = new TestParameterDTO("HB","0.5","mg",0,1,"mg");
-        Assert.assertNotEquals(tpDto,result);
+        Assert.assertEquals(tpDto,result);
     }
 
 }
