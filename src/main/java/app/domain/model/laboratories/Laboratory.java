@@ -29,7 +29,7 @@ public abstract class Laboratory {
     private String tin;
 
     /**
-     *
+     * Initializes the attributes related to a laboratory.
      * @param name the name of the Laboratory.
      * @param address the address of the Laboratory.
      * @param phoneNumber the phone number of the Laboratory.
@@ -88,6 +88,7 @@ public abstract class Laboratory {
         }
 
     }
+
     /**
      * Checks whether the address contains all business rules
      * @param address     Clinical Analysis Laboratory's address
@@ -97,6 +98,7 @@ public abstract class Laboratory {
             throw  new IllegalArgumentException("The address mustn't have more than 30 characters and cannot be blank");
         }
     }
+
     /**
      * Checks whether the Phone Number contains all business rules
      * @param phoneNumber Clinical Analysis Laboratory's phone number
@@ -106,6 +108,7 @@ public abstract class Laboratory {
             throw  new IllegalArgumentException("Phone number is a number with 11 digits");
         }
     }
+
     /**
      * Checks whether the tax identification number contains all business rules
      * @param tin Clinical Analysis Laboratory's tax identification number

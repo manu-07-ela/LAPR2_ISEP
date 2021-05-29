@@ -37,8 +37,8 @@ public class TestStore {
     }
 
     /**
-     *
-     * @return
+     * Get the list of tests
+     * @return the list of tests
      */
     public List<Test> getTestList() {
         return testList;
@@ -72,8 +72,16 @@ public class TestStore {
         return !this.testList.contains(test);
     }
 
-    public Test createTest(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList){
-        return new Test(cl,nhscode,testType,testParameterList, generateInternalCode(testList.size()));
+    /**
+     * Create a test
+     * @param cl the client associated with the test
+     * @param nhsCode the nhs code of the test
+     * @param testType the test type associated with the test
+     * @param testParameterList the list of parameters associated with the test
+     * @return the test created
+     */
+    public Test createTest(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList){
+        return new Test(cl,nhsCode,testType,testParameterList, generateInternalCode(testList.size()));
    }
 
 //    public static String generateTestCode(Test t){
@@ -93,6 +101,11 @@ public class TestStore {
         }
     }
 
+    /**
+     * Generate the internal code that will be associated with a test
+     * @param numtest the number of test already registered
+     * @return th internal code of a test
+     */
     public static String generateInternalCode(int numtest) {
         DecimalFormat df = new DecimalFormat("000000000000");
         return df.format(numtest);
@@ -120,8 +133,8 @@ public class TestStore {
     }
 
     /**
-     *
-     * @return
+     * Get a list of test with the samples analyzed
+     * @return the list of tests with the samples analyzed
      */
     public List<Test> getTestHasSamplesAnalyzedList(){
         List<Test> testHasSamplesAnalyzedList = new ArrayList();
@@ -148,8 +161,13 @@ public class TestStore {
     }
 
     /**
+<<<<<<< HEAD
      * Get a list of test waiting for the Validation of the Lab Coordinator
      * @return a list of test waiting the Validation of the Lab Coordinator
+=======
+     * Get a list of tests with the diagnosis made
+     * @return a list of tests with the diagnosis made
+>>>>>>> 34c31475da197b9d538787e3ef89effb52874241
      */
     public List<Test> getTestHasReportList(){
         List<Test> testHasReportList = new ArrayList();

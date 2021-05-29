@@ -1,7 +1,14 @@
 package app.domain.model.testrelated;
 
+<<<<<<< HEAD
 
 import app.ui.console.functionalities.Notification;
+=======
+
+import app.ui.console.functionalities.Notification;
+
+
+>>>>>>> 34c31475da197b9d538787e3ef89effb52874241
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,6 +24,7 @@ public class EmailNotification implements Notification {
      * Notifies results availability by email
      * @param selectedTest
      */
+
     public void notification(Test selectedTest) throws IOException {
         String pwd = System.getProperty("user.dir");
 
@@ -24,7 +32,8 @@ public class EmailNotification implements Notification {
         if (!archive.exists()) {
             archive.mkdirs();
         }
-        File arch = new File(pwd + "\\src\\main\\notificationsEMAIL\\"+ selectedTest.getNhscode().getCode() + ".txt");
+        File arch = new File(pwd + "\\src\\main\\notificationsEMAIL\\"+ selectedTest.getNhsCode().getCode() + ".txt");
+
         FileWriter fw = new FileWriter(arch, true);
 
         try {
