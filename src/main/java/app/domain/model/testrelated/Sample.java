@@ -17,6 +17,7 @@ public class Sample {
      * @param barcodeDomain the barcode that will be associated with a sample
      */
     public Sample(BarcodeDomain barcodeDomain) {
+        if (barcodeDomain==null) throw new IllegalArgumentException("Barcode can't be blank");
         this.barcodeDomain = new BarcodeDomain(barcodeDomain.getBarcode(), barcodeDomain.getBarcodeNumber());
     }
 
@@ -25,6 +26,7 @@ public class Sample {
      * @param sample the sample that will be copied
      */
     public Sample(Sample sample){
+        if (sample==null) throw new IllegalArgumentException("Barcode can't be blank");
         this.barcodeDomain = new BarcodeDomain(sample.getBarcode());
     }
 

@@ -109,7 +109,7 @@ public class RecordSampleUI implements Runnable{
                         sample = recordSampleController.associateBarcodeWithSample(barcodeDomain);
                         System.out.println("BARCODE:"+sample.getBarcode().getBarcode());
                         System.out.println("BARCODE NUMBER:"+sample.getBarcode().getBarcodeNumber());
-                        recordSampleController.associateSamplesWithTest(test, sample, quantityOfSamplesIntroduced);
+                        recordSampleController.associateSamplesWithTest(test, sample);
                         //sample = associateBarcodesWithSamples(barcodeDomain, test, quantityOfSamplesIntroduced);
                         recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
                         recordSampleController.saveSample(sample);
@@ -140,10 +140,10 @@ public class RecordSampleUI implements Runnable{
      * @param quantityOfSamplesIntroduced the amount of samples you want to generate
      * @return the sample generated
      */
-    private Sample associateBarcodesWithSamples(BarcodeDomain barcode, Test test, int quantityOfSamplesIntroduced){
+    private Sample associateBarcodesWithSamples(BarcodeDomain barcode, Test test){
         Sample sample;
         sample = recordSampleController.associateBarcodeWithSample(barcode);
-        recordSampleController.associateSamplesWithTest(test, sample, quantityOfSamplesIntroduced);
+        recordSampleController.associateSamplesWithTest(test, sample);
         return sample;
     }
 

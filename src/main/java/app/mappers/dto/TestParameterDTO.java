@@ -122,7 +122,7 @@ public class TestParameterDTO {
 
         TestParameterDTO otherTestParameterDTO = (TestParameterDTO) o;
 
-        return this.getParameterName().equals(otherTestParameterDTO.getParameterName()) && this.getTestParameterResult().equalsIgnoreCase(otherTestParameterDTO.getTestParameterResult()) && this.getTestParameterMetric().equalsIgnoreCase(otherTestParameterDTO.getTestParameterMetric());
+        return this.getParameterName().equals(otherTestParameterDTO.getParameterName()) && this.getTestParameterResult()==null  || this.getParameterName().equals(otherTestParameterDTO.getParameterName()) && this.getTestParameterResult().equalsIgnoreCase(otherTestParameterDTO.getTestParameterResult()) && this.getTestParameterMetric().equalsIgnoreCase(otherTestParameterDTO.getTestParameterMetric());
     }
 
 }
