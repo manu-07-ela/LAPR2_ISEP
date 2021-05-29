@@ -1,7 +1,8 @@
 package app.mappers;
-
 import app.mappers.dto.DateDTO;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Transform objects of type Date into objects of type DateDTO
@@ -18,6 +19,18 @@ public class DateMapper {
      */
     public DateDTO toDto(Date date){
         return new DateDTO(date);
+    }
+
+    public List<DateDTO> toDto(List<Date> dateList) {
+        List<DateDTO> dateListDto =new ArrayList();
+        DateDTO objDTO;
+        for (Date lista : dateList) {
+            if (lista != null){
+                objDTO = toDto(lista);
+                dateListDto.add(objDTO);
+            }
+        }
+        return dateListDto;
     }
 
 

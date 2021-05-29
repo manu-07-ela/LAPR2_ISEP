@@ -68,9 +68,10 @@ public class ValidateWorkUI implements Runnable{
             boolean fl;
             do {
                 String resposta;
-                validateWorkController.createTestValidation(validateWorkController.getSelectedTest(selectedTest));
-
-                validateWorkController.showRegistrationDate(validateWorkController.getSelectedTest(selectedTest));
+                validateWorkController.getSelectedTest(selectedTest);
+                validateWorkController.createTestValidation();
+                System.out.println("Data de Registo");
+                System.out.printf("%n%s%n",validateWorkController.showRegistrationDate());
                 resposta = Utils.readLineFromConsole("S/N:");
                 if (resposta.equalsIgnoreCase("S")) {
                     fl = validateWorkController.checkDate("Registration Date");
@@ -79,7 +80,9 @@ public class ValidateWorkUI implements Runnable{
                     fl = false;
                 }
 
-                validateWorkController.showChemicalAnalysisDate(validateWorkController.getSelectedTest(selectedTest));
+                System.out.println("Data de Análises Químicas ");
+                System.out.printf("%n%s%n",validateWorkController.showChemicalAnalysisDate(validateWorkController.getSelectedTest(selectedTest)));
+
                 resposta = Utils.readLineFromConsole("S/N:");
                 if (resposta.equalsIgnoreCase("S")) {
                     fl = validateWorkController.checkDate("Chemical Analysis Date");
@@ -88,7 +91,9 @@ public class ValidateWorkUI implements Runnable{
                     fl = false;
                 }
 
-                validateWorkController.showDiagnosisDate(validateWorkController.getSelectedTest(selectedTest));
+                System.out.println("Data do Medical Report ");
+                System.out.printf("%n%s%n",validateWorkController.showDiagnosisDate(validateWorkController.getSelectedTest(selectedTest)));
+
                 resposta = Utils.readLineFromConsole("S/N:");
                 if (resposta.equalsIgnoreCase("S")) {
                     fl = validateWorkController.checkDate("Diagnosis Date");
@@ -97,8 +102,8 @@ public class ValidateWorkUI implements Runnable{
                     fl = false;
                 }
 
-                System.out.println("Do you check the three validated dates?");
-                validateWorkController.showDates(validateWorkController.getSelectedTest(selectedTest));
+                System.out.println("Do you validate the three validated dates?");
+                System.out.printf("%s",validateWorkController.showDates(validateWorkController.getSelectedTest(selectedTest)));
                 resposta = Utils.readLineFromConsole("S/N:");
                 if (resposta.equalsIgnoreCase("S")) {
                     fl = validateWorkController.recordValidationDate(validateWorkController.getSelectedTest(selectedTest));

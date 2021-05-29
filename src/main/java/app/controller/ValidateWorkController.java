@@ -102,28 +102,28 @@ public class ValidateWorkController {
      *
      */
     public Test getSelectedTest(TestDTO selectedTest){
-        return testStore.getTestByInternalCode(selectedTest.getInternalCode());
+        test = testStore.getTestByInternalCode(selectedTest.getInternalCode());
+        return test;
     }
 
-    /**
-     *
-     * @param selectedTest
-     * @return
-     */
-    public boolean createTestValidation(Test selectedTest){
-        return selectedTest.validateWork();
+
+    public boolean createTestValidation(){
+        return test.validateWork();
     }
 
     /**
      *
      */
     public boolean checkDate(String date){
-        if (date == "Registration Date"){
-            return lcv.checkRegisterDateValidation();
-        } else if ( date == "Chemical Analysis Date"){
-            return lcv.checkChemicalAnalysisDateValidation();
-        } else if ( date == "Diagnosis Date"){
-            return lcv.checkDiagnosisDateValidation();
+        if (date.equals("Registration Date")){
+            System.out.println("REGISTER DATE CHECKED");
+            return true;
+        } else if ( date.equals("Chemical Analysis Date")){
+            System.out.println("CHEMICAL ANALYSIS DATE CHECKED");
+            return true;
+        } else if ( date.equals("Diagnosis Date")){
+            System.out.println("DIAGNOSIS DATE CHECKED");
+            return true;
         } else {
             System.out.println("Not available to check.");
         }
@@ -133,8 +133,8 @@ public class ValidateWorkController {
     /**
      *
      */
-    public String showRegistrationDate(Test selectedTest) {
-        return dateMapper.toDto(selectedTest.getRegisterTestDate()).toString();
+    public String showRegistrationDate() {
+        return dateMapper.toDto(test.getTestAddDate()).toString();
     }
 
     /**
@@ -154,10 +154,8 @@ public class ValidateWorkController {
     /**
      *
      */
-    public void showDates(Test selectedTest) {
-        showRegistrationDate(selectedTest);
-        showChemicalAnalysisDate(selectedTest);
-        showDiagnosisDate(selectedTest);
+    public String showDates(Test selectedTest) {
+        return String.format("%s%n%s%n%s%n",showRegistrationDate(),showChemicalAnalysisDate(selectedTest),showDiagnosisDate(selectedTest));
     }
 
     /**
