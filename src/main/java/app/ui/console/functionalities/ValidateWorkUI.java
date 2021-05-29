@@ -34,7 +34,7 @@ public class ValidateWorkUI implements Runnable{
     public void run() {
         try {
             boolean flag;
-            System.out.println("/========== Work Validation ==========/");
+            System.out.println("\n/========== Work Validation ==========/");
             do {
                 TestDTO selectedTest = (TestDTO) Utils.showAndSelectOne(validateWorkController.getTestsToValidateList(), "Select test to Validate.");
                 validateWork(selectedTest);
@@ -61,40 +61,40 @@ public class ValidateWorkUI implements Runnable{
                 validateWorkController.getSelectedTest(selectedTest);
                 validateWorkController.createTestValidation();
 
-                System.out.println("Registration Date:\n");
-                System.out.printf("%s%n",validateWorkController.showRegistrationDate());
-                resposta = Utils.readLineFromConsole("Do you want to validate the Registration Date? (S/N:");
+                System.out.println("\nRegistration Date:");
+                System.out.printf("%s",validateWorkController.showRegistrationDate());
+                resposta = Utils.readLineFromConsole("Do you want to validate the Registration Date? (S/N):");
                 if (resposta.equalsIgnoreCase("S")) {
-                    fl = validateWorkController.checkDate("Registration Date");
-                    System.out.println("Registration Validation Date validated with sucess.\n");
+                    fl = validateWorkController.validateDate("Registration Date");
+                    System.out.println("Registration Validation Date validated with sucess.");
                 }
 
-                System.out.println("Chemical Analysis Date: ");
-                System.out.printf("%n%s%n",validateWorkController.showChemicalAnalysisDate(validateWorkController.getSelectedTest(selectedTest)));
+                System.out.println("\nChemical Analysis Date: ");
+                System.out.printf("%s",validateWorkController.showChemicalAnalysisDate());
 
                 resposta = Utils.readLineFromConsole("Do you want to validate the Chemical Analysis Date? (S/N):");
                 if (resposta.equalsIgnoreCase("S")) {
-                    fl = validateWorkController.checkDate("Chemical Analysis Date");
-                    System.out.println("Chemical Analysis Date validated with sucess.\n");
+                    fl = validateWorkController.validateDate("Chemical Analysis Date");
+                    System.out.println("Chemical Analysis Date validated with sucess.");
                 }
 
-                System.out.println("Diagnosis Date: ");
-                System.out.printf("%n%s%n",validateWorkController.showDiagnosisDate(validateWorkController.getSelectedTest(selectedTest)));
+                System.out.println("\nDiagnosis Date: ");
+                System.out.printf("%s",validateWorkController.showDiagnosisDate());
 
                 resposta = Utils.readLineFromConsole("Do you want to validate the Diagnosis Date? (S/N):");
                 if (resposta.equalsIgnoreCase("S")) {
-                    fl = validateWorkController.checkDate("Diagnosis Date");
+                    fl = validateWorkController.validateDate("Diagnosis Date");
                     System.out.printf("Diagnosis Validation Date validated with success.\n");
                 }
 
-                System.out.printf("%s", validateWorkController.showDates(validateWorkController.getSelectedTest(selectedTest)));
-                boolean flag = Utils.confirm("Do you validate the three validated dates? (S/N) \n");
+                System.out.printf("\n%s", validateWorkController.showDates());
+                boolean flag = Utils.confirm("Do you validate the three validated dates? (S/N)");
 
                 if (flag) {
                     fl = validateWorkController.recordValidationDate(validateWorkController.getSelectedTest(selectedTest));
-                    System.out.printf("Diagnosis Validation Date validated with sucess - %s \n", validateWorkController.showLabCoordValidationDate(validateWorkController.getSelectedTest(selectedTest)));
+                    System.out.printf("Diagnosis Validation Date validated with sucess - %s\n", validateWorkController.showLabCoordValidationDate(validateWorkController.getSelectedTest(selectedTest)));
                     validateWorkController.notifyTheClient(validateWorkController.getSelectedTest(selectedTest));
-                    System.out.println("Client successfully informed.\n");
+                    System.out.println("\nClient successfully informed.");
                     fl = false;
                 }
 

@@ -261,13 +261,9 @@ public class Test {
     }
 
     /**
-<<<<<<< HEAD
      * Creates a Lab Coordinator Validation.
      * @return true if the Lab Coordinator Validation was added. Otherwise, false.
-=======
      *
-     * @return
->>>>>>> 34c31475da197b9d538787e3ef89effb52874241
      */
     public boolean validateWork() {
         if (validateLabCoordinatorValidation()) {
@@ -285,6 +281,25 @@ public class Test {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Validates Date Validation
+     * @return true if the Lab Coordinator Validation was added. Otherwise, false.
+     *
+     */
+    public boolean validateDate(String date) {
+        if (date.equals("Registration Date")) {
+            lcv.checkDate("Registration Date");
+            return true;
+        } else if (date.equals("Chemical Analysis Date")) {
+            lcv.checkDate("Chemical Analysis Date");
+            return true;
+        } else if (date.equals("Diagnosis Date")) {
+            lcv.checkDate("Diagnosis Date");
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -327,7 +342,7 @@ public class Test {
      */
     public boolean generateDataAndTimeLabCoordinatorValidation(){
         this.stateOfTest = Test.StateOfTest.Validated;
-        return lcv.recordLabCoordinatorValidationDate();
+        return lcv.recordDate();
     }
 
 

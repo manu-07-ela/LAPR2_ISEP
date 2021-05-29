@@ -37,17 +37,24 @@ public class LabCoordinatorValidation {
 
     }
 
-    public boolean checkRegisterDateValidation(){
-        return this.registerDateValidation = true;
+
+    /**
+     * Confirm the Date according to the requested date to confirm.
+     * @param date
+     */
+    public boolean checkDate(String date){
+        if (date.equals("Registration Date")){
+            return this.registerDateValidation = true;
+        } else if ( date.equals("Chemical Analysis Date")){
+            return this.chemicalAnalysisDateValidation = true;
+        } else if ( date.equals("Diagnosis Date")){
+            return this.diagnosisDateValidation= true;
+        } else {
+            System.out.println("Not available to check.");
+        }
+        return false;
     }
 
-    public boolean checkChemicalAnalysisDateValidation(){
-        return this.chemicalAnalysisDateValidation = true;
-    }
-
-    public boolean checkDiagnosisDateValidation(){
-        return this.diagnosisDateValidation= true;
-    }
 
     public boolean recordDate(){
         Boolean fl = false;

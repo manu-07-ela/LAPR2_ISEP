@@ -112,20 +112,10 @@ public class ValidateWorkController {
     }
 
     /**
-     * Confirm the Date according to the requested date to confirm.
-     * @param date
+     *
      */
-    public boolean checkDate(String date){
-        if (date.equals("Registration Date")){
-            return true;
-        } else if ( date.equals("Chemical Analysis Date")){
-            return true;
-        } else if ( date.equals("Diagnosis Date")){
-            return true;
-        } else {
-            System.out.println("Not available to check.");
-        }
-        return false;
+    public boolean validateDate(String date){
+        return test.validateDate(date);
     }
 
     /**
@@ -140,16 +130,16 @@ public class ValidateWorkController {
      * Shows the Chemical Analysis Date formatted.
      * @return Chemical Analysis Date formatted.
      */
-    public String showChemicalAnalysisDate(Test selectedTest) {
-        return dateMapper.toDto(selectedTest.getChemicalAnalysisDate()).toString();
+    public String showChemicalAnalysisDate() {
+        return dateMapper.toDto(test.getChemicalAnalysisDate()).toString();
     }
 
     /**
      * Shows the Diagnosis Date formatted.
      * @return Diagnosis Date formatted.
      */
-    public String showDiagnosisDate(Test selectedTest) {
-        return dateMapper.toDto(selectedTest.getCreatedAt()).toString();
+    public String showDiagnosisDate() {
+        return dateMapper.toDto(test.getCreatedAt()).toString();
     }
 
     /**
@@ -164,8 +154,8 @@ public class ValidateWorkController {
      * Shows the Registration Date, Chemical Analysis Date, Diagnosis Date, all formatted.
      * @return Registration Date, Chemical Analysis Date, Diagnosis Date, all formatted.
      */
-    public String showDates(Test selectedTest) {
-        return String.format("%s%n%s%n%s%n",showRegistrationDate(),showChemicalAnalysisDate(selectedTest),showDiagnosisDate(selectedTest));
+    public String showDates() {
+        return String.format("%s%n%s%n%s",showRegistrationDate(),showChemicalAnalysisDate(),showDiagnosisDate());
     }
 
     /**

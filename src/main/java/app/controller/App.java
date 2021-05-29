@@ -102,6 +102,9 @@ public class App {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         company.getParameterStore().addParameter(p1);
 
+        Parameter p2 = new Parameter("WBC00","WBC","White Cell Count ",pc1);
+        company.getParameterStore().addParameter(p2);
+
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
 
