@@ -86,10 +86,6 @@ public class TestStore {
         return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()));
    }
 
-//    public static String generateTestCode(Test t){
-//
-//    }
-
     /**
      * Save the Test case it is in a valid state.
      * @param t The Test we intend to save
