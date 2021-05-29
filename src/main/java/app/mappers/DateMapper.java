@@ -1,4 +1,5 @@
 package app.mappers;
+
 import app.mappers.dto.DateDTO;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +22,11 @@ public class DateMapper {
         return new DateDTO(date);
     }
 
+    /**
+     * Transforms a list of objects of type Date into a list of objects of type DateDTO
+     * @param dateList a list of Dates
+     * @return a list of DateDTO
+     */
     public List<DateDTO> toDto(List<Date> dateList) {
         List<DateDTO> dateListDto =new ArrayList();
         DateDTO objDTO;

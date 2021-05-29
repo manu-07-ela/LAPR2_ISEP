@@ -1,7 +1,11 @@
 package app.domain.model.testrelated;
 
 
+
 import app.ui.console.functionalities.Notification;
+
+import app.ui.console.functionalities.Notification;
+
 
 
 import java.io.File;
@@ -17,7 +21,7 @@ public class EmailNotification implements Notification {
 
     /**
      * Notifies results availability by email
-     * @param selectedTest a client
+     * @param selectedTest
      */
 
     public void notification(Test selectedTest) throws IOException {

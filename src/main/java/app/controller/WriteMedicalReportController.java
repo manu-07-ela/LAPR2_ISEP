@@ -70,8 +70,8 @@ public class WriteMedicalReportController {
 
 
     /**
-     *
-     * @return
+     * Get a list of objects of type TestDTO.
+     * @return list with the tests with the analyzed samples.
      */
     public List<TestDTO> getTestHasSamplesAnalyzedList(){
         this.testStore=company.getTestStore();
@@ -81,17 +81,17 @@ public class WriteMedicalReportController {
     }
 
     /**
-     *
+     * Check if there is any test waiting for the medical report.
      */
     public void checkPossibilityOfWriteAReport(List<Test> testHasSamplesAnalyzedList){
-        if (testHasSamplesAnalyzedList.size() == 0)
+        if (testHasSamplesAnalyzedList.isEmpty())
             throw new IllegalArgumentException("There are no tests with the samples analyzed.");
     }
 
     /**
-     *
-     * @param selectedTest
-     * @return
+     * Get the list with the information of the analyzed parameters of the test that we are getting the diagnosis.
+     * @param selectedTest Test that we intend to write the medical report.
+     * @return the list with the information of the analyzed parameters of the test.
      */
     public List<TestParameterDTO> getTestParameterList(TestDTO selectedTest){
         test = testStore.getTestByInternalCode(selectedTest.getInternalCode());
@@ -101,9 +101,9 @@ public class WriteMedicalReportController {
 
 
     /**
-     *
-     * @param diagnosis
-     * @return
+     * Add the medical report to the test.
+     * @param diagnosis The diagnosis made by the specialist doctor.
+     * @return true if the medical report was added. Otherwise, false.
      */
     public boolean addMedicalReport(String diagnosis){
         return test.addMedicalReport(diagnosis);

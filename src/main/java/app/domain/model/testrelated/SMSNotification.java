@@ -16,7 +16,7 @@ public class SMSNotification implements Notification {
 
     /**
      * Notifies results availability by SMS
-     * @param selectedTest a cl
+     * @param selectedTest
      */
     public void notification(Test selectedTest) throws IOException {
         String pwd = System.getProperty("user.dir");

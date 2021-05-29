@@ -20,9 +20,9 @@ public class CreateClinicalAnalysisLaboratoryMapper {
      * @param calDTO an Object of the type ClinicalAnalysisLaboratoryDTO
      * @return an Object of the type ClinicalAnalysisLaboratory
      */
- public ClinicalAnalysisLaboratory toModel(ClinicalAnalysisLaboratoryDTO calDTO){
-     return new ClinicalAnalysisLaboratory(calDTO.getName(),calDTO.getAddress(), calDTO.getPhoneNumber(), calDTO.getTin(), calDTO.getLaboratoryId(),toModel(calDTO.getListOfTestTypes()));
- }
+     public ClinicalAnalysisLaboratory toModel(ClinicalAnalysisLaboratoryDTO calDTO){
+         return new ClinicalAnalysisLaboratory(calDTO.getName(),calDTO.getAddress(), calDTO.getPhoneNumber(), calDTO.getTin(), calDTO.getLaboratoryId(),toModel(calDTO.getListOfTestTypes()));
+     }
 
     /**
      * Transforms the list of TestTypeDTO into a list of TestType

@@ -141,4 +141,42 @@ public class TestStoreTest {
         Assert.assertNull(test2);
 
     }
+
+
+    @Test
+    public void getTestWithSamplesCollectedList() throws BarcodeException {
+        List<TestParameter> listaDeParametros = new ArrayList<>();
+        ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
+        List<ParameterCategory> listPC = new ArrayList();
+        listPC.add(pc);
+        Parameter p = new Parameter("HB000","test","method", pc);
+        Parameter p2 = new Parameter("PLT00","test","method", pc);
+        TestParameterDTO temDto2 = new TestParameterDTO("frefrfe","PLT00");
+        List<TestParameterDTO> listaDeParametrosDTO = new ArrayList<>();
+        listaDeParametrosDTO.add(temDto2);
+        TestParameter tpm1 = new TestParameter(p);
+        TestParameter tpm2 = new TestParameter(p2);
+        // listaDeParametros.add(tpm1);
+        listaDeParametros.add(tpm2);
+        Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
+        TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
+        NhsCode nhs = new NhsCode("123456789012");
+
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
+
+        BarcodeDomain barcodeDomain = new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "00000000000");
+        Sample sample = new Sample(barcodeDomain);
+        test.addSamples(sample);
+
+        TestStore testStore = new TestStore();
+        testStore.addTest(test);
+
+        List<app.domain.model.testrelated.Test> lista = new ArrayList<>();
+        lista.add(test);
+
+        List<app.domain.model.testrelated.Test> testWithSamplesCollectedList = testStore.getTestWithSamplesCollectedList();
+
+        Assert.assertEquals(lista,testWithSamplesCollectedList);
+
+    }
 }

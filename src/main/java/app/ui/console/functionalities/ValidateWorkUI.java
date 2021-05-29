@@ -51,7 +51,7 @@ public class ValidateWorkUI implements Runnable{
 
 
     /**
-     *
+     * Validates the work associated with the selected test.
      */
     public void validateWork(TestDTO selectedTest){
         try {
@@ -95,7 +95,6 @@ public class ValidateWorkUI implements Runnable{
                     System.out.printf("Diagnosis Validation Date validated with sucess - %s \n", validateWorkController.showLabCoordValidationDate(validateWorkController.getSelectedTest(selectedTest)));
                     validateWorkController.notifyTheClient(validateWorkController.getSelectedTest(selectedTest));
                     System.out.println("Client successfully informed.\n");
-                    System.out.println();
                     fl = false;
                 }
 
