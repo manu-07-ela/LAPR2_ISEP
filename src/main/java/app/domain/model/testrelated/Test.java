@@ -206,7 +206,7 @@ public class Test {
         return false;
     }
 
-    public boolean validateWork(Test selectedTest) {
+    public boolean validateWork() {
         if (validateLabCoordinatorValidation()) {
             this.lcv = new LabCoordinatorValidation();
             return true;

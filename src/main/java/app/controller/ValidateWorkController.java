@@ -3,6 +3,7 @@ package app.controller;
 import app.domain.model.Company;
 
 import app.domain.model.testrelated.EmailNotification;
+import app.domain.model.testrelated.LabCoordinatorValidation;
 import app.domain.model.testrelated.SMSNotification;
 import app.domain.model.testrelated.Test;
 
@@ -35,6 +36,11 @@ public class ValidateWorkController {
      * Represents an instance of the test store.
      */
     private TestStore testStore;
+
+    /**
+     * Represents an instance of the test store.
+     */
+    private LabCoordinatorValidation lcv;
 
     /**
      * Represents an instance of test.
@@ -94,11 +100,34 @@ public class ValidateWorkController {
 
     /**
      *
+     */
+    public Test getSelectedTest(TestDTO selectedTest){
+        return testStore.getTestByInternalCode(selectedTest.getInternalCode());
+    }
+
+    /**
+     *
      * @param selectedTest
      * @return
      */
     public boolean createTestValidation(Test selectedTest){
-        return test.validateWork(selectedTest);
+        return selectedTest.validateWork();
+    }
+
+    /**
+     *
+     */
+    public boolean checkDate(String date){
+        if (date == "Registration Date"){
+            return lcv.checkRegisterDateValidation();
+        } else if ( date == "Chemical Analysis Date"){
+            return lcv.checkChemicalAnalysisDateValidation();
+        } else if ( date == "Diagnosis Date"){
+            return lcv.checkDiagnosisDateValidation();
+        } else {
+            System.out.println("Not available to check.");
+        }
+        return false;
     }
 
     /**

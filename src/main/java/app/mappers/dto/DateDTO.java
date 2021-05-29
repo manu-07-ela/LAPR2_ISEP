@@ -14,18 +14,20 @@ public class DateDTO {
      */
     private Date date;
 
+    /**
+     *
+     */
+    private String dateString;
+
 
     public DateDTO(Date dateDto) {
         this.date = dateDto;
-    }
-
-    public String getDateDTO(Date date){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
-        return sdf.format(date);
+        this.dateString = sdf.format(date);
     }
 
     @Override
     public String toString() {
-        return String.format ("DateDTO: %s", getDateDTO(this.date) );
+        return String.format("Date %s",dateString);
     }
 }
