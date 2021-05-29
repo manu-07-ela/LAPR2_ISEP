@@ -13,6 +13,7 @@ public class ChemicalLaboratory extends Laboratory {
      */
     private final SampleStore sampleStore;
     /**
+     * builds an instance of the chemical laboratory receiving the following attributes by parameter: name, address, cell phone and tin
      * @param name        the name of the Laboratory.
      * @param address     the address of the Laboratory.
      * @param phoneNumber the phone number of the Laboratory.
