@@ -32,10 +32,27 @@ public class TestParameterTest {
     }
 
     @Test
-    public void addResult() {
+    public void addResult1() {
+        ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
+        Parameter p = new Parameter("HB000","test","method", pc);
+        TestParameter tpm = new TestParameter(p);
+        RefValue ref = new RefValue("metric1",30.0,50.0);
 
+        boolean verificacao = tpm.AddResult(ref,"45","metric");
 
+        Assert.assertTrue(verificacao);
+    }
 
+    @Test
+    public void addResult2() {
+        ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
+        Parameter p = new Parameter("HB000","test","method", pc);
+        TestParameter tpm = new TestParameter(p);
+        RefValue ref = new RefValue("metric1",30.0,50.0);
+
+        boolean verificacao = tpm.AddResult(null,null,null);
+
+        Assert.assertFalse(verificacao);
     }
 
     @Test
@@ -80,7 +97,7 @@ public class TestParameterTest {
 
         TestParameter tpm = new TestParameter(p,tr);
 
-        Assert.assertEquals(tr,tpm.getParamResult());
+        Assert.assertEquals("45",tpm.getParameterResult());
     }
 
     @Test

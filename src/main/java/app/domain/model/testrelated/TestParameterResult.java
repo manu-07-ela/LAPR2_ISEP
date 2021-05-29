@@ -1,5 +1,7 @@
 package app.domain.model.testrelated;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,6 +30,8 @@ public class TestParameterResult {
      * @param metric The metric of the result
      */
     public TestParameterResult(RefValue refValue , String result , String metric){
+        resultValidation(result);
+        metricValidation(metric);
         this.refValue=refValue;
         this.result = result;
         this.metric = metric;
@@ -69,6 +73,18 @@ public class TestParameterResult {
                 ", result='" + result + '\'' +
                 ", refValue=" + refValue +
                 '}';
+    }
+
+    private void resultValidation(String result){
+        if (StringUtils.isBlank(result)){
+            throw  new IllegalArgumentException("Result must be a number and cannot be blank");
+        }
+    }
+
+    private void metricValidation(String metric){
+        if (StringUtils.isBlank(metric) ){
+            throw  new IllegalArgumentException("Metric cannot be blank");
+        }
     }
 
 }

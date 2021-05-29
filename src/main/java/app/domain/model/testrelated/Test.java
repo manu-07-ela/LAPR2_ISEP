@@ -237,7 +237,6 @@ public class Test {
         this.samples.add(sample);
         if (this.samples.size()>0) {
             changeStateForSamplesCollected();
-            System.out.println("MUDOU ESTADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
             generateDataAndTimeForSamplesCollected();
         }
 
@@ -268,12 +267,24 @@ public class Test {
         return lcv.recordLabCoordinatorValidationDate();
     }
 
-
     @Override
     public String toString() {
-        for (TestParameter la: testParameterList) {
-            return String.format("%s",la.getParamResult().toString());
-        }
-        return "la";
+        return "Test{" +
+                "nhscode=" + nhscode +
+                ", testParameterList=" + testParameterList +
+                ", testType=" + testType +
+                ", samples=" + samples +
+                ", stateOfTest=" + stateOfTest +
+                ", client=" + client +
+                ", internalCode='" + internalCode + '\'' +
+                ", description='" + description + '\'' +
+                ", samplesAddDate=" + samplesAddDate +
+                ", testAddDate=" + testAddDate +
+                ", chemicalAnalysisDate=" + chemicalAnalysisDate +
+                ", tpr=" + tpr +
+                ", registerTestDate=" + registerTestDate +
+                ", md=" + md +
+                ", lcv=" + lcv +
+                '}';
     }
 }

@@ -25,9 +25,10 @@ public class RecordResultsControllerTest {
 
     }
 
-    /*
+
     @Test
     public void addTestResult1() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        Company company = new Company("efwgtrt");
         List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
@@ -46,15 +47,22 @@ public class RecordResultsControllerTest {
         NhsCode nhs = new NhsCode("123456789012");
 
         app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
-        app.domain.model.testrelated.Test test2 = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,"123456789012");
 
-        RecordResultsController controller = new RecordResultsController();
+
+        TestStore testStore = company.getTestStore();
+        testStore.addTest(test);
+        RecordResultsController controller = new RecordResultsController(company);
+
+        controller.getTestParameterList("00000000000");
+
+
         boolean verificacao = controller.addTestResult("PLT00","1234","mg");
+
         Assert.assertTrue(verificacao);
 
     }
 
-     */
+
 
     /*
 
