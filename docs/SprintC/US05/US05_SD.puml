@@ -93,6 +93,12 @@ deactivate LAB
 CONTROLLER->SAMPLESTORE : createSample(barcode)
 activate SAMPLESTORE
 SAMPLESTORE->"sample : Sample"** : create()
+SAMPLESTORE->SAMPLESTORE : validateSample(sample)
+activate SAMPLESTORE
+deactivate SAMPLESTORE
+SAMPLESTORE->SAMPLESTORE : saveSample(sample)
+activate SAMPLESTORE
+deactivate SAMPLESTORE
 deactivate SAMPLESTORE
 CONTROLLER->TESTSTORE : associateSamplesWithTest(test, sample)
 activate TESTSTORE

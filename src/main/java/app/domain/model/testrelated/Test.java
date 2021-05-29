@@ -261,13 +261,9 @@ public class Test {
     }
 
     /**
-<<<<<<< HEAD
      * Creates a Lab Coordinator Validation.
      * @return true if the Lab Coordinator Validation was added. Otherwise, false.
-=======
-     *
      * @return
->>>>>>> 34c31475da197b9d538787e3ef89effb52874241
      */
     public boolean validateWork() {
         if (validateLabCoordinatorValidation()) {

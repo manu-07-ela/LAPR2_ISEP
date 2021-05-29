@@ -101,8 +101,8 @@ public class RecordSampleUI implements Runnable{
                     boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
                     if (flag) {
                         sample = recordSampleController.associateBarcodeWithSample(barcodeDomain);
-                        System.out.println("BARCODE:"+sample.getBarcode().getBarcode());
-                        System.out.println("BARCODE NUMBER:"+sample.getBarcode().getBarcodeNumber());
+                        //System.out.println("BARCODE:"+sample.getBarcode().getBarcode());
+                        //System.out.println("BARCODE NUMBER:"+sample.getBarcode().getBarcodeNumber());
                         recordSampleController.associateSamplesWithTest(test, sample);
                         //sample = associateBarcodesWithSamples(barcodeDomain, test, quantityOfSamplesIntroduced);
                         recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
@@ -125,13 +125,13 @@ public class RecordSampleUI implements Runnable{
             }while (invalidData);
 
         }
+        System.out.println("Your samples have been created and associated with the test");
     }
 
     /**
      * Associates a bar codes generated with the respective samples and the test selected by the user
      * @param barcode the barcode
      * @param test the test that the samples will be associated
-     * @param quantityOfSamplesIntroduced the amount of samples you want to generate
      * @return the sample generated
      */
     private Sample associateBarcodesWithSamples(BarcodeDomain barcode, Test test){

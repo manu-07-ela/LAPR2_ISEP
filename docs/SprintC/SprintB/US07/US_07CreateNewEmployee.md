@@ -146,7 +146,7 @@
 | Step 4       |                               |         |  |
 | Step 5       | | | 
 | Step 6       | ... saving the inputted data ?    | Employee | IE: the object created in step 1 has its own data |
-| Step 7      | ... who shows the output ?        | CreateEmployeeUI | IE: responsible for user interactions with the system |
+| Step 7       | ... who shows the output ?        | CreateEmployeeUI | IE: responsible for user interactions with the system |
 | Step 8       | ... validating all data (local validation) ? | Employee | IE: holds the role data and creates the employee |
 |              | ... validating all data (global validation) ? | EmployeeStore | IE: knows all its Employees |
 |              | ... saving the created task ? | EmployeeStore | IE: knows all its Employees|
