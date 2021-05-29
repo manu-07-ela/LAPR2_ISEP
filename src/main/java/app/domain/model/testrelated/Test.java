@@ -4,7 +4,6 @@ package app.domain.model.testrelated;
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.users.Client;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -102,6 +101,7 @@ public class Test {
         this.description = testType.getCollectingMethod();
         this.md = null;
         this.samples = new ArrayList<>();
+        this.lcv = null;
     }
 
 
@@ -200,7 +200,7 @@ public class Test {
     public boolean addMedicalReport(String diagnosis) {
         if (validateMedicalReport()) {
             this.md = new MedicalReport(diagnosis);
-            this.stateOfTest = StateOfTest.SamplesAnalyzed;
+            this.stateOfTest = StateOfTest.DiagnosisMade;
             return true;
         }
         return false;
@@ -259,14 +259,16 @@ public class Test {
     /**
      * Generates the date and time when the samples were associated with a test
      */
-    public void generateDataAndTimeLabCoordinatorValidation(){
-        lcv.recordLabCoordinatorValidationDate();
+    public boolean generateDataAndTimeLabCoordinatorValidation(){
+        this.stateOfTest = Test.StateOfTest.Validated;
+        return lcv.recordLabCoordinatorValidationDate();
     }
+
 
     @Override
     public String toString() {
         for (TestParameter la: testParameterList) {
-            return String.format("%s",la.getTparamresult().toString());
+            return String.format("%s",la.getParamResult().toString());
         }
         return "la";
     }

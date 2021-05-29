@@ -116,7 +116,7 @@ public class RecordSampleController {
     public void showBarcodes(BarcodeDomain barcode){
         JFrame frame = new JFrame("Barcode");
         frame.getContentPane().add((Component) barcode.getBarcode());
-        frame.setSize(200, 200);
+        frame.setSize(300, 300);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.setVisible(true);
     }

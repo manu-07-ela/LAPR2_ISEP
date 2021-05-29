@@ -135,7 +135,8 @@ public class ValidateWorkController {
      *
      */
     public Boolean recordValidationDate(Test selectedTest) {
-        return selectedTest.validateWork(selectedTest);
+        return selectedTest.generateDataAndTimeLabCoordinatorValidation();
+
     }
 
     /**

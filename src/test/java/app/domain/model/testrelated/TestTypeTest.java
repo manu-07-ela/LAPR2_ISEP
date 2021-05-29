@@ -2,6 +2,7 @@
 package app.domain.model.testrelated;
 
 
+import app.adapter.interfaces.ExternalModuleReferencesValue;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -158,6 +159,25 @@ public class TestTypeTest {
         Assert.assertNotEquals(tt1,tt2);
     }
 
+    @Test
+    public void getExternalModule() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+       /* String api = "ExternalModule3API";
+        pc = new ParameterCategory("12A4D","Covid-19");
+        listPC = new ArrayList();
+        listPC.add(pc);
+
+        TestType tt = new TestType("1f5dc", "description","collecting",listPC,api);
+
+        String ap = String.format("app.adapter.%sAdapter",api);
+        Class <?> oClass = Class.forName(ap);
+        ExternalModuleReferencesValue api1 = (ExternalModuleReferencesValue) oClass.newInstance();
+
+        ExternalModuleReferencesValue api2 = tt.getExternalModule();
+
+        Assert.assertEquals(api1,api2);
+
+        */
+    }
 
 
 
