@@ -157,6 +157,8 @@ public class Test {
 
     public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
 
+    public Date getLabValidationDate() { return lcv.getLabCoordDate();}
+
     public List<Sample> getSamples() { return samples; }
 
 
