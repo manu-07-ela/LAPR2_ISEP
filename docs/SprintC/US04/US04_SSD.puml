@@ -18,7 +18,7 @@ activate ":System"
 
 ":System" --> REP : shows parameter categories to be selected
 deactivate ":System"
-
+loop
 REP -> ":System" : selects parameter category
 activate ":System"
 
@@ -29,6 +29,7 @@ loop
 REP -> ":System" : selects a parameter
 activate ":System"
 ":System" --> REP : added with success
+end
 end
 
 ":System" --> REP : shows all data and requests confirmation
