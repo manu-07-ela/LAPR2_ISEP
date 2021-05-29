@@ -32,7 +32,7 @@ public class RecordResultsUI implements  Runnable {
         try {
             String barcode;
             boolean verificacao=true;
-            List<TestParameterDTO> listaDeParametros;
+            List<TestParameterDTO> listaDeParametros = null;
             do {
                 try {
                     barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
@@ -42,10 +42,6 @@ public class RecordResultsUI implements  Runnable {
                     System.out.printf("%n Message: %s%n",e.getMessage());
                 }
             }while (verificacao);
-
-
-            barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
-            listaDeParametros = controller.getTestParameterList(barcode);
 
 
            // String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
