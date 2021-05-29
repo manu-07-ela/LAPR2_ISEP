@@ -1,0 +1,59 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package app {
+package adapter {
+package interfaces {
+}
+}
+package controller {
+}
+package domain {
+package model {
+package attributes {
+}
+package laboratories {
+}
+package testrelated {
+}
+package users {
+}
+}
+package shared {
+}
+package store {
+}
+}
+package mapper {
+package dto {
+}
+}
+package ui {
+package console {
+package employees {
+}
+package functionalities {
+}
+package utils {
+}
+}
+package gui {
+}
+}
+package auth {
+
+package domain {
+package model {
+}
+package store {
+}
+}
+package mapper{
+package dto {
+}
+
+}
+
+}
+
+@enduml
