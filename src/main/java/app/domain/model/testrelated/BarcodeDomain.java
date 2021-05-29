@@ -31,6 +31,7 @@ public class BarcodeDomain {
      * @param barcodeDomain the barcode that will be copy
      */
     public BarcodeDomain(BarcodeDomain barcodeDomain){
+        if (barcodeDomain==null) throw new IllegalArgumentException("Barcode can't be blank");
         this.barcode = barcodeDomain.getBarcode();
         this.barcode = barcodeDomain.getBarcodeNumber();
     }

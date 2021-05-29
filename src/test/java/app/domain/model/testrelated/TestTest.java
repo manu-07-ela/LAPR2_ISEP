@@ -9,8 +9,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 public class TestTest {
 
     @Test
@@ -58,6 +56,9 @@ public class TestTest {
 
         app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros, "123123123123");
 
+    }
+    @Test
+    public void addSample(){
 
     }
 }

@@ -10,6 +10,16 @@ public class BarcodeDomainTest {
     BarcodeDomain barcodeDomain;
     BarcodeDomain barcodeDomainAux;
 
+    @Test(expected = IllegalArgumentException.class)
+    public void barcodeNotNull(){
+        barcodeDomain = new BarcodeDomain(null, null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setBarcodeNumberNotNull() throws BarcodeException {
+        barcodeDomain = new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), null);
+    }
+
     @Test
     public void getBarcode() throws BarcodeException {
         barcodeDomain = new BarcodeDomain(BarcodeFactory.createUPCA(barcodeNumber), barcodeNumber);

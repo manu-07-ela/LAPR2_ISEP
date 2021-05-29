@@ -1,7 +1,5 @@
 package app.domain.model.testrelated;
 
-import app.domain.model.users.Client;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,7 +16,7 @@ public class EmailNotification {
      * @param selectedTest a client
      */
     public void notifyByEmail(Test selectedTest) throws IOException {
-        File arch = new File("./" + "EmailNotification_"+ selectedTest.getNhscode() + ".txt");
+        File arch = new File("./" + "EmailNotification_"+ selectedTest.getNhsCode() + ".txt");
         FileWriter fw = new FileWriter(arch, true);
 
         try {
