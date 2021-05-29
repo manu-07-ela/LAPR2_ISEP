@@ -1,4 +1,4 @@
-package app.domain.model;
+package app.domain.store;
 
 import app.domain.model.users.Client;
 
