@@ -38,7 +38,7 @@ public class TestStore {
 
     /**
      * Get the list of tests
-     * @return the list of tests 
+     * @return the list of tests
      */
     public List<Test> getTestList() {
         return testList;
