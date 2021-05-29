@@ -1,6 +1,7 @@
 
 package app.domain.model.laboratories;
 
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.ParameterCategory;
 import app.domain.model.testrelated.TestType;
 import org.junit.Assert;

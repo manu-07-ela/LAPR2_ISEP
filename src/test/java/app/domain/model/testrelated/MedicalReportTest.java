@@ -1,6 +1,7 @@
 
 package app.domain.model.testrelated;
 
+import app.domain.model.testrelated.MedicalReport;
 import org.junit.Assert;
 import org.junit.Test;
 

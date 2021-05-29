@@ -1,5 +1,7 @@
 package app.mappers.dto;
 
+import app.mappers.dto.ParameterCategoryDTO;
+
 import java.util.List;
 
 public class TestTypeDTO {

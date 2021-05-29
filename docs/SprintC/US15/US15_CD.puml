@@ -5,12 +5,13 @@ class ValidateWorkUI{
 
 class ValidateWorkController{
 +getTestToValidateList()
++createTestValidation(selectedTest)
 +showRegistrationDate(selectedTest)
 +showChemicalAnalysisDate(selectedTest)
 +showDiagnosisDate(selectedTest)
-+showDates()
-+recordValidationDate()
-+notifyTheClient()
++showDates(selectedTest)
++recordValidationDate(selectedTest)
++notifyTheClient(selectedTest)
 }
 
 class Company{
@@ -45,10 +46,15 @@ diagnosisDateDto : DiagnosisDateDto
 
 
 class LabCoordinatorValidation {
--dateAndTime
+-registerDateValidation
+-chemicalAnalysisDateValidation
+-diagnosisDateValidation
+-labCoordDate
 --
-+createTestValidation(selectedTest)
-+recordValidationDate()
++checkRegisterDateValidation()
++checkChemicalAnalysisDateValidation()
++checkDiagnosisDateValidation())
++recordLabCoordinatorValidationDate()
 }
 
 class Test{
@@ -60,6 +66,7 @@ class Test{
 +getInternalCode()
 +getRegistrationDate()
 +getChemicalAnalysisDate()
++
 +getDiagnosisDate()
 }
 

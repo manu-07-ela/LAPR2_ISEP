@@ -14,17 +14,17 @@ public class LabCoordinatorValidation {
     /**
      *
      */
-    private Boolean registerDateValidation;
+    private boolean registerDateValidation = false;
 
     /**
      *
      */
-    private Boolean chemicalAnalysisDateValidation;
+    private boolean chemicalAnalysisDateValidation = false;
 
     /**
      *
      */
-    private Boolean diagnosisDateValidation;
+    private boolean diagnosisDateValidation = false;
     /**
      * The date and time the Lab Coordinator Validation was created.
      */
@@ -34,30 +34,37 @@ public class LabCoordinatorValidation {
      * Build an instance of {@code LabCoordinatorValidation}
      */
     public LabCoordinatorValidation(){
-        System.out.println("Lab Coordinator Validation created with sucess.");
-        if(chemicalAnalysisDateValidation == true && chemicalAnalysisDateValidation == true && diagnosisDateValidation == true) {
+
+    }
+
+    public boolean checkRegisterDateValidation(){
+        return this.registerDateValidation = true;
+    }
+
+    public boolean checkChemicalAnalysisDateValidation(){
+        return this.chemicalAnalysisDateValidation = true;
+    }
+
+    public boolean checkDiagnosisDateValidation(){
+        return this.diagnosisDateValidation= true;
+    }
+
+    public boolean recordDate(){
+        Boolean fl = false;
+        if(registerDateValidation && chemicalAnalysisDateValidation && diagnosisDateValidation) {
             recordLabCoordinatorValidationDate();
-            System.out.println("Date Validation recorded with sucess");
+            fl = true;
         }
-
+        return fl;
     }
 
-    public void checkRegisterDateValidation(){
-        this.registerDateValidation = true;
-    }
-
-    public void checkChemicalAnalysisDateValidation(){
-        this.chemicalAnalysisDateValidation = true;
-    }
-
-    public void checkDiagnosisDateValidation(){
-        this.diagnosisDateValidation= true;
-    }
-
-    public Date recordLabCoordinatorValidationDate(){
+    public boolean recordLabCoordinatorValidationDate(){
         this.labCoordDate= Calendar.getInstance().getTime();
-        return labCoordDate;
+        return true;
     }
+
+    public Date getLabCoordDate(){ return this.labCoordDate; }
+
 
 
 }

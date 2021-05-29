@@ -33,21 +33,18 @@ public class WriteMedicalReportUI implements Runnable{
      */
     @Override
     public void run() {
-        try {
-            boolean flag;
-            do {
-                TestDTO selectedTest = (TestDTO) Utils.showAndSelectOne(writeMedicalReportctrl.getTestHasSamplesAnalyzedList(), "Select the desired test.");
-                Utils.showList(writeMedicalReportctrl.getTestParameterList(selectedTest), "The results of each analyzed parameter and the respective reference values.");
-                askTheMedicalReport();
-                if (writeMedicalReportctrl.getTestHasSamplesAnalyzedList().size() > 0){
+        boolean flag;
+        do {
+            try {
+                    TestDTO selectedTest = (TestDTO) Utils.showAndSelectOne(writeMedicalReportctrl.getTestHasSamplesAnalyzedList(), "Select the desired test.");
+                    Utils.showList(writeMedicalReportctrl.getTestParameterList(selectedTest), "The results of each analyzed parameter and the respective reference values.");
+                    askTheMedicalReport();
                     flag = Utils.confirm("Do you want to write any more medical report? (S/N)");
-                } else {
-                    flag = false;
-                }
-            }while (flag);
-        } catch (IllegalArgumentException e){
-            System.out.printf("%nMessage: %s%n" ,e.getMessage());
-        }
+            } catch (IllegalArgumentException e) {
+                System.out.printf("%nMessage: %s%n", e.getMessage());
+                flag =  false;
+            }
+        }while (flag);
 
     }
 

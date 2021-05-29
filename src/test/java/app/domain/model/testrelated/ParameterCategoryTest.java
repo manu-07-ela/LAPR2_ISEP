@@ -1,6 +1,8 @@
 
 package app.domain.model.testrelated;
 
+import app.domain.model.testrelated.Parameter;
+import app.domain.model.testrelated.ParameterCategory;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -31,7 +31,7 @@ public class ClinicalAnalysisLaboratoryStore {
      * @return The ClinicalAnalysisLaboratory
      */
     public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO, CreateClinicalAnalysisLaboratoryMapper calMapper){
-        return calMapper.ToModel(calDTO);
+        return calMapper.toModel(calDTO);
     }
 
     /**

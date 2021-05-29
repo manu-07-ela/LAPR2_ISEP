@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents the interface where the Laboratory Coordinator validates the work done by the clinical chemistry technologist and specialist doctor.
+ * Represents the interface where the Lab Coordinator validates the work done by the clinical chemistry technologist and specialist doctor.
  * @author Pedro Rocha <1201382@isep.ipp.pt>
  */
 public class LabCoordinatorUI implements Runnable{
 
     /**
-     * Initializes the Specialist Doctor Interface.
+     * Initializes the Lab Coordinator Interface.
      */
     public LabCoordinatorUI(){
 

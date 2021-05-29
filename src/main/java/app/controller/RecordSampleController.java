@@ -116,7 +116,7 @@ public class RecordSampleController {
     public void showBarcodes(BarcodeDomain barcode){
         JFrame frame = new JFrame("Barcode");
         frame.getContentPane().add((Component) barcode.getBarcode());
-        frame.setSize(200, 200);
+        frame.setSize(300, 300);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.setVisible(true);
     }
@@ -137,9 +137,9 @@ public class RecordSampleController {
      * @param samples the sample we desired to associated with the test
      * @return true, if the association successful. False, otherwise.
      */
-    public boolean associateSamplesWithTest(Test test, Sample samples, int flag){
+    public boolean associateSamplesWithTest(Test test, Sample samples){
         if (sampleStore.validateSample(samples)){
-            test.addSamples(samples, flag);
+            test.addSamples(samples);
             return true;
         }
         return false;
@@ -164,7 +164,7 @@ public class RecordSampleController {
         } catch (IOException e) {
             System.out.println("Exception occured :" + e.getMessage());
         }
-        System.out.println("Images were written succesfully.");
+        System.out.println("The image was successfully saved to the \"barcodes\" folder.");
     }
 
     /**

@@ -69,6 +69,8 @@ public class ValidateWorkController {
         this.company=app.getCompany();
         testMapper = new TestMapper();
         dateMapper = new DateMapper();
+        emailNotification = new EmailNotification();
+        smsNotification = new SMSNotification();
     }
 
     /**
@@ -93,57 +95,94 @@ public class ValidateWorkController {
     }
 
     /**
-     *
      * @param selectedTest
+     */
+    public Test getSelectedTest(TestDTO selectedTest){
+        test = testStore.getTestByInternalCode(selectedTest.getInternalCode());
+        return test;
+    }
+
+    /**
+     *
      * @return
      */
-    public boolean createTestValidation(Test selectedTest){
-        return test.validateWork(selectedTest);
+    public boolean createTestValidation(){
+        return test.validateWork();
     }
 
     /**
-     *
+     * Confirm the Date according to the requested date to confirm.
+     * @param date
      */
-    public String showRegistrationDate(Test selectedTest) {
-        return dateMapper.toDto(selectedTest.getRegisterTestDate()).toString();
+    public boolean checkDate(String date){
+        if (date.equals("Registration Date")){
+            return true;
+        } else if ( date.equals("Chemical Analysis Date")){
+            return true;
+        } else if ( date.equals("Diagnosis Date")){
+            return true;
+        } else {
+            System.out.println("Not available to check.");
+        }
+        return false;
     }
 
     /**
-     *
+     * Shows the Registration Date formatted.
+     * @return Registration Date formatted.
+     */
+    public String showRegistrationDate() {
+        return dateMapper.toDto(test.getTestAddDate()).toString();
+    }
+
+    /**
+     * Shows the Chemical Analysis Date formatted.
+     * @return Chemical Analysis Date formatted.
      */
     public String showChemicalAnalysisDate(Test selectedTest) {
         return dateMapper.toDto(selectedTest.getChemicalAnalysisDate()).toString();
     }
 
     /**
-     *
+     * Shows the Diagnosis Date formatted.
+     * @return Diagnosis Date formatted.
      */
     public String showDiagnosisDate(Test selectedTest) {
         return dateMapper.toDto(selectedTest.getCreatedAt()).toString();
     }
 
     /**
-     *
+     * Shows the Lab Coordinator Validation Date formatted.
+     * @return Lab Coordinator Validation Date formatted.
      */
-    public void showDates(Test selectedTest) {
-        showRegistrationDate(selectedTest);
-        showChemicalAnalysisDate(selectedTest);
-        showDiagnosisDate(selectedTest);
+    public String showLabCoordValidationDate(Test selectedTest) {
+        return dateMapper.toDto(selectedTest.getLabValidationDate()).toString();
     }
 
     /**
-     *
+     * Shows the Registration Date, Chemical Analysis Date, Diagnosis Date, all formatted.
+     * @return Registration Date, Chemical Analysis Date, Diagnosis Date, all formatted.
+     */
+    public String showDates(Test selectedTest) {
+        return String.format("%s%n%s%n%s%n",showRegistrationDate(),showChemicalAnalysisDate(selectedTest),showDiagnosisDate(selectedTest));
+    }
+
+    /**
+     * Records the Lab Coordinator Validation Date
+     * @param selectedTest Lab Coordinator Validation Date
      */
     public Boolean recordValidationDate(Test selectedTest) {
-        return selectedTest.validateWork(selectedTest);
+        return selectedTest.generateDataAndTimeLabCoordinatorValidation();
+
     }
 
     /**
-     *
+     * Notifies the client via Email and SMS.
+     * @param selectedTest
      */
     public void notifyTheClient(Test selectedTest) throws IOException {
-        emailNotification.notifyByEmail(selectedTest);
-        smsNotification.notifyBySMS(selectedTest);
+        emailNotification.notification(selectedTest);
+        smsNotification.notification(selectedTest);
     }
 
 

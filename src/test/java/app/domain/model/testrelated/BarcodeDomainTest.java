@@ -1,5 +1,6 @@
 package app.domain.model.testrelated;
 
+import app.domain.model.testrelated.BarcodeDomain;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
 import org.junit.Assert;
@@ -9,6 +10,16 @@ public class BarcodeDomainTest {
     String barcodeNumber = "00000000000";
     BarcodeDomain barcodeDomain;
     BarcodeDomain barcodeDomainAux;
+
+    @Test(expected = IllegalArgumentException.class)
+    public void barcodeNotNull(){
+        barcodeDomain = new BarcodeDomain(null, null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setBarcodeNumberNotNull() throws BarcodeException {
+        barcodeDomain = new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), null);
+    }
 
     @Test
     public void getBarcode() throws BarcodeException {

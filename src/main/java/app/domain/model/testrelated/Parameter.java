@@ -131,7 +131,7 @@ public class Parameter {
      */
     @Override
     public String toString(){
-        return String.format("Parameter: %s\nCode: %s\nDescription: %s", shortName, code, description);
+        return String.format("Parameter: %s%nCode: %s%nDescription: %s", shortName, code, description);
     }
 
 

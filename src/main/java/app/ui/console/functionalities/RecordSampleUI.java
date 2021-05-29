@@ -6,17 +6,12 @@ import app.domain.model.testrelated.Test;
 import app.mappers.dto.TestDTO;
 
 import app.controller.RecordSampleController;
-import app.domain.model.attributes.NhsCode;
 import app.domain.model.testrelated.*;
-import app.domain.model.users.Client;
 
-import app.mappers.dto.TestParameterDTO;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Represents an interface with the user to be able to record the sample associated with a test
@@ -105,7 +100,11 @@ public class RecordSampleUI implements Runnable{
                     recordSampleController.showBarcodes(barcodeDomain);
                     boolean flag = Utils.confirm("Do you really intend to associate these barcodes with the samples? (S/N)");
                     if (flag) {
-                        sample = associateBarcodesWithSamples(barcodeDomain, test, quantityOfSamplesIntroduced);
+                        sample = recordSampleController.associateBarcodeWithSample(barcodeDomain);
+                        System.out.println("BARCODE:"+sample.getBarcode().getBarcode());
+                        System.out.println("BARCODE NUMBER:"+sample.getBarcode().getBarcodeNumber());
+                        recordSampleController.associateSamplesWithTest(test, sample);
+                        //sample = associateBarcodesWithSamples(barcodeDomain, test, quantityOfSamplesIntroduced);
                         recordSampleController.imageIoWrite(recordSampleController.barcodeImage(barcodeDomain), "Barcode_"+barcodeDomain.getBarcodeNumber());
                         recordSampleController.saveSample(sample);
                     }
@@ -135,10 +134,10 @@ public class RecordSampleUI implements Runnable{
      * @param quantityOfSamplesIntroduced the amount of samples you want to generate
      * @return the sample generated
      */
-    private Sample associateBarcodesWithSamples(BarcodeDomain barcode, Test test, int quantityOfSamplesIntroduced){
+    private Sample associateBarcodesWithSamples(BarcodeDomain barcode, Test test){
         Sample sample;
         sample = recordSampleController.associateBarcodeWithSample(barcode);
-        recordSampleController.associateSamplesWithTest(test, sample, quantityOfSamplesIntroduced);
+        recordSampleController.associateSamplesWithTest(test, sample);
         return sample;
     }
 

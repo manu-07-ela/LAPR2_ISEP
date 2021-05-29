@@ -43,10 +43,6 @@ public class RecordResultsUI implements  Runnable {
             }while (verificacao);
 
 
-            barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
-            listaDeParametros = controller.getTestParameterList(barcode);
-
-
            // String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
            // List<TestParameterDto> listaDeParametros = controller.getTestParameterList(barcode);
 
@@ -78,7 +74,10 @@ public class RecordResultsUI implements  Runnable {
             while (i <= listaDeParametros.size()){
                 TestParameterDTO parameter;
                 do {
-                    Utils.showList(listaDeParametros, "Choose the Parameter you want to register the results");
+                    System.out.println("Choose the Parameter you want to register the results");
+                    for (TestParameterDTO parameterDTO: listaDeParametros) {
+                        parameterDTO.toString2();
+                    }
                     parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
                     if (parameter==null){
                         System.out.println("You must choose a parameter to record it's results");

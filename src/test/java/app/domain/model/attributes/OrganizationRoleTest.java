@@ -1,6 +1,7 @@
 
 package app.domain.model.attributes;
 
+import app.domain.model.attributes.OrganizationRole;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

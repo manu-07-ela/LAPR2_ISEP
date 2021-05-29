@@ -30,10 +30,10 @@ public class CreateClinicalAnalysisLaboratoryUI implements Runnable {
     @Override
     public void run() {
         System.out.printf("%nCreating a new Clinical Analysis Laboratory%n");
-        CreateClinicalAnalysisLaboratory();
+        createClinicalAnalysisLaboratory();
     }
 
-    public void CreateClinicalAnalysisLaboratory(){
+    public void createClinicalAnalysisLaboratory(){
 
 
         boolean dadosInvalidos=true;
@@ -72,9 +72,9 @@ public class CreateClinicalAnalysisLaboratoryUI implements Runnable {
 
                     if (result){
                         System.out.printf("Do you really want to create a Clinical Analysis Laboratory with the name: %s ,address: %s, phone number: %s , Tin : %s , LaboratoryId: %s and with the list of Test Types you selected?",name, address,phoneNumber,tin,laboratoryId);
-                        String confirmaçao = Utils.readLineFromConsole("S/N:");
+                        String confirmacao = Utils.readLineFromConsole("S/N:");
 
-                        if(confirmaçao.equalsIgnoreCase("S")){
+                        if(confirmacao.equalsIgnoreCase("S")){
                             if(clinicalcontroller.saveClinicalAnalysisLaboratory()){
                                 System.out.println("The Clinical Analysis Laboratory was created successfully");
                             }else {

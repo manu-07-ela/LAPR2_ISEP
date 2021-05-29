@@ -10,22 +10,31 @@ import java.util.Date;
 
 public class DateDTO {
     /**
-     * Date Dto
+     * Represents the date
      */
     private Date date;
 
+    /**
+     * Represents the formatted date associated with a date
+     */
+    private String dateString;
 
+    /**
+     * Copy builder for a date
+     * @param dateDto the date to be copied
+     */
     public DateDTO(Date dateDto) {
         this.date = dateDto;
-    }
-
-    public String getDateDTO(Date date){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
-        return sdf.format(date);
+        this.dateString = sdf.format(date);
     }
 
+    /**
+     * Textual description of a date
+     * @return Information that characterizes a date
+     */
     @Override
     public String toString() {
-        return String.format ("DateDTO: %s", getDateDTO(this.date) );
+        return String.format("Date %s",dateString);
     }
 }

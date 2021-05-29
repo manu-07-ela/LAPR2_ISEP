@@ -82,7 +82,7 @@ public class CreateClinicalAnalysisLaboratoryMapperTest {
 
     @Test
     public void toModel1() {
-        ClinicalAnalysisLaboratory result = calMapper.ToModel(calDTO);
+        ClinicalAnalysisLaboratory result = calMapper.toModel(calDTO);
         Assert.assertEquals(cal,result);
     }
 

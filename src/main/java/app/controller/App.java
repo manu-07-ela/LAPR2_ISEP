@@ -1,6 +1,10 @@
 package app.controller;
 
 import app.domain.model.Company;
+import app.domain.model.testrelated.Parameter;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.model.testrelated.TestType;
+import app.domain.model.users.Client;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
@@ -8,6 +12,8 @@ import auth.UserSession;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -88,6 +94,24 @@ public class App {
         this.authFacade.addUserWithRole("Receptionist", "rep@manylabs.pt", "abcdef", Constants.ROLE_RECP);
         this.authFacade.addUserWithRole("Medical lab Technician", "medLabtec@manylabs.pt", "01928", Constants.ROLE_MED_LAB_TEC);
         this.authFacade.addUserWithRole("Lab Coordinator","labCod@manylabs.pt","000000",Constants.ROLE_LAB_COD);
+
+        this.company = getCompany();
+        ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+        company.getParameterCategoryStore().addParameterCategory(pc1);
+
+        Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+        company.getParameterStore().addParameter(p1);
+
+        List<ParameterCategory> list=new ArrayList();
+        list.add(pc1);
+
+        TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        company.getTestTypeStore().addTestType(tt);
+
+        company.getClientStore().addClient(new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com"));
+        authFacade.addUser("Client","client@manylabs.pt","111111");
+
+
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2

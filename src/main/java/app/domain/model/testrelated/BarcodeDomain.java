@@ -20,6 +20,8 @@ public class BarcodeDomain {
      * @param barcode the barcode
      */
     public BarcodeDomain(Object barcode, String barcodeNumber){
+        if (barcode==null) throw new IllegalArgumentException("Barcode can´t be blank");
+        if (barcodeNumber==null) throw new IllegalArgumentException("Barcode number can´t be blank");
         this.barcode = barcode;
         this.barcodeNumber = barcodeNumber;
     }
@@ -29,6 +31,7 @@ public class BarcodeDomain {
      * @param barcodeDomain the barcode that will be copy
      */
     public BarcodeDomain(BarcodeDomain barcodeDomain){
+        if (barcodeDomain==null) throw new IllegalArgumentException("Barcode can't be blank");
         this.barcode = barcodeDomain.getBarcode();
         this.barcode = barcodeDomain.getBarcodeNumber();
     }

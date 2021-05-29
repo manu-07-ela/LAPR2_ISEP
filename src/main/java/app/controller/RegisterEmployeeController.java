@@ -1,6 +1,5 @@
 package app.controller;
 
-import app.controller.App;
 import app.domain.model.*;
 import app.domain.model.attributes.OrganizationRole;
 import app.domain.model.users.Employee;

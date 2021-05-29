@@ -34,7 +34,7 @@ public class TestParameter {
      * Get the TestParameter result
      * @return the TestParameter result
      */
-    public TestParameterResult getTparamresult() {
+    public TestParameterResult getParamResult() {
         return tparamresult;
     }
     /**
@@ -53,8 +53,13 @@ public class TestParameter {
      * @return true if the result was successful
      */
     public boolean AddResult(RefValue refValue, String result, String metric){
-        tparamresult = new TestParameterResult(refValue, result, metric);
-        return true;
+        try {
+            tparamresult = new TestParameterResult(refValue, result, metric);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
     /**
@@ -110,4 +115,6 @@ public class TestParameter {
     public String getRefValueMetric() {
         return tparamresult.getRefValue().getMetric();
     }
+
+
 }

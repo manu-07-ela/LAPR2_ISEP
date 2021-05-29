@@ -4,7 +4,6 @@ package app.domain.model.testrelated;
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.users.Client;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -28,7 +27,7 @@ public class Test {
      */
     private List<TestParameter> testParameterList;
     /**
-     *
+     * Represents the test type associated with the test
      */
     private TestType testType;
 
@@ -37,21 +36,21 @@ public class Test {
      */
     private List<Sample> samples;
     /**
-     * indicates the state in which the test is
+     * Indicates the state in which the test is
      */
     private StateOfTest stateOfTest;
     /**
-     *
+     * Represents the client associated with the test
      */
     private Client client;
 
     /**
-     *
+     * Represents the internal code of a test
      */
     private String internalCode;
 
     /**
-     *
+     * Represents the description of a test
      */
     private String description;
     /**
@@ -74,10 +73,7 @@ public class Test {
      */
     private TestParameterResult tpr;
 
-    /**
-     * Represents the date when the test was registered in the system
-     */
-    private Date registerTestDate;
+
     /**
      * The medical report of the test.
      */
@@ -102,6 +98,7 @@ public class Test {
         this.description = testType.getCollectingMethod();
         this.md = null;
         this.samples = new ArrayList<>();
+        this.lcv = null;
     }
 
 
@@ -121,51 +118,108 @@ public class Test {
         return stateOfTest;
     }
 
+    /**
+     * Get the client associated with a test
+     * @return the client
+     */
     public Client getCl() {
         return client;
     }
 
-    public NhsCode getNhscode() {
+    /**
+     * Get the NHS code associated with a test
+     * @return the nhs code
+     */
+    public NhsCode getNhsCode() {
         return nhscode;
     }
 
+    /**
+     * Get the internal code associated with a test
+     * @return the internal code
+     */
     public String getInternalCode() {
         return internalCode;
     }
 
+    /**
+     * Get the test type associated with the test
+     * @return the test type
+     */
     public TestType getTestType() {
         return testType;
     }
 
+    /**
+     * Get the list of parameters associated with the test
+     * @return the list of parameter associated with the test
+     */
     public List<TestParameter> getTestParameterList() {
         return testParameterList;
     }
 
+    /**
+     * Get the description of a test
+     * @return the description
+     */
     public String getDescription() {
         return description;
     }
 
-    public Date getChemicalAnalysisDate() { return tpr.getChemicalAnalysisDate();}
+    /**
+     *
+     * @return
+     */
+    public List<Date> getChemicalAnalysisDate() {
+        List<Date> chemicalAnalysisDates = new ArrayList<>();
+        for (TestParameter tp : testParameterList){
+            chemicalAnalysisDates.add(tp.getParamResult().getChemicalAnalysisDate());
+        }
+        return chemicalAnalysisDates;
+    }
 
+    /**
+     * Get the medical report associated with the test
+     * @return the medical report
+     */
     public MedicalReport getMedicalReport() { return this.md;}
 
+    /**
+     * Get the date of the creation of medical report
+     * @return the date associated with te creation of medical report
+     */
     public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
 
-    public Date getRegisterTestDate() { return this.registerTestDate; }
+
+    /**
+     * Get the list of samples associated with a test
+     * @return the list of samples associated with a test
+     */
+
+    public Date getLabValidationDate() { return lcv.getLabCoordDate();}
+
 
     public List<Sample> getSamples() { return samples; }
 
-
+    /**
+     * Takes the test creation date
+     * @return the date of creation of the test
+     */
     public Date getTestAddDate() {
         return testAddDate;
     }
 
+    /**
+     * Compare the test with the other object provided.
+     * @param other Object we want to compare with the employee.
+     * @return true if the received object represents another test equivalent to the test. Otherwise, it returns false.
+     */
     @Override
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Test test = (Test) other;
-        return this.getCl().equals((test).getCl()) || this.getNhscode().equals((test).getNhscode());
+        return this.getCl().equals((test).getCl()) || this.getNhsCode().equals((test).getNhsCode());
     }
 
     /**
@@ -200,13 +254,22 @@ public class Test {
     public boolean addMedicalReport(String diagnosis) {
         if (validateMedicalReport()) {
             this.md = new MedicalReport(diagnosis);
-            this.stateOfTest = StateOfTest.SamplesAnalyzed;
+            this.stateOfTest = StateOfTest.DiagnosisMade;
             return true;
         }
         return false;
     }
 
-    public boolean validateWork(Test selectedTest) {
+    /**
+<<<<<<< HEAD
+     * Creates a Lab Coordinator Validation.
+     * @return true if the Lab Coordinator Validation was added. Otherwise, false.
+=======
+     *
+     * @return
+>>>>>>> 34c31475da197b9d538787e3ef89effb52874241
+     */
+    public boolean validateWork() {
         if (validateLabCoordinatorValidation()) {
             this.lcv = new LabCoordinatorValidation();
             return true;
@@ -229,13 +292,17 @@ public class Test {
      * @param sample the sample that will be added to the test
      * @return true, if the copy of the sample list passed by parameter is successful, false otherwise
      */
-    public boolean addSamples(Sample sample, int flag){
-        if (this.samples.size()==flag) {
+    public void addSamples(Sample sample){
+        this.samples.add(sample);
+        if (this.samples.size()>0) {
             changeStateForSamplesCollected();
-            System.out.println("MUDOU ESTADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+
+            //System.out.println("MUDOU ESTADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+
+
             generateDataAndTimeForSamplesCollected();
         }
-        return this.samples.add(sample);
+
     }
 
     /**
@@ -256,17 +323,36 @@ public class Test {
     }
 
     /**
-     * Generates the date and time when the samples were associated with a test
+     * Generates the date and time when the Lab Coordinator Validation is made.
      */
-    public void generateDataAndTimeLabCoordinatorValidation(){
-        lcv.recordLabCoordinatorValidationDate();
+    public boolean generateDataAndTimeLabCoordinatorValidation(){
+        this.stateOfTest = Test.StateOfTest.Validated;
+        return lcv.recordLabCoordinatorValidationDate();
     }
+
+
+    /**
+     * Textual description of a test
+     * @return Information that characterizes a test
+     */
 
     @Override
     public String toString() {
-        for (TestParameter la: testParameterList) {
-            return String.format("%s",la.getTparamresult().toString());
-        }
-        return "la";
+        return "Test{" +
+                "nhscode=" + nhscode +
+                ", testParameterList=" + testParameterList +
+                ", testType=" + testType +
+                ", samples=" + samples +
+                ", stateOfTest=" + stateOfTest +
+                ", client=" + client +
+                ", internalCode='" + internalCode + '\'' +
+                ", description='" + description + '\'' +
+                ", samplesAddDate=" + samplesAddDate +
+                ", registerTestDate=" + testAddDate +
+                ", chemicalAnalysisDate=" + chemicalAnalysisDate +
+                ", tpr=" + tpr +
+                ", md=" + md +
+                ", lcv=" + lcv +
+                '}';
     }
 }
