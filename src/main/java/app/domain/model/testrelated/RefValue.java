@@ -1,26 +1,29 @@
 package app.domain.model.testrelated;
 
+import java.util.Objects;
+
 public class RefValue {
 
     /**
-     *
+     * Get the metric of the reference values
+     * @return the metric of the reference values
      */
     private String metric;
     /**
-     *
+     * The minimum value
      */
     private double minValue;
 
     /**
-     *
+     * The maximum value
      */
     private double maxValue;
 
 
 
     /**
-     *
-     * @param obj
+     * Constructs an instance of RefValue
+     * @param obj an intance of RefValue
      */
     public RefValue (RefValue obj){
         this.metric = obj.metric;
@@ -30,10 +33,10 @@ public class RefValue {
     }
 
     /**
-     *
-     * @param metric
-     * @param minValue
-     * @param maxValue
+     * Constructs an instance of RefValue
+     * @param metric the metric of the reference values
+     * @param minValue The minimum value
+     * @param maxValue The maximum value
      */
     public RefValue(String metric, double minValue, double maxValue){
         this.metric=metric;
@@ -42,25 +45,32 @@ public class RefValue {
     }
 
     /**
-     *
-     * @return
+     * Get the metric of the result
+     * @return the metric of the result
      */
     public String getMetric() {
         return metric;
     }
     /**
-     *
-     * @return
+     * Gets the minimum value
+     * @return minimum value
      */
     public double getMinValue() {
         return minValue;
     }
     /**
-     *
-     * @return
+     * Gets the maximum value
+     * @return maximum value
      */
     public double getMaxValue() {
         return maxValue;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RefValue refValue = (RefValue) o;
+        return Double.compare(refValue.minValue, minValue) == 0 && Double.compare(refValue.maxValue, maxValue) == 0 && Objects.equals(metric, refValue.metric);
+    }
 }

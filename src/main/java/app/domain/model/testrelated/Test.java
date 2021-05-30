@@ -239,7 +239,7 @@ public class Test {
         boolean verificacao=false;
         for (TestParameter testParameter: testParameterList) {
             if (testParameter.getParameterId().equals(parameterID)){
-                    verificacao =  testParameter.AddResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
+                    verificacao =  testParameter.addResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
                 if (!verificacao){
                     return false;
                 }
