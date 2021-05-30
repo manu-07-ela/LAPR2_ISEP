@@ -122,8 +122,8 @@ public class TestStore {
      * Get a list of test waiting for the collection of samples
      * @return a list of test waiting for samples
      */
-    public List<Test> getListOfTestWaitingForSample(){
-        List<Test> testsWaintingForSamples = new ArrayList<>();
+    public List<Test> getListOfTestWaitingForSample(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+        List<Test> testsWaintingForSamples = getTestByLaboratory(clinicalAnalysisLaboratory);
         for (Test test : testList){
             if (test.getStateOfTest() == TestRegistered) testsWaintingForSamples.add(test);
         }
@@ -198,6 +198,21 @@ public class TestStore {
         if (StringUtils.isBlank(barcode) || barcode.length() != 11){
             throw new IllegalArgumentException("The barcode number must be a code with 11 characters");
         }
+    }
+
+    /**
+     * Get the list of tests associated with a laboratory
+     * @param clinicalAnalysisLaboratory the laboratory that te test will be associated
+     * @return the list of test associated with a laboratory
+     */
+    private List<Test> getTestByLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+        List<Test> test = new ArrayList<>();
+        for (Test t : testList){
+            if (t.getLab().equals(clinicalAnalysisLaboratory)){
+                test.add(t);
+            }
+        }
+       return test;
     }
 
 }
