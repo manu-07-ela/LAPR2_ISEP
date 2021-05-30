@@ -197,6 +197,13 @@ public class Test {
      */
     public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
 
+    /**
+     * Get the laboratory associated with the test
+     * @return the laboratory associated with the test
+     */
+    public ClinicalAnalysisLaboratory getLab() {
+        return lab;
+    }
 
     /**
      * Get the list of samples associated with a test
