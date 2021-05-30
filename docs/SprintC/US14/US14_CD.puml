@@ -90,6 +90,7 @@ WriteMedicalReportUI ..> WriteMedicalReportController
 WriteMedicalReportUI ..> TestDto
 WriteMedicalReportUI ..> TestParameterDto
 WriteMedicalReportController ..> Company
+WriteMedicalReportController ..> TestStore
 WriteMedicalReportController ..> TestMapper
 WriteMedicalReportController ...> TestParameterDto
 WriteMedicalReportController ...> TestDto
