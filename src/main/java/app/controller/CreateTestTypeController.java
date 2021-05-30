@@ -113,4 +113,8 @@ public class CreateTestTypeController {
         return tt.toString();
     }
 
+    public List<String> getListaDeAPIs(){
+        return company.getListDeAPI();
+    }
+
 }

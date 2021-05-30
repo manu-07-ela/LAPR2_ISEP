@@ -24,7 +24,7 @@ public class SMSNotification implements Notification {
         if (!archive.exists()) {
             archive.mkdirs();
         }
-        File arch = new File(pwd + "\\src\\main\\notificationsSMS\\"+ selectedTest.getCl().getNhs() + ".txt");
+        File arch = new File(pwd + "\\src\\main\\notificationsSMS\\"+ selectedTest.getNhsCode().getCode() + ".txt");
         FileWriter fw = new FileWriter(arch, true);
 
         try {

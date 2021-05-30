@@ -57,4 +57,52 @@ public class TestTyperMapper {
     public ParameterCategoryDTO toDtopc(ParameterCategory parameterCategory) {
         return new ParameterCategoryDTO(parameterCategory.getCode(),parameterCategory.getName());
     }
+
+    /**
+     * Transforms the list of TestTypeDTO into a list of TestType
+     * @param testTypeListDTO A list of TestType
+     * @return A list of TestType
+     */
+    public List<TestType> toModel(List<TestTypeDTO> testTypeListDTO) {
+        List<TestType> testTypeList =new ArrayList();
+        TestType obj;
+        for (TestTypeDTO lista : testTypeListDTO) {
+            if (lista != null){
+                obj = toModel(lista);
+                testTypeList.add(obj);
+            }
+        }
+        return testTypeList;
+    }
+
+    /**
+     * Transforms a TestTypeDTO into a TestType
+     * @param obj a TestTypeDTO
+     * @return a TestType
+     */
+    public TestType toModel(TestTypeDTO obj){
+        return new TestType(obj.getCode(), obj.getDescription(),obj.getCollectingMethod(),toModelpclist(obj.getListOfParameterCategories()), obj.getReferenceAdapter());
+    }
+
+    /**
+     * Transforms a list of objects of type ParameterCategoryDTO into a list of objects of type ParameterCategory.
+     * @param parameterCategoriesDTO A list of ParameterCategoryDTO.
+     * @return A list of ParameterCategory
+     */
+    public List<ParameterCategory> toModelpclist (List<ParameterCategoryDTO> parameterCategoriesDTO){
+        List<ParameterCategory> parameterCategory = new ArrayList<>();
+        for(ParameterCategoryDTO parameterCategoryDTO:parameterCategoriesDTO) {
+            parameterCategory.add(this.toModelpc(parameterCategoryDTO));
+        }
+        return parameterCategory;
+    }
+
+    /**
+     * Transforms an object of type ParameterCategoryDTO into an object of type ParameterCategory.
+     * @param parameterCategory An ParameterCategoryDTO object.
+     * @return An instance of ParameterCategory.
+     */
+    public ParameterCategory toModelpc(ParameterCategoryDTO parameterCategory) {
+        return new ParameterCategory(parameterCategory.getCode(),parameterCategory.getName());
+    }
 }

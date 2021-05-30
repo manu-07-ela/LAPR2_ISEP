@@ -17,9 +17,9 @@ import java.util.List;
 
 public class RecordResultsControllerTest {
 
-    /*@Test
+    @Test
     public void getTestParameterList() throws BarcodeException {
-        Company company = new Company("efwgtrt");
+       /* Company company = new Company("efwgtrt");
         List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
@@ -55,12 +55,14 @@ public class RecordResultsControllerTest {
         List<TestParameterDTO> lista = controller.getTestParameterList("00000000000");
 
         Assert.assertEquals(listaDeParametrosDTO,lista);
+
+        */
     }
 
 
     @Test
     public void addTestResult1() throws IllegalAccessException, InstantiationException, ClassNotFoundException, BarcodeException {
-        Company company = new Company("efwgtrt");
+       /* Company company = new Company("efwgtrt");
         List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
@@ -99,13 +101,15 @@ public class RecordResultsControllerTest {
         Assert.assertTrue(verificacao);
 
 
+        */
+
 
     }
 
 
     @Test
     public void addTestResult2() throws IllegalAccessException, InstantiationException, ClassNotFoundException, BarcodeException {
-        Company company = new Company("efwgtrt");
+       /* Company company = new Company("efwgtrt");
         List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
@@ -144,15 +148,17 @@ public class RecordResultsControllerTest {
 
         Assert.assertFalse(verificacao);
 
-    }*/
+
+        */
+    }
 
 
 
 
 
-   /* @Test
+    @Test
     public void possibilityOfRecordResult() throws BarcodeException {
-        Company company = new Company("efwgtrt");
+      /*  Company company = new Company("efwgtrt");
         List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
@@ -190,11 +196,13 @@ public class RecordResultsControllerTest {
 
         Assert.assertTrue(verificacao);
 
+       */
+
     }
 
     @Test
     public void possibilityOfRecordResult2() throws BarcodeException {
-        Company company = new Company("efwgtrt");
+      /*  Company company = new Company("efwgtrt");
         List<TestParameter> listaDeParametros = new ArrayList<>();
         ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
         List<ParameterCategory> listPC = new ArrayList();
@@ -224,7 +232,9 @@ public class RecordResultsControllerTest {
 
         Assert.assertFalse(verificacao);
 
-    }*/
+
+       */
+    }
 
 
 }

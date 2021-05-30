@@ -12,6 +12,29 @@ import static org.junit.Assert.*;
 
 public class TestParameterResultTest {
 
+    @Test (expected = IllegalArgumentException.class)
+    public void  resultValidation1() {
+        RefValue ref = new RefValue("metric1",30.0,50.0);
+        TestParameterResult tr = new TestParameterResult(ref," ","metric");
+
+    }
+
+
+    @Test (expected = IllegalArgumentException.class)
+    public void  metricValidation1() {
+        RefValue ref = new RefValue("metric1",30.0,50.0);
+        TestParameterResult tr = new TestParameterResult(ref,"45","     ");
+
+    }
+
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureNullIsNotAllowed(){
+        RefValue ref = new RefValue("metric1",30.0,50.0);
+        TestParameterResult tr = new TestParameterResult(ref,null,null);
+    }
+
+
     @Test
     public void getMetric() {
         RefValue ref = new RefValue("metric1",30.0,50.0);

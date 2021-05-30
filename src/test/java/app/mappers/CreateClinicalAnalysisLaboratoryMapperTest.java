@@ -86,5 +86,33 @@ public class CreateClinicalAnalysisLaboratoryMapperTest {
         Assert.assertEquals(cal,result);
     }
 
+//    @Test
+//    public void toDto() {
+//        ClinicalAnalysisLaboratoryDTO result = calMapper.toDto(cal);
+//        Assert.assertEquals(calDTO,result);
+//    }
 
+    @Test
+    public void toDtopc() {
+        ParameterCategoryDTO result = calMapper.toDtopc(pc);
+        Assert.assertEquals(pcDto,result);
+    }
+
+    @Test
+    public void toDtopclis() {
+        List<ParameterCategoryDTO> result = calMapper.toDtopclist(listPC);
+        Assert.assertEquals(listPCDto,result);
+    }
+
+//    @Test
+//    public void toDtoo() {
+//        List<TestTypeDTO> result = calMapper.toDtoo(testTypeList);
+//        Assert.assertEquals(testTypeListDTO,result);
+//    }
+//
+//    @Test
+//    public void toDtoo2() {
+//        TestTypeDTO result = calMapper.toDtoo(tt);
+//        Assert.assertEquals(ttDTO,result);
+//    }
 }

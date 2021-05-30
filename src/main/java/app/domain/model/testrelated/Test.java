@@ -3,7 +3,6 @@ package app.domain.model.testrelated;
 
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
-import app.domain.model.laboratories.Laboratory;
 import app.domain.model.users.Client;
 
 import java.util.ArrayList;
@@ -74,7 +73,6 @@ public class Test {
      * The Test Parameter Result of the test.
      */
     private TestParameterResult tpr;
-
 
     /**
      * The medical report of the test.
