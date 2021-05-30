@@ -91,6 +91,15 @@ public class Test {
      */
     private ClinicalAnalysisLaboratory lab;
 
+    /**
+     * Constructs an instance of {@code Test} receiving the client, National Healthcare Service code, test type, test parameter list , Clinical Analysis Laboratory and internal code by parameter
+     * @param cl a client
+     * @param nhscode the National Healthcare Service code
+     * @param testType the test type
+     * @param testParameterList the Test Parameter List
+     * @param lab the Clinical Analysis Laboratory
+     * @param internalCode the Internal code
+     */
     public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,String internalCode) {
         this.client = cl;
         this.nhscode = new NhsCode(nhscode);

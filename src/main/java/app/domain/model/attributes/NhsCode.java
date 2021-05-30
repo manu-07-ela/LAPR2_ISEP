@@ -56,7 +56,6 @@ public class NhsCode {
          * @param other Object we want to compare with the National Healthcare Service code
          * @return true if the received object represents another National Healthcare Service code equivalent to the National Healthcare Service code. Otherwise, it returns false.
          */
-
         @Override
         public boolean equals(Object other) {
             if (this == other) return true;
