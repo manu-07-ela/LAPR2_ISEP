@@ -49,7 +49,7 @@ activate CTRL
 CTRL -> TS : test = getTestByInternalCode(code)
 activate TS
 deactivate TS
-CTRL -> TEST : testParametersList= getTestParametersList()
+CTRL -> TEST : testParametersList= getTestParameterList()
 activate TEST
 deactivate TEST
 CTRL -> tpMAPPER : toDTO(testParametersList)

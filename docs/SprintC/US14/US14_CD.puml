@@ -23,7 +23,7 @@ class Test{
 -String internalCode
 -String nhsCode
 -String description
-+getParametersResulList()
++getTestParameterList()
 +getDescription()
 +getInternalCode()
 +addMedicalReport(diagnosis)
@@ -62,8 +62,8 @@ class TestMapper{
 }
 
 class TestParameterMapper{
-+toDto(testParametersList)
-+toDto(testParameter)
++toDTO(testParametersList)
++toDTO(testParameter)
 }
 }
 
