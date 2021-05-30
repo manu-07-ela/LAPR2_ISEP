@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="106.5px" preserveAspectRatio="none" style="width:2685px;height:106px;" version="1.1" viewBox="0 0 2685 106" width="2685px" zoomAndPan="magnify"><defs><filter height="300%" id="f981qj9yy74fw" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="24" cy="48" fill="#000000" filter="url(#f981qj9yy74fw)" rx="15" ry="15" style="stroke:none;stroke-width:1.5;"/><g id="TestRegistered"><rect fill="#FEFECE" filter="url(#f981qj9yy74fw)" height="75" rx="18.75" ry="18.75" style="stroke:#A80036;stroke-width:2.25;" width="175.5" x="325.5" y="10.5"/><line style="stroke:#A80036;stroke-width:2.25;" x1="325.5" x2="501" y1="51.9141" y2="51.9141"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="145.5" x="340.5" y="39.7998">TestRegistered</text></g><g id="SamplesCollected"><rect fill="#FEFECE" filter="url(#f981qj9yy74fw)" height="75" rx="18.75" ry="18.75" style="stroke:#A80036;stroke-width:2.25;" width="199.5" x="804" y="10.5"/><line style="stroke:#A80036;stroke-width:2.25;" x1="804" x2="1003.5" y1="51.9141" y2="51.9141"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="169.5" x="819" y="39.7998">SamplesCollected</text></g><g id="SamplesAnalyzed"><rect fill="#FEFECE" filter="url(#f981qj9yy74fw)" height="75" rx="18.75" ry="18.75" style="stroke:#A80036;stroke-width:2.25;" width="196.5" x="1378.5" y="10.5"/><line style="stroke:#A80036;stroke-width:2.25;" x1="1378.5" x2="1575" y1="51.9141" y2="51.9141"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="166.5" x="1393.5" y="39.7998">SamplesAnalyzed</text></g><g id="DiagnosisMade"><rect fill="#FEFECE" filter="url(#f981qj9yy74fw)" height="75" rx="18.75" ry="18.75" style="stroke:#A80036;stroke-width:2.25;" width="175.5" x="1873.5" y="10.5"/><line style="stroke:#A80036;stroke-width:2.25;" x1="1873.5" x2="2049" y1="51.9141" y2="51.9141"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="145.5" x="1888.5" y="39.7998">DiagnosisMade</text></g><g id="Validated"><rect fill="#FEFECE" filter="url(#f981qj9yy74fw)" height="75" rx="18.75" ry="18.75" style="stroke:#A80036;stroke-width:2.25;" width="118.5" x="2427" y="10.5"/><line style="stroke:#A80036;stroke-width:2.25;" x1="2427" x2="2545.5" y1="51.9141" y2="51.9141"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="88.5" x="2442" y="39.7998">Validated</text></g><ellipse cx="2652" cy="48" filter="url(#f981qj9yy74fw)" rx="15" ry="15" style="stroke:#000000;stroke-width:1.5;fill:none;"/><ellipse cx="2652.75" cy="48.75" fill="#000000" rx="9" ry="9" style="stroke:none;stroke-width:1.5;"/><!--MD5=[342e0b084e7067abd1b00abb21d8d34c]
+link *start to TestRegistered--><path d="M39.24,48 C83.04,48 221.955,48 317.19,48 " fill="none" id="*start-to-TestRegistered" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#A80036" points="325.11,48,311.61,42,317.61,48,311.61,54,325.11,48" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="193.5" x="85.5" y="42.7427">US04 - Register a test</text><!--MD5=[aede43203c7f792b29161bac606bdcb8]
+link TestRegistered to SamplesCollected--><path d="M501.345,48 C583.68,48 707.715,48 795.99,48 " fill="none" id="TestRegistered-to-SamplesCollected" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#A80036" points="803.895,48,790.395,42,796.395,48,790.395,54,803.895,48" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="210" x="547.5" y="42.7427">US05 - Record Samples</text><!--MD5=[07b7b182c30e1b47e71747bfc06a3e90]
+link SamplesCollected to SamplesAnalyzed--><path d="M1003.89,48 C1106.205,48 1265.61,48 1370.235,48 " fill="none" id="SamplesCollected-to-SamplesAnalyzed" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#A80036" points="1378.29,48,1364.79,42,1370.79,48,1364.79,54,1378.29,48" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="282" x="1050" y="42.7427">US12 - Record Samples Results</text><!--MD5=[dd8a0d1db098522af58e535a990c99fd]
+link SamplesAnalyzed to DiagnosisMade--><path d="M1575.105,48 C1659.57,48 1781.37,48 1865.16,48 " fill="none" id="SamplesAnalyzed-to-DiagnosisMade" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#A80036" points="1873.155,48,1859.655,42,1865.655,48,1859.655,54,1873.155,48" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="205.5" x="1621.5" y="42.7427">US14 - Made Diagnosis</text><!--MD5=[13d15ad1e1c91f2c3ee8d77672230fbf]
+link DiagnosisMade to Validated--><path d="M2049.54,48 C2153.58,48 2325.615,48 2419.2,48 " fill="none" id="DiagnosisMade-to-Validated" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#A80036" points="2426.895,48,2413.395,42,2419.395,48,2413.395,54,2426.895,48" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="285" x="2095.5" y="42.7427">US15 - Validate Test Procedures</text><!--MD5=[4d2dab5e4a3cf91041667df7d2dbec77]
+link Validated to *end--><path d="M2545.59,48 C2574.63,48 2608.035,48 2629.2,48 " fill="none" id="Validated-to-*end" style="stroke:#A80036;stroke-width:1.5;"/><polygon fill="#A80036" points="2636.94,48,2623.4572,41.9615,2629.44,47.9786,2623.4229,53.9614,2636.94,48" style="stroke:#A80036;stroke-width:1.5;"/><!--MD5=[d198910562d0d4f37438af750c69113a]
+@startuml
+'https://plantuml.com/state-diagram
+left to right direction
+[*] - -> TestRegistered : US04 - Register a test
+TestRegistered - -> SamplesCollected : US05 - Record Samples
+SamplesCollected- ->SamplesAnalyzed : US12 - Record Samples Results
+SamplesAnalyzed- -> DiagnosisMade : US14 - Made Diagnosis
+DiagnosisMade- ->Validated : US15 - Validate Test Procedures 
+Validated- ->[*]
+@enduml
+
+@startuml
+left to right direction
+[*] - -> TestRegistered : US04 - Register a test
+TestRegistered - -> SamplesCollected : US05 - Record Samples
+SamplesCollected- ->SamplesAnalyzed : US12 - Record Samples Results
+SamplesAnalyzed- -> DiagnosisMade : US14 - Made Diagnosis
+DiagnosisMade- ->Validated : US15 - Validate Test Procedures 
+Validated- ->[*]
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
