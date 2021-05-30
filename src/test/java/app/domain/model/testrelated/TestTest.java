@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TestTest {
@@ -191,4 +192,74 @@ public class TestTest {
         Assert.assertFalse(result);
     }
 
+    @Test
+    public void validateValidLabCoordinatorValidation(){
+        Company company = new Company("Many Labs");
+        ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+        Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+        List<ParameterCategory> list=new ArrayList();
+        list.add(pc1);
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        NhsCode nhs = new NhsCode("123456789012");
+        TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        RefValue rv = new RefValue("mg",10,20);
+        TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
+        TestParameter tp = new TestParameter(p1,tpr);
+        List<TestParameter> tpList = new ArrayList<>();
+        tpList.add(tp);
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
+        boolean result = test.validateLabCoordinatorValidation();
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void validateInvalidLabCoordinatorValidation(){
+        Company company = new Company("Many Labs");
+        ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+        Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+        List<ParameterCategory> list=new ArrayList();
+        list.add(pc1);
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        NhsCode nhs = new NhsCode("123456789012");
+        TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        RefValue rv = new RefValue("mg",10,20);
+        TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
+        TestParameter tp = new TestParameter(p1,tpr);
+        List<TestParameter> tpList = new ArrayList<>();
+        tpList.add(tp);
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
+        test.validateWork();
+        boolean result = test.validateLabCoordinatorValidation();
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void validateWork(){
+        Company company = new Company("Many Labs");
+        ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+        Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+        List<ParameterCategory> list=new ArrayList();
+        list.add(pc1);
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        NhsCode nhs = new NhsCode("123456789012");
+        TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        RefValue rv = new RefValue("mg",10,20);
+        TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
+        TestParameter tp = new TestParameter(p1,tpr);
+        List<TestParameter> tpList = new ArrayList<>();
+        tpList.add(tp);
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
+        test.validateWork();
+        boolean result = test.validateWork();
+        Assert.assertFalse(result);
+    }
 }

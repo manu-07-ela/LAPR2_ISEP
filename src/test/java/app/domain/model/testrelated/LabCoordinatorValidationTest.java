@@ -71,7 +71,5 @@ public class LabCoordinatorValidationTest {
     public void recordLabCoordinatorValidationDate() {
     }
 
-    @Test
-    public void getLabCoordDate() {
-    }
+
 }

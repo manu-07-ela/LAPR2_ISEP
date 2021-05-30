@@ -18,7 +18,7 @@ public class ExternalModule3APIAdapter implements ExternalModuleReferencesValue 
         return new RefValue(metric,minValue,maxValue);
     }
 
-    
+
 
 
 

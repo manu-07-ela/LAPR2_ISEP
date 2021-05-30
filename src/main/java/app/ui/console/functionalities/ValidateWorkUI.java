@@ -32,7 +32,7 @@ public class ValidateWorkUI implements Runnable{
     public void run() {
         try {
             boolean flag;
-            System.out.println("%n/========== Work Validation ==========/");
+            System.out.println("/========== Work Validation ==========/");
             do {
                 TestDTO selectedTest = (TestDTO) Utils.showAndSelectOne(validateWorkController.getTestsToValidateList(), "Select test to Validate.");
                 validateWork(selectedTest);
@@ -59,7 +59,7 @@ public class ValidateWorkUI implements Runnable{
                 validateWorkController.getSelectedTest(selectedTest);
                 validateWorkController.createTestValidation();
 
-                System.out.println("%nRegistration Date:");
+                System.out.println("\nRegistration Date:");
                 System.out.printf("%s",validateWorkController.showRegistrationDate());
                 resposta = Utils.readLineFromConsole("Do you want to validate the Registration Date? (S/N):");
                 if (resposta.equalsIgnoreCase("S")) {
@@ -67,7 +67,7 @@ public class ValidateWorkUI implements Runnable{
                     System.out.println("Registration Validation Date validated with sucess.");
                 }
 
-                System.out.println("%nChemical Analysis Date: ");
+                System.out.println("\nChemical Analysis Date: ");
                 System.out.printf("%s",validateWorkController.showChemicalAnalysisDate());
 
                 resposta = Utils.readLineFromConsole("Do you want to validate the Chemical Analysis Date? (S/N):");
@@ -76,29 +76,29 @@ public class ValidateWorkUI implements Runnable{
                     System.out.println("Chemical Analysis Date validated with sucess.");
                 }
 
-                System.out.println("%nDiagnosis Date: ");
+                System.out.println("\nDiagnosis Date: ");
                 System.out.printf("%s",validateWorkController.showDiagnosisDate());
 
                 resposta = Utils.readLineFromConsole("Do you want to validate the Diagnosis Date? (S/N):");
                 if (resposta.equalsIgnoreCase("S")) {
                     fl = validateWorkController.validateDate("Diagnosis Date");
-                    System.out.printf("Diagnosis Validation Date validated with success.%n");
+                    System.out.printf("Diagnosis Validation Date validated with success.\n");
                 }
 
-                System.out.printf("%n%s", validateWorkController.showDates());
+                System.out.printf("\n%s", validateWorkController.showDates());
                 boolean flag = Utils.confirm("Do you validate the three validated dates? (S/N)");
 
                 if (flag) {
                     fl = validateWorkController.recordValidationDate(validateWorkController.getSelectedTest(selectedTest));
-                    System.out.printf("Diagnosis Validation Date validated with sucess - %s%n", validateWorkController.showLabCoordValidationDate(validateWorkController.getSelectedTest(selectedTest)));
+                    System.out.printf("Diagnosis Validation Date validated with sucess - %s\n", validateWorkController.showLabCoordValidationDate(validateWorkController.getSelectedTest(selectedTest)));
                     validateWorkController.notifyTheClient(validateWorkController.getSelectedTest(selectedTest));
-                    System.out.println("%nClient successfully informed.");
+                    System.out.println("\nClient successfully informed.");
                     fl = false;
                 }
 
             } while(fl);
         } catch (IllegalArgumentException | IOException e){
-            System.out.printf("%nMessage: %s%n" ,e.getMessage());
+            System.out.printf("\nMessage: %s\n" ,e.getMessage());
         }
     }
 

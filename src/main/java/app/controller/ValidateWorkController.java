@@ -1,12 +1,9 @@
 package app.controller;
 
 import app.domain.model.Company;
-
 import app.domain.model.testrelated.EmailNotification;
 import app.domain.model.testrelated.SMSNotification;
 import app.domain.model.testrelated.Test;
-
-
 import app.domain.store.TestStore;
 import app.mappers.DateMapper;
 import app.mappers.TestMapper;
@@ -85,8 +82,8 @@ public class ValidateWorkController {
     }
 
     /**
-     *
-     * @return
+     * Gets the list of tests to validate.
+     * @return list of tests to validate.
      */
     public List<TestDTO> getTestsToValidateList(){
         this.testStore=company.getTestStore();
@@ -95,7 +92,9 @@ public class ValidateWorkController {
     }
 
     /**
-     * @param selectedTest
+     * Get the test with the Internal Code
+     * @param selectedTest Test that we intend to get.
+     * @return the wanted test.
      */
     public Test getSelectedTest(TestDTO selectedTest){
         test = testStore.getTestByInternalCode(selectedTest.getInternalCode());
@@ -103,15 +102,17 @@ public class ValidateWorkController {
     }
 
     /**
-     *
-     * @return
+     * Creates test validation.
+     * @return true if Test Validation is created. Otherwise, returns false.
      */
     public boolean createTestValidation(){
         return test.validateWork();
     }
 
     /**
-     *
+     * Validates requested Date.
+     * @param date Date to validate
+     * @return true if Date is valid. Otherwise, returns false.
      */
     public boolean validateDate(String date){
         return test.validateDate(date);
@@ -174,6 +175,4 @@ public class ValidateWorkController {
         emailNotification.notification(selectedTest);
         smsNotification.notification(selectedTest);
     }
-
-
 }

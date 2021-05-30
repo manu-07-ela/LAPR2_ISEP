@@ -14,17 +14,17 @@ public class LabCoordinatorValidation {
     /**
      * Register Date Validation
      */
-    private boolean registerDateValidation = false;
+    private boolean registerDateValidation;
 
     /**
      * Chemical Analysis Date Validation
      */
-    private boolean chemicalAnalysisDateValidation = false;
+    private boolean chemicalAnalysisDateValidation;
 
     /**
      * Diagnosis Date Validation
      */
-    private boolean diagnosisDateValidation = false;
+    private boolean diagnosisDateValidation;
     /**
      * The date and time the Lab Coordinator Validation was created.
      */
@@ -34,7 +34,9 @@ public class LabCoordinatorValidation {
      * Build an instance of {@code LabCoordinatorValidation}
      */
     public LabCoordinatorValidation(){
-
+        this.registerDateValidation = false;
+        this.chemicalAnalysisDateValidation = false;
+        this.diagnosisDateValidation = false;
     }
 
 
@@ -82,7 +84,5 @@ public class LabCoordinatorValidation {
      * @return Lab Coordinator Validation date
      */
     public Date getLabCoordDate(){ return this.labCoordDate; }
-
-
 
 }

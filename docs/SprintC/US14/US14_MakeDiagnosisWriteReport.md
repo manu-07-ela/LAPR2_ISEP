@@ -18,7 +18,7 @@ client.
 uses an external module that is responsible for doing an automatic validation using test reference
 values.
 
-> Each test is characterized by [...] , the date and time of the diagnosis made
+>Each test is characterized by [...] , the date and time of the diagnosis made
 by the specialist doctor, [...].
 
 **From the client clarifications:**
@@ -51,6 +51,7 @@ by the specialist doctor, [...].
 
 * **AC1:** The report is free text and should have no more than 400 words.
 * **AC2:** The medical report cannot be edited.
+* **AC3:** Specialist doctor be able to make a diagnosis and write a report for more than one test.
 
 ### 1.4. Found out Dependencies
 
@@ -82,7 +83,7 @@ by the specialist doctor, [...].
 
 ### 1.7 Other Relevant Remarks
 
-* The test goes to the Diagnosis made status after the conclusion of the medical report.
+* The test goes to the Diagnosis Made status after the conclusion of the medical report.
 
 ## 2. OO Analysis
 
@@ -92,7 +93,8 @@ by the specialist doctor, [...].
 
 ### 2.2. Other Remarks
 
-n/a
+* For the integration between user stories 4, 5, 12, and 15 to be carried out correctly, the test must change its status as it goes through each step of the user stories.
+![TestLifeCycle](TestLifeCycle.svg)
 
 ## 3. Design - User Story Realization 
 
@@ -106,10 +108,10 @@ n/a
 |                | ... coordinating the US?                                        | WriteMedicalReportController  | **Controller**                                                                                                                                                                                         |
 | Step 2  		 | ... knowing the tests that are waiting for the medical report?  | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
 |                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
-|                | ... transferring business data in DTO?                          | TestDto                       | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+|                | ... transferring business data in DTO?                          | TestMapper                    | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
 | Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
 | Step 4  		 | ... knowing the parameters analyzed and the respective data?    | Test                          | **IE**: The test knows its own results.                                                                                                                                                                |
-|                | ... transferring business data in DTO?                          | TestParameterDto              | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+|                | ... transferring business data in DTO?                          | TestParameterMapper           | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
 | Step 5         | ... saving the typed data?                                      | MedicalReport                 | **IE**: Owns its data.                                                                                                                                                                                 |
 | Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
 | Step 7         | ... validating all data (global validation)?                    | Test                          | **IE**: Know if already have a medical report.                                                                                                                                                         |
@@ -131,8 +133,8 @@ Other software classes (i.e. Pure Fabrication) identified:
  * WriteMedicalReportUI
  * WriteMedicalReportController
  * TestStore
- * TestDto
- * TestParameterDto
+ * TestMapper
+ * TestParameterMapper
 
 ## 3.2. Sequence Diagram (SD)
 
@@ -148,9 +150,133 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 4. Tests
 
+**Test 1:** Check that it is not possible to create an instance of the medical report class with null values.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureNullIsNotAllowed(){
+        MedicalReport md = new MedicalReport(null);
+    }
+
+
+**Test 2:** Check that it is not possible to create an instance of the Medical Report class with a diagnosis invalid - AC1.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureDiagnosisMeetsAC1_1(){
+       MedicalReport md = new MedicalReport("Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test");
+    }
+
+**Test 3:** Check that it is not possible to add more than one Medical Report to the test - AC2.
+
+    @Test
+    public void addInvalidMedicalReport(){
+        Company company = new Company("Many Labs");
+        ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+        Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+        List<ParameterCategory> list=new ArrayList();
+        list.add(pc1);
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        NhsCode nhs = new NhsCode("123456789012");
+        TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        RefValue rv = new RefValue("mg",10,20);
+        TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
+        TestParameter tp = new TestParameter(p1,tpr);
+        List<TestParameter> tpList = new ArrayList<>();
+        tpList.add(tp);
+        List<TestType> ttlist = new ArrayList<>();
+        ttlist.add(tt);
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
+        test.addMedicalReport("The patient is healthy");
+        boolean result = test.addMedicalReport("The patient is healthy");
+        Assert.assertFalse(result);
+    }
+
 # 5. Construction (Implementation)
 
+##Class WriteMedicalReportController
+
+     /**
+     * Get a list of objects of type TestDTO.
+     * @return list with the tests with the analyzed samples.
+     */
+    public List<TestDTO> getTestHasSamplesAnalyzedList(){
+        this.testStore=company.getTestStore();
+        checkPossibilityOfWriteAReport(testStore.getTestHasSamplesAnalyzedList());
+        List<Test> testHasSamplesAnalyzedList = testStore.getTestHasSamplesAnalyzedList();
+        return testMapper.toDto(testHasSamplesAnalyzedList);
+    }
+
+    /**
+     * Check if there is any test waiting for the medical report.
+     */
+    public void checkPossibilityOfWriteAReport(List<Test> testHasSamplesAnalyzedList){
+        if (testHasSamplesAnalyzedList.isEmpty())
+            throw new IllegalArgumentException("There are no tests with the samples analyzed.");
+    }
+     
+     /**
+     * Get the list with the information of the analyzed parameters of the test that we are getting the diagnosis.
+     * @param selectedTest Test that we intend to write the medical report.
+     * @return the list with the information of the analyzed parameters of the test.
+     */
+    public List<TestParameterDTO> getTestParameterList(TestDTO selectedTest){
+        test = testStore.getTestByInternalCode(selectedTest.getInternalCode());
+        List<TestParameter> testParametersList =test.getTestParameterList();
+        return testPMapper.toDTO(testParametersList);
+    }
+
+    /**
+     * Add the medical report to the test.
+     * @param diagnosis The diagnosis made by the specialist doctor.
+     * @return true if the medical report was added. Otherwise, false.
+     */
+    public boolean addMedicalReport(String diagnosis){
+        return test.addMedicalReport(diagnosis);
+    }
+
+##Class Test
+
+     /**
+     * Adds the medical report to the test.
+     * @param diagnosis The diagnosis made by the specialist doctor.
+     * @return true if the medical report was added. Otherwise, false.
+     */
+    public boolean addMedicalReport(String diagnosis) {
+        if (validateMedicalReport()) {
+            this.md = new MedicalReport(diagnosis);
+            this.stateOfTest = StateOfTest.DiagnosisMade;
+            return true;
+        }
+        return false;
+    }
+
+##Class MedicalReport
+
+    /**
+     * Build an instance of {@code MedicalReport} by receiving the diagnosis.
+     * @param diagnosis The report of the test.
+     */
+    public MedicalReport(String diagnosis){
+        checkReportRules(diagnosis);
+        this.diagnosis=diagnosis;
+        this.createdAt=Calendar.getInstance().getTime();
+    }
+
+    /**
+     * Checks whether the diagnosis contains all business rules.
+     * @param diagnosis diagnosis made by specialist doctor.
+     */
+    private void checkReportRules (String diagnosis) {
+        if (StringUtils.isBlank(diagnosis))
+            throw new IllegalArgumentException("Report cannot be blank.");
+        String[] aux = diagnosis.split(" ");
+        if ( aux.length > 400 )
+            throw new IllegalArgumentException("The report should have no more than 400 words.");
+    }
+
 # 6. Integration and Demo 
+
+* For some demonstration purposes, the following objects were added in the bootstrap method: parameter category, parameter, test type and a client.
 
 # 7. Observations
 
