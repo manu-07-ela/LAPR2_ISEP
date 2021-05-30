@@ -53,41 +53,15 @@ public class RecordResultsUI implements  Runnable {
                 }
             }while (verificacao);
 
-
-           // String barcode = Utils.readLineFromConsole("Enter the barcode number to record the results of the test");
-           // List<TestParameterDto> listaDeParametros = controller.getTestParameterList(barcode);
-
-           /* List<TestParameter> listaDeParametros = new ArrayList<>();
-            ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
-            List<ParameterCategory> listPC = new ArrayList();
-            listPC.add(pc);
-            Parameter p = new Parameter("HB000","test","method", pc);
-            Parameter p2 = new Parameter("PLT00","test","method", pc);
-
-
-            TestParameterDTO temDto2 = new TestParameterDTO("frefrfe","PLT00");
-            List<TestParameterDTO> listaDeParametrosDTO = new ArrayList<>();
-            listaDeParametrosDTO.add(temDto2);
-
-            TestParameter tpm1 = new TestParameter(p);
-            TestParameter tpm2 = new TestParameter(p2);
-           // listaDeParametros.add(tpm1);
-            listaDeParametros.add(tpm2);
-            Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
-            TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
-            NhsCode nhs = new NhsCode("123456789012");
-            Test test = new Test(la,nhs,tt,listaDeParametros);
-            int i=0;
-            controller.setTest(test);
-
-            */
             int i=0;
             while (i <= listaDeParametros.size()){
                 TestParameterDTO parameter;
                 do {
                     System.out.println("Choose the Parameter you want to register the results");
+                    int j=1;
                     for (TestParameterDTO parameterDTO: listaDeParametros) {
-                        System.out.println(parameterDTO.toString2());
+                        System.out.println(j+ "- "+ parameterDTO.toString2());
+                        j++;
                     }
                     parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
                     if (parameter==null){

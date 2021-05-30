@@ -103,9 +103,6 @@ public class ClinicalAnalysisLaboratoryDTO {
      */
     @Override
     public String toString() {
-        return "ClinicalAnalysisLaboratory{" +
-                "laboratoryId='" + laboratoryId + '\'' +
-                ", listOfTestTypes=" + listOfTestTypes +
-                '}';
+        return String.format("Laboratory ID: %s%n", laboratoryId);
     }
 }
