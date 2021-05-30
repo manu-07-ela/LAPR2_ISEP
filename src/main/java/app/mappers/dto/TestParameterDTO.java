@@ -125,6 +125,10 @@ public class TestParameterDTO {
         return this.getParameterName().equals(otherTestParameterDTO.getParameterName()) && this.getTestParameterResult()==null  || this.getParameterName().equals(otherTestParameterDTO.getParameterName()) && this.getTestParameterResult().equalsIgnoreCase(otherTestParameterDTO.getTestParameterResult()) && this.getTestParameterMetric().equalsIgnoreCase(otherTestParameterDTO.getTestParameterMetric());
     }
 
+    /**
+     * Textual description of the TestParameterDTO
+     * @return Information about the TestParameterDTO
+     */
     public String toString2(){
         return String.format("----------* %s Parameter Information *----------%n ParameterId",parameterName,parameterId);
     }

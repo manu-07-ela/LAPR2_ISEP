@@ -197,6 +197,13 @@ public class Test {
      */
     public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
 
+    /**
+     * Get the laboratory associated with the test
+     * @return the laboratory associated with the test
+     */
+    public ClinicalAnalysisLaboratory getLab() {
+        return lab;
+    }
 
     /**
      * Get the list of samples associated with a test
@@ -239,7 +246,7 @@ public class Test {
         boolean verificacao=false;
         for (TestParameter testParameter: testParameterList) {
             if (testParameter.getParameterId().equals(parameterID)){
-                    verificacao =  testParameter.AddResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
+                    verificacao =  testParameter.addResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
                 if (!verificacao){
                     return false;
                 }
