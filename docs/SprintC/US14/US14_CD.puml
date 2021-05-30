@@ -28,6 +28,7 @@ class Test{
 +getInternalCode()
 +addMedicalReport(diagnosis)
 +validateMedicalReport()
+-updateStateToDiagnosisMade()
 }
 
 class MedicalReport{
@@ -101,7 +102,7 @@ TestMapper ..> TestDto
 TestMapper ..> Test
 Company "1"--"1..*" Test : performs >
 TestParameter "1..*" --"1" Test : requests analysis of <
-Test "*"--"1" MedicalReport : request >
+Test "1"--"1" MedicalReport : request >
 Company"1"--> "1" TestStore : uses
 
 @enduml

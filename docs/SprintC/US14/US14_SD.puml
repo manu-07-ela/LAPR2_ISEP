@@ -52,7 +52,7 @@ deactivate TS
 CTRL -> TEST : testParametersList= getTestParametersList()
 activate TEST
 deactivate TEST
-CTRL -> tpMAPPER : toDto(testParametersList)
+CTRL -> tpMAPPER : toDTO(testParametersList)
 activate tpMAPPER
 ref over tpMAPPER
 SD_TestParameterMapper_toDto_List
@@ -83,6 +83,9 @@ TEST --> REPORT** : create(diagnosis)
 REPORT -> REPORT : addCreationDate()
 activate REPORT
 deactivate REPORT
+TEST -> TEST : updateStateToDiagnosisMade()
+activate TEST
+deactivate TEST
 deactivate TEST
 CTRL --> UI : result
 deactivate CTRL
