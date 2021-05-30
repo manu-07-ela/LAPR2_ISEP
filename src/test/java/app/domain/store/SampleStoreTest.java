@@ -82,5 +82,5 @@ public class SampleStoreTest {
         Assert.assertFalse(result);
 
     }
-    
+
 }
