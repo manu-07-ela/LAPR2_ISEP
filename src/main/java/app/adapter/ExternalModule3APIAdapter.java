@@ -8,7 +8,11 @@ import com.example1.ExternalModule3API;
 
 public class ExternalModule3APIAdapter implements ExternalModuleReferencesValue {
 
-
+    /**
+     *  It creates a object of RefValues using the ExternalModule3API
+     * @param parameterId The code of the parameter
+     * @return an instance of RefValue
+     */
     @Override
     public RefValue getRefValue(String parameterId) {
         ExternalModule3API externalAPI = new ExternalModule3API();

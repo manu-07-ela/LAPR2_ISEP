@@ -87,7 +87,7 @@ public class RecordResultsUI implements  Runnable {
                 do {
                     System.out.println("Choose the Parameter you want to register the results");
                     for (TestParameterDTO parameterDTO: listaDeParametros) {
-                        parameterDTO.toString2();
+                        System.out.println(parameterDTO.toString2());
                     }
                     parameter = (TestParameterDTO) Utils.selectsObject(listaDeParametros);
                     if (parameter==null){
