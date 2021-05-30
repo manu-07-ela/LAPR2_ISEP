@@ -36,7 +36,43 @@ public class ParameterMapper {
         return new ParameterDTO(parameter.getCode(),parameter.getShortName(),parameter.getDescription(), toDtoParameterCategoryDTo(parameter.getCategory()));
     }
 
+    /**
+     * Transforms an object of type ParameterCategory into an object of type ParameterCategoryDTO.
+     * @param pc An ParameterCategory object.
+     * @return An instance of ParameterCategoryDTO.
+     */
     public ParameterCategoryDTO toDtoParameterCategoryDTo(ParameterCategory pc){
         return new ParameterCategoryDTO(pc.getCode(), pc.getName());
+    }
+
+    /**
+     * Transforms a list of objects of type ParameterDTO into a list of objects of type Parameter.
+     * @param parametersDTO A list of ParameterDTO.
+     * @return A list of Parameter.
+     */
+    public List<Parameter> toModel (List<ParameterDTO> parametersDTO){
+        List<Parameter> parameter = new ArrayList<>();
+        for(ParameterDTO parameterDTO: parametersDTO) {
+            parameter.add(this.toModel(parameterDTO));
+        }
+        return parameter;
+    }
+
+    /**
+     * Transforms an object of type ParameterDTO into an object of type Parameter.
+     * @param parameter An ParameterDTO object.
+     * @return An instance of Parameter.
+     */
+    public Parameter toModel(ParameterDTO parameter) {
+        return new Parameter(parameter.getCode(),parameter.getShortName(),parameter.getDescription(), toModelParameterCategoryDTo(parameter.getCategory()));
+    }
+
+    /**
+     * Transforms an object of type ParameterCategoryDTO into an object of type ParameterCategory.
+     * @param pc An ParameterCategoryDTO object.
+     * @return An instance of ParameterCategory.
+     */
+    public ParameterCategory toModelParameterCategoryDTo(ParameterCategoryDTO pc){
+        return new ParameterCategory(pc.getCode(), pc.getName());
     }
 }

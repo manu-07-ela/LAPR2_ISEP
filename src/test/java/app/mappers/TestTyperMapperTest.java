@@ -72,4 +72,15 @@ public class TestTyperMapperTest {
         Assert.assertEquals(pcDto,result);
     }
 
+    @Test
+    public void toModelpclist() {
+        List<ParameterCategory> result = ttMapper.toModelpclist(listPCDto);
+        Assert.assertEquals(listPC,result);
+    }
+
+    @Test
+    public void toModellistpc() {
+        ParameterCategory result = ttMapper.toModelpc(pcDto);
+        Assert.assertEquals(pc,result);
+    }
 }

@@ -85,6 +85,7 @@ public class ClinicalAnalysisLaboratoryDTO {
      * Get the laboratoryId of the Clinical Analysis Laboratory
      * @return Clinical Analysis Laboratory's ID
      */
+
     public String getLaboratoryId() {
         return laboratoryId;
     }
@@ -94,5 +95,17 @@ public class ClinicalAnalysisLaboratoryDTO {
      */
     public List<TestTypeDTO> getListOfTestTypes() {
         return listOfTestTypes;
+    }
+
+    /**
+     * Textual description of the Laboratory
+     * @return Information about the Laboratory
+     */
+    @Override
+    public String toString() {
+        return "ClinicalAnalysisLaboratory{" +
+                "laboratoryId='" + laboratoryId + '\'' +
+                ", listOfTestTypes=" + listOfTestTypes +
+                '}';
     }
 }
