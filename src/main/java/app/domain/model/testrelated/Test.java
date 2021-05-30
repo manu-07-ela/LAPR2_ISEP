@@ -172,7 +172,7 @@ public class Test {
     }
 
     /**
-     *
+
      * @return
      */
     public List<Date> getChemicalAnalysisDate() {
@@ -288,7 +288,7 @@ public class Test {
      * Global validation of a lab coordinator validation.
      * @return false if the lab coordinator validation already exists. Otherwise, it returns true.
      */
-    private boolean validateLabCoordinatorValidation() {
+    public boolean validateLabCoordinatorValidation() {
         if (this.lcv != null) {
             return false;
         }
