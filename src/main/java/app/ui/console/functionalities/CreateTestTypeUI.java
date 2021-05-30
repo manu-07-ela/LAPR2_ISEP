@@ -44,11 +44,6 @@ public class CreateTestTypeUI implements Runnable {
      */
     public void createTestType(){
 
-        List <String> listaDeAPI = new ArrayList();
-        listaDeAPI.add("CovidReferenceValues1API");
-        listaDeAPI.add("ExternalModule2API");
-        listaDeAPI.add("ExternalModule3API");
-
         boolean dadosInvalidos=true;
 
         do{
@@ -83,6 +78,7 @@ public class CreateTestTypeUI implements Runnable {
                     }
                 } while (confirmation);
 
+                List <String> listaDeAPI = createTestTypectrl.getListaDeAPIs();
                 Utils.showList(listaDeAPI,"Choose the API the will generate it's reference values");
                 Object optionAPI = Utils.selectsObject(listaDeAPI);
                 if (optionAPI == null){

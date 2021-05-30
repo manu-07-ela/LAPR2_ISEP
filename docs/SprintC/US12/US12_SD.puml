@@ -46,9 +46,9 @@ UI -> CCT : request the result value and metric
 deactivate UI
 CCT -> UI : types requested data
 activate UI
-UI -> CTRL : addTestResult(testparameterId,result,metric)
+UI -> CTRL : addTestResult(parameterId,result,metric)
 activate CTRL
-CTRL -> Test : addTestResult(testparameterId,result,metric)
+CTRL -> Test : addTestResult(parameterId,result,metric)
 activate Test
 ref over Test
 SD_AddResult

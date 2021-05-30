@@ -9,6 +9,10 @@ import app.domain.store.*;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
@@ -64,6 +68,10 @@ public class Company {
      *  Represents a instance of the store of Tests
      */
     private final TestStore testStore;
+    /**
+     * A List with all API's
+     */
+    private List<String> listaDeAPI = new ArrayList(Arrays.asList("CovidReferenceValues1API", "ExternalModule1API","ExternalModule2API"));
 
 
     /**
@@ -172,5 +180,12 @@ public class Company {
      */
     public TestStore getTestStore(){
         return testStore;
+    }
+    /**
+     * Gets the list of API´s
+     * @return the list of API´s
+     */
+    public  List<String> getListDeAPI() {
+        return listaDeAPI;
     }
 }

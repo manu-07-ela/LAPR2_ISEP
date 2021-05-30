@@ -1,26 +1,73 @@
 @startuml
 
+
+package adapter{
+class CovidReferenceValues1APIAdapter
+class ExternalModule2APIAdapter
+class ExternalModule3APIAdapter
+package interface{
+class ExternalModule
+}
+}
+package mappers{
+class TestParameterMapper
+package dto{
+class TestParameterDTO
+}
+}
+
+package domain{
+package model{
+class Company
+package testRelated {
+class TestType
+class TestParameter
+class TestParameterResult
+class Test
+class Parameter
+class ReferenceValue
+}
+}
+package store{
+class TestStore
+}
+}
+
+
+package controller{
+class RecordResultsController
+}
+package ui{
+class RecordResultsUI
+}
+
+
+
+
 class Company{
 -String designation
 +getTestStore()
 }
 
-class RecordTestResultsUI{
+class RecordResultsUI{
 
 }
 
-class RecordTestResultsController{
-+getParameterList()
+class RecordResultsController{
++getTestParameterList()
 +AddResult(parameterSelected,result,metric)
 }
 
-class ParameterMapper{
-+ToDTO(ParameterList)
+class TestParameterMapper{
++ToDTO(TestParameterList)
 }
 
 class Test {
--code
--NhsCode
+-client
+-nhscode
+-testParameterList
+-stateOfTest
+-internalCode
 -createdAt
 +AddResult(refValue,result,metric)
 +getParameterList()
@@ -47,7 +94,7 @@ class Parameter{
 -description
 }
 
-class ParameterDTO{
+class TestParameterDTO{
 }
 
 class ReferenceValue{
@@ -59,6 +106,7 @@ class TestType{
   -String description
   -String collectingMethod
   -List<ParameterCategories> listOfParameterCategories
+  -String referenceAdapter
   +getExternalModule()
 
 }
@@ -75,9 +123,6 @@ class CovidReferenceValues1APIAdapter{
  +ReferenceValue getReferenceValue(Parameter param)
 }
 
-class ExternalModuleAdapter2{
- +ReferenceValue getReferenceValue(Parameter param)
-}
 
 interface ExternalModule{
 +getReferenceValue(Parameter param)
@@ -85,16 +130,16 @@ interface ExternalModule{
 
 
 
-RecordTestResultsUI ..> RecordTestResultsController
-RecordTestResultsUI ..> ParameterDTO
-RecordTestResultsController ..> Company
-RecordTestResultsController ..> ParameterMapper
-RecordTestResultsController ..> Test
-RecordTestResultsController ..> TestStore
+RecordResultsUI ..> RecordResultsController
+RecordResultsUI ..> TestParameterDTO
+RecordResultsController ..> Company
+RecordResultsController ..> TestParameterMapper
+RecordResultsController ..> Test
+RecordResultsController ..> TestStore
 Company ---> TestStore : uses
-ParameterMapper ......> Parameter
-ParameterMapper ..> ParameterDTO
-TestType"*" -> "1" ExternalModule : makes use of
+TestParameterMapper ......> TestParameter
+TestParameterMapper ..> TestParameterDTO
+TestType"*" --> "1" ExternalModule : makes use of
 TestStore "1" -> "*" Test : conducts
 Test "*" -> "1" TestType : is of
 Test "1" ---> "1..*" TestParameter : requests analysis of
