@@ -57,30 +57,32 @@ be performed to that client.
 ### 1.3. Acceptance Criteria
 
 * **AC1:** The receptionist must select the parameters to be analysed from all possible parameters in accordance with the test type.
+* **AC2:** The test code is a Sequential number with 12 digits and automatically generated
+* **AC3:** The nhs code has 12 alphanumeric characters
 
 ### 1.4. Found out Dependencies
 
 * There is a dependency to US03 since at least a client must exist to register a test to be performed.
+* There needs to be at least a test type, a parameter and a parameter category registered in the system to register a test to be performed.
 
 ### 1.5 Input and Output Data
 
 **Input Data:**
 
 * Typed data:
-	* a reference,
-	* a designation,
-	* an informal description
-	* a technical description
-	* an estimated duration
-	* an estimated cost
+	* Test code
+	* Nhs code
+	* Tax identification number
 
 * Selected data:
-	* Classifying task category
+	* Test Type
+	* Parameter Category
+	* Parameter
 
 
 **Output Data:**
 
-* List of existing task categories
+* List of existing tests
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -89,44 +91,42 @@ be performed to that client.
 
 ### 1.7 Other Relevant Remarks
 
-* The created task stays in a "not published" state in order to distinguish from "published" tasks.
-
-
 ## 2. OO Analysis
 
 ### 2.1. Relevant Domain Model Excerpt
 
-![US04_MD](US04_MD.svg)
+![US04_DM](US04_DM.svg)
 
 ### 2.2. Other Remarks
-
-n/a
-
 
 ## 3. Design - User Story Realization
 
 ### 3.1. Rationale
 
-**SSD - Alternative 1 is adopted.**
-
-| Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
-|:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | CreateTaskUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			  		 |	... coordinating the US? | CreateTaskController | Controller                             |
-| 			  		 |	... instantiating a new Task? | Organization   | Creator (Rule 1): in the DM Organization has a Task.   |
-| 			  		 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
-| 			  		 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
-| 			  		 |							 | Organization   | IE: knows/has its own Employees|
-| 			  		 |							 | Employee  | IE: knows its own data (e.g. email) |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |	...saving the inputted data? | Task  | IE: object created in step 1 has its own data.  |
-| Step 4  		 |	...knowing the task categories to show? | Platform  | IE: Task Categories are defined by the Platform. |
-| Step 5  		 |	... saving the selected category? | Task  | IE: object created in step 1 is classified in one Category.  |
-| Step 6  		 |							 |             |                              |              
-| Step 7  		 |	... validating all data (local validation)? | Task | IE: owns its data.| 
-| 			  		 |	... validating all data (global validation)? | Organization | IE: knows all its tasks.| 
-| 			  		 |	... saving the created task? | Organization | IE: owns all its tasks.| 
-| Step 8  		 |	... informing operation success?| CreateTaskUI  | IE: is responsible for user interactions.  | 
+| Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
+|:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Step 1  		 | ... interacting with the actor?                                 | RegisterTestUI                | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
+|                | ... coordinating the US?                                        | RegisterTestController        | **Controller**                                                                                                                                                                                         |
+| Step 2  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 3  		 | ... saving the typed data?                                      | Test                          | **IE**: The test knows its own data.                                                                                                                                                                   |
+| Step 4  		 | ... knowing the Clinical Analysis Laboratories?                 | ClinicalAnalysisLaboratoryStore| **IE**: The ClinicalAnalysisLaboratoryStore knows all the clinical laboratories.                                                                                                                      |
+|                | ... transferring business data in DTO?                          | ClinicalAnalysisLaboratoryMapper| **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                       |
+| Step 5         | ... saving the typed data?                                      | Test                          | **IE**: Owns its data.                                                                                                                                                                                 |
+| Step 6  		 | ... knowing the Test Types?                                     | TestTypeStore                 | **IE**: The TestTypeStore knows all the test types.                                                                                                                                                    |
+|                | ... transferring business data in DTO?                          | TestTypeMapper                | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+| Step 7         | ... saving the typed data?                                      | Test                          | **IE**: Owns its data.                                                                                                                                                                                 |
+| Step 8  		 | ... knowing the Parameter Categories?                           | ParameterCategoryStore        | **IE**: The ParameterCategoryStore knows all parameter categories.                                                                                                                                     |
+|                | ... transferring business data in DTO?                          | ParameterCategoryMapper       | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+| Step 9         | ... saving the typed data?                                      | Test                          | **IE**: Owns its data.                                                                                                                                                                                 |
+| Step 10  		 | ... knowing the Parameters?                                     | ParameterStore                | **IE**: The ParameterStore knows all the parameters.                                                                                                                                                   |
+|                | ... transferring business data in DTO?                          | ParameterMapper               | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+| Step 11        | ... saving the typed data?                                      | Test                          | **IE**: Owns its data.                                                                                                                                                                                 |
+| Step 12  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 13  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 14        | ... validating all data (global validation)?                    | TestStore                     | **IE**: Knows if theres alredy a test registered.                                                                                                                                                      |
+|        		 | ... validating all data (local validation)?                     | Test                          | **IE**: Owns its data.                                                                                                                                                                                 |
+|                | ... saving the creation time?                                   | Test                          | **IE**: The Test knows when it was created.                                                                                                                                                            |
+| Step 15  		 | ... informing operation success?                                | RegisterTestUI                | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 
@@ -152,70 +152,99 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 4. Tests
 
-**Test 1:** Check that it is not possible to create an instance of the Task class with null values.
+**Test 1:** Check that it is not possible to create an instance of National Healthcare Service code without 12 digits -AC3.
 
 	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Task instance = new Task(null, null, null, null, null, null, null);
-	}
-
-
-**Test 2:** Check that it is not possible to create an instance of the Task class with a reference containing less than five chars - AC2.
-
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureReferenceMeetsAC2() {
-		Category cat = new Category(10, "Category 10");
-		
-		Task instance = new Task("Ab1", "Task Description", "Informal Data", "Technical Data", 3, 3780, cat);
-	}
-
-
-*It is also recommended to organize this content by subsections.*
+    public void ensureNhsCodeMeetsAC3() {
+        new Nhscode("123");
+    }
 
 # 5. Construction (Implementation)
 
 
-## Class CreateTaskController
+## Class RegisterTestController
 
-		public boolean createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Integer catId)() {
-		
-			Category cat = this.platform.getCategoryById(catId);
-			
-			Organization org;
-			// ... (omitted)
-			
-			this.task = org.createTask(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			
-			return (this.task != null);
-		}
+		/**
+     * Create a test by receiving a client, nhscode, testType, testParameterList, lab as parameter
+     * @param cl the client associated with the test
+     * @param nhscode the clients nhscode
+     * @param testType the client testtype DTO
+     * @param ParameterList the ParameterDTO List 
+     * @param lab the lab where the receptionist is working
+     * @return false if the test already exists or is null. Otherwise, it returns true.
+     */
+    public boolean createTest(Client cl, NhsCode nhscode, TestTypeDTO testType, List<ParameterDTO> ParameterList, ClinicalAnalysisLaboratoryDTO lab) {
+        List<TestParameter> listpm = new ArrayList<>();
+        listpm = addParameter(pmmapper.toModel(ParameterList),listpm);
+        this.t=tStore.createTest(cl,nhscode,ttmapper.toModel(testType),listpm,labmapper.toModel(lab));
+        return this.tStore.validateTest(t);
+    }
+	/**
+     * Save the test case it is in a valid state.
+     * @return true if the test was saved. Otherwise, false.
+     */
+    public boolean saveTest() {
+        return this.tStore.saveTest(t);
+    }
 
 
-## Class Organization
+## Class TestStore
 
 
-		public Task createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Category cat)() {
-		
-	
-			Task task = new Task(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			if (this.validateTask(task))
-				return task;
-			return null;
-		}
+		/**
+     * Create a test
+     * @param cl the client associated with the test
+     * @param nhsCode the nhs code of the test
+     * @param testType the test type associated with the test
+     * @param testParameterList the list of parameters associated with the test
+     * @return the test created
+     */
+    public Test createTest(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab){
+        return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()));
+	}
+	/**
+     * Save the Test case it is in a valid state.
+     * @param t The Test we intend to save
+     * @return true if Test was saved. Otherwise, false.
+     */
+    public boolean saveTest(Test t) {
+        if (!validateTest(t)){
+            return false;
+        }else{
+            return testList.add(t);
+        }
+    }
 
+## Class Test
+
+	/**
+     * Constructs an instance of {@code Test} receiving the client, National Healthcare Service code, test type, test parameter list , Clinical Analysis Laboratory and internal code by parameter
+     * @param cl a client
+     * @param nhscode the National Healthcare Service code
+     * @param testType the test type
+     * @param testParameterList the Test Parameter List
+     * @param lab the Clinical Analysis Laboratory
+     * @param internalCode the Internal code
+     */
+    public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,String internalCode) {
+        this.client = cl;
+        this.nhscode = new NhsCode(nhscode);
+        this.testType = testType;
+        this.testParameterList = testParameterList;
+        this.stateOfTest = StateOfTest.TestRegistered;
+        this.internalCode = internalCode;
+        this.testAddDate = Calendar.getInstance().getTime();
+        this.description = testType.getCollectingMethod();
+        this.lab = lab;
+        this.md = null;
+        this.samples = new ArrayList<>();
+        this.lcv = null;
+    }
 
 
 # 6. Integration and Demo
-
-* A new option on the Employee menu options was added.
 
 * Some demo purposes some tasks are bootstrapped while system starts.
 
 
 # 7. Observations
-
-Platform and Organization classes are getting too many responsibilities due to IE pattern and, therefore, they are becoming huge and harder to maintain.
-
-Is there any way to avoid this to happen?
-
