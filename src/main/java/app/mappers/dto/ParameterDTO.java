@@ -1,7 +1,5 @@
 package app.mappers.dto;
 
-import app.domain.model.testrelated.ParameterCategory;
-
 import java.util.Objects;
 
 /**

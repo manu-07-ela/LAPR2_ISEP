@@ -9,12 +9,21 @@ import java.util.List;
 
 public class RecordResultsUI implements  Runnable {
 
+    /**
+     * Represents a instance of record results controller.
+     */
     private RecordResultsController controller;
 
+    /**
+     * Initializes the controller.
+     */
     public RecordResultsUI (){
         controller = new RecordResultsController();
     }
 
+    /**
+     * Invokes the necessary methods for the interface to function.
+     */
     @Override
     public void run() {
 
@@ -26,7 +35,9 @@ public class RecordResultsUI implements  Runnable {
         }
     }
 
-
+    /**
+     * It records the results of the tests
+     */
     public  void RecordResults(){
         try {
             String barcode;

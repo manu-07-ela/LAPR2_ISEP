@@ -1,7 +1,6 @@
 package app.domain.model.testrelated;
 
-import app.domain.model.users.Client;
-import app.ui.console.functionalities.Notification;
+import app.adapter.interfaces.Notification;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -25,7 +24,7 @@ public class SMSNotification implements Notification {
         if (!archive.exists()) {
             archive.mkdirs();
         }
-        File arch = new File(pwd + "\\src\\main\\notificationsSMS\\"+ selectedTest.getCl().getNhs() + ".txt");
+        File arch = new File(pwd + "\\src\\main\\notificationsSMS\\"+ selectedTest.getNhsCode().getCode() + ".txt");
         FileWriter fw = new FileWriter(arch, true);
 
         try {

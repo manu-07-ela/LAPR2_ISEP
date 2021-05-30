@@ -1,6 +1,7 @@
 package app.ui.console.functionalities;
 
 
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.Sample;
 import app.domain.model.testrelated.Test;
 import app.mappers.dto.TestDTO;
@@ -58,14 +59,20 @@ public class RecordSampleUI implements Runnable{
         Test test = new Test(la,nhs,tt,listaDeParametros, "123123123123");
         TestDTO testDTO = new TestDTO(test);*/
 
-
-
-
-        TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(), "Select the desired test");
+        ClinicalAnalysisLaboratory lab = getTheLaboratory();
+        TestDTO testDTO = (TestDTO) Utils.showAndSelectOne(recordSampleController.getListOfTestsWaitingForSample(lab), "Select the desired test");
 
         int loop = askTheAmountOfSamples(testDTO);
         generateBarcodes(loop, testDTO);
 
+    }
+
+    /**
+     *
+     * @return
+     */
+    private ClinicalAnalysisLaboratory getTheLaboratory(){
+        return (ClinicalAnalysisLaboratory) Utils.showAndSelectOne(recordSampleController.getListOfLaboratories(), "Please choose the laboratory in which you work:" );
     }
 
     /**

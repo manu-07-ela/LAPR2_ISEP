@@ -2,9 +2,11 @@ package app.controller;
 
 import app.adapter.interfaces.ExternalModuleBarcode;
 import app.domain.model.Company;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.Sample;
 import app.domain.model.testrelated.Test;
 import app.domain.model.testrelated.BarcodeDomain;
+import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
@@ -50,6 +52,7 @@ public class RecordSampleController {
      */
     private static int instancesOfBarcode;
 
+
     /**
      * Constructs an instance of {@code RecordSampleController}
      */
@@ -64,8 +67,8 @@ public class RecordSampleController {
      * Returns a DTO-type list of test waiting for samples in the system
      * @return A DTO-type list of tests waiting for samples
      */
-    public List<TestDTO> getListOfTestsWaitingForSample(){
-        return testMapper.toDto(testStore.getListOfTestWaitingForSample());
+    public List<TestDTO> getListOfTestsWaitingForSample(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+        return testMapper.toDto(testStore.getListOfTestWaitingForSample(clinicalAnalysisLaboratory));
     }
 
     /**
@@ -184,6 +187,14 @@ public class RecordSampleController {
      */
     public boolean saveSample(Sample sample){
         return sampleStore.saveSample(sample);
+    }
+
+    /**
+     * Get the list of existing laboratories in the system
+     * @return the list of laboratories
+     */
+    public List<ClinicalAnalysisLaboratory> getListOfLaboratories(){
+        return company.getClinicalAnalysisLaboratoryStore().getClinicalAnalysisLaboratoryList();
     }
 
 }

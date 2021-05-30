@@ -17,6 +17,7 @@ import java.util.List;
 
 public class WriteMedicalReportControllerTest {
 
+
     /*
     @Test
     public void getTestHasSamplesAnalyzedList() throws BarcodeException, ClassNotFoundException, IllegalAccessException, InstantiationException {
@@ -48,9 +49,11 @@ public class WriteMedicalReportControllerTest {
 
         RecordResultsController controller = new RecordResultsController(company);
 
-        for(TestParameterDTO tpDto : controller.getTestParameterList("00000000000")){
-            controller.addTestResult(tpDto.getParameterId(),"10","mg");
+        for(TestParameterDTO tp : controller.getTestParameterList("00000000000")){
+            controller.addTestResult(tp.getParameterId(),"10","mg");
         }
+
+
 
         WriteMedicalReportController ctrl = new WriteMedicalReportController(company);
 
@@ -63,6 +66,8 @@ public class WriteMedicalReportControllerTest {
     }
 
      */
+
+
 
     /*
     @Test

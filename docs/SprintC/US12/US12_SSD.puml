@@ -18,13 +18,13 @@ activate ":System"
 deactivate ":System"
 CCT -> ":System" : types requested data
 activate ":System"
-end
 ":System" -> CCT : Show all data and request confirmation
 deactivate ":System"
 CCT -> ":System" : confirms the data
 activate ":System"
 ":System" --> CCT : informs the operation success
 deactivate ":System"
+end
 
 
 deactivate CCT

@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.Parameter;
 import app.domain.model.testrelated.ParameterCategory;
 import app.domain.model.testrelated.TestType;
@@ -102,14 +103,18 @@ public class App {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         company.getParameterStore().addParameter(p1);
 
+        Parameter p2 = new Parameter("WBC00","WBC","White Cell Count ",pc1);
+        company.getParameterStore().addParameter(p2);
+
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
 
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         company.getTestTypeStore().addTestType(tt);
-
         company.getClientStore().addClient(new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com"));
         authFacade.addUser("Client","client@manylabs.pt","111111");
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Clinical laboratory", "Rua 20", "12312312312", "1234567890", "1234s",company.getTestTypeStore().getTestTypeList());
+        this.company.getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(lab);
 
 
     }

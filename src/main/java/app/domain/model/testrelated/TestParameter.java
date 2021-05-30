@@ -52,7 +52,7 @@ public class TestParameter {
      * @param metric the metric of the result
      * @return true if the result was successful
      */
-    public boolean AddResult(RefValue refValue, String result, String metric){
+    public boolean addResult(RefValue refValue, String result, String metric){
         try {
             tparamresult = new TestParameterResult(refValue, result, metric);
             return true;
@@ -63,54 +63,54 @@ public class TestParameter {
     }
 
     /**
-     *
-     * @return
+     * Gets the name of the parameter
+     * @return the name of the parameter
      */
     public String getParameterName() {
         return param.getShortName();
     }
 
     /**
-     *
-     * @return
+     * Gets the code of the parameter
+     * @return the code of the parameter
      */
     public String getParameterId(){ return param.getCode(); }
 
     /**
-     *
-     * @return
+     * Gets the metric of the parameter
+     * @return the metric of the parameter
      */
     public String getParameterMetric() {
         return tparamresult.getMetric();
     }
 
     /**
-     *
-     * @return
+     * Gets the result of the test parameter
+     * @return the result of the test parameter
      */
     public String getParameterResult() {
         return tparamresult.getResult();
     }
 
     /**
-     *
-     * @return
+     * Gets the minimum value of the reference value
+     * @return the minimum value of the reference value
      */
     public double getParameterMinRefValue() {
         return tparamresult.getRefValue().getMinValue();
     }
 
     /**
-     *
-     * @return
+     * Gets the maximum value of the reference value
+     * @return the maximum value of the reference value
      */
     public double getParameterMaxRefValue() {
         return tparamresult.getRefValue().getMaxValue();
     }
 
     /**
-     *
-     * @return
+     * Gets the metric of the reference value
+     * @return the metric of the reference value
      */
     public String getRefValueMetric() {
         return tparamresult.getRefValue().getMetric();

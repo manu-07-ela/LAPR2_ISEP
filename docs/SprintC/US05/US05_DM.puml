@@ -35,11 +35,22 @@ class Employee{
 -organizationRole
 -socCode
 }
+class Laboratory{
+-name
+-address
+-phoneNumber
+-tin
+}
+
+class ClinicalAnalysisLaboratory{
+-laboratoryId
+}
 
 
 
-
-
+ClinicalAnalysisLaboratory --|> Laboratory
+ClinicalAnalysisLaboratory "1..*"---"1..*" Test : perform >
+Company "1"--"1..*" Laboratory : has >
 Sample "1..*"--"1" Test : associated >
 Sample "1"--"1" Barcode : identified by >
 Sample "*"--"1" Employee : registered by >

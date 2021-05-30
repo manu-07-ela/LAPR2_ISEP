@@ -3,7 +3,6 @@ package app.domain.model.testrelated;
 
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
-import app.domain.model.laboratories.Laboratory;
 import app.domain.model.users.Client;
 
 import java.util.ArrayList;
@@ -197,6 +196,13 @@ public class Test {
      */
     public Date getCreatedAt() { return getMedicalReport().getCreatedAt();}
 
+    /**
+     * Get the laboratory associated with the test
+     * @return the laboratory associated with the test
+     */
+    public ClinicalAnalysisLaboratory getLab() {
+        return lab;
+    }
 
     /**
      * Get the list of samples associated with a test
@@ -239,7 +245,7 @@ public class Test {
         boolean verificacao=false;
         for (TestParameter testParameter: testParameterList) {
             if (testParameter.getParameterId().equals(parameterID)){
-                    verificacao =  testParameter.AddResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
+                    verificacao =  testParameter.addResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
                 if (!verificacao){
                     return false;
                 }
@@ -270,10 +276,7 @@ public class Test {
     /**
      * Creates a Lab Coordinator Validation.
      * @return true if the Lab Coordinator Validation was added. Otherwise, false.
-<<<<<<< HEAD
      * @return
-=======
->>>>>>> 8e0b1499373f73c7d96cdfacebd1baac66c8256c
      */
     public boolean validateWork() {
         if (validateLabCoordinatorValidation()) {
@@ -294,18 +297,33 @@ public class Test {
     }
 
     /**
+     * Validates Date Validation
+     * @return true if the Lab Coordinator Validation was added. Otherwise, false.
+     *
+     */
+    public boolean validateDate(String date) {
+        if (date.equals("Registration Date")) {
+            lcv.checkDate("Registration Date");
+            return true;
+        } else if (date.equals("Chemical Analysis Date")) {
+            lcv.checkDate("Chemical Analysis Date");
+            return true;
+        } else if (date.equals("Diagnosis Date")) {
+            lcv.checkDate("Diagnosis Date");
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Adds the samples to the test
      * @param sample the sample that will be added to the test
      * @return true, if the copy of the sample list passed by parameter is successful, false otherwise
      */
     public void addSamples(Sample sample){
         this.samples.add(sample);
-        if (this.samples.size()>0) {
+        if (!this.samples.isEmpty()) {
             changeStateForSamplesCollected();
-
-            //System.out.println("MUDOU ESTADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
-
-
             generateDataAndTimeForSamplesCollected();
         }
 
@@ -333,7 +351,7 @@ public class Test {
      */
     public boolean generateDataAndTimeLabCoordinatorValidation(){
         this.stateOfTest = Test.StateOfTest.Validated;
-        return lcv.recordLabCoordinatorValidationDate();
+        return lcv.recordDate();
     }
 
 

@@ -13,19 +13,19 @@ import java.util.List;
  */
 public class CreateClinicalAnalysisLaboratoryUI implements Runnable {
     /**
-     *
+     * Represents a instance of Clinical Analysis Laboratory controller.
      */
     private CreateClinicalAnalysisLaboratoryController clinicalcontroller;
 
     /**
-     *
+     * Initializes the controller.
      */
     public CreateClinicalAnalysisLaboratoryUI(){
         clinicalcontroller = new CreateClinicalAnalysisLaboratoryController();
     }
 
     /**
-     *
+     * Invokes the necessary methods for the interface to function.
      */
     @Override
     public void run() {
@@ -33,6 +33,9 @@ public class CreateClinicalAnalysisLaboratoryUI implements Runnable {
         createClinicalAnalysisLaboratory();
     }
 
+    /**
+     * It creates an Clinical Analysis Laboratory
+     */
     public void createClinicalAnalysisLaboratory(){
 
 

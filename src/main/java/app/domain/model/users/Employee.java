@@ -164,7 +164,7 @@ public class Employee {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Employee employee = (Employee) other;
-        return email.equals(email);
+        return email.equals(employee.getEmail());
     }
 
 }

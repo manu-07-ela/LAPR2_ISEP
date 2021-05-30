@@ -14,8 +14,10 @@ participant "refValue :ReferenceValue" as Ref
 
 
 
-CTRL -> Test : addTestResult(testparameterID,result,metric)
+CTRL -> Test : addTestResult(parameterID,result,metric)
 activate Test
+loop for the number os TestParameters in the test
+opt TestParameter.getParameterId = parameterID
 Test -> TT : getExternalModule()
 activate TT
 TT--> Test : em
@@ -31,6 +33,8 @@ TestParam -> TestPResult : create(refValue,result,metric)
 activate TestPResult
 deactivate TestPResult
 deactivate TestParam
+end
+end
 
 Test --> CTRL : success
 deactivate Test
