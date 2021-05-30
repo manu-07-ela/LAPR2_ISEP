@@ -138,7 +138,8 @@ automatically generated using an external API.
 
 ### 2.2. Other Remarks
 
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
+* For the integration between user stories 4, 5, 12, and 15 to be carried out correctly, the test must change its status as it goes through each step of the user stories.
+![TestLifeCycle](TestLifeCycle.svg) 
 
 
 
@@ -200,18 +201,44 @@ Other software classes (i.e. Pure Fabrication) identified:
 ![US05-CD](US05_CD.svg)
 
 # 4. Tests 
-*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
 
-**_DO NOT COPY ALL DEVELOPED TESTS HERE_**
+**Test 1:** Check that it is not possible to create an instance of the sample class with null values. 
 
-**Test 1:** Check that it is not possible to create an instance of the Example class with null values. 
+    @Test(expected = IllegalArgumentException.class)
+    public void notNullSample(){
+        barcodeDomain = new BarcodeDomain(null, null);
+        sample = new Sample(barcodeDomain);
+    }
 
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Exemplo instance = new Exemplo(null, null);
-	}
+**Test 2:** Check that it is not possible to create an instance of the BarcodeDomain class with null values.
 
-*It is also recommended to organize this content by subsections.* 
+    @Test(expected = IllegalArgumentException.class)
+    public void barcodeNotNull(){
+    barcodeDomain = new BarcodeDomain(null, null);
+    }
+
+**Test 3:** Checks that it is not possible to save a sample that is already saved in the store.
+
+    @Test
+    public void saveTestAlreadyExistInSystem() throws BarcodeException {
+    sampleStore = new SampleStore();
+    sample = new Sample(new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "0000000000"));
+    sampleStore.saveSample(sample);
+    Sample sampleAux = sample;
+    boolean result = sampleStore.saveSample(sampleAux);
+    Assert.assertFalse(result);
+    }
+
+**Test 4:** Check that it is not possible to save a sample that is not valid.
+
+     @Test
+    public void saveInvalidSample(){
+        sampleStore = new SampleStore();
+        sample = null;
+        boolean result = sampleStore.saveSample(sample);
+        Assert.assertFalse(result);
+
+    }
 
 # 5. Construction (Implementation)
 
@@ -286,12 +313,14 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 6. Integration and Demo 
 
-*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
+* For some demonstration purposes, the following objects were added in the bootstrap method: parameter category, parameter, test type and a client.
+  
+* An integration with the Clinical Analysis Laboratory class was necessary so that only the tests associated with a given laboratory are shown to the user.
 
 
 # 7. Observations
 
-*In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
+* In the future, the user story will be developed with a graphical interface for a better experience for the user.
 
 
 

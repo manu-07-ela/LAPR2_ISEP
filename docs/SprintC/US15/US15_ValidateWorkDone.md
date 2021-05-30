@@ -103,11 +103,10 @@ From a previous post: "The system shows all tests ready to validate (tests that 
 
 *Insert here the client acceptance criteria.*
 
-* **AC1:** The system does not show client personal information but shows all dates (test registration date, chemical analysis date and diagnosis date).
-* **AC2:** The coordinator can validate all or a subset of test results.
-* **AC3:** The laboratory coordinator selects one or more tests to mark as validated
-* **AC4:** After validation, the report cannot be changed
-* **AC5:** The system should record the date (DD/MM/YYYY) and time (HH:MM) when the validation was made.
+* **AC1:** The lab coordinator only checks the dates (date and time) and validates a subset of tests that he selects.
+* **AC2:** The lab coordinador does not check any other information.
+* **AC3:** The system shows all tests ready to validate (tests that already have the test registration date, the chemical analysis date and the diagnosis date registered in the system).
+* **AC4:** The laboratory coordinator selects one or more tests to mark as validated.
 
 ### 1.4. Found out Dependencies
 

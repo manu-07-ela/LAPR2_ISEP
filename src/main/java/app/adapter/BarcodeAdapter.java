@@ -20,8 +20,8 @@ public class BarcodeAdapter implements ExternalModuleBarcode {
      */
     @Override
     public BarcodeDomain generateBarcode(String barcodeNumber) throws BarcodeException {
-       Barcode barcode = BarcodeFactory.createUPCA(barcodeNumber);
+        Barcode barcode = BarcodeFactory.createUPCA(barcodeNumber);
         barcode.setPreferredBarHeight(150);
-       return new BarcodeDomain(barcode, barcodeNumber);
+        return new BarcodeDomain(barcode, barcodeNumber);
     }
 }

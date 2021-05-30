@@ -23,11 +23,12 @@ class Test{
 -String internalCode
 -String nhsCode
 -String description
-+getParametersResulList()
++getTestParameterList()
 +getDescription()
 +getInternalCode()
 +addMedicalReport(diagnosis)
 +validateMedicalReport()
+-updateStateToDiagnosisMade()
 }
 
 class MedicalReport{
@@ -61,8 +62,8 @@ class TestMapper{
 }
 
 class TestParameterMapper{
-+toDto(testParametersList)
-+toDto(testParameter)
++toDTO(testParametersList)
++toDTO(testParameter)
 }
 }
 
@@ -89,6 +90,7 @@ WriteMedicalReportUI ..> WriteMedicalReportController
 WriteMedicalReportUI ..> TestDto
 WriteMedicalReportUI ..> TestParameterDto
 WriteMedicalReportController ..> Company
+WriteMedicalReportController ..> TestStore
 WriteMedicalReportController ..> TestMapper
 WriteMedicalReportController ...> TestParameterDto
 WriteMedicalReportController ...> TestDto
@@ -101,7 +103,7 @@ TestMapper ..> TestDto
 TestMapper ..> Test
 Company "1"--"1..*" Test : performs >
 TestParameter "1..*" --"1" Test : requests analysis of <
-Test "*"--"1" MedicalReport : request >
+Test "1"--"1" MedicalReport : request >
 Company"1"--> "1" TestStore : uses
 
 @enduml

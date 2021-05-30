@@ -49,10 +49,10 @@ activate CTRL
 CTRL -> TS : test = getTestByInternalCode(code)
 activate TS
 deactivate TS
-CTRL -> TEST : testParametersList= getTestParametersList()
+CTRL -> TEST : testParametersList= getTestParameterList()
 activate TEST
 deactivate TEST
-CTRL -> tpMAPPER : toDto(testParametersList)
+CTRL -> tpMAPPER : toDTO(testParametersList)
 activate tpMAPPER
 ref over tpMAPPER
 SD_TestParameterMapper_toDto_List
@@ -83,6 +83,9 @@ TEST --> REPORT** : create(diagnosis)
 REPORT -> REPORT : addCreationDate()
 activate REPORT
 deactivate REPORT
+TEST -> TEST : updateStateToDiagnosisMade()
+activate TEST
+deactivate TEST
 deactivate TEST
 CTRL --> UI : result
 deactivate CTRL

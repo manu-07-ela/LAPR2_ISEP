@@ -71,7 +71,7 @@ public class CreateClinicalAnalysisLaboratoryController {
      */
    public boolean CreateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
         this.cal = store.createClinicalAnalysisLaboratory(calDTO,calMapper);
-        return store.validateClinicalAnalysisLaboratoryglobal(cal);
+        return store.validateClinicalAnalysisLaboratoryGlobal(cal);
     }
 
 

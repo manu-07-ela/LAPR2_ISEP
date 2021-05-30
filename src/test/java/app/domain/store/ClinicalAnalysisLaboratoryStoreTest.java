@@ -113,13 +113,13 @@ public class ClinicalAnalysisLaboratoryStoreTest {
     public void validateGlobalLaboratory1(){
         ClinicalAnalysisLaboratory call = new ClinicalAnalysisLaboratory("Ricardo","Rua das cavalas","12345678913","1234567892","12ki7",testTypeList);
         calStore.addClinicalAnalysisLaboratory(call);
-        boolean result = calStore.validateClinicalAnalysisLaboratoryglobal(cal);
+        boolean result = calStore.validateClinicalAnalysisLaboratoryGlobal(cal);
         Assert.assertFalse(result);
     }
 
     @Test
     public void validateGlobalLaboratory2(){
-        boolean result = calStore.validateClinicalAnalysisLaboratoryglobal(cal);
+        boolean result = calStore.validateClinicalAnalysisLaboratoryGlobal(cal);
         Assert.assertTrue(result);
     }
 

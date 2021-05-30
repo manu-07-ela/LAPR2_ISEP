@@ -1,19 +1,27 @@
 @startuml
 
+package UI{
 class ValidateWorkUI{
 }
+}
 
+package Controller{
 class ValidateWorkController{
 +getTestToValidateList()
++getSelectedTest(selectedTest)
 +createTestValidation(selectedTest)
-+showRegistrationDate(selectedTest)
-+showChemicalAnalysisDate(selectedTest)
-+showDiagnosisDate(selectedTest)
-+showDates(selectedTest)
++validateDate(date)
++showRegistrationDate()
++showChemicalAnalysisDate()
++showDiagnosisDate()
++showLabCoordValidationDate(selectedTest)
++showDates()
 +recordValidationDate(selectedTest)
 +notifyTheClient(selectedTest)
 }
+}
 
+package Model{
 class Company{
 -String name
 -String shortName
@@ -24,24 +32,7 @@ class Company{
 +getTestStore()
 }
 
-class TestStore {
-+getTestHasReportList()
-+getTestByInternalCode(code)
-}
-
-class TestMapper{
-List<TestDto> listTestsToValidateDto
-List<Test> listTestWaitingForResult
-List<TestDto> listDatesDto
-testDto : TestDto
-registrationDateDto : RegistrationDateDto
-chemicalAnalysisDateDto : ChemicalAnalysisDateDto
-diagnosisDateDto : DiagnosisDateDto
---
-+toDto(testHasReportList)
-+dateToDto()
-+createDateDto(nhsCode,testCode)
-+addDateDto(testDto)
+class Client{
 }
 
 
@@ -51,58 +42,98 @@ class LabCoordinatorValidation {
 -diagnosisDateValidation
 -labCoordDate
 --
-+checkRegisterDateValidation()
-+checkChemicalAnalysisDateValidation()
-+checkDiagnosisDateValidation())
-+recordLabCoordinatorValidationDate()
++checkDate(date)
++recordDate()
++recordLabCoordinatorValidationDate
++getLabCoordDate()
 }
 
 class Test{
--internalCode
--nhsCode
--description
+-testAddDate
 --
 +getNhsCode()
 +getInternalCode()
 +getRegistrationDate()
 +getChemicalAnalysisDate()
-+
 +getDiagnosisDate()
++validateWork()
++getTestAddDate()
++getChemicalAnalysisDate()
++getCreatedAt()
++generateDateAndTimeLabCoordinatorValidation()
 }
 
 class EmailNotification{
-+notifyByEmail(Client)
++notification(selectedTest)
 }
 
 class SMSNotification{
-+notifyBySMS(Client)
++notification(selectedTest)
+}
 }
 
-class Client{
+package Store{
+class TestStore {
++getTestHasReportList()
++getTestByInternalCode(code)
+}
+}
+
+package Mappers{
+class TestMapper{
++toDto(test)
++toDto(testList)
+}
+class DateMapper{
++toDto(date)
++toDto(dateList)
+}
+}
+
+package interfaces{
+interface Notification{
+}
+}
+
+package DTO{
+class DateDTO{
+-date
+-dateString
+}
 }
 
 
-ValidateWorkUI .> ValidateWorkController : uses
 
-ValidateWorkController ..> Company : uses
-ValidateWorkController ..> TestStore : uses
-ValidateWorkController ..> TestMapper : uses
-ValidateWorkController ..> LabCoordinatorValidation : uses
-ValidateWorkController ..> EmailNotification : uses
-ValidateWorkController ..> SMSNotification : uses
 
-Company "1"---"1..*" Test : performs >
+ValidateWorkUI .> ValidateWorkController
+ValidateWorkUI .> DateDTO
 
-LabCoordinatorValidation "1"---"1" Test : associated to
+ValidateWorkController ..> Company
+ValidateWorkController ..> TestStore
+ValidateWorkController ..> Test
+ValidateWorkController ..> TestMapper
+ValidateWorkController ..> DateMapper
+ValidateWorkController ..> DateDTO
+ValidateWorkController ..> LabCoordinatorValidation
+ValidateWorkController ..> EmailNotification
+ValidateWorkController ..> SMSNotification
 
-TestMapper ..> Test : uses
+Company "1"--"1..*" Test : performs >
 
-EmailNotification "1"---"1" Test : associated to >
+TestStore "1"-->"*"Test : knows
 
-SMSNotification "1"---"1" Test : associated to >
+LabCoordinatorValidation "1"-"1" Test : associated to
 
-Client "*"---"1..*" SMSNotification : receives >
-Client "*"---"1..*" EmailNotification : receives >
+TestMapper ...> Test
 
+EmailNotification "1"--"1" Test : associated to >
+
+SMSNotification "1"--"1" Test : associated to >
+
+Client "*"--"1..*" SMSNotification : receives >
+Client "*"--"1..*" EmailNotification : receives >
+
+SMSNotification..|>Notification
+EmailNotification..|>Notification
 
 @enduml
