@@ -1,4 +1,5 @@
 ID: pessoa@gmail.com
+<<<<<<< HEAD
 PASSWORD: 4ShqRttPEP
 ID: pessoa@gmail.com
 PASSWORD: uNXEm8MkUE
@@ -6,3 +7,6 @@ ID: pessoa@gmail.com
 PASSWORD: lxrVAaGA9p
 ID: pessoa@gmail.com
 PASSWORD: TbrOeQLDDL
+=======
+PASSWORD: i4CetuGbzv
+>>>>>>> d6ec2a657d804f9cf6c12e31c7c427f0fe03e169

@@ -5,10 +5,15 @@ actor "Receptionist" as REP
 activate REP
 REP -> ":System" : asks to register a test to be \n performed to a registered client
 activate ":System"
-":System" --> REP : requests data (citizencardnumber)
+":System" --> REP : requests data (tin,nhscode)
 deactivate ":System"
 
 REP -> ":System" : types requested data
+activate ":System"
+":System" --> REP : shows laboratories and asks to select one
+deactivate ":System"
+
+REP -> ":System" : selects a laboratory
 activate ":System"
 ":System" --> REP : shows test types and asks to select one
 deactivate ":System"
