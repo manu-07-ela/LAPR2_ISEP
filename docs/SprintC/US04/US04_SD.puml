@@ -8,8 +8,10 @@ participant ":RegisterTestController" as CTRL
 participant "Company" as COMP
 participant "tstore:TestStore" as TS
 participant "store: ClientStore" as CS
+participant "calstore: ClinicalAnalysisLaboratoryStore" as CALS
 participant "ttstore: TestTypeStore" as TTS
 participant ":TestTypeMapper" as MapperTT
+participant ":ClinialAnalysisLaboratoryMapper" as MapperCAL
 participant "pmcstore:ParameterCategoryStore" as PMCS
 participant "pmstore:ParameterStore" as PMS
 participant ":ParameterCategoryMapper" as MapperPMC
@@ -22,6 +24,8 @@ participant "TTS:List<TestType>"
 participant "TTSDto:List<TestTypeDTO>"
 participant "PMC:List<ParameterCategory>"
 participant "PMCDto:List<ParameterCategoryDTO>"
+participant "CAL:List<ClinialAnalysisLaboratory>"
+participant "CALDto:List<ClinialAnalysisLaboratoryDTO>"
 participant "PM:List<Parameter>"
 participant "TPM:List<TestParameter>"
 participant "PMDto:List<ParameterDTO>"
@@ -46,6 +50,28 @@ CTRL -> CS : cl = getClientbytin(tin)
 activate CS
 deactivate CS
 deactivate CTRL
+
+UI -> CTRL : CALDto = getClinicalAnalysisLaboratoryList()
+
+activate CTRL
+
+CTRL -> COMP : calstore = getClinicalAnalysisLaboratoryStore()
+activate COMP
+deactivate COMP
+
+CTRL -> CALS : CAL = getClinicalAnalysisLaboratoryList()
+activate CALS
+deactivate CALS
+CTRL -> MapperCAL : CALDto = toDTO(CAL)
+activate MapperCAL
+deactivate MapperCAL
+deactivate CTRL
+
+UI --> REP : shows laboratories and asks to select one
+deactivate UI
+
+REP -> UI : selects a laboratory
+activate UI
 
 UI -> CTRL : TTSDto = getTestTypeList()
 
