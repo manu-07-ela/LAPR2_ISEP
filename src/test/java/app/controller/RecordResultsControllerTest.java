@@ -17,7 +17,7 @@ import java.util.List;
 
 public class RecordResultsControllerTest {
 
-    @Test
+    /*@Test
     public void getTestParameterList() throws BarcodeException {
         Company company = new Company("efwgtrt");
         List<TestParameter> listaDeParametros = new ArrayList<>();
@@ -144,13 +144,13 @@ public class RecordResultsControllerTest {
 
         Assert.assertFalse(verificacao);
 
-    }
+    }*/
 
 
 
 
 
-    @Test
+   /* @Test
     public void possibilityOfRecordResult() throws BarcodeException {
         Company company = new Company("efwgtrt");
         List<TestParameter> listaDeParametros = new ArrayList<>();
@@ -224,7 +224,7 @@ public class RecordResultsControllerTest {
 
         Assert.assertFalse(verificacao);
 
-    }
+    }*/
 
 
 }
