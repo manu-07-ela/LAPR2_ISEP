@@ -50,7 +50,7 @@ public class ClinicalAnalysisLaboratoryStore {
      * @param clinicalAnalysisLaboratory  the ClinicalAnalysisLaboratory we want to validate
      * @return false the ClinicalAnalysisLaboratory has an attribute with the same information as an already created . Otherwise it return true
      */
-    public boolean validateClinicalAnalysisLaboratoryglobal (ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+    public boolean validateClinicalAnalysisLaboratoryGlobal(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
         for (ClinicalAnalysisLaboratory cal: clinicalAnalysisLaboratoryList) {
             if (clinicalAnalysisLaboratory.equals(cal)){
                 return false;

@@ -23,18 +23,64 @@ public class SampleStoreTest {
     }
 
     @Test
-    public void validateSample() {
+    public void validateSampleNotNull() throws BarcodeException {
+        sampleStore = new SampleStore();
+        sample = new Sample(new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "00000000000"));
+        boolean result = sampleStore.validateSample(sample);
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void validateSampleNull() {
+        sampleStore = new SampleStore();
+        sample = null;
+        boolean result = sampleStore.validateSample(sample);
+        Assert.assertFalse(result);
+
+    }
+    @Test
+    public void validateSampleOfAListAlreadyContainsTheSample() throws BarcodeException {
+        sampleStore = new SampleStore();
+        sample = new Sample(new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "0000000000"));
+        sampleStore.addSample(sample);
+        Sample sampleAux = sample;
+        boolean result = sampleStore.validateSample(sampleAux);
+        Assert.assertFalse(result);
+
     }
 
     @Test
-    public void addSample() {
+    public void addValidSample() throws BarcodeException {
+        sampleStore = new SampleStore();
+        sample = new Sample(new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "00000000000"));
+        boolean result = sampleStore.addSample(sample);
+        Assert.assertTrue(result);
     }
 
-    @Test
-    public void saveSample() {
-    }
 
     @Test
-    public void getListOfSamples() {
+    public void saveValidSample() throws BarcodeException {
+        sampleStore = new SampleStore();
+        sample = new Sample(new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "00000000000"));
+        boolean result = sampleStore.saveSample(sample);
+        Assert.assertTrue(result);
     }
+    @Test
+    public void saveInvalidSample(){
+        sampleStore = new SampleStore();
+        sample = null;
+        boolean result = sampleStore.saveSample(sample);
+        Assert.assertFalse(result);
+
+    }
+    @Test
+    public void saveTestAlreadyExistInSystem() throws BarcodeException {
+        sampleStore = new SampleStore();
+        sample = new Sample(new BarcodeDomain(BarcodeFactory.createUPCA("00000000000"), "0000000000"));
+        sampleStore.saveSample(sample);
+        Sample sampleAux = sample;
+        boolean result = sampleStore.saveSample(sampleAux);
+        Assert.assertFalse(result);
+
+    }
+    
 }

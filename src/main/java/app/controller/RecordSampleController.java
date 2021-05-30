@@ -52,6 +52,7 @@ public class RecordSampleController {
      */
     private static int instancesOfBarcode;
 
+
     /**
      * Constructs an instance of {@code RecordSampleController}
      */
@@ -193,8 +194,7 @@ public class RecordSampleController {
      * @return the list of laboratories
      */
     public List<ClinicalAnalysisLaboratory> getListOfLaboratories(){
-        ClinicalAnalysisLaboratoryStore store = new ClinicalAnalysisLaboratoryStore();
-        return store.getClinicalAnalysisLaboratoryList();
+        return company.getClinicalAnalysisLaboratoryStore().getClinicalAnalysisLaboratoryList();
     }
 
 }
