@@ -74,7 +74,6 @@ public class Test {
      */
     private TestParameterResult tpr;
 
-
     /**
      * The medical report of the test.
      */
