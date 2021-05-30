@@ -33,25 +33,12 @@ deactivate COMP
 CTRL -> TSTORE : testHasReportList = getTestHasReportList()
 activate TSTORE
 deactivate TSTORE
-CTRL -> TMAPPER : toDto(testHasReportList)
+CTRL -> TMAPPER : toDto(testList)
 activate TMAPPER
-TMAPPER --> LISTTWFV** : create()
-loop for each object in listTestWaitingForResult
-TMAPPER -> LWFR : testAux = get(i)
-activate LWFR
-deactivate LWFR
-TMAPPER -> TEST : testDescription  = getDescription()
-activate TEST
-deactivate TEST
-TMAPPER -> TEST : testInternalCode = getInternalCode()
-activate TEST
-deactivate TEST
-TMAPPER --> TESTDTO** : create(nhsCode, testCode)
-TMAPPER -> LISTTWFV : add(testDto)
-activate LISTTWFV
-deactivate LISTTWFV
-end
-TMAPPER --> CTRL : listTestsToValidateDto
+ref over TMAPPER
+SD_TestMapper_toDto_List
+end ref
+TMAPPER --> CTRL : testListDto
 deactivate TMAPPER
 CTRL --> UI : listTestsToValidateDto
 deactivate CTRL

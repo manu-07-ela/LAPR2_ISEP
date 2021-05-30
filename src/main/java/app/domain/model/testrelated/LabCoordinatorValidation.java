@@ -12,17 +12,17 @@ import java.util.Date;
 public class LabCoordinatorValidation {
 
     /**
-     *
+     * Register Date Validation
      */
     private boolean registerDateValidation = false;
 
     /**
-     *
+     * Chemical Analysis Date Validation
      */
     private boolean chemicalAnalysisDateValidation = false;
 
     /**
-     *
+     * Diagnosis Date Validation
      */
     private boolean diagnosisDateValidation = false;
     /**
@@ -55,7 +55,10 @@ public class LabCoordinatorValidation {
         return false;
     }
 
-
+    /**
+     * Compare the parameter with the other object provided.
+     * @return true if the Lab Coordinator Validation Date was recorded. Otherwise, it returns false.
+     */
     public boolean recordDate(){
         Boolean fl = false;
         if(registerDateValidation && chemicalAnalysisDateValidation && diagnosisDateValidation) {
@@ -65,11 +68,19 @@ public class LabCoordinatorValidation {
         return fl;
     }
 
+    /**
+     * Records the Date of the Lab Coordinator Validation Date
+     * @return true
+     */
     public boolean recordLabCoordinatorValidationDate(){
         this.labCoordDate= Calendar.getInstance().getTime();
         return true;
     }
 
+    /**
+     * Get the date of the Lab Coordinator Validation.
+     * @return Lab Coordinator Validation date
+     */
     public Date getLabCoordDate(){ return this.labCoordDate; }
 
 

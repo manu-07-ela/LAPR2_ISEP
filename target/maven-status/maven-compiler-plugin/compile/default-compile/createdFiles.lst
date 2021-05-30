@@ -18,6 +18,7 @@ app\domain\model\attributes\Name.class
 app\domain\store\EmployeeStore.class
 app\controller\RecordSampleController.class
 app\domain\model\attributes\Address.class
+app\adapter\interfaces\Notification.class
 app\domain\model\laboratories\ChemicalLaboratory.class
 app\mappers\dto\ClinicalAnalysisLaboratoryDTO.class
 app\ui\console\employees\AdminUI.class
@@ -108,5 +109,4 @@ app\controller\RecordResultsController.class
 app\ui\console\functionalities\RegisterEmployeeUI.class
 app\ui\console\functionalities\CreateClinicalAnalysisLaboratoryUI.class
 app\domain\store\ClinicalAnalysisLaboratoryStore.class
-app\ui\console\functionalities\Notification.class
 auth\mappers\dto\UserRoleDTO.class

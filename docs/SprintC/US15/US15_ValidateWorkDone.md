@@ -134,7 +134,7 @@ From a previous post: "The system shows all tests ready to validate (tests that 
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![US15-SSD](US15-SSD.svg)
+![US15-SSD](US15_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -193,24 +193,27 @@ Other software classes (i.e. Pure Fabrication) identified:
  * TestStore
  * TestMapper
  * TestDto
+ * DateDTO
+ * DateMapper
  * RegistrationDateDto
  * ChemicalAnalysisDto
  * DiagnosisDto
  * EmailResult
  * SMSResult
+ * LabCoordinatorValidation
  * Client
 
 ## 3.2. Sequence Diagram (SD)
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![US15-SD](US15-SD.svg)
+![US15-SD](US15_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![US15-CD](US15-CD.svg)
+![US15-CD](US15_CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
