@@ -39,7 +39,7 @@ public class TestParameterTest {
         TestParameter tpm = new TestParameter(p);
         RefValue ref = new RefValue("metric1",30.0,50.0);
 
-        boolean verificacao = tpm.AddResult(ref,"45","metric");
+        boolean verificacao = tpm.addResult(ref,"45","metric");
 
         Assert.assertTrue(verificacao);
     }
@@ -51,7 +51,7 @@ public class TestParameterTest {
         TestParameter tpm = new TestParameter(p);
         RefValue ref = new RefValue("metric1",30.0,50.0);
 
-        boolean verificacao = tpm.AddResult(null,null,null);
+        boolean verificacao = tpm.addResult(null,null,null);
 
         Assert.assertFalse(verificacao);
     }
