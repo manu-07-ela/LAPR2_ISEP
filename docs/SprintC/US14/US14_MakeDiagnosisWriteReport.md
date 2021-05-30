@@ -154,6 +154,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 7. Observations
 
+* In the future, the user story will be developed with a graphical interface for a better experience for the user.
 
 
 
