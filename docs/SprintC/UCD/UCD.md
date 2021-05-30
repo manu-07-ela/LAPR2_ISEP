@@ -26,11 +26,11 @@ However, be aware, this is a pedagogical simplification. On further projects and
 | US10   | [Specify a new test parameter and categorize it.](US10.md)|
 | US11   | [Specify a new parameter category.](US11.md)                                        |
 | US12   | [Record the results of a given test.](US12.md)
-| US13   | [Register the tests performed locally.](US13.md)|
+| US13   | 
 | US14   | [Make the diagnosis and write a report for a given test.](US14.md) |
 | US15   | [Validate the work done by the clinical chemistry technologist and specialist doctor. ](US15.md)|
 | US16   | |
-| US17   | [Record the result of chemistry analysis.](US17.md)  |
+| US17   | |
 | US18   | |
 | US19   | [Send daily Covid-19 data.](US19.md) |
 | US20   | [View the results of the test](US20.md)|

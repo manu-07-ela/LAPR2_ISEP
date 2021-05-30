@@ -2,9 +2,9 @@ package app.domain.model.testrelated;
 
 
 
-import app.ui.console.functionalities.Notification;
+import app.adapter.interfaces.Notification;
 
-import app.ui.console.functionalities.Notification;
+
 
 
 
