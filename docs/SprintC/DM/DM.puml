@@ -170,7 +170,7 @@ Test "1..*"---"1..*" Sample : request  >
 Test "*"---"1..*" Parameter : measure >
 Test "1..*"---"1" TestType : is of >
 Test "1..*" ---"1" ChemicalAnalysis : request >
-Test "1..*" ---"1" MedicalReport : request >
+Test "1" ---"1" MedicalReport : request >
 Test "*" --- "1" LabCoordinatorValidation : request >
 (Test,Parameter) . TestParameter
 
