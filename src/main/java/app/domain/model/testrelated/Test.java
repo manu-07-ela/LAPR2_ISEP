@@ -270,14 +270,7 @@ public class Test {
     /**
      * Creates a Lab Coordinator Validation.
      * @return true if the Lab Coordinator Validation was added. Otherwise, false.
-<<<<<<< HEAD
-     *
-=======
-<<<<<<< HEAD
      * @return
-=======
->>>>>>> 8e0b1499373f73c7d96cdfacebd1baac66c8256c
->>>>>>> ca4bfbcc4b47c16840e9b8f9dada4c602629bd13
      */
     public boolean validateWork() {
         if (validateLabCoordinatorValidation()) {
@@ -323,12 +316,8 @@ public class Test {
      */
     public void addSamples(Sample sample){
         this.samples.add(sample);
-        if (this.samples.size()>0) {
+        if (!this.samples.isEmpty()) {
             changeStateForSamplesCollected();
-
-            //System.out.println("MUDOU ESTADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
-
-
             generateDataAndTimeForSamplesCollected();
         }
 

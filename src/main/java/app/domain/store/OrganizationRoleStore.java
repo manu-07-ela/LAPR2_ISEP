@@ -28,7 +28,7 @@ public class OrganizationRoleStore{
      * Instantiates a new OrganizationRoleStore.
      */
     public OrganizationRoleStore() {
-        this.listOrgRoles = new ArrayList<OrganizationRole>();
+        this.listOrgRoles = new ArrayList<>();
         listOrgRoles.add(new OrganizationRole("ADMINISTRATOR"));
         listOrgRoles.add(new OrganizationRole("RECEPTIONIST"));
         listOrgRoles.add(new OrganizationRole("MEDICAL LAB TECHNICIAN"));

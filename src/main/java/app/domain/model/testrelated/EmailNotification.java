@@ -1,18 +1,13 @@
 package app.domain.model.testrelated;
 
-<<<<<<< HEAD
+
 
 import app.adapter.interfaces.Notification;
-=======
-
-
-import app.ui.console.functionalities.Notification;
-
-import app.ui.console.functionalities.Notification;
 
 
 
->>>>>>> ca4bfbcc4b47c16840e9b8f9dada4c602629bd13
+
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
