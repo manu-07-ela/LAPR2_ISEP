@@ -1,0 +1,30 @@
+@startuml
+autonumber
+actor "Specialist Doctor" as Doctor
+
+activate Doctor
+Doctor -> ":System" : Initiates the process of elaborate a medical report.
+activate ":System"
+":System" --> Doctor : Shows the tests that are waiting for the \n medical report and asks to select one.
+deactivate ":System"
+
+Doctor -> ":System" :  Select the desired test.
+activate ":System"
+":System" --> Doctor : Shows the parameter results and request the medical report.
+deactivate ":System"
+
+Doctor-> ":System" : Introduces the medical report.
+activate ":System"
+
+
+":System" --> Doctor : Displays the data and requests confirmation.
+deactivate ":System"
+
+Doctor-> ":System" : Confirms the data.
+activate ":System"
+":System" --> Doctor : Informs operation success.
+deactivate ":System"
+
+deactivate Doctor
+
+@enduml

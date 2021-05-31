@@ -1,0 +1,203 @@
+@startuml
+autonumber
+'hide footbox
+actor "Receptionist" as REP
+
+participant ":RegisterTestUI" as UI
+participant ":RegisterTestController" as CTRL
+participant "Company" as COMP
+participant "tstore:TestStore" as TS
+participant "store: ClientStore" as CS
+participant "calstore: ClinicalAnalysisLaboratoryStore" as CALS
+participant "ttstore: TestTypeStore" as TTS
+participant ":TestTypeMapper" as MapperTT
+participant ":ClinialAnalysisLaboratoryMapper" as MapperCAL
+participant "pmcstore:ParameterCategoryStore" as PMCS
+participant "pmstore:ParameterStore" as PMS
+participant ":ParameterCategoryMapper" as MapperPMC
+participant ":ParameterMapper" as MapperPM
+participant "t: Test" as T
+participant "tt: TestType"
+participant "pm: Parameter"
+participant "pmc: ParameterCategory"
+participant "TTS:List<TestType>"
+participant "TTSDto:List<TestTypeDTO>"
+participant "PMC:List<ParameterCategory>"
+participant "PMCDto:List<ParameterCategoryDTO>"
+participant "CAL:List<ClinialAnalysisLaboratory>"
+participant "CALDto:List<ClinialAnalysisLaboratoryDTO>"
+participant "PM:List<Parameter>"
+participant "TPM:List<TestParameter>"
+participant "PMDto:List<ParameterDTO>"
+
+activate REP
+REP -> UI : asks to register a test to be \n performed to a registered client
+activate UI
+UI --> REP : requests data (tin,nhscode)
+deactivate UI
+
+REP -> UI : types requested data
+activate UI
+
+UI -> CTRL : getClient(tin)
+activate CTRL
+
+CTRL -> COMP : store = getClientStore()
+activate COMP
+deactivate COMP
+
+CTRL -> CS : cl = getClientbytin(tin)
+activate CS
+deactivate CS
+deactivate CTRL
+
+UI -> CTRL : CALDto = getClinicalAnalysisLaboratoryList()
+
+activate CTRL
+
+CTRL -> COMP : calstore = getClinicalAnalysisLaboratoryStore()
+activate COMP
+deactivate COMP
+
+CTRL -> CALS : CAL = getClinicalAnalysisLaboratoryList()
+activate CALS
+deactivate CALS
+CTRL -> MapperCAL : CALDto = toDTO(CAL)
+activate MapperCAL
+deactivate MapperCAL
+deactivate CTRL
+
+UI --> REP : shows laboratories and asks to select one
+deactivate UI
+
+REP -> UI : selects a laboratory
+activate UI
+
+UI -> CTRL : TTSDto = getTestTypeList()
+
+activate CTRL
+
+CTRL -> COMP : ttstore = getTestTypeStore()
+activate COMP
+deactivate COMP
+
+CTRL -> TTS : TTS = getTestTypeList()
+activate TTS
+deactivate TTS
+CTRL -> MapperTT : TTSDto = toDTO(TTS)
+activate MapperTT
+deactivate MapperTT
+deactivate CTRL
+
+
+UI --> REP : shows test types and asks to select one
+deactivate UI
+
+REP -> UI : selects a test type
+activate UI
+
+
+UI -> CTRL : PMCDto = getParameterCategoryList()
+
+activate CTRL
+
+CTRL -> COMP : pmcstore = getParameterCategoryStore()
+activate COMP
+deactivate COMP
+
+CTRL -> PMCS : PMC = getParameterCategoryList()
+activate PMCS
+deactivate PMCS
+CTRL -> MapperPMC : PMCDto = toDTO(PMC)
+activate MapperPMC
+deactivate MapperPMC
+deactivate CTRL
+
+UI --> REP : shows parameter categories to be selected
+deactivate UI
+loop
+REP -> UI : selects a parameter category
+activate UI
+
+UI -> CTRL : PMDto = getParameterList()
+
+activate CTRL
+
+CTRL -> COMP : pmstore = getParameterStore()
+activate COMP
+deactivate COMP
+
+CTRL -> PMS : PM = getParameterList()
+activate PMS
+deactivate PMS
+CTRL -> MapperPM : PMDto = toDTO(PM)
+activate MapperPM
+deactivate MapperPM
+deactivate CTRL
+
+UI --> REP : shows parameters to be selected
+deactivate UI
+
+loop
+REP -> UI : selects a parameter
+activate UI
+
+
+
+UI --> REP : added with success
+end
+end
+UI --> REP : shows all data and requests confirmation
+deactivate UI
+
+|||
+
+deactivate TS
+deactivate COMP
+deactivate CTRL
+deactivate UI
+
+REP -> UI : confirms the data
+activate UI
+
+UI -> CTRL : createTest(cl,nhscode,tt,TPM)
+activate CTRL
+CTRL -> COMP : tstore = getTestStore()
+activate COMP
+deactivate COMP
+CTRL -> TS : t = CreateTest(tin,nhscode)
+
+activate TS
+TS -> TS: internalcode = generateInternalCode(t)
+activate TS
+deactivate TS
+TS --> T**: create(tin,nhscode,tt,TPM,internalcode)
+deactivate TS
+
+CTRL -> TS : validateTest(t)
+activate TS
+deactivate TS
+deactivate CTRL
+
+UI -> CTRL : saveTest()
+activate CTRL
+
+CTRL -> TS : saveTest(t)
+activate TS
+
+TS -> TS: validateTest(t)
+activate TS
+deactivate TS
+TS -> TS: addTest(t)
+activate TS
+deactivate TS
+deactivate TS
+
+UI --> REP : informs operation success
+deactivate TS
+deactivate CTRL
+deactivate UI
+
+deactivate REP
+
+@enduml

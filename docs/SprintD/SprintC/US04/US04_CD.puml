@@ -1,0 +1,237 @@
+@startuml
+
+
+package mappers{
+class TestTypeMapper
+class ParameterMapper
+class ParameterCategoryMapper
+class ClinicalAnalysisLaboratoryMapper
+}
+
+package dto{
+class TestTypeDTO
+class ParameterDTO
+class ParameterCategoryDTO
+class ClinicalAnalysisLaboratoryDTO
+}
+
+package model{
+class Company
+class Client
+class TestType
+class Parameter
+class ParameterCategory
+class Test
+class ClinicalAnalysisLaboratory
+}
+
+package store{
+class TestStore
+class TestTypeStore
+class ParameterStore
+class ParameterCategoryStore
+class ClinicalAnalysisLaboratoryStore
+class ClientStore
+}
+
+package controller{
+class RegisterTestController
+}
+
+package ui{
+class RegisterTestUI
+}
+
+class ClinicalAnalysisLaboratoryMapper{
++toDTO(CAL)
+}
+
+class ClinicalAnalysisLaboratory{
+-laboratoryId
+-listOfTestTypes
++getLaboratoryId()
++getListOfTestTypes()
+}
+
+class ClinicalAnalysisLaboratoryStore{
++ClinicalAnalysisLaboratoryList()
+}
+
+class TestTypeStore{
++getTestTypeList()
+}
+
+class TestType{
+-code
+-description
+-collectingMethod
+-listOfParameterCategories
+-referenceAdapter
++getCode()
++getReferenceAdapter()
++getDescription()
++getCollectingMethod()
++getListOfParameterCategories()
+}
+
+class TestTypeMapper{
++toDTO(TTS)
+}
+
+class TestTypeDTO{
+
+}
+
+class ParameterCategoryStore {
++getParameterCategoryList()
+}
+
+class ParameterCategory {
+-name
+-code
++getName()
++getCode()
+}
+
+class ParameterCategoryMapper{
++toDTO(PMC)
+}
+
+class ParameterCategoryDTO{
+
+}
+
+class ClientStore{
++getClientbytin(tin)
+}
+
+class Client{
+-citizencardnumber
+  -nhs
+  -date
+  -sex
+  -tin
+  -phonenumber
+  -email
+  -name
+  +getCitizencardnumber()
+  +getNhs()
+  +getDate()
+  +getSex()
+  +getTin()
+  +getPhonenumber()
+  +getEmail()
+  +getName()
+}
+
+class Test{
+-client
+-nhscode
+-testParameterList
+-stateOfTest
+-internalCode
+}
+
+class TestStore{
+-generateInternalCode(t)
++create(tin,nhscode,tt,TPM,internalcode)
++validateTest(t)
++addTest(t)
+}
+
+class ParameterStore {
++getParameterList()
+}
+
+class Parameter {
+-code
+-shortName
+-description
+-category
++getCode()
++getShortName()
++getDescription()
++getCategory()
+}
+
+class ParameterMapper{
++toDTO(PM)
+}
+
+class ParameterDTO{
+
+}
+
+class Company {
+-String designation
++getTestStore()
++getClientStore()
++getParameterStore()
++getParameterCategoryStore()
++getTestTypeStore()
+}
+
+class RegisterTestController {
++getClient(tin)
++getTestTypeList()
++getParameterCategoryList()
++getParameterList()
++createTest(cl,nhscode,tt,TPM)
++saveTest()
+}
+
+class RegisterTestUI {
+
+}
+
+RegisterTestUI ..> RegisterTestController
+RegisterTestController ...> Company
+RegisterTestController ...> Client
+RegisterTestController ...> Parameter
+RegisterTestController ...> TestType
+RegisterTestController ...> ParameterCategory
+RegisterTestController ...> Client
+RegisterTestController ...> Test
+RegisterTestController ...> ClinicalAnalysisLaboratory
+RegisterTestController ..> ParameterStore
+RegisterTestController ..> TestTypeStore
+RegisterTestController ..> ParameterCategoryStore
+RegisterTestController ..> ClientStore
+RegisterTestController ..> TestStore
+RegisterTestController ..> ClinicalAnalysisLaboratoryStore
+RegisterTestController .> ParameterMapper
+RegisterTestController .> TestTypeMapper
+RegisterTestController .> ParameterCategoryMapper
+RegisterTestController .> ClinicalAnalysisLaboratoryMapper
+RegisterTestController ..> ParameterDTO
+RegisterTestController ..> TestTypeDTO
+RegisterTestController ..> ParameterCategoryDTO
+RegisterTestController ..> ClinicalAnalysisLaboratoryDTO
+RegisterTestUI ...> TestTypeDTO
+RegisterTestUI ...> ParameterDTO
+RegisterTestUI ...> ParameterCategoryDTO
+RegisterTestUI ...> ClinicalAnalysisLaboratoryDTO
+ParameterMapper ...> ParameterDTO
+TestTypeMapper ...> TestTypeDTO
+ParameterCategoryMapper ...> ParameterCategoryDTO
+ClinicalAnalysisLaboratoryMapper ...> ClinicalAnalysisLaboratoryDTO
+ParameterMapper ..> Parameter
+TestTypeMapper ..> TestType
+ParameterCategoryMapper ..> ParameterCategory
+ClinicalAnalysisLaboratoryMapper ..> ClinicalAnalysisLaboratory
+Company "1" ---> "1" ParameterStore :uses
+Company "1" ---> "1" TestTypeStore :uses
+Company "1" ---> "1" ParameterCategoryStore :uses
+Company "1" ---> "1" ClientStore :uses
+Company "1" ---> "1" TestStore :uses
+Company "1" ---> "1" ClinicalAnalysisLaboratoryStore :uses
+TestStore "1" --> "*" Test : registers the
+ParameterStore "1" --> "*" Parameter :knows
+TestTypeStore "1" --> "*" TestType :knows
+ParameterCategoryStore "1" --> "*" ParameterCategory :knows
+ClientStore "1" --> "*" Client :knows
+ClinicalAnalysisLaboratoryStore "1" --> "*" ClinicalAnalysisLaboratory :knows
+
+
+
+@enduml

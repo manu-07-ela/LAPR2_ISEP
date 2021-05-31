@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="730.5px" preserveAspectRatio="none" style="width:595px;height:730px;" version="1.1" viewBox="0 0 595 730" width="595.5px" zoomAndPan="magnify"><defs><filter height="300%" id="fp9expxxj2i96" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="405.7734" style="stroke:#A80036;stroke-width:1.5;" width="15" x="100.5" y="182.9414"/><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="70.0547" style="stroke:#A80036;stroke-width:1.5;" width="15" x="519" y="182.9414"/><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="70.0547" style="stroke:#A80036;stroke-width:1.5;" width="15" x="519" y="298.5234"/><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="45.5273" style="stroke:#A80036;stroke-width:1.5;" width="15" x="519" y="438.6328"/><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="45.5273" style="stroke:#A80036;stroke-width:1.5;" width="15" x="519" y="529.6875"/><line style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:5.0,5.0;" x1="108" x2="108" y1="134.4141" y2="602.2148"/><line style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:5.0,5.0;" x1="526.5" x2="526.5" y1="134.4141" y2="602.2148"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="192" x="7.5" y="129.7998">Med Lab Technician</text><ellipse cx="108" cy="22.5" fill="#FEFECE" filter="url(#fp9expxxj2i96)" rx="12" ry="12" style="stroke:#A80036;stroke-width:3.0;"/><path d="M108,34.5 L108,75 M88.5,46.5 L127.5,46.5 M108,75 L88.5,97.5 M108,75 L127.5,97.5 " fill="none" filter="url(#fp9expxxj2i96)" style="stroke:#A80036;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="192" x="7.5" y="622.5146">Med Lab Technician</text><ellipse cx="108" cy="642.1289" fill="#FEFECE" filter="url(#fp9expxxj2i96)" rx="12" ry="12" style="stroke:#A80036;stroke-width:3.0;"/><path d="M108,654.1289 L108,694.6289 M88.5,666.1289 L127.5,666.1289 M108,694.6289 L88.5,717.1289 M108,694.6289 L127.5,717.1289 " fill="none" filter="url(#fp9expxxj2i96)" style="stroke:#A80036;stroke-width:3.0;"/><rect fill="#FEFECE" filter="url(#fp9expxxj2i96)" height="47.4141" style="stroke:#A80036;stroke-width:2.25;" width="102" x="472.5" y="79.5"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="81" x="483" y="111.7998">: System</text><rect fill="#FEFECE" filter="url(#fp9expxxj2i96)" height="47.4141" style="stroke:#A80036;stroke-width:2.25;" width="102" x="472.5" y="600.7148"/><text fill="#000000" font-family="sans-serif" font-size="21" lengthAdjust="spacing" textLength="81" x="483" y="633.0146">: System</text><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="405.7734" style="stroke:#A80036;stroke-width:1.5;" width="15" x="100.5" y="182.9414"/><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="70.0547" style="stroke:#A80036;stroke-width:1.5;" width="15" x="519" y="182.9414"/><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="70.0547" style="stroke:#A80036;stroke-width:1.5;" width="15" x="519" y="298.5234"/><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="45.5273" style="stroke:#A80036;stroke-width:1.5;" width="15" x="519" y="438.6328"/><rect fill="#FFFFFF" filter="url(#fp9expxxj2i96)" height="45.5273" style="stroke:#A80036;stroke-width:1.5;" width="15" x="519" y="529.6875"/><polygon fill="#A80036" points="501,176.9414,516,182.9414,501,188.9414,507,182.9414" style="stroke:#A80036;stroke-width:1.5;"/><line style="stroke:#A80036;stroke-width:1.5;" x1="115.5" x2="510" y1="182.9414" y2="182.9414"/><text fill="#000000" font-family="sans-serif" font-size="19.5" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="126" y="175.6567">1</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="286.5" x="142.5" y="175.6567">start recording samples for a test</text><polygon fill="#A80036" points="132,246.9961,117,252.9961,132,258.9961,126,252.9961" style="stroke:#A80036;stroke-width:1.5;"/><line style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:2.0,2.0;" x1="123" x2="525" y1="252.9961" y2="252.9961"/><text fill="#000000" font-family="sans-serif" font-size="19.5" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="141" y="233.4478">2</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="276" x="157.5" y="221.1841">shows the tests that are waiting</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="270" x="163.5" y="245.7114">to be associated with a sample</text><polygon fill="#A80036" points="501,292.5234,516,298.5234,501,304.5234,507,298.5234" style="stroke:#A80036;stroke-width:1.5;"/><line style="stroke:#A80036;stroke-width:1.5;" x1="115.5" x2="510" y1="298.5234" y2="298.5234"/><text fill="#000000" font-family="sans-serif" font-size="19.5" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="126" y="291.2388">3</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="108" x="142.5" y="291.2388">select a test</text><polygon fill="#A80036" points="132,362.5781,117,368.5781,132,374.5781,126,368.5781" style="stroke:#A80036;stroke-width:1.5;"/><line style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:2.0,2.0;" x1="123" x2="525" y1="368.5781" y2="368.5781"/><text fill="#000000" font-family="sans-serif" font-size="19.5" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="141" y="349.0298">4</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="318" x="157.5" y="336.7661">asks the number of samples that will</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="280.5" x="163.5" y="361.2935">be recorded for the selected test</text><polygon fill="#A80036" points="501,432.6328,516,438.6328,501,444.6328,507,438.6328" style="stroke:#A80036;stroke-width:1.5;"/><line style="stroke:#A80036;stroke-width:1.5;" x1="115.5" x2="510" y1="438.6328" y2="438.6328"/><text fill="#000000" font-family="sans-serif" font-size="19.5" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="126" y="419.0845">5</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="286.5" x="142.5" y="406.8208">enter the number of samples that</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="267" x="148.5" y="431.3481">will be associated with the test</text><polygon fill="#A80036" points="132,478.1602,117,484.1602,132,490.1602,126,484.1602" style="stroke:#A80036;stroke-width:1.5;"/><line style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:2.0,2.0;" x1="123" x2="525" y1="484.1602" y2="484.1602"/><text fill="#000000" font-family="sans-serif" font-size="19.5" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="141" y="476.8755">6</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="351" x="157.5" y="476.8755">shows the data and request confirmation</text><polygon fill="#A80036" points="501,523.6875,516,529.6875,501,535.6875,507,529.6875" style="stroke:#A80036;stroke-width:1.5;"/><line style="stroke:#A80036;stroke-width:1.5;" x1="115.5" x2="510" y1="529.6875" y2="529.6875"/><text fill="#000000" font-family="sans-serif" font-size="19.5" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="126" y="522.4028">7</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="150" x="142.5" y="522.4028">confirms the data</text><polygon fill="#A80036" points="132,569.2148,117,575.2148,132,581.2148,126,575.2148" style="stroke:#A80036;stroke-width:1.5;"/><line style="stroke:#A80036;stroke-width:1.5;stroke-dasharray:2.0,2.0;" x1="123" x2="525" y1="575.2148" y2="575.2148"/><text fill="#000000" font-family="sans-serif" font-size="19.5" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="141" y="567.9302">8</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacing" textLength="261" x="157.5" y="567.9302">informs the operation success</text><!--MD5=[27f3967e6e707c7c5fefb43c0ba611fe]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Med Lab Technician" as MEDLAB
+participant ": System" as SYSTEM
+
+
+MEDLAB -> SYSTEM : start recording samples for a test
+activate SYSTEM
+activate MEDLAB
+SYSTEM - -> MEDLAB : shows the tests that are waiting \n to be associated with a sample
+deactivate SYSTEM
+MEDLAB -> SYSTEM : select a test
+activate SYSTEM
+SYSTEM - -> MEDLAB : asks the number of samples that will \n be recorded for the selected test
+deactivate SYSTEM
+MEDLAB ->SYSTEM : enter the number of samples that \n will be associated with the test
+activate SYSTEM
+SYSTEM - -> MEDLAB : shows the data and request confirmation
+deactivate SYSTEM
+MEDLAB -> SYSTEM : confirms the data
+activate SYSTEM
+SYSTEM - -> MEDLAB : informs the operation success
+deactivate SYSTEM
+@enduml
+
+@startuml
+
+autonumber
+actor "Med Lab Technician" as MEDLAB
+participant ": System" as SYSTEM
+
+
+MEDLAB -> SYSTEM : start recording samples for a test
+activate SYSTEM
+activate MEDLAB
+SYSTEM - -> MEDLAB : shows the tests that are waiting \n to be associated with a sample
+deactivate SYSTEM
+MEDLAB -> SYSTEM : select a test
+activate SYSTEM
+SYSTEM - -> MEDLAB : asks the number of samples that will \n be recorded for the selected test
+deactivate SYSTEM
+MEDLAB ->SYSTEM : enter the number of samples that \n will be associated with the test
+activate SYSTEM
+SYSTEM - -> MEDLAB : shows the data and request confirmation
+deactivate SYSTEM
+MEDLAB -> SYSTEM : confirms the data
+activate SYSTEM
+SYSTEM - -> MEDLAB : informs the operation success
+deactivate SYSTEM
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

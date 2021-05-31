@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="384px" preserveAspectRatio="none" style="width:2577px;height:384px;" version="1.1" viewBox="0 0 2577 384" width="2577px" zoomAndPan="magnify"><defs><filter height="300%" id="f1s50tt5k1gswi" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="24,9,72,9,82.5,44.4141,2551.5,44.4141,2551.5,373.5,24,373.5,24,9" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="24" x2="82.5" y1="44.4141" y2="44.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="39" x="30" y="33.7998">app</text><!--MD5=[a0bb257923b4feabbc8c8a837db65c88]
+cluster adapter--><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1230,141,1320,141,1330.5,176.4141,1416,176.4141,1416,301.5,1230,301.5,1230,141" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1230" x2="1330.5" y1="176.4141" y2="176.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="81" x="1236" y="165.7998">adapter</text><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1452,75,1537.5,75,1548,110.4141,2515.5,110.4141,2515.5,337.5,1452,337.5,1452,75" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1452" x2="1548" y1="110.4141" y2="110.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="76.5" x="1458" y="99.7998">domain</text><!--MD5=[5d4cd377749310b66bf14896f5cd8d9b]
+cluster model--><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1747.5,141,1821,141,1831.5,176.4141,2479.5,176.4141,2479.5,301.5,1747.5,301.5,1747.5,141" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1747.5" x2="1831.5" y1="176.4141" y2="176.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="64.5" x="1753.5" y="165.7998">model</text><!--MD5=[1969eb49accf14e28bce7c74db8cc840]
+cluster mapper--><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1080,141,1168.5,141,1179,176.4141,1194,176.4141,1194,301.5,1080,301.5,1080,141" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1080" x2="1179" y1="176.4141" y2="176.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="79.5" x="1086" y="165.7998">mapper</text><!--MD5=[64e2e010ba86d7988e5cd73bd64f61f9]
+cluster ui--><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="340.5,75,369,75,379.5,110.4141,1044,110.4141,1044,337.5,340.5,337.5,340.5,75" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="340.5" x2="379.5" y1="110.4141" y2="110.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="19.5" x="346.5" y="99.7998">ui</text><!--MD5=[4b7a55d430ce43d42ce9ebad9e6b4010]
+cluster console--><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="456,141,549,141,559.5,176.4141,1008,176.4141,1008,301.5,456,301.5,456,141" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="456" x2="559.5" y1="176.4141" y2="176.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="84" x="462" y="165.7998">console</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1254.75,195,1370.25,195,1380.75,230.4141,1391.25,230.4141,1391.25,277.8281,1254.75,277.8281,1254.75,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1254.75" x2="1380.75" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="106.5" x="1260.75" y="219.7998">interfaces</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="177.75,195,290.25,195,300.75,230.4141,311.25,230.4141,311.25,277.8281,177.75,277.8281,177.75,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="177.75" x2="300.75" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="103.5" x="183.75" y="219.7998">controller</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="2323.5,195,2434.5,195,2445,230.4141,2455.5,230.4141,2455.5,277.8281,2323.5,277.8281,2323.5,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="2323.5" x2="2445" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="102" x="2329.5" y="219.7998">attributes</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="2112.75,195,2249.25,195,2259.75,230.4141,2270.25,230.4141,2270.25,277.8281,2112.75,277.8281,2112.75,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="2112.75" x2="2259.75" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="127.5" x="2118.75" y="219.7998">laboratories</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1914.75,195,2039.25,195,2049.75,230.4141,2060.25,230.4141,2060.25,277.8281,1914.75,277.8281,1914.75,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1914.75" x2="2049.75" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="115.5" x="1920.75" y="219.7998">testrelated</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1771.5,195,1840.5,195,1851,230.4141,1861.5,230.4141,1861.5,277.8281,1771.5,277.8281,1771.5,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1771.5" x2="1851" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="60" x="1777.5" y="219.7998">users</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1614.75,195,1697.25,195,1707.75,230.4141,1718.25,230.4141,1718.25,277.8281,1614.75,277.8281,1614.75,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1614.75" x2="1707.75" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="73.5" x="1620.75" y="219.7998">shared</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1476.75,195,1541.25,195,1551.75,230.4141,1562.25,230.4141,1562.25,277.8281,1476.75,277.8281,1476.75,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1476.75" x2="1551.75" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="55.5" x="1482.75" y="219.7998">store</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="1104.75,195,1148.25,195,1158.75,230.4141,1169.25,230.4141,1169.25,277.8281,1104.75,277.8281,1104.75,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="1104.75" x2="1158.75" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="34.5" x="1110.75" y="219.7998">dto</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="840,195,963,195,973.5,230.4141,984,230.4141,984,277.8281,840,277.8281,840,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="840" x2="973.5" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="114" x="846" y="219.7998">employees</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="607.5,195,766.5,195,777,230.4141,787.5,230.4141,787.5,277.8281,607.5,277.8281,607.5,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="607.5" x2="777" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="150" x="613.5" y="219.7998">functionalities</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="480,195,534,195,544.5,230.4141,555,230.4141,555,277.8281,480,277.8281,480,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="480" x2="544.5" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="45" x="486" y="219.7998">utils</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="364.5,195,406.5,195,417,230.4141,427.5,230.4141,427.5,277.8281,364.5,277.8281,364.5,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="364.5" x2="417" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="33" x="370.5" y="219.7998">gui</text><polygon fill="#FFFFFF" filter="url(#f1s50tt5k1gswi)" points="48.75,195,104.25,195,114.75,230.4141,125.25,230.4141,125.25,277.8281,48.75,277.8281,48.75,195" style="stroke:#000000;stroke-width:2.25;"/><line style="stroke:#000000;stroke-width:2.25;" x1="48.75" x2="114.75" y1="230.4141" y2="230.4141"/><text fill="#000000" font-family="sans-serif" font-size="21" font-weight="bold" lengthAdjust="spacing" textLength="46.5" x="54.75" y="219.7998">auth</text><!--MD5=[28108fef8fdec9aef04727a0bbf5db2e]
+@startuml
+'https://plantuml.com/class-diagram
+
+package app {
+package adapter {
+package interfaces {
+}
+}
+package controller {
+}
+package domain {
+package model {
+package attributes {
+}
+package laboratories {
+}
+package testrelated {
+}
+package users {
+}
+}
+package shared {
+}
+package store {
+}
+}
+package mapper {
+package dto {
+}
+}
+package ui {
+package console {
+package employees {
+}
+package functionalities {
+}
+package utils {
+}
+}
+package gui {
+}
+}
+package auth {
+
+package domain {
+package model {
+}
+package store {
+}
+}
+package mapper{
+package dto {
+}
+
+}
+
+}
+
+@enduml
+
+@startuml
+
+package app {
+package adapter {
+package interfaces {
+}
+}
+package controller {
+}
+package domain {
+package model {
+package attributes {
+}
+package laboratories {
+}
+package testrelated {
+}
+package users {
+}
+}
+package shared {
+}
+package store {
+}
+}
+package mapper {
+package dto {
+}
+}
+package ui {
+package console {
+package employees {
+}
+package functionalities {
+}
+package utils {
+}
+}
+package gui {
+}
+}
+package auth {
+
+package domain {
+package model {
+}
+package store {
+}
+}
+package mapper{
+package dto {
+}
+
+}
+
+}
+
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

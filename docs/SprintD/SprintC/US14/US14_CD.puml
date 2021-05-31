@@ -1,0 +1,109 @@
+@startuml
+
+package UI{
+class WriteMedicalReportUI{
+}
+}
+
+package Controller{
+class WriteMedicalReportController{
++getTestHasSamplesAnalyzedList()
++getTestParameterList(selectedTest)
++addMedicalReport(diagnosis)
+}
+}
+
+package Model{
+class Company{
+-String designation
++getTestStore()
+}
+
+class Test{
+-String internalCode
+-String nhsCode
+-String description
++getTestParameterList()
++getDescription()
++getInternalCode()
++addMedicalReport(diagnosis)
++validateMedicalReport()
+-updateStateToDiagnosisMade()
+}
+
+class MedicalReport{
+-String diagnosis
+-Date createdAt
++ MedicalReport(diagnosis)
++ addCreationDate()
+}
+
+class TestParameter{
++ getParameterName()
++ getParameterResult()
++ getParameterMetric()
++ getParameterMinRefValue()
++ getParameterMaxRefValue()
++ getRefValueMetric()
+}
+}
+
+package Store{
+class TestStore{
++getTestHasSamplesAnalyzedList()
++getTestByInternalCode(code)
+}
+}
+
+package Mappers{
+class TestMapper{
++toDto(test)
++toDto(testList)
+}
+
+class TestParameterMapper{
++toDTO(testParametersList)
++toDTO(testParameter)
+}
+}
+
+package DTO{
+class TestDto{
+-String internalCode
+-String description
++TestDto(internalCode,description)
+}
+
+class TestParameterDto{
+-String parameterName
+-String testParameterResult
+-String testParameterMetric
+-double testParameterMinRefValue
+-double testParameterMaxRefValue
+-String refValueMetric
++TestParameterDto(parameterName,testParameterResult,\ntestParameterMetric,testParameterMinRefValue,\ntestParameterMaxRefValue,refValueMetric)
+}
+}
+
+
+WriteMedicalReportUI ..> WriteMedicalReportController
+WriteMedicalReportUI ..> TestDto
+WriteMedicalReportUI ..> TestParameterDto
+WriteMedicalReportController ..> Company
+WriteMedicalReportController ..> TestStore
+WriteMedicalReportController ..> TestMapper
+WriteMedicalReportController ...> TestParameterDto
+WriteMedicalReportController ...> TestDto
+WriteMedicalReportController ...> TestParameter
+WriteMedicalReportController ...> Test
+WriteMedicalReportController ..> TestParameterMapper
+TestParameterMapper ..> TestParameterDto
+TestParameterMapper ..> TestParameter
+TestMapper ..> TestDto
+TestMapper ..> Test
+Company "1"--"1..*" Test : performs >
+TestParameter "1..*" --"1" Test : requests analysis of <
+Test "1"--"1" MedicalReport : request >
+Company"1"--> "1" TestStore : uses
+
+@enduml

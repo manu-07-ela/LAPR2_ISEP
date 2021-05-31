@@ -1,0 +1,176 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package adapter{
+class BarcodeAdapter
+package interfaces{
+interface ExternalModuleBarcode
+}
+}
+package ui{
+class RecordSampleUI
+}
+package controller{
+class RecordSampleController
+}
+package domain{
+
+package model{
+package testRelated {
+class Test
+class Sample
+class BarcodeDomain
+}
+package store{
+class TestStore
+class SampleStore
+}
+package laboratories {
+class ChemicalLaboratory
+}
+class Company
+
+}
+
+package mappers{
+class TestMapper
+
+package dto{
+class TestDTO
+
+}
+
+
+
+}
+}
+
+class Test{
+-nhsCode
+-testCode
+-samples
+-stateOfTest
+-samplesAddDate
+-generateDateAndTimeForSamplesCollected()
+-changeStateForSamplesCollected()
++getNhsCode()
++getTestCode()
++getStateOfTest()
+
+
+}
+
+class Company{
+-designation
+-testStore
+-chemicalLaboratory
++getTestStore()
++getChemicalLaboratory()
+}
+
+class RecordSampleController{
+-testStore
+-sampleStore
+-company
+-testMapper
+-{static} instancesOfBarcode
++RecordSampleController()
++getListOfTestsWaitingForSample()
++getTestByInternalCode()
++getExternalModule()
++generateBarcode()
++showBarcodes(barcode)
++associateBarcodeWithSample(barcode)
+
+
+}
+
+class TestStore{
++testList
++TestStore()
++getTestByInternalCode(code)
++getListTestWaitingForSamples()
+}
+
+class SampleStore{
+-samples
++SampleStore()
++createSample()
++validateSample(sample)
++addSample(sample)
++saveSample(sample)
++getListOfSamples()
+}
+
+
+
+class TestMapper {
++toDto(test)
++toDto(listOfTests)
+}
+
+class TestDTO {
+-internalCode
+-description
++TestDTO(internalCode, description)
++TestDTO(test)
++getInternalCode()
++toString()
+}
+
+class Sample {
+-barcodeDomain
+-Sample(barcodeDomain)
++Sample(sample)
++getBarcode()
+
+}
+class BarcodeDomain {
+-barcode
+-barcodeNumber
++BarcodeDomain(barcode, barcodeNumber)
++BarcodeDomain(barcodeDomain)
++getBarcode()
++getBarcodeNumber()
++equals()
+}
+
+class ChemicalLaboratory {
+-sampleStore
++ChemicalLaboratory(name, address, phoneNumber, tin)
++getSampleStore()
+}
+class RecordSampleUI {
+-recordSampleController
++RecordSampleUI()
++run()
+-askTheAmountOfSamples(testDTO)
+-generateBarcodes(quantityOfSamplesIntroduced, testDTO)
+-associateBarcodesWithSamples(barcode, testDTO, quantityOfSamplesIntroduced)
+
+
+}
+interface ExternalModuleBarcode {
++{abstract} generateBarcode(barcodeNumber)
+}
+class BarcodeAdapter {
++ generateBarcode(barcodeNumber)
+}
+
+RecordSampleUI..>RecordSampleController
+RecordSampleController..>Company
+Company"1"->"1"ChemicalLaboratory : knows
+ChemicalLaboratory"1"-->"1"SampleStore : uses
+Company"1"-->"1"TestStore : uses
+SampleStore "1" --> "*"Sample : knows
+TestStore "1"-->"*"Test : knows
+Test -* Sample
+Sample --* BarcodeDomain
+TestDTO..>TestMapper
+TestMapper.>Test
+BarcodeAdapter..|>ExternalModuleBarcode
+RecordSampleController"1"->"1"ExternalModuleBarcode : knows
+
+
+
+@enduml
