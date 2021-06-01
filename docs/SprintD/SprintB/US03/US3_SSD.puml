@@ -1,0 +1,23 @@
+@startuml
+autonumber
+actor "Receptionist" as REP
+
+activate REP
+REP -> ":System" : asks to register a client in the application
+activate ":System"
+":System" --> REP : requests data (name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+deactivate ":System"
+
+REP -> ":System" : types requested data
+activate ":System"
+":System" --> REP : shows all data and requests confirmation
+deactivate ":System"
+
+REP -> ":System" : confirms the data
+activate ":System"
+":System" --> REP : informs operation success
+deactivate ":System"
+
+deactivate REP
+
+@enduml
