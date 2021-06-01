@@ -95,9 +95,6 @@ From a previous post: "The system shows all tests ready to validate (tests that 
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8538) The tests should not be eliminated.
 
-> **Question:**
->
-> [**Awnser:**]()
 
 ### 1.3. Acceptance Criteria
 
