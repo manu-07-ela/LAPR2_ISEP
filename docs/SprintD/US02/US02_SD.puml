@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ": Client" as CL
+participant ": UpdateDataUI" as UI
+participant ": UpdateDataController" as CTRL
+
+
+activate CL
+CL -> UI : asks to update personal data
+activate UI
+UI -> CL : show a list of attributes he can update
+deactivate UI
+CL -> UI : selects the desired attribute
+activate UI
+UI -> CL : request data to update his personal data
+deactivate UI
+CL -> UI : types the desired data
+activate UI
+UI -> CTRL : set
+
+
+
+
+deactivate CL
+
+@enduml

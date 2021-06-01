@@ -68,8 +68,8 @@ public class RecordSampleUI implements Runnable{
     }
 
     /**
-     *
-     * @return
+     * Get the clinical analysis associated with a test
+     * @return the clinical analysis
      */
     private ClinicalAnalysisLaboratory getTheLaboratory(){
         return (ClinicalAnalysisLaboratory) Utils.showAndSelectOne(recordSampleController.getListOfLaboratories(), "Please choose the laboratory in which you work:" );

@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'hide footbox
+autonumber
+
+participant ": testMapper" as MAPPER
+participant "listTestWaitingForResult: \nList<Test>" as LWFR
+participant "listTestsToValidateDto: \nList<TestDto>" as LISTTWFV
+participant "test : Test" as TEST
+participant "testDto : TestDto" as TESTDTO
+
+-> MAPPER : toDto(testList)
+activate MAPPER
+MAPPER --> LISTTWFV** : create()
+loop for each object in testHasSamplesAnalyzedList
+MAPPER -> LWFR : testAux = get(i)
+activate LWFR
+deactivate LWFR
+MAPPER -> TEST : testInternalCode = getInternalCode()
+activate TEST
+deactivate TEST
+MAPPER -> TEST : testDescription = getDescription()
+activate TEST
+deactivate TEST
+MAPPER --> TESTDTO** : create(testInternalCode, testDescription)
+MAPPER -> LISTTWFV : add(testDto)
+activate LISTTWFV
+deactivate LISTTWFV
+end
+deactivate MAPPER
+<-- MAPPER : listTestsToValidateDto
+
+@enduml

@@ -1,0 +1,70 @@
+@startuml
+autonumber
+'hide footbox
+actor "Clinical Chemistry Technologist" as CCT
+
+participant ": RecordTestResultsUI" as UI
+participant ": RecordTestResultsController" as CTRL
+participant ": Company" as Comp
+participant ": ParameterMapper" as PMapper
+participant ": TestStore" as TStore
+participant "test: Test" as Test
+
+activate CCT
+CCT -> UI : asks to register the test results
+activate UI
+UI -> CCT : request the barcode number
+deactivate UI
+CCT -> UI : types requested data
+activate UI
+UI -> CTRL : getTestParameterList(barcode)
+activate CTRL
+CTRL -> Comp : store = getTestStore()
+activate Comp
+deactivate Comp
+CTRL -> TStore : test=getTestByBarcode()
+activate TStore
+deactivate TStore
+CTRL -> Test : getTestParameterList()
+activate Test
+Test --> CTRL : TestParameterList
+deactivate Test
+CTRL -> PMapper : ToDTO(TestParameterList)
+activate PMapper
+PMapper --> CTRL : TestParameterListDTO
+deactivate PMapper
+
+
+CTRL --> UI : TestParameterListDTO
+deactivate CTRL
+loop *for each test parameter being analysed
+UI -> CCT : shows a Test Parameter list
+deactivate UI
+CCT -> UI : selects test parameter
+activate UI
+UI -> CCT : request the result value and metric
+deactivate UI
+CCT -> UI : types requested data
+activate UI
+UI -> CTRL : addTestResult(parameterId,result,metric)
+activate CTRL
+CTRL -> Test : addTestResult(parameterId,result,metric)
+activate Test
+ref over Test
+SD_AddResult
+end ref
+Test --> CTRL : success
+deactivate Test
+
+CTRL --> UI : success
+deactivate CTRL
+UI -> CCT :  inform operation success
+deactivate UI
+end
+
+
+
+
+
+deactivate CCT
+@enduml

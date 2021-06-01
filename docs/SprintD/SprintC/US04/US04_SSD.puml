@@ -1,0 +1,50 @@
+@startuml
+autonumber
+actor "Receptionist" as REP
+
+activate REP
+REP -> ":System" : asks to register a test to be \n performed to a registered client
+activate ":System"
+":System" --> REP : requests data (tin,nhscode)
+deactivate ":System"
+
+REP -> ":System" : types requested data
+activate ":System"
+":System" --> REP : shows laboratories and asks to select one
+deactivate ":System"
+
+REP -> ":System" : selects a laboratory
+activate ":System"
+":System" --> REP : shows test types and asks to select one
+deactivate ":System"
+
+REP -> ":System" : selects a test type
+activate ":System"
+
+":System" --> REP : shows parameter categories to be selected
+deactivate ":System"
+loop
+REP -> ":System" : selects parameter category
+activate ":System"
+
+":System" --> REP : shows parameters to be selected
+deactivate ":System"
+
+loop
+REP -> ":System" : selects a parameter
+activate ":System"
+":System" --> REP : added with success
+end
+end
+
+":System" --> REP : shows all data and requests confirmation
+deactivate ":System"
+
+REP -> ":System" : confirms the data
+activate ":System"
+":System" --> REP : informs operation success
+deactivate ":System"
+
+deactivate REP
+
+@enduml

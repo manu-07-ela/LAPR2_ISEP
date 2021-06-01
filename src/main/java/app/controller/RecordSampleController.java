@@ -10,6 +10,7 @@ import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import app.mappers.dto.TestDTO;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;

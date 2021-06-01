@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Clinical Chemistry Technologist" as CCT
+participant ": System" as SYSTEM
+
+activate CCT
+CCT -> SYSTEM : asks to consult the tests performed by a particular client
+activate SYSTEM
+SYSTEM -> CCT : show a list of clients and asks to select one
+deactivate SYSTEM
+CCT -> SYSTEM : select the desired client
+activate SYSTEM
+SYSTEM -> CCT : show the historical tests performed by that client
+
+
+
+
+deactivate CCT
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Client" as CLIENT
+participant ": System" as SYSTEM
+
+CLIENT->SYSTEM : starts the update of data
+activate CLIENT
+activate SYSTEM
+SYSTEM-->CLIENT : ask how data he wants to update
+deactivate SYSTEM
+
+CLIENT->SYSTEM : type the required data
+activate SYSTEM
+SYSTEM-->CLIENT : show the fields to update
+deactivate SYSTEM
+CLIENT->SYSTEM : type the new data
+activate SYSTEM
+SYSTEM-->CLIENT : show the new data an ask for confirmation
+deactivate SYSTEM
+CLIENT->SYSTEM: confirm data
+activate SYSTEM
+SYSTEM-->CLIENT : show the operation success
+deactivate SYSTEM
+
+
+deactivate CLIENT
+
+@enduml

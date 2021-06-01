@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="666px" preserveAspectRatio="none" style="width:504px;height:666px;" version="1.1" viewBox="0 0 504 666" width="504px" zoomAndPan="magnify"><defs><filter height="300%" id="fnhgwa2pllyi0" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="529.5156" style="stroke:#A80036;stroke-width:1.0;" width="10" x="138" y="73.9609"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="104.3125"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="164.6641"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="225.0156"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="285.3672"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="345.7188"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="406.0703"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="466.4219"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="526.7734"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="143" x2="143" y1="41.6094" y2="621.4766"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="437" x2="437" y1="41.6094" y2="621.4766"/><rect fill="#FEFECE" filter="url(#fnhgwa2pllyi0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="102" x="90" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="97" y="26.5332">:ClientMapper</text><rect fill="#FEFECE" filter="url(#fnhgwa2pllyi0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="102" x="90" y="620.4766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="97" y="642.0098">:ClientMapper</text><rect fill="#FEFECE" filter="url(#fnhgwa2pllyi0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="110" x="380" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="387" y="26.5332">cldto: ClientDto</text><rect fill="#FEFECE" filter="url(#fnhgwa2pllyi0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="110" x="380" y="620.4766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="387" y="642.0098">cldto: ClientDto</text><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="529.5156" style="stroke:#A80036;stroke-width:1.0;" width="10" x="138" y="73.9609"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="104.3125"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="164.6641"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="225.0156"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="285.3672"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="345.7188"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="406.0703"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="466.4219"/><rect fill="#FFFFFF" filter="url(#fnhgwa2pllyi0)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="432" y="526.7734"/><polygon fill="#A80036" points="126,69.9609,136,73.9609,126,77.9609,130,73.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="0" x2="132" y1="73.9609" y2="73.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="7" y="69.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="108" x="18" y="69.1045">cl = toModel(cldto)</text><polygon fill="#A80036" points="420,100.3125,430,104.3125,420,108.3125,424,104.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="148" x2="426" y1="104.3125" y2="104.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="155" y="99.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="166" y="99.4561">name = getname()</text><polygon fill="#A80036" points="420,160.6641,430,164.6641,420,168.6641,424,164.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="148" x2="426" y1="164.6641" y2="164.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="155" y="159.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="254" x="166" y="159.8076">citizencardnumber = getcitizencardnumber()</text><polygon fill="#A80036" points="420,221.0156,430,225.0156,420,229.0156,424,225.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="148" x2="426" y1="225.0156" y2="225.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="155" y="220.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="166" y="220.1592">nhs = getnhs()</text><polygon fill="#A80036" points="420,281.3672,430,285.3672,420,289.3672,424,285.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="148" x2="426" y1="285.3672" y2="285.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="155" y="280.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="92" x="166" y="280.5107">date = getdate()</text><polygon fill="#A80036" points="420,341.7188,430,345.7188,420,349.7188,424,345.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="148" x2="426" y1="345.7188" y2="345.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="155" y="340.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="166" y="340.8623">sex = getsex()</text><polygon fill="#A80036" points="420,402.0703,430,406.0703,420,410.0703,424,406.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="148" x2="426" y1="406.0703" y2="406.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="155" y="401.2139">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="70" x="166" y="401.2139">tin = gettin()</text><polygon fill="#A80036" points="420,462.4219,430,466.4219,420,470.4219,424,466.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="148" x2="426" y1="466.4219" y2="466.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="155" y="461.5654">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="198" x="166" y="461.5654">phonenumber = getphonenumber()</text><polygon fill="#A80036" points="420,522.7734,430,526.7734,420,530.7734,424,526.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="148" x2="426" y1="526.7734" y2="526.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="155" y="521.917">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="104" x="166" y="521.917">email = getemail()</text><polygon fill="#A80036" points="487,599.4766,497,603.4766,487,607.4766,491,603.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="143" x2="493" y1="603.4766" y2="603.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="150" y="590.4443">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="190" x="168" y="582.2686">create(name, citizencardnumber,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="234" x="172" y="598.6201">nhs, date, sex, tin, phonenumber, email)</text><!--MD5=[ed7b94e505398bb7dba0f840e613df6f]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ":ClientMapper" as CM
+participant "cldto: ClientDto" as CDTO
+
+
+ -> CM : cl = toModel(cldto)
+ activate CM
+
+CM -> CDTO : name = getname()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : citizencardnumber = getcitizencardnumber()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : nhs = getnhs()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : date = getdate()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : sex = getsex()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : tin = gettin()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : phonenumber = getphonenumber()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : email = getemail()
+activate CDTO
+deactivate CDTO
+CM - -> : create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+deactivate CM
+@enduml
+
+@startuml
+
+autonumber
+
+participant ":ClientMapper" as CM
+participant "cldto: ClientDto" as CDTO
+
+
+ -> CM : cl = toModel(cldto)
+ activate CM
+
+CM -> CDTO : name = getname()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : citizencardnumber = getcitizencardnumber()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : nhs = getnhs()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : date = getdate()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : sex = getsex()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : tin = gettin()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : phonenumber = getphonenumber()
+activate CDTO
+deactivate CDTO
+
+CM -> CDTO : email = getemail()
+activate CDTO
+deactivate CDTO
+CM - -> : create(name, citizencardnumber,\n nhs, date, sex, tin, phonenumber, email)
+deactivate CM
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

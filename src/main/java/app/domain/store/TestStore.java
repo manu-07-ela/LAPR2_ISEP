@@ -124,10 +124,11 @@ public class TestStore {
      */
     public List<Test> getListOfTestWaitingForSample(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
         List<Test> testsWaintingForSamples = getTestByLaboratory(clinicalAnalysisLaboratory);
-        for (Test test : testList){
-            if (test.getStateOfTest() == TestRegistered) testsWaintingForSamples.add(test);
+        List<Test> test = new ArrayList<>();
+        for (Test t : testsWaintingForSamples){
+            if (t.getStateOfTest() == TestRegistered) test.add(t);
         }
-        return testsWaintingForSamples;
+        return test;
     }
 
     /**
@@ -205,7 +206,7 @@ public class TestStore {
      * @param clinicalAnalysisLaboratory the laboratory that te test will be associated
      * @return the list of test associated with a laboratory
      */
-    private List<Test> getTestByLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+    public List<Test> getTestByLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
         List<Test> test = new ArrayList<>();
         for (Test t : testList){
             if (t.getLab().equals(clinicalAnalysisLaboratory)){
