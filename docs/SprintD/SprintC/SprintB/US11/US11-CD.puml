@@ -1,0 +1,44 @@
+@startuml
+class Company
+class ParameterCategoryStore
+class ParameterCategory
+class CreateParameterCategoryController
+class CreateParameterCategoryUI
+
+class Company{
+-designation
++getParameterCategoryStore()
+}
+
+class CreateParameterCategoryController{
++createParameterCategory(code, name)
++saveParameterCategory()
+
+}
+
+class ParameterCategoryStore{
++createParameterCategory(code, name)
++validateParameterCategory(pc)
++addParameterCategory(pc)
++saveParameterCategory(pc)
+}
+
+
+class ParameterCategory {
+-code
+-name
++ParameterCategory(code, name)
+}
+
+Company "1"-->"1" ParameterCategoryStore : uses
+CreateParameterCategoryController ..> Company
+CreateParameterCategoryUI ..> CreateParameterCategoryController
+CreateParameterCategoryController ..> ParameterCategory
+ParameterCategoryStore "1"-->"*" ParameterCategory : adopts
+CreateParameterCategoryController ..> ParameterCategoryStore
+
+
+
+
+
+@enduml

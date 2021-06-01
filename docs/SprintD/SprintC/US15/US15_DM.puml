@@ -1,0 +1,110 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide methods
+skinparam classAttributeIconSize 0
+
+class Company
+class LabCoordinatorValidation
+class Employee
+class ChemicalAnalysis
+class SpecialistDoctor
+class MedicalReport
+class ParameterResult
+class Test
+class EmailNotification
+class SMSNotification
+
+
+class Company{
+-name
+-designation
+-category
+-address
+-headquarters
+}
+
+class LabCoordinatorValidation {
+-dateAndTime
+}
+
+class Employee {
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-organizationRole
+-socCode
+}
+
+class Client{
+ - name
+ - email
+ - phoneNumber
+ - sex
+ - tin
+ - birthDate
+ - nhsNumber
+ - citizenCardNumber
+}
+
+class ChemicalAnalysis{
+-dateAndTime
+}
+
+class SpecialistDoctor{
+-doctorIndexNumber
+}
+
+class MedicalReport{
+-diagnosis
+-dateAndTime
+}
+
+class ParameterResult{
+-parameterValue
+}
+
+
+class Test{
+-internalCode
+-nhsCode
+-description
+}
+
+class EmailNotification{
+-message
+}
+
+class SMSNotification{
+-message
+}
+
+
+ChemicalAnalysis "1"---"1..*" ParameterResult: generates >
+
+Company "1"---"1..*" Employee : employ >
+Company "1"---"1..*" Test : performs >
+
+Client "*"---"1..*" SMSNotification : receives >
+Client "*"---"1..*" EmailNotification : receives >
+
+LabCoordinatorValidation "*"--"1" Employee : made by >
+
+MedicalReport "*"---"1" LabCoordinatorValidation : validated by >
+MedicalReport "1"---"1..*" ParameterResult : contains >
+MedicalReport "*"---"1" SpecialistDoctor : written by >
+
+Test "1..*" ---"1" ChemicalAnalysis : request >
+Test "*" --- "1" LabCoordinatorValidation : request >
+Test "1" ---"1" MedicalReport : request >
+
+ParameterResult "1..*"---"1" Employee: registered by >
+ParameterResult "1..*"---"1" LabCoordinatorValidation : validated by >
+ParameterResult "1..*"---"1" SpecialistDoctor : analyzed by >
+
+EmailNotification "1"---"1" Test : associated to >
+
+SMSNotification "1"---"1" Test : associated to >
+
+@enduml

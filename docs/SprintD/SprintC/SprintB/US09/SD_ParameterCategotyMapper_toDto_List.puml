@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'hide footbox
+autonumber
+
+participant ": ParameterCategoryMapper" as MAPPER
+participant "lParameterCategories: \nList<ParameterCategory>" as LPC
+participant "listParameterCategoryDto: \nList<ParameterCategoryDto> " as LPCDto
+participant "pc:ParameterCategory" as PC
+participant "dto : ParameterCategoryDto" as PCDto
+
+-> MAPPER : toDto(lParameterCategories)
+activate MAPPER
+MAPPER --> LPCDto** : create()
+loop for each object in lParameterCategories
+MAPPER -> LPC : pc = get(i)
+activate LPC
+deactivate LPC
+MAPPER -> PC : code = getCode()
+activate PC
+deactivate PC
+MAPPER -> PC : name = getName()
+activate PC
+deactivate PC
+MAPPER --> PCDto** : create(code,name)
+MAPPER -> LPCDto : add(dto)
+activate LPCDto
+deactivate LPCDto
+end
+deactivate MAPPER
+<-- MAPPER : listParameterCategoryDto
+
+@enduml

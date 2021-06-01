@@ -1,0 +1,139 @@
+@startuml
+
+package UI{
+class ValidateWorkUI{
+}
+}
+
+package Controller{
+class ValidateWorkController{
++getTestToValidateList()
++getSelectedTest(selectedTest)
++createTestValidation(selectedTest)
++validateDate(date)
++showRegistrationDate()
++showChemicalAnalysisDate()
++showDiagnosisDate()
++showLabCoordValidationDate(selectedTest)
++showDates()
++recordValidationDate(selectedTest)
++notifyTheClient(selectedTest)
+}
+}
+
+package Model{
+class Company{
+-String name
+-String shortName
+-category
+-address
+-headquarters
+--
++getTestStore()
+}
+
+class Client{
+}
+
+
+class LabCoordinatorValidation {
+-registerDateValidation
+-chemicalAnalysisDateValidation
+-diagnosisDateValidation
+-labCoordDate
+--
++checkDate(date)
++recordDate()
++recordLabCoordinatorValidationDate
++getLabCoordDate()
+}
+
+class Test{
+-testAddDate
+--
++getNhsCode()
++getInternalCode()
++getRegistrationDate()
++getChemicalAnalysisDate()
++getDiagnosisDate()
++validateWork()
++getTestAddDate()
++getChemicalAnalysisDate()
++getCreatedAt()
++generateDateAndTimeLabCoordinatorValidation()
+}
+
+class EmailNotification{
++notification(selectedTest)
+}
+
+class SMSNotification{
++notification(selectedTest)
+}
+}
+
+package Store{
+class TestStore {
++getTestHasReportList()
++getTestByInternalCode(code)
+}
+}
+
+package Mappers{
+class TestMapper{
++toDto(test)
++toDto(testList)
+}
+class DateMapper{
++toDto(date)
++toDto(dateList)
+}
+}
+
+package interfaces{
+interface Notification{
+}
+}
+
+package DTO{
+class DateDTO{
+-date
+-dateString
+}
+}
+
+
+
+
+ValidateWorkUI .> ValidateWorkController
+ValidateWorkUI .> DateDTO
+
+ValidateWorkController ..> Company
+ValidateWorkController ..> TestStore
+ValidateWorkController ..> Test
+ValidateWorkController ..> TestMapper
+ValidateWorkController ..> DateMapper
+ValidateWorkController ..> DateDTO
+ValidateWorkController ..> LabCoordinatorValidation
+ValidateWorkController ..> EmailNotification
+ValidateWorkController ..> SMSNotification
+
+Company "1"--"1..*" Test : performs >
+
+TestStore "1"-->"*"Test : knows
+
+LabCoordinatorValidation "1"-"1" Test : associated to
+
+TestMapper ...> Test
+
+EmailNotification "1"--"1" Test : associated to >
+
+SMSNotification "1"--"1" Test : associated to >
+
+Client "*"--"1..*" SMSNotification : receives >
+Client "*"--"1..*" EmailNotification : receives >
+
+SMSNotification..|>Notification
+EmailNotification..|>Notification
+
+@enduml

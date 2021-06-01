@@ -1,0 +1,40 @@
+@startuml
+hide methods
+'left to right direction
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-organizationRole
+-socCode
+}
+
+class TestType{
+-code
+-description
+-collectingMethod
+}
+
+
+class ParameterCategory{
+-name
+-code
+}
+
+
+Company "1"---"1..*" Employee : employ >
+Company "1"--"1..*" TestType : conducts >
+Company "1"--"1..*" ParameterCategory : adopts >
+TestType "*"---"1" Employee : specified by >
+TestType "*"--"1..*" ParameterCategory : has a set of >
+
+@enduml
