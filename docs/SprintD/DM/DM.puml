@@ -205,7 +205,7 @@ Client "1"---"1..*" Sample : provides >
 Client "*"---"1..*" SMSNotification : receives >
 Client "*"---"1..*" EmailNotification : receives >
 Client "*"---"1" EmailLogin : receives >
-Client "*"---"1" Employee : registered by >
+
 
 LabOrder "1"---------"1" Test : prescribe >
 LabOrder "1..*"---"1" TestType : contains the >
