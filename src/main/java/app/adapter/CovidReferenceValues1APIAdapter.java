@@ -10,6 +10,11 @@ import java.util.Properties;
 
 public class CovidReferenceValues1APIAdapter  implements ExternalModuleReferencesValue {
 
+    /**
+     *  It creates a object of RefValues using the CovidReferenceValues1API
+     * @param parameterId The code of the parameter
+     * @return an instance of RefValue
+     */
     @Override
     public RefValue getRefValue(String parameterId) {
         Properties props = App.getInstance().getProps();

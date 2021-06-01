@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/state-diagram
+left to right direction
+[*] --> TestRegistered : US04 - Register a test
+TestRegistered --> SamplesCollected : US05 - Record Samples
+SamplesCollected-->SamplesAnalyzed : US12 - Record Samples Results
+SamplesAnalyzed--> DiagnosisMade : US14 - Made Diagnosis
+DiagnosisMade-->Validated : US15 - Validate Test Procedures
+Validated-->[*]
+@enduml

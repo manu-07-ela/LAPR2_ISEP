@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ": RecordTestResultsController" as CTRL
+participant "test: Test" as Test
+participant "em: External Module" as EM
+participant ": TestType" as TT
+participant ": TestParameter" as TestParam
+participant ": Parameter" as Param
+participant ":TestParameterResult" as TestPResult
+participant "refValue :ReferenceValue" as Ref
+
+
+
+CTRL -> Test : addTestResult(parameterID,result,metric)
+activate Test
+loop for the number os TestParameters in the test
+opt TestParameter.getParameterId = parameterID
+Test -> TT : getExternalModule()
+activate TT
+TT--> Test : em
+deactivate TT
+Test -> EM : getReferenceValue(parameterID)
+activate EM
+EM -> Ref** : create()
+EM --> Test : refValue
+deactivate EM
+Test -> TestParam :AddResult(refValue,result,metric)
+activate TestParam
+TestParam -> TestPResult : create(refValue,result,metric)
+activate TestPResult
+deactivate TestPResult
+deactivate TestParam
+end
+end
+
+Test --> CTRL : success
+deactivate Test
+
+
+
+
+
+@enduml

@@ -1,0 +1,207 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Administrator" as ADM
+
+participant ": ValidateWorkUI" as UI
+participant ": ValidateWorkController" as CTRL
+participant ": Company" as COMP
+participant "testStore: TestStore" as TSTORE
+participant ": TestMapper" as TMAPPER
+participant "listTestWaitingForResult: \nList<Test>" as LWFR
+participant "listTestsToValidateDto: \nList<TestDto>" as LISTTWFV
+participant "test : Test" as TEST
+participant ": DateMapper" as DMAPPER
+participant ": DateDTO " as DATEDTO
+participant ": LabCoordinatorValidation" as LCV
+participant "testDto : TestDTO" as TESTDTO
+participant ": EmailNotification" as EMAILNOTF
+participant ": SMSNotification" as SMSNOTF
+
+autonumber
+
+activate ADM
+ADM -> UI : starts validation
+activate UI
+UI -> CTRL : getTestsToValidateList()
+activate CTRL
+CTRL -> COMP : testStore = getTestStore
+activate COMP
+deactivate COMP
+CTRL -> TSTORE : testHasReportList = getTestHasReportList()
+activate TSTORE
+deactivate TSTORE
+CTRL -> TMAPPER : toDto(testList)
+activate TMAPPER
+ref over TMAPPER
+SD_TestMapper_toDto_List
+end ref
+TMAPPER --> CTRL : testListDto
+deactivate TMAPPER
+CTRL --> UI : listTestsToValidateDto
+deactivate CTRL
+UI --> ADM : shows the tests to validate
+deactivate UI
+
+
+
+
+
+
+ADM -> UI:select a tests to validate (selectedTestDto)
+activate UI
+UI -> CTRL : createTestValidation()
+activate CTRL
+CTRL -> TEST : validateWork()
+activate TEST
+TEST -> LCV** : create()
+deactivate TEST
+deactivate CTRL
+
+UI -> CTRL : showRegistrationDate()
+activate CTRL
+CTRL -> TEST : date = getTestAddDate()
+activate TEST
+deactivate TEST
+CTRL -> DMAPPER : dateDto = toDto(date)
+activate DMAPPER
+deactivate DMAPPER
+CTRL --> UI : dateDto
+deactivate CTRL
+UI --> ADM : shows the test registration \n date and asks for validation
+deactivate UI
+
+
+
+
+
+
+ADM -> UI: validate date
+activate UI
+UI -> CTRL : validateDate()
+activate CTRL
+CTRL -> TEST : validateDate()
+activate TEST
+TEST -> LCV : checkDate(Registration Date)
+activate LCV
+deactivate LCV
+deactivate TEST
+deactivate CTRL
+
+UI -> CTRL : showChemicalAnalysisDate()
+activate CTRL
+CTRL -> TEST : date = getChemicalAnalysisDate()
+activate TEST
+deactivate TEST
+CTRL -> DMAPPER : dateDto = toDto(date)
+activate DMAPPER
+deactivate DMAPPER
+CTRL --> UI : dateDto
+deactivate CTRL
+UI --> ADM : shows the chemical analysis \n date and asks for validation
+deactivate UI
+
+
+
+
+
+
+ADM -> UI: validate date
+activate UI
+UI -> CTRL : validateDate()
+activate CTRL
+CTRL -> TEST : validateDate()
+activate TEST
+TEST -> LCV : checkDate(Chemical Analysis Date)
+activate LCV
+deactivate LCV
+deactivate TEST
+deactivate CTRL
+UI -> CTRL : showDiagnosisDate()
+activate CTRL
+CTRL -> TEST : date = getCreatedAt()
+activate TEST
+deactivate TEST
+CTRL -> DMAPPER : dateDto = toDto(date)
+activate DMAPPER
+deactivate DMAPPER
+CTRL --> UI : dateDto
+deactivate CTRL
+UI --> ADM : shows the diagnosis \n date and asks for validation
+deactivate UI
+
+
+
+
+
+ADM -> UI: validate date
+activate UI
+UI -> CTRL : validateDate()
+activate CTRL
+CTRL -> TEST : validateDate()
+activate TEST
+TEST -> LCV : checkDate(Diagnosis Date)
+activate LCV
+deactivate LCV
+deactivate TEST
+deactivate CTRL
+UI -> CTRL : showDates()
+activate CTRL
+CTRL -> CTRL : showRegistrationDate()
+activate CTRL
+deactivate CTRL
+CTRL -> CTRL : showChemicalAnalysisDate
+activate CTRL
+deactivate CTRL
+CTRL -> CTRL : showDiagnosisDate()
+activate CTRL
+deactivate CTRL
+
+CTRL --> UI : showDates (registrationDate,chemicalAnalysisDate,diagnosisDate)
+deactivate CTRL
+UI --> ADM : shows the dates (test registration, \n chemical analysis and diagnosis)
+deactivate UI
+
+
+
+
+
+
+ADM -> UI: confirms the validation
+activate UI
+UI -> CTRL : recordValidationDate()
+activate CTRL
+CTRL -> TEST : generateDataAndTimeLabCoordinatorValidation()
+activate TEST
+TEST -> LCV : recordDate()
+activate LCV
+
+LCV -> LCV : updateStateToValidated()
+activate LCV
+deactivate LCV
+
+LCV -> LCV : recordLabCoordinatorValidationDate()
+activate LCV
+deactivate LCV
+
+deactivate LCV
+deactivate TEST
+deactivate CTRL
+UI -> CTRL : notifyTheClient(Client)
+activate CTRL
+CTRL -> EMAILNOTF : notification(selectedTest)
+activate EMAILNOTF
+deactivate EMAILNOTF
+CTRL -> SMSNOTF : notification(selectedTest)
+activate SMSNOTF
+deactivate SMSNOTF
+deactivate CTRL
+UI --> ADM : informs the operation success
+deactivate UI
+deactivate ADM
+
+
+
+@enduml

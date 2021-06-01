@@ -1,0 +1,99 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class CreateClinicalAnalysisLaboratoryUI{
+}
+
+class CreateClinicalAnalysisLaboratoryController{
+  +createClinicalAnalysisLaboratory(calDTO))
+  +getTestTypeList()
+  +saveClinicalAnalysisLaboratory(cal)
+}
+
+class Company{
+  +getClinicalAnalysisLaboratoryStore()
+  +getTestTypeStore()
+}
+
+
+class ClinicalAnalysisLaboratory {
+  -String name
+  -String address
+  -int phoneNumber
+  -int tin
+  -String laboratoryId
+  -List<TestType> listOfTestTypes
+
+
+
+}
+
+
+class TestTypeStore{
++getTestTypeList()
+}
+
+class ClinicalAnalysisLaboratoryStore{
+  +createClinicalAnalysisLaboratory(calDTO)
+  +validateClinicalAnalysisLaboratory(cal)
+  +validateClinicalAnalysisLaboratoryglobal(cal)
+  +addClinicalAnalysisLaboratory(cal)
+}
+
+class ClinicalAnalysisLaboratoryMapper {
+   +toDomain(calDTO)
+
+}
+
+class TestTypeMapper {
+   +toDTO(listTestType)
+}
+
+
+class ClinicalAnalysisLaboratoryDTO {
+  -String name
+  -String address
+  -int phoneNumber
+  -int tin
+  -String laboratoryId
+  -List<TestType> listOfTestTypes
+}
+
+class TestType{
+  -String code
+  -String description
+  -String collectingMethod
+  -List<ParameterCategories> listOfParameterCategories
+}
+
+class TestTypeDTO{
+  -String code
+  -String description
+  -String collectingMethod
+  -List<ParameterCategories> listOfParameterCategories
+}
+
+
+
+
+
+
+CreateClinicalAnalysisLaboratoryUI ..> CreateClinicalAnalysisLaboratoryController
+CreateClinicalAnalysisLaboratoryUI ..> ClinicalAnalysisLaboratoryDTO
+CreateClinicalAnalysisLaboratoryUI ..> TestTypeDTO
+CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryDTO
+CreateClinicalAnalysisLaboratoryController ..> Company
+CreateClinicalAnalysisLaboratoryController ...> TestTypeStore
+CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryMapper
+CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratoryStore
+CreateClinicalAnalysisLaboratoryController ..> ClinicalAnalysisLaboratory
+CreateClinicalAnalysisLaboratoryController ..> TestTypeMapper
+ClinicalAnalysisLaboratoryStore"1" --> "1" ClinicalAnalysisLaboratory : conducts
+ClinicalAnalysisLaboratoryMapper ..> ClinicalAnalysisLaboratoryDTO
+ClinicalAnalysisLaboratoryMapper ...> ClinicalAnalysisLaboratory
+Company "1" --> "1" TestTypeStore : uses
+Company "1" --> "1" ClinicalAnalysisLaboratoryStore : uses
+TestTypeStore "1" --> "*" TestType : conducts
+TestTypeMapper .....> TestType
+TestTypeMapper ..> TestTypeDTO
+@enduml

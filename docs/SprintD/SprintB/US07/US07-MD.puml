@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Administrator
+class Company
+class Employee
+class OrganizationRole
+
+class OrganizationRole{
+-description
+}
+
+class Employee{
+-name
+-address
+-phoneNumber
+-email
+-employeeId
+-socCode
+}
+
+class Company{
+-designation
+}
+
+
+
+class SpecialistDoctor{
+-doctorIndexNumber
+}
+
+Administrator "*"--"1" Company : < knows
+Company "1"--"*" Employee : knows >
+Administrator "1"--"*" Employee : register >
+
+Employee "*"--"1" OrganizationRole: plays >
+SpecialistDoctor --|> Employee
+Company -- OrganizationRole : comprehend >
+@enduml

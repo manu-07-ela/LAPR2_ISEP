@@ -1,0 +1,45 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+class Client {
+   - name
+   - email
+   - phoneNumber
+   - sex
+   - tin
+   - birthDate
+   - nhsNumber
+   - citizenCardNumber
+}
+
+class LabOrder {
+}
+
+class TestType {
+  -code
+  -description
+  -collectingMethod
+}
+
+class Company {
+  -designation
+}
+
+class Test {
+  -internalCode
+  -nhsCode
+  -description
+}
+
+Company "1" -- "*" Test : performs >
+Test "1" -- "*" Client : associated a >
+Client "1" -- "1..*" LabOrder : has a >
+LabOrder "1" -- "*" TestType: contains the >
+Company "*" -- "1" TestType: conducts >
+
+
+
+@enduml

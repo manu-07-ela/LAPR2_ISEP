@@ -1,0 +1,55 @@
+@startuml
+hide methods
+'left to right direction
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+
+class Test{
+-internalCode
+-nhsCode
+-description
+}
+
+class TestType{
+-code
+-description
+-collectingMethod
+}
+
+class ExternalModule{
+}
+
+class ReferenceValues{
+}
+
+class Parameter{
+-code
+-designation
+-description
+}
+
+class TestParameterResult{
+-createdAt
+-parameterValue
+-metric
+}
+
+class TestParameter{
+
+}
+
+Company "1" -- "*" Test : performs >
+Company "1" -- "*" TestType : conducts >
+Company "1" ---- "*" Parameter : capable of analysing >
+Test "*" --- "1..*" Parameter : request analysis of >
+TestType "*" -- "1" ExternalModule : resort to >
+ExternalModule "1" --- "*" ReferenceValues : provides >
+TestParameterResult "1" -- "1" ReferenceValues : records >
+(Test,Parameter) . TestParameter
+TestParameter "1" -- "0..1" TestParameterResult : contains >
+
+@enduml

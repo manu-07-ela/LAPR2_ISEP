@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="949.5px" preserveAspectRatio="none" style="width:1786px;height:949px;" version="1.1" viewBox="0 0 1786 949" width="1786.5px" zoomAndPan="magnify"><defs><filter height="300%" id="f19jf7hweo58yt" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="1.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="3.0" dy="3.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="797.5488" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="33.375" y="74.707"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="217.3594" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="257.625" y="91.4707"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="45.2637" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="257.625" y="331.5938"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="248.7891" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="257.625" y="399.6211"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="201.082" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="257.625" y="671.1738"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="171.832" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="580.125" y="114.2344"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="198.0117" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="580.125" y="422.3848"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="155.5547" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="580.125" y="693.9375"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="22.5" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="781.125" y="136.998"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="22.5" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="781.125" y="445.1484"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="84.7207" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="883.125" y="535.6758"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="21" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="886.875" y="599.3965"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="104.7773" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="883.125" y="716.7012"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="21" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="886.875" y="745.4648"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="21" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="886.875" y="800.4785"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="58.541" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="1027.125" y="227.5254"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="22.5" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="1177.875" y="182.2617"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="22.5" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="1177.875" y="490.4121"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="36.75" x2="36.75" y1="67.207" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="261" x2="261" y1="67.207" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="583.5" x2="583.5" y1="67.207" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="784.875" x2="784.875" y1="67.207" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="886.875" x2="886.875" y1="67.207" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="1030.875" x2="1030.875" y1="67.207" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="1181.625" x2="1181.625" y1="67.207" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="1295.625" x2="1295.625" y1="566.6543" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="1409.625" x2="1409.625" y1="67.207" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="1551.375" x2="1551.375" y1="67.207" y2="885.7559"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:5.0,5.0;" x1="1702.125" x2="1702.125" y1="67.207" y2="885.7559"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="62.25" x="3.75" y="64.8999">Administrator</text><ellipse cx="37.125" cy="11.25" fill="#FEFECE" filter="url(#f19jf7hweo58yt)" rx="6" ry="6" style="stroke:#A80036;stroke-width:1.5;"/><path d="M37.125,17.25 L37.125,37.5 M27.375,23.25 L46.875,23.25 M37.125,37.5 L27.375,48.75 M37.125,37.5 L46.875,48.75 " fill="none" filter="url(#f19jf7hweo58yt)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="62.25" x="3.75" y="895.9058">Administrator</text><ellipse cx="37.125" cy="905.7129" fill="#FEFECE" filter="url(#f19jf7hweo58yt)" rx="6" ry="6" style="stroke:#A80036;stroke-width:1.5;"/><path d="M37.125,911.7129 L37.125,931.9629 M27.375,917.7129 L46.875,917.7129 M37.125,931.9629 L27.375,943.2129 M37.125,931.9629 L46.875,943.2129 " fill="none" filter="url(#f19jf7hweo58yt)" style="stroke:#A80036;stroke-width:1.5;"/><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="107.25" x="206.25" y="39.75"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="96.75" x="211.5" y="55.8999">: CreateParameterUI</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="107.25" x="206.25" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="96.75" x="211.5" y="901.1558">: CreateParameterUI</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="144.75" x="510" y="39.75"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="134.25" x="515.25" y="55.8999">: CreateParameterController</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="144.75" x="510" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="134.25" x="515.25" y="901.1558">: CreateParameterController</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="61.5" x="752.625" y="39.75"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="51" x="757.875" y="55.8999">: Company</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="61.5" x="752.625" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="51" x="757.875" y="901.1558">: Company</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="121.5" x="824.625" y="39.75"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="111" x="829.875" y="55.8999">: store: ParameterStore</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="121.5" x="824.625" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="111" x="829.875" y="901.1558">: store: ParameterStore</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="145.5" x="956.625" y="39.75"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="135" x="961.875" y="55.8999">: ParameterCategoryMapper</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="145.5" x="956.625" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="135" x="961.875" y="901.1558">: ParameterCategoryMapper</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="135" x="1112.625" y="39.75"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="124.5" x="1117.875" y="55.8999">: ParameterCategoryStore</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="135" x="1112.625" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="124.5" x="1117.875" y="901.1558">: ParameterCategoryStore</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="72" x="1258.125" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="61.5" x="1263.375" y="901.1558">p: Parameter</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="36.9141" style="stroke:#A80036;stroke-width:1.125;" width="135" x="1340.625" y="26.543"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="111.75" x="1350.75" y="42.6929">listParameterCategory :</text><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="121.5" x="1348.875" y="55.8999">List&lt;ParameterCategory&gt;</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="36.9141" style="stroke:#A80036;stroke-width:1.125;" width="135" x="1340.625" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="111.75" x="1350.75" y="901.1558">listParameterCategory :</text><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="121.5" x="1348.875" y="914.3628">List&lt;ParameterCategory&gt;</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="36.9141" style="stroke:#A80036;stroke-width:1.125;" width="128.25" x="1486.125" y="26.543"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="114.75" x="1491.375" y="42.6929">parameterCategoryDto :</text><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="109.5" x="1497" y="55.8999">ParameterCategoryDto</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="36.9141" style="stroke:#A80036;stroke-width:1.125;" width="128.25" x="1486.125" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="114.75" x="1491.375" y="901.1558">parameterCategoryDto :</text><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="109.5" x="1497" y="914.3628">ParameterCategoryDto</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="36.9141" style="stroke:#A80036;stroke-width:1.125;" width="151.5" x="1624.875" y="26.543"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="128.25" x="1635" y="42.6929">listParameterCategoryDto :</text><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="138" x="1633.125" y="55.8999">List&lt;ParameterCategoryDto&gt;</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="36.9141" style="stroke:#A80036;stroke-width:1.125;" width="151.5" x="1624.875" y="885.0059"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="128.25" x="1635" y="901.1558">listParameterCategoryDto :</text><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="138" x="1633.125" y="914.3628">List&lt;ParameterCategoryDto&gt;</text><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="797.5488" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="33.375" y="74.707"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="217.3594" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="257.625" y="91.4707"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="45.2637" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="257.625" y="331.5938"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="248.7891" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="257.625" y="399.6211"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="201.082" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="257.625" y="671.1738"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="171.832" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="580.125" y="114.2344"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="198.0117" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="580.125" y="422.3848"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="155.5547" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="580.125" y="693.9375"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="22.5" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="781.125" y="136.998"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="22.5" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="781.125" y="445.1484"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="84.7207" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="883.125" y="535.6758"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="21" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="886.875" y="599.3965"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="104.7773" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="883.125" y="716.7012"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="21" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="886.875" y="745.4648"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="21" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="886.875" y="800.4785"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="58.541" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="1027.125" y="227.5254"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="22.5" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="1177.875" y="182.2617"/><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="22.5" style="stroke:#A80036;stroke-width:0.75;" width="7.5" x="1177.875" y="490.4121"/><polygon fill="#A80036" points="248.625,88.4707,256.125,91.4707,248.625,94.4707,251.625,91.4707" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="40.875" x2="253.125" y1="91.4707" y2="91.4707"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="5.25" x="46.125" y="87.8284">1</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="91.5" x="54.375" y="87.8284">starts new parameter</text><polygon fill="#A80036" points="571.125,111.2344,578.625,114.2344,571.125,117.2344,574.125,114.2344" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="265.125" x2="575.625" y1="114.2344" y2="114.2344"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="5.25" x="270.375" y="110.592">2</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="258" x="278.625" y="110.592">listParameterCategoryDto = getListParameterCategoryDto()</text><polygon fill="#A80036" points="772.125,133.998,779.625,136.998,772.125,139.998,775.125,136.998" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="587.625" x2="776.625" y1="136.998" y2="136.998"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="5.25" x="592.875" y="133.3557">3</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="171" x="601.125" y="133.3557">pcstore = getParameterCategoryStore()</text><polygon fill="#A80036" points="1168.875,179.2617,1176.375,182.2617,1168.875,185.2617,1171.875,182.2617" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="587.625" x2="1173.375" y1="182.2617" y2="182.2617"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="5.25" x="592.875" y="178.6194">4</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="237.75" x="601.125" y="178.6194">listParameterCategory = getListOfParameterCategory()</text><polygon fill="#A80036" points="1018.125,224.5254,1025.625,227.5254,1018.125,230.5254,1021.125,227.5254" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="587.625" x2="1022.625" y1="227.5254" y2="227.5254"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="5.25" x="592.875" y="223.8831">5</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="126" x="601.125" y="223.8831">toDto(listParameterCategory)</text><rect fill="#FFFFFF" filter="url(#f19jf7hweo58yt)" height="32.0273" style="stroke:#000000;stroke-width:1.5;" width="190.5" x="954.375" y="233.5254"/><polygon fill="#EEEEEE" points="954.375,233.5254,1000.875,233.5254,1000.875,239.5254,993.375,247.0254,954.375,247.0254,954.375,233.5254" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="12.75" x="964.125" y="245.1467">ref</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="184.5" x="958.875" y="260.1467">SD_ParameterCategoryMapper_toDto_List</text><polygon fill="#A80036" points="592.125,283.0664,584.625,286.0664,592.125,289.0664,589.125,286.0664" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:2.0,2.0;" x1="587.625" x2="1030.125" y1="286.0664" y2="286.0664"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="5.25" x="596.625" y="282.4241">6</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="111.75" x="604.875" y="282.4241">listParameterCategoryDto</text><polygon fill="#A80036" points="49.125,305.8301,41.625,308.8301,49.125,311.8301,46.125,308.8301" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:2.0,2.0;" x1="44.625" x2="260.625" y1="308.8301" y2="308.8301"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="5.25" x="53.625" y="305.1877">7</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="132" x="61.875" y="305.1877">shows the categories available</text><polygon fill="#A80036" points="248.625,328.5938,256.125,331.5938,248.625,334.5938,251.625,331.5938" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="40.875" x2="253.125" y1="331.5938" y2="331.5938"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="5.25" x="46.125" y="327.9514">8</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="168" x="54.375" y="327.9514">inserts the category(selectedCategory)</text><polygon fill="#A80036" points="49.125,373.8574,41.625,376.8574,49.125,379.8574,46.125,376.8574" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:2.0,2.0;" x1="44.625" x2="260.625" y1="376.8574" y2="376.8574"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="5.25" x="53.625" y="373.2151">9</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="190.5" x="61.875" y="373.2151">request data (code, shortName, description)</text><polygon fill="#A80036" points="248.625,396.6211,256.125,399.6211,248.625,402.6211,251.625,399.6211" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="40.875" x2="253.125" y1="399.6211" y2="399.6211"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="46.125" y="395.9788">10</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="81" x="59.625" y="395.9788">types request data</text><polygon fill="#A80036" points="571.125,419.3848,578.625,422.3848,571.125,425.3848,574.125,422.3848" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="265.125" x2="575.625" y1="422.3848" y2="422.3848"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="270.375" y="418.7424">11</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="287.25" x="283.875" y="418.7424">createParameter(code, shortName, description, selectedCategory)</text><polygon fill="#A80036" points="772.125,442.1484,779.625,445.1484,772.125,448.1484,775.125,445.1484" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="587.625" x2="776.625" y1="445.1484" y2="445.1484"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="592.875" y="441.5061">12</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="126.75" x="606.375" y="441.5061">pstore = getParameterStore()</text><polygon fill="#A80036" points="1168.875,487.4121,1176.375,490.4121,1168.875,493.4121,1171.875,490.4121" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="587.625" x2="1173.375" y1="490.4121" y2="490.4121"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="592.875" y="486.7698">13</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="263.25" x="606.375" y="486.7698">category = getParameterCategoryByCode(selectedCategory)</text><polygon fill="#A80036" points="874.125,532.6758,881.625,535.6758,874.125,538.6758,877.125,535.6758" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="587.625" x2="878.625" y1="535.6758" y2="535.6758"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="592.875" y="532.0334">14</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="255" x="606.375" y="532.0334">t = createParameter(code,shortName,description,category)</text><polygon fill="#A80036" points="1249.125,555.4395,1256.625,558.4395,1249.125,561.4395,1252.125,558.4395" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="890.625" x2="1253.625" y1="558.4395" y2="558.4395"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="895.875" y="554.7971">15</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="240" x="909.375" y="554.7971">createParameter(code,shortName,description,category)</text><rect fill="#FEFECE" filter="url(#f19jf7hweo58yt)" height="23.707" style="stroke:#A80036;stroke-width:1.125;" width="72" x="1258.125" y="541.6758"/><text fill="#000000" font-family="sans-serif" font-size="10.5" lengthAdjust="spacing" textLength="61.5" x="1263.375" y="557.8257">p: Parameter</text><line style="stroke:#A80036;stroke-width:0.75;" x1="894.375" x2="925.875" y1="593.3965" y2="593.3965"/><line style="stroke:#A80036;stroke-width:0.75;" x1="925.875" x2="925.875" y1="593.3965" y2="603.1465"/><line style="stroke:#A80036;stroke-width:0.75;" x1="895.125" x2="925.875" y1="603.1465" y2="603.1465"/><polygon fill="#A80036" points="902.625,600.1465,895.125,603.1465,902.625,606.1465,899.625,603.1465" style="stroke:#A80036;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="899.625" y="589.7542">16</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="88.5" x="913.125" y="589.7542">validateParameter(p)</text><polygon fill="#A80036" points="49.125,645.4102,41.625,648.4102,49.125,651.4102,46.125,648.4102" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:2.0,2.0;" x1="44.625" x2="260.625" y1="648.4102" y2="648.4102"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="53.625" y="644.7678">17</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="174" x="67.125" y="644.7678">shows all data and asks for confirmation</text><polygon fill="#A80036" points="248.625,668.1738,256.125,671.1738,248.625,674.1738,251.625,671.1738" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="40.875" x2="253.125" y1="671.1738" y2="671.1738"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="46.125" y="667.5315">18</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="75" x="59.625" y="667.5315">confirms the data</text><polygon fill="#A80036" points="571.125,690.9375,578.625,693.9375,571.125,696.9375,574.125,693.9375" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="265.125" x2="575.625" y1="693.9375" y2="693.9375"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="270.375" y="690.2952">19</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="70.5" x="283.875" y="690.2952">saveParameter()</text><polygon fill="#A80036" points="874.125,713.7012,881.625,716.7012,874.125,719.7012,877.125,716.7012" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;" x1="587.625" x2="878.625" y1="716.7012" y2="716.7012"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="592.875" y="713.0588">20</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="75.75" x="606.375" y="713.0588">saveParameter(p)</text><line style="stroke:#A80036;stroke-width:0.75;" x1="894.375" x2="925.875" y1="739.4648" y2="739.4648"/><line style="stroke:#A80036;stroke-width:0.75;" x1="925.875" x2="925.875" y1="739.4648" y2="749.2148"/><line style="stroke:#A80036;stroke-width:0.75;" x1="895.125" x2="925.875" y1="749.2148" y2="749.2148"/><polygon fill="#A80036" points="902.625,746.2148,895.125,749.2148,902.625,752.2148,899.625,749.2148" style="stroke:#A80036;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="899.625" y="735.8225">21</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="88.5" x="913.125" y="735.8225">validateParameter(p)</text><line style="stroke:#A80036;stroke-width:0.75;" x1="894.375" x2="925.875" y1="794.4785" y2="794.4785"/><line style="stroke:#A80036;stroke-width:0.75;" x1="925.875" x2="925.875" y1="794.4785" y2="804.2285"/><line style="stroke:#A80036;stroke-width:0.75;" x1="895.125" x2="925.875" y1="804.2285" y2="804.2285"/><polygon fill="#A80036" points="902.625,801.2285,895.125,804.2285,902.625,807.2285,899.625,804.2285" style="stroke:#A80036;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="899.625" y="790.8362">22</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="72" x="913.125" y="790.8362">addParameter(p)</text><polygon fill="#A80036" points="273.375,846.4922,265.875,849.4922,273.375,852.4922,270.375,849.4922" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:2.0,2.0;" x1="268.875" x2="583.125" y1="849.4922" y2="849.4922"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="277.875" y="845.8499">23</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="24" x="291.375" y="845.8499">result</text><polygon fill="#A80036" points="45.375,869.2559,37.875,872.2559,45.375,875.2559,42.375,872.2559" style="stroke:#A80036;stroke-width:0.75;"/><line style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:2.0,2.0;" x1="40.875" x2="260.625" y1="872.2559" y2="872.2559"/><text fill="#000000" font-family="sans-serif" font-size="9.75" font-weight="bold" lengthAdjust="spacing" textLength="10.5" x="49.875" y="868.6135">24</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="130.5" x="63.375" y="868.6135">informs the operation success</text><!--MD5=[8fe453678d6c7cd4ea38fe4661dd0908]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Administrator" as ADM
+
+participant ": CreateParameterUI" as UI
+participant ": CreateParameterController" as CTRL
+participant ": Company" as COMP
+participant ": store: ParameterStore" as STORE
+participant ": ParameterCategoryMapper" as MAPPER
+participant ": ParameterCategoryStore" as PCSTORE
+participant "p: Parameter" as PRMT
+participant "listParameterCategory : \n List<ParameterCategory>" as LISTPC
+participant "parameterCategoryDto : \n ParameterCategoryDto" as PCDTO
+participant "listParameterCategoryDto : \n List<ParameterCategoryDto>" as LISTPCDTO
+
+
+
+activate ADM
+ADM -> UI: starts new parameter
+activate UI
+UI -> CTRL : listParameterCategoryDto = getListParameterCategoryDto()
+activate CTRL
+CTRL -> COMP : pcstore = getParameterCategoryStore()
+activate COMP
+deactivate COMP
+CTRL -> PCSTORE : listParameterCategory = getListOfParameterCategory()
+activate PCSTORE
+deactivate PCSTORE
+CTRL -> MAPPER : toDto(listParameterCategory)
+activate MAPPER
+ref over MAPPER
+SD_ParameterCategoryMapper_toDto_List
+end ref
+MAPPER - -> CTRL : listParameterCategoryDto
+deactivate MAPPER
+deactivate CTRL
+UI - -> ADM : shows the categories available
+deactivate UI
+
+
+
+ADM -> UI: inserts the category(selectedCategory)
+activate UI
+deactivate CTRL
+UI- -> ADM : request data (code, shortName, description)
+deactivate UI
+
+
+ADM -> UI : types request data
+activate UI
+UI -> CTRL : createParameter(code, shortName, description, selectedCategory)
+activate CTRL
+CTRL -> COMP : pstore = getParameterStore()
+activate COMP
+deactivate COMP
+CTRL -> PCSTORE : category = getParameterCategoryByCode(selectedCategory)
+activate PCSTORE
+deactivate PCSTORE
+CTRL -> STORE : t = createParameter(code,shortName,description,category)
+activate STORE
+STORE -> PRMT** : createParameter(code,shortName,description,category)
+STORE -> STORE : validateParameter(p)
+activate STORE
+deactivate STORE
+deactivate STORE
+
+
+
+
+
+
+deactivate CTRL
+deactivate STORE
+UI - -> ADM : shows all data and asks for confirmation
+deactivate UI
+
+
+
+ADM -> UI: confirms the data
+activate UI
+UI -> CTRL : saveParameter()
+activate CTRL
+CTRL -> STORE : saveParameter(p)
+activate STORE
+STORE -> STORE : validateParameter(p)
+activate STORE
+deactivate STORE
+STORE ->STORE : addParameter(p)
+activate STORE
+deactivate STORE
+deactivate STORE
+deactivate STORE
+CTRL - -> UI : result
+deactivate CTRL
+UI - -> ADM : informs the operation success
+deactivate UI
+deactivate ADM
+
+@enduml
+
+@startuml
+
+autonumber
+
+actor "Administrator" as ADM
+
+participant ": CreateParameterUI" as UI
+participant ": CreateParameterController" as CTRL
+participant ": Company" as COMP
+participant ": store: ParameterStore" as STORE
+participant ": ParameterCategoryMapper" as MAPPER
+participant ": ParameterCategoryStore" as PCSTORE
+participant "p: Parameter" as PRMT
+participant "listParameterCategory : \n List<ParameterCategory>" as LISTPC
+participant "parameterCategoryDto : \n ParameterCategoryDto" as PCDTO
+participant "listParameterCategoryDto : \n List<ParameterCategoryDto>" as LISTPCDTO
+
+
+
+activate ADM
+ADM -> UI: starts new parameter
+activate UI
+UI -> CTRL : listParameterCategoryDto = getListParameterCategoryDto()
+activate CTRL
+CTRL -> COMP : pcstore = getParameterCategoryStore()
+activate COMP
+deactivate COMP
+CTRL -> PCSTORE : listParameterCategory = getListOfParameterCategory()
+activate PCSTORE
+deactivate PCSTORE
+CTRL -> MAPPER : toDto(listParameterCategory)
+activate MAPPER
+ref over MAPPER
+SD_ParameterCategoryMapper_toDto_List
+end ref
+MAPPER - -> CTRL : listParameterCategoryDto
+deactivate MAPPER
+deactivate CTRL
+UI - -> ADM : shows the categories available
+deactivate UI
+
+
+
+ADM -> UI: inserts the category(selectedCategory)
+activate UI
+deactivate CTRL
+UI- -> ADM : request data (code, shortName, description)
+deactivate UI
+
+
+ADM -> UI : types request data
+activate UI
+UI -> CTRL : createParameter(code, shortName, description, selectedCategory)
+activate CTRL
+CTRL -> COMP : pstore = getParameterStore()
+activate COMP
+deactivate COMP
+CTRL -> PCSTORE : category = getParameterCategoryByCode(selectedCategory)
+activate PCSTORE
+deactivate PCSTORE
+CTRL -> STORE : t = createParameter(code,shortName,description,category)
+activate STORE
+STORE -> PRMT** : createParameter(code,shortName,description,category)
+STORE -> STORE : validateParameter(p)
+activate STORE
+deactivate STORE
+deactivate STORE
+
+
+
+
+
+
+deactivate CTRL
+deactivate STORE
+UI - -> ADM : shows all data and asks for confirmation
+deactivate UI
+
+
+
+ADM -> UI: confirms the data
+activate UI
+UI -> CTRL : saveParameter()
+activate CTRL
+CTRL -> STORE : saveParameter(p)
+activate STORE
+STORE -> STORE : validateParameter(p)
+activate STORE
+deactivate STORE
+STORE ->STORE : addParameter(p)
+activate STORE
+deactivate STORE
+deactivate STORE
+deactivate STORE
+CTRL - -> UI : result
+deactivate CTRL
+UI - -> ADM : informs the operation success
+deactivate UI
+deactivate ADM
+
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

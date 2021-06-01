@@ -130,7 +130,7 @@ public class TestParameterDTO {
      * @return Information about the TestParameterDTO
      */
     public String toString2(){
-        return String.format("----------* %s Parameter Information *----------%n ParameterId",parameterName,parameterId);
+        return String.format("----------* %s Parameter Information *----------%n ParameterId: %s",parameterName,parameterId);
     }
 
 }
