@@ -1,0 +1,39 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+class Company {
+  -designation
+}
+
+class Test {
+-internalCode
+-nhsCode
+-description
+-dateOfSampleCollected
+-timeOfSampleCollected
+-dateOfSampleAnalysis
+-timeOfSampleAnalysis
+-state
+}
+
+class Client {
+   - name
+   - email
+   - phoneNumber
+   - sex
+   - tin
+   - birthDate
+   - nhsNumber
+   - citizenCardNumber
+}
+
+
+Company "1" -- "1..*" Test : performs >
+Test "1..*" -- "1" Client : associated a >
+
+
+
+@enduml
