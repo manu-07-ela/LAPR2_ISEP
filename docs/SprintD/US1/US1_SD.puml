@@ -1,0 +1,49 @@
+@startuml
+autonumber
+'hide footbox
+actor "Client" as CL
+
+participant ":ViewResultsUI" as UI
+participant ":ViewResultsController" as CTRL
+participant ": Company" as Comp
+participant "testStore:\nTestStore" as TS
+participant ": TestMapper" as tMAPPER
+
+
+activate CL
+CL -> UI : asks to view the results of his tests
+activate UI
+
+
+UI -> CTRL : testListDto = getTestList()
+activate CTRL
+CTRL -> Comp : testStore = getTestStore()
+activate Comp
+deactivate Comp
+CTRL -> TS : testList = getTestList()
+activate TS
+deactivate TS
+CTRL -> tMAPPER : toDto(testList)
+activate tMAPPER
+ref over tMAPPER
+SD_TestMapper_toDto_List
+end ref
+tMAPPER --> CTRL : testListDto
+deactivate tMAPPER
+CTRL --> UI : testListDto
+deactivate CTRL
+
+UI --> CL : shows the test list and asks to choose one
+deactivate UI
+
+CL -> UI : selects a test
+activate UI
+
+deactivate CTRL
+
+UI --> CL : shows requested data
+deactivate UI
+deactivate UI
+deactivate CL
+
+@enduml

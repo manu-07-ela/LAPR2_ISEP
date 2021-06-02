@@ -8,12 +8,10 @@ activate ":System"
 ":System" --> OE : shows the test list and asks to choose one
 deactivate ":System"
 
-loop
 OE -> ":System" : selects a test
 activate ":System"
-":System" --> OE : shows all data
+":System" --> OE : shows requested data
 deactivate ":System"
-end
 
 deactivate OE
 
