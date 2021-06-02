@@ -49,7 +49,7 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US13_SSD](US13_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -62,7 +62,7 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US13_MD](US13_MD.svg)
 
 ### 2.2. Other Remarks
 

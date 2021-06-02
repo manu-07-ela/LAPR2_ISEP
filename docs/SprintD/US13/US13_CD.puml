@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class SeeTestsUI {
+}
+
+class SeeTestsController {
+
+}
+
+class  ClientDTO{
+}
+
+class TestDTO{
+}
+
+class Company{
+
+}
+
+class ClientStore{
+
+}
+
+class ClientMapper{
+
+}
+
+class TestStore{
+
+}
+class Client {
+}
+
+class TestMapper{
+
+}
+
+class Test {
+}
+
+SeeTestsUI ..> SeeTestsController
+SeeTestsUI ..> ClientDTO
+SeeTestsUI ..> TestDTO
+SeeTestsController ...> TestMapper
+SeeTestsController ...> ClientMapper
+SeeTestsController ...> Company
+Company "1" ---> "1" TestStore : uses
+Company "1" ---> "1" ClientStore : uses
+ClientStore "1" ---> "*" Client : conducts
+TestStore"1" -> "*" Test : conducts
+TestMapper ..> TestDTO
+TestMapper .....> Test
+ClientMapper ...> ClientDTO
+ClientMapper ...> Client
+
+@enduml

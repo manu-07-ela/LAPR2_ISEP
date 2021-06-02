@@ -13,7 +13,7 @@ deactivate SYSTEM
 CCT -> SYSTEM : select the desired client
 activate SYSTEM
 SYSTEM -> CCT : show the historical tests performed by that client
-
+deactivate SYSTEM
 
 
 

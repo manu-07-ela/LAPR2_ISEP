@@ -24,7 +24,7 @@ class Test{
 -timeOfSampleAnalysis
 -state
 }
-Test "1..*"---"1" Client : associated a >
+Test "1..*"---"1" Client : associated a <
 
 
 @enduml
