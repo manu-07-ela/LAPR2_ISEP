@@ -1,6 +1,7 @@
 .button {
     -fx-font-weight: bold;
 }
+<<<<<<< HEAD
 .search-box {
     -fx-background-color:#FFFFFF;
     -fx-background-radius: 50;
@@ -27,3 +28,6 @@
     -fx-background-color:#2bcac8;
     -fx-background-radius:30;
 }
+=======
+
+>>>>>>> fe2af7cc228bff35b46f5db23a7aac840e226328
