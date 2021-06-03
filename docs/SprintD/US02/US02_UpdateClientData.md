@@ -20,7 +20,13 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 ### 1.3. Acceptance Criteria
 
-*Insert here the client acceptance criteria.*
+* **AC1:** The Citizen Card number must have 16 digits.
+* **AC2:** The National Healthcare Service number must have 10 digits.
+* **AC3:** The Birth date should be in this format: DD/MM/YYYY.
+* **AC4:** A client should not have more than 150 years of age.
+* **AC5:** The gender should only be Male/Female or include more options.
+* **AC6:** The phone number must be a 11 digit number.
+* **AC7:** The tax identification number must have 10 digits.
 
 ### 1.4. Found out Dependencies
 
