@@ -56,6 +56,14 @@ public class LoginUi {
     }
 
     /**
+     * Close platform.
+     */
+    @FXML
+    public void closePlatform() {
+        System.exit(0);
+    }
+
+    /**
      * redirects to ui method
      *
      * @param
