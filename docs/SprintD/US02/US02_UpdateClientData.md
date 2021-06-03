@@ -64,8 +64,11 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
+| Step 1  		 |	...interacting with the actor?						 | UpdateDataUI            | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                             |
+|       		 |	...coordinating the US?						 | UpdateDataController            | **Controller**                             |
+| Step 2  		 |	...knowing the Client						 | ClientStore            | IE: knows all clients                             |
+|        		 |	...knowing the ClientStore						 | Company            | IE: The company knows the ClientStore to which it is delegating some tasks                             |
+|        		 |	...transferring business data in DTO?						 | ClientMapper            | DTO: In order for the UI not to have direct acess to business objects, it is best to choose to use a DTO                             |
 | Step 3  		 |							 |             |                              |
 | Step 4  		 |							 |             |                              |
 | Step 5  		 |							 |             |                              |
