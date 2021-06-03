@@ -19,9 +19,21 @@
 
 **From the client clarifications:**
 
-> **Question:** 
+> **Question:** In US01 which date should be used to arrange the tests in order?The date the test is done or the validation date?
 > 
-> [**Awnser:**]() 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8787) The test registration date.
+
+> **Question:**
+>
+> [**Awnser:**]()
+
+> **Question:**
+>
+> [**Awnser:**]()
+
+> **Question:**
+>
+> [**Awnser:**]()
 
 ### 1.3. Acceptance Criteria
 

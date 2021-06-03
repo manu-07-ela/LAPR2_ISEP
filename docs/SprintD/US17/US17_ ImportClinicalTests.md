@@ -1,4 +1,4 @@
-# US 16 -  I want to have an overview of all the tests performed by Many Labs and analyse the overall performance of the company
+# US 17 - I want to import clinical tests from a CSV file.
 
 ## 1. Requirements Engineering
 
@@ -7,7 +7,7 @@
 
 ### 1.1. User Story Description
 
-*As a laboratory coordinator, I want to have an overview of all the tests performed by Many Labs and analyse the overall performance of the company*
+*As a laboratory coordinator, I want to import clinical tests from a CSV file.*
 
 ### 1.2. Customer Specifications and Clarifications 
 
@@ -19,19 +19,9 @@
 
 **From the client clarifications:**
 
-> **Question:** Should the interval of time considered for the evaluation be asked to the Laboratory Coordinator?
+> **Question:** In what folder should the CSV file be when we want to use the application through the console?
 > 
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8831) Yes.
-
-> **Question:** How should we ask him the interval of time to be considered? Should we ask him to type a number of days? A number of weeks? Should we give general options like: last week, last month..., for him to select from?
->  
-> In case the Laboratory Coordinator chooses, for example, one week, should we consider the last 7 days, or should we consider, for example, the data from monday to sunday?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8831) The laboratory coordinator should introduce two dates that define an interval, the beginning date and the end date. This interval will be used to find the contiguous subsequence with maximum sum.
-
-> **Question:** What is the meaning of "overview" here? Should the laboratory coordinator see the number of tests waiting for samples, the number of tests waiting for results, the number of tests waiting for diagnoses... Or should he see the information available for each one of the tests in the application?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8831) The laboratory coordinator should be able to check the number of clients, the number of tests waiting for results, the number of tests waiting for diagnosis and the total number of tests processed in the laboratory in each day, week, month and year. Moreover, the laboratory coordinator should be able to check the contiguous subsequence with maximum sum.
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8857) In this sprint each team should develop a graphical user interface. The file to import can be located in any folder. The user should specify the path of the file.
 
 > **Question:**
 >
@@ -42,8 +32,7 @@
 
 *Insert here the client acceptance criteria.*
 
-* **AC1:** The client tests must be shown ordered from the most recent to the oldest one. 
-* **AC2:** The test results are shown only after the client has selected a test.
+* **AC1:** If the file contains invalid data, that data should not be load into the system. An exception should be thrown.
 
 ### 1.4. Found out Dependencies
 
