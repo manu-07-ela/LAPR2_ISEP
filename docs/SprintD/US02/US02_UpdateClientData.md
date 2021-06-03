@@ -33,7 +33,7 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 ### 1.6. System Sequence Diagram (SSD)
 
-![US02-SSD](US02_SSD.svg)
+![US02_SSD](US02_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -45,7 +45,7 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 ### 2.1. Relevant Domain Model Excerpt  
 
-![US02-MD](US02_DM.svg)
+![US02_MD](US02_DM.svg)
 
 ### 2.2. Other Remarks
 
@@ -61,37 +61,46 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	...interacting with the actor?						 | UpdateDataUI            | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                             |
-|       		 |	...coordinating the US?						 | UpdateDataController            | **Controller**                             |
+| Step 1  		 |	...interacting with the actor?				 | UpdateDataUI           | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                             |
+|       		 |	...coordinating the US?						 | UpdateDataController   | **Controller**                             |
 | Step 2  		 |	...knowing the Client						 | ClientStore            | IE: knows all clients                             |
-|        		 |	...knowing the ClientStore						 | Company            | IE: The company knows the ClientStore to which it is delegating some tasks                             |
-|        		 |	...transferring business data in DTO?						 | ClientMapper            | DTO: In order for the UI not to have direct acess to business objects, it is best to choose to use a DTO                             |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+|        		 |	...knowing the ClientStore					 | Company                | IE: The company knows the ClientStore to which it is delegating some tasks                             |
+|        		 |	...transferring business data in DTO?						          | ClientMapper            | DTO: In order for the UI not to have direct acess to business objects, it is best to choose to use a DTO                             |
+| Step 3  		 |							 |                   |                              |
+| Step 4  		 |	...knowing the list of attributes associated with a client						 | Client            | IE: knows it's own data                             |
+| Step 5  		 |							 |                   |                              |
+| Step 6  		 |	...knowing the field to update		         | Client                  | IE:knows it's own data                             |              
+| Step 7  		 |							 |                   |                              |
+| Step 8  		 |							 |                   |                              |
+| Step 9  		 |	...validate all data?						 | Client                  | IE: owns its data                              |
+|       		 |	...saving the new data?						 | Client                  | IE: owns its data                             |
+| Step 10  		 |	...informing operation success?			     | UpdateDataUI            | IE: It is responsible for user interactions                             |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  * Client
+ * Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
+
  * UpdateDataUI  
  * UpdateDataController
+ * ClientMapper
+ * ClientStore
 
 ## 3.2. Sequence Diagram (SD)
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US02_SD](US02_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US02-CD](US02_CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
