@@ -88,6 +88,7 @@ public class App {
         this.authFacade.addUserRole(Constants.ROLE_CLI_CHE_TEC,Constants.ROLE_CLI_CHE_TEC);
         this.authFacade.addUserRole(Constants.ROLE_SPE_DOCTOR,Constants.ROLE_SPE_DOCTOR);
         this.authFacade.addUserRole(Constants.ROLE_LAB_COD, Constants.ROLE_LAB_COD);
+        this.authFacade.addUserRole(Constants.ROLE_CLIENT, Constants.ROLE_CLIENT);
 
         this.authFacade.addUserWithRole("Clinical Chemistry Technologist", "cheTec@manylabs.pt", "carlos", Constants.ROLE_CLI_CHE_TEC);
         this.authFacade.addUserWithRole("Main Administrator", "admin@lei.sem2.pt", "123456",Constants.ROLE_ADMIN);
@@ -112,7 +113,7 @@ public class App {
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         company.getTestTypeStore().addTestType(tt);
         company.getClientStore().addClient(new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com"));
-        authFacade.addUser("Client","client@manylabs.pt","111111");
+        authFacade.addUserWithRole("Client","client@manylabs.pt","111111","CLIENT");
         ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Clinical laboratory", "Rua 20", "12312312312", "1234567890", "1234s",company.getTestTypeStore().getTestTypeList());
         this.company.getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(lab);
 

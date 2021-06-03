@@ -1,0 +1,118 @@
+@startuml
+'https://plantuml.com/class-diagram
+package app {
+package ui {
+package gui {
+class UpdateDataUI
+}
+}
+package controller {
+class UpdateDataController
+}
+
+package domain {
+package model {
+package store {
+class ClientStore
+}
+package users {
+class Client
+}
+class Company
+}
+
+}
+package mappers {
+class ClientMapper
+package dto {
+class ClientDto
+}
+}
+}
+
+
+package auth {
+class AuthFacade
+class UserSession
+}
+
+class Company {
+-authFacade
+-clientStore
++getAuthFacade()
++getClientStore()
+}
+
+class AuthFacade {
++getCurrentUserSession()
+}
+
+class UserSession {
++getEmail()
+}
+
+class ClientStore {
++getClientByEmail()
+}
+
+class Client {
+-citizenCardNumber
+-nhsCode
+-birthDate
+-sex
+-tif
+-phoneNumber
+-e-mail
+-name
+
++setName(name)
++setCitizenCardNumber(citizenCardNumber)
++setNhsCode(nhsCode)
++setDateOfBirth(dateOfBirth)
++setEmail(email)
++setPhoneNumber(phoneNumber)
++setDateOfTin(tin)
++setSex(sex)
+}
+
+class ClientMapper {
++toDto(client)
+}
+
+class ClientDto {
+-citizenCardNumber
+-nhsCode
+-birthDate
+-sex
+-tif
+-phoneNumber
+-e-mail
+-name
+
++getName(name)
++getCitizenCardNumber(citizenCardNumber)
++getNhsCode(nhsCode)
++getDateOfBirth(dateOfBirth)
++getEmail(email)
++getPhoneNumber(phoneNumber)
++getDateOfTin(tin)
++getSex(sex)
+
+}
+
+class UpdateDataController {
++getUserSession()
++getListOfAttributesAssociatedWithAClient()
++updateAttribute(attribute)
+}
+
+UpdateDataUI..>UpdateDataController
+UpdateDataController..>ClientMapper
+ClientDto..>ClientMapper
+UpdateDataController..>Company
+Company"1"-->"1"ClientStore : uses
+ClientStore"1"-->"*"Client : knows
+Company .> AuthFacade
+AuthFacade.>UserSession
+
+@enduml

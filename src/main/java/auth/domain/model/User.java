@@ -34,6 +34,9 @@ public class User {
     public String getName() {
         return name;
     }
+    public Email getEmail(){
+        return id;
+    }
 
     public boolean hasId(Email id)
     {

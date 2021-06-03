@@ -56,11 +56,11 @@ public class ClientStoreTest {
         Assert.assertFalse(result);
     }
 
-    @Test
+    /*@Test
     public void saveClient1() throws IOException {
         boolean result = clStore.saveClient(cl,clauth);
         Assert.assertTrue(result);
-    }
+    }*/
 
     @Test
     public void saveClient2() throws IOException {

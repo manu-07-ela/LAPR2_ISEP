@@ -8,12 +8,16 @@ participant ": System" as SYSTEM
 CLIENT->SYSTEM : starts the update of data
 activate CLIENT
 activate SYSTEM
-SYSTEM-->CLIENT : ask how data he wants to update
+SYSTEM-->CLIENT : show the personal data of the client
 deactivate SYSTEM
-
-CLIENT->SYSTEM : type the required data
+CLIENT->SYSTEM : confirm the personal data
 activate SYSTEM
-SYSTEM-->CLIENT : show the fields to update
+loop while the client wants to update his data
+SYSTEM-->CLIENT : shows the list of attributes associated with a \nclient and asks which one he wants to update
+deactivate SYSTEM
+CLIENT->SYSTEM : select the desired attribute
+activate SYSTEM
+SYSTEM-->CLIENT : show the field to update
 deactivate SYSTEM
 CLIENT->SYSTEM : type the new data
 activate SYSTEM
@@ -23,8 +27,8 @@ CLIENT->SYSTEM: confirm data
 activate SYSTEM
 SYSTEM-->CLIENT : show the operation success
 deactivate SYSTEM
-
-
 deactivate CLIENT
+end loop
+
 
 @enduml

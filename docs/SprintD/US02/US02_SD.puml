@@ -2,38 +2,113 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
-actor ": Client" as CL
+actor "Client" as CL
 
 participant ": UpdateDataUI" as UI
 participant ": UpdateDataController" as CTRL
-participant ": Client" as CLD
-
-
+participant ": Company" as COMP
+participant "authFacade : AuthFacade" as AUTH
+participant "userSession : UserSession" as SESSION
+participant "store : ClientStore" as STORE
+participant "client : Client" as CLIENT
+participant ":ClientMapper" as MAPPER
+participant "clientDto : ClientDTO" as DTO
 activate CL
 CL -> UI : asks to update personal data
 activate UI
-UI -> CL : show a list of attributes
-deactivate UI
-CL -> UI : selects the desired attribute
-activate UI
-UI -> CL : request data to update his personal data
-deactivate UI
-CL -> UI : types the desired data
-activate UI
-UI -> CL : show the new data and asks for confirmation
-deactivate UI
-CL -> UI : confirm data
-activate UI
-UI -> CTRL : set...(data)
+UI -> CTRL : getUserSession()
 activate CTRL
-CTRL -> CLD : set...(data)
-activate CLD
-CLD --> CTRL : success
-deactivate CLD
-CTRL --> UI : success
+CTRL -> COMP : authFacade = getAuthFacade()
+activate COMP
+COMP->AUTH : userSession = getCurrentUserSession()
+activate AUTH
+AUTH-> SESSION : email = getEmail()
+activate SESSION
+deactivate SESSION
+deactivate AUTH
+CTRL->COMP : store = getClientStore()
+deactivate COMP
+CTRL->STORE : client = getClientByEmail()
+activate STORE
+deactivate STORE
+CTRL-> MAPPER : clientDto = toDto(client)
+activate MAPPER
+MAPPER-->CTRL : clientDto
+deactivate MAPPER
+CTRL-->UI : clientDto
 deactivate CTRL
-UI --> CL : success
 
+
+UI -> CL : show the personal data of the client
+deactivate UI
+CL -> UI : confirm the personal data
+activate UI
+UI->CTRL : getListOfAttributesAssociatedWithAClient()
+activate CTRL
+CTRL->STORE : getListOfAttributesAssociatedWithAClient()
+activate STORE
+STORE->CLIENT : listAttributes = getListOfAttributesAssociatedWithAClient()
+activate CLIENT
+CLIENT-->STORE : listAttributes
+deactivate CLIENT
+STORE-->CTRL : listAttributes
+deactivate STORE
+CTRL-->UI : listAttributes
+deactivate CTRL
+
+UI --> CL : shows the list of attributes associated with a \nclient and asks which one he wants to update
+deactivate UI
+CL -> UI : select the desired attribute
+activate UI
+UI --> CL : show the field to update
+deactivate UI
+CL -> UI : type the new data
+activate UI
+UI -->CL : show the new data an ask for confirmation
+deactivate UI
+CL->UI: confirm data
+activate UI
+UI->CTRL : updateAttribute(attribute)
+activate CTRL
+CTRL->STORE : updateAttribute(attribute)
+activate STORE
+alt attribute == name
+STORE->CLIENT : setName(name)
+activate CLIENT
+deactivate CLIENT
+else attribute == citizenCardNumber
+STORE-> CLIENT : setCitizenCardNumber(citizenCardNumber)
+activate CLIENT
+deactivate CLIENT
+else attribute == nhsCode
+STORE->CLIENT : setNhsCode(nhsCode)
+activate CLIENT
+deactivate CLIENT
+else attribute == dateOfBirth
+STORE->CLIENT : setDateOfBirth(dateOfBirth)
+activate CLIENT
+deactivate CLIENT
+else attribute == sex
+STORE->CLIENT : setSex(sex)
+activate CLIENT
+deactivate CLIENT
+else attribute == tin
+STORE->CLIENT : setDateOfTin(tin)
+activate CLIENT
+deactivate CLIENT
+else attribute == phoneNumber
+STORE->CLIENT : setPhoneNumber(phoneNumber)
+activate CLIENT
+deactivate CLIENT
+else attribute == email
+STORE->CLIENT : setEmail(email)
+activate CLIENT
+deactivate CLIENT
+end alt
+deactivate STORE
+deactivate CTRL
+UI-->CL : show the operation success
+deactivate UI
 
 
 deactivate CL
