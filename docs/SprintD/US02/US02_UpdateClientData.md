@@ -51,11 +51,23 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
+* This user story has a dependency with user story 3  since it is only possible to change the data of a client from a client registered.
 
 ### 1.5 Input and Output Data
 
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
+**Input Data:**
+
+* Typed data:
+    * The field of the attribute that the client wants to change 
+    
+* selected data:
+    * The attribute the client wants to change
+
+**Output Data:**
+* Client old data
+* Client new data
+* List of attributes related to the client  
+* (In)Success of the operation
 
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -65,7 +77,7 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 ### 1.7 Other Relevant Remarks
 
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
+* This user history will be used whenever a customer wishes to change their personal information. 
 
 
 ## 2. OO Analysis
@@ -116,20 +128,15 @@ Other software classes (i.e. Pure Fabrication) identified:
  * UpdateDataController
  * ClientMapper
  * ClientStore
+ * ClientDto
+
 
 ## 3.2. Sequence Diagram (SD)
 
-*In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
-
-<<<<<<< HEAD
 ![US02-SD](US02_SD.svg)
-=======
-![US02_SD](US02_SD.svg)
->>>>>>> 9122de7bb95d92ab7c06b3fca4d38ae908256815
+
 
 ## 3.3. Class Diagram (CD)
-
-*In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
 ![US02-CD](US02_CD.svg)
 
