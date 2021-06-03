@@ -216,4 +216,14 @@ public class TestStore {
        return test;
     }
 
+    public List<Test> getClientTestsList(Client cl){
+        List<Test> test = new ArrayList<>();
+        for (Test t : testList) {
+            if (t.getCl().equals(cl)) {
+                test.add(t);
+            }
+        }
+        return test;
+    }
+
 }

@@ -2,6 +2,7 @@ package app.ui.console.employees;
 
 import app.ui.console.MenuItem;
 import app.ui.console.functionalities.CreateClientUI;
+import app.ui.console.functionalities.ViewResultsUI;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class ClientUI implements Runnable {
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
-        options.add(new MenuItem("View Client's test(s) ", new CreateClientUI()));
+        options.add(new MenuItem("View Client's test(s) ", new ViewResultsUI()));
 
         int option = 0;
         do {

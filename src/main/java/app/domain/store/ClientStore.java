@@ -108,7 +108,7 @@ public class ClientStore {
         } else {
             this.clientList.add(cl);
             String pwd = generatelogin(cl);
-            return clAuthFacade.addUser(cl.getName(),cl.getEmail(), pwd);
+            return clAuthFacade.addUserWithRole(cl.getName(),cl.getEmail(), pwd,"CLIENT");
         }
     }
 

@@ -11,6 +11,7 @@ public class Constants {
     public static final String ROLE_CLI_CHE_TEC = "CLINICAL CHEMISTRY TECHNICIAN";
     public static final String ROLE_SPE_DOCTOR = "SPECIALIST DOCTOR";
     public static final String ROLE_LAB_COD = "LABORATORY COORDINATOR";
+    public static final String ROLE_CLIENT = "CLIENT";
 
 
 
