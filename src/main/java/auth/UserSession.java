@@ -54,6 +54,11 @@ public class UserSession {
             this.user.getName();
         return null;
     }
+    public Email getEmail(){
+        if (isLoggedIn())
+            this.user.getEmail();
+        return null;
+    }
 
     public Email getUserId()
     {
