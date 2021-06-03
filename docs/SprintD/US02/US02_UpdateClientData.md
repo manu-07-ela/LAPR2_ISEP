@@ -33,9 +33,7 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 ### 1.6. System Sequence Diagram (SSD)
 
-*Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
-
-![USXX-SSD](USXX-SSD.svg)
+![US02-SSD](US02_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -45,10 +43,9 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 ## 2. OO Analysis
 
-### 2.1. Relevant Domain Model Excerpt 
-*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
+### 2.1. Relevant Domain Model Excerpt  
 
-![USXX-MD](USXX-MD.svg)
+![US02-MD](US02_DM.svg)
 
 ### 2.2. Other Remarks
 
@@ -75,13 +72,11 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * Client
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * UpdateDataUI  
+ * UpdateDataController
 
 ## 3.2. Sequence Diagram (SD)
 
