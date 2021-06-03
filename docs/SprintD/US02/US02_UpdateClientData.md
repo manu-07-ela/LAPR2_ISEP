@@ -3,20 +3,41 @@
 
 ## 1. Requirements Engineering
 
->In case of a new client, the receptionist registers the client in the application. To register a client, the
-receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number,
-birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
-
-
-
-
 ### 1.1. User Story Description
 
 * As a client, I want to update my personal data.
 
 ### 1.2. Customer Specifications and Clarifications 
 
-*Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
+**From the specifications document:**
+>In case of a new client, the receptionist registers the client in the application. To register a client, the
+receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number,
+birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
+
+**From the client clarifications:**
+
+>**Question:** Should the Client type in the attribute he/she wants to update or should he choose from a list?
+> 
+>[**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8838#p11582)  In this sprint each team should develop a graphical user interface for US2. The application should show the current user data and the client can update any attribute.
+
+>**Question:** To update the attribute, should the Client type the previous data?
+>
+>[**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8838#p11582)  In this sprint each team should develop a graphical user interface for US2. The application should show the current user data and the client can update any attribute.
+
+>**Question:** What is the Data that the Client can update?
+>
+>[**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8838#p11582)  In this sprint each team should develop a graphical user interface for US2. The application should show the current user data and the client can update any attribute.
+
+> **Question:** To register a Client which is the format of each attribute?
+>
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7563#p10179)
+> * Citizen Card: 16 digit.
+> * number NHS: 10 digit number.
+> * TIN: 10 digit number.
+> * Birth day - in which format: DD/MM/YYYY.
+> * Sex - should only be Male/Female or include more options.
+> * Phone number: 11 digit number.
+> * The sex is opcional. All other fields are required.
 
 ### 1.3. Acceptance Criteria
 
@@ -100,7 +121,11 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
+<<<<<<< HEAD
+![US02-SD](US02_SD.svg)
+=======
 ![US02_SD](US02_SD.svg)
+>>>>>>> 9122de7bb95d92ab7c06b3fca4d38ae908256815
 
 ## 3.3. Class Diagram (CD)
 

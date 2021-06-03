@@ -22,14 +22,13 @@ deactivate SYSTEM
 CLIENT->SYSTEM : type the new data
 activate SYSTEM
 SYSTEM-->CLIENT : show the new data an ask for confirmation
-end loop
 deactivate SYSTEM
 CLIENT->SYSTEM: confirm data
 activate SYSTEM
 SYSTEM-->CLIENT : show the operation success
 deactivate SYSTEM
-
-
 deactivate CLIENT
+end loop
+
 
 @enduml
