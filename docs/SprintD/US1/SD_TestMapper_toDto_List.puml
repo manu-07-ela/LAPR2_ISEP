@@ -3,7 +3,7 @@
 'hide footbox
 autonumber
 
-participant ": testMapper" as MAPPER
+participant ": TestMapper" as MAPPER
 participant "testList: \nList<Test>" as LTestSA
 participant "testListDto: \nList<TestDto>" as LTestSADTO
 participant "test : Test" as TEST

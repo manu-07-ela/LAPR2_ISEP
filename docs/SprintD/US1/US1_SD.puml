@@ -8,7 +8,10 @@ participant ":ViewResultsController" as CTRL
 participant ": Company" as Comp
 participant "testStore:\nTestStore" as TS
 participant ": TestMapper" as tMAPPER
-
+participant "testList: \nList<Test>" as LTestSA
+participant "testListDto: \nList<TestDto>" as LTestSADTO
+participant "test : Test" as TEST
+participant "testDto : TestDto" as TESTDTO
 
 activate CL
 CL -> UI : asks to view the results of his tests
@@ -20,8 +23,11 @@ activate CTRL
 CTRL -> Comp : testStore = getTestStore()
 activate Comp
 deactivate Comp
-CTRL -> TS : testList = getTestList()
+CTRL -> TS : testList = getClientTestsList()
 activate TS
+TS -> TS : orderClientTestsByRegistrationDate()
+activate TS
+deactivate TS
 deactivate TS
 CTRL -> tMAPPER : toDto(testList)
 activate tMAPPER
@@ -38,7 +44,15 @@ deactivate UI
 
 CL -> UI : selects a test
 activate UI
-
+UI -> CTRL
+activate CTRL
+CTRL -> TS
+activate TS
+TS -> TEST
+activate TEST
+deactivate TEST
+deactivate TS
+deactivate CTRL
 deactivate CTRL
 
 UI --> CL : shows requested data
