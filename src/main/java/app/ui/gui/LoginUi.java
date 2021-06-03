@@ -39,7 +39,7 @@ public class LoginUi {
      * Login.
      */
     @FXML
-    void login(ActionEvent event) {
+    void login() {
         if (tentativas > 0) {
             String emailInserido = txtEmail.getText().toLowerCase().trim();
             String passwordInserida = txtPassword.getText();
