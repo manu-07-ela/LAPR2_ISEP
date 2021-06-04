@@ -1,47 +1,61 @@
-# US 006 - To create a Task 
+# US 19 - To send NHS daily reports
 
 ## 1. Requirements Engineering
 
 
 ### 1.1. User Story Description
 
-
-As an organization employee, I want to create a new task in order to be further published.
-
-
+The Many Labs company wants to send to the NHS daily reports of Covid-19
+data, including the number of observed values and estimated values. Reports should be
+generated automatically with historical data and must be sent every day at 6:00 am.
 
 ### 1.2. Customer Specifications and Clarifications 
 
 
 **From the specifications document:**
 
->	Each task is characterized by having a unique reference per organization, a designation, an informal and a technical description, an estimated duration and cost as well as the its classifying task category. 
-
-
->	As long as it is not published, access to the task is exclusive to the employees of the respective organization. 
-
-
+>Considering that Many Labs has the exclusivity to perform Covid-19 tests, and that the contract
+with the NHS in England requires Many Labs to summarize and report Covid-19 data, the company
+needs to: identify the number of Covid-19 tests performed, identify all positive results to Covid-19
+tests, report the total number of Covid-19 cases per day, per week and per month of the year, and
+send the forecasts for these same time horizons (the number of Covid-19 cases for the following
+day, next week and next month). The company is also required to generate daily (automatic) reports
+with all the information demanded by the NHS and should send them to the NHS using their API.
+To make the predictions, the NHS contract defines that a linear regression algorithm should be used.
+The NHS required that both simple linear and multiple linear regression algorithms should be
+evaluated to select the best model. The accuracy of the prediction models should be analysed and
+documented in the application user manual (in the annexes) that must be delivered with the
+application. The algorithm to be used by the application must be defined through a configuration
+file.
 
 **From the client clarifications:**
 
-> **Question:** Which is the unit of measurement used to estimate duration?
+> **Question:**
 >  
-> **Answer:** Duration is estimated in days.
+> **Answer:**
 
 -
 
-> **Question:** Monetary data is expressed in any particular currency?
+> **Question:**
 >  
-> **Answer:** Monetary data (e.g. estimated cost of a task) is indicated in POTs (virtual currency internal to the platform).
+> **Answer:**
 
 
 ### 1.3. Acceptance Criteria
 
-
-* **AC1:** All required fiels must be filled in.
-* **AC2:** Task reference must have at least 5 alphanumeric chars.
-* **AC3:** When creating a task with an already existing reference, the system must reject such operation and the user must have the change to modify the typed reference.
-
+* **AC1:** The report should include day and week (observed and
+  estimated) values, the regression model used to estimate each value, R(SLR), R2
+  and R2 adjusted for SLR and MLR, hypothesis tests for regression coefficients
+  significance model with Anova. Simple linear and multilinear regression models
+  can be used to compute the estimates and corresponding confidence intervals.
+  When the system is configured to use the simple linear regression model, the
+  performance of each model should be used to select the best model (the one that
+  uses the number of tests realized or the one that uses the mean age as independent
+  variable). The best model will be used to make the estimated/expected values that
+  will be send to NHS. The interval of dates to fit the regression model and the
+  number of historical points (number of days and number of weeks) must be
+  defined through a configuration file. The system should send the report using the
+  NHS API (available in moodle).
 
 ### 1.4. Found out Dependencies
 
