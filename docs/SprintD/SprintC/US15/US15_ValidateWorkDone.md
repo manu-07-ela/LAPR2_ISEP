@@ -15,10 +15,6 @@
 
 **From the specifications document:**
 
-> To facilitate and simplify the validation work performed by the specialist doctor, the application
-uses an external module that is responsible for doing an automatic validation using test reference
-values.
-> 
 > After the specialist doctor has completed the diagnosis, the results of the clinical analyses and the
 report become available in the system and must be validated by the laboratory coordinator. To
 validate the work done, the laboratory coordinator checks the chemical test/result and associated
@@ -34,8 +30,7 @@ test type (whether it is blood test or Covid test).
 confirms that everything was done correctly, the client receives a notification alerting that the
 results are already available in the central application and informing that he/she must access the
 application to view those results. The client receives the notification by SMS and e-mail.
-> 
-> 
+
 
 **From the client clarifications:**
 
@@ -174,7 +169,7 @@ From a previous post: "The system shows all tests ready to validate (tests that 
 |        		 | ... recording the Validation Date?                              | LabCoordinatorValidation      | **IE**: Owns its data.|
 |                | ... notify the client by email                                  | EmailResult                   | **IE** and **Pure Fabrication**: has all the required information and means to send the email (IE)                                                                                                                                                 |
 |                | ... notify the client by SMS                                    | SMSResult                     | **IE** and **Pure Fabrication**: has all the required information and means to send the email (IE)
-| Step 7  		 | ... informing operation success?                                | CreateMedicalReportUI         | **IE**: Is responsible for user interactions.                                                                                                                                                          |
+| Step 7  		 | ... informing operation success?                                | ValidateWorkUI                | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 
