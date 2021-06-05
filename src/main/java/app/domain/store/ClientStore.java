@@ -125,4 +125,50 @@ public class ClientStore {
         }
         return null;
     }
+
+    public Client getClientByEmail(String email) {
+        for (Client cl :clientList ) {
+            if (cl.getEmail().equals(email)){
+                return cl;
+            }
+        }
+        return null;
+
+    }
+
+    public void updateAttribute(String attribute, Client client) {
+       /* for (Client cl :clientList ) {
+            if (cl.equals(client)){
+                switch (attribute){
+                    case "name" :
+                        client.setName(name);
+                        break;
+                    case "citizencardnumber" :
+                        client.setCitizencardnumber(citizencardnember);
+                        break;
+                    case "nhsCode" :
+                        client.setNhs(nhs);
+                        break;
+                    case "dateOfBirth" :
+                        client.setDate(date);
+                        break;
+                    case "sex" :
+                        client.setSex(sex);
+                        break;
+                    case "Tin" :
+                        client.setTin(tin);
+                        break;
+                    case "phonenumber" :
+                        client.setPhonenumber(phonenumber);
+                        break;
+                    case "email" :
+                        client.setEmail(email);
+                        break;
+                }
+            }
+        }
+
+        */
+
+    }
 }
