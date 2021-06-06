@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import static java.lang.Integer.parseInt;
@@ -148,6 +149,71 @@ public class Client {
     }
 
     /**
+     * Sets the name of a client
+     * @param name the name of a client
+     */
+    public void setName(String name) {
+        nameValidation(name);
+        this.name = name;
+    }
+    /**
+     * Sets the Citizen card number of a client
+     * @param citizencardnumber the Citizen card number of a client
+     */
+    public void setCitizencardnumber(String citizencardnumber) {
+        citizencardnumberValidation(citizencardnumber);
+        this.citizencardnumber = citizencardnumber;
+    }
+    /**
+     * Sets the National Healthcare Service number of a client
+     * @param nhs the National Healthcare Service number of a client
+     */
+    public void setNhs(String nhs) {
+        nhsValidation(nhs);
+        this.nhs = nhs;
+    }
+    /**
+     * Sets the birth date of a client
+     * @param date the birth date of a client
+     */
+    public void setDate(String date) {
+        dateValidation(date);
+        this.date = date;
+    }
+    /**
+     * Sets the gender of a client
+     * @param sex the gender of a client
+     */
+    public void setSex(String sex) {
+        sexValidation(sex);
+        this.sex = sex;
+    }
+    /**
+     * Sets the tax identification number of a client
+     * @param tin the tax identification number of a client
+     */
+    public void setTin(String tin) {
+        tinValidation(tin);
+        this.tin = tin;
+    }
+    /**
+     * Sets the phone number of a client
+     * @param phonenumber the phone number of a client
+     */
+    public void setPhonenumber(String phonenumber) {
+        phonenumberValidation(phonenumber);
+        this.phonenumber = phonenumber;
+    }
+    /**
+     * Sets the e-mail of a client
+     * @param email the e-mail of a client
+     */
+    public void setEmail(String email) {
+        emailValidation(email);
+        this.email = email;
+    }
+
+    /**
      * Checks whether the name associated with the client we intend to register complies with all business rules.
      * @param name The Client's name
      */
@@ -271,4 +337,7 @@ public class Client {
         return this.getName().equals((client).getName()) || this.getCitizenCardNumber().equals((client).getCitizenCardNumber()) || this.getNhs().equals((client).getNhs()) || this.getDate().equals((client).getDate()) || this.getSex().equals((client).getSex()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
     }
 
+    public List<String> getListOfAttributesAssociatedWithAClient() {
+        return null;
+    }
 }
