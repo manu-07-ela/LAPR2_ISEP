@@ -14,6 +14,10 @@
 
 **From the specifications document:**
 
+>Once the laboratory coordinator confirms that everything was done correctly, the client receives a notification alerting that the
+results are already available in the central application and informing that he/she must access the
+application to view those results. 
+
 **From the client clarifications:**
 
 > **Question:** In US01 which date should be used to arrange the tests in order?The date the test is done or the validation date?
@@ -37,8 +41,8 @@
 *Insert here the client acceptance criteria.*
 
 * **AC1:** The client tests must be shown ordered from the most recent to the oldest one. 
-* **AC2:** The test results are shown only after the client has selected a test.
-
+* **AC3:** The tests are ordered by registration date.
+* **AC3:** The test results are shown only after the client has selected a test.
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
@@ -57,6 +61,7 @@
 **Output Data:**
 
 * List of existing tests in the Validate state
+* Test Result Informations   
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -74,7 +79,7 @@
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US1_MD](US1_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -86,22 +91,28 @@
 
 **The rationale grounds on the SSD interactions and the identified input/output data.**
 
-| Interaction ID | Question: Which class is responsible for... | Answer      | Justification (with patterns)  |
-|:-------------  |:------------------------------------------- |:------------|:------------------------------ |
-| Step 1  		 |							                   |             |                                |
-| Step 2  		 |							                   |             |                                |
-| Step 3  		 |						                   	   |             |                                | 
-| Step 4  		 |						                       |             |                                |
+| Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
+|:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Step 1  		 | ... interacting with the actor?                                 | ViewResultsUI                 | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
+|                | ... coordinating the US?                                        | ViewResultsController         | **Controller**                                                                                                                                                                                         |
+| Step 2  		 | ... knowing the tests that have already been validated?         | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
+|                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
+|                | ... transferring business data in DTO?                          | TestMapper                    | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+| Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 4  		 |                                                                 |                               |                                                                                                                                                                                                        |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * 
+ * Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * 
+ * ViewResultsUI
+ * ViewResultsController
+ * TestStore  
+ * TestMapper
 
 ## 3.2. Sequence Diagram (SD)
 

@@ -337,6 +337,10 @@ public class Client {
         return this.getName().equals((client).getName()) || this.getCitizenCardNumber().equals((client).getCitizenCardNumber()) || this.getNhs().equals((client).getNhs()) || this.getDate().equals((client).getDate()) || this.getSex().equals((client).getSex()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
     }
 
+    /**
+     * Gets the list of the attributes of the Client
+     * @return the list of the attributes of the Client
+     */
     public List<String> getListOfAttributesAssociatedWithAClient() {
         return null;
     }
