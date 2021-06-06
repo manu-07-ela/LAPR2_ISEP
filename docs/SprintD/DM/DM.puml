@@ -118,6 +118,7 @@ class ExternalModule{
 }
 
 class ReferenceValue{
+-metricUsed
 -lowerLimitValue
 -upperLimitValue
 }

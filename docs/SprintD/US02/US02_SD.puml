@@ -68,9 +68,9 @@ UI -->CL : show the new data an ask for confirmation
 deactivate UI
 CL->UI: confirm data
 activate UI
-UI->CTRL : updateAttribute(attribute,)
+UI->CTRL : updateAttribute(attribute,data )
 activate CTRL
-CTRL->STORE : updateAttribute(attribute,client)
+CTRL->STORE : updateAttribute(attribute,client,data)
 activate STORE
 alt attribute == name
 STORE->CLIENT : setName(name)
