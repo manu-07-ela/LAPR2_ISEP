@@ -91,22 +91,28 @@ application to view those results.
 
 **The rationale grounds on the SSD interactions and the identified input/output data.**
 
-| Interaction ID | Question: Which class is responsible for... | Answer      | Justification (with patterns)  |
-|:-------------  |:------------------------------------------- |:------------|:------------------------------ |
-| Step 1  		 |							                   |             |                                |
-| Step 2  		 |							                   |             |                                |
-| Step 3  		 |						                   	   |             |                                | 
-| Step 4  		 |						                       |             |                                |
+| Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
+|:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Step 1  		 | ... interacting with the actor?                                 | ViewResultsUI                 | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
+|                | ... coordinating the US?                                        | ViewResultsController         | **Controller**                                                                                                                                                                                         |
+| Step 2  		 | ... knowing the tests that have already been validated?         | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
+|                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
+|                | ... transferring business data in DTO?                          | TestMapper                    | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+| Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 4  		 |                                                                 |                               |                                                                                                                                                                                                        |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * 
+ * Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * 
+ * ViewResultsUI
+ * ViewResultsController
+ * TestStore  
+ * TestMapper
 
 ## 3.2. Sequence Diagram (SD)
 
