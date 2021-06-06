@@ -7,47 +7,31 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane fx:id="brdPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: ; -fx-border-width: ; -fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#1a7180, #239ba1);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.LabCoordinatorUi">
-   <center>
-      <VBox alignment="CENTER" prefHeight="221.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="227.0" layoutY="185.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="162.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 15;" text="Import Tests" textFill="WHITE">
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
-            </Button>
-            <Button layoutX="224.0" layoutY="154.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="162.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 15;" text="Overall Statistics" textFill="WHITE">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Button>
-         </children>
-         <BorderPane.margin>
-            <Insets top="70.0" />
-         </BorderPane.margin>
-      </VBox>
-   </center>
    <top>
       <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Label alignment="CENTER" prefHeight="50.0" prefWidth="245.0" text="Lab Coordinator Menu" textFill="WHITE">
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="339.0" text="Lab Coordinator Menu" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Pane prefHeight="50.0" prefWidth="315.0">
+            <Pane prefHeight="50.0" prefWidth="301.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </Pane>
-            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/close.png" />
                </image>
                <HBox.margin>
-                  <Insets top="12.0" />
+                  <Insets right="15.0" top="12.0" />
                </HBox.margin>
             </ImageView>
          </children>
+         <BorderPane.margin>
+            <Insets top="5.0" />
+         </BorderPane.margin>
       </HBox>
    </top>
    <bottom>
@@ -63,4 +47,89 @@
          </children>
       </HBox>
    </bottom>
+   <center>
+      <HBox prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="OverviewBotton" alignment="CENTER" onMouseClicked="#OverviewClickBotton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/Styles.css">
+               <children>
+                  <Label text="Overview">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets top="10.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <Label text="Of Tests Performed">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets top="10.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <ImageView fitHeight="77.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../images/overview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="update-data" />
+                  <String fx:value="shadow" />
+               </styleClass>
+            </VBox>
+            <VBox fx:id="ImportBotton" alignment="CENTER" onMouseClicked="#ImportClickBotton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/Styles.css">
+               <children>
+                  <Label text="Import">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets top="10.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <Label text="Clinical Tests">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets top="10.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <ImageView fitHeight="77.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../images/sample.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="update-data" />
+                  <String fx:value="shadow" />
+               </styleClass>
+               <HBox.margin>
+                  <Insets left="45.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="97.0" right="25.0" top="45.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </center>
 </BorderPane>

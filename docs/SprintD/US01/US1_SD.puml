@@ -12,13 +12,15 @@ participant "testList: \nList<Test>" as LTestSA
 participant "testListDto: \nList<TestDto>" as LTestSADTO
 participant "test : Test" as TEST
 participant "testDto : TestDto" as TESTDTO
+participant ": TestResultsMapper" as trMAPPER
+participant "dto:\n TestResultsDto" as TRDto
 
 activate CL
 CL -> UI : asks to view the results of his tests
 activate UI
 
 
-UI -> CTRL : testListDto = getTestList()
+UI -> CTRL : getTestList()
 activate CTRL
 CTRL -> Comp : testStore = getTestStore()
 activate Comp
@@ -44,17 +46,21 @@ deactivate UI
 
 CL -> UI : selects a test
 activate UI
-UI -> CTRL
+UI -> CTRL : showTestResults(selectedTest)
 activate CTRL
-CTRL -> TS
+CTRL -> TS : test = getTestByInternalCode(code)
 activate TS
-TS -> TEST
-activate TEST
-deactivate TEST
 deactivate TS
+CTRL -> trMAPPER : toDto(test)
+activate trMAPPER
+ref over trMAPPER
+SD_TestResultsMapper_toDto_List
+end ref
+trMAPPER --> CTRL : testResultsDto
+deactivate trMAPPER
+CTRL --> UI : testResultsDto
 deactivate CTRL
 deactivate CTRL
-
 UI --> CL : shows requested data
 deactivate UI
 deactivate UI
