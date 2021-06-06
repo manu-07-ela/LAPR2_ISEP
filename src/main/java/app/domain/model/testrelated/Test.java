@@ -239,8 +239,6 @@ public class Test {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Test test = (Test) other;
-        System.out.println(this.getTestParameterList());
-        System.out.println(test.getTestParameterList());
         return this.getCl().equals(test.getCl()) && this.getTestType().equals(test.getTestType()) && this.getTestParameterList().toString().equals(test.getTestParameterList().toString());
     }
 

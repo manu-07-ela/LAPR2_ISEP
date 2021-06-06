@@ -107,7 +107,7 @@ public class TestStore {
      */
     public static String generateInternalCode(int numtest) {
         DecimalFormat df = new DecimalFormat("000000000000");
-        return df.format(numtest);
+        return df.format(numtest+1);
     }
 
     /**

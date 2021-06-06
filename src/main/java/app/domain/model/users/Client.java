@@ -334,7 +334,7 @@ public class Client {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Client client = (Client) other;
-        return this.getName().equals((client).getName()) || this.getCitizenCardNumber().equals((client).getCitizenCardNumber()) || this.getNhs().equals((client).getNhs()) || this.getDate().equals((client).getDate()) || this.getSex().equals((client).getSex()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
+        return this.getCitizenCardNumber().equals((client).getCitizenCardNumber()) || this.getNhs().equals((client).getNhs()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
     }
 
     /**
