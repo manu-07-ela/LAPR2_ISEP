@@ -95,7 +95,7 @@ public class Client {
      * Get the Citizen card number of a client
      * @return the Citizen card number of client
      */
-    public String getCitizencardnumber() {
+    public String getCitizenCardNumber() {
         return citizencardnumber;
     }
 
@@ -268,7 +268,7 @@ public class Client {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Client client = (Client) other;
-        return this.getName().equals((client).getName()) || this.getCitizencardnumber().equals((client).getCitizencardnumber()) || this.getNhs().equals((client).getNhs()) || this.getDate().equals((client).getDate()) || this.getSex().equals((client).getSex()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
+        return this.getName().equals((client).getName()) || this.getCitizenCardNumber().equals((client).getCitizenCardNumber()) || this.getNhs().equals((client).getNhs()) || this.getDate().equals((client).getDate()) || this.getSex().equals((client).getSex()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
     }
 
 }
