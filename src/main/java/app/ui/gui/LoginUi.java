@@ -85,7 +85,7 @@ public class LoginUi {
             UserRoleDTO role = selectsRole(ctrl.getUserRoles());
             if (role.getId().equals("LABORATORY COORDINATOR")) {
                 runLabCoordinator();
-                labCoordinatorUi.setLabelUI(stageLabCoordinatorUi);
+                //labCoordinatorUi.setLabelUI(stageLabCoordinatorUi);
             }
         }
 
