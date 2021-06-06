@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c182852817a7008814b353ffb772c8b2a62a42da
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -347,4 +353,24 @@
          </opaqueInsets>
       </VBox>
    </children>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8a70b9430f27ae84177282702e855042ff252940
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="app.ui.gui.UpdateData"
+            prefHeight="400.0" prefWidth="600.0">
+
+<<<<<<< HEAD
+=======
+>>>>>>> e1754cf39d6d16984daa9798932f7a59f2e9d9b5
+>>>>>>> 8a70b9430f27ae84177282702e855042ff252940
+>>>>>>> c182852817a7008814b353ffb772c8b2a62a42da
 </AnchorPane>
