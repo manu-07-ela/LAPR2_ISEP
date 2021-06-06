@@ -1,5 +1,339 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.UpdateData">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <VBox prefHeight="400.0" prefWidth="411.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="36.0" prefWidth="600.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+                     <children>
+                        <Label style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Name ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField alignment="CENTER" promptText="Insert the new name " stylesheets="@../styles/Styles.css">
+                           <opaqueInsets>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="shadow" />
+                              <String fx:value="text-color" />
+                           </styleClass>
+                        </TextField>
+                        <Button mnemonicParsing="false" stylesheets="@../styles/Styles.css" text="Save ">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="search-button" />
+                           </styleClass>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <styleClass>
+                        <String fx:value="shadow" />
+                        <String fx:value="search-button" />
+                     </styleClass>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+                     <children>
+                        <Label style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Email">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField alignment="CENTER" promptText="Insert the new email" stylesheets="@../styles/Styles.css">
+                           <opaqueInsets>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="shadow" />
+                              <String fx:value="text-color" />
+                           </styleClass>
+                        </TextField>
+                        <Button mnemonicParsing="false" stylesheets="@../styles/Styles.css" text="Save ">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="search-button" />
+                           </styleClass>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="shadow" />
+                        <String fx:value="search-button" />
+                     </styleClass>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="40.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+                     <children>
+                        <Label style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Citizen card number ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField alignment="CENTER" prefHeight="23.0" prefWidth="172.0" promptText="Insert the new citizen card number " stylesheets="@../styles/Styles.css">
+                           <opaqueInsets>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="shadow" />
+                              <String fx:value="text-color" />
+                           </styleClass>
+                        </TextField>
+                        <Button mnemonicParsing="false" stylesheets="@../styles/Styles.css" text="Save ">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="search-button" />
+                           </styleClass>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="shadow" />
+                        <String fx:value="search-button" />
+                     </styleClass>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="40.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+                     <children>
+                        <Label style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="NHS Code">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField alignment="CENTER" prefHeight="23.0" prefWidth="172.0" promptText="Insert the new NHS Code " stylesheets="@../styles/Styles.css">
+                           <opaqueInsets>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="shadow" />
+                              <String fx:value="text-color" />
+                           </styleClass>
+                        </TextField>
+                        <Button mnemonicParsing="false" stylesheets="@../styles/Styles.css" text="Save ">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="search-button" />
+                           </styleClass>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="shadow" />
+                        <String fx:value="search-button" />
+                     </styleClass>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="40.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+                     <children>
+                        <Label style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Birth date">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField alignment="CENTER" prefHeight="23.0" prefWidth="172.0" promptText="Insert the new Birth date" stylesheets="@../styles/Styles.css">
+                           <opaqueInsets>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="shadow" />
+                              <String fx:value="text-color" />
+                           </styleClass>
+                        </TextField>
+                        <Button mnemonicParsing="false" stylesheets="@../styles/Styles.css" text="Save ">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="search-button" />
+                           </styleClass>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="shadow" />
+                        <String fx:value="search-button" />
+                     </styleClass>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="40.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+                     <children>
+                        <Label style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Sex">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField alignment="CENTER" prefHeight="23.0" prefWidth="172.0" promptText="Insert the new Sex" stylesheets="@../styles/Styles.css">
+                           <opaqueInsets>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="shadow" />
+                              <String fx:value="text-color" />
+                           </styleClass>
+                        </TextField>
+                        <Button mnemonicParsing="false" stylesheets="@../styles/Styles.css" text="Save ">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="search-button" />
+                           </styleClass>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="shadow" />
+                        <String fx:value="search-button" />
+                     </styleClass>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="40.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+                     <children>
+                        <Label style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="TIN">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField alignment="CENTER" prefHeight="23.0" prefWidth="172.0" promptText="Insert the new TIN" stylesheets="@../styles/Styles.css">
+                           <opaqueInsets>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="shadow" />
+                              <String fx:value="text-color" />
+                           </styleClass>
+                        </TextField>
+                        <Button mnemonicParsing="false" stylesheets="@../styles/Styles.css" text="Save ">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="search-button" />
+                           </styleClass>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="shadow" />
+                        <String fx:value="search-button" />
+                     </styleClass>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="40.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+                     <children>
+                        <Label style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Phone Number ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField alignment="CENTER" prefHeight="23.0" prefWidth="172.0" promptText="Insert the new Phone Number " stylesheets="@../styles/Styles.css">
+                           <opaqueInsets>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="shadow" />
+                              <String fx:value="text-color" />
+                           </styleClass>
+                        </TextField>
+                        <Button mnemonicParsing="false" stylesheets="@../styles/Styles.css" text="Save ">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="search-button" />
+                           </styleClass>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="shadow" />
+                        <String fx:value="search-button" />
+                     </styleClass>
+                  </HBox>
+               </children>
+            </VBox>
+         </bottom>
+      </BorderPane>
+   </children>
+=======
+>>>>>>> 8a70b9430f27ae84177282702e855042ff252940
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -11,4 +345,8 @@
             fx:controller="app.ui.gui.UpdateData"
             prefHeight="400.0" prefWidth="600.0">
 
+<<<<<<< HEAD
+=======
+>>>>>>> e1754cf39d6d16984daa9798932f7a59f2e9d9b5
+>>>>>>> 8a70b9430f27ae84177282702e855042ff252940
 </AnchorPane>

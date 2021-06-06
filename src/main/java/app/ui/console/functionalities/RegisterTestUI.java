@@ -60,7 +60,7 @@ public class RegisterTestUI implements Runnable{
      */
     private void showClient(Client cl){
         System.out.println("Name:" + cl.getName());
-        System.out.println("Citizen card number: " + cl.getCitizencardnumber());
+        System.out.println("Citizen card number: " + cl.getCitizenCardNumber());
         System.out.println("National Healthcare Service number: " + cl.getNhs());
         System.out.println("Birth Date: " + cl.getDate());
         System.out.println("Gender: " + cl.getSex());
