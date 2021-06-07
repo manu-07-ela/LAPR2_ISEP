@@ -126,6 +126,11 @@ public class ClientStore {
         return null;
     }
 
+    /**
+     * It gets the Client by it's email
+     * @param email The email of the Client
+     * @return The Client if it exists otherwise return null
+     */
     public Client getClientByEmail(String email) {
         for (Client cl :clientList ) {
             if (cl.getEmail().equals(email)){
@@ -135,34 +140,87 @@ public class ClientStore {
         return null;
 
     }
+
+    /**
+     * It cheks if the Client exists
+     * @param client The Client
+     * @return true if thr Client exists otherwise return false
+     */
     private boolean clientExists(Client client){
         for (Client cl : clientList){
             if (cl.equals(client)) return true;
         }
         return false;
     }
+
+    /**
+     * It updates the Birth Date of the Client
+     * @param client  The Client
+     * @param birthDate the Birth Date of the Client
+     */
     public void updateBirthDate(Client client, String birthDate){
        if (clientExists(client)) client.setDate(birthDate);
     }
+
+    /**
+     * It updates the Citizen Card Number of the Client
+     * @param client The Client
+     * @param citizenCard the Citizen Card Number of the Client
+     */
     public void updateCitizenCard(Client client, String citizenCard){
         if (clientExists(client)) client.setCitizencardnumber(citizenCard);
     }
+
+    /**
+     * It updates the email of the Client
+     * @param client The Client
+     * @param email the email of the Client
+     */
     public void updateEmail(Client client, String email){
         if (clientExists(client)) client.setCitizencardnumber(email);
     }
+
+    /**
+     *  It updates the name of the Client
+     * @param client The Client
+     * @param name the name of the Client
+     */
     public void updateName(Client client, String name){
         if (clientExists(client)) client.setName(name);
     }
+
+    /**
+     * It updates the NHS Code of the Client
+     * @param client the Client
+     * @param nhsCode the NHS Code of the Client
+     */
     public void updateNhsCode(Client client, String nhsCode){
         if (clientExists(client)) client.setNhs(nhsCode);
     }
+
+    /**
+     * It updates the sex of the Client
+     * @param client the Client
+     * @param sex the sex of the Client
+     */
     public void updateSex(Client client, String sex){
         if (clientExists(client)) client.setSex(sex);
     }
+
+    /**
+     * It updates the TIN of the Client
+     * @param client the Client
+     * @param tin the TIN of the Client
+     */
     public void updateTin(Client client, String tin){
         if (clientExists(client)) client.setTin(tin);
     }
 
+    /**
+     * It updates the attribute of a Client
+     * @param attribute the attribute of a Client to be updated
+     * @param client The Client
+     */
     public void updateAttribute(String attribute, Client client) {
        /* for (Client cl :clientList ) {
             if (cl.equals(client)){

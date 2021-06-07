@@ -99,7 +99,7 @@ public class LoginUi {
             }
             if(role.getId().equalsIgnoreCase("CLIENT")){
                 runClient();
-                clientUI.setLabelUI(stageClient);
+                //clientUI.setLabelUI(stageClient);
             }
         }
     }
