@@ -49,6 +49,7 @@ public class LoginUi {
      */
     @FXML
     void login() {
+
         if (attempts > 1) {
             String emailEntered = txtEmail.getText().trim();
             String passwordEntered = txtPassword.getText();
@@ -77,7 +78,7 @@ public class LoginUi {
      *
      * @param
      */
-    private void redirectToRoleUI (List<UserRoleDTO> rolesUi) {
+    private void redirectToRoleUI(List<UserRoleDTO> rolesUi) {
         UserRoleDTO role = selectsRole(ctrl.getUserRoles());
         if (!Objects.isNull(role))
         {
