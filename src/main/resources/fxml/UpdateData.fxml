@@ -318,7 +318,7 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField alignment="CENTER" onAction="#writeEmail" onContextMenuRequested="#writeEmailAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Email" />
+                  <TextField fx:id="writeEmail" alignment="CENTER" onContextMenuRequested="#writeEmailAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Email" />
                   <Pane prefHeight="45.0" prefWidth="82.0" />
                   <Button fx:id="saveEmail" mnemonicParsing="false" onMouseClicked="#saveEmailClick" stylesheets="@../styles/Styles.css" text="Save ">
                      <styleClass>
