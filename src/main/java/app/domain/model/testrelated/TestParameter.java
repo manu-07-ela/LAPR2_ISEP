@@ -116,5 +116,11 @@ public class TestParameter {
         return tparamresult.getRefValue().getMetric();
     }
 
-
+    @Override
+    public String toString() {
+        return "TestParameter{" +
+                "tparamresult=" + tparamresult +
+                ", param=" + param +
+                '}';
+    }
 }

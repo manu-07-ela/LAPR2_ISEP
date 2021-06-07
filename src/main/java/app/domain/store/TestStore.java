@@ -5,6 +5,7 @@ import app.domain.model.attributes.NhsCode;
 
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.laboratories.Laboratory;
+import app.mappers.dto.ClientDTO;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -106,7 +107,7 @@ public class TestStore {
      */
     public static String generateInternalCode(int numtest) {
         DecimalFormat df = new DecimalFormat("000000000000");
-        return df.format(numtest);
+        return df.format(numtest+1);
     }
 
     /**
@@ -216,7 +217,7 @@ public class TestStore {
        return test;
     }
 
-    public List<Test> getClientTestsList(Client cl){
+    public List<Test> getClientTestsList(ClientDTO cl){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
             if (t.getCl().equals(cl)) {

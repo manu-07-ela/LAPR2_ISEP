@@ -26,7 +26,15 @@ class Client {
    - citizenCardNumber
 }
 
+
+class MedicalReport{
+-diagnosis
+-dateAndTime
+}
+
 Test "1..*" -- "1" Client : associated a >
+Test "1" ---"1" MedicalReport : request >
+Test "1" ---"1..*" TestParameter : requests analysis of >
 
 
 
