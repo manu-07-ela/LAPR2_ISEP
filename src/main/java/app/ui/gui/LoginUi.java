@@ -5,7 +5,6 @@ import app.controller.AuthController;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.UserRoleDTO;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
@@ -21,7 +19,6 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,7 +26,7 @@ import java.util.List;
 
 public class LoginUi {
 
-    private int tentativas = 3;
+    private int attempts = 3;
     private Stage stageLabCoordinatorUi;
     private LabCoordinatorUi labCoordinatorUi;
     AuthController ctrl = new AuthController();
@@ -49,15 +46,15 @@ public class LoginUi {
      */
     @FXML
     void login() {
-        if (tentativas > 0) {
-            String emailInserido = txtEmail.getText().trim();
-            String passwordInserida = txtPassword.getText();
-            boolean sucesso = ctrl.doLogin(emailInserido, passwordInserida);
-            if (sucesso) {
+        if (attempts > 0) {
+            String emailEntered = txtEmail.getText().trim();
+            String passwordEntered = txtPassword.getText();
+            boolean success = ctrl.doLogin(emailEntered, passwordEntered);
+            if (success) {
                 redirectToRoleUI(ctrl.getUserRoles());
                 txtEmail.getScene().getWindow().hide();
             } else {
-                tentativas--;
+                attempts--;
             }
         } else {
 

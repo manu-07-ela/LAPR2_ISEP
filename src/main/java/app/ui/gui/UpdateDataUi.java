@@ -6,8 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.awt.event.MouseEvent;
 
-public class UpdateData {
-    
+public class UpdateDataUi {
+
     private UpdateDataController updateDataController;
     @FXML
     private TextField writeName;
@@ -51,7 +51,7 @@ public class UpdateData {
     @FXML
     private Button saveEmail;
 
-    public UpdateData() {
+    public UpdateDataUi() {
         updateDataController = new UpdateDataController();
     }
     @FXML
