@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -43,6 +44,10 @@ public class LoginUi {
     @FXML
     private PasswordField txtPassword;
 
+    @FXML
+    private Label lblInformation;
+
+
 
     /**
      * Login.
@@ -59,6 +64,8 @@ public class LoginUi {
                 txtEmail.getScene().getWindow().hide();
             } else {
                 attempts--;
+                lblInformation.setText("Incorrect Data. Remaining Attempts: " + attempts);
+                lblInformation.setVisible(true);
             }
         } else {
             closePlatform();
