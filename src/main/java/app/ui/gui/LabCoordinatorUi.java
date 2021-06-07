@@ -38,4 +38,9 @@ public class LabCoordinatorUi {
 
     }
 
+    @FXML
+    void closePlatform() {
+        System.exit(0);
+    }
+
 }
