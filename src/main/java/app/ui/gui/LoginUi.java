@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -144,14 +145,16 @@ public class LoginUi {
             stageClient = new Stage();
             stageClient.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("\\fxml\\ClientUi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\ClientUi.fxml"));
             Parent root;
 
             root = loader.load();
 
             Scene scene = new Scene(root);
 
+
             stageClient.setScene(scene);
+
             clientUI = loader.getController();
             stageClient.show();
 
