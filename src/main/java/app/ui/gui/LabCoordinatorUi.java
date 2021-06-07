@@ -4,8 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class LabCoordinatorUi {
+
+    private Stage stage;
 
     @FXML
     private VBox ImportBotton;
@@ -16,6 +19,15 @@ public class LabCoordinatorUi {
     @FXML
     private BorderPane brdPane;
 
+    /**
+     * Sets label ui.
+     *
+     * @param stageLabUI the stage adm ui
+     */
+    public void setLabelUI(Stage stageLabUI) {
+        this.stage = stageLabUI;
+    }
+
     @FXML
     void OverviewClickBotton(ActionEvent event) {
 
@@ -24,6 +36,11 @@ public class LabCoordinatorUi {
     @FXML
     void ImportClickBotton(ActionEvent event) {
 
+    }
+
+    @FXML
+    void closePlatform() {
+        System.exit(0);
     }
 
 }

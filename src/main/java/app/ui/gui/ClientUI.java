@@ -7,21 +7,24 @@ import java.awt.event.InputMethodEvent;
 import java.awt.event.MouseEvent;
 
 public class ClientUI {
-
+    private UpdateDataUi updateDataUi;
     @FXML
     private TextField typedSearch;
 
     @FXML
-    private Button searchButtom;
+    private Button searchButton;
 
     @FXML
-    private VBox UpdateDataBotton;
+    private VBox updateDataButton;
 
     @FXML
-    private VBox viewTextResultsBotton;
+    private VBox viewTextResultsButton;
 
     @FXML
     void UpdateDataClickBotton(MouseEvent event) {
+        if (updateDataButton.isPressed()){
+            
+        }
 
     }
 

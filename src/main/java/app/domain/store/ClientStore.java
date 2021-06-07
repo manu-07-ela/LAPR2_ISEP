@@ -135,6 +135,33 @@ public class ClientStore {
         return null;
 
     }
+    private boolean clientExists(Client client){
+        for (Client cl : clientList){
+            if (cl.equals(client)) return true;
+        }
+        return false;
+    }
+    public void updateBirthDate(Client client, String birthDate){
+       if (clientExists(client)) client.setDate(birthDate);
+    }
+    public void updateCitizenCard(Client client, String citizenCard){
+        if (clientExists(client)) client.setCitizencardnumber(citizenCard);
+    }
+    public void updateEmail(Client client, String email){
+        if (clientExists(client)) client.setCitizencardnumber(email);
+    }
+    public void updateName(Client client, String name){
+        if (clientExists(client)) client.setName(name);
+    }
+    public void updateNhsCode(Client client, String nhsCode){
+        if (clientExists(client)) client.setNhs(nhsCode);
+    }
+    public void updateSex(Client client, String sex){
+        if (clientExists(client)) client.setSex(sex);
+    }
+    public void updateTin(Client client, String tin){
+        if (clientExists(client)) client.setTin(tin);
+    }
 
     public void updateAttribute(String attribute, Client client) {
        /* for (Client cl :clientList ) {
