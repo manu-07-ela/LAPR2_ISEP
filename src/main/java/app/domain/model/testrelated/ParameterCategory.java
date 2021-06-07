@@ -2,12 +2,14 @@ package app.domain.model.testrelated;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
+
 /**
  * Represents a category of parameters.
  *
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
-public class ParameterCategory {
+public class ParameterCategory implements Serializable {
 
     /**
      * The parameter category code.

@@ -2,10 +2,11 @@ package app.domain.model.testrelated;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-public class TestParameterResult {
+public class TestParameterResult implements Serializable {
     /**
      * The metric of the result
      */

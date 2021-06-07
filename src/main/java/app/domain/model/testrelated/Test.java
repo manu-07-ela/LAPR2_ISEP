@@ -5,12 +5,13 @@ import app.domain.model.attributes.NhsCode;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.users.Client;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class Test {
+public class Test implements Serializable {
     /**
      * Represents the states of a test
      */

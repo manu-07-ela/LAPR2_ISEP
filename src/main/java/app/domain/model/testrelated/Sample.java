@@ -1,12 +1,13 @@
 package app.domain.model.testrelated;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * represents a sample that will be associated with a test
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
-public class Sample {
+public class Sample implements Serializable {
     /**
      * Represents the Barcode associated with a sample
      */

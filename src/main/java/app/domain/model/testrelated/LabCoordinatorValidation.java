@@ -1,6 +1,7 @@
 package app.domain.model.testrelated;
 
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ import java.util.Date;
  *
  * @author Pedro Rocha <1201382@isep.ipp.pt>
  */
-public class LabCoordinatorValidation {
+public class LabCoordinatorValidation implements Serializable {
 
     /**
      * Register Date Validation

@@ -1,8 +1,9 @@
 package app.domain.model.testrelated;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class RefValue {
+public class RefValue implements Serializable {
 
     /**
      * Get the metric of the reference values

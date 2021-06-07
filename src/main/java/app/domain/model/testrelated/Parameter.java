@@ -2,13 +2,15 @@ package app.domain.model.testrelated;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
+
 
 /**
  * Represents a parameter.
  *
  * @author Pedro Rocha <1201382@isep.ipp.pt>
  */
-public class Parameter {
+public class Parameter implements Serializable {
 
     /**
      * The parameter code.

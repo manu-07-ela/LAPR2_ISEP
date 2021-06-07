@@ -3,6 +3,7 @@ package app.domain.model.testrelated;
 import app.adapter.interfaces.ExternalModuleReferencesValue;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
 
-public class TestType {
+public class TestType implements Serializable {
 
     /**
      * The test type code.

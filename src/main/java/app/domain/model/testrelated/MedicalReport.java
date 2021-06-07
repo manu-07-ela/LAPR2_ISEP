@@ -1,6 +1,7 @@
 package app.domain.model.testrelated;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ import java.util.Date;
  *
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
-public class MedicalReport {
+public class MedicalReport implements Serializable {
 
     /**
      * The diagnosis of the test.
