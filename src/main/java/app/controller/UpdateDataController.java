@@ -63,4 +63,26 @@ public class UpdateDataController {
     public  void updateAttribute(String attribute){
         store.updateAttribute(attribute,client);
     }
+    public  void updateBirthDate(String birthDate){
+        store.updateBirthDate(client, birthDate);
+    }
+    public  void updateCitizenCard(String citizenCard){
+        store.updateCitizenCard(client, citizenCard);
+    }
+    public  void updateEmail(String email){
+        store.updateEmail(client, email);
+    }
+    public  void updateName(String name){
+        store.updateName(client, name);
+    }
+    public  void updateNhsCode(String nhsCode){
+        store.updateNhsCode(client, nhsCode);
+    }
+    public  void updateSex(String sex){
+        store.updateSex(client, sex);
+    }
+    public  void updateTin(String tin){
+        store.updateTin(client, tin);
+    }
+
 }

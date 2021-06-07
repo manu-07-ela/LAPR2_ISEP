@@ -59,7 +59,7 @@
                   </Pane>
                   <TextField fx:id="writeName" alignment="CENTER" onInputMethodTextChanged="#writeNameAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Name " />
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="SaveName" mnemonicParsing="false" onMouseClicked="#saveNameClick" stylesheets="@../styles/Styles.css" text="Save ">
+                  <Button fx:id="saveName" mnemonicParsing="false" onMouseClicked="#saveNameClick" stylesheets="@../styles/Styles.css" text="Save ">
                      <styleClass>
                         <String fx:value="transparent" />
                         <String fx:value="search-button" />
