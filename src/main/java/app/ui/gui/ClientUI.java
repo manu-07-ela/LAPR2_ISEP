@@ -1,5 +1,6 @@
 package app.ui.gui;
 
+
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
