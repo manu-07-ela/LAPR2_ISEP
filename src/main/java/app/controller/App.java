@@ -96,6 +96,7 @@ public class App {
         this.authFacade.addUserWithRole("Receptionist", "rep@manylabs.pt", "abcdef", Constants.ROLE_RECP);
         this.authFacade.addUserWithRole("Medical lab Technician", "medLabtec@manylabs.pt", "01928", Constants.ROLE_MED_LAB_TEC);
         this.authFacade.addUserWithRole("Lab Coordinator","labCod@manylabs.pt","000000",Constants.ROLE_LAB_COD);
+        this.authFacade.addUserWithRole("Client", "client@manylabs.pt", "pedro", Constants.ROLE_CLIENT);
 
         this.company = getCompany();
         ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");

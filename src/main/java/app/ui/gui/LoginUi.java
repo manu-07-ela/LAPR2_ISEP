@@ -33,6 +33,9 @@ public class LoginUi {
     private Stage stageLabCoordinatorUi;
     private LabCoordinatorUi labCoordinatorUi;
     AuthController ctrl = new AuthController();
+    private Stage stageClient;
+    private ClientUI clientUI;
+
 
     @FXML
     private Button btnLogin;
@@ -86,6 +89,10 @@ public class LoginUi {
                 runLabCoordinator();
                 labCoordinatorUi.setLabelUI( stageLabCoordinatorUi);
             }
+            if(role.getId().equalsIgnoreCase("CLIENT")){
+                runClient();
+                clientUI.setLabelUI(stageClient);
+            }
         }
     }
 
@@ -123,6 +130,26 @@ public class LoginUi {
             stageLabCoordinatorUi.show();
         } catch (IOException ex) {
             System.out.println("Problems reading the Collaborator's Menu File \n" + ex);
+        }
+    }
+    private void runClient(){
+        try {
+            stageClient = new Stage();
+            stageClient.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("\\fxml\\ClientUi.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            stageClient.setScene(scene);
+            clientUI = loader.getController();
+            stageClient.show();
+
+        }catch (IOException exception){
+            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
         }
     }
 

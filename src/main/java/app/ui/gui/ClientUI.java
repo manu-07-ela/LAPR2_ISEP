@@ -2,11 +2,14 @@ package app.ui.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.awt.*;
 import java.awt.event.InputMethodEvent;
 import java.awt.event.MouseEvent;
 
 public class ClientUI {
+    private Stage stage;
     private UpdateDataUi updateDataUi;
     @FXML
     private TextField typedSearch;
@@ -20,12 +23,14 @@ public class ClientUI {
     @FXML
     private VBox viewTextResultsButton;
 
+    public void setLabelUI(Stage stageClient) {
+        this.stage = stageClient;
+    }
+
     @FXML
     void UpdateDataClickBotton(MouseEvent event) {
         if (updateDataButton.isPressed()){
-            
         }
-
     }
 
     @FXML
