@@ -76,12 +76,6 @@ public class ClientTest {
     public void emailformatValidation(){
         new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoagmail.com");
     }
-    @Test
-    public void nameEquals(){
-        Client cl1 = new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
-        Client cl2 = new Client("José Pessoa","1234567891234777","1234567777","12/12/2000","Female","1234567777","12345678777","teixeira@gmail.com");
-        Assert.assertEquals(cl1,cl2);
-    }
 
     @Test
     public void citizencardnumberEquals(){
@@ -94,20 +88,6 @@ public class ClientTest {
     public void nhsEquals(){
         Client cl1 = new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
         Client cl2 = new Client("José Teixeira","1234567891234777","1234567891","12/12/2000","Female","1234567777","12345678777","teixeira@gmail.com");
-        Assert.assertEquals(cl1,cl2);
-    }
-
-    @Test
-    public void dateEquals(){
-        Client cl1 = new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
-        Client cl2 = new Client("José Teixeira","1234567891234777","1234567777","12/12/1995","Female","1234567777","12345678777","teixeira@gmail.com");
-        Assert.assertEquals(cl1,cl2);
-    }
-
-    @Test
-    public void sexEquals(){
-        Client cl1 = new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
-        Client cl2 = new Client("José Teixeira","1234567891234777","1234567777","12/12/2000","Male","1234567777","12345678777","teixeira@gmail.com");
         Assert.assertEquals(cl1,cl2);
     }
 
