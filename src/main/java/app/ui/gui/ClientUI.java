@@ -11,7 +11,7 @@ import java.awt.event.InputMethodEvent;
 import java.awt.event.MouseEvent;
 
 public class ClientUI {
-    
+
     private Stage stage;
     private UpdateDataUi updateDataUi;
     @FXML
