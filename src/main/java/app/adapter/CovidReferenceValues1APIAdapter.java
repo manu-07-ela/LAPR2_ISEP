@@ -5,7 +5,6 @@ import app.adapter.interfaces.ExternalModuleReferencesValue;
 import app.controller.App;
 import app.domain.model.testrelated.RefValue;
 import com.example3.CovidReferenceValues1API;
-
 import java.util.Properties;
 
 public class CovidReferenceValues1APIAdapter  implements ExternalModuleReferencesValue {

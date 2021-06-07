@@ -18,6 +18,7 @@ public class MainApp extends Application {
 
         Scene scene = new Scene(root);
 
+
         stage.setTitle("Many Labs");
         stage.setScene(scene);
 
