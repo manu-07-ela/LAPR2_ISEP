@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 
+import app.Serialization;
 import app.controller.App;
 import app.controller.AuthController;
 import app.ui.console.MenuItem;
@@ -72,6 +73,7 @@ public class LoginUi {
                 lblInformation.setVisible(true);
             }
         } else {
+            Serialization.saveApp(App.getInstance(), "SavedData.data");
             closePlatform();
         }
     }

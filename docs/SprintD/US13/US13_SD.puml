@@ -45,6 +45,7 @@ deactivate tStore
 CTRL -> TMapper : toDTO(ListOfTests)
 activate TMapper
 TMapper --> CTRL : ListOfTestsDTO
+deactivate TMapper
 CTRL --> UI :ListOfTestsDTO
 deactivate CTRL
 UI -> CCT : show the historical tests performed by that client

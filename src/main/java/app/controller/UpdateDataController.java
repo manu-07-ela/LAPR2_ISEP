@@ -131,4 +131,9 @@ public class UpdateDataController {
         store.updateTin(client, tin);
     }
 
+    /**
+     * It updates the Phone Number of the Client
+     * @param phonenumber the Phone Number of the Client
+     */
+    public void updatePhoneNumber ( String phonenumber){store.updatePhoneNumber(client, phonenumber);}
 }
