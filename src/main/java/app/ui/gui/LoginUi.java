@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 
+import app.Serialization;
 import app.controller.App;
 import app.controller.AuthController;
 import app.ui.console.MenuItem;
@@ -72,6 +73,7 @@ public class LoginUi {
                 lblInformation.setVisible(true);
             }
         } else {
+            Serialization.saveApp(App.getInstance(), "SavedData.data");
             closePlatform();
         }
     }
@@ -99,7 +101,7 @@ public class LoginUi {
             }
             if(role.getId().equalsIgnoreCase("CLIENT")){
                 runClient();
-                //clientUI.setLabelUI(stageClient);
+                clientUI.setLabelUI(stageClient);
             }
         }
     }
@@ -145,7 +147,7 @@ public class LoginUi {
             stageClient = new Stage();
             stageClient.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\client.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\ClientUi.fxml"));
             Parent root;
 
             root = loader.load();

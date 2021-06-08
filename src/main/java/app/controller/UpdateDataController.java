@@ -60,22 +60,6 @@ public class UpdateDataController {
     }
 
     /**
-     * Gets the list of attributes associated with a Client
-     * @return
-     */
-    public List<String> getListOfAttributesAssociatedWithAClient(){
-        return client.getListOfAttributesAssociatedWithAClient();
-    }
-
-    /**
-     * It updates the attribute of a Client
-     * @param attribute the attribute of a Client to be updated
-     */
-    public  void updateAttribute(String attribute){
-        store.updateAttribute(attribute,client);
-    }
-
-    /**
      * It updates the Birth Date of the Client
      * @param birthDate the Birth Date
      */
@@ -131,4 +115,9 @@ public class UpdateDataController {
         store.updateTin(client, tin);
     }
 
+    /**
+     * It updates the Phone Number of the Client
+     * @param phoneNumber the Phone Number of the Client
+     */
+    public void updatePhoneNumber (String phoneNumber){store.updatePhoneNumber(client, phoneNumber);}
 }

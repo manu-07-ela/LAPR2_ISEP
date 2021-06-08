@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.Serialization;
 import app.domain.model.Company;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.Parameter;
@@ -124,13 +125,15 @@ public class App implements Serializable {
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2
     private static App singleton = null;
-    public static App getInstance()
-    {
-        if(singleton == null)
-        {
-            synchronized(App.class)
-            {
-                singleton = new App();
+    public static App getInstance() {
+        if(singleton == null) {
+            singleton = Serialization.loadApp("SavedData.data");
+            if (singleton == null) {
+                synchronized (App.class) {
+                    singleton = new App();
+                }
+            } else {
+
             }
         }
         return singleton;
