@@ -91,7 +91,7 @@ public class AuthUI implements Runnable{
         return success;
     }
 
-    private void logout()
+    public void logout()
     {
         ctrl.doLogout();
     }

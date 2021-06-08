@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.Serialization;
 import app.domain.model.Company;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.Parameter;
@@ -115,7 +116,7 @@ public class App implements Serializable {
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         company.getTestTypeStore().addTestType(tt);
         company.getClientStore().addClient(new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com"));
-        authFacade.addUserWithRole("Client","client@manylabs.pt","111111","CLIENT");
+        authFacade.addUserWithRole("Rita","rita@gmail.com","111111","CLIENT");
         ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Clinical laboratory", "Rua 20", "12312312312", "1234567890", "1234s",company.getTestTypeStore().getTestTypeList());
         this.company.getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(lab);
 
@@ -124,13 +125,15 @@ public class App implements Serializable {
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2
     private static App singleton = null;
-    public static App getInstance()
-    {
-        if(singleton == null)
-        {
-            synchronized(App.class)
-            {
-                singleton = new App();
+    public static App getInstance() {
+        if(singleton == null) {
+            singleton = Serialization.loadApp("SavedData.data");
+            if (singleton == null) {
+                synchronized (App.class) {
+                    singleton = new App();
+                }
+            } else {
+
             }
         }
         return singleton;

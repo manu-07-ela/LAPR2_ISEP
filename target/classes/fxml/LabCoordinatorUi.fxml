@@ -45,15 +45,24 @@
                <image>
                   <Image url="@../images/logout.png" />
                </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
             </ImageView>
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE" />
+            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="65.0" prefWidth="94.0" style="-fx-background-color: transparent;" text="Logout" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </bottom>
    <center>
       <HBox prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="OverviewBotton" alignment="CENTER" onMouseClicked="#OverviewClickBotton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/Styles.css">
+            <VBox fx:id="OverviewBotton" alignment="CENTER" onMouseClicked="#OverviewClickButton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
                <children>
                   <Label text="Overview">
                      <font>
@@ -83,12 +92,8 @@
                <padding>
                   <Insets top="20.0" />
                </padding>
-               <styleClass>
-                  <String fx:value="update-data" />
-                  <String fx:value="shadow" />
-               </styleClass>
             </VBox>
-            <VBox fx:id="ImportBotton" alignment="CENTER" onMouseClicked="#ImportClickBotton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/Styles.css">
+            <VBox fx:id="ImportBotton" alignment="CENTER" onMouseClicked="#ImportClickBotton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
                <children>
                   <Label text="Import">
                      <font>
@@ -118,10 +123,6 @@
                <padding>
                   <Insets top="20.0" />
                </padding>
-               <styleClass>
-                  <String fx:value="update-data" />
-                  <String fx:value="shadow" />
-               </styleClass>
                <HBox.margin>
                   <Insets left="45.0" />
                </HBox.margin>

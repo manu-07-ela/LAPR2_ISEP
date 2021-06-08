@@ -4,11 +4,20 @@ import app.controller.UpdateDataController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
 public class UpdateDataUi {
 
     private UpdateDataController updateDataController;
+    @FXML
+    private TextField writePhoneNumber;
+
+    @FXML
+    private Button savePhoneNumber;
+
     @FXML
     private TextField writeName;
 
@@ -54,66 +63,60 @@ public class UpdateDataUi {
     public UpdateDataUi() {
         updateDataController = new UpdateDataController();
     }
+
     @FXML
-    void saveBirthDateClick(MouseEvent event) {
-        if (saveBirthDate.isPressed()){
-            String birthDate = writeBirthDate.getText().trim();
-            updateDataController.updateBirthDate(birthDate);
-        }
+    void saveBirthDateClick() {
+        String birthDate = writeBirthDate.getText().trim();
+        updateDataController.updateBirthDate(birthDate);
     }
 
     @FXML
-    void saveCitizenCardClick(MouseEvent event) {
-        if (saveCitizenCard.isPressed()){
-            String citizenCard = writeCitizenCard.getText().trim();
-            updateDataController.updateCitizenCard(citizenCard);
-        }
-    }
-
-    @FXML
-    void saveEmailClick(MouseEvent event) {
-        if (saveEmail.isPressed()){
-            String email = writeEmail.getText().trim();
-            updateDataController.updateEmail(email);
-        }
+    void saveCitizenCardClick() {
+        String citizenCard = writeCitizenCard.getText().trim();
+        updateDataController.updateCitizenCard(citizenCard);
 
     }
 
     @FXML
-    void saveNameClick(MouseEvent event) {
-        if (saveName.isPressed()){
-            String name = writeName.getText().trim();
-            updateDataController.updateName(name);
-        }
-
-    }
-
-    @FXML
-    void saveNhsCodeClick(MouseEvent event) {
-        if (saveNhsCode.isPressed()){
-            String nhsCode = writeNhsCode.getText().trim();
-            updateDataController.updateNhsCode(nhsCode);
-        }
-
-    }
-
-    @FXML
-    void saveSexClick(MouseEvent event) {
-        if (saveSex.isPressed()){
-            String sex = writeSex.getText().trim();
-            updateDataController.updateSex(sex);
-        }
+    void saveEmailClick() {
+        String email = writeEmail.getText().trim();
+        updateDataController.updateEmail(email);
 
 
     }
 
     @FXML
-    void saveTinClick(MouseEvent event) {
-        if (saveTin.isPressed()){
-            String tin = writeTin.getText().trim();
-            updateDataController.updateTin(tin);
-        }
+    void saveNameClick() {
+        String name = writeName.getText().trim();
+        updateDataController.updateName(name);
 
+
+    }
+
+    @FXML
+    void saveNhsCodeClick() {
+        String nhsCode = writeNhsCode.getText().trim();
+        updateDataController.updateNhsCode(nhsCode);
+    }
+
+    @FXML
+    void saveSexClick() {
+        String sex = writeSex.getText().trim();
+        updateDataController.updateSex(sex);
+
+    }
+
+    @FXML
+    void saveTinClick() {
+        String tin = writeTin.getText().trim();
+        updateDataController.updateTin(tin);
+
+
+    }
+    @FXML
+    void savePhoneNumberClick() {
+        String phoneNumber = writePhoneNumber.getText().trim();
+        updateDataController.updatePhoneNumber(phoneNumber);
     }
 
 }

@@ -31,10 +31,6 @@ public class ViewResultsController {
      */
     private TestMapper tmapper;
     /**
-     * Representes an instance of Client
-     */
-    private Client client;
-    /**
      * Represents an instance of Client Store
      */
     private ClientStore clstore;
@@ -48,17 +44,22 @@ public class ViewResultsController {
     }
 
     public ViewResultsController(Company company) {
-        this.app=App.getInstance();
-        this.company=app.getCompany();
-        this.tStore=company.getTestStore();
+        this.app = App.getInstance();
+        this.company = app.getCompany();
+        this.tStore = company.getTestStore();
+        this.clstore = company.getClientStore();
+        this.clMapper = new ClientMapper();
+        this.tmapper = new TestMapper();
     }
+
     public List<TestDTO> getTestList(ClientDTO cl){
-        List<Test> listTest = tStore.getClientTestsList(cl);
+        List<Test> listTest = tStore.getClientTestsList(cl.getPhonenumber());
         return tmapper.toDto(listTest);
     }
+
     public ClientDTO getUserSession(){
-        Email email = company.getAuthFacade().getCurrentUserSession().getEmail();
-        client = clstore.getClientByEmail(email.getEmail());
-        return clMapper.toDto(client);
+        Email empemail= company.getAuthFacade().getCurrentUserSession().getUserId();
+        Client cl = clstore.getClientByEmail(empemail.toString());
+        return clMapper.toDto(cl);
     }
 }

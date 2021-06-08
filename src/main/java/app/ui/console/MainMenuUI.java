@@ -1,5 +1,7 @@
 package app.ui.console;
 
+import app.Serialization;
+import app.controller.App;
 import app.ui.console.utils.Utils;
 
 import java.io.IOException;
@@ -34,6 +36,7 @@ public class MainMenuUI {
             }
         }
         while (option != -1 );
+        Serialization.saveApp(App.getInstance(), "SavedData.data");
     }
 
 
