@@ -12,8 +12,8 @@ participant "mapper: ClientMapper" as ClMapper
 participant "tstore : TestStore" as tStore
 participant "tMapper : TestMapper" as TMapper
 
-
 activate CCT
+
 CCT -> UI : asks to consult the tests performed by a particular client
 activate UI
 UI -> CTRL : getClientslist()
@@ -21,7 +21,7 @@ activate CTRL
 CTRL -> Comp : clstore = getClientStore()
 activate Comp
 deactivate Comp
-CTRL -> CStore : getClientList()
+CTRL -> CStore : getClientListWithTestsValidated()
 activate CStore
 CStore --> CTRL : ClientsList
 deactivate CStore
@@ -31,7 +31,12 @@ ClMapper --> CTRL : ClientsListDTO
 deactivate ClMapper
 CTRL --> UI : ClientsListDTO
 deactivate CTRL
-UI -> CCT : show a list of clients and asks to select one
+UI --> CCT : asks if the Clinical Chemistry Technologist wants to order the clients list by tin or by name
+deactivate UI
+
+CCT -> UI : chooses an option
+activate UI
+UI --> CCT : shows a list of clients and asks to select one
 deactivate UI
 
 CCT -> UI : select the desired client
@@ -48,7 +53,7 @@ TMapper --> CTRL : ListOfTestsDTO
 deactivate TMapper
 CTRL --> UI :ListOfTestsDTO
 deactivate CTRL
-UI -> CCT : show the historical tests performed by that client
+UI --> CCT : show the historical tests performed by that client
 deactivate UI
 
 

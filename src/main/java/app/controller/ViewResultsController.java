@@ -53,8 +53,7 @@ public class ViewResultsController {
     }
 
     public List<TestDTO> getTestList(ClientDTO cl){
-        Client client = clMapper.toModel(cl);
-        List<Test> listTest = tStore.getClientTestsList(client);
+        List<Test> listTest = tStore.getClientTestsList(cl.getPhonenumber());
         return tmapper.toDto(listTest);
     }
 
