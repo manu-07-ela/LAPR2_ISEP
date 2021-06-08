@@ -5,19 +5,28 @@ autonumber
 
 participant ": TestResultsMapper" as MAPPER
 participant "test : Test" as TEST
+participant "testResultDto:\n TestResultsDto" as TRDto
+participant ": TestParameterMapper" as tpMAPPER
 participant "testParametersList:\n List<TestParameter>" as lTP
 participant "testParametersListDto:\n List<TestParameterDto>" as lTPDto
-participant "testResultDto:\n TestResultsDto" as TRDto
-
-
+participant "tp:\n TestParameter" as TP
+participant "dto:\n TestParameterDto" as TPDto
 -> MAPPER : toDto(test)
 activate MAPPER
 MAPPER -> TEST : testParametersList = getTestParameterList()
-
+activate TEST
+deactivate TEST
+MAPPER -> tpMAPPER : toDTO(testParametersList)
+activate tpMAPPER
+ref over tpMAPPER
+SD_TestParameterMapper_toDto_List
+end ref
+tpMAPPER --> MAPPER : testParametersListDto
+deactivate tpMAPPER
 MAPPER -> TEST : medicalReport = getMedicalReport()
 activate TEST
 deactivate TEST
-MAPPER --> TRDto ** : create(medicalReport)
+MAPPER --> TRDto ** : create(testParametersListDto,medicalReport)
 <-- MAPPER : testResultDto
 deactivate MAPPER
 
