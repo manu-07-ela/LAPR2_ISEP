@@ -97,9 +97,9 @@ public class LoginUi {
         {
             if (role.getId().equals("LABORATORY COORDINATOR")) {
                 runLabCoordinator();
-                labCoordinatorUi.setLabelUI( stageLabCoordinatorUi);
+                labCoordinatorUi.setLabelUI(stageLabCoordinatorUi);
             }
-            if(role.getId().equalsIgnoreCase("CLIENT")){
+            if(role.getId().equals("CLIENT")){
                 runClient();
                 clientUI.setLabelUI(stageClient);
             }
