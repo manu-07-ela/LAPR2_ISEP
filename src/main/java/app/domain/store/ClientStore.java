@@ -218,6 +218,13 @@ public class ClientStore implements Serializable {
     }
 
     /**
+     * It updates the Phone Number of the Client
+     * @param client the Client
+     * @param phonenumber the Phone Number of the Client
+     */
+    public void updatePhoneNumber(Client client, String phonenumber) {if (clientExists(client)) client.setPhonenumber(phonenumber); }
+
+    /**
      * It updates the attribute of a Client
      * @param attribute the attribute of a Client to be updated
      * @param client The Client
@@ -257,4 +264,5 @@ public class ClientStore implements Serializable {
         */
 
     }
+
 }
