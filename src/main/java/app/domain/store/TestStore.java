@@ -219,10 +219,10 @@ public class TestStore implements Serializable {
        return test;
     }
 
-    public List<Test> getClientTestsList(Client cl){
+    public List<Test> getClientTestsList(String phonenumber){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
-            if (t.getCl().equals(cl)) {
+            if (t.getCl().getPhonenumber().equals(phonenumber)) {
                 test.add(t);
             }
         }
