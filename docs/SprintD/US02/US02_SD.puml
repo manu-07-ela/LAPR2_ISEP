@@ -38,29 +38,8 @@ deactivate MAPPER
 CTRL-->UI : clientDto
 deactivate CTRL
 
-
+loop while the client wants to update his data
 UI -> CL : show the personal data of the client
-deactivate UI
-CL -> UI : confirm the personal data
-activate UI
-UI->CTRL : getListOfAttributesAssociatedWithAClient()
-activate CTRL
-CTRL->STORE : getListOfAttributesAssociatedWithAClient()
-activate STORE
-STORE->CLIENT : listAttributes = getListOfAttributesAssociatedWithAClient()
-activate CLIENT
-CLIENT-->STORE : listAttributes
-deactivate CLIENT
-STORE-->CTRL : listAttributes
-deactivate STORE
-CTRL-->UI : listAttributes
-deactivate CTRL
-
-UI --> CL : shows the list of attributes associated with a \nclient and asks which one he wants to update
-deactivate UI
-CL -> UI : select the desired attribute
-activate UI
-UI --> CL : show the field to update
 deactivate UI
 CL -> UI : type the new data
 activate UI
@@ -68,49 +47,57 @@ UI -->CL : show the new data an ask for confirmation
 deactivate UI
 CL->UI: confirm data
 activate UI
-UI->CTRL : updateAttribute(attribute,data )
-activate CTRL
-CTRL->STORE : updateAttribute(attribute,client,data)
-activate STORE
 alt attribute == name
-STORE->CLIENT : setName(name)
-activate CLIENT
-deactivate CLIENT
-else attribute == citizenCardNumber
-STORE-> CLIENT : setCitizenCardNumber(citizenCardNumber)
-activate CLIENT
-deactivate CLIENT
-else attribute == nhsCode
-STORE->CLIENT : setNhsCode(nhsCode)
-activate CLIENT
-deactivate CLIENT
-else attribute == dateOfBirth
-STORE->CLIENT : setDateOfBirth(dateOfBirth)
-activate CLIENT
-deactivate CLIENT
-else attribute == sex
-STORE->CLIENT : setSex(sex)
-activate CLIENT
-deactivate CLIENT
-else attribute == tin
-STORE->CLIENT : setDateOfTin(tin)
-activate CLIENT
-deactivate CLIENT
-else attribute == phoneNumber
-STORE->CLIENT : setPhoneNumber(phoneNumber)
-activate CLIENT
-deactivate CLIENT
-else attribute == email
-STORE->CLIENT : setEmail(email)
-activate CLIENT
-deactivate CLIENT
-end alt
-deactivate STORE
+UI-> CTRL : setName(name)
+activate CTRL
+CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
+else attribute == citizenCardNumber
+UI-> CTRL : setCitizenCardNumber(citizenCardNumber)
+activate CTRL
+CTRL --> UI : show the operation success
+deactivate CTRL
+UI-->CL : show the operation success
+else attribute == nhsCode
+UI->CTRL : setNhsCode(nhsCode)
+activate CTRL
+CTRL --> UI : show the operation success
+deactivate CTRL
+UI-->CL : show the operation success
+else attribute == dateOfBirth
+UI-> CTRL : setDateOfBirth(dateOfBirth)
+activate CTRL
+CTRL --> UI : show the operation success
+deactivate CTRL
+UI-->CL : show the operation success
+else attribute == sex
+UI-> CTRL : setSex(sex)
+activate CTRL
+CTRL --> UI : show the operation success
+deactivate CTRL
+UI-->CL : show the operation success
+else attribute == tin
+UI-> CTRL : setDateOfTin(tin)
+activate CTRL
+CTRL --> UI : show the operation success
+deactivate CTRL
+UI-->CL : show the operation success
+else attribute == phoneNumber
+UI-> CTRL : setPhoneNumber(phoneNumber)
+activate CTRL
+CTRL --> UI : show the operation success
+deactivate CTRL
+UI-->CL : show the operation success
+else attribute == email
+UI-> CTRL : setEmail(email)
+activate CTRL
+CTRL --> UI : show the operation success
+deactivate CTRL
+UI-->CL : show the operation success
+end alt
 deactivate UI
-
-
 deactivate CL
+end
 
 @enduml
