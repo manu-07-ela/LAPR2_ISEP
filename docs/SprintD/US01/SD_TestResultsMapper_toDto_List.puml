@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'hide footbox
+autonumber
+
+participant ": TestResultsMapper" as MAPPER
+participant "test : Test" as TEST
+participant "testParametersList:\n List<TestParameter>" as lTP
+participant "testParametersListDto:\n List<TestParameterDto>" as lTPDto
+participant "testResultDto:\n TestResultsDto" as TRDto
+
+
+-> MAPPER : toDto(test)
+activate MAPPER
+MAPPER -> TEST : testParametersList = getTestParameterList()
+
+MAPPER -> TEST : medicalReport = getMedicalReport()
+activate TEST
+deactivate TEST
+MAPPER --> TRDto ** : create(medicalReport)
+<-- MAPPER : testResultDto
+deactivate MAPPER
+
+@enduml
