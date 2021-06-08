@@ -21,7 +21,7 @@ activate CTRL
 CTRL -> Comp : clstore = getClientStore()
 activate Comp
 deactivate Comp
-CTRL -> CStore : getClientList()
+CTRL -> CStore : getClientListWithTestsValidated()
 activate CStore
 CStore --> CTRL : ClientsList
 deactivate CStore
