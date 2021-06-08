@@ -62,4 +62,7 @@ public class ViewResultsController {
         Client cl = clstore.getClientByEmail(empemail.toString());
         return clMapper.toDto(cl);
     }
+    public void showTestResults(TestDTO selectedTest){
+        Test t =tStore.getTestbyInternalCode(selectedTest.getInternalCode());
+    }
 }

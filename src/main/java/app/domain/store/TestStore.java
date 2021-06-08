@@ -242,4 +242,14 @@ public class TestStore implements Serializable {
         return test;
     }
 
+    public Test getTestbyInternalCode(String internalcode) {
+        for (Test t :testList) {
+            if (t.getInternalCode().equals(internalcode)){
+                return t;
+            }
+        }
+        return null;
+
+    }
+
 }

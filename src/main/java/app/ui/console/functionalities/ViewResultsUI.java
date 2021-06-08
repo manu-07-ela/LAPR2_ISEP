@@ -3,6 +3,7 @@ package app.ui.console.functionalities;
 
 import app.controller.ViewResultsController;
 import app.mappers.dto.ClientDTO;
+import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;
 
 public class ViewResultsUI implements Runnable{
@@ -25,7 +26,7 @@ public class ViewResultsUI implements Runnable{
     public void viewResults(){
         try {
         ClientDTO cl = viewResultsctrl.getUserSession();
-        Object option = Utils.showAndSelectOne(viewResultsctrl.getTestList(cl), "Choose to which Test do you want to see the results from");
+        TestDTO tdto = (TestDTO) Utils.showAndSelectOne(viewResultsctrl.getTestList(cl), "Choose to which Test do you want to see the results from");
         }catch(IllegalArgumentException e){
             System.out.printf("%nMessage: %s%n", e.getMessage());
         }
