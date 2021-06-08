@@ -219,7 +219,7 @@ public class TestStore implements Serializable {
        return test;
     }
 
-    public List<Test> getClientTestsList(ClientDTO cl){
+    public List<Test> getClientTestsList(Client cl){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
             if (t.getCl().equals(cl)) {

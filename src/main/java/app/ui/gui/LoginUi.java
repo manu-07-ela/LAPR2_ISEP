@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 
+import app.Serialization;
 import app.controller.App;
 import app.controller.AuthController;
 import app.ui.console.MenuItem;
@@ -36,7 +37,7 @@ public class LoginUi {
     private LabCoordinatorUi labCoordinatorUi;
     AuthController ctrl = new AuthController();
     private Stage stageClient;
-    private ClientUI clientUI;
+    private ClientUi clientUI;
 
 
     @FXML
@@ -72,6 +73,7 @@ public class LoginUi {
                 lblInformation.setVisible(true);
             }
         } else {
+            Serialization.saveApp(App.getInstance(), "SavedData.data");
             closePlatform();
         }
     }
@@ -145,7 +147,7 @@ public class LoginUi {
             stageClient = new Stage();
             stageClient.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\ClientUi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\client.fxml"));
             Parent root;
 
             root = loader.load();
