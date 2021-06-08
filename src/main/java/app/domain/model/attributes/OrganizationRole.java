@@ -1,12 +1,14 @@
 package app.domain.model.attributes;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
+
 /**
  * Represents a role in organization
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 
-public class OrganizationRole {
+public class OrganizationRole implements Serializable {
     /**
      * The designation of a role in organization.
      */

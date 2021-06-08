@@ -14,6 +14,8 @@ import app.domain.model.testrelated.Test;
 import app.domain.model.testrelated.TestParameter;
 import app.domain.model.testrelated.TestType;
 import app.domain.model.users.Client;
+
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ import static app.domain.model.testrelated.Test.StateOfTest.*;
  * @author Group 22
  */
 
-public class TestStore {
+public class TestStore implements Serializable {
 
     /**
      * Represents a list of tests

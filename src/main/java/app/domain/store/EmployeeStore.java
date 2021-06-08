@@ -3,6 +3,8 @@ package app.domain.store;
 import app.domain.model.users.Employee;
 import app.domain.model.users.SpecialistDoctor;
 import app.mappers.dto.EmployeeDTO;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
  * The different employees that the company has.
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
-public class EmployeeStore {
+public class EmployeeStore implements Serializable {
     /**
      * List of all existing employees in the company.
      */

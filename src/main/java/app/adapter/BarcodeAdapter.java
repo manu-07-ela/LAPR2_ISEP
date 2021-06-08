@@ -7,11 +7,13 @@ import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
 
+import java.io.Serializable;
+
 /**
  * Represents a adapter for the external API
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
-public class BarcodeAdapter implements ExternalModuleBarcode {
+public class BarcodeAdapter implements ExternalModuleBarcode, Serializable {
     /**
      * Method responsible for generating the barcodes from the external api
      * @param barcodeNumber the number that will be associated with the barcode

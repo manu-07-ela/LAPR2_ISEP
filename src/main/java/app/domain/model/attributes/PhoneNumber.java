@@ -2,6 +2,7 @@ package app.domain.model.attributes;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Objects;
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 
-public class PhoneNumber {
+public class PhoneNumber implements Serializable {
 
     /**
      * The phone number of an employee

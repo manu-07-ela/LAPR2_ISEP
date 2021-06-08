@@ -8,6 +8,7 @@ import auth.AuthFacade;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
  * @author José Pessoa <1201007@isep.ipp.pt>
  */
 
-public class ClientStore {
+public class ClientStore implements Serializable {
     /**
      * List of all existing clients in the company.
      */

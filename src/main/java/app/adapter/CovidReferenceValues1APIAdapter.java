@@ -5,9 +5,11 @@ import app.adapter.interfaces.ExternalModuleReferencesValue;
 import app.controller.App;
 import app.domain.model.testrelated.RefValue;
 import com.example3.CovidReferenceValues1API;
+
+import java.io.Serializable;
 import java.util.Properties;
 
-public class CovidReferenceValues1APIAdapter  implements ExternalModuleReferencesValue {
+public class CovidReferenceValues1APIAdapter  implements ExternalModuleReferencesValue, Serializable {
 
     /**
      *  It creates a object of RefValues using the CovidReferenceValues1API

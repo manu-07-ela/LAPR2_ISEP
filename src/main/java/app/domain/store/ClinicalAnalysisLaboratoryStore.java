@@ -4,13 +4,14 @@ import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Carlos Rodrigues <1201001@isep.ipp.pt>
  */
-public class ClinicalAnalysisLaboratoryStore {
+public class ClinicalAnalysisLaboratoryStore implements Serializable {
 
     /**
      * List of all ClinicalAnalysisLaboratory that exist in a comapny

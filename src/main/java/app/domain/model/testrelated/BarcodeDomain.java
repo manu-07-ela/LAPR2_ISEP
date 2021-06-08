@@ -1,11 +1,13 @@
 package app.domain.model.testrelated;
 
 
+import java.io.Serializable;
+
 /**
  * Represents a barcode that will be associated with a sample
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
-public class BarcodeDomain {
+public class BarcodeDomain implements Serializable {
     /**
      * Represents a barcode
      */

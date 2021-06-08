@@ -2,6 +2,7 @@ package app.domain.model.users;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.List;
@@ -14,7 +15,7 @@ import static java.lang.Integer.parseInt;
  * @author José Pessoa <1201007@isep.ipp.pt>
  */
 
-public class Client {
+public class Client implements Serializable {
     /**
      * Client's name
      */

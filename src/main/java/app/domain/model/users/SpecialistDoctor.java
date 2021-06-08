@@ -3,6 +3,7 @@ package app.domain.model.users;
 import app.domain.model.attributes.*;
 import auth.domain.model.Email;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Objects;
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 
-public class SpecialistDoctor extends Employee {
+public class SpecialistDoctor extends Employee implements Serializable {
     /**
      * The doctor index number of a specialist doctor in the organization
      */

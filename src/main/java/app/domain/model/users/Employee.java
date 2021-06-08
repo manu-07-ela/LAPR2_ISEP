@@ -1,6 +1,8 @@
 package app.domain.model.users;
 import app.domain.model.attributes.*;
 import auth.domain.model.Email;
+
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.Locale;
 
@@ -9,7 +11,7 @@ import java.util.Locale;
  *Represents a Employee in organization
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
-public class Employee {
+public class Employee implements Serializable {
     /**
      *The name of an employee in the organization
      */

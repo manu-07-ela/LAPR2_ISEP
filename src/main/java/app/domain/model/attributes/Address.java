@@ -2,12 +2,14 @@ package app.domain.model.attributes;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
+
 /**
  * Represents a address of an employee
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 
-public class Address {
+public class Address implements Serializable {
     /**
      * The adress of an employee
      */

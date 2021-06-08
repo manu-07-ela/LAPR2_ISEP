@@ -2,11 +2,13 @@ package app.domain.model.laboratories;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
+
 /**
  * Represents a Laboratory
  * @author Rita Ariana
  */
-public abstract class Laboratory {
+public abstract class Laboratory implements Serializable {
 
     /**
      * Name of the Laboratory.

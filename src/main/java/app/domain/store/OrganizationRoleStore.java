@@ -1,6 +1,8 @@
 package app.domain.store;
 
 import app.domain.model.attributes.OrganizationRole;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,7 @@ import java.util.List;
  * Guard and manage instances of the organization's roles
  * @author  Manuela Leite <1200720@isep.ipp.pt>
  */
-public class OrganizationRoleStore{
+public class OrganizationRoleStore implements Serializable {
     /**
      * List that contains all the organizational roles played in the company
      */

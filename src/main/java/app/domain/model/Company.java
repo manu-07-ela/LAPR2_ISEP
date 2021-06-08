@@ -9,6 +9,7 @@ import app.domain.store.*;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
-public class Company {
+public class Company implements Serializable {
 
     /**
      * Company's designation

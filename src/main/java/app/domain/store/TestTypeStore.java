@@ -3,6 +3,7 @@ package app.domain.store;
 import app.domain.model.testrelated.ParameterCategory;
 import app.domain.model.testrelated.TestType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
-public class TestTypeStore {
+public class TestTypeStore implements Serializable {
 
     /**
      * List containing all types of tests that exist in a company.

@@ -2,6 +2,8 @@ package app.domain.store;
 
 import app.domain.model.testrelated.Sample;
 import app.domain.model.testrelated.BarcodeDomain;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,7 @@ import java.util.List;
  * stores all samples recorded in the system
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
-public class SampleStore {
+public class SampleStore implements Serializable {
     /**
      * the list of existing samples in the system
      */

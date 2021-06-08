@@ -2,13 +2,14 @@ package app.domain.model.attributes;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Represents a National Healthcare Service code of a test
  * @author José Pessoa <1201007@isep.ipp.pt>
  */
-public class NhsCode {
+public class NhsCode implements Serializable {
 
         /**
          * The National Healthcare Service code of a test

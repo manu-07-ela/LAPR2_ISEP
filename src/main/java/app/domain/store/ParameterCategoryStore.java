@@ -2,6 +2,7 @@ package app.domain.store;
 
 import app.domain.model.testrelated.ParameterCategory;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  *
  * @author Rita Ariana Sobral <1201386@isep.ipp.pt>
  */
-public class ParameterCategoryStore {
+public class ParameterCategoryStore implements Serializable {
 
     /**
      * List containing all categories of parameters existing in the Company.

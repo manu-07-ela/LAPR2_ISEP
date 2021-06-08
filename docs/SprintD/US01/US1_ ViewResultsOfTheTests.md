@@ -99,13 +99,15 @@ application to view those results.
 |                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
 |                | ... transferring business data in DTO?                          | TestMapper                    | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
 | Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 4  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 4  		 | ... knowing the test results and your diagnosis?                | Test                          | **IE**: Owns its data.                                                                                                                                                                                 |
+|                | ... transferring business data in DTO?                          | TestResultsMapper             | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  * Company
+ * Test
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
@@ -113,6 +115,7 @@ Other software classes (i.e. Pure Fabrication) identified:
  * ViewResultsController
  * TestStore  
  * TestMapper
+ * TestResultsMapper
 
 ## 3.2. Sequence Diagram (SD)
 

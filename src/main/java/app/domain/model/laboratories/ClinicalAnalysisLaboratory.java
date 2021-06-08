@@ -3,12 +3,13 @@ package app.domain.model.laboratories;
 import app.domain.model.testrelated.TestType;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * @author Carlos Rodrigues <1201001@isep.ipp.pt>
  */
-public class ClinicalAnalysisLaboratory extends Laboratory {
+public class ClinicalAnalysisLaboratory extends Laboratory implements Serializable {
 
     /**
      * Clinical Analysis Laboratory's ID

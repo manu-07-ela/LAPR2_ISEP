@@ -6,7 +6,9 @@ import app.adapter.interfaces.ExternalModuleReferencesValue;
 import app.domain.model.testrelated.RefValue;
 import com.example1.ExternalModule3API;
 
-public class ExternalModule3APIAdapter implements ExternalModuleReferencesValue {
+import java.io.Serializable;
+
+public class ExternalModule3APIAdapter implements ExternalModuleReferencesValue, Serializable {
 
     /**
      *  It creates a object of RefValues using the ExternalModule3API

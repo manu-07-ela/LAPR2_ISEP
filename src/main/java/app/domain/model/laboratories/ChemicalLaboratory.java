@@ -2,12 +2,14 @@ package app.domain.model.laboratories;
 
 import app.domain.store.SampleStore;
 
+import java.io.Serializable;
+
 /**
  * Represents a chemical laboratory
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 
-public class ChemicalLaboratory extends Laboratory {
+public class ChemicalLaboratory extends Laboratory implements Serializable {
     /**
      * Represents an instance of sample store
      */
