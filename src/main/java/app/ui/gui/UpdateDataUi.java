@@ -4,6 +4,7 @@ import app.controller.UpdateDataController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
@@ -62,6 +63,7 @@ public class UpdateDataUi {
     public UpdateDataUi() {
         updateDataController = new UpdateDataController();
     }
+
     @FXML
     void saveBirthDateClick(MouseEvent event) {
         if (saveBirthDate.isPressed()){
@@ -127,6 +129,7 @@ public class UpdateDataUi {
     void savePhoneNumberClick(ActionEvent event) {
         if (savePhoneNumber.isPressed()){
             String phoneNumber = writePhoneNumber.getText().trim();
+            updateDataController.updatePhoneNumber(phoneNumber);
         }
 
     }

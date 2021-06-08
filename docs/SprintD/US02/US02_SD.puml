@@ -43,7 +43,7 @@ UI -> CL : show the personal data of the client
 deactivate UI
 CL -> UI : type the new data
 activate UI
-UI -->CL : show the new data an ask for confirmation
+UI -->CL : ask for confirmation
 deactivate UI
 CL->UI: confirm data
 activate UI

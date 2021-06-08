@@ -60,13 +60,9 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 * Typed data:
     * The field of the attribute that the client wants to change 
     
-* selected data:
-    * The attribute the client wants to change
 
 **Output Data:**
-* Client old data
-* Client new data
-* List of attributes related to the client  
+
 * (In)Success of the operation
 
 
@@ -86,12 +82,6 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 ![US02_MD](US02_DM.svg)
 
-### 2.2. Other Remarks
-
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
-
-
-
 ## 3. Design - User Story Realization 
 
 ### 3.1. Rationale
@@ -106,14 +96,10 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 |        		 |	...knowing the ClientStore					 | Company                | IE: The company knows the ClientStore to which it is delegating some tasks                             |
 |        		 |	...transferring business data in DTO?						          | ClientMapper            | DTO: In order for the UI not to have direct acess to business objects, it is best to choose to use a DTO                             |
 | Step 3  		 |							 |                   |                              |
-| Step 4  		 |	...knowing the list of attributes associated with a client						 | Client            | IE: knows it's own data                             |
-| Step 5  		 |							 |                   |                              |
-| Step 6  		 |	...knowing the field to update		         | Client                  | IE:knows it's own data                             |              
-| Step 7  		 |							 |                   |                              |
-| Step 8  		 |							 |                   |                              |
-| Step 9  		 |	...validate all data?						 | Client                  | IE: owns its data                              |
+| Step 4 | | | | 
+|Step 5       	|	...validate all data?						 | Client                  | IE: owns its data                              |
 |       		 |	...saving the new data?						 | Client                  | IE: owns its data                             |
-| Step 10  		 |	...informing operation success?			     | UpdateDataUI            | IE: It is responsible for user interactions                             |
+| Step 6       |	...informing operation success?			     | UpdateDataUI            | IE: It is responsible for user interactions                             |
 
 ### Systematization ##
 
