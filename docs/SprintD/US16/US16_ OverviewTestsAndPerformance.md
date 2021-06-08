@@ -15,6 +15,25 @@
 
 **From the specifications document:**
 
+>Moreover, Many Labs is a company that needs to be continuously evaluating and improving its
+internal processes to achieve excellence and to beat the competition. Therefore, the company wants
+to decrease the number of tests waiting for its result. To evaluate this, it proceeds as following: for
+any interval of time, for example one week (6 working days with 12 working hours per day), the
+difference between the number of new tests and the number of results available to the client during
+each half an hour period is computed. In that case, a list with 144 integers is obtained, where a
+positive integer means that in such half an hour more tests were processed than results were
+obtained, and a negative integer means the opposite. Now, the problem consists in determining what
+the contiguous subsequence of the initial sequence is, whose sum of their entries is maximum. This
+will show the time interval, in such week, when the company was less effective in responding. So,
+the application should implement a brute-force algorithm (an algorithm which examines each
+subsequence) to determine the contiguous subsequence with maximum sum, for any interval of time
+registered. The implemented algorithm should be analysed in terms of its worst-case time complexity, 
+and it should be compared to a provided benchmark algorithm. The algorithm to be
+used by the application must be defined through a configuration file.
+The complexity analysis must be accompanied by the observation of the execution time of the
+algorithms for inputs of variable size in order to observe the asymptotic behaviour. The time
+complexity analysis of the algorithms should be properly documented in the application user
+manual (in the annexes) that must be delivered with the application.
 
 
 **From the client clarifications:**
@@ -65,12 +84,28 @@
 
 *Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
+**Input Data:**
+
+* Typed data:
+    * Period to analyze - start date and end date
+    
+* Selected data:
+    * Algorithm
+
+**Output Data:**
+
+* Number of clients
+* Number of tests waiting for results
+* Number of tests waiting for diagnosis
+* Total Number of tests processed in the laboratory in each day, week, month and year
+* Statistics and Graphs
+* (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US16_SSD](US16_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -85,7 +120,7 @@ To facilitate overall analysis, the application should also display statistics a
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US16_MD](US16_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -124,13 +159,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US16_SD](US16_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US16_CD](US16_CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 

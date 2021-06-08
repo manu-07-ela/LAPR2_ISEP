@@ -5,10 +5,7 @@ actor "User" as User
 activate User
 User -> ":System" : asks to overview the tests
 activate ":System"
-":System" --> User : shows the number of clients
-":System" --> User : shows the number of tests Waiting for results
-":System" --> User : shows the number of tests Waiting for diagnosis
-":System" --> User : shows the total number of tests processed \n in the laboratory in each day, week, month and year
+":System" --> User : shows ( number of clients, number of tests Waiting for results,\n the number of tests Waiting for diagnosis, total number of tests processed \n in the laboratory in each day, week, month and year
 deactivate ":System"
 
 User -> ":System" : asks to evaluate performance

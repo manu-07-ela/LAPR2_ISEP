@@ -38,6 +38,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="library" name="Sum-1.0.0" level="project" />
+    <orderEntry type="library" name="Report2NHS-1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven.plugins:maven-compiler-plugin:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-api:3.0" level="project" />
@@ -119,6 +122,23 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:11" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:11" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:11" level="project" />
-    <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: com.isep.mdis:Sum:1.0.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/Sum-1.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: com.nhs.report:Report2NHS:1.0.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/Report2NHS-1.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

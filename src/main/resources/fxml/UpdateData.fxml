@@ -22,7 +22,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.UpdateDataUi">
    <children>
-      <VBox prefHeight="500.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="100.0" layoutY="7.0" prefHeight="500.0" prefWidth="425.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="7.0">
          <children>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="400.0">
                <children>
@@ -34,7 +34,10 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Label style="-fx-font-size: 25; -fx-font-family: system; -fx-text-fill: #1a7180; -fx-font-weight: bold;" styleClass="shadow" stylesheets="@../styles/Styles.css" text="Update your personal data" />
+                  <Label style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Update your personal data" textFill="#1a7180">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font></Label>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -45,9 +48,9 @@
                   <Insets top="7.0" />
                </padding>
             </Separator>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0); -fx-background-radius: 30;">
                <children>
-                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Name ">
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Name " textFill="#0f3648">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -63,13 +66,12 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeName" alignment="CENTER" onInputMethodTextChanged="#writeNameAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Name " style="-fx-background-color: rgba(0,0,0,0);" />
+                  <TextField fx:id="writeName" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Name " style="-fx-background-color: rgba(0,0,0,0);">
+                     <font>
+                        <Font size="10.0" />
+                     </font></TextField>
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveName" mnemonicParsing="false" onMouseClicked="#saveNameClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
-                     <styleClass>
-                        <String fx:value="transparent" />
-                        <String fx:value="search-button" />
-                     </styleClass>
+                  <Button fx:id="saveName" mnemonicParsing="false" onMouseClicked="#saveNameClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -78,10 +80,6 @@
                      </HBox.margin>
                   </Button>
                </children>
-               <styleClass>
-                  <String fx:value="shadow" />
-                  <String fx:value="search-button" />
-               </styleClass>
                <opaqueInsets>
                   <Insets bottom="10.0" top="10.0" />
                </opaqueInsets>
@@ -89,9 +87,9 @@
                   <Insets bottom="15.0" top="15.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Citizen Card ">
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Citizen Card " textFill="#0f3648">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -107,13 +105,12 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeCitizenCard" alignment="CENTER" onInputMethodTextChanged="#writeCitizenCardAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Citizen card" style="-fx-background-color: rgba(0,0,0,0);" />
+                  <TextField fx:id="writeCitizenCard" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Citizen card" style="-fx-background-color: rgba(0,0,0,0);">
+                     <font>
+                        <Font size="10.0" />
+                     </font></TextField>
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveCitizenCard" mnemonicParsing="false" onMouseClicked="#saveCitizenCardClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
-                     <styleClass>
-                        <String fx:value="transparent" />
-                        <String fx:value="search-button" />
-                     </styleClass>
+                  <Button fx:id="saveCitizenCard" mnemonicParsing="false" onMouseClicked="#saveCitizenCardClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -122,10 +119,6 @@
                      </HBox.margin>
                   </Button>
                </children>
-               <styleClass>
-                  <String fx:value="shadow" />
-                  <String fx:value="search-button" />
-               </styleClass>
                <opaqueInsets>
                   <Insets bottom="10.0" top="10.0" />
                </opaqueInsets>
@@ -133,9 +126,9 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="NHS Code">
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="NHS Code" textFill="#0f3648">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -151,13 +144,12 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeNhsCode" alignment="CENTER" onInputMethodTextChanged="#writeNhsCodeAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new NHS Code " style="-fx-background-color: rgba(0,0,0,0);" />
+                  <TextField fx:id="writeNhsCode" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new NHS Code " style="-fx-background-color: rgba(0,0,0,0);">
+                     <font>
+                        <Font size="10.0" />
+                     </font></TextField>
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveNhsCode" mnemonicParsing="false" onMouseClicked="#saveNhsCodeClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
-                     <styleClass>
-                        <String fx:value="transparent" />
-                        <String fx:value="search-button" />
-                     </styleClass>
+                  <Button fx:id="saveNhsCode" mnemonicParsing="false" onMouseClicked="#saveNhsCodeClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -166,10 +158,6 @@
                      </HBox.margin>
                   </Button>
                </children>
-               <styleClass>
-                  <String fx:value="shadow" />
-                  <String fx:value="search-button" />
-               </styleClass>
                <opaqueInsets>
                   <Insets bottom="10.0" top="10.0" />
                </opaqueInsets>
@@ -177,9 +165,9 @@
                   <Insets bottom="15.0" top="15.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Birth Date ">
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Birth Date " textFill="#0f3648">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -195,13 +183,12 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeBirthDate" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Birth date " style="-fx-background-color: rgba(0,0,0,0);" />
+                  <TextField fx:id="writeBirthDate" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Birth date " style="-fx-background-color: rgba(0,0,0,0);">
+                     <font>
+                        <Font size="10.0" />
+                     </font></TextField>
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveBirthDate" mnemonicParsing="false" onMouseClicked="#saveBirthDateClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
-                     <styleClass>
-                        <String fx:value="transparent" />
-                        <String fx:value="search-button" />
-                     </styleClass>
+                  <Button fx:id="saveBirthDate" mnemonicParsing="false" onMouseClicked="#saveBirthDateClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -210,17 +197,13 @@
                      </HBox.margin>
                   </Button>
                </children>
-               <styleClass>
-                  <String fx:value="shadow" />
-                  <String fx:value="search-button" />
-               </styleClass>
                <opaqueInsets>
                   <Insets bottom="10.0" top="10.0" />
                </opaqueInsets>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Sex">
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Sex" textFill="#0f3648">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -236,13 +219,12 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeSex" alignment="CENTER" onInputMethodTextChanged="#writeSexAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Sex" style="-fx-background-color: rgba(0,0,0,0);" />
+                  <TextField fx:id="writeSex" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Sex" style="-fx-background-color: rgba(0,0,0,0);">
+                     <font>
+                        <Font size="10.0" />
+                     </font></TextField>
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveSex" mnemonicParsing="false" onMouseClicked="#saveSexClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
-                     <styleClass>
-                        <String fx:value="transparent" />
-                        <String fx:value="search-button" />
-                     </styleClass>
+                  <Button fx:id="saveSex" mnemonicParsing="false" onMouseClicked="#saveSexClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -251,10 +233,6 @@
                      </HBox.margin>
                   </Button>
                </children>
-               <styleClass>
-                  <String fx:value="shadow" />
-                  <String fx:value="search-button" />
-               </styleClass>
                <opaqueInsets>
                   <Insets bottom="10.0" top="10.0" />
                </opaqueInsets>
@@ -262,9 +240,9 @@
                   <Insets bottom="15.0" top="15.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="TIN">
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="TIN" textFill="#0f3648">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -280,13 +258,12 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeTin" alignment="CENTER" onInputMethodTextChanged="#writeTinAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new TIN" style="-fx-background-color: rgba(0,0,0,0);" />
+                  <TextField fx:id="writeTin" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new TIN" style="-fx-background-color: rgba(0,0,0,0);">
+                     <font>
+                        <Font size="10.0" />
+                     </font></TextField>
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveTin" mnemonicParsing="false" onMouseClicked="#saveTinClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
-                     <styleClass>
-                        <String fx:value="transparent" />
-                        <String fx:value="search-button" />
-                     </styleClass>
+                  <Button fx:id="saveTin" mnemonicParsing="false" onMouseClicked="#saveTinClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -295,10 +272,6 @@
                      </HBox.margin>
                   </Button>
                </children>
-               <styleClass>
-                  <String fx:value="shadow" />
-                  <String fx:value="search-button" />
-               </styleClass>
                <opaqueInsets>
                   <Insets bottom="10.0" top="10.0" />
                </opaqueInsets>
@@ -306,9 +279,9 @@
                   <Insets bottom="15.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Email ">
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Email " textFill="#0f3648">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -324,13 +297,12 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeEmail" alignment="CENTER" onContextMenuRequested="#writeEmailAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Email" style="-fx-background-color: rgba(0,0,0,0);" />
+                  <TextField fx:id="writeEmail" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Email" style="-fx-background-color: rgba(0,0,0,0);">
+                     <font>
+                        <Font size="10.0" />
+                     </font></TextField>
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveEmail" mnemonicParsing="false" onMouseClicked="#saveEmailClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
-                     <styleClass>
-                        <String fx:value="transparent" />
-                        <String fx:value="search-button" />
-                     </styleClass>
+                  <Button fx:id="saveEmail" mnemonicParsing="false" onMouseClicked="#saveEmailClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -339,10 +311,6 @@
                      </HBox.margin>
                   </Button>
                </children>
-               <styleClass>
-                  <String fx:value="shadow" />
-                  <String fx:value="search-button" />
-               </styleClass>
                <opaqueInsets>
                   <Insets bottom="10.0" top="10.0" />
                </opaqueInsets>
@@ -350,9 +318,9 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Phone Number ">
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Phone Number " textFill="#0f3648">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -368,16 +336,15 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writePhoneNumber" alignment="CENTER" onContextMenuRequested="#writeEmailAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Phone Number" style="-fx-background-color: rgba(0,0,0,0);" />
+                  <TextField fx:id="writePhoneNumber" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Phone Number" style="-fx-background-color: rgba(0,0,0,0);">
+                     <font>
+                        <Font size="10.0" />
+                     </font></TextField>
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="savePhoneNumber" mnemonicParsing="false" onMouseClicked="#saveEmailClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
+                  <Button fx:id="savePhoneNumber" mnemonicParsing="false" onMouseClicked="#savePhoneNumberClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
-                     <styleClass>
-                        <String fx:value="transparent" />
-                        <String fx:value="search-button" />
-                     </styleClass>
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
@@ -386,10 +353,6 @@
                <opaqueInsets>
                   <Insets bottom="10.0" top="10.0" />
                </opaqueInsets>
-               <styleClass>
-                  <String fx:value="shadow" />
-                  <String fx:value="search-button" />
-               </styleClass>
                <VBox.margin>
                   <Insets top="15.0" />
                </VBox.margin>
