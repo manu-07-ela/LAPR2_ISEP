@@ -1,8 +1,9 @@
 package app.ui.gui;
 
-import com.google.inject.Stage;
+import javafx.stage.Stage;
 
 public class ViewTestResultUi {
+
     private Stage stage;
 
     public void setLabelUI(Stage stageViewResult) {

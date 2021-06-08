@@ -19,7 +19,7 @@ public class ClientUi {
     private Stage stage;
     private Stage stageUpdateData;
     private UpdateDataUi updateDataUi;
-    private Stage stageViewresult;
+    private Stage stageViewResult;
     private ViewTestResultUi viewTestResultUi;
 
     @FXML
@@ -52,6 +52,7 @@ public class ClientUi {
     @FXML
     void viewTestResultsClick() {
         runViewTestResult();
+        viewTestResultUi.setLabelUI(stageViewResult);
     }
 
     @FXML
@@ -93,10 +94,10 @@ public class ClientUi {
 
     private void runViewTestResult(){
         try {
-            stageViewresult = new Stage();
-            stageViewresult.initStyle(StageStyle.UNDECORATED);
+            stageViewResult = new Stage();
+            stageViewResult.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\UpdateData.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\ViewTests.fxml"));
             Parent root;
 
             root = loader.load();
@@ -104,10 +105,10 @@ public class ClientUi {
             Scene scene = new Scene(root);
 
 
-            stageViewresult.setScene(scene);
+            stageViewResult.setScene(scene);
 
             viewTestResultUi = loader.getController();
-            stageViewresult.show();
+            stageViewResult.show();
 
         }catch (IOException exception){
             System.out.println("Problems reading the Collaborator's Menu File \n" + exception);

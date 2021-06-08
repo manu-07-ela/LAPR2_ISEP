@@ -35,6 +35,8 @@ public class LoginUi {
     private int attempts = 3;
     private Stage stageLabCoordinatorUi;
     private LabCoordinatorUi labCoordinatorUi;
+    private Stage stageAdminUi;
+    private AdmUi adminUi;
     AuthController ctrl = new AuthController();
     private Stage stageClient;
     private ClientUi clientUI;
@@ -103,6 +105,11 @@ public class LoginUi {
                 runClient();
                 clientUI.setLabelUI(stageClient);
             }
+            if(role.getId().equals("ADMINISTRATOR")){
+                runAdmin();
+                adminUi.setLabelUI(stageClient);
+
+            }
         }
     }
 
@@ -139,7 +146,7 @@ public class LoginUi {
             labCoordinatorUi = loader.getController();
             stageLabCoordinatorUi.show();
         } catch (IOException ex) {
-            System.out.println("Problems reading the Collaborator's Menu File \n" + ex);
+            System.out.println("Problems reading lab coordinator menu file \n" + ex);
         }
     }
     private void runClient(){
@@ -161,7 +168,29 @@ public class LoginUi {
             stageClient.show();
 
         }catch (IOException exception){
-            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+            System.out.println("Problems reading client menu file \n" + exception);
+        }
+    }
+    /**
+     * runs collaborator menu
+     */
+    private void runAdmin() {
+        try {
+            stageAdminUi = new Stage();
+            stageAdminUi.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AdminUi.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            stageAdminUi.setScene(scene);
+            adminUi = loader.getController();
+            stageAdminUi.show();
+        } catch (IOException ex) {
+            System.out.println("Problems reading admin menu file \n" + ex);
         }
     }
 

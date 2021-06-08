@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -6,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="brdPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: ; -fx-border-width: ; -fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#1a7180, #239ba1);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.AdminUi">
+<BorderPane fx:id="brdPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#1a7180, #239ba1);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.AdmUi">
    <top>
       <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
@@ -20,7 +21,7 @@
                   <Insets />
                </HBox.margin>
             </Pane>
-            <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="38.0" onMouseClicked="#closePlatform" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/close.png" />
                </image>
@@ -50,7 +51,7 @@
    <center>
       <HBox prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="OverviewBotton" alignment="CENTER" onMouseClicked="#OverviewClickBotton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/Styles.css">
+            <VBox fx:id="OverviewBotton" alignment="CENTER" prefHeight="104.0" prefWidth="190.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff;">
                <children>
                   <Label text="Send">
                      <font>
@@ -80,10 +81,6 @@
                <padding>
                   <Insets top="20.0" />
                </padding>
-               <styleClass>
-                  <String fx:value="update-data" />
-                  <String fx:value="shadow" />
-               </styleClass>
             </VBox>
          </children>
          <padding>
