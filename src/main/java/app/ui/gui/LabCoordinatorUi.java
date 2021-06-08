@@ -29,7 +29,7 @@ public class LabCoordinatorUi {
     }
 
     @FXML
-    void OverviewClickBotton(ActionEvent event) {
+    void OverviewClickButton(ActionEvent event) {
 
     }
 
