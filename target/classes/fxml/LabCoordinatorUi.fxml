@@ -45,8 +45,17 @@
                <image>
                   <Image url="@../images/logout.png" />
                </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
             </ImageView>
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE" />
+            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="65.0" prefWidth="94.0" style="-fx-background-color: transparent;" text="Logout" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </bottom>
