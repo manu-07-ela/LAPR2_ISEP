@@ -43,55 +43,119 @@ UI -> CL : show the personal data of the client
 deactivate UI
 CL -> UI : type the new data
 activate UI
-UI -->CL : show the new data an ask for confirmation
+UI -->CL : ask for confirmation
 deactivate UI
 CL->UI: confirm data
 activate UI
 alt attribute == name
-UI-> CTRL : setName(name)
+UI-> CTRL : updateName(name)
 activate CTRL
+CTRL -> STORE : updateName(client,name)
+activate STORE
+STORE -> CLIENT : setName(name)
+activate CLIENT
+CLIENT --> STORE : informs operation success
+deactivate CLIENT
+STORE --> CTRL : informs operation success
+deactivate STORE
 CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == citizenCardNumber
-UI-> CTRL : setCitizenCardNumber(citizenCardNumber)
+UI-> CTRL : updateCitizenCard(citizenCardNumber)
 activate CTRL
+CTRL -> STORE : updateCitizenCard(client,citizenCardNumber)
+activate STORE
+STORE -> CLIENT : setCitizenCard(citizenCardNumber)
+activate CLIENT
+CLIENT --> STORE : informs operation success
+deactivate CLIENT
+STORE --> CTRL : informs operation success
+deactivate STORE
 CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == nhsCode
-UI->CTRL : setNhsCode(nhsCode)
+UI->CTRL : updateNhsCode(nhsCode)
 activate CTRL
+CTRL -> STORE : updateNhsCode(client,nhsCode)
+activate STORE
+STORE -> CLIENT : setNhsCode(NhsCode)
+activate CLIENT
+CLIENT --> STORE : informs operation success
+deactivate CLIENT
+STORE --> CTRL : informs operation success
+deactivate STORE
 CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == dateOfBirth
-UI-> CTRL : setDateOfBirth(dateOfBirth)
+UI-> CTRL : updateBirthDate(dateOfBirth)
 activate CTRL
+CTRL -> STORE : updateBirthDate(client,dateOfBirth)
+activate STORE
+STORE -> CLIENT : setBirthDate(dateOfBirth)
+activate CLIENT
+CLIENT --> STORE : informs operation success
+deactivate CLIENT
+STORE --> CTRL : informs operation success
+deactivate STORE
 CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == sex
-UI-> CTRL : setSex(sex)
+UI-> CTRL : updateSex(sex)
 activate CTRL
+CTRL -> STORE : updateSex(client,sex)
+activate STORE
+STORE -> CLIENT : setSex(sex)
+activate CLIENT
+CLIENT --> STORE : informs operation success
+deactivate CLIENT
+STORE --> CTRL : informs operation success
+deactivate STORE
 CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == tin
-UI-> CTRL : setDateOfTin(tin)
+UI-> CTRL : updateTin(tin)
 activate CTRL
+CTRL -> STORE : updateTin(client,tin)
+activate STORE
+STORE -> CLIENT : setTin(tin)
+activate CLIENT
+CLIENT --> STORE : informs operation success
+deactivate CLIENT
+STORE --> CTRL : informs operation success
+deactivate STORE
 CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == phoneNumber
-UI-> CTRL : setPhoneNumber(phoneNumber)
+UI-> CTRL : updatePhoneNumber(phoneNumber)
 activate CTRL
+CTRL -> STORE : updatePhoneNumber(client,phoneNumber)
+activate STORE
+STORE -> CLIENT : setPhoneNumber(phoneNumber)
+activate CLIENT
+CLIENT --> STORE : informs operation success
+deactivate CLIENT
+STORE --> CTRL : informs operation success
+deactivate STORE
 CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == email
-UI-> CTRL : setEmail(email)
+UI-> CTRL : updateEmail(email)
 activate CTRL
+CTRL -> STORE : updateEmail(client,email)
+activate STORE
+STORE -> CLIENT : setEmail(email)
+activate CLIENT
+CLIENT --> STORE : informs operation success
+deactivate CLIENT
+STORE --> CTRL : informs operation success
+deactivate STORE
 CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success

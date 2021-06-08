@@ -52,7 +52,16 @@ class UserSession {
 }
 
 class ClientStore {
+-clientExists(client)
 +getClientByEmail()
++updateBirthDate(client, birthDate)
++updateCitizenCard(client, citizenCard)
++updateEmail(client, email)
++updateName(client, name)
++updateNhsCode(client, nhsCode)
++updateSex(client, sex)
++updateTin(client, tin)
++updatePhoneNumber (client, phoneNumber)
 }
 
 class Client {
@@ -102,8 +111,15 @@ class ClientDto {
 
 class UpdateDataController {
 +getUserSession()
-+getListOfAttributesAssociatedWithAClient()
-+updateAttribute(attribute)
++updateBirthDate(birthDate)
++updateCitizenCard(citizenCard)
++updateEmail(email)
++updateName(name)
++updateNhsCode(nhsCode)
++updateSex(sex)
++updateTin(tin)
++updatePhoneNumber (phoneNumber)
+
 }
 
 UpdateDataUI..>UpdateDataController

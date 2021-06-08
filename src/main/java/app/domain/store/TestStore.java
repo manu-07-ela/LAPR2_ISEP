@@ -219,10 +219,23 @@ public class TestStore implements Serializable {
        return test;
     }
 
-    public List<Test> getClientTestsList(Client cl){
+    public List<Client> getClientWithTestsValidated(){
+        List<Client> lista = new ArrayList<>();
+        for (Test t: testList) {
+            if (t.getStateOfTest()==Validated){
+                lista.add(t.getCl());
+            }
+        }
+        if (lista.size()==0){
+            throw new IllegalArgumentException("There aren't Clients with tests validated");
+        }
+        return lista;
+    }
+
+    public List<Test> getClientTestsList(String phonenumber){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
-            if (t.getCl().equals(cl)) {
+            if (t.getCl().getPhonenumber().equals(phonenumber)) {
                 test.add(t);
             }
         }

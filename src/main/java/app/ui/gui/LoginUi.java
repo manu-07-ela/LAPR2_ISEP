@@ -101,7 +101,7 @@ public class LoginUi {
             }
             if(role.getId().equalsIgnoreCase("CLIENT")){
                 runClient();
-                //clientUI.setLabelUI(stageClient);
+                clientUI.setLabelUI(stageClient);
             }
         }
     }
@@ -147,7 +147,7 @@ public class LoginUi {
             stageClient = new Stage();
             stageClient.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\client.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\ClientUi.fxml"));
             Parent root;
 
             root = loader.load();
