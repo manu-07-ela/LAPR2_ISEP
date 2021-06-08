@@ -3,7 +3,9 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.users.Client;
 import app.domain.store.ClientStore;
+import app.domain.store.TestStore;
 import app.mappers.ClientMapper;
+import app.mappers.TestMapper;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
 
@@ -18,7 +20,7 @@ public class ViewTestsClientController {
     /**
      * Represents an instance of Client Store
      */
-    private ClientStore store;
+    private TestStore tstore;
     /**
      * Represents an instance of Client Mapper
      */
@@ -27,6 +29,10 @@ public class ViewTestsClientController {
      * Representes an instance of Client
      */
     private Client client;
+    /**
+     * Represents an instance of the test mapper.
+     */
+    private TestMapper tmapper;
 
     /**
      * Creates an instance of UpdateDataController
@@ -40,18 +46,27 @@ public class ViewTestsClientController {
      */
     public ViewTestsClientController(Company company) {
         this.company = company;
-        this.store = null;
+        this.tstore = null;
         this.clMapper = new ClientMapper();
         this.client= null;
     }
 
+    /**
+     * It gets a list of Clients with at least one test validated
+     * @return a Dto list of Clients with at least one test validated
+     */
     public List<ClientDTO>  getCLientslist () {
-        store = company.getClientStore();
-        return clMapper.toDto(store.getClientList());
+        tstore = company.getTestStore();
+        return clMapper.toDto(tstore.getClientWithTestsValidated());
     }
 
+    /**
+     * It gets a list of tests of a Client
+     * @param selectedClient the Client we want to see his tests
+     * @return a Dto list of tests of a Client
+     */
     public List<TestDTO> getTestsByClient(ClientDTO selectedClient){
-        return  null;
+        return tmapper.toDto(tstore.getClientTestsList(selectedClient.getPhonenumber()));
     }
 
 
