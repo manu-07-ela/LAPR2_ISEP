@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -14,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.UpdateDataUi">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.UpdateDataUi">
    <children>
       <VBox prefHeight="500.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -57,9 +63,9 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeName" alignment="CENTER" onInputMethodTextChanged="#writeNameAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Name " />
+                  <TextField fx:id="writeName" alignment="CENTER" onInputMethodTextChanged="#writeNameAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Name " style="-fx-background-color: rgba(0,0,0,0);" />
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveName" mnemonicParsing="false" onMouseClicked="#saveNameClick" stylesheets="@../styles/Styles.css" text="Save ">
+                  <Button fx:id="saveName" mnemonicParsing="false" onMouseClicked="#saveNameClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
                      <styleClass>
                         <String fx:value="transparent" />
                         <String fx:value="search-button" />
@@ -101,9 +107,9 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeCitizenCard" alignment="CENTER" onInputMethodTextChanged="#writeCitizenCardAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Citizen card" />
+                  <TextField fx:id="writeCitizenCard" alignment="CENTER" onInputMethodTextChanged="#writeCitizenCardAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Citizen card" style="-fx-background-color: rgba(0,0,0,0);" />
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveCitizenCard" mnemonicParsing="false" onMouseClicked="#saveCitizenCardClick" stylesheets="@../styles/Styles.css" text="Save ">
+                  <Button fx:id="saveCitizenCard" mnemonicParsing="false" onMouseClicked="#saveCitizenCardClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
                      <styleClass>
                         <String fx:value="transparent" />
                         <String fx:value="search-button" />
@@ -145,9 +151,9 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeNhsCode" alignment="CENTER" onInputMethodTextChanged="#writeNhsCodeAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new NHS Code " />
+                  <TextField fx:id="writeNhsCode" alignment="CENTER" onInputMethodTextChanged="#writeNhsCodeAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new NHS Code " style="-fx-background-color: rgba(0,0,0,0);" />
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveNhsCode" mnemonicParsing="false" onMouseClicked="#saveNhsCodeClick" stylesheets="@../styles/Styles.css" text="Save ">
+                  <Button fx:id="saveNhsCode" mnemonicParsing="false" onMouseClicked="#saveNhsCodeClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
                      <styleClass>
                         <String fx:value="transparent" />
                         <String fx:value="search-button" />
@@ -189,9 +195,9 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeBirthDate" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Birth date " />
+                  <TextField fx:id="writeBirthDate" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Birth date " style="-fx-background-color: rgba(0,0,0,0);" />
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveBirthDate" mnemonicParsing="false" onMouseClicked="#saveBirthDateClick" stylesheets="@../styles/Styles.css" text="Save ">
+                  <Button fx:id="saveBirthDate" mnemonicParsing="false" onMouseClicked="#saveBirthDateClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
                      <styleClass>
                         <String fx:value="transparent" />
                         <String fx:value="search-button" />
@@ -230,9 +236,9 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeSex" alignment="CENTER" onInputMethodTextChanged="#writeSexAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Sex" />
+                  <TextField fx:id="writeSex" alignment="CENTER" onInputMethodTextChanged="#writeSexAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Sex" style="-fx-background-color: rgba(0,0,0,0);" />
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveSex" mnemonicParsing="false" onMouseClicked="#saveSexClick" stylesheets="@../styles/Styles.css" text="Save ">
+                  <Button fx:id="saveSex" mnemonicParsing="false" onMouseClicked="#saveSexClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
                      <styleClass>
                         <String fx:value="transparent" />
                         <String fx:value="search-button" />
@@ -274,9 +280,9 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeTin" alignment="CENTER" onInputMethodTextChanged="#writeTinAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new TIN" />
+                  <TextField fx:id="writeTin" alignment="CENTER" onInputMethodTextChanged="#writeTinAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new TIN" style="-fx-background-color: rgba(0,0,0,0);" />
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveTin" mnemonicParsing="false" onMouseClicked="#saveTinClick" stylesheets="@../styles/Styles.css" text="Save ">
+                  <Button fx:id="saveTin" mnemonicParsing="false" onMouseClicked="#saveTinClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
                      <styleClass>
                         <String fx:value="transparent" />
                         <String fx:value="search-button" />
@@ -318,9 +324,9 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeEmail" alignment="CENTER" onContextMenuRequested="#writeEmailAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Email" />
+                  <TextField fx:id="writeEmail" alignment="CENTER" onContextMenuRequested="#writeEmailAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Email" style="-fx-background-color: rgba(0,0,0,0);" />
                   <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveEmail" mnemonicParsing="false" onMouseClicked="#saveEmailClick" stylesheets="@../styles/Styles.css" text="Save ">
+                  <Button fx:id="saveEmail" mnemonicParsing="false" onMouseClicked="#saveEmailClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
                      <styleClass>
                         <String fx:value="transparent" />
                         <String fx:value="search-button" />
@@ -340,6 +346,53 @@
                <opaqueInsets>
                   <Insets bottom="10.0" top="10.0" />
                </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE;" stylesheets="@../styles/Styles.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" style="-fx-text-fill: #0f3648;" styleClass="transparent" stylesheets="@../styles/Styles.css" text="Phone Number ">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Pane prefHeight="45.0" prefWidth="23.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Pane>
+                  <TextField fx:id="writePhoneNumber" alignment="CENTER" onContextMenuRequested="#writeEmailAction" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Phone Number" style="-fx-background-color: rgba(0,0,0,0);" />
+                  <Pane prefHeight="45.0" prefWidth="82.0" />
+                  <Button fx:id="savePhoneNumber" mnemonicParsing="false" onMouseClicked="#saveEmailClick" prefHeight="23.0" prefWidth="75.0" stylesheets="@../styles/Styles.css" text="Save ">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="search-button" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="10.0" top="10.0" />
+               </opaqueInsets>
+               <styleClass>
+                  <String fx:value="shadow" />
+                  <String fx:value="search-button" />
+               </styleClass>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
             </HBox>
          </children>
          <opaqueInsets>
