@@ -1,57 +1,139 @@
 @startuml
 'https://plantuml.com/class-diagram
+package ui {
+package gui {
+class SeeTestsUI
+}
+}
+package controller {
+class SeeTestsController
+}
+
+package mappers {
+package dto {
+class ClientDTO
+class TestDTO
+}
+class ClientMapper
+class TestMapper
+}
+
+package domain {
+package model {
+package users {
+class Client
+}
+package testrelated {
+class Test
+}
+class Company
+}
+package store {
+class ClientStore
+class TestStore
+}
+}
 
 class SeeTestsUI {
 }
 
 class SeeTestsController {
++getClientList()
++getTestByClient(selectedClient)
 
 }
 
 class  ClientDTO{
+-citizenCardNumber
+-nhsCode
+-birthDate
+-sex
+-tif
+-phoneNumber
+-e-mail
+-name
+
++getName(name)
++getCitizenCardNumber(citizenCardNumber)
++getNhsCode(nhsCode)
++getDateOfBirth(dateOfBirth)
++getEmail(email)
++getPhoneNumber(phoneNumber)
++getDateOfTin(tin)
++getSex(sex)
 }
 
 class TestDTO{
+-internalCode
+-description
++getInternalCode()
 }
 
 class Company{
++getClientStore()
++getTestStore()
 
 }
 
 class ClientStore{
++getClientListWithTestsValidated()
 
 }
 
 class ClientMapper{
-
++toDTO(ClientsList)
 }
 
 class TestStore{
++getTestsByClient(selectedClient)
 
 }
 class Client {
+-citizenCardNumber
+-nhsCode
+-birthDate
+-sex
+-tif
+-phoneNumber
+-e-mail
+-name
+
++getName(name)
++getCitizenCardNumber(citizenCardNumber)
++getNhsCode(nhsCode)
++getDateOfBirth(dateOfBirth)
++getEmail(email)
++getPhoneNumber(phoneNumber)
++getDateOfTin(tin)
++getSex(sex)
+
+
 }
 
 class TestMapper{
++toDTO(ListOfTests)
 
 }
 
 class Test {
+-client
++getClient()
+
 }
 
-SeeTestsUI ..> SeeTestsController
-SeeTestsUI ..> ClientDTO
-SeeTestsUI ..> TestDTO
-SeeTestsController ...> TestMapper
-SeeTestsController ...> ClientMapper
-SeeTestsController ...> Company
-Company "1" ---> "1" TestStore : uses
-Company "1" ---> "1" ClientStore : uses
-ClientStore "1" ---> "*" Client : conducts
-TestStore"1" -> "*" Test : conducts
+SeeTestsUI .> SeeTestsController
+SeeTestsUI ....> ClientDTO
+SeeTestsUI ....> TestDTO
+SeeTestsController .> TestMapper
+SeeTestsController ..> ClientMapper
+SeeTestsController ..> Company
+Company "1" ----> "1" TestStore : uses
+Company "1" -----> "1" ClientStore : uses
+ClientStore "1" --> "*" Client : know
+TestStore"1" --> "*" Test : know
 TestMapper ..> TestDTO
 TestMapper .....> Test
-ClientMapper ...> ClientDTO
-ClientMapper ...> Client
+ClientMapper ..> ClientDTO
+ClientMapper ..> Client
 
 @enduml

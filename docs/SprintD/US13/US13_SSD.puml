@@ -8,11 +8,11 @@ participant ": System" as SYSTEM
 activate CCT
 CCT -> SYSTEM : asks to consult the tests performed by a particular client
 activate SYSTEM
-SYSTEM --> CCT : asks if the Clinical Chemistry Technologist wants to order the clients list by tin or by name
+SYSTEM --> CCT : asks if the Clinical Chemistry Technologist\n wants to order the clients list by tin or by name
 deactivate SYSTEM
-CCT -> UI : chooses an option
+CCT -> SYSTEM : chooses an option
 activate SYSTEM
-UI --> CCT : shows a list of clients and asks to select one
+ SYSTEM--> CCT : shows a list of clients and asks to select one
 deactivate SYSTEM
 CCT -> SYSTEM : select the desired client
 activate SYSTEM

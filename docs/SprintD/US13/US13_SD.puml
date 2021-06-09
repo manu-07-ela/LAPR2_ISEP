@@ -43,6 +43,9 @@ CCT -> UI : select the desired client
 activate UI
 UI -> CTRL : getTestsByClient(selectedClient)
 activate CTRL
+CTRL-> Comp : store = getTestStore()
+activate Comp
+deactivate Comp
 CTRL -> tStore : getTestsByClient(selectedClient)
 activate tStore
 tStore --> CTRL : ListOfTests

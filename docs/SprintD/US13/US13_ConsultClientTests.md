@@ -3,6 +3,13 @@
 
 ## 1. Requirements Engineering
 
+### 1.1. User Story Description
+
+* As a clinical chemistry technologist, I intend to consult the historical tests
+  performed by a particular client and to be able to check tests details/results.
+
+### 1.2. Customer Specifications and Clarifications 
+**From the specifications document:**
 >In case of a new client, the receptionist registers the client in the application. To register a client, the
 receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number,
 birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
@@ -10,20 +17,12 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 
 
-### 1.1. User Story Description
-
-* As a clinical chemistry technologist, I intend to consult the historical tests
-  performed by a particular client and to be able to check tests details/results.
-
-### 1.2. Customer Specifications and Clarifications 
-
-
-
-
 ### 1.3. Acceptance Criteria
 
 * **AC1:** The application must allow ordering the clients by TIN and by name to help the clinical chemistry technologist choose the target client.
-* **AC2:** The ordering algorithm to be used by the application must be defined through a configuration file. At least two sorting algorithms should be available.
+* **AC2:** The ordering algorithm to be used by the application must be defined through a configuration file. 
+* **AC3:** At least two sorting algorithms should be available.
+
 
 ### 1.4. Found out Dependencies
 
@@ -62,7 +61,7 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![US13_MD](US13_MD.svg)
+![US13_MD](US13_DM.svg)
 
 ### 2.2. Other Remarks
 
@@ -101,13 +100,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US13-SD](US13_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US13-CD](US13_CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
