@@ -37,6 +37,8 @@ public class LoginUi {
     private LabCoordinatorUi labCoordinatorUi;
     private Stage stageAdminUi;
     private AdmUi adminUi;
+    private Stage stageClinicalCheTec;
+    private  ClinicalChemistryTecUI clinicalChemistryTecUI;
     AuthController ctrl = new AuthController();
     private Stage stageClient;
     private ClientUi clientUI;
@@ -110,6 +112,10 @@ public class LoginUi {
                 adminUi.setLabelUI(stageClient);
 
             }
+            if (role.getId().equals("CLINICAL CHEMISTRY TECHNOLOGIST")){
+                runClinicalCheTec();
+                clinicalChemistryTecUI.setLabelUI(stageClinicalCheTec);
+            }
         }
     }
 
@@ -154,7 +160,7 @@ public class LoginUi {
             stageClient = new Stage();
             stageClient.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\ClientUi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ClientUi.fxml"));
             Parent root;
 
             root = loader.load();
@@ -189,6 +195,25 @@ public class LoginUi {
             stageAdminUi.setScene(scene);
             adminUi = loader.getController();
             stageAdminUi.show();
+        } catch (IOException ex) {
+            System.out.println("Problems reading admin menu file \n" + ex);
+        }
+    }
+    private void runClinicalCheTec() {
+        try {
+            stageClinicalCheTec = new Stage();
+            stageClinicalCheTec.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ClinicalChemistryTecUi.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            stageClinicalCheTec.setScene(scene);
+            clinicalChemistryTecUI = loader.getController();
+            stageClinicalCheTec.show();
         } catch (IOException ex) {
             System.out.println("Problems reading admin menu file \n" + ex);
         }

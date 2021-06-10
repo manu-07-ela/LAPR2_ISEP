@@ -49,4 +49,10 @@ public class MedicalReport implements Serializable {
      */
     public Date getCreatedAt() { return this.createdAt;}
 
+    /**
+     * Get the diagnosis of the medical report.
+     */
+    public String getDiagnosis() {
+        return diagnosis;
+    }
 }

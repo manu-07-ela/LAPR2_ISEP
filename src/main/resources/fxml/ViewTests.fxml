@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -8,21 +9,66 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ViewTestResultUi">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ViewTestResultUi">
    <top>
       <VBox prefHeight="80.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="400.0">
                <children>
-                  <Label style="-fx-font-size: 25; -fx-font-family: system; -fx-text-fill: #1a7180; -fx-font-weight: bold;" text="Your Tests" />
+                  <Label style="-fx-font-size: 25; -fx-font-family: system; -fx-text-fill: #1a7180; -fx-font-weight: bold;" text="Your Tests Performed" />
                </children>
             </HBox>
-            <Separator prefWidth="200.0">
-               <padding>
-                  <Insets top="7.0" />
-               </padding>
-            </Separator>
          </children>
       </VBox>
    </top>
+   <center>
+      <VBox fx:id="viewTests" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="49.0" prefWidth="600.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #1a7180;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="8.0" prefHeight="40.0" prefWidth="592.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/report.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="66.0" text="Test">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="6.0">
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </Separator>
+                        <Label fx:id="testCode" prefHeight="27.0" prefWidth="145.0" textAlignment="CENTER" />
+                        <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="6.0">
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </Separator>
+                        <Label fx:id="testDescription" prefHeight="27.0" prefWidth="209.0" textAlignment="CENTER" />
+                        <Separator orientation="VERTICAL" prefHeight="49.0" prefWidth="17.0">
+                           <padding>
+                              <Insets right="3.0" />
+                           </padding>
+                        </Separator>
+                        <Button mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 15; -fx-font-weight: bold;" text="Select" textFill="#f8f7f7" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding></VBox>
+   </center>
+   <padding>
+      <Insets left="5.0" right="5.0" />
+   </padding>
 </BorderPane>

@@ -52,7 +52,7 @@
                   <Insets bottom="5.0" />
                </HBox.margin>
                <font>
-                  <Font size="21.0" />
+                  <Font name="System Italic" size="21.0" />
                </font></Button>
          </children>
       </HBox>
@@ -60,7 +60,7 @@
    <center>
       <HBox prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="OverviewBotton" alignment="CENTER" prefHeight="104.0" prefWidth="190.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff;">
+            <VBox fx:id="OverviewBotton" alignment="CENTER" prefHeight="104.0" prefWidth="190.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
                   <Label text="Send">
                      <font>
