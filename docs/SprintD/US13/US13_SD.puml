@@ -5,61 +5,70 @@ autonumber
 actor "Clinical Chemistry Technologist" as CCT
 
 participant ": SeeTestsUI" as UI
-participant ": SeeTestsController" as CTRL
-participant ": Company" as Comp
-participant "clStore: ClientsStore" as CStore
-participant "mapper: ClientMapper" as ClMapper
-participant "tstore : TestStore" as tStore
-participant "tMapper : TestMapper" as TMapper
-
+participant ": SeeTestsController" as CONTROLLER
+participant ": Company" as COMPANY
+participant "tstore : TestStore" as TESTSTORE
+participant ": Test " as TEST
+participant ": ClientMapper" as CLIENTMAPPER
+participant ": TestMapper" as TESTMAPPER
+participant ": SortingAlgorithms" as ALGORITHM
 activate CCT
-
 CCT -> UI : asks to consult the tests performed by a particular client
 activate UI
-UI -> CTRL : getClientslist()
-activate CTRL
-CTRL -> Comp : clstore = getClientStore()
-activate Comp
-deactivate Comp
-CTRL -> CStore : getClientListWithTestsValidated()
-activate CStore
-CStore --> CTRL : ClientsList
-deactivate CStore
-CTRL -> ClMapper : toDTO(ClientsList)
-activate ClMapper
-ClMapper --> CTRL : ClientsListDTO
-deactivate ClMapper
-CTRL --> UI : ClientsListDTO
-deactivate CTRL
-UI --> CCT : asks if the Clinical Chemistry Technologist wants to order the clients list by tin or by name
+UI->CONTROLLER : getClientsWithValidatedTests()
+activate CONTROLLER
+CONTROLLER->COMPANY : tstore = getTestStore()
+activate COMPANY
+deactivate COMPANY
+CONTROLLER->TESTSTORE : clientList = getClientsWithValidatedTests()
+activate TESTSTORE
+ref over TESTSTORE
+SD_GetTheClientListWithTestValidated
+end ref
+TESTSTORE-->CONTROLLER : clientList
+deactivate TESTSTORE
+CONTROLLER->CLIENTMAPPER : toDto(clientList)
+activate CLIENTMAPPER
+ref over CLIENTMAPPER
+SD_ClientMapper_toDto_List
+end ref
+CLIENTMAPPER-->CONTROLLER : clientListDto
+deactivate CLIENTMAPPER
+deactivate TESTSTORE
+CONTROLLER-->UI : clientListDto
+deactivate CONTROLLER
+UI --> CCT : shows the list of unordered customers and asks if the Clinical \nChemistry Technologist wants to order the clients list by tin or by name
 deactivate UI
 
 CCT -> UI : chooses an option
 activate UI
-UI --> CCT : shows a list of clients and asks to select one
+UI->CONTROLLER : orderClientList(clientListDto)
+activate CONTROLLER
+CONTROLLER->ALGORITHM : orderedClientListDto = orderClientList(clientListDto)
+activate ALGORITHM
+ALGORITHM-->CONTROLLER : orderedClientListDto
+deactivate ALGORITHM
+deactivate CLIENTMAPPER
+CONTROLLER-->UI : orderedClientListDto
+deactivate CONTROLLER
+UI--> CCT : shows the ordered customer list and asks you to select one
 deactivate UI
-
 CCT -> UI : select the desired client
 activate UI
-UI -> CTRL : getTestsByClient(selectedClient)
-activate CTRL
-CTRL-> Comp : store = getTestStore()
-activate Comp
-deactivate Comp
-CTRL -> tStore : getTestsByClient(selectedClient)
-activate tStore
-tStore --> CTRL : ListOfTests
-deactivate tStore
-CTRL -> TMapper : toDTO(ListOfTests)
-activate TMapper
-TMapper --> CTRL : ListOfTestsDTO
-deactivate TMapper
-CTRL --> UI :ListOfTestsDTO
-deactivate CTRL
+UI->CONTROLLER : getTestAssociatedWithClient(selectedClient)
+activate CONTROLLER
+CONTROLLER->TESTSTORE : getTestAssociatedWithClient(selectedClient)
+activate TESTSTORE
+TESTSTORE-->CONTROLLER : listTestAssociatedWithClient
+deactivate TESTSTORE
+CONTROLLER->TESTMAPPER : toDto(listTestAssociatedWithClient)
+activate TESTMAPPER
+TESTMAPPER-->CONTROLLER : listTestAssociatedWithClientDto
+deactivate TESTMAPPER
+CONTROLLER-->UI : listTestAssociatedWithClientDto
+deactivate CONTROLLER
 UI --> CCT : show the historical tests performed by that client
 deactivate UI
-
-
 
 
 @enduml

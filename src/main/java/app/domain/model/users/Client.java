@@ -86,6 +86,33 @@ public class Client implements Serializable {
     }
 
     /**
+     * Constructs an instance of {@code Client} receiving the name, Citizen card number, National Healthcare Service number, birth date, gender, tax identification number, phone number and e-mail
+     * @param name name of Client
+     * @param citizenCardNumber Citizen card number of Client
+     * @param nhs National HealthCare Service number of Client
+     * @param date Birth-date of Client
+     * @param tin Tax identification number of Client
+     * @param phoneNumber Phone number of Client
+     * @param email E-mail of Client
+     */
+    public Client(String name, String citizenCardNumber, String nhs, String date, String tin, String phoneNumber, String email) {
+        nameValidation(name);
+        citizencardnumberValidation(citizenCardNumber);
+        nhsValidation(nhs);
+        dateValidation(date);
+        tinValidation(tin);
+        phonenumberValidation(phoneNumber);
+        emailValidation(email);
+        this.name = name;
+        this.citizencardnumber = citizenCardNumber;
+        this.nhs = nhs;
+        this.date = date;
+        this.tin = tin;
+        this.phonenumber = phoneNumber;
+        this.email = email;
+    }
+
+    /**
      * Get the name of a client
      * @return the name of client
      */

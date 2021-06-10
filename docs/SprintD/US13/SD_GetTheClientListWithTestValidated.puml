@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'hide footbox
+autonumber
+
+participant "tStore : TestStore" as TESTSTORE
+participant "testList : List<Test>" as TESTLIST
+participant "test : Test" as TEST
+activate TESTSTORE
+->TESTSTORE : getClientsWithValidatedTests()
+TESTSTORE-->"clientList :\nList<Client>"** : create()
+loop for each test in testList
+TESTSTORE->TESTLIST : testAux = get(i)
+activate TESTLIST
+deactivate TESTLIST
+TESTSTORE->TEST : status = getTestStatus()
+activate TEST
+deactivate TEST
+opt status=Validated
+TESTSTORE->TEST : client = getClient()
+activate TEST
+deactivate TEST
+end
+TESTSTORE->"clientList :\nList<Client>" : add(client)
+activate "clientList :\nList<Client>"
+deactivate "clientList :\nList<Client>"
+end
+<--TESTSTORE : listOfClients
+deactivate TESTSTORE
+
+@enduml

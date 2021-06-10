@@ -1,25 +1,25 @@
 @startuml
 autonumber
-actor "User" as User
+actor "Laboratory Coordinator" as LabCod
 
-activate User
-User -> ":System" : Initiates the process of Importing Clinical Tests
+activate LabCod
+LabCod -> ":System" : Initiates the process of Importing Clinical Tests
 activate ":System"
 
-":System" --> User : Asks for the File's Path
+":System" --> LabCod : Asks for the File's Path
 deactivate ":System"
 
-User -> ":System" : Introduces the File's Path
+LabCod -> ":System" : Introduces the File's Path
 activate ":System"
 
-":System" --> User : Requests confirmation
+":System" --> LabCod : Requests confirmation
 deactivate ":System"
 
-User -> ":System" : Confirms the data
+LabCod -> ":System" : Confirms the data
 activate ":System"
-":System" --> User : Informs the operation sucess.
+":System" --> LabCod : Informs the operation sucess.
 deactivate ":System"
 
-deactivate User
+deactivate LabCod
 
 @enduml

@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'hide footbox
+autonumber
+
+participant ": ClientMapper" as MAPPER
+participant "clientList: \nList<Client>" as LCLIENTS
+participant "clientListDto: \nList<ClientDtoDto>" as LCLIENTDTO
+participant "client : Client" as CLIENT
+participant "clientDto : ClientDto" as CLIENTDTO
+
+-> MAPPER : toDto(testList)
+activate MAPPER
+MAPPER --> LCLIENTDTO** : create()
+loop for each object in clientList
+MAPPER -> LCLIENTS : ClientAux = get(i)
+activate LCLIENTS
+deactivate LCLIENTS
+MAPPER -> CLIENT : name = getName()
+activate CLIENT
+deactivate CLIENT
+MAPPER -> CLIENT : citizenCardNumber = getCitizenCardNumber()
+activate CLIENT
+deactivate CLIENT
+MAPPER -> CLIENT : nhsCode = getNhs()
+activate CLIENT
+deactivate CLIENT
+MAPPER -> CLIENT : birthDate = getDate()
+activate CLIENT
+deactivate CLIENT
+MAPPER -> CLIENT : sex = getSex()
+activate CLIENT
+deactivate CLIENT
+MAPPER -> CLIENT : tin = getTin()
+activate CLIENT
+deactivate CLIENT
+MAPPER -> CLIENT : phoneNumber = getPhoneNumber()
+activate CLIENT
+deactivate CLIENT
+MAPPER -> CLIENT : email = getEmail()
+activate CLIENT
+deactivate CLIENT
+MAPPER --> CLIENTDTO** : create(name, citizenCardNumber, nhsCode, birthDate, sex, tin, phoneNumber, email)
+MAPPER -> LCLIENTDTO : add(clientDto)
+activate LCLIENTDTO
+deactivate LCLIENTDTO
+end
+deactivate MAPPER
+<-- MAPPER : clientListDto
+
+@enduml
