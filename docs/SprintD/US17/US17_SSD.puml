@@ -1,0 +1,25 @@
+@startuml
+autonumber
+actor "User" as User
+
+activate User
+User -> ":System" : Initiates the process of Importing Clinical Tests
+activate ":System"
+
+":System" --> User : Asks for the Files Path
+deactivate ":System"
+
+User -> ":System" : Introduces the File Path
+activate ":System"
+
+":System" --> User : Requests confirmation
+deactivate ":System"
+
+User -> ":System" : Confirms the data
+activate ":System"
+":System" --> User : Informs the operation sucess.
+deactivate ":System"
+
+deactivate User
+
+@enduml

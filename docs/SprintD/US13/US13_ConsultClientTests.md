@@ -3,72 +3,67 @@
 
 ## 1. Requirements Engineering
 
->In case of a new client, the receptionist registers the client in the application. To register a client, the
-receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number,
-birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
-
-
-
-
 ### 1.1. User Story Description
 
 * As a clinical chemistry technologist, I intend to consult the historical tests
   performed by a particular client and to be able to check tests details/results.
 
 ### 1.2. Customer Specifications and Clarifications 
+**From the specifications document:**
+>In case of a new client, the receptionist registers the client in the application. To register a client, the
+receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number,
+birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
+**From the client clarifications:**
+> **Question:**  Should we show every client already registered when we show the clients' list to the clinical chemistry technologist or should we only show the clients' with a test or more already assigned?
+>
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8938#p11754) The system should show only clients that have tests already validated by the lab coordinator.
 
 
 
 ### 1.3. Acceptance Criteria
 
 * **AC1:** The application must allow ordering the clients by TIN and by name to help the clinical chemistry technologist choose the target client.
-* **AC2:** The ordering algorithm to be used by the application must be defined through a configuration file. At least two sorting algorithms should be available.
+* **AC2:** The ordering algorithm to be used by the application must be defined through a configuration file. 
+* **AC3:** At least two sorting algorithms should be available.
+
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
+* This user story has a dependency with use story 15 since only customers with test already validated by the laboratory coordinator will be shown in user story 13.
 
 ### 1.5 Input and Output Data
 
 **Input Data:**
 
-* Typed data:
-    *  
-
 * Selected data:
     * A Client
-
-
+    * The sorting algorithm
+  
 **Output Data:**
-
+* A list of clients sorted by the selected algorithm
 * A list with the tests performed by a particular client
 
 
 ### 1.6. System Sequence Diagram (SSD)
-
-*Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
 ![US13_SSD](US13_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
 
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
-
+* Algorithms will be defined by a configuration file.
+* This user story will be used whenever the clinical chemistry technologist needs to consult the tests related to a client.
 
 ## 2. OO Analysis
 
-### 2.1. Relevant Domain Model Excerpt 
-*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
+### 2.1. Relevant Domain Model Excerpt  
 
-![US13_MD](US13_MD.svg)
+![US13_MD](US13_DM.svg)
 
 ### 2.2. Other Remarks
 
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
-
-
+![TestLyfeCycle](TestLifeCycle.svg)
 
 ## 3. Design - User Story Realization 
 
@@ -78,36 +73,38 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
+| Step 1  		 | ... interacting with the actor? | SeeTestsUI|  **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.|
+|                | ... coordinating the US?                                        | SeeTestsController         | **Controller**                                                                                                                                                                                         |
+| Step 2  		 | ... asking the user the algorithm that he intends to use to order the clients? | SeeTestsUi | **IE**: Is responsible for user interaction.|
+| Step 3  		 | 							 |             |                              |
+| Step 4  		 |... knowing all the clients with tests validated in the system? | ClientStore |**IE**: Knows all the clients.                              |
+|                | ... knowing the ClientStore?                                      | Company                       | **IE**: The company knows the ClientStore to which it is delegating some tasks.                                                                                                                          |
+|                | ... transferring business data in DTO?                           | ClientDto                       | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+| Step 5  		 |... knowing all test in the system? |             |                              |
 | Step 6  		 |							 |             |                              |              
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * Client
+ * Test
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * SeeTestsUI  
+ * SeeTestsController
+ * ClientStore
+ * ClientMapper
+ * TestMapper 
+ * TestStore
 
 ## 3.2. Sequence Diagram (SD)
 
-*In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
-
-![USXX-SD](USXX-SD.svg)
+![US13-SD](US13_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
-*In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
-
-![USXX-CD](USXX-CD.svg)
+![US13-CD](US13_CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 

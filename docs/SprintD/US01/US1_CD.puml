@@ -1,0 +1,41 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class ViewResultsUI{}
+
+class ViewResultsController{
++getTestList()
++showTestResults(selectedTest)
+}
+
+class Company{
++getTestStore()
+}
+
+class TestStore{
++getClientTestsList()
++orderClientTestsByRegistrationDate()
++getTestByInternalCode(code)
+}
+
+class TestMapper{
++toDto(testList)
+}
+
+class Test{
++getInternalCode()
++getDescription()
+}
+
+class TestDto{
+List<TestDto> testListDto
+--
++create(testInternalCode,testDescription)
+}
+
+class TestResultMapper{
++toDto(test)
+}
+
+class TestResultDto{}
+@enduml

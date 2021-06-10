@@ -30,15 +30,30 @@ file.
 
 **From the client clarifications:**
 
-> **Question:**
+> **Question:**  As the report is generated automatically, should the system generate a notification that the report was sent?
 >  
-> **Answer:**
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8894#p11691) The application should write the event into a log file.
 
--
-
-> **Question:**
+> **Question:** which significance level should we use for the hypothesis tests?
 >  
-> **Answer:**
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8890#p11690) The application should allow the user to choose the significance level.
+
+> **Question:** Regarding US18 and US19, it is only one report containing all the tests performed by Many Labs to be sent each time, correct? Or is it one report per laboratory, for example? Or other option?
+>
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8892#p11693) The report should contain all the tests made by Many Labs.
+
+> **Question:** In US19, in Sprint D Requirements, it says "The report should include day and week (observed and estimated) values..." and also "Reports...must be sent every day at 6:00 am".
+As the Report is to be automatically sent very early in the morning, do you wish the report to have the data concerning the day before and the last week starting at the day before?
+>
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8892#p11693) The format of the report should follow the report example that is available in moodle.
+
+> **Question:**  Should the report contain the data of all the tests with results (with or without report, with or without validation) or contain only the validated tests? (Or other option?)
+> 
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8892#p11693)  The NHS Covid report should include statistics computed only from validated tests.
+
+> **Question:** General doubt: Are we going to be able to use more math libraries in order to facilitate the calculus (for example, for confidence intervals) or is the rest of the calculus to be developed by each team?
+> 
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8892#p11693) Each team should implement the classes and methods needed.
 
 
 ### 1.3. Acceptance Criteria
@@ -46,21 +61,29 @@ file.
 * **AC1:** The report should include day and week (observed and
   estimated) values, the regression model used to estimate each value, R(SLR), R2
   and R2 adjusted for SLR and MLR, hypothesis tests for regression coefficients
-  significance model with Anova. Simple linear and multilinear regression models
+  significance model with Anova. 
+* **AC2:** Simple linear and multilinear regression models
   can be used to compute the estimates and corresponding confidence intervals.
-  When the system is configured to use the simple linear regression model, the
+  
+* **AC3:** When the system is configured to use the simple linear regression model, the
   performance of each model should be used to select the best model (the one that
   uses the number of tests realized or the one that uses the mean age as independent
-  variable). The best model will be used to make the estimated/expected values that
-  will be send to NHS. The interval of dates to fit the regression model and the
+  variable). 
+  
+* **AC4:** The best model will be used to make the estimated/expected values that
+  will be send to NHS. 
+  
+* **AC5:** The interval of dates to fit the regression model and the
   number of historical points (number of days and number of weeks) must be
-  defined through a configuration file. The system should send the report using the
+  defined through a configuration file. 
+  
+* **AC6:** The system should send the report using the
   NHS API (available in moodle).
 
 ### 1.4. Found out Dependencies
 
 
-* There is a dependency to "US003 Create a task category" since at least a task category must exist to classify the task being created.
+* There is a dependency with user story 12 since it is only possible to perform statistic tests from the moment there are results associated with the test.
 
 
 ### 1.5 Input and Output Data

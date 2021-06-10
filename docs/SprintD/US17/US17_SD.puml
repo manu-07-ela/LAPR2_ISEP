@@ -1,0 +1,36 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADMIN
+
+participant ": ImportFileUI" as UI
+participant ": ImportFileController" as CTRL
+participant ": Company" as COMP
+
+activate ADMIN
+ADMIN -> UI : Initiates the process of Importing Clinical Tests
+activate UI
+UI --> ADMIN : Asks for the Files Path
+deactivate UI
+
+ADMIN -> UI : Introduces the File Path
+activate UI
+UI -> CTRL :
+activate CTRL
+deactivate CTRL
+UI --> ADMIN : Requests confirmation
+deactivate UI
+
+ADMIN -> UI : asks to evaluate performance
+activate UI
+UI -> CTRL :
+activate CTRL
+deactivate CTRL
+UI --> ADMIN : Informs the operation sucess.
+deactivate UI
+
+
+
+deactivate ADMIN
+
+@enduml
