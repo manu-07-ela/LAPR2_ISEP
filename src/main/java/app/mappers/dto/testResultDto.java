@@ -1,21 +1,19 @@
 package app.mappers.dto;
 
-import app.domain.model.testrelated.MedicalReport;
-
 import java.util.List;
 
 public class testResultDto {
     /**
-     * Represents the medicalreport
+     * Represents the diagnosis of the medical report
      */
-    private final MedicalReport medicalreport;
+    private final String diagnosis;
     /**
      * Represents the list of Test Parameter DTO
      */
     private final List<TestParameterDTO> tplist;
 
-    public testResultDto(MedicalReport medicalreport, List<TestParameterDTO> tplist) {
-        this.medicalreport = medicalreport;
+    public testResultDto(String diagnosis, List<TestParameterDTO> tplist) {
+        this.diagnosis = diagnosis;
         this.tplist = tplist;
     }
 
@@ -23,15 +21,13 @@ public class testResultDto {
         return tplist;
     }
 
-    public MedicalReport getMedicalreport() {
-        return medicalreport;
+    public String getDiagnosis() {
+        return diagnosis;
     }
 
     @Override
     public String toString() {
-        return "testResultDto{" +
-                "medicalreport='" + medicalreport + '\'' +
-                ", tplist=" + tplist +
-                '}';
+        return  tplist+ "\n" +" Medical Report: " + diagnosis;
     }
+
 }

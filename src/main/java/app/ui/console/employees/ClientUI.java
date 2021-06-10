@@ -16,7 +16,7 @@ public class ClientUI implements Runnable {
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
-        options.add(new MenuItem("View Client's test(s) ", new ViewResultsUI()));
+        options.add(new MenuItem("View test(s) ", new ViewResultsUI()));
 
         int option = 0;
         do {
