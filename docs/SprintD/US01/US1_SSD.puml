@@ -3,14 +3,14 @@ autonumber
 actor "Client" as OE
 
 activate OE
-OE -> ":System" : asks to view the results of his tests
+OE -> ":System" : Asks to view the results of his tests
 activate ":System"
-":System" --> OE : shows the test list and asks to choose one
+":System" --> OE : Shows the test list and asks to choose one
 deactivate ":System"
 
-OE -> ":System" : selects a test
+OE -> ":System" : Selects a test
 activate ":System"
-":System" --> OE : shows requested data
+":System" --> OE : Shows requested data
 deactivate ":System"
 
 deactivate OE

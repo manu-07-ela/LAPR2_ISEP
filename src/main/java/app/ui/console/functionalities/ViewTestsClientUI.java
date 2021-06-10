@@ -23,12 +23,23 @@ public class ViewTestsClientUI implements Runnable{
      */
     @Override
     public void run() {
-        viewtestsclient();
+        try {
+            viewtestsclient();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void viewtestsclient(){
+    public void viewtestsclient() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         List<ClientDTO> clist = new ArrayList<>();
-        clist=viewTestsctrl.getCLientslist();
+        clist=viewTestsctrl.getClientsListByAlphabeticalOrder();
         System.out.println("Do you want to order the clients list by Tax identification number or by Name?");
+        for (ClientDTO cl : clist) {
+            System.out.println(cl);
+        }
     }
 }

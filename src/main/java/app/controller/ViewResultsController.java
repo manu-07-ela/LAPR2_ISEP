@@ -8,6 +8,7 @@ import app.domain.store.TestStore;
 import app.mappers.*;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
+import app.mappers.dto.testResultDto;
 import auth.domain.model.Email;
 
 import java.util.List;
@@ -37,6 +38,10 @@ public class ViewResultsController {
      * Represents an instance of Client Mapper
      */
     private ClientMapper clMapper;
+    /**
+     * Represents an instance of TestParameter Mapper
+     */
+    private TestResultsMapper trMapper;
 
     public ViewResultsController() {
         this(App.getInstance().getCompany());
@@ -49,6 +54,7 @@ public class ViewResultsController {
         this.clstore = company.getClientStore();
         this.clMapper = new ClientMapper();
         this.tmapper = new TestMapper();
+        this.trMapper = new TestResultsMapper();
     }
 
     public List<TestDTO> getTestList(ClientDTO cl){
@@ -61,7 +67,8 @@ public class ViewResultsController {
         Client cl = clstore.getClientByEmail(empemail.toString());
         return clMapper.toDto(cl);
     }
-    public void showTestResults(TestDTO selectedTest){
+    public testResultDto showTestResults(TestDTO selectedTest){
         Test t =tStore.getTestbyInternalCode(selectedTest.getInternalCode());
+        return trMapper.toDTO(t);
     }
 }
