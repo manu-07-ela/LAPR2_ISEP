@@ -2,7 +2,6 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.testrelated.Test;
-import app.domain.model.testrelated.TestType;
 import app.domain.model.users.Client;
 import app.domain.store.ClientStore;
 import app.domain.store.TestStore;
@@ -59,7 +58,7 @@ public class ViewResultsController {
     }
 
     public List<TestDTO> getTestList(ClientDTO cl){
-        List<Test> listTest = tStore.getClientTestsList(cl.getPhonenumber());
+        List<Test> listTest = tStore.getClientTestsList(cl.getPhoneNumber());
         return tmapper.toDto(listTest);
     }
 

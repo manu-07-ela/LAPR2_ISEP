@@ -38,5 +38,8 @@ public class ViewTestsClientUI implements Runnable{
         List<ClientDTO> clist = new ArrayList<>();
         clist=viewTestsctrl.getClientsListByAlphabeticalOrder();
         System.out.println("Do you want to order the clients list by Tax identification number or by Name?");
+        for (ClientDTO cl : clist) {
+            System.out.println(cl);
+        }
     }
 }

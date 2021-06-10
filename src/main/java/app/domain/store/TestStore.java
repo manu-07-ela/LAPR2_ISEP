@@ -232,19 +232,19 @@ public class TestStore implements Serializable {
         return lista;
     }
 
-    public List<Test> getClientTestsList(String phonenumber){
+    public List<Test> getClientTestsList(String phoneNumber){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
-            if (t.getCl().getPhonenumber().equals(phonenumber)) {
+            if (t.getCl().getPhonenumber().equals(phoneNumber)) {
                 test.add(t);
             }
         }
         return test;
     }
 
-    public Test getTestbyInternalCode(String internalcode) {
+    public Test getTestbyInternalCode(String internalCode) {
         for (Test t :testList) {
-            if (t.getInternalCode().equals(internalcode)){
+            if (t.getInternalCode().equals(internalCode)){
                 return t;
             }
         }
