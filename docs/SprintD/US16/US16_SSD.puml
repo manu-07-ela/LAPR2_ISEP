@@ -3,9 +3,16 @@ autonumber
 actor "User" as User
 
 activate User
-User -> ":System" : asks to overview the tests
+User -> ":System" : initiates the process of overviewing the tests
 activate ":System"
-":System" --> User : shows ( number of clients, number of tests Waiting for results,\n the number of tests Waiting for diagnosis, total number of tests processed \n in the laboratory in each day, week, month and year
+
+":System" --> User : requests to delimit the period of dates to analyze
+deactivate ":System"
+
+User -> ":System" : types the dates and asks to see relative information
+activate ":System"
+
+":System" --> User : shows the relative information ( number of clients, number of tests Waiting for results,\n the number of tests Waiting for diagnosis, total number of tests processed \n in the laboratory in each day, week, month and year
 deactivate ":System"
 
 User -> ":System" : asks to evaluate performance
@@ -13,24 +20,9 @@ activate ":System"
 ":System" --> User : shows available algorithms
 deactivate ":System"
 
-User -> ":System" : selects the algorithm
-activate ":System"
-":System" --> User : requests to delimit the period of dates to analyze
-deactivate ":System"
-
-User -> ":System" : types the dates
-activate ":System"
-":System" --> User : shows dates and asks for confirmation
-deactivate ":System"
-
-User -> ":System" : asks for statistics and graphs
+User -> ":System" : selects the algorithm and asks for statistics and graphs
 activate ":System"
 ":System" --> User : shows statistics and graphs
-deactivate ":System"
-
-User -> ":System" : confirms the data
-activate ":System"
-":System" --> User : informs operation success
 deactivate ":System"
 
 deactivate User
