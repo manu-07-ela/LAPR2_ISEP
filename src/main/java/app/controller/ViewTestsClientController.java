@@ -1,5 +1,7 @@
 package app.controller;
 
+import app.adapter.SortAlphabetically;
+import app.adapter.SortByTin;
 import app.domain.model.Company;
 import app.domain.model.users.Client;
 import app.domain.store.ClientStore;
@@ -10,6 +12,7 @@ import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
 
 import java.util.List;
+import java.util.Properties;
 
 public class ViewTestsClientController {
 
@@ -35,13 +38,13 @@ public class ViewTestsClientController {
     private TestMapper tmapper;
 
     /**
-     * Creates an instance of UpdateDataController
+     * Creates an instance of ViewTestsClientController
      */
     public ViewTestsClientController() {
         this(App.getInstance().getCompany());
     }
     /**
-     * Creates an instance of UpdateDataController receiving the company
+     * Creates an instance of ViewTestsClientController receiving the company
      * @param company The company
      */
     public ViewTestsClientController(Company company) {
@@ -55,9 +58,31 @@ public class ViewTestsClientController {
      * It gets a list of Clients with at least one test validated
      * @return a Dto list of Clients with at least one test validated
      */
-    public List<ClientDTO>  getCLientslist () {
+    private List<ClientDTO>  getCLientslist () {
         tstore = company.getTestStore();
         return clMapper.toDto(tstore.getClientWithTestsValidated());
+    }
+
+    public List<ClientDTO> getClientListByTin() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        List<ClientDTO> list = getCLientslist();
+
+        Properties props = App.getInstance().getProps();
+        String algorithm = props.getProperty("Controller.SortByTin.Class");
+        Class<?> oClass = Class.forName(algorithm);
+        SortByTin sort = (SortByTin) oClass.newInstance();
+
+        return sort.compare(list);
+    }
+
+    public List<ClientDTO> getClientsListByAlphabeticalOrder() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        List<ClientDTO> list = getCLientslist();
+
+        Properties props = App.getInstance().getProps();
+        String algorithm = props.getProperty("Controller.SortAlphabetically.Class");
+        Class<?> oClass = Class.forName(algorithm);
+        SortAlphabetically sort = (SortAlphabetically) oClass.newInstance();
+
+        return sort.compare(list);
     }
 
     /**
