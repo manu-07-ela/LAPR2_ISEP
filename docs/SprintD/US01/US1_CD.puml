@@ -1,41 +1,87 @@
 @startuml
-skinparam classAttributeIconSize 0
 
+
+package ui {
 class ViewResultsUI{}
-
-class ViewResultsController{
-+getTestList()
-+showTestResults(selectedTest)
 }
 
+package Controller{
+class ViewResultsController{
++getTestList()
++getUserSession()
++showTestResults(selectedTest)
+}
+}
+
+package model{
 class Company{
 +getTestStore()
 }
+class Test{
++getInternalCode()
++getDescription()
++getTestParameterList()
+}
+class TestParameter{
+-parameterName
+-testParameterResult
+-testParameterMetric
+-testParameterMinRefValue
+-testParameterMaxRefValue
+-refValueMetric
+--
++getParameterName()
++getParameterResult()
++getParameterMetric()
++getParameterMinRefValue()
++getParameterMaxRefValue()
++getRefValueMetric()
+}
+class MedicalReport{}
+class Client{}
+}
 
+
+
+package store{
 class TestStore{
 +getClientTestsList()
 +orderClientTestsByRegistrationDate()
 +getTestByInternalCode(code)
 }
+}
 
+package mappers{
 class TestMapper{
 +toDto(testList)
 }
-
-class Test{
-+getInternalCode()
-+getDescription()
-}
-
-class TestDto{
-List<TestDto> testListDto
---
-+create(testInternalCode,testDescription)
-}
-
 class TestResultMapper{
 +toDto(test)
 }
+class TestParameterMapper {
++toDTO(testParametersList)
+}
+}
 
-class TestResultDto{}
+
+package dto{
+class TestDto{
+-testInternalCode
+-testDescription
+}
+class TestResultDto{
+-testParametersListDto
+-medicalReport
+}
+}
+
+
+Test "1..*" -- "1" Client : associated a >
+Test "1" ---"1" MedicalReport : request >
+Test "1" ---"1..*" TestParameter : requests analysis of >
+
+
+
+
+
 @enduml
