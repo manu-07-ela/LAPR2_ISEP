@@ -5,7 +5,9 @@ actor "Administrator" as ADMIN
 
 participant ": ImportFileUI" as UI
 participant ": ImportFileController" as CTRL
-participant ": Company" as COMP
+participant ": FileReader" as reader
+participant ": ClientStore" as clientStr
+participant "client : Client" as Client
 
 activate ADMIN
 ADMIN -> UI : Initiates the process of Importing Clinical Tests
@@ -15,16 +17,32 @@ deactivate UI
 
 ADMIN -> UI : Introduces the File's Path
 activate UI
-UI -> CTRL :
-activate CTRL
-deactivate CTRL
+
 UI --> ADMIN : Requests confirmation
 deactivate UI
 
-ADMIN -> UI : asks to evaluate performance
+ADMIN -> UI : Confirms the data
 activate UI
-UI -> CTRL :
+UI -> CTRL : loadFile(file)
 activate CTRL
+CTRL -> reader : readFile(file)
+activate reader
+reader -> reader : line = readLine()
+activate reader
+deactivate reader
+reader -> reader : lineContent = split()
+activate reader
+deactivate reader
+reader -> clientStr : getClientbytin(lineContent[5])
+activate clientStr
+clientStr --> reader : client
+deactivate clientStr
+alt client = null
+reader --> Client :  create(lineContent[8], lineContent[3], lineContent[4], lineContent[6], lineContent[5], lineContent[7], lineContent[9])
+activate Client
+deactivate Client
+end
+deactivate reader
 deactivate CTRL
 UI --> ADMIN : Informs the operation sucess.
 deactivate UI
