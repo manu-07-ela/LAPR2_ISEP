@@ -3,10 +3,12 @@ package app.adapter;
 
 
 import app.adapter.interfaces.ExternalModuleReferencesValue;
+import app.controller.App;
 import app.domain.model.testrelated.RefValue;
 import com.example1.ExternalModule3API;
 
 import java.io.Serializable;
+import java.util.Properties;
 
 public class ExternalModule3APIAdapter implements ExternalModuleReferencesValue, Serializable {
 
@@ -18,9 +20,12 @@ public class ExternalModule3APIAdapter implements ExternalModuleReferencesValue,
     @Override
     public RefValue getRefValue(String parameterId) {
         ExternalModule3API externalAPI = new ExternalModule3API();
-        String metric = externalAPI.usedMetric(parameterId, 12345);
-        double minValue = externalAPI.getMinReferenceValue(parameterId, 12345);
-        double maxValue = externalAPI.getMaxReferenceValue(parameterId, 12345);
+        Properties props = App.getInstance().getProps();
+        String acessKey = props.getProperty("accessKey");
+        int accessKey = Integer.parseInt(acessKey);
+        String metric = externalAPI.usedMetric(parameterId, accessKey);
+        double minValue = externalAPI.getMinReferenceValue(parameterId, accessKey);
+        double maxValue = externalAPI.getMaxReferenceValue(parameterId, accessKey);
         return new RefValue(metric,minValue,maxValue);
     }
 
