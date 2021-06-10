@@ -160,7 +160,7 @@ public class LoginUi {
             stageClient = new Stage();
             stageClient.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\ClientUi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ClientUi.fxml"));
             Parent root;
 
             root = loader.load();

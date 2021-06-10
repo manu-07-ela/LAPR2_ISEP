@@ -6,7 +6,6 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -26,24 +25,25 @@
          <children>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="400.0">
                <children>
-                  <ImageView fitHeight="65.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="54.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/LogoManyLabs.png" />
                      </image>
                      <HBox.margin>
-                        <Insets right="20.0" />
+                        <Insets right="10.0" />
                      </HBox.margin>
                   </ImageView>
                   <Label style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Update your personal data" textFill="#1a7180">
                      <font>
                         <Font name="System Bold" size="24.0" />
-                     </font></Label>
+                     </font>
+                  </Label>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <Separator prefWidth="200.0" styleClass="shadow" stylesheets="@../styles/Styles.css">
+            <Separator prefWidth="200.0">
                <padding>
                   <Insets top="7.0" />
                </padding>
@@ -66,12 +66,13 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeName" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Name " style="-fx-background-color: rgba(0,0,0,0);">
+                  <TextField fx:id="writeName" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Insert the new Name " style="-fx-background-color: rgba(0,0,0,0); -fx-font-size: 10; -fx-font-style: italic;">
                      <font>
                         <Font size="10.0" />
-                     </font></TextField>
-                  <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveName" mnemonicParsing="false" onMouseClicked="#saveNameClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
+                     </font>
+                  </TextField>
+                  <Pane prefHeight="50.0" prefWidth="50.0" />
+                  <Button fx:id="saveName" minWidth="49.0" mnemonicParsing="false" onMouseClicked="#saveNameClick" prefHeight="26.0" prefWidth="49.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -87,7 +88,7 @@
                   <Insets bottom="15.0" top="15.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="389.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
                   <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Citizen Card " textFill="#0f3648">
                      <font>
@@ -105,12 +106,13 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeCitizenCard" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Citizen card" style="-fx-background-color: rgba(0,0,0,0);">
+                  <TextField fx:id="writeCitizenCard" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Insert the new Citizen card" style="-fx-background-color: rgba(0,0,0,0); -fx-font-size: 10; -fx-font-style: italic;">
                      <font>
                         <Font size="10.0" />
-                     </font></TextField>
-                  <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveCitizenCard" mnemonicParsing="false" onMouseClicked="#saveCitizenCardClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
+                     </font>
+                  </TextField>
+                  <Pane prefHeight="50.0" prefWidth="50.0" />
+                  <Button fx:id="saveCitizenCard" mnemonicParsing="false" onMouseClicked="#saveCitizenCardClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -144,12 +146,13 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeNhsCode" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new NHS Code " style="-fx-background-color: rgba(0,0,0,0);">
+                  <TextField fx:id="writeNhsCode" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Insert the new NHS Code " style="-fx-background-color: rgba(0,0,0,0); -fx-font-size: 10; -fx-font-style: italic;">
                      <font>
                         <Font size="10.0" />
-                     </font></TextField>
-                  <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveNhsCode" mnemonicParsing="false" onMouseClicked="#saveNhsCodeClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
+                     </font>
+                  </TextField>
+                  <Pane prefHeight="50.0" prefWidth="50.0" />
+                  <Button fx:id="saveNhsCode" mnemonicParsing="false" onMouseClicked="#saveNhsCodeClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -183,12 +186,13 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeBirthDate" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Birth date " style="-fx-background-color: rgba(0,0,0,0);">
+                  <TextField fx:id="writeBirthDate" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Insert the new Birth date " style="-fx-background-color: rgba(0,0,0,0); -fx-font-size: 10; -fx-font-style: italic;">
                      <font>
                         <Font size="10.0" />
-                     </font></TextField>
-                  <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveBirthDate" mnemonicParsing="false" onMouseClicked="#saveBirthDateClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
+                     </font>
+                  </TextField>
+                  <Pane prefHeight="50.0" prefWidth="50.0" />
+                  <Button fx:id="saveBirthDate" mnemonicParsing="false" onMouseClicked="#saveBirthDateClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 10; -fx-font-weight: bold;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -219,12 +223,13 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeSex" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Sex" style="-fx-background-color: rgba(0,0,0,0);">
+                  <TextField fx:id="writeSex" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Insert the new Sex" style="-fx-background-color: rgba(0,0,0,0); -fx-font-size: 10; -fx-font-style: italic;">
                      <font>
                         <Font size="10.0" />
-                     </font></TextField>
-                  <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveSex" mnemonicParsing="false" onMouseClicked="#saveSexClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                     </font>
+                  </TextField>
+                  <Pane prefHeight="50.0" prefWidth="50.0" />
+                  <Button fx:id="saveSex" mnemonicParsing="false" onMouseClicked="#saveSexClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -258,12 +263,13 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeTin" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new TIN" style="-fx-background-color: rgba(0,0,0,0);">
+                  <TextField fx:id="writeTin" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Insert the new TIN" style="-fx-background-color: rgba(0,0,0,0); -fx-font-size: 10; -fx-font-style: italic;">
                      <font>
                         <Font size="10.0" />
-                     </font></TextField>
-                  <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveTin" mnemonicParsing="false" onMouseClicked="#saveTinClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                     </font>
+                  </TextField>
+                  <Pane prefHeight="50.0" prefWidth="50.0" />
+                  <Button fx:id="saveTin" mnemonicParsing="false" onMouseClicked="#saveTinClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -297,12 +303,13 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writeEmail" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Email" style="-fx-background-color: rgba(0,0,0,0);">
+                  <TextField fx:id="writeEmail" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Insert the new Email" style="-fx-background-color: rgba(0,0,0,0); -fx-font-size: 10; -fx-font-style: italic;">
                      <font>
                         <Font size="10.0" />
-                     </font></TextField>
-                  <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="saveEmail" mnemonicParsing="false" onMouseClicked="#saveEmailClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                     </font>
+                  </TextField>
+                  <Pane prefHeight="50.0" prefWidth="50.0" />
+                  <Button fx:id="saveEmail" mnemonicParsing="false" onMouseClicked="#saveEmailClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -336,12 +343,13 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <TextField fx:id="writePhoneNumber" alignment="CENTER" prefHeight="23.0" prefWidth="170.0" promptText="Isert the new Phone Number" style="-fx-background-color: rgba(0,0,0,0);">
+                  <TextField fx:id="writePhoneNumber" alignment="CENTER" prefHeight="25.0" prefWidth="181.0" promptText="Insert the new Phone Number " style="-fx-background-color: rgba(0,0,0,0); -fx-font-size: 10; -fx-font-style: italic;">
                      <font>
                         <Font size="10.0" />
-                     </font></TextField>
-                  <Pane prefHeight="45.0" prefWidth="82.0" />
-                  <Button fx:id="savePhoneNumber" mnemonicParsing="false" onMouseClicked="#savePhoneNumberClick" prefHeight="23.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                     </font>
+                  </TextField>
+                  <Pane prefHeight="50.0" prefWidth="50.0" />
+                  <Button fx:id="savePhoneNumber" mnemonicParsing="false" onMouseClicked="#savePhoneNumberClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-font-size: 10; -fx-font-weight: bold; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
