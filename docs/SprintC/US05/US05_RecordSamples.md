@@ -163,7 +163,7 @@ automatically generated using an external API.
 |                | ...save the sample in system?                                   | sampleStore                   | **IE:** Know all the samples in system. | 
 |                | ...associate the sample with the test?                          | Test                          | **IE:** The test owns your on data. |
 |                | ...changing the status of the test?                             | Test                          | **IE:** Only the test knows our state and it's the only one capable of the change it. |
-|                | ...generate the data end time for sample collection?            | Test                          | **IE:** The test owns our on data. |
+|                | ...generate the data and time for sample collection?            | Test                          | **IE:** The test owns our on data. |
 | Step 8  		 | ... informing operation success?                                | RecordSampleUI                | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 
