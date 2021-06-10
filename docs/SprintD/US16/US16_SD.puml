@@ -1,0 +1,42 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADMIN
+
+participant ": OverviewUI" as UI
+participant ": OverviewController" as CTRL
+participant ": Company" as COMP
+
+activate ADMIN
+ADMIN -> UI : initiates the process of overviewing the tests
+activate UI
+UI --> ADMIN : requests to delimit the period of dates to analyze
+deactivate UI
+
+ADMIN -> UI : types the dates and asks to see relative information
+activate UI
+UI -> CTRL :
+activate CTRL
+deactivate CTRL
+UI --> ADMIN : shows the relative information ( number of clients, number of tests Waiting for results,\n the number of tests Waiting for diagnosis, total number of tests processed \n in the laboratory in each day, week, month and year
+deactivate UI
+
+ADMIN -> UI : asks to evaluate performance
+activate UI
+UI -> CTRL :
+activate CTRL
+deactivate CTRL
+UI --> ADMIN : shows available algorithms
+deactivate UI
+
+ADMIN -> UI : selects the algorithm and asks for statistics and graphs
+activate UI
+UI -> CTRL :
+activate CTRL
+deactivate CTRL
+UI --> ADMIN : shows statistics and graphs
+deactivate UI
+
+deactivate ADMIN
+
+@enduml

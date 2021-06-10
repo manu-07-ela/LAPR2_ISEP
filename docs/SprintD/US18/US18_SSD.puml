@@ -1,0 +1,63 @@
+@startuml
+autonumber
+actor "Administrator" as Admin
+
+activate Admin
+Admin -> ":System" : Initiates the process of sending a Covid-19 report to NHS.
+activate ":System"
+":System" --> Admin : Request the current day
+deactivate ":System"
+
+Admin -> ":System" : Introduce the current day
+activate ":System"
+":System" --> Admin : Show the type of data (day or week)  and ask to select one
+deactivate ":System"
+
+Admin-> ":System" : Select the desired type of data
+activate ":System"
+
+
+":System" --> Admin :  Request the number of historical points
+deactivate ":System"
+
+Admin-> ":System" : Introduce the number of historical points
+activate ":System"
+":System" --> Admin : Request the dates interval
+deactivate ":System"
+
+Admin-> ":System" : Defines the dates interval to fit the model
+activate ":System"
+":System" --> Admin : Show available regression models and ask to select one
+deactivate ":System"
+
+Admin-> ":System" : Select the desired regression model
+activate ":System"
+alt regression model = Simple linear regression
+":System" --> Admin : Show the available independent variables and ask to select one
+deactivate ":System"
+Admin-> ":System" : Select the desired independent variable
+activate ":System"
+end
+
+":System" --> Admin : Request the significance level
+deactivate ":System"
+
+Admin-> ":System" : Introduce the significance level
+activate ":System"
+":System" --> Admin : Request the confidence level
+deactivate ":System"
+
+Admin-> ":System" : Introduce the confidence level
+activate ":System"
+":System" --> Admin : Presents all data and requests confirmation
+deactivate ":System"
+
+
+Admin-> ":System" : Confirms the data.
+activate ":System"
+":System" --> Admin : Informs operation success.
+deactivate ":System"
+
+deactivate Admin
+
+@enduml

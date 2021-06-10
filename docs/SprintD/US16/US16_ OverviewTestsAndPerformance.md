@@ -4,7 +4,6 @@
 
 *In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.*
 
-
 ### 1.1. User Story Description
 
 *As a laboratory coordinator, I want to have an overview of all the tests performed by Many Labs and analyse the overall performance of the company*
@@ -27,10 +26,13 @@ the contiguous subsequence of the initial sequence is, whose sum of their entrie
 will show the time interval, in such week, when the company was less effective in responding. So,
 the application should implement a brute-force algorithm (an algorithm which examines each
 subsequence) to determine the contiguous subsequence with maximum sum, for any interval of time
-registered. The implemented algorithm should be analysed in terms of its worst-case time complexity, 
+registered. 
+
+>The implemented algorithm should be analysed in terms of its worst-case time complexity, 
 and it should be compared to a provided benchmark algorithm. The algorithm to be
 used by the application must be defined through a configuration file.
-The complexity analysis must be accompanied by the observation of the execution time of the
+
+>The complexity analysis must be accompanied by the observation of the execution time of the
 algorithms for inputs of variable size in order to observe the asymptotic behaviour. The time
 complexity analysis of the algorithms should be properly documented in the application user
 manual (in the annexes) that must be delivered with the application.
@@ -64,6 +66,10 @@ manual (in the annexes) that must be delivered with the application.
 > **Question:** "For example one week (6 working days with 12 working hours)"  In this case, is there any specifc hour to start filling the 144 integers list?
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8906) A working day is from 8h00 to 20h00.
+
+> **Question:** After the Laboratory Coordinator types the requested data and views the analysis of the company performance, should he be able to re-type different data and view the results for a different interval of time and/or algorithm? To make the re-type of the data easier, should there be a "clear" button, that is responsible for clearing the text fields for data entry?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8901) The laboratory coordinator should be able to explore different parameter values (settings) and check the results. Each team should prepare a simple and intuitive interface that requires a minimum number of interactions with the user.
 
 > **Question:**
 >
