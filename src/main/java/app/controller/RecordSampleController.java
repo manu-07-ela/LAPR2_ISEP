@@ -107,9 +107,9 @@ public class RecordSampleController {
      */
     public BarcodeDomain generateBarcode() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, BarcodeException {
         DecimalFormat df = new DecimalFormat("00000000000");
+        instancesOfBarcode++;
         String barcodeNumber = df.format(instancesOfBarcode);
         ExternalModuleBarcode api = getExternalModule();
-        instancesOfBarcode++;
         return api.generateBarcode(barcodeNumber);
     }
 
