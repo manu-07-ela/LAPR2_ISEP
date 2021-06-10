@@ -13,7 +13,7 @@ public class ClientDTO {
     /**
      * Client's citizen card number
      */
-    private final String citizencardnumber;
+    private final String citizenCardNumber;
 
     /**
      * Client's National Healthcare Service number
@@ -38,7 +38,7 @@ public class ClientDTO {
     /**
      * Client's phone number
      */
-    private final String phonenumber;
+    private final String phoneNumber;
 
     /**
      * Client's e-mail
@@ -48,22 +48,22 @@ public class ClientDTO {
     /**
      * Creates a new instance of ClientDto with the following attributes: name, citizencardnumber, nhs, date, sex, tin, phonenumber, email
      * @param name name of Client
-     * @param citizencardnumber Citizen card number of Client
+     * @param citizenCardNumber Citizen card number of Client
      * @param nhs National HealthCare Service number of Client
      * @param date Birth-date of Client
      * @param sex Gender of Client
      * @param tin Tax identification number of Client
-     * @param phonenumber Phone number of Client
+     * @param phoneNumber Phone number of Client
      * @param email E-mail of Client
      */
-    public ClientDTO(String name, String citizencardnumber, String nhs, String date, String sex, String tin, String phonenumber, String email) {
+    public ClientDTO(String name, String citizenCardNumber, String nhs, String date, String sex, String tin, String phoneNumber, String email) {
         this.name = name;
-        this.citizencardnumber = citizencardnumber;
+        this.citizenCardNumber = citizenCardNumber;
         this.nhs = nhs;
         this.date = date;
         this.sex = sex;
         this.tin = tin;
-        this.phonenumber = phonenumber;
+        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
@@ -79,8 +79,8 @@ public class ClientDTO {
      * Get the Citizen card number of the Client
      * @return the Citizen card number of ClientDto
      */
-    public String getCitizencardnumber() {
-        return citizencardnumber;
+    public String getCitizenCardNumber() {
+        return citizenCardNumber;
     }
 
     /**
@@ -119,8 +119,8 @@ public class ClientDTO {
      * Get the phone number of the Client
      * @return the phone number of ClientDto
      */
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     /**

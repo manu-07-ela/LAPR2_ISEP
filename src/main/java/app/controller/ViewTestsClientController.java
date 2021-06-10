@@ -2,7 +2,6 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.users.Client;
-import app.domain.store.ClientStore;
 import app.domain.store.TestStore;
 import app.mappers.ClientMapper;
 import app.mappers.TestMapper;
@@ -66,7 +65,7 @@ public class ViewTestsClientController {
      * @return a Dto list of tests of a Client
      */
     public List<TestDTO> getTestsByClient(ClientDTO selectedClient){
-        return tmapper.toDto(tstore.getClientTestsList(selectedClient.getPhonenumber()));
+        return tmapper.toDto(tstore.getClientTestsList(selectedClient.getPhoneNumber()));
     }
 
 

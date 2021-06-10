@@ -22,7 +22,7 @@ public class ClientDTOTest {
 
     @Test
     public void getCitizencardnumber() {
-        String result = clDto.getCitizencardnumber();
+        String result = clDto.getCitizenCardNumber();
         Assert.assertEquals("1234567891234567",result);
     }
 
@@ -52,7 +52,7 @@ public class ClientDTOTest {
 
     @Test
     public void getPhonenumber() {
-        String result = clDto.getPhonenumber();
+        String result = clDto.getPhoneNumber();
         Assert.assertEquals("12345678910",result);
     }
 

@@ -38,8 +38,10 @@ class SeeTestsUI {
 }
 
 class SeeTestsController {
-+getClientList()
-+getTestByClient(selectedClient)
++getClientsWithValidatedTests()
++orderClientList(clientListDto)
++getTestAssociatedWithClient(selectedClient)
+
 
 }
 
@@ -70,7 +72,6 @@ class TestDTO{
 }
 
 class Company{
-+getClientStore()
 +getTestStore()
 
 }
@@ -85,7 +86,8 @@ class ClientMapper{
 }
 
 class TestStore{
-+getTestsByClient(selectedClient)
++getClientsWithValidatedTests()
++getTestAssociatedWithClient(selectedClient)
 
 }
 class Client {

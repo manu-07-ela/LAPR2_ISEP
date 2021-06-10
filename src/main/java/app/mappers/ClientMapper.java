@@ -17,7 +17,7 @@ public class ClientMapper {
      * @return an instance of Client
      */
     public Client toModel(ClientDTO cl){
-        return new Client(cl.getName(),cl.getCitizencardnumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhonenumber(),cl.getEmail());
+        return new Client(cl.getName(),cl.getCitizenCardNumber(),cl.getNhs(),cl.getDate(),cl.getSex(),cl.getTin(),cl.getPhoneNumber(),cl.getEmail());
     }
 
     /**
