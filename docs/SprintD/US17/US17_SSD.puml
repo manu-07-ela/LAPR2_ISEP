@@ -6,10 +6,10 @@ activate User
 User -> ":System" : Initiates the process of Importing Clinical Tests
 activate ":System"
 
-":System" --> User : Asks for the Files Path
+":System" --> User : Asks for the File's Path
 deactivate ":System"
 
-User -> ":System" : Introduces the File Path
+User -> ":System" : Introduces the File's Path
 activate ":System"
 
 ":System" --> User : Requests confirmation

@@ -10,10 +10,10 @@ participant ": Company" as COMP
 activate ADMIN
 ADMIN -> UI : Initiates the process of Importing Clinical Tests
 activate UI
-UI --> ADMIN : Asks for the Files Path
+UI --> ADMIN : Asks for the File's Path
 deactivate UI
 
-ADMIN -> UI : Introduces the File Path
+ADMIN -> UI : Introduces the File's Path
 activate UI
 UI -> CTRL :
 activate CTRL
