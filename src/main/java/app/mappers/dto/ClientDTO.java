@@ -131,4 +131,17 @@ public class ClientDTO {
         return email;
     }
 
+    @Override
+    public String toString() {
+        return "ClientDTO{" +
+                "name='" + name + '\'' +
+                ", citizencardnumber='" + citizencardnumber + '\'' +
+                ", nhs='" + nhs + '\'' +
+                ", date='" + date + '\'' +
+                ", sex='" + sex + '\'' +
+                ", tin='" + tin + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

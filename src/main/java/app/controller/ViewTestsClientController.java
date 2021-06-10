@@ -2,6 +2,7 @@ package app.controller;
 
 import app.adapter.SortAlphabetically;
 import app.adapter.SortByTin;
+import app.adapter.interfaces.Algorithm;
 import app.domain.model.Company;
 import app.domain.model.users.Client;
 import app.domain.store.ClientStore;
@@ -69,7 +70,7 @@ public class ViewTestsClientController {
         Properties props = App.getInstance().getProps();
         String algorithm = props.getProperty("Controller.SortByTin.Class");
         Class<?> oClass = Class.forName(algorithm);
-        SortByTin sort = (SortByTin) oClass.newInstance();
+        Algorithm sort = (Algorithm) oClass.newInstance();
 
         return sort.compare(list);
     }
@@ -80,7 +81,7 @@ public class ViewTestsClientController {
         Properties props = App.getInstance().getProps();
         String algorithm = props.getProperty("Controller.SortAlphabetically.Class");
         Class<?> oClass = Class.forName(algorithm);
-        SortAlphabetically sort = (SortAlphabetically) oClass.newInstance();
+        Algorithm sort = (Algorithm) oClass.newInstance();
 
         return sort.compare(list);
     }
