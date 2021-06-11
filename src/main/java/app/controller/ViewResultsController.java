@@ -59,6 +59,7 @@ public class ViewResultsController {
 
     public List<TestDTO> getTestList(ClientDTO cl){
         List<Test> listTest = tStore.getClientTestsList(cl.getPhoneNumber());
+        listTest = tStore.orderClientTestsByRegistratonDate(listTest);
         return tmapper.toDto(listTest);
     }
 
