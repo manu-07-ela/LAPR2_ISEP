@@ -1,7 +1,5 @@
 package app.domain.model.attributes;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -45,8 +43,6 @@ public class NhsCode implements Serializable {
          * @param nhscode the National Healthcare Service code
          */
         private void nhscodeValidation(String nhscode) {
-            if (!StringUtils.isNumeric(nhscode))
-                throw new IllegalArgumentException("National Healthcare Service code is numeric only.");
             if (nhscode.length() != 12) {
                 throw new IllegalArgumentException("The National Healthcare Service code must have 12 digits");
             }

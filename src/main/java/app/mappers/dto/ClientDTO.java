@@ -135,12 +135,12 @@ public class ClientDTO {
     public String toString() {
         return "ClientDTO{" +
                 "name='" + name + '\'' +
-                ", citizenCardNumber='" + citizenCardNumber + '\'' +
+                ", citizencardnumber='" + citizenCardNumber + '\'' +
                 ", nhs='" + nhs + '\'' +
                 ", date='" + date + '\'' +
                 ", sex='" + sex + '\'' +
                 ", tin='" + tin + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", phonenumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

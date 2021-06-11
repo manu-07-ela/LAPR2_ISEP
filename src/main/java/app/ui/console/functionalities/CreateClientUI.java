@@ -5,6 +5,7 @@ import app.mappers.dto.ClientDTO;
 import app.ui.console.utils.Utils;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 /**
  * Represents an interface with the user to be able to register a client
@@ -45,6 +46,10 @@ public class CreateClientUI implements Runnable {
 
                 String name = Utils.readLineFromConsole("Name: ");
                 String citizencardnumber = Utils.readLineFromConsole("Citizen card number: ");
+                assert citizencardnumber != null;
+                if (citizencardnumber.length()!=16){
+                    citizencardnumber=String.format("%0"+ (16 - citizencardnumber.length() )+"d%s",0 ,citizencardnumber);
+                }
                 String nhs = Utils.readLineFromConsole("National Healthcare Service number: ");
                 String date = Utils.readLineFromConsole("Birth date: ");
                 String sex = Utils.readLineFromConsole("Gender: ");

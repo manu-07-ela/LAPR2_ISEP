@@ -71,7 +71,7 @@ public class ViewTestsClientController {
         Class<?> oClass = Class.forName(algorithm);
         Algorithm sort = (Algorithm) oClass.newInstance();
 
-        return sort.compare(list);
+        return sort.orderClientList(list);
     }
 
     public List<ClientDTO> getClientsListByAlphabeticalOrder() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
@@ -82,7 +82,7 @@ public class ViewTestsClientController {
         Class<?> oClass = Class.forName(algorithm);
         Algorithm sort = (Algorithm) oClass.newInstance();
 
-        return sort.compare(list);
+        return sort.orderClientList(list);
     }
 
     /**
@@ -90,8 +90,8 @@ public class ViewTestsClientController {
      * @param selectedClient the Client we want to see his tests
      * @return a Dto list of tests of a Client
      */
-    public List<TestDTO> getTestsByClient(ClientDTO selectedClient){
-        return tmapper.toDto(tstore.getClientTestsList(selectedClient.getPhoneNumber()));
+    public List<TestDTO> getAssociatedWithClient(ClientDTO selectedClient){
+        return tmapper.toDto(tstore.getTestListAssociatedWithClient(selectedClient));
     }
 
 
