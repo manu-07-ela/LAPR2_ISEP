@@ -6,6 +6,7 @@ import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -14,10 +15,12 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class ViewTestResultUi {
+public class ViewTestResultUi implements Initializable {
 
     /**
      * Represents a instance of view results controller
@@ -41,7 +44,8 @@ public class ViewTestResultUi {
 
     public void setLabelUI(Stage stageViewResult) throws IOException {
         this.stage = stageViewResult;
-        //getTestsList();
+        getClient();
+        getTestsList();
         showTestsList();
     }
 
@@ -50,26 +54,26 @@ public class ViewTestResultUi {
     }
 
     public void getTestsList(){
-       // testsList = viewResultsctrl.getTestList(client);
+       testsList = viewResultsctrl.getTestList(client);
     }
 
     public void showTestsList() throws IOException {
-        testsList=getData();
+        //testsList=getData();
         int row = 1;
         try {
             for (int i=0; i<testsList.size();i++) {
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("main/resources/fxml/Item.fxml"));
-                HBox hBox = fxmlLoader.load();
+                fxmlLoader.setLocation(getClass().getResource("/fxml/Item.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
 
                 ItemController itemController = fxmlLoader.getController();
                 itemController.setData(testsList.get(i));
 
-                int j=i;
+                grid.prefHeight(grid.getPrefHeight()+60);
+                grid.add(anchorPane, 0, row);
 
-                grid.prefHeight(grid.getPrefHeight()+55);
-                grid.add(hBox, 0, j++ );
+                row++;
 
             }
         } catch (IOException e) {
@@ -81,7 +85,7 @@ public class ViewTestResultUi {
         List<TestDTO> tests = new ArrayList<>();
         TestDTO test;
 
-        for (int i=0;i<20;i++){
+        for (int i=0;i<10;i++){
             test=new TestDTO("111111111111","seringa");
             tests.add(test);
         }
@@ -89,6 +93,8 @@ public class ViewTestResultUi {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+    }
 }

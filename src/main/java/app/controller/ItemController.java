@@ -18,9 +18,6 @@ public class ItemController {
     @FXML
     private Label testDescription;
 
-    @FXML
-    private HBox hBox;
-
     private TestDTO test;
 
     public void setData(TestDTO test){
