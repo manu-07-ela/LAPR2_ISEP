@@ -8,7 +8,7 @@ import java.util.List;
 public class SortByTin implements Algorithm {
 
     @Override
-    public List<ClientDTO> compare(List<ClientDTO> lista) {
+    public List<ClientDTO> orderClientList (List<ClientDTO> lista) {
         for (int i = 0;i<lista.size();i++) {
             for (int j=1;j< lista.size();j++){
                 if (Integer.parseInt(lista.get(i).getTin()) < Integer.parseInt(lista.get(j).getTin()) ){
