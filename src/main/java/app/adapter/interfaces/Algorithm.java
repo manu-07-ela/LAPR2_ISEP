@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface Algorithm {
 
-    public List<ClientDTO> compare (List<ClientDTO> list);
+    public List<ClientDTO> orderClientList (List<ClientDTO> list);
 
 }

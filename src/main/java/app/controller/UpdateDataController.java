@@ -27,16 +27,18 @@ public class UpdateDataController {
      */
     private ClientMapper clMapper;
     /**
-     * Representes an instance of Client
+     * Represents an instance of Client
      */
     private Client client;
+
 
 
     /**
      * Creates an instance of UpdateDataController
      */
     public UpdateDataController() {
-        this(App.getInstance().getCompany());
+        this.company = App.getInstance().getCompany();
+        this.store = company.getClientStore();
     }
     /**
      * Creates an instance of UpdateDataController receiving the company
@@ -63,7 +65,7 @@ public class UpdateDataController {
      * It updates the Birth Date of the Client
      * @param birthDate the Birth Date
      */
-    public  void updateBirthDate(String birthDate){
+    public  void updateBirthDate(Client client, String birthDate){
         store.updateBirthDate(client, birthDate);
     }
 
@@ -71,7 +73,7 @@ public class UpdateDataController {
      * It updates the Citizen Card Number of the Client
      * @param citizenCard the Citizen Card Number of the Client
      */
-    public  void updateCitizenCard(String citizenCard){
+    public  void updateCitizenCard(Client client, String citizenCard){
         store.updateCitizenCard(client, citizenCard);
     }
 
@@ -79,7 +81,7 @@ public class UpdateDataController {
      * It updates the email of the Client
      * @param email the email of the Client
      */
-    public  void updateEmail(String email){
+    public  void updateEmail(Client client, String email){
         store.updateEmail(client, email);
     }
 
@@ -87,7 +89,7 @@ public class UpdateDataController {
      * It updates the name of the Client
      * @param name the name of the Client
      */
-    public  void updateName(String name){
+    public void updateName(Client client, String name){
         store.updateName(client, name);
     }
 
@@ -95,7 +97,7 @@ public class UpdateDataController {
      * It updates the NHS Code of the Client
      * @param nhsCode the NHS Code of the Client
      */
-    public  void updateNhsCode(String nhsCode){
+    public  void updateNhsCode(Client client, String nhsCode){
         store.updateNhsCode(client, nhsCode);
     }
 
@@ -103,7 +105,7 @@ public class UpdateDataController {
      * It updates the sex of the Client
      * @param sex the sex of the Client
      */
-    public  void updateSex(String sex){
+    public  void updateSex(Client client, String sex){
         store.updateSex(client, sex);
     }
 
@@ -111,7 +113,7 @@ public class UpdateDataController {
      * It updates the TIN of the Client
      * @param tin the TIN of the Client
      */
-    public  void updateTin(String tin){
+    public  void updateTin(Client client, String tin){
         store.updateTin(client, tin);
     }
 
@@ -119,5 +121,13 @@ public class UpdateDataController {
      * It updates the Phone Number of the Client
      * @param phoneNumber the Phone Number of the Client
      */
-    public void updatePhoneNumber (String phoneNumber){store.updatePhoneNumber(client, phoneNumber);}
+    public void updatePhoneNumber (Client client, String phoneNumber){store.updatePhoneNumber(client, phoneNumber);}
+
+    public void  clientData(Client client){
+        System.out.println(client);
+    }
+
+    public Client getClientByEmail(String email){
+       return store.getClientByEmail(email);
+    }
 }

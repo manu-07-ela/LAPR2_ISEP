@@ -43,7 +43,7 @@ public class Serialization implements Serializable {
     }
 
     /**
-     * Load aplication pot data.
+     * Load application pot data.
      *
      * @param filePath the file path
      * @return the application pot

@@ -42,13 +42,22 @@ deactivate UI
 
 CCT -> UI : chooses an option
 activate UI
-UI->CONTROLLER : orderClientList(clientListDto)
+opt option == "Tin"
+UI->CONTROLLER : getClientListByTin(clientListDto)
 activate CONTROLLER
 CONTROLLER->ALGORITHM : orderedClientListDto = orderClientList(clientListDto)
 activate ALGORITHM
 ALGORITHM-->CONTROLLER : orderedClientListDto
 deactivate ALGORITHM
 deactivate CLIENTMAPPER
+else option == "Name"
+UI->CONTROLLER : getClientListByTin(clientListDto)
+CONTROLLER->ALGORITHM : orderedClientListDto = orderClientList(clientListDto)
+activate ALGORITHM
+ALGORITHM-->CONTROLLER : orderedClientListDto
+deactivate ALGORITHM
+deactivate CLIENTMAPPER
+end
 CONTROLLER-->UI : orderedClientListDto
 deactivate CONTROLLER
 UI--> CCT : shows the ordered customer list and asks you to select one

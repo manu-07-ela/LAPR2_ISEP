@@ -3,8 +3,10 @@ package app.ui.console.functionalities;
 import app.controller.ViewTestsClientController;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.ParameterDTO;
+import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ViewTestsClientUI implements Runnable{
@@ -36,8 +38,15 @@ public class ViewTestsClientUI implements Runnable{
 
     public void viewtestsclient() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         List<ClientDTO> clist = new ArrayList<>();
-        clist=viewTestsctrl.getClientsListByAlphabeticalOrder();
-        System.out.println("Do you want to order the clients list by Tax identification number or by Name?");
+
+        List<String>  sortlist  = new ArrayList(Arrays.asList("Tin","Name"));
+        String choice = (String) Utils.showAndSelectOne(sortlist,"Do you want to order the clients list by Tax identification number or by Name?");
+        if (choice.equals("Tin")){
+            clist=viewTestsctrl.getClientListByTin();
+        }else if (choice.equals("Name")){
+            clist=viewTestsctrl.getClientsListByAlphabeticalOrder();
+        }
+
         for (ClientDTO cl : clist) {
             System.out.println(cl);
         }

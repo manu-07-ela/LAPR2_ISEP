@@ -4,7 +4,6 @@ import app.domain.model.attributes.NhsCode;
 
 
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
-import app.domain.model.laboratories.Laboratory;
 import app.mappers.dto.ClientDTO;
 import org.apache.commons.lang3.StringUtils;
 
@@ -234,10 +233,10 @@ public class TestStore implements Serializable {
         return lista;
     }
 
-    public List<Test> getClientTestsList(String phoneNumber){
+    public List<Test> getTestListAssociatedWithClient(ClientDTO selectedClient){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
-            if (t.getCl().getPhonenumber().equals(phoneNumber)) {
+            if (t.getCl().getPhoneNumber().equals(selectedClient.getPhoneNumber())) {
                 test.add(t);
             }
         }

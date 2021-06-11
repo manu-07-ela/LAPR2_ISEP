@@ -4,6 +4,7 @@ package app.ui.gui;
 import app.Serialization;
 import app.controller.App;
 import app.controller.AuthController;
+import app.domain.model.users.Client;
 import app.ui.console.MenuItem;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.UserRoleDTO;
@@ -37,9 +38,12 @@ public class LoginUi {
     private LabCoordinatorUi labCoordinatorUi;
     private Stage stageAdminUi;
     private AdmUi adminUi;
+    private Stage stageClinicalCheTec;
+    private  ClinicalChemistryTecUI clinicalChemistryTecUI;
     AuthController ctrl = new AuthController();
     private Stage stageClient;
     private ClientUi clientUI;
+
 
 
     @FXML
@@ -53,6 +57,7 @@ public class LoginUi {
 
     @FXML
     private Label lblInformation;
+    String emailEntered;
 
 
 
@@ -63,7 +68,7 @@ public class LoginUi {
     void login() {
 
         if (attempts > 1) {
-            String emailEntered = txtEmail.getText().trim();
+            emailEntered = txtEmail.getText().trim();
             String passwordEntered = txtPassword.getText();
             boolean success = ctrl.doLogin(emailEntered, passwordEntered);
             if (success) {
@@ -110,6 +115,10 @@ public class LoginUi {
                 adminUi.setLabelUI(stageClient);
 
             }
+            if (role.getId().equals("CLINICAL CHEMISTRY TECHNOLOGIST")){
+                runClinicalCheTec();
+                clinicalChemistryTecUI.setLabelUI(stageClinicalCheTec);
+            }
         }
     }
 
@@ -154,7 +163,7 @@ public class LoginUi {
             stageClient = new Stage();
             stageClient.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\ClientUi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ClientUi.fxml"));
             Parent root;
 
             root = loader.load();
@@ -166,6 +175,7 @@ public class LoginUi {
 
             clientUI = loader.getController();
             stageClient.show();
+            clientUI.emailClient(emailEntered);
 
         }catch (IOException exception){
             System.out.println("Problems reading client menu file \n" + exception);
@@ -193,5 +203,25 @@ public class LoginUi {
             System.out.println("Problems reading admin menu file \n" + ex);
         }
     }
+    private void runClinicalCheTec() {
+        try {
+            stageClinicalCheTec = new Stage();
+            stageClinicalCheTec.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ClinicalChemistryTecUi.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            stageClinicalCheTec.setScene(scene);
+            clinicalChemistryTecUI = loader.getController();
+            stageClinicalCheTec.show();
+        } catch (IOException ex) {
+            System.out.println("Problems reading admin menu file \n" + ex);
+        }
+    }
+
 
 }

@@ -50,12 +50,12 @@
                </HBox.margin>
             </ImageView>
             <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="65.0" prefWidth="94.0" style="-fx-background-color: transparent;" text="Logout" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="21.0" />
-               </font>
                <HBox.margin>
                   <Insets bottom="5.0" />
-               </HBox.margin></Button>
+               </HBox.margin>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font></Button>
          </children>
       </HBox>
    </bottom>
@@ -93,7 +93,7 @@
                   <Insets top="20.0" />
                </padding>
             </VBox>
-            <VBox fx:id="ImportBotton" alignment="CENTER" onMouseClicked="#ImportClickBotton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+            <VBox fx:id="ImportBotton" alignment="CENTER" onMouseClicked="#ImportClickBotton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
                   <Label text="Import">
                      <font>

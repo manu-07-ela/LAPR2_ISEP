@@ -16,6 +16,7 @@ import static java.lang.Integer.parseInt;
  */
 
 public class Client implements Serializable {
+    private static final long serialVersionUID = -4183378503982040686L;
     /**
      * Client's name
      */
@@ -23,7 +24,7 @@ public class Client implements Serializable {
     /**
      * Client's citizen card number
      */
-    private String citizencardnumber;
+    private String citizenCardNumber;
 
     /**
      * Client's National Healthcare Service number
@@ -48,7 +49,7 @@ public class Client implements Serializable {
     /**
      * Client's phone number
      */
-    private String phonenumber;
+    private String phoneNumber;
 
     /**
      * Client's e-mail
@@ -68,20 +69,20 @@ public class Client implements Serializable {
      */
     public Client(String name, String citizenCardNumber, String nhs, String date, String sex, String tin, String phoneNumber, String email) {
         nameValidation(name);
-        citizencardnumberValidation(citizenCardNumber);
+        citizenCardNumberValidation(citizenCardNumber);
         nhsValidation(nhs);
         dateValidation(date);
         sexValidation(sex);
         tinValidation(tin);
-        phonenumberValidation(phoneNumber);
+        phoneNumberValidation(phoneNumber);
         emailValidation(email);
         this.name = name;
-        this.citizencardnumber = citizenCardNumber;
+        this.citizenCardNumber = citizenCardNumber;
         this.nhs = nhs;
         this.date = date;
         this.sex = sex;
         this.tin = tin;
-        this.phonenumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
@@ -97,18 +98,18 @@ public class Client implements Serializable {
      */
     public Client(String name, String citizenCardNumber, String nhs, String date, String tin, String phoneNumber, String email) {
         nameValidation(name);
-        citizencardnumberValidation(citizenCardNumber);
+        citizenCardNumberValidation(citizenCardNumber);
         nhsValidation(nhs);
         dateValidation(date);
         tinValidation(tin);
-        phonenumberValidation(phoneNumber);
+        phoneNumberValidation(phoneNumber);
         emailValidation(email);
         this.name = name;
-        this.citizencardnumber = citizenCardNumber;
+        this.citizenCardNumber = citizenCardNumber;
         this.nhs = nhs;
         this.date = date;
         this.tin = tin;
-        this.phonenumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
@@ -125,7 +126,7 @@ public class Client implements Serializable {
      * @return the Citizen card number of client
      */
     public String getCitizenCardNumber() {
-        return citizencardnumber;
+        return citizenCardNumber;
     }
 
     /**
@@ -164,8 +165,8 @@ public class Client implements Serializable {
      * Get the phone number of a client
      * @return the phone number of client
      */
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     /**
@@ -186,11 +187,11 @@ public class Client implements Serializable {
     }
     /**
      * Sets the Citizen card number of a client
-     * @param citizencardnumber the Citizen card number of a client
+     * @param citizenCardNumber the Citizen card number of a client
      */
-    public void setCitizencardnumber(String citizencardnumber) {
-        citizencardnumberValidation(citizencardnumber);
-        this.citizencardnumber = citizencardnumber;
+    public void setCitizenCardNumber(String citizenCardNumber) {
+        citizenCardNumberValidation(citizenCardNumber);
+        this.citizenCardNumber = citizenCardNumber;
     }
     /**
      * Sets the National Healthcare Service number of a client
@@ -216,6 +217,21 @@ public class Client implements Serializable {
         sexValidation(sex);
         this.sex = sex;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "name='" + name + '\'' +
+                ", citizenCardNumber='" + citizenCardNumber + '\'' +
+                ", nhs='" + nhs + '\'' +
+                ", date='" + date + '\'' +
+                ", sex='" + sex + '\'' +
+                ", tin='" + tin + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
     /**
      * Sets the tax identification number of a client
      * @param tin the tax identification number of a client
@@ -226,11 +242,11 @@ public class Client implements Serializable {
     }
     /**
      * Sets the phone number of a client
-     * @param phonenumber the phone number of a client
+     * @param phoneNumber the phone number of a client
      */
-    public void setPhonenumber(String phonenumber) {
-        phonenumberValidation(phonenumber);
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        phoneNumberValidation(phoneNumber);
+        this.phoneNumber = phoneNumber;
     }
     /**
      * Sets the e-mail of a client
@@ -246,7 +262,7 @@ public class Client implements Serializable {
      * @param name The Client's name
      */
     private void nameValidation(String name){
-        if (StringUtils.isBlank(name)) throw new NullPointerException("Name can't be blank.");
+        if (StringUtils.isEmpty(name)) throw new NullPointerException("Name can't be blank.");
         if (name.length()==0 || name.length()>35){
             throw  new IllegalArgumentException("The name mustn't have 0 or more then 35 characters");
         }
@@ -254,13 +270,15 @@ public class Client implements Serializable {
 
     /**
      * Checks whether the citizen card number associated with the client we intend to register complies with all business rules.
-     * @param citizencardnumber The Client's citizen card number
+     * @param citizenCardNumber The Client's citizen card number
      */
-    private void citizencardnumberValidation(String citizencardnumber){
-        if (!StringUtils.isNumeric(citizencardnumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
-        if (citizencardnumber.length()!=16){
+    private void citizenCardNumberValidation(String citizenCardNumber){
+        if (StringUtils.isEmpty(citizenCardNumber)) throw new NullPointerException("Citizen card number can't be empty");
+        if (!StringUtils.isNumeric(citizenCardNumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
+        if (citizenCardNumber.length()!=16){
             throw  new IllegalArgumentException("The citizen card number must have 16 digits");
         }
+
     }
 
     /**
@@ -268,10 +286,12 @@ public class Client implements Serializable {
      * @param nhs The Client's National Healthcare Service number
      */
     private void nhsValidation(String nhs){
+        if (StringUtils.isEmpty(nhs)) throw new NullPointerException("NHS code can't be empty");
         if (!StringUtils.isNumeric(nhs)) throw new IllegalArgumentException("National Healthcare Service number is numeric only.");
         if (nhs.length()!=10){
             throw  new IllegalArgumentException("The nhs must have 10 digits");
         }
+
     }
 
     /**
@@ -312,25 +332,29 @@ public class Client implements Serializable {
      * @param tin The Client's tax identification number
      */
     private void tinValidation(String tin){
+        if (StringUtils.isEmpty(tin)) throw new NullPointerException("Tax Identification Number can't be empty");
         if (!StringUtils.isNumeric(tin)){
             throw new IllegalArgumentException("Tax identification number is numeric only.");
         }
         if (tin.length()!=10){
             throw  new IllegalArgumentException("The tin must have 10 digits");
         }
+
     }
 
     /**
      * Checks whether the phone number associated with the client we intend to register complies with all business rules.
-     * @param phonenumber The Client's phone number
+     * @param phoneNumber The Client's phone number
      */
-    private void phonenumberValidation(String phonenumber){
-        if (!StringUtils.isNumeric(phonenumber)){
+    private void phoneNumberValidation(String phoneNumber){
+        if (StringUtils.isEmpty(phoneNumber)) throw new NullPointerException("Phone number can't be empty");
+        if (!StringUtils.isNumeric(phoneNumber)){
             throw new IllegalArgumentException("Phone number is numeric only.");
         }
-        if (phonenumber.length()!=11){
+        if (phoneNumber.length()!=11){
             throw  new IllegalArgumentException("The phone number must have 11 digits");
         }
+
     }
 
     /**
@@ -362,7 +386,7 @@ public class Client implements Serializable {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Client client = (Client) other;
-        return this.getCitizenCardNumber().equals((client).getCitizenCardNumber()) || this.getNhs().equals((client).getNhs()) || this.getTin().equals((client).getTin()) || this.getPhonenumber().equals((client).getPhonenumber())|| this.getEmail().equals((client).getEmail());
+        return this.getCitizenCardNumber().equals((client).getCitizenCardNumber()) || this.getNhs().equals((client).getNhs()) || this.getTin().equals((client).getTin()) || this.getPhoneNumber().equals((client).getPhoneNumber())|| this.getEmail().equals((client).getEmail());
     }
 
     /**
