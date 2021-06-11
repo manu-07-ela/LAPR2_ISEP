@@ -1,5 +1,7 @@
 package app.ui.gui;
 
+import app.domain.model.users.Client;
+import app.ui.console.AuthUI;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -25,6 +27,7 @@ public class ClientUi /*implements Initializable*/ {
     private UpdateDataUi updateDataUi;
     private Stage stageViewResult;
     private ViewTestResultUi viewTestResultUi;
+    private String email;
 
     @FXML
     private VBox updateDataButton;
@@ -48,6 +51,7 @@ public class ClientUi /*implements Initializable*/ {
     private ImageView imageTouch;
 
 
+
     public void setLabelUI(Stage stageClient) {
         this.stage = stageClient;
     }
@@ -55,6 +59,8 @@ public class ClientUi /*implements Initializable*/ {
     @FXML
     public void updateDataClick() {
         runUpdateData();
+        updateDataUi.setLabelUI(stageUpdateData);
+        updateDataUi.getClient(email);
     }
 
     @FXML
@@ -69,14 +75,11 @@ public class ClientUi /*implements Initializable*/ {
     }
 
     @FXML
-    void logoutButtonClick(ActionEvent event) {
+    void logoutButtonClick() {
 
     }
 
-    @FXML
-    void closeButtonClick(ActionEvent event) {
 
-    }
     @FXML
     private void runUpdateData(){
         try {
@@ -129,4 +132,32 @@ public class ClientUi /*implements Initializable*/ {
         imageTouch.setImage(new Image(getClass().getResourceAsStream("images/touch.png")));
 
     }*/
+   public void emailClient(String email){
+       this.email = email;
+   }
+   /* @FXML
+    void logoutMouseClick() {
+        AuthUI uiLogin = new AuthUI();
+        uiLogin.logout();
+        try {
+            Stage newStage = new Stage();
+            newStage.initStyle(StageStyle.UNDECORATED);
+
+            Parent root;
+
+            root = FXMLLoader.load(getClass().getResource("/fxml/LoginUi.fxml"));
+
+            Scene scene = new Scene(root);
+
+            newStage.setScene(scene);
+            newStage.show();
+        } catch (IOException ex) {
+            System.out.println("Logout error: " + ex);
+        }
+        stage.close();
+    }*/
+    @FXML
+    void closeButtonClick() {
+        System.exit(0);
+    }
 }
