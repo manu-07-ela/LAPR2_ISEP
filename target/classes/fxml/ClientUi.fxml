@@ -140,7 +140,7 @@
                         <Image url="@../images/logout2.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="logoutButton" onMouseClicked="#logoutMouseClick" text="Logout" textFill="#239ba1">
+                  <Label text="Logout" textFill="#239ba1">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
