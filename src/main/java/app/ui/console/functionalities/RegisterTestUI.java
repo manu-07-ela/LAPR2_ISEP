@@ -65,7 +65,7 @@ public class RegisterTestUI implements Runnable{
         System.out.println("Birth Date: " + cl.getDate());
         System.out.println("Gender: " + cl.getSex());
         System.out.println("Tax identification number: " + cl.getTin());
-        System.out.println("Phone number: " + cl.getPhonenumber());
+        System.out.println("Phone number: " + cl.getPhoneNumber());
         System.out.println("Email: " + cl.getEmail());
     }
 

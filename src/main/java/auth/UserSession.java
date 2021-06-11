@@ -57,7 +57,7 @@ public class UserSession implements Serializable {
     }
     public Email getEmail(){
         if (isLoggedIn())
-            this.user.getEmail();
+            this.user.getId();
         return null;
     }
 
