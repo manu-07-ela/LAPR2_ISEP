@@ -273,11 +273,12 @@ public class Client implements Serializable {
      * @param citizenCardNumber The Client's citizen card number
      */
     private void citizenCardNumberValidation(String citizenCardNumber){
+        if (StringUtils.isEmpty(citizenCardNumber)) throw new NullPointerException("Citizen card number can't be empty");
         if (!StringUtils.isNumeric(citizenCardNumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
         if (citizenCardNumber.length()!=16){
             throw  new IllegalArgumentException("The citizen card number must have 16 digits");
         }
-        if (StringUtils.isEmpty(citizenCardNumber)) throw new NullPointerException("Citizen card number can't be empty");
+
     }
 
     /**
@@ -285,11 +286,12 @@ public class Client implements Serializable {
      * @param nhs The Client's National Healthcare Service number
      */
     private void nhsValidation(String nhs){
+        if (StringUtils.isEmpty(nhs)) throw new NullPointerException("NHS code can't be empty");
         if (!StringUtils.isNumeric(nhs)) throw new IllegalArgumentException("National Healthcare Service number is numeric only.");
         if (nhs.length()!=10){
             throw  new IllegalArgumentException("The nhs must have 10 digits");
         }
-        if (StringUtils.isEmpty(nhs)) throw new NullPointerException("NHS code can't be empty");
+
     }
 
     /**
@@ -330,13 +332,14 @@ public class Client implements Serializable {
      * @param tin The Client's tax identification number
      */
     private void tinValidation(String tin){
+        if (StringUtils.isEmpty(tin)) throw new NullPointerException("Tax Identification Number can't be empty");
         if (!StringUtils.isNumeric(tin)){
             throw new IllegalArgumentException("Tax identification number is numeric only.");
         }
         if (tin.length()!=10){
             throw  new IllegalArgumentException("The tin must have 10 digits");
         }
-        if (StringUtils.isEmpty(tin)) throw new NullPointerException("Tax Identification Number can't be empty");
+
     }
 
     /**
@@ -344,13 +347,14 @@ public class Client implements Serializable {
      * @param phoneNumber The Client's phone number
      */
     private void phoneNumberValidation(String phoneNumber){
+        if (StringUtils.isEmpty(phoneNumber)) throw new NullPointerException("Phone number can't be empty");
         if (!StringUtils.isNumeric(phoneNumber)){
             throw new IllegalArgumentException("Phone number is numeric only.");
         }
         if (phoneNumber.length()!=11){
             throw  new IllegalArgumentException("The phone number must have 11 digits");
         }
-        if (StringUtils.isEmpty(phoneNumber)) throw new NullPointerException("Phone number can't be empty");
+
     }
 
     /**

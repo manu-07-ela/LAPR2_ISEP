@@ -4,6 +4,7 @@ package app.ui.gui;
 import app.Serialization;
 import app.controller.App;
 import app.controller.AuthController;
+import app.domain.model.users.Client;
 import app.ui.console.MenuItem;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.UserRoleDTO;
@@ -44,6 +45,7 @@ public class LoginUi {
     private ClientUi clientUI;
 
 
+
     @FXML
     private Button btnLogin;
 
@@ -55,6 +57,7 @@ public class LoginUi {
 
     @FXML
     private Label lblInformation;
+    String emailEntered;
 
 
 
@@ -65,7 +68,7 @@ public class LoginUi {
     void login() {
 
         if (attempts > 1) {
-            String emailEntered = txtEmail.getText().trim();
+            emailEntered = txtEmail.getText().trim();
             String passwordEntered = txtPassword.getText();
             boolean success = ctrl.doLogin(emailEntered, passwordEntered);
             if (success) {
@@ -172,6 +175,7 @@ public class LoginUi {
 
             clientUI = loader.getController();
             stageClient.show();
+            clientUI.emailClient(emailEntered);
 
         }catch (IOException exception){
             System.out.println("Problems reading client menu file \n" + exception);
@@ -218,5 +222,6 @@ public class LoginUi {
             System.out.println("Problems reading admin menu file \n" + ex);
         }
     }
+
 
 }
