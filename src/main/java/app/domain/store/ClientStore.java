@@ -147,12 +147,13 @@ public class ClientStore implements Serializable {
      * @param client The Client
      * @return true if thr Client exists otherwise return false
      */
+    /*
     private boolean clientExists(Client client){
         for (Client cl : clientList){
             if (cl.equals(client)) return true;
         }
         return false;
-    }
+    }*/
 
     /**
      * It updates the Birth Date of the Client
@@ -160,7 +161,7 @@ public class ClientStore implements Serializable {
      * @param birthDate the Birth Date of the Client
      */
     public void updateBirthDate(Client client, String birthDate){
-       if (clientExists(client)) client.setDate(birthDate);
+       /*if (clientExists(client))*/ client.setDate(birthDate);
     }
 
     /**
@@ -169,7 +170,7 @@ public class ClientStore implements Serializable {
      * @param citizenCard the Citizen Card Number of the Client
      */
     public void updateCitizenCard(Client client, String citizenCard){
-        if (clientExists(client)) client.setCitizencardnumber(citizenCard);
+        /*if (clientExists(client))*/ client.setCitizenCardNumber(citizenCard);
     }
 
     /**
@@ -178,7 +179,7 @@ public class ClientStore implements Serializable {
      * @param email the email of the Client
      */
     public void updateEmail(Client client, String email){
-        if (clientExists(client)) client.setCitizencardnumber(email);
+        /*if (clientExists(client))*/ client.setCitizenCardNumber(email);
     }
 
     /**
@@ -187,7 +188,7 @@ public class ClientStore implements Serializable {
      * @param name the name of the Client
      */
     public void updateName(Client client, String name){
-        if (clientExists(client)) client.setName(name);
+        /*if (clientExists(client))*/ client.setName(name);
     }
 
     /**
@@ -196,7 +197,7 @@ public class ClientStore implements Serializable {
      * @param nhsCode the NHS Code of the Client
      */
     public void updateNhsCode(Client client, String nhsCode){
-        if (clientExists(client)) client.setNhs(nhsCode);
+        /*if (clientExists(client))*/ client.setNhs(nhsCode);
     }
 
     /**
@@ -205,7 +206,7 @@ public class ClientStore implements Serializable {
      * @param sex the sex of the Client
      */
     public void updateSex(Client client, String sex){
-        if (clientExists(client)) client.setSex(sex);
+        /*if (clientExists(client))*/ client.setSex(sex);
     }
 
     /**
@@ -214,7 +215,7 @@ public class ClientStore implements Serializable {
      * @param tin the TIN of the Client
      */
     public void updateTin(Client client, String tin){
-        if (clientExists(client)) client.setTin(tin);
+        /*if (clientExists(client))*/ client.setTin(tin);
     }
 
     /**
@@ -222,7 +223,9 @@ public class ClientStore implements Serializable {
      * @param client the Client
      * @param phoneNumber the Phone Number of the Client
      */
-    public void updatePhoneNumber(Client client, String phoneNumber) {if (clientExists(client)) client.setPhonenumber(phoneNumber); }
+    public void updatePhoneNumber(Client client, String phoneNumber) {
+        /*if (clientExists(client))*/ client.setPhoneNumber(phoneNumber);
+    }
 
     /**
      * It updates the attribute of a Client

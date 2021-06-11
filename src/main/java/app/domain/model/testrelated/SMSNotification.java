@@ -29,7 +29,7 @@ public class SMSNotification implements Notification {
         try {
             if (arch.exists()) arch.delete();
             fw.write("Sender: +44 1980 301 565 \n");
-            fw.write("Recipient" + selectedTest.getCl().getPhonenumber() + "\n");
+            fw.write("Recipient" + selectedTest.getCl().getPhoneNumber() + "\n");
             fw.write("Dear Client, \n");
             fw.write("The results are available in the central application, you must access them. \n");
             fw.write("\nMany Labs");

@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
 public class User implements Serializable {
-
+    private static final long serialVersionUID = 6158727197360404635L;
     private Email id;
     private Password password;
     private String name;
@@ -35,9 +35,7 @@ public class User implements Serializable {
     public String getName() {
         return name;
     }
-    public Email getEmail(){
-        return id;
-    }
+
 
     public boolean hasId(Email id)
     {

@@ -2,16 +2,28 @@ package app.ui.gui;
 
 import app.controller.UpdateDataController;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class UpdateDataUi {
+public class UpdateDataUi /*implements Initializable*/ {
 
     private UpdateDataController updateDataController;
+
+    @FXML
+    private Label errorMessage;
+    @FXML
+    private ImageView logoManyLabs;
+
     @FXML
     private TextField writePhoneNumber;
 
@@ -87,8 +99,24 @@ public class UpdateDataUi {
 
     @FXML
     void saveNameClick() {
+        updateDataController.clientData();
         String name = writeName.getText().trim();
-        updateDataController.updateName(name);
+        if(name.isEmpty()) {
+            errorMessage.setText("Name can't be empty");
+            errorMessage.setVisible(true);
+        }
+        if (name.length()>35){
+            errorMessage.setText("Name should have maximum 35 characters");
+            errorMessage.setVisible(true);
+        }
+        try {
+            updateDataController.updateName(name);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        updateDataController.clientData();
+
 
 
     }
@@ -119,4 +147,8 @@ public class UpdateDataUi {
         updateDataController.updatePhoneNumber(phoneNumber);
     }
 
+    /*@Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        logoManyLabs.setImage(new Image(getClass().getResourceAsStream("images/LogoManyLabs.png")));
+    }*/
 }

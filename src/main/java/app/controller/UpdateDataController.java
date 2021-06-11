@@ -27,16 +27,18 @@ public class UpdateDataController {
      */
     private ClientMapper clMapper;
     /**
-     * Representes an instance of Client
+     * Represents an instance of Client
      */
     private Client client;
+
 
 
     /**
      * Creates an instance of UpdateDataController
      */
     public UpdateDataController() {
-        this(App.getInstance().getCompany());
+        this.company = App.getInstance().getCompany();
+        this.store = company.getClientStore();
     }
     /**
      * Creates an instance of UpdateDataController receiving the company
@@ -120,4 +122,7 @@ public class UpdateDataController {
      * @param phoneNumber the Phone Number of the Client
      */
     public void updatePhoneNumber (String phoneNumber){store.updatePhoneNumber(client, phoneNumber);}
+    public void  clientData(){
+        System.out.println(client);
+    }
 }
