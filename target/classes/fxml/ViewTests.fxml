@@ -9,7 +9,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<<<<<<< HEAD
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ViewTestResultUi">
+=======
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ViewTestResultUi">
+>>>>>>> 19aed6473a3dc4a64dc052692134ba1751e414da
    <top>
       <VBox prefHeight="80.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -21,17 +25,41 @@
          </children>
       </VBox>
    </top>
+<<<<<<< HEAD
+   <padding>
+      <Insets left="5.0" right="5.0" />
+   </padding>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <content>
+            <GridPane prefHeight="56.0" prefWidth="622.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="592.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #1a7180; -fx-border-radius: 20;">
+=======
    <center>
       <VBox fx:id="viewTests" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane prefHeight="49.0" prefWidth="600.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #1a7180;">
                <children>
                   <HBox alignment="CENTER_LEFT" layoutX="8.0" prefHeight="40.0" prefWidth="592.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+>>>>>>> 19aed6473a3dc4a64dc052692134ba1751e414da
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/report.png" />
                            </image>
+<<<<<<< HEAD
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+=======
+>>>>>>> 19aed6473a3dc4a64dc052692134ba1751e414da
                         </ImageView>
                         <Label alignment="CENTER" prefHeight="35.0" prefWidth="66.0" text="Test">
                            <font>
@@ -46,18 +74,35 @@
                               <Insets left="5.0" right="5.0" />
                            </padding>
                         </Separator>
+<<<<<<< HEAD
+                        <Label fx:id="testCode" alignment="CENTER" prefHeight="27.0" prefWidth="145.0" text="Internal Code" textAlignment="CENTER" />
+=======
                         <Label fx:id="testCode" prefHeight="27.0" prefWidth="145.0" textAlignment="CENTER" />
+>>>>>>> 19aed6473a3dc4a64dc052692134ba1751e414da
                         <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="6.0">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
                         </Separator>
+<<<<<<< HEAD
+                        <Label fx:id="testDescription" alignment="CENTER" prefHeight="27.0" prefWidth="209.0" text="Collection Method" textAlignment="CENTER" />
+=======
                         <Label fx:id="testDescription" prefHeight="27.0" prefWidth="209.0" textAlignment="CENTER" />
+>>>>>>> 19aed6473a3dc4a64dc052692134ba1751e414da
                         <Separator orientation="VERTICAL" prefHeight="49.0" prefWidth="17.0">
                            <padding>
                               <Insets right="3.0" />
                            </padding>
                         </Separator>
+<<<<<<< HEAD
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </center>
+=======
                         <Button mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 15; -fx-font-weight: bold;" text="Select" textFill="#f8f7f7" />
                      </children>
                   </HBox>
@@ -71,4 +116,5 @@
    <padding>
       <Insets left="5.0" right="5.0" />
    </padding>
+>>>>>>> 19aed6473a3dc4a64dc052692134ba1751e414da
 </BorderPane>
