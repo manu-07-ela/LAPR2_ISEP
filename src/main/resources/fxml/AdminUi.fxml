@@ -33,12 +33,12 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="66.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="#1a7180">
+            <Button fx:id="exit" mnemonicParsing="false" onMouseClicked="#exitClick" prefHeight="39.0" prefWidth="66.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="#1a7180">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
+            <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logoutClick" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -62,7 +62,7 @@
                <children>
                   <HBox prefHeight="159.0" prefWidth="600.0">
                      <children>
-                        <VBox fx:id="OverviewBotton" alignment="CENTER" prefHeight="0.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                        <VBox fx:id="registerEmployee" alignment="CENTER" onMouseClicked="#registerEmployeeClick" prefHeight="0.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                            <children>
                               <Label text="Register">
                                  <font>
@@ -93,7 +93,7 @@
                               <Insets left="40.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="OverviewBotton1" alignment="CENTER" prefHeight="155.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                        <VBox fx:id="specifyTestType" alignment="CENTER" onMouseClicked="#specifyTestTypeClick" prefHeight="155.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                            <children>
                               <Label text="Specify">
                                  <font>
@@ -127,7 +127,7 @@
                               <Insets left="30.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="OverviewBotton11" alignment="CENTER" prefHeight="172.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                        <VBox fx:id="specifyParameter" alignment="CENTER" onMouseClicked="#specifyParameterClick" prefHeight="172.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                            <children>
                               <Label text="Specify">
                                  <font>
@@ -147,7 +147,7 @@
                               </Label>
                               <ImageView fitHeight="77.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/report.png" />
+                                    <Image url="@../images/notes.png" />
                                  </image>
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="20.0" />
@@ -168,9 +168,9 @@
                   </HBox>
                   <HBox prefHeight="170.0" prefWidth="600.0">
                      <children>
-                        <VBox fx:id="OverviewBotton2" alignment="CENTER" prefHeight="179.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                        <VBox fx:id="registerLaboratory" alignment="CENTER" onMouseClicked="#registerLaboratoryClick" prefHeight="179.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                            <children>
-                              <Label text="Register">
+                              <Label text="Register ">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
@@ -178,9 +178,9 @@
                                     <Insets top="10.0" />
                                  </opaqueInsets>
                               </Label>
-                              <Label text="a employee">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="136.0" text="a clinical analysis laboratory">
                                  <font>
-                                    <Font name="System Italic" size="14.0" />
+                                    <Font name="System Italic" size="10.0" />
                                  </font>
                                  <opaqueInsets>
                                     <Insets top="10.0" />
@@ -188,7 +188,7 @@
                               </Label>
                               <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/id.png" />
+                                    <Image url="@../images/laboratory.png" />
                                  </image>
                                  <VBox.margin>
                                     <Insets top="10.0" />
@@ -199,9 +199,9 @@
                               <Insets left="40.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="OverviewBotton21" alignment="CENTER" prefHeight="179.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                        <VBox fx:id="specifyParameterCategory" alignment="CENTER" onMouseClicked="#specifyParameterCategoryClick" prefHeight="179.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                            <children>
-                              <Label text="Register">
+                              <Label text="Specify">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
@@ -209,7 +209,7 @@
                                     <Insets top="10.0" />
                                  </opaqueInsets>
                               </Label>
-                              <Label text="a employee">
+                              <Label text="a parameter category">
                                  <font>
                                     <Font name="System Italic" size="14.0" />
                                  </font>
@@ -217,12 +217,12 @@
                                     <Insets top="10.0" />
                                  </opaqueInsets>
                               </Label>
-                              <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="62.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/id.png" />
+                                    <Image url="@../images/list.png" />
                                  </image>
                                  <VBox.margin>
-                                    <Insets top="10.0" />
+                                    <Insets top="15.0" />
                                  </VBox.margin>
                               </ImageView>
                            </children>
@@ -230,9 +230,9 @@
                               <Insets left="30.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="OverviewBotton211" alignment="CENTER" prefHeight="179.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                        <VBox fx:id="sendReport" alignment="CENTER" onMouseClicked="#sendReportClick" prefHeight="179.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                            <children>
-                              <Label text="Register">
+                              <Label text="Send">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
@@ -240,7 +240,7 @@
                                     <Insets top="10.0" />
                                  </opaqueInsets>
                               </Label>
-                              <Label text="a employee">
+                              <Label text="Covid-19 report">
                                  <font>
                                     <Font name="System Italic" size="14.0" />
                                  </font>
@@ -250,7 +250,7 @@
                               </Label>
                               <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/id.png" />
+                                    <Image url="@../images/report.png" />
                                  </image>
                                  <VBox.margin>
                                     <Insets top="10.0" />

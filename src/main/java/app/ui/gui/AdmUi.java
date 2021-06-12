@@ -1,30 +1,80 @@
 package app.ui.gui;
 
-import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
-import java.io.IOException;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 public class AdmUi {
 
-    private Stage stage;
-
-    public void setLabelUI(Stage stageAdm) {
-        this.stage=stageAdm;
-    }
+    @FXML
+    private Button exit;
 
     @FXML
-    void closePlatform() {
+    private Button logout;
+
+    @FXML
+    private VBox sendReport;
+
+    @FXML
+    private VBox registerLaboratory;
+
+    @FXML
+    private VBox specifyParameterCategory;
+
+    @FXML
+    private VBox specifyTestType;
+
+    @FXML
+    private VBox specifyParameter;
+
+    @FXML
+    private BorderPane brdPane;
+
+    @FXML
+    private VBox registerEmployee;
+
+    @FXML
+    void exitClick() {
         System.exit(0);
     }
 
+
     @FXML
-    void logout() {
+    void logoutClick() {
 
     }
+
+
+    @FXML
+    void registerEmployeeClick() {
+
+    }
+
+    @FXML
+    void specifyTestTypeClick() {
+
+    }
+
+    @FXML
+    void specifyParameterClick() {
+
+    }
+
+    @FXML
+    void registerLaboratoryClick() {
+
+    }
+
+    @FXML
+    void specifyParameterCategoryClick() {
+
+    }
+
+    @FXML
+    void sendReportClick() {
+
+    }
+
 }
+
