@@ -26,8 +26,10 @@ public class ViewResultsUI implements Runnable{
     public void viewResults(){
         try {
         ClientDTO cl = viewResultsctrl.getUserSession();
-        TestDTO tdto = (TestDTO) Utils.showAndSelectOne(viewResultsctrl.getTestList(cl), "Choose to which Test do you want to see the results from");
+        if(!(viewResultsctrl.getTestList(cl)==null)) {
+            TestDTO tdto = (TestDTO) Utils.showAndSelectOne(viewResultsctrl.getTestList(cl), "Choose to which Test do you want to see the results from");
             System.out.println(viewResultsctrl.showTestResults(tdto));
+        }
         }catch(IllegalArgumentException e){
             System.out.printf("%nMessage: %s%n", e.getMessage());
         }

@@ -71,9 +71,44 @@ manual (in the annexes) that must be delivered with the application.
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8901) The laboratory coordinator should be able to explore different parameter values (settings) and check the results. Each team should prepare a simple and intuitive interface that requires a minimum number of interactions with the user.
 
+> **Question:** On the project description is written that "The algorithm to be used by the application must be defined through a configuration file", but on the requirements is written that "the laboratory coordinator should have the ability to dynamically select the algorithm to be applied from the ones available on the system". Should we discard the configuration file and add an option on th program to select one of the available algorithms?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8931) Developing an application, like the one we are developing during the Integrative Project, is a dynamic process and the best teams are those who are prepared to react to change quickly. Moreover, the latest client requests/requirements are those that should be considered. Typically, a client updates the requirements throughout the project development.
+Please consider the requirements introduced at the beginning of Sprint D. The laboratory coordinator should have the ability to dynamically select the algorithm to be applied from the ones available on the system (either the benchmark algorithm provided in moodle or the brute-force algorithm to be developed by each team).
+
+> **Question:** The elements used in the algorithm refer to a half-hour interval?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8964) Yes.
+
+> **Question:** How do we obtain the number to be used in the algorithm do we subtract tests that got a result in that interval and the tests registered?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8964) Yes.
+
+> **Question:** Regarding US16, when the laboratory coordinator "analyses the overall performance of the company", is the analysis purely looking at the results? Or should he write any type of report based on the results for the interval he is seeing?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8963) You should only identify the time interval where there was a delay in the response (the maximum subsequence).
+
 > **Question:**
 >
 > [**Awnser:**]()
+
+
+
+
+
+> Regarding your answer: "The laboratory coordinator should be able to check the number of clients, the number of tests waiting for results, the number of tests waiting for diagnosis and the total number of tests processed in the laboratory in each day, week, month and year. Moreover, the laboratory coordinator should be able to check the contiguous subsequence with maximum sum."
+>
+> **Question:** Displaying information in each day, week, month and year is it only specific for total number of tests processed in the Laboratory or it is also necessary for number of clients, number of tests waiting for results and waiting for diagnosis? This information should be an all time analysis or should be filtered by the two dates defined by the coordinator? Or the two dates defined by the coordinator is only necessary to check the contiguous subsequence with maximum sum?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9134)
+> 
+> **Question:**  How the information should appear to the coordinator? Should he select what he wants to analyse or all the information should appear at once? (for example: option 1: show information about clients, 2 information about number of tests waiting for results, etc.)
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9134)
+
+> **Question:** In what way is the application supposed to show data such as the number of clients, tests waiting for results and tests waiting for diagnosis? Is it supposed to only show the current number for the moment the information is being consulted (ex: Number of Clients at the moment: X), or is it supposed to graphically show the information over a selected time period (day, week, month, year), such as the total number of tests processed in the laboratory?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9133)
 
 ### 1.3. Acceptance Criteria
 

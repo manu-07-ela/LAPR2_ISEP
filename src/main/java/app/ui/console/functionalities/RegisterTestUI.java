@@ -115,7 +115,7 @@ public class RegisterTestUI implements Runnable{
                     System.out.println("Is this the client that you want to register a test on?");
                     showClient(cl);
                     resposta = Utils.readLineFromConsole("S/N:");
-                } while(resposta.equalsIgnoreCase("N"));
+                } while(!resposta.equalsIgnoreCase("S"));
                 NhsCode nhscode = nhscode();
                     //TEST TYPE
                     option = Utils.showAndSelectOne(registerTestctrl.getTestTypeList(), "Choose what kind of Test Type should be registered");

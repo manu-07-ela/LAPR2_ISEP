@@ -49,6 +49,14 @@ public class TestDTO {
     }
 
     /**
+     * Takes the description associated with a test
+     * @return the description
+     */
+    public String getDescription(){
+        return description;
+    }
+
+    /**
      * Textual description of a test
      * @return Information that characterizes a test
      */

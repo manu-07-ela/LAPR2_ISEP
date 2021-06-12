@@ -389,11 +389,4 @@ public class Client implements Serializable {
         return this.getCitizenCardNumber().equals((client).getCitizenCardNumber()) || this.getNhs().equals((client).getNhs()) || this.getTin().equals((client).getTin()) || this.getPhoneNumber().equals((client).getPhoneNumber())|| this.getEmail().equals((client).getEmail());
     }
 
-    /**
-     * Gets the list of the attributes of the Client
-     * @return the list of the attributes of the Client
-     */
-    public List<String> getListOfAttributesAssociatedWithAClient() {
-        return null;
-    }
 }

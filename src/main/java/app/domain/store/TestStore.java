@@ -4,6 +4,7 @@ import app.domain.model.attributes.NhsCode;
 
 
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.mappers.dto.ClientDTO;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -16,6 +17,8 @@ import app.domain.model.users.Client;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import static app.domain.model.testrelated.Test.StateOfTest.*;
@@ -230,10 +233,10 @@ public class TestStore implements Serializable {
         return lista;
     }
 
-    public List<Test> getClientTestsList(String phoneNumber){
+    public List<Test> getTestListAssociatedWithClient(ClientDTO selectedClient){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
-            if (t.getCl().getPhoneNumber().equals(phoneNumber)) {
+            if (t.getCl().getPhoneNumber().equals(selectedClient.getPhoneNumber()) && t.getStateOfTest()==Validated) {
                 test.add(t);
             }
         }
@@ -250,4 +253,26 @@ public class TestStore implements Serializable {
 
     }
 
+    public List<Test> orderClientTestsByRegistratonDate(List<Test> tlist){
+        List<Date> date = new ArrayList<>();
+        List<Test> test = new ArrayList<>();
+        for(Test t : tlist){
+            date.add(t.getSamplesAddDate());
+        }
+        Collections.sort(date);
+        for(Date d : date){
+            Test t =getTestbyDate(d);
+            test.add(t);
+        }
+        return test;
+    }
+
+    private Test getTestbyDate(Date d){
+            for (Test t: testList) {
+                if (t.getSamplesAddDate().equals(d)) {
+                    return t;
+                }
+            }
+            return null;
+    }
 }

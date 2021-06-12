@@ -231,6 +231,14 @@ public class Test implements Serializable {
     }
 
     /**
+     * Takes the test creation date
+     * @return the date of creation of the test
+     */
+    public Date getSamplesAddDate() {
+        return samplesAddDate;
+    }
+
+    /**
      * Compare the test with the other object provided.
      * @param other Object we want to compare with the employee.
      * @return true if the received object represents another test equivalent to the test. Otherwise, it returns false.
@@ -262,6 +270,7 @@ public class Test implements Serializable {
         }
         if (countAddResult==testParameterList.size()){
             stateOfTest = StateOfTest.SamplesAnalyzed;
+            countAddResult=0;
         }
         return verificacao;
 
