@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class ClinicalChemistryTecUI {
     private Stage stageViewTests;
-    private SeeTestsUI seeTestsUI;
+    private SeeTestsUi seeTestsUI;
     private Stage stage;
 
     @FXML

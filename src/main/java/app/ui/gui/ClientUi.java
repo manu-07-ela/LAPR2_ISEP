@@ -2,70 +2,60 @@ package app.ui.gui;
 
 import app.controller.UpdateDataController;
 import app.domain.model.users.Client;
+import app.ui.console.AuthUI;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ClientUi /*implements Initializable*/{
-
+public class ClientUi {
     private Stage stage;
+
     private Stage stageUpdateData;
+
     private UpdateDataUi updateDataUi;
+
     private Stage stageViewResult;
+
     private ViewTestResultUi viewTestResultUi;
+
     private String email;
 
+    UpdateDataController updateDataController;
+
+    Client client;
+
+    @FXML
+    private Button exit;
+
+    @FXML
+    private Button logout;
 
     @FXML
     private VBox updateDataButton;
 
     @FXML
-    private TextField searchField;
+    private ImageView imageTouch;
 
     @FXML
-    private ImageView closeButton;
+    private Label nameField;
 
     @FXML
     private VBox viewTestResultButton;
 
     @FXML
-    private ImageView logoutButton;
-
-    @FXML
-    private Button searchButoon;
-
-    @FXML
-    private ImageView imageTouch;
-
-    @FXML
-    private Label phoneNumberField;
-
-    @FXML
-    private Label tinField;
-
-    @FXML
     private Label emailField;
-
-    @FXML
-    private Label citizenCardField;
-
-    UpdateDataController updateDataController;
-
-    Client client;
-    @FXML
-    private TextField nameField;
 
     public ClientUi(){
         updateDataController = new UpdateDataController();
@@ -80,8 +70,9 @@ public class ClientUi /*implements Initializable*/{
         this.stage = stageClient;
     }
 
+
     @FXML
-    public void updateDataClick() {
+    void updateDataClick() {
         runUpdateData();
         updateDataUi.setLabelUI(stageUpdateData);
         updateDataUi.getClient(email);
@@ -93,19 +84,42 @@ public class ClientUi /*implements Initializable*/{
         runViewTestResult();
         viewTestResultUi.setLabelUI(stageViewResult);
         updateDataButton.getScene().getWindow().hide();
+
+    }
+
+
+    @FXML
+    void emailShow() {
+
     }
 
     @FXML
-    void searchButtonClick(ActionEvent event) {
-
+    void exitClick() {
+        System.exit(0);
     }
 
     @FXML
-    void logoutButtonClick() {
+    void logoutClick() {
+        AuthUI uiLogin = new AuthUI();
+        uiLogin.logout();
+        try {
+            Stage newStage = new Stage();
+            newStage.initStyle(StageStyle.UNDECORATED);
+
+            Parent root;
+
+            root = FXMLLoader.load(getClass().getResource("/fxml/LoginUi.fxml"));
+
+            Scene scene = new Scene(root);
+
+            newStage.setScene(scene);
+            newStage.show();
+        } catch (IOException ex) {
+            System.out.println("Erro no lougout: " + ex);
+        }
+        stage.close();
 
     }
-
-
     @FXML
     private void runUpdateData(){
         try {
@@ -153,63 +167,16 @@ public class ClientUi /*implements Initializable*/{
         }
     }
 
-   /*@Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        UpdateDataController updateDataController = new UpdateDataController();
-        Client client = updateDataController.getClientByEmail(email);
-
-    }*/
-
-
-   /* @FXML
-    void logoutMouseClick() {
-        AuthUI uiLogin = new AuthUI();
-        uiLogin.logout();
-        try {
-            Stage newStage = new Stage();
-            newStage.initStyle(StageStyle.UNDECORATED);
-
-            Parent root;
-
-            root = FXMLLoader.load(getClass().getResource("/fxml/LoginUi.fxml"));
-
-            Scene scene = new Scene(root);
-
-            newStage.setScene(scene);
-            newStage.show();
-        } catch (IOException ex) {
-            System.out.println("Logout error: " + ex);
-        }
-        stage.close();
-    }*/
     @FXML
-    void closeButtonClick() {
-        System.exit(0);
-    }
-    @FXML
-    void tinShow() {
-        tinField.setText(client.getTin());
-        tinField.setVisible(true);
-    }
-    @FXML
-    void citizenCardShow() {
-        citizenCardField.setText(client.getCitizenCardNumber());
-        citizenCardField.setVisible(true);
-    }
-    @FXML
-    void emailShow() {
-        emailField.setText(client.getEmail());
-        emailField.setVisible(true);
-    }
-    @FXML
-    void phoneNumberShow() {
-        phoneNumberField.setText(client.getPhoneNumber());
-        phoneNumberField.setVisible(true);
-    }
-
-    @FXML
-    void nameFieldAction() {
+    public void nameFieldAction(){
         nameField.setText(client.getName());
         nameField.setVisible(true);
     }
+
+    @FXML
+    public void emailFieldAction(){
+        emailField.setText(client.getEmail());
+        emailField.setVisible(true);
+    }
 }
+
