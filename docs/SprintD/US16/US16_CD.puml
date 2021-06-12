@@ -1,0 +1,54 @@
+@startuml
+
+
+package ui {
+class OverviewUI{}
+}
+
+package Controller{
+class OverviewController{
++getIntervalTestList(initialDate,endDate)
++getNumberOfClients()
++getNumberOfTestsWaitingForResults()
++getNumberOfTestsWaitingForDiagnosis()
++getTotalNumberOfTestsProcessed()
++getAvailableAlgorithms()
++getSubsequenceWithMaximumSum()
+}
+}
+
+package model{
+class Company{
++getTestStore()
+}
+class Overview{
++getNumberOfClients()
++getNumberOfTestsWaitingForResults()
++getNumberOfTestsWaitingForDiagnosis()
++getTotalNumberOfTestsProcessed()
++getSubsequenceWithMaximumSum()
+}
+}
+
+
+
+package store{
+class TestStore{
+getIntervalTestList(initialDate,endDate)
+}
+}
+
+package mappers{
+class TestMapper{
+}
+}
+
+
+package dto{
+}
+
+
+
+
+
+@enduml
