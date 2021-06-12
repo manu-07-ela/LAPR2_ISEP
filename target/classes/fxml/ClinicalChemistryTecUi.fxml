@@ -13,26 +13,27 @@
    <top>
       <HBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Clinical Chemistry Technologist Menu" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="closeButton" fitHeight="28.0" fitWidth="38.0" onMouseClicked="#closeButtonClick" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/close.png" />
-               </image>
-               <HBox.margin>
-                  <Insets bottom="20.0" left="150.0" />
-               </HBox.margin>
-            </ImageView>
+            <VBox alignment="CENTER" prefHeight="74.0" prefWidth="493.0">
+               <children>
+                  <Label text="Clinical Chemistry Technologist Menu" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+               </children>
+            </VBox>
          </children>
       </HBox>
    </top>
    <center>
       <HBox alignment="CENTER" prefHeight="223.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="funcionaliteButton" alignment="CENTER" onMouseClicked="#functionalityButtonClick" prefHeight="251.0" prefWidth="170.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+            <VBox fx:id="consultTheTests" alignment="CENTER" onMouseClicked="#consultTheTestsClick" prefHeight="202.0" prefWidth="168.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
                   <Label text="Consult ">
                      <font>
@@ -57,26 +58,54 @@
                   <Insets bottom="50.0" top="40.0" />
                </HBox.margin>
             </VBox>
+            <VBox fx:id="recordResults" alignment="CENTER" onMouseClicked="#recordResultsClick" prefHeight="223.0" prefWidth="168.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+               <children>
+                  <Label text="Record">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="results for a given test">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="72.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/results.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="20.0" top="40.0" />
+               </HBox.margin>
+            </VBox>
          </children>
       </HBox>
    </center>
    <bottom>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/logout.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="logoutButton" mnemonicParsing="false" onMouseClicked="#logoutButtonClick" prefHeight="45.0" prefWidth="98.0" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
-               <font>
-                  <Font name="System Italic" size="21.0" />
-               </font>
-            </Button>
-         </children>
          <BorderPane.margin>
             <Insets bottom="10.0" />
          </BorderPane.margin>
+         <children>
+            <Button fx:id="exit" mnemonicParsing="false" onMouseExited="#exitClick" prefHeight="39.0" prefWidth="71.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="logout" mnemonicParsing="false" onMouseExited="#logoutClick" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
       </HBox>
    </bottom>
 </BorderPane>

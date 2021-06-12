@@ -150,21 +150,12 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="37.0" prefWidth="255.0" style="-fx-border-color: #239ba1; -fx-border-radius: 30; -fx-border-width: 3; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-<<<<<<< HEAD
                   <Label text="Email" textFill="#154d5f">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
                   </Label>
                   <Label fx:id="emailField" onMouseClicked="#emailShow" prefHeight="20.0" prefWidth="139.0" textFill="#239ba1">
-=======
-                  <ImageView fx:id="logoutButton" fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/logout2.png" />
-                     </image>
-                  </ImageView>
-                  <Label text="Logout" textFill="#239ba1">
->>>>>>> d1abe695a2716aa781fbc5321569f2d9bf6326bb
                      <font>
                         <Font size="14.0" />
                      </font>
