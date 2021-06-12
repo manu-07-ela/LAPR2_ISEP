@@ -59,12 +59,14 @@ public class ClientUi /*implements Initializable*/ {
         runUpdateData();
         updateDataUi.setLabelUI(stageUpdateData);
         updateDataUi.getClient(email);
+        updateDataButton.getScene().getWindow().hide();
     }
 
     @FXML
     void viewTestResultsClick() throws IOException {
         runViewTestResult();
         viewTestResultUi.setLabelUI(stageViewResult);
+        updateDataButton.getScene().getWindow().hide();
     }
 
     @FXML

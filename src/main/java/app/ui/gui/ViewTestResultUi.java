@@ -45,7 +45,7 @@ public class ViewTestResultUi implements Initializable {
     public void setLabelUI(Stage stageViewResult) throws IOException {
         this.stage = stageViewResult;
         getClient();
-        getTestsList();
+        //getTestsList();
         showTestsList();
     }
 
@@ -58,7 +58,7 @@ public class ViewTestResultUi implements Initializable {
     }
 
     public void showTestsList() throws IOException {
-        //testsList=getData();
+        testsList=getData();
         int row = 1;
         try {
             for (int i=0; i<testsList.size();i++) {
@@ -85,7 +85,7 @@ public class ViewTestResultUi implements Initializable {
         List<TestDTO> tests = new ArrayList<>();
         TestDTO test;
 
-        for (int i=0;i<10;i++){
+        for (int i=0;i<20;i++){
             test=new TestDTO("111111111111","seringa");
             tests.add(test);
         }
