@@ -1,139 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="brdPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#1a7180, #239ba1);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.LabCoordinatorUi">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#1a7180, #239ba1);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.LabCoordinatorUi">
    <top>
-      <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
+      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="50.0" prefWidth="339.0" text="Lab Coordinator Menu" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <Pane prefHeight="50.0" prefWidth="301.0">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Pane>
-            <ImageView fitHeight="28.0" fitWidth="38.0" onMouseClicked="#closePlatform" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/close.png" />
-               </image>
-               <HBox.margin>
-                  <Insets right="15.0" top="12.0" />
-               </HBox.margin>
-            </ImageView>
+            <VBox alignment="CENTER" prefHeight="74.0" prefWidth="493.0">
+               <children>
+                  <Label text="Laboratory Coordinator Menu" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+               </children>
+            </VBox>
          </children>
-         <BorderPane.margin>
-            <Insets top="5.0" />
-         </BorderPane.margin>
       </HBox>
    </top>
-   <bottom>
-      <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Pane prefHeight="50.0" prefWidth="250.0" />
-            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/logout.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="65.0" prefWidth="94.0" style="-fx-background-color: transparent;" text="Logout" textAlignment="CENTER" textFill="WHITE">
-               <HBox.margin>
-                  <Insets bottom="5.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Italic" size="18.0" />
-               </font></Button>
-         </children>
-      </HBox>
-   </bottom>
    <center>
-      <HBox prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="223.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="OverviewBotton" alignment="CENTER" onMouseClicked="#OverviewClickButton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+            <VBox fx:id="validateWork" alignment="CENTER" onMouseClicked="#validateWorkClick" prefHeight="176.0" prefWidth="154.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label text="Overview">
+                  <Label text="Validate">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
-                     <opaqueInsets>
-                        <Insets top="10.0" />
-                     </opaqueInsets>
                   </Label>
-                  <Label text="Of Tests Performed">
+                  <Label text="the work performed">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
-                     <opaqueInsets>
-                        <Insets top="10.0" />
-                     </opaqueInsets>
                   </Label>
-                  <ImageView fitHeight="77.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets bottom="10.0" top="20.0" />
-                     </VBox.margin>
+                  <ImageView fitHeight="69.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/overview.png" />
+                        <Image url="@../images/checked.png" />
                      </image>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
                   </ImageView>
                </children>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
+               <HBox.margin>
+                  <Insets bottom="50.0" top="40.0" />
+               </HBox.margin>
             </VBox>
-            <VBox fx:id="ImportBotton" alignment="CENTER" onMouseClicked="#ImportClickBotton" prefHeight="104.0" prefWidth="190.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+            <VBox fx:id="viewTests" alignment="CENTER" onMouseClicked="#viewTestsClick" prefHeight="176.0" prefWidth="154.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+               <children>
+                  <Label text="View">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="all tests">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="72.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/teste-medico.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="20.0" top="40.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="importTest" alignment="CENTER" onMouseClicked="#importTestClick" prefHeight="176.0" prefWidth="154.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
                   <Label text="Import">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
-                     <opaqueInsets>
-                        <Insets top="10.0" />
-                     </opaqueInsets>
                   </Label>
-                  <Label text="Clinical Tests">
+                  <Label text="clinical tests ">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
-                     <opaqueInsets>
-                        <Insets top="10.0" />
-                     </opaqueInsets>
                   </Label>
-                  <ImageView fitHeight="77.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets bottom="10.0" top="20.0" />
-                     </VBox.margin>
+                  <ImageView fitHeight="72.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/sample.png" />
+                        <Image url="@../images/cloud-storage.png" />
                      </image>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </ImageView>
                </children>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
                <HBox.margin>
-                  <Insets left="45.0" />
+                  <Insets bottom="50.0" left="20.0" top="40.0" />
                </HBox.margin>
             </VBox>
          </children>
-         <padding>
-            <Insets bottom="50.0" left="97.0" right="25.0" top="45.0" />
-         </padding>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
       </HBox>
    </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+         <children>
+            <Button fx:id="exit" mnemonicParsing="false" onMouseExited="#exitClick" prefHeight="39.0" prefWidth="71.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="logout" mnemonicParsing="false" onMouseExited="#logoutClick" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>

@@ -3,13 +3,11 @@ package app.ui.gui;
 import app.Serialization;
 import app.controller.App;
 import app.ui.console.AuthUI;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -17,45 +15,36 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class LabCoordinatorUi {
-
     private Stage stage;
+    @FXML
+    private VBox viewTests;
 
     @FXML
-    private VBox ImportBotton;
+    private Button exit;
 
     @FXML
-    private VBox OverviewBotton;
+    private Button logout;
 
     @FXML
-    private BorderPane brdPane;
+    private VBox validateWork;
 
-    /**
-     * Sets label ui.
-     *
-     * @param stageLabUI the stage adm ui
-     */
-    public void setLabelUI(Stage stageLabUI) {
-        this.stage = stageLabUI;
+    @FXML
+    private VBox importTest;
+
+    public void setLabelUI(Stage stage) {
+        this.stage = stage;
     }
 
     @FXML
-    void OverviewClickButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ImportClickBotton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void closePlatform() {
+    void exitClick() {
         Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
+
     }
 
+
     @FXML
-    void logout() {
+    void logoutClick() {
         AuthUI uiLogin = new AuthUI();
         uiLogin.logout();
         try {
@@ -77,4 +66,20 @@ public class LabCoordinatorUi {
 
     }
 
+    @FXML
+    void validateWorkClick() {
+
+    }
+
+    @FXML
+    void viewTestsClick() {
+
+    }
+
+    @FXML
+    void importTestClick() {
+
+    }
+
 }
+
