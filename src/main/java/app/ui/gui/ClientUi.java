@@ -1,12 +1,12 @@
 package app.ui.gui;
 
+import app.controller.UpdateDataController;
 import app.domain.model.users.Client;
-import app.ui.console.AuthUI;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,7 +18,7 @@ import javafx.stage.StageStyle;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class ClientUi /*implements Initializable*/ {
+public class ClientUi /*implements Initializable*/{
 
     private Stage stage;
     private Stage stageUpdateData;
@@ -26,6 +26,7 @@ public class ClientUi /*implements Initializable*/ {
     private Stage stageViewResult;
     private ViewTestResultUi viewTestResultUi;
     private String email;
+
 
     @FXML
     private VBox updateDataButton;
@@ -48,7 +49,32 @@ public class ClientUi /*implements Initializable*/ {
     @FXML
     private ImageView imageTouch;
 
+    @FXML
+    private Label phoneNumberField;
 
+    @FXML
+    private Label tinField;
+
+    @FXML
+    private Label emailField;
+
+    @FXML
+    private Label citizenCardField;
+
+    UpdateDataController updateDataController;
+
+    Client client;
+    @FXML
+    private TextField nameField;
+
+    public ClientUi(){
+        updateDataController = new UpdateDataController();
+    }
+    public void emailClient(String email){
+        this.email = email;
+        client = updateDataController.getClientByEmail(email);
+        System.out.println(client);
+    }
 
     public void setLabelUI(Stage stageClient) {
         this.stage = stageClient;
@@ -127,14 +153,14 @@ public class ClientUi /*implements Initializable*/ {
         }
     }
 
-   /* @Override
+   /*@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        imageTouch.setImage(new Image(getClass().getResourceAsStream("images/touch.png")));
+        UpdateDataController updateDataController = new UpdateDataController();
+        Client client = updateDataController.getClientByEmail(email);
 
     }*/
-   public void emailClient(String email){
-       this.email = email;
-   }
+
+
    /* @FXML
     void logoutMouseClick() {
         AuthUI uiLogin = new AuthUI();
@@ -159,5 +185,31 @@ public class ClientUi /*implements Initializable*/ {
     @FXML
     void closeButtonClick() {
         System.exit(0);
+    }
+    @FXML
+    void tinShow() {
+        tinField.setText(client.getTin());
+        tinField.setVisible(true);
+    }
+    @FXML
+    void citizenCardShow() {
+        citizenCardField.setText(client.getCitizenCardNumber());
+        citizenCardField.setVisible(true);
+    }
+    @FXML
+    void emailShow() {
+        emailField.setText(client.getEmail());
+        emailField.setVisible(true);
+    }
+    @FXML
+    void phoneNumberShow() {
+        phoneNumberField.setText(client.getPhoneNumber());
+        phoneNumberField.setVisible(true);
+    }
+
+    @FXML
+    void nameFieldAction() {
+        nameField.setText(client.getName());
+        nameField.setVisible(true);
     }
 }

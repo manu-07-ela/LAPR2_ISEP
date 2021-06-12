@@ -177,8 +177,9 @@ public class LoginUi {
             stageClient.setScene(scene);
 
             clientUI = loader.getController();
-            stageClient.show();
             clientUI.emailClient(emailEntered);
+            stageClient.show();
+
 
         }catch (IOException exception){
             System.out.println("Problems reading client menu file \n" + exception);
