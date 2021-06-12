@@ -1,18 +1,23 @@
 package app.ui.gui;
 
+import app.Serialization;
+import app.controller.App;
 import app.controller.ItemController;
 import app.controller.ViewResultsController;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
+import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -90,6 +95,35 @@ public class ViewTestResultUi implements Initializable {
             tests.add(test);
         }
         return tests;
+    }
+
+    @FXML
+    void closePlatform() {
+        Serialization.saveApp(App.getInstance(), "SavedData.data");
+        System.exit(0);
+    }
+
+    @FXML
+    void logout() {
+        AuthUI uiLogin = new AuthUI();
+        uiLogin.logout();
+        try {
+            Stage newStage = new Stage();
+            newStage.initStyle(StageStyle.UNDECORATED);
+
+            Parent root;
+
+            root = FXMLLoader.load(getClass().getResource("/fxml/LoginUi.fxml"));
+
+            Scene scene = new Scene(root);
+
+            newStage.setScene(scene);
+            newStage.show();
+        } catch (IOException ex) {
+            System.out.println("Erro no lougout: " + ex);
+        }
+        stage.close();
+
     }
 
 

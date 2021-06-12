@@ -3,6 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ViewTestResultUi">
    <top>
@@ -44,10 +45,16 @@
       </ScrollPane>
    </center>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="647.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="647.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" onMouseClicked="#closePlatform" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onMouseClicked="#logout" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
          </children>
       </HBox>
    </bottom>

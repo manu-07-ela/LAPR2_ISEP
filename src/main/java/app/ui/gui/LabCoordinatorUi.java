@@ -1,5 +1,7 @@
 package app.ui.gui;
 
+import app.Serialization;
+import app.controller.App;
 import app.ui.console.AuthUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,6 +50,7 @@ public class LabCoordinatorUi {
 
     @FXML
     void closePlatform() {
+        Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
     }
 
