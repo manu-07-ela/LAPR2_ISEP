@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -17,20 +16,32 @@ public class ClinicalChemistryTecUI {
     private Stage stageViewTests;
     private SeeTestsUI seeTestsUI;
     private Stage stage;
-    @FXML
-    private ImageView closeButton;
 
     @FXML
-    private Button logoutButton;
+    private Button exit;
 
     @FXML
-    private VBox funcionaliteButton;
+    private Button logout;
+
+    @FXML
+    private VBox consultTheTests;
+
+    @FXML
+    private VBox recordResults;
 
     public void setLabelUI(Stage stage) {
         this.stage = stage;
     }
+
     @FXML
-    void logoutButtonClick() {
+    void exitClick() {
+        System.exit(0);
+
+    }
+
+
+    @FXML
+    void logoutClick() {
         AuthUI uiLogin = new AuthUI();
         uiLogin.logout();
         try {
@@ -52,15 +63,14 @@ public class ClinicalChemistryTecUI {
 
     }
 
-    @FXML
-    void functionalityButtonClick() {
-        viewTest();
 
+    @FXML
+    void consultTheTestsClick() {
+        viewTest();
     }
 
     @FXML
-    void closeButtonClick() {
-        System.exit(0);
+    void recordResultsClick() {
 
     }
     private void viewTest(){
@@ -86,5 +96,8 @@ public class ClinicalChemistryTecUI {
         }
     }
 
+
 }
+
+
 

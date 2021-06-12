@@ -4,9 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class AdmUi {
-
+    private Stage stage;
     @FXML
     private Button exit;
 
@@ -33,6 +34,10 @@ public class AdmUi {
 
     @FXML
     private VBox registerEmployee;
+
+    public void setLabelUI(Stage stage) {
+        this.stage = stage;
+    }
 
     @FXML
     void exitClick() {
