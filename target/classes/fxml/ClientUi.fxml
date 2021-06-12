@@ -132,7 +132,11 @@
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
                   </Label>
+<<<<<<< HEAD
                   <Label fx:id="emailField" onMouseMoved="#emailFieldAction" prefHeight="20.0" prefWidth="161.0" textFill="#239ba1">
+=======
+                  <Label fx:id="emailField" onMouseClicked="#emailShow" prefHeight="20.0" prefWidth="139.0" textFill="#239ba1">
+>>>>>>> 56c92ecbd7b7a47b1437e27a315d6d5621d8730a
                      <font>
                         <Font size="14.0" />
                      </font>
