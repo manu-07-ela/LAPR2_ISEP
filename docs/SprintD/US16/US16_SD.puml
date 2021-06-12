@@ -6,6 +6,8 @@ actor "Administrator" as ADMIN
 participant ": OverviewUI" as UI
 participant ": OverviewController" as CTRL
 participant ": Company" as COMP
+participant ": Overview" as OVERVIEW
+participant ": TestStore" as TS
 
 activate ADMIN
 ADMIN -> UI : initiates the process of overviewing the tests
@@ -15,9 +17,44 @@ deactivate UI
 
 ADMIN -> UI : types the dates and asks to see relative information
 activate UI
-UI -> CTRL :
+UI -> CTRL : recordsLimitDates(initialDate,endDate)
 activate CTRL
+CTRL -> OVERVIEW : recordsLimitDates(initialDate,endDate)
+activate OVERVIEW
+deactivate OVERVIEW
+
+CTRL -> COMP : testStore = getTestStore()
+activate COMP
+deactivate COMP
 deactivate CTRL
+UI -> CTRL : number of clients = getNumberOfClients()
+activate CTRL
+CTRL -> OVERVIEW : getNumberOfClients()
+activate OVERVIEW
+deactivate OVERVIEW
+deactivate CTRL
+
+UI -> CTRL : numberOfTestsWaitingForResults = getNumberOfTestsWaitingForResults()
+activate CTRL
+CTRL -> OVERVIEW : getNumberOfTestsWaitingForResults()
+activate OVERVIEW
+deactivate OVERVIEW
+deactivate CTRL
+
+UI -> CTRL : numberOfTestsWaitingForDiagnosis = getNumberOfTestsWaitingForDiagnosis()
+activate CTRL
+CTRL -> OVERVIEW : getNumberOfTestsWaitingForDiagnosis()
+activate OVERVIEW
+deactivate OVERVIEW
+deactivate CTRL
+
+UI -> CTRL : totalNumberOfTestsProcessed = getTotalNumberOfTestsProcessed()
+activate CTRL
+CTRL -> OVERVIEW : getTotalNumberOfTestsProcessed()
+activate OVERVIEW
+deactivate OVERVIEW
+deactivate CTRL
+
 UI --> ADMIN : shows the relative information ( number of clients, number of tests Waiting for results,\n the number of tests Waiting for diagnosis, total number of tests processed \n in the laboratory in each day, week, month and year
 deactivate UI
 
