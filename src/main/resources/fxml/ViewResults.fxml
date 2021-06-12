@@ -2,28 +2,15 @@
 
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.ViewResults">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ViewTestResultUi">
    <top>
       <VBox prefHeight="100.0" prefWidth="425.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="400.0">
                <children>
-                  <ImageView fitHeight="65.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/LogoManyLabs.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </ImageView>
                   <Label style="-fx-font-size: 25; -fx-font-family: system; -fx-text-fill: #1a7180; -fx-font-weight: bold;" styleClass="shadow" stylesheets="@../styles/Styles.css" text="Test Results" />
                </children>
             </HBox>
@@ -35,4 +22,20 @@
          </children>
       </VBox>
    </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="647.0" spacing="15.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#closePlatform" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#logout" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>
