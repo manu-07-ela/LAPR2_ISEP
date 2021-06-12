@@ -270,6 +270,7 @@ public class Test implements Serializable {
         }
         if (countAddResult==testParameterList.size()){
             stateOfTest = StateOfTest.SamplesAnalyzed;
+            countAddResult=0;
         }
         return verificacao;
 
