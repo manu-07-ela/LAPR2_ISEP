@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateParameterCategoryController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.controller</a> &gt; <span class="el_source">CreateParameterCategoryController.java</span></div><h1>CreateParameterCategoryController.java</h1><pre class="source lang-java linenums">package app.controller;
+
+import app.domain.model.Company;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.store.ParameterCategoryStore;
+
+/**
+ * The Create Parameter Category Controller.
+ * @author Rita Ariana Sobral &lt;1201386@isep.ipp.pt&gt;
+ */
+
+public class CreateParameterCategoryController {
+
+    /**
+     * Represents an instance of app.
+     */
+    private App app;
+
+    /**
+     * Represents a instance of company.
+     */
+    private Company company;
+
+    /**
+     * Represents an instance of parameter category.
+     */
+    private ParameterCategory pc;
+
+    /**
+     * Represents an instance of the parameter category store.
+     */
+    private ParameterCategoryStore pcStore;
+
+    /**
+     * Constructs an instance of {@code CreateParameterCategoryController}.
+     */
+<span class="nc" id="L37">    public CreateParameterCategoryController() {</span>
+<span class="nc" id="L38">        this.app=App.getInstance();</span>
+<span class="nc" id="L39">        this.company=app.getCompany();</span>
+<span class="nc" id="L40">        this.pcStore=company.getParameterCategoryStore();</span>
+<span class="nc" id="L41">    }</span>
+
+    /**
+     * Constructs an instance of {@code CreateParameterCategoryController} receiving a company.
+     * @param company The company.
+     */
+<span class="fc" id="L47">    public CreateParameterCategoryController(Company company) {</span>
+<span class="fc" id="L48">        this.app=App.getInstance();</span>
+<span class="fc" id="L49">        this.company = company;</span>
+<span class="fc" id="L50">        this.pcStore=company.getParameterCategoryStore();</span>
+<span class="fc" id="L51">    }</span>
+
+    /**
+     * New parameter category.
+     * @param code The parameter category code.
+     * @param name The parameter category name.
+     * @return false if the parameter category already exists or is null. Otherwise, it returns true.
+     */
+    public boolean createParameterCategory(String code, String name){
+<span class="fc" id="L60">        this.pc=pcStore.createParameterCategory(code,name);</span>
+<span class="fc" id="L61">        return this.pcStore.validateParameterCategory(pc);</span>
+    }
+
+    /**
+     * Save the parameter category case it is in a valid state.
+     * @return true if the parameter category was saved. Otherwise, false.
+     */
+    public boolean saveParameterCategory() {
+<span class="fc" id="L69">        return this.pcStore.saveParameterCategory(pc);</span>
+    }
+
+    /**
+     * Textual description of the parameter category.
+     * @return Information about the characteristics of the parameter category.
+     */
+    @Override
+    public String toString(){
+<span class="nc" id="L78">        return pc.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

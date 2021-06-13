@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateClinicalAnalysisLaboratoryMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.mappers</a> &gt; <span class="el_source">CreateClinicalAnalysisLaboratoryMapper.java</span></div><h1>CreateClinicalAnalysisLaboratoryMapper.java</h1><pre class="source lang-java linenums">package app.mappers;
+
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.testrelated.Parameter;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.model.testrelated.TestType;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
+import app.mappers.dto.ParameterCategoryDTO;
+import app.mappers.dto.ParameterDTO;
+import app.mappers.dto.TestTypeDTO;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author Carlos Rodrigues &lt;1201001@isep.ipp.pt&gt;
+ */
+<span class="fc" id="L18">public class CreateClinicalAnalysisLaboratoryMapper {</span>
+
+    /**
+     * Transforms an Objects of the type ClinicalAnalysisLaboratoryDTO into an Objects of the type ClinicalAnalysisLaboratory
+     * @param calDTO an Object of the type ClinicalAnalysisLaboratoryDTO
+     * @return an Object of the type ClinicalAnalysisLaboratory
+     */
+     public ClinicalAnalysisLaboratory toModel(ClinicalAnalysisLaboratoryDTO calDTO){
+<span class="fc" id="L26">         return new ClinicalAnalysisLaboratory(calDTO.getName(),calDTO.getAddress(), calDTO.getPhoneNumber(), calDTO.getTin(), calDTO.getLaboratoryId(),toModel(calDTO.getListOfTestTypes()));</span>
+     }
+
+    /**
+     * Transforms the list of TestTypeDTO into a list of TestType
+     * @param testTypeListDTO A list of TestTypeDTO
+     * @return A list of TestType
+     */
+    public List&lt;TestType&gt; toModel(List&lt;TestTypeDTO&gt; testTypeListDTO) {
+<span class="fc" id="L35">        List&lt;TestType&gt; testTypeList =new ArrayList();</span>
+        TestType obj;
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (TestTypeDTO lista : testTypeListDTO) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (lista != null){</span>
+<span class="fc" id="L39">                obj = toDomain(lista);</span>
+<span class="fc" id="L40">                testTypeList.add(obj);</span>
+            }
+<span class="fc" id="L42">        }</span>
+<span class="fc" id="L43">        return testTypeList;</span>
+    }
+
+    /**
+     * Transforms a TestTypeDTO into a TestType
+     * @param testTypeDTO a TestTypeDTO
+     * @return a TestType
+     */
+    public TestType toDomain (TestTypeDTO testTypeDTO){
+<span class="fc" id="L52">        return new TestType (testTypeDTO.getCode(), testTypeDTO.getDescription(),testTypeDTO.getCollectingMethod(),toDomainpclist(testTypeDTO.getListOfParameterCategories()), testTypeDTO.getReferenceAdapter());</span>
+    }
+
+    /**
+     * Transforms a list of objects of type ParameterCategoryDTO into a list of objects of type ParameterCategory.
+     * @param parameterCategories A list of ParameterCategoryDTO.
+     * @return A list of ParameterCategory
+     */
+    public List&lt;ParameterCategory&gt; toDomainpclist (List&lt;ParameterCategoryDTO&gt; parameterCategories){
+<span class="fc" id="L61">        List&lt;ParameterCategory&gt; parameterCategory = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        for(ParameterCategoryDTO lista : parameterCategories) {</span>
+<span class="fc" id="L63">            parameterCategory.add(this.toDomainpc(lista));</span>
+<span class="fc" id="L64">        }</span>
+<span class="fc" id="L65">        return parameterCategory;</span>
+    }
+
+    /**
+     * Transforms an object of type ParameterCategoryDto into an object of type ParameterCategory.
+     * @param parameterCategory An ParameterCategoryDto object.
+     * @return An instance of ParameterCategory.
+     */
+    public ParameterCategory toDomainpc(ParameterCategoryDTO parameterCategory) {
+<span class="fc" id="L74">        return new ParameterCategory (parameterCategory.getCode(),parameterCategory.getName());</span>
+    }
+
+    /**
+     * Transforms the list of ClinicalAnalysisLaboratory into a list of ClinicalAnalysisLaboratoryDTO
+     * @param labs A list of ClinicalAnalysisLaboratory
+     * @return A list of ClinicalAnalysisLaboratoryDTO
+     */
+    public List&lt;ClinicalAnalysisLaboratoryDTO&gt; toDto (List&lt;ClinicalAnalysisLaboratory&gt; labs){
+<span class="nc" id="L83">        List&lt;ClinicalAnalysisLaboratoryDTO&gt; clinicalAnalysisLaboratoryDTO = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        for(ClinicalAnalysisLaboratory lab: labs) {</span>
+<span class="nc" id="L85">            clinicalAnalysisLaboratoryDTO.add(this.toDto(lab));</span>
+<span class="nc" id="L86">        }</span>
+<span class="nc" id="L87">        return clinicalAnalysisLaboratoryDTO;</span>
+    }
+
+    /**
+     * Transforms an Objects of the type ClinicalAnalysisLaboratory into an Objects of the type ClinicalAnalysisLaboratoryDTO
+     * @param cal an Object of the type ClinicalAnalysisLaboratory
+     * @return an Object of the type ClinicalAnalysisLaboratoryDTO
+     */
+    public ClinicalAnalysisLaboratoryDTO toDto(ClinicalAnalysisLaboratory cal){
+<span class="nc" id="L96">        return new ClinicalAnalysisLaboratoryDTO(cal.getName(),cal.getAddress(), cal.getPhoneNumber(), cal.getTin(), cal.getLaboratoryId(),toDtoo(cal.getListOfTestTypes()));</span>
+    }
+
+    /**
+     * Transforms the list of TestType into a list of TestTypeDTO
+     * @param testTypeList A list of TestTypeDTO
+     * @return A list of TestTypeDTO
+     */
+    public List&lt;TestTypeDTO&gt; toDtoo(List&lt;TestType&gt; testTypeList) {
+<span class="nc" id="L105">        List&lt;TestTypeDTO&gt; testTypeListDTO =new ArrayList();</span>
+        TestTypeDTO obj;
+<span class="nc bnc" id="L107" title="All 2 branches missed.">        for (TestType lista : testTypeList) {</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">            if (lista != null){</span>
+<span class="nc" id="L109">                obj = toDtoo(lista);</span>
+<span class="nc" id="L110">                testTypeListDTO.add(obj);</span>
+            }
+<span class="nc" id="L112">        }</span>
+<span class="nc" id="L113">        return testTypeListDTO;</span>
+    }
+
+    /**
+     * Transforms a TestType into a TestTypeDTO
+     * @param testType a TestType
+     * @return a TestTypeDTO
+     */
+    public TestTypeDTO toDtoo (TestType testType){
+<span class="nc" id="L122">        return new TestTypeDTO (testType.getCode(), testType.getDescription(),testType.getCollectingMethod(),toDtopclist(testType.getListOfParameterCategories()), testType.getReferenceAdapter());</span>
+    }
+
+    /**
+     * Transforms a list of objects of type ParameterCategory into a list of objects of type ParameterCategoryDTO.
+     * @param parameterCategories A list of ParameterCategory.
+     * @return A list of ParameterCategoryDTO
+     */
+    public List&lt;ParameterCategoryDTO&gt; toDtopclist (List&lt;ParameterCategory&gt; parameterCategories){
+<span class="fc" id="L131">        List&lt;ParameterCategoryDTO&gt; parameterCategoryDTO = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        for(ParameterCategory lista : parameterCategories) {</span>
+<span class="fc" id="L133">            parameterCategoryDTO.add(this.toDtopc(lista));</span>
+<span class="fc" id="L134">        }</span>
+<span class="fc" id="L135">        return parameterCategoryDTO;</span>
+    }
+
+    /**
+     * Transforms an object of type ParameterCategory into an object of type ParameterCategoryDto.
+     * @param parameterCategory An ParameterCategory object.
+     * @return An instance of ParameterCategoryDto.
+     */
+    public ParameterCategoryDTO toDtopc(ParameterCategory parameterCategory) {
+<span class="fc" id="L144">        return new ParameterCategoryDTO (parameterCategory.getCode(),parameterCategory.getName());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

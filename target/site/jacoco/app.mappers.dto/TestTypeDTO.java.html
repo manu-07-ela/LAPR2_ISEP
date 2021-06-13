@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TestTypeDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.mappers.dto</a> &gt; <span class="el_source">TestTypeDTO.java</span></div><h1>TestTypeDTO.java</h1><pre class="source lang-java linenums">package app.mappers.dto;
+
+import app.mappers.dto.ParameterCategoryDTO;
+
+import java.util.List;
+
+public class TestTypeDTO {
+    /**
+     * The test type code.
+     */
+    private String code;
+
+    /**
+     * The description of the test type.
+     */
+    private String description;
+
+    /**
+     * The test type collecting method.
+     */
+    private String collectingMethod;
+
+    /**
+     * List of parameter categories that the test type has associated.
+     */
+    private List&lt;ParameterCategoryDTO&gt; listOfParameterCategories;
+
+    /**
+     * The path of the adapter of the api that has the reference values
+     */
+    private String referenceAdapter;
+
+    /**
+     * Build an instance of {@code TestTypeDto} by receiving the code, description, collection method and associated parameter categories.
+     * @param code The test type code.
+     * @param description The description of the test type.
+     * @param collectingMethod The test type collecting method.
+     * @param listOfParameterCategories List of parameter categories that the test type has associated.
+     * @param referenceAdapter The path of the adapter of the api that has the reference values
+     */
+<span class="fc" id="L41">    public TestTypeDTO (String code, String description, String collectingMethod, List&lt;ParameterCategoryDTO&gt; listOfParameterCategories,String referenceAdapter){</span>
+<span class="fc" id="L42">        this.code=code;</span>
+<span class="fc" id="L43">        this.description=description;</span>
+<span class="fc" id="L44">        this.collectingMethod=collectingMethod;</span>
+<span class="fc" id="L45">        this.listOfParameterCategories=listOfParameterCategories;</span>
+<span class="fc" id="L46">        this.referenceAdapter = referenceAdapter;</span>
+<span class="fc" id="L47">    }</span>
+
+    /**
+     * Get the test type code.
+     * @return The test type code.
+     */
+    public String getCode (){
+<span class="fc" id="L54">        return code;</span>
+    }
+
+    /**
+     * Get the test type description.
+     * @return The test type description.
+     */
+    public String getDescription() {
+<span class="fc" id="L62">        return description;</span>
+    }
+
+    /**
+     * Get the method of collecting the test type.
+     * @return The test type collecting method.
+     */
+    public String getCollectingMethod() {
+<span class="fc" id="L70">        return collectingMethod;</span>
+    }
+
+    /**
+     * Get the categories of parameters associated with the type of test.
+     * @return List of parameter categories that the test type has associated.
+     */
+    public List&lt;ParameterCategoryDTO&gt; getListOfParameterCategories() {
+<span class="fc" id="L78">        return listOfParameterCategories;</span>
+    }
+
+    /**
+     * Gets the name of the adapter odf the api that has the reference values
+     * @return the name of the adapter odf the api that has the reference values
+     */
+    public String getReferenceAdapter() {
+<span class="fc" id="L86">        return referenceAdapter;</span>
+    }
+
+    /**
+     * Textual description of the TestTypeDTO
+     * @return Information about the TestTypeDTO
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L95">        return String.format(&quot;&lt;Code&gt; %s /  &lt;description&gt; %s / &lt;collectingMethod&gt; %s &quot;,code ,description,collectingMethod);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -32,6 +32,10 @@ public class ReceptionistUi {
     @FXML
     private VBox registerClient;
 
+    public void setLabelUI(Stage stage) {
+        this.stage = stage;
+    }
+
     @FXML
     void exitClick() {
         System.exit(0);

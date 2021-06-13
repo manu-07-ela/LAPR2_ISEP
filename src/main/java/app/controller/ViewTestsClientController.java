@@ -56,13 +56,13 @@ public class ViewTestsClientController {
      * It gets a list of Clients with at least one test validated
      * @return a Dto list of Clients with at least one test validated
      */
-    private List<ClientDTO>  getCLientslist () {
+    public List<ClientDTO> getClientList() {
         tstore = company.getTestStore();
         return clMapper.toDto(tstore.getClientWithTestsValidated());
     }
 
     public List<ClientDTO> getClientListByTin() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        List<ClientDTO> list = getCLientslist();
+        List<ClientDTO> list = getClientList();
 
         Properties props = App.getInstance().getProps();
         String algorithm = props.getProperty("Controller.SortByTin.Class");
@@ -73,7 +73,7 @@ public class ViewTestsClientController {
     }
 
     public List<ClientDTO> getClientsListByAlphabeticalOrder() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        List<ClientDTO> list = getCLientslist();
+        List<ClientDTO> list = getClientList();
 
         Properties props = App.getInstance().getProps();
         String algorithm = props.getProperty("Controller.SortAlphabetically.Class");

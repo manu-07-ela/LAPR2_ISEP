@@ -24,6 +24,10 @@ public class SpecialistDoctorUi {
     @FXML
     private Button logout;
 
+    public void setLabelUI(Stage stage) {
+        this.stage = stage;
+    }
+
     @FXML
     void exitClick() {
         System.exit(0);

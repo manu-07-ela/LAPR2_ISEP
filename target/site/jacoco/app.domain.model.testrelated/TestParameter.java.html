@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TestParameter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model.testrelated</a> &gt; <span class="el_source">TestParameter.java</span></div><h1>TestParameter.java</h1><pre class="source lang-java linenums">package app.domain.model.testrelated;
+
+import java.io.Serializable;
+
+public class TestParameter implements Serializable {
+
+    /**
+     * The result of the testParameter
+     */
+    private TestParameterResult tparamresult;
+    /**
+     *The parameter of the testParameter
+     */
+    private Parameter param;
+
+    /**
+     * Constructs an instance of TestParameter
+     * @param param A parameter
+     */
+<span class="fc" id="L20">    public TestParameter (Parameter param){</span>
+<span class="fc" id="L21">        this.param=param;</span>
+<span class="fc" id="L22">        this.tparamresult=null;</span>
+<span class="fc" id="L23">    }</span>
+
+    /**
+     *
+     * @param param
+     * @param tparamresult
+     */
+<span class="fc" id="L30">    public TestParameter (Parameter param,TestParameterResult tparamresult){</span>
+<span class="fc" id="L31">        this.param=param;</span>
+<span class="fc" id="L32">        this.tparamresult=tparamresult;</span>
+<span class="fc" id="L33">    }</span>
+
+    /**
+     * Get the TestParameter result
+     * @return the TestParameter result
+     */
+    public TestParameterResult getParamResult() {
+<span class="fc" id="L40">        return tparamresult;</span>
+    }
+    /**
+     * Get the Parameter of the TestParameter
+     * @return the parameter of the TestParameter
+     */
+    public Parameter getParam() {
+<span class="fc" id="L47">        return param;</span>
+    }
+
+    /**
+     * It adds the result of the testParameter
+     * @param refValue An object of RefValue with the reference values
+     * @param result The result of the testParameter
+     * @param metric the metric of the result
+     * @return true if the result was successful
+     */
+    public boolean addResult(RefValue refValue, String result, String metric){
+        try {
+<span class="fc" id="L59">            tparamresult = new TestParameterResult(refValue, result, metric);</span>
+<span class="fc" id="L60">            return true;</span>
+<span class="fc" id="L61">        }catch (Exception e){</span>
+<span class="fc" id="L62">            return false;</span>
+        }
+
+    }
+
+    /**
+     * Gets the name of the parameter
+     * @return the name of the parameter
+     */
+    public String getParameterName() {
+<span class="fc" id="L72">        return param.getShortName();</span>
+    }
+
+    /**
+     * Gets the code of the parameter
+     * @return the code of the parameter
+     */
+<span class="fc" id="L79">    public String getParameterId(){ return param.getCode(); }</span>
+
+    /**
+     * Gets the metric of the parameter
+     * @return the metric of the parameter
+     */
+    public String getParameterMetric() {
+<span class="fc" id="L86">        return tparamresult.getMetric();</span>
+    }
+
+    /**
+     * Gets the result of the test parameter
+     * @return the result of the test parameter
+     */
+    public String getParameterResult() {
+<span class="fc" id="L94">        return tparamresult.getResult();</span>
+    }
+
+    /**
+     * Gets the minimum value of the reference value
+     * @return the minimum value of the reference value
+     */
+    public double getParameterMinRefValue() {
+<span class="fc" id="L102">        return tparamresult.getRefValue().getMinValue();</span>
+    }
+
+    /**
+     * Gets the maximum value of the reference value
+     * @return the maximum value of the reference value
+     */
+    public double getParameterMaxRefValue() {
+<span class="fc" id="L110">        return tparamresult.getRefValue().getMaxValue();</span>
+    }
+
+    /**
+     * Gets the metric of the reference value
+     * @return the metric of the reference value
+     */
+    public String getRefValueMetric() {
+<span class="fc" id="L118">        return tparamresult.getRefValue().getMetric();</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L123">        return &quot;TestParameter{&quot; +</span>
+                &quot;tparamresult=&quot; + tparamresult +
+                &quot;, param=&quot; + param +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

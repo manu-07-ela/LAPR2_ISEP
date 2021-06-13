@@ -97,6 +97,30 @@ public class TestParameterDTO {
     }
 
     /**
+     * Get the Max ref value of the Test Parameter dto.
+     * @return the the Max ref value of TestParameterDto.
+     */
+    public double getTestParameterMaxRefValue() {
+        return testParameterMaxRefValue;
+    }
+
+    /**
+     * Get the Min ref value of the Test Parameter dto.
+     * @return thethe Min ref value of TestParameterDto.
+     */
+    public double getTestParameterMinRefValue() {
+        return testParameterMinRefValue;
+    }
+
+    /**
+     * Get the metric of the ref value of the Test Parameter dto.
+     * @return the metric of ref value.
+     */
+    public String getRefValueMetric() {
+        return refValueMetric;
+    }
+
+    /**
      * Textual description of the TestParameterDTO
      * @return Information about the TestParameterDTO
      */

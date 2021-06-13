@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Laboratory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model.laboratories</a> &gt; <span class="el_source">Laboratory.java</span></div><h1>Laboratory.java</h1><pre class="source lang-java linenums">package app.domain.model.laboratories;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.Serializable;
+
+/**
+ * Represents a Laboratory
+ * @author Rita Ariana
+ */
+public abstract class Laboratory implements Serializable {
+
+    /**
+     * Name of the Laboratory.
+     */
+    private String name;
+
+    /**
+     * Address of the Laboratory.
+     */
+    private String address;
+
+    /**
+     * Phone Number of the Laboratory.
+     */
+    private String phoneNumber;
+
+    /**
+     * Tin number of the Laboratory.
+     */
+    private String tin;
+
+    /**
+     * Initializes the attributes related to a laboratory.
+     * @param name the name of the Laboratory.
+     * @param address the address of the Laboratory.
+     * @param phoneNumber the phone number of the Laboratory.
+     * @param tin the tin number of the Laboratory.
+     */
+<span class="fc" id="L40">    public Laboratory(String name, String address, String phoneNumber, String tin){</span>
+<span class="fc" id="L41">        nameValidation(name);</span>
+<span class="fc" id="L42">        addressValidation(address);</span>
+<span class="fc" id="L43">        phoneNumberValidation(phoneNumber);</span>
+<span class="fc" id="L44">        tinValidation(tin);</span>
+<span class="fc" id="L45">        this.name=name;</span>
+<span class="fc" id="L46">        this.address=address;</span>
+<span class="fc" id="L47">        this.phoneNumber=phoneNumber;</span>
+<span class="fc" id="L48">        this.tin=tin;</span>
+<span class="fc" id="L49">    }</span>
+
+    /**
+     * Get the name of the Laboratory.
+     * @return Laboratory's name.
+     */
+    public String getName() {
+<span class="fc" id="L56">        return name;</span>
+    }
+
+    /**
+     * Get the address of the Laboratory.
+     * @return Laboratory's address.
+     */
+    public String getAddress() {
+<span class="fc" id="L64">        return address;</span>
+    }
+
+    /**
+     * Get the Phone Number of the Laboratory.
+     * @return Laboratory's Phone Number.
+     */
+    public String getPhoneNumber() {
+<span class="fc" id="L72">        return phoneNumber;</span>
+    }
+
+    /**
+     * Get the tax identification number of the Laboratory.
+     * @return Laboratory's tax identification number.
+     */
+    public String getTin() {
+<span class="fc" id="L80">        return tin;</span>
+    }
+
+    /**
+     * Checks whether the name contains all business rules
+     * @param name   Clinical Analysis Laboratory's name
+     */
+    private void nameValidation(String name){
+<span class="fc bfc" id="L88" title="All 4 branches covered.">        if (StringUtils.isBlank(name) || name.length()&gt;20){</span>
+<span class="fc" id="L89">            throw  new IllegalArgumentException(&quot;The name mustn't have more than 20 characters and cannot be blank&quot;);</span>
+        }
+
+<span class="fc" id="L92">    }</span>
+
+    /**
+     * Checks whether the address contains all business rules
+     * @param address     Clinical Analysis Laboratory's address
+     */
+    private void addressValidation(String address){
+<span class="fc bfc" id="L99" title="All 4 branches covered.">        if (StringUtils.isBlank(address) || address.length()&gt;30 ){</span>
+<span class="fc" id="L100">            throw  new IllegalArgumentException(&quot;The address mustn't have more than 30 characters and cannot be blank&quot;);</span>
+        }
+<span class="fc" id="L102">    }</span>
+
+    /**
+     * Checks whether the Phone Number contains all business rules
+     * @param phoneNumber Clinical Analysis Laboratory's phone number
+     */
+    private void phoneNumberValidation(String phoneNumber){
+<span class="fc bfc" id="L109" title="All 4 branches covered.">        if (StringUtils.isBlank(phoneNumber) || phoneNumber.length()!=11){</span>
+<span class="fc" id="L110">            throw  new IllegalArgumentException(&quot;Phone number is a number with 11 digits&quot;);</span>
+        }
+<span class="fc" id="L112">    }</span>
+
+    /**
+     * Checks whether the tax identification number contains all business rules
+     * @param tin Clinical Analysis Laboratory's tax identification number
+     */
+    private void tinValidation(String tin){
+<span class="fc bfc" id="L119" title="All 4 branches covered.">        if (StringUtils.isBlank(tin) || tin.length()!=10){</span>
+<span class="fc" id="L120">            throw  new IllegalArgumentException(&quot;Tin is a number with 10 digits&quot;);</span>
+        }
+<span class="fc" id="L122">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

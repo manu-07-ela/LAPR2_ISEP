@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateClinicalAnalysisLaboratoryController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.controller</a> &gt; <span class="el_source">CreateClinicalAnalysisLaboratoryController.java</span></div><h1>CreateClinicalAnalysisLaboratoryController.java</h1><pre class="source lang-java linenums">package app.controller;
+
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.Company;
+import app.domain.store.ClinicalAnalysisLaboratoryStore;
+import app.domain.store.TestTypeStore;
+import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
+import app.mappers.TestTyperMapper;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
+import app.mappers.dto.TestTypeDTO;
+
+import java.util.List;
+
+/**
+ * @author Carlos Rodrigues &lt;1201001@isep.ipp.pt&gt;
+ */
+public class CreateClinicalAnalysisLaboratoryController {
+
+    /**
+     * Represents a instance of company
+     */
+    private Company company;
+    /**
+     * Represents an instance of ClinicalAnalysisLaboratory
+     */
+    private ClinicalAnalysisLaboratory cal;
+    /**
+     * Represents an instance of ClinicalAnalysisLaboratory Store
+     */
+    private ClinicalAnalysisLaboratoryStore store;
+    /**
+     * Represents an instance of TestType Mapper
+     */
+    private TestTyperMapper ttmapper;
+    /**
+     * Represents an instance of ClinicalAnalysisLaboratory Mapper
+     */
+    private CreateClinicalAnalysisLaboratoryMapper calMapper;
+
+    /**
+     * Creates an instance of CreateClinicalAnalysisLaboratoryController
+     */
+    public CreateClinicalAnalysisLaboratoryController() {
+<span class="nc" id="L44">        this(App.getInstance().getCompany());</span>
+<span class="nc" id="L45">    }</span>
+    /**
+     * Creates an instance of CreateClinicalAnalysisLaboratoryController receiving the company
+     * @param company The comany
+     */
+<span class="nc" id="L50">    public CreateClinicalAnalysisLaboratoryController(Company company) {</span>
+<span class="nc" id="L51">        this.company = company;</span>
+<span class="nc" id="L52">        this.store = company.getClinicalAnalysisLaboratoryStore();</span>
+<span class="nc" id="L53">        this.cal = null;</span>
+<span class="nc" id="L54">        ttmapper = new TestTyperMapper();</span>
+<span class="nc" id="L55">        calMapper = new CreateClinicalAnalysisLaboratoryMapper();</span>
+<span class="nc" id="L56">    }</span>
+
+    /**
+     * Get a list of objects of TestTYpeDTO
+     * @return list of TestTypeDTO
+     */
+    public List&lt;TestTypeDTO&gt; getTestTypeList(){
+<span class="nc" id="L63">       TestTypeStore store = company.getTestTypeStore();</span>
+<span class="nc" id="L64">       return ttmapper.toDTO(store.getTestTypeList());</span>
+    }
+
+    /**
+     * Creates a  new Clinical Analysis Laboratory
+     * @param calDTO An object of the type ClinicalAnalysisLaboratoryDTO with the information to create a ClinicalAnalysisLaboratory
+     * @return false if the ClinicalAnalysisLaboratory created has an attribute with the same information as an already created. Otherwise return true.
+     */
+   public boolean CreateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO) {
+<span class="nc" id="L73">        this.cal = store.createClinicalAnalysisLaboratory(calDTO,calMapper);</span>
+<span class="nc" id="L74">        return store.validateClinicalAnalysisLaboratoryGlobal(cal);</span>
+   }
+
+
+    /**
+     * Save the ClinicalAnalysisLaboratory if it is valid
+     * @return true if the ClinicalAnalysisLaboratory was saved. Otherwise, false
+     */
+    public boolean saveClinicalAnalysisLaboratory() {
+<span class="nc" id="L83">        return store.saveClinicalAnalysisLaboratory(cal);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

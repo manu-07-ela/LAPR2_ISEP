@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Address.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model.attributes</a> &gt; <span class="el_source">Address.java</span></div><h1>Address.java</h1><pre class="source lang-java linenums">package app.domain.model.attributes;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.Serializable;
+
+/**
+ * Represents a address of an employee
+ * @author Manuela Leite &lt;1200720@isep.ipp.pt&gt;
+ */
+
+public class Address implements Serializable {
+    /**
+     * The adress of an employee
+     */
+    private String designation;
+
+    /**
+     * Builds an address instance by receiving an address by parameter
+     * @param address the address of an employee
+     */
+<span class="fc" id="L22">    public Address(String address) {</span>
+<span class="fc" id="L23">        checkRulesForAddress(address);</span>
+<span class="fc" id="L24">        this.designation = address;</span>
+<span class="fc" id="L25">    }</span>
+
+    /**
+     * Copy builder of address
+     * @param address the address
+     */
+<span class="fc" id="L31">    public Address(Address address){</span>
+<span class="fc" id="L32">        this.designation = address.getDesignation();</span>
+<span class="fc" id="L33">    }</span>
+
+
+    /**
+     * Compare the address with other object received
+     * @param other Object we want to compare with the address
+     * @return true if the received object represents another address equivalent to the address. Otherwise, it returns false.
+     */
+    @Override
+    public boolean equals(Object other) {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (this == other) return true;</span>
+<span class="pc bpc" id="L44" title="2 of 4 branches missed.">        if (other == null || getClass() != other.getClass()) return false;</span>
+<span class="fc" id="L45">        Address address1 = (Address) other;</span>
+<span class="fc" id="L46">        return designation.equals(address1.designation);</span>
+    }
+
+    /**
+     * Get the address of an employee
+     * @return the address
+     */
+    public String getDesignation() {
+<span class="fc" id="L54">        return designation;</span>
+    }
+
+    /**
+     * Checks if the business rules applied to the address are respected
+     * @param address the address
+     */
+    private void checkRulesForAddress(String address){
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (StringUtils.isBlank(address)) throw new IllegalArgumentException(&quot;ERROR: Address can´t be blank&quot;);</span>
+<span class="fc" id="L63">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
