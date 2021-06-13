@@ -12,9 +12,12 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class ClinicalChemistryTecUI {
+public class ClinicalChemistryTecUi {
+
     private Stage stageViewTests;
+
     private ClientsUi clientsUI;
+
     private Stage stage;
 
     @FXML
@@ -36,7 +39,6 @@ public class ClinicalChemistryTecUI {
     @FXML
     void exitClick() {
         System.exit(0);
-
     }
 
 
@@ -71,7 +73,6 @@ public class ClinicalChemistryTecUI {
 
     @FXML
     void recordResultsClick() {
-
     }
     private void viewTest(){
         try {

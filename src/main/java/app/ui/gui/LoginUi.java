@@ -4,21 +4,17 @@ package app.ui.gui;
 import app.Serialization;
 import app.controller.App;
 import app.controller.AuthController;
-import app.domain.model.users.Client;
-import app.ui.console.MenuItem;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.UserRoleDTO;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -28,10 +24,8 @@ import javafx.scene.control.Button;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 
 public class LoginUi {
@@ -42,7 +36,7 @@ public class LoginUi {
     private Stage stageAdminUi;
     private AdmUi adminUi;
     private Stage stageClinicalCheTec;
-    private  ClinicalChemistryTecUI clinicalChemistryTecUI;
+    private ClinicalChemistryTecUi clinicalChemistryTecUI;
     AuthController ctrl = new AuthController();
     private Stage stageClient;
     private ClientUi clientUI;
@@ -120,12 +114,8 @@ public class LoginUi {
             }
             if(role.getId().equals("ADMINISTRATOR")){
                 runAdmin();
-                adminUi.setLabelUI(stageClient);
+                adminUi.setLabelUI(stageAdminUi);
 
-            }
-            if (role.getId().equalsIgnoreCase("CLINICAL CHEMISTRY TECHNOLOGIST")){
-                runClinicalCheTec();
-                clinicalChemistryTecUI.setLabelUI(stageClinicalCheTec);
             }
             if (role.getId().equals("RECEPTIONIST")){
                 runReceptionist();
@@ -138,6 +128,10 @@ public class LoginUi {
             if (role.getId().equals("SPECIALIST DOCTOR")){
                 runDoctor();
                 specialistDoctorUi.setLabelUI(stageDoctor);
+            }
+            if(role.getId().equals("CLINICAL CHEMISTRY TECHNICIAN")){
+                runClinicalCheTec();
+                clinicalChemistryTecUI.setLabelUI(stageClinicalCheTec);
             }
         }
     }
@@ -229,7 +223,7 @@ public class LoginUi {
             stageClinicalCheTec = new Stage();
             stageClinicalCheTec.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ClinicalChemistryTecUi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ClinicalCheTecUi.fxml"));
             Parent root;
 
             root = loader.load();
@@ -239,6 +233,7 @@ public class LoginUi {
             stageClinicalCheTec.setScene(scene);
             clinicalChemistryTecUI = loader.getController();
             stageClinicalCheTec.show();
+
         } catch (IOException ex) {
             System.out.println("Problems reading admin menu file \n" + ex);
         }

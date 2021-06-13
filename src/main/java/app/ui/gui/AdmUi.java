@@ -70,7 +70,7 @@ public class AdmUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            System.out.println("Logout error: " + ex);
         }
         stage.close();
 
