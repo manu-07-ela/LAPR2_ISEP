@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Employee.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model.users</a> &gt; <span class="el_source">Employee.java</span></div><h1>Employee.java</h1><pre class="source lang-java linenums">package app.domain.model.users;
+import app.domain.model.attributes.*;
+import auth.domain.model.Email;
+
+import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.util.Locale;
+
+
+/**
+ *Represents a Employee in organization
+ * @author Manuela Leite &lt;1200720@isep.ipp.pt&gt;
+ */
+public class Employee implements Serializable {
+    /**
+     *The name of an employee in the organization
+     */
+    private Name name;
+    /**
+     *The email of an employee in the organization
+     */
+    private Email email;
+    /**
+     *The address of an employee in the organization
+     */
+    private Address address;
+    /**
+     *The phone number of an employee in the organization
+     */
+    private PhoneNumber phoneNumber;
+    /**
+     *The employee ID of an employee in the organization
+     */
+    private String employeeId;
+    /**
+     *The Standard Occupational Classification of an employee in the organization
+     */
+    private SocCode socCode;
+    /**
+     *The organization role of an employee in the organization
+     */
+    private OrganizationRole organizationRole;
+
+    /**
+     * Count the instances of employees created in the system
+     */
+    private static int instancesOfEmployee;
+
+    /**
+     * Constructs an instance of {@code Employee} receiving the name, email, address, phone number, soc code and organization role
+     * @param name name of Employee
+     * @param email email of Employee
+     * @param address address of Employee
+     * @param phoneNumber phone number of Employee
+     * @param socCode SOC code of Employee
+     * @param organizationRole organization Role of Employee
+     */
+<span class="fc" id="L58">    public Employee(Name name, Email email, Address address, PhoneNumber phoneNumber, SocCode socCode, OrganizationRole organizationRole){</span>
+
+<span class="fc" id="L60">        this.name = new Name(name);</span>
+<span class="fc" id="L61">        this.email = new Email(email);</span>
+<span class="fc" id="L62">        this.address = new Address(address);</span>
+<span class="fc" id="L63">        this.phoneNumber = new PhoneNumber(phoneNumber);</span>
+<span class="fc" id="L64">        this.socCode = new SocCode(socCode);</span>
+<span class="fc" id="L65">        this.organizationRole = new OrganizationRole(organizationRole);</span>
+<span class="fc" id="L66">        this.employeeId = nameId(this.name)+numberId(instancesOfEmployee);</span>
+<span class="fc" id="L67">        instancesOfEmployee++;</span>
+<span class="fc" id="L68">    }</span>
+
+    /**
+     * Takes the initials of a name and puts them in capital letters to be used in the employee ID later
+     * @param name The name of an employee
+     * @return The initials of an employee's name
+     */
+    private String nameId(Name name){
+<span class="fc" id="L76">        String n = &quot;&quot;;</span>
+<span class="fc" id="L77">        String[] nameAux = name.getDesignation().split(&quot; &quot;);</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        for (int i=0; i&lt;nameAux.length; i++){</span>
+<span class="fc" id="L79">            n += nameAux[i].charAt(0);</span>
+        }
+<span class="fc" id="L81">        return n.toUpperCase(Locale.ROOT);</span>
+    }
+
+    /**
+     * Receives the instance counter from the employees and puts this number with 5 digits to later be concatenated with the initials of the employee's name
+     * @param id The employee instance counter
+     * @return The number with 5 digits
+     */
+    private String numberId(int id){
+<span class="fc" id="L90">        DecimalFormat df = new DecimalFormat(&quot;00000&quot;);</span>
+<span class="fc" id="L91">        return df.format(id);</span>
+    }
+    /**
+     * Get the name of an employee
+     * @return the name of Employee
+     */
+    public Name getName() {
+<span class="fc" id="L98">        return name;</span>
+    }
+
+    /**
+     * Get the email of an employee
+     * @return the email of Employee
+     */
+    public Email getEmail() {
+<span class="fc" id="L106">        return email;</span>
+    }
+
+    /**
+     * Get the address of an employee
+     * @return the address of Employee
+     */
+    public Address getAddress() {
+<span class="fc" id="L114">        return address;</span>
+    }
+
+    /**
+     * Get the phone number of an employee
+     * @return the phone number of Employee
+     */
+    public PhoneNumber getPhoneNumber() {
+<span class="fc" id="L122">        return phoneNumber;</span>
+    }
+
+    /**
+     * Get the employee ID of an employee
+     * @return the employee ID of Employee
+     */
+    public String getEmployeeId() {
+<span class="nc" id="L130">        return employeeId;</span>
+    }
+
+    /**
+     * Get the SOC code of an employee
+     * @return the SOC code of Employee
+     */
+    public SocCode getSocCode() {
+<span class="fc" id="L138">        return socCode;</span>
+    }
+
+    /**
+     * Get the employee role of an employee
+     * @return the employee role of Employee
+     */
+    public OrganizationRole getEmployeeRole() {
+<span class="fc" id="L146">        return organizationRole;</span>
+    }
+
+
+    /**
+     * Textual description of an employee.
+     * @return Information that characterizes an employee.
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L156">        return String.format(&quot;-&gt; Name= %s%n-&gt; Email= %s%n-&gt; Address= %s%n-&gt; PhoneNumber= %s%n-&gt; Employee ID= %s%n-&gt; SOC code= %s%n-&gt; Organization Role= %s%n&quot;, name.getDesignation(), email.getEmail(), address.getDesignation(), phoneNumber.getNumber(), employeeId, socCode.getCode(), organizationRole.getDesignation());</span>
+    }
+
+    /**
+     * Compare the employee with the other object provided.
+     * @param other Object we want to compare with the employee.
+     * @return true if the received object represents another employee equivalent to the employee. Otherwise, it returns false.
+     */
+    @Override
+    public boolean equals(Object other) {
+<span class="fc bfc" id="L166" title="All 2 branches covered.">        if (this == other) return true;</span>
+<span class="pc bpc" id="L167" title="2 of 4 branches missed.">        if (other == null || getClass() != other.getClass()) return false;</span>
+<span class="fc" id="L168">        Employee employee = (Employee) other;</span>
+<span class="fc" id="L169">        return email.equals(employee.getEmail());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

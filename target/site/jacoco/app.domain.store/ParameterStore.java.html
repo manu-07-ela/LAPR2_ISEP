@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParameterStore.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.store</a> &gt; <span class="el_source">ParameterStore.java</span></div><h1>ParameterStore.java</h1><pre class="source lang-java linenums">package app.domain.store;
+
+import app.domain.model.testrelated.Parameter;
+import app.domain.model.testrelated.ParameterCategory;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * The parameters existing in the company.
+ *
+ * @author Pedro Rocha &lt;1201382@isep.ipp.pt&gt;
+ */
+public class ParameterStore implements Serializable {
+
+
+    /**
+     * List containing all categories of parameters existing in the Company.
+     */
+    private List&lt;Parameter&gt; listParameter;
+
+    /**
+     * Instantiates a new Parameter Store.
+     */
+<span class="fc" id="L26">    public ParameterStore(){</span>
+<span class="fc" id="L27">        listParameter = new ArrayList();</span>
+
+<span class="fc" id="L29">    }</span>
+
+    /**
+     * Save the parameter case it is in a valid state.
+     * @param parameter The parameter we intend to save.
+     * @return true if the parameter was saved. Otherwise, false.
+     */
+    public boolean saveParameter(Parameter parameter) {
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (!validateParameter(parameter))</span>
+<span class="fc" id="L38">            return false;</span>
+<span class="fc" id="L39">        return this.addParameter(parameter);</span>
+    }
+
+    /**
+     * Global validation of a parameter.
+     * @param p parameter that we intend to validate.
+     * @return false if the parameter already exists or is null. Otherwise, it returns true.
+     */
+    public boolean validateParameter(Parameter p) {
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (p == null)</span>
+<span class="fc" id="L49">            return false;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        return !this.listParameter.contains(p);</span>
+    }
+
+    /**
+     * Adds a new Parameter to the List.
+     * @param p The parameter we intend to add.
+     * @return true if the parameter was added. Otherwise, false.
+     */
+    public boolean addParameter(Parameter p) {
+<span class="fc" id="L59">        return listParameter.add(p);</span>
+    }
+
+    /**
+     * New Parameter.
+     * @param code The Parameter code.
+     * @param shortName The Parameter short name.
+     * @param description The Parameter description.
+     * @param category The Parameter category.
+     */
+    public Parameter createParameter(String code, String shortName, String description,ParameterCategory category){
+<span class="fc" id="L70">        return new Parameter(code,shortName,description,category);</span>
+    }
+
+    /**
+     * Get the Parameter Category List
+     * @return parameterCategoryList
+     */
+    public List&lt;Parameter&gt; getParameterList() {
+<span class="fc" id="L78">        return listParameter;</span>
+    }
+
+    /**
+     * Get parameter through code.
+     * @param code The code of the parameter we want to get.
+     * @return The parameter associated with that code. If there is no parameter that has that code it returns null.
+     */
+    public Parameter getParameterByCode(String code) {
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">        for (Parameter param : listParameter) {</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">            if (param.getCode().equals(code)) {</span>
+<span class="nc" id="L89">                return param;</span>
+            }
+<span class="nc" id="L91">        }</span>
+<span class="fc" id="L92">        return null;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

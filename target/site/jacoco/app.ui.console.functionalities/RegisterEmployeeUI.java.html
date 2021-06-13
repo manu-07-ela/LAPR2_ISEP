@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RegisterEmployeeUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.ui.console.functionalities</a> &gt; <span class="el_source">RegisterEmployeeUI.java</span></div><h1>RegisterEmployeeUI.java</h1><pre class="source lang-java linenums">package app.ui.console.functionalities;
+
+import app.controller.RegisterEmployeeController;
+import app.domain.model.users.Employee;
+import app.domain.model.attributes.OrganizationRole;
+import app.domain.model.users.SpecialistDoctor;
+import app.domain.model.attributes.*;
+import app.mappers.dto.EmployeeDTO;
+import app.mappers.dto.OrganizationRoleDTO;
+import app.ui.console.utils.Utils;
+import auth.domain.model.Email;
+
+import java.io.IOException;
+
+
+/**
+ * Represents an interface with the user to be able to register a new employee
+ * @author Manuela Leite &lt;1200720@isep.ipp.pt&gt;
+ */
+
+public class RegisterEmployeeUI implements Runnable{
+    /**
+     * Represents a instance of register employee controller
+     */
+    private final RegisterEmployeeController controller;
+
+    /**
+     * Initializes the controller
+     */
+<span class="nc" id="L30">    public RegisterEmployeeUI(){</span>
+<span class="nc" id="L31">        controller = new RegisterEmployeeController();</span>
+<span class="nc" id="L32">    }</span>
+
+    /**
+     * Invokes the necessary methods for the interface to function
+     */
+    @Override
+    public void run() {
+<span class="nc" id="L39">        showOrganizationRole();</span>
+<span class="nc" id="L40">        OrganizationRole orgRole = createOrganizationRole();</span>
+<span class="nc" id="L41">        EmployeeDTO employeeDTO = createEmployeeDTO(orgRole);</span>
+        try {
+<span class="nc" id="L43">            showEmployee(employeeDTO, orgRole);</span>
+<span class="nc" id="L44">        }catch (IOException e){</span>
+<span class="nc" id="L45">            e.printStackTrace();</span>
+<span class="nc" id="L46">        }</span>
+
+<span class="nc" id="L48">    }</span>
+
+    /**
+     * Shows the organizational roles present in the company
+     */
+    private void showOrganizationRole(){
+<span class="nc" id="L54">        System.out.printf(&quot;What is the organizational role played by the employee you want to register? %n&quot;);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        for (OrganizationRoleDTO orgRoleDTO : controller.getLisOfOrgRoles()){</span>
+<span class="nc" id="L56">            System.out.printf(&quot;-&gt; %s%n&quot;, orgRoleDTO.getDesignation());</span>
+<span class="nc" id="L57">        }</span>
+<span class="nc" id="L58">    }</span>
+
+    /**
+     * Create an instance of organizational role
+     * @return the organization role
+     */
+    private OrganizationRole createOrganizationRole(){
+<span class="nc" id="L65">        OrganizationRole orgRole = null;</span>
+<span class="nc" id="L66">        boolean invalidData = true;</span>
+        do {
+<span class="nc" id="L68">            String option = Utils.readLineFromConsole(&quot;Type your option: &quot;);</span>
+            try {
+<span class="nc" id="L70">                orgRole = this.controller.createOrganizationRole(new OrganizationRoleDTO(option));</span>
+<span class="nc" id="L71">                invalidData = false;</span>
+
+<span class="nc" id="L73">            }catch (IllegalArgumentException e){</span>
+<span class="nc" id="L74">                System.out.printf(&quot;ERROR: %s%n&quot;, e.getMessage());</span>
+
+<span class="nc" id="L76">            }</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        }while (invalidData);</span>
+
+<span class="nc" id="L79">        return orgRole;</span>
+    }
+
+    /**
+     * Create an instance of name
+     * @return The name
+     */
+    private Name name(){
+<span class="nc" id="L87">        boolean invalidData = true;</span>
+<span class="nc" id="L88">        Name nameAux = null;</span>
+        do{
+            try {
+<span class="nc" id="L91">                String name = Utils.readLineFromConsole(&quot;Name: &quot;);</span>
+<span class="nc" id="L92">                nameAux = new Name(name);</span>
+<span class="nc" id="L93">                invalidData = false;</span>
+<span class="nc" id="L94">            }catch (Exception e){</span>
+<span class="nc" id="L95">                System.out.println(e.getMessage());</span>
+<span class="nc" id="L96">            }</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        }while (invalidData);</span>
+<span class="nc" id="L98">        return nameAux;</span>
+    }
+
+    /**
+     * Create an instance of email
+     * @return the email
+     */
+    private Email email(){
+<span class="nc" id="L106">        boolean invalidData = true;</span>
+<span class="nc" id="L107">        Email emailAux = null;</span>
+        do{
+            try {
+<span class="nc" id="L110">                String email = Utils.readLineFromConsole(&quot;Email: &quot;);</span>
+<span class="nc" id="L111">                emailAux = new Email(email);</span>
+<span class="nc" id="L112">                invalidData = false;</span>
+<span class="nc" id="L113">            }catch (Exception e){</span>
+<span class="nc" id="L114">                System.out.println(e.getMessage());</span>
+<span class="nc" id="L115">            }</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">        }while (invalidData);</span>
+<span class="nc" id="L117">        return emailAux;</span>
+    }
+
+    /**
+     * Create an instance of address
+     * @return the address
+     */
+    private Address address(){
+<span class="nc" id="L125">        boolean invalidData = true;</span>
+<span class="nc" id="L126">        Address addressAux = null;</span>
+        do{
+            try {
+<span class="nc" id="L129">                String address = Utils.readLineFromConsole(&quot;Address: &quot;);</span>
+<span class="nc" id="L130">                addressAux = new Address(address);</span>
+<span class="nc" id="L131">                invalidData = false;</span>
+<span class="nc" id="L132">            }catch (Exception e){</span>
+<span class="nc" id="L133">                System.out.println(e.getMessage());</span>
+<span class="nc" id="L134">            }</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        }while (invalidData);</span>
+<span class="nc" id="L136">        return addressAux;</span>
+    }
+
+    /**
+     * Create an instance of phone number
+     * @return the phone number
+     */
+    private PhoneNumber phoneNumber(){
+<span class="nc" id="L144">        boolean invalidData = true;</span>
+<span class="nc" id="L145">        PhoneNumber phoneNumberAux = null;</span>
+        do{
+            try {
+<span class="nc" id="L148">                String phoneNumber = Utils.readLineFromConsole(&quot;Phone Number: &quot;);</span>
+<span class="nc" id="L149">                phoneNumberAux = new PhoneNumber(phoneNumber);</span>
+<span class="nc" id="L150">                invalidData = false;</span>
+<span class="nc" id="L151">            }catch(Exception e){</span>
+<span class="nc" id="L152">                System.out.println(e.getMessage());</span>
+<span class="nc" id="L153">            }</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        }while (invalidData);</span>
+<span class="nc" id="L155">        return phoneNumberAux;</span>
+    }
+
+    /**
+     * Create an instance of SOC code
+     * @return the SOC code
+     */
+    private SocCode socCode(){
+<span class="nc" id="L163">        boolean invalidData = true;</span>
+<span class="nc" id="L164">        SocCode socCodeAux = null;</span>
+        do{
+            try {
+<span class="nc" id="L167">                String socCode = Utils.readLineFromConsole(&quot;SOC code: &quot;);</span>
+<span class="nc" id="L168">                socCodeAux = new SocCode(socCode);</span>
+<span class="nc" id="L169">                invalidData = false;</span>
+<span class="nc" id="L170">            }catch (Exception e){</span>
+<span class="nc" id="L171">                System.out.println(e.getMessage());</span>
+<span class="nc" id="L172">            }</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">        }while (invalidData);</span>
+<span class="nc" id="L174">        return socCodeAux;</span>
+    }
+
+    /**
+     * Create an instance of doctor index number
+     * @return the doctor index number
+     */
+    private DoctorIndexNumber doctorIndexNumber(){
+<span class="nc" id="L182">        boolean invalidData = true;</span>
+<span class="nc" id="L183">        DoctorIndexNumber doctorIndexNumberAux = null;</span>
+        do{
+            try {
+<span class="nc" id="L186">                String doctorIndexNumber = Utils.readLineFromConsole(&quot;Doctor index Number: &quot;);</span>
+<span class="nc" id="L187">                doctorIndexNumberAux = new DoctorIndexNumber(doctorIndexNumber);</span>
+<span class="nc" id="L188">                invalidData = false;</span>
+<span class="nc" id="L189">            }catch (Exception e){</span>
+<span class="nc" id="L190">                System.out.println(e.getMessage());</span>
+<span class="nc" id="L191">            }</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">        }while (invalidData);</span>
+<span class="nc" id="L193">        return doctorIndexNumberAux;</span>
+    }
+
+    /**
+     * Create an instance of employee
+     * @param organizationRole the organization role played by the employee
+     * @return the employee
+     */
+    private EmployeeDTO createEmployeeDTO(OrganizationRole organizationRole){
+<span class="nc bnc" id="L202" title="All 2 branches missed.">        if (organizationRole.getDesignation().equalsIgnoreCase(&quot;specialist doctor&quot;))</span>
+<span class="nc" id="L203">            return new EmployeeDTO(name(), email(), address(), phoneNumber(), socCode(), organizationRole, doctorIndexNumber());</span>
+        else
+<span class="nc" id="L205">            return new EmployeeDTO(name(), email(), address(), phoneNumber(), socCode(), organizationRole);</span>
+    }
+
+
+    /**
+     * Shows the specialist doctor and asks if the user wants to save him
+     * @param emp the specialist doctor
+     */
+    private void showEmployee(EmployeeDTO emp, OrganizationRole orgRole) throws IOException {
+<span class="nc" id="L214">        System.out.println();</span>
+<span class="nc" id="L215">        System.out.println(&quot;-*-*-*-*-*- Employee data -*-*-*-*-*-&quot;);</span>
+<span class="nc" id="L216">        System.out.println(&quot;Organization Role: &quot; + emp.getOrganizationRole().getDesignation());</span>
+<span class="nc" id="L217">        System.out.println(&quot;Name:&quot; + emp.getName().getDesignation());</span>
+<span class="nc" id="L218">        System.out.println(&quot;Email: &quot; + emp.getEmail().getEmail());</span>
+<span class="nc" id="L219">        System.out.println(&quot;Address: &quot; + emp.getAddress().getDesignation());</span>
+<span class="nc" id="L220">        System.out.println(&quot;Phone number: &quot; + emp.getPhoneNumber().getNumber());</span>
+<span class="nc" id="L221">        System.out.println(&quot;SOC code: &quot; + emp.getSocCode().getCode());</span>
+<span class="nc bnc" id="L222" title="All 2 branches missed.">        if (orgRole.getDesignation().equalsIgnoreCase(&quot;specialist doctor&quot;)){</span>
+<span class="nc" id="L223">            System.out.println(&quot;Doctor index number: &quot; + emp.getDoctorIndexNumber().getNumber());</span>
+        }
+<span class="nc" id="L225">        System.out.println(&quot;Do you want to save this employee?&quot;);</span>
+<span class="nc" id="L226">        System.out.println(&quot;1. YES&quot;);</span>
+<span class="nc" id="L227">        System.out.println(&quot;2. NO&quot;);</span>
+<span class="nc" id="L228">        int option = Utils.readIntegerFromConsole(&quot;Type your option: &quot;);</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">        if (option == 1){</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">            if (orgRole.getDesignation().equalsIgnoreCase(&quot;specialist doctor&quot;)) {</span>
+<span class="nc" id="L231">                SpecialistDoctor specialistDoctor = controller.createSpecialistDoctor(emp);</span>
+<span class="nc bnc" id="L232" title="All 2 branches missed.">                if (controller.saveEmployee(specialistDoctor)) {</span>
+<span class="nc" id="L233">                    controller.transformEmployeeInUser(specialistDoctor);</span>
+<span class="nc" id="L234">                    System.out.println(&quot;Operation completed successfully, your employee was saved.&quot;);</span>
+<span class="nc" id="L235">                    System.out.println(&quot;Your credentials are in the file named:&quot; + specialistDoctor.getEmployeeId());</span>
+<span class="nc" id="L236">                }else System.out.println(&quot;Your employee already exists in the system, please check the file identified with EmployeeID to obtain your credentials&quot;);</span>
+<span class="nc" id="L237">            } else{</span>
+<span class="nc" id="L238">                Employee employee = controller.createEmployee(emp);</span>
+<span class="nc bnc" id="L239" title="All 2 branches missed.">                if (controller.saveEmployee(employee)){</span>
+<span class="nc" id="L240">                    controller.transformEmployeeInUser(employee);</span>
+<span class="nc" id="L241">                    System.out.println(&quot;Operation completed successfully, your employee was saved.&quot;);</span>
+<span class="nc" id="L242">                    System.out.println(&quot;Your credentials are in the file named:&quot; + employee.getEmployeeId());</span>
+<span class="nc" id="L243">                }else System.out.println(&quot;Your employee already exists in the system, please check the file identified with EmployeeID to obtain your credentials&quot;);</span>
+<span class="nc" id="L244">            }</span>
+<span class="nc" id="L245">        }else System.out.println(&quot;You didn't save this employee&quot;);</span>
+<span class="nc" id="L246">    }</span>
+
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

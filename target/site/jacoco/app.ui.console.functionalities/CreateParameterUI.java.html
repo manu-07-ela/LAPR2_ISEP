@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateParameterUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.ui.console.functionalities</a> &gt; <span class="el_source">CreateParameterUI.java</span></div><h1>CreateParameterUI.java</h1><pre class="source lang-java linenums">package app.ui.console.functionalities;
+
+import app.controller.CreateParameterController;
+import app.mappers.dto.ParameterCategoryDTO;
+import app.ui.console.utils.Utils;
+
+/**
+ *
+ * @author Pedro Rocha &lt;1201382@isep.ipp.pt&gt;
+ */
+public class CreateParameterUI implements Runnable {
+
+    /**
+     *
+     */
+    private CreateParameterController createParameterCtrl;
+
+    /**
+     * Initializes the Create Parameter Interface and the controller.
+     */
+<span class="nc" id="L21">    public CreateParameterUI(){</span>
+<span class="nc" id="L22">       createParameterCtrl = new CreateParameterController();</span>
+<span class="nc" id="L23">    }</span>
+
+    /**
+     * Invokes the necessary methods for the interface to function.
+     */
+    @Override
+    public void run(){
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if(createParameterCtrl.getParameterCategories().size() == 0){</span>
+<span class="nc" id="L31">            System.out.println(&quot;To proceed with the creation of the parameter, you must first create a parameter category.&quot;);</span>
+        } else {
+<span class="nc" id="L33">            System.out.printf(&quot;%nCreating a new Parameter%n&quot;);</span>
+<span class="nc" id="L34">            createParameter();</span>
+        }
+<span class="nc" id="L36">    }</span>
+
+    /**
+     *
+     */
+    public void createParameter(){
+
+<span class="nc" id="L43">        boolean dadosInvalidos=true;</span>
+
+        do{
+            try {
+
+<span class="nc" id="L48">                Utils.showList(createParameterCtrl.getParameterCategories(),&quot;Select the category to insert the Parameter &quot;);</span>
+<span class="nc" id="L49">                Object option = Utils.selectsObject(createParameterCtrl.getParameterCategories());</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">                if (option == null){</span>
+<span class="nc" id="L51">                    throw new IllegalArgumentException(&quot;There must be at least one parameter category associated.&quot;);</span>
+                }
+<span class="nc" id="L53">                ParameterCategoryDTO selectedCategoryDto = (ParameterCategoryDTO) option;</span>
+<span class="nc" id="L54">                System.out.printf(&quot;%nEnter the following data about the parameter you want to create%n&quot;);</span>
+<span class="nc" id="L55">                String code = Utils.readLineFromConsole(&quot;Code: &quot;);</span>
+<span class="nc" id="L56">                String shortName = Utils.readLineFromConsole(&quot;Short Name: &quot;);</span>
+<span class="nc" id="L57">                String description = Utils.readLineFromConsole(&quot;Description: &quot;);</span>
+
+<span class="nc" id="L59">                Boolean result = createParameterCtrl.createParameter(code,shortName,description,selectedCategoryDto);</span>
+
+<span class="nc" id="L61">                dadosInvalidos = false;</span>
+
+<span class="nc bnc" id="L63" title="All 2 branches missed.">                if(result) {</span>
+
+<span class="nc" id="L65">                    System.out.printf(&quot;Do you want to create a Parameter with the code %s, short name %s, description: %s in the category %s&quot;, code, shortName, description, selectedCategoryDto);</span>
+
+<span class="nc" id="L67">                    String answer = Utils.readLineFromConsole(&quot;S/N:&quot;);</span>
+
+<span class="nc bnc" id="L69" title="All 2 branches missed.">                    if (answer.equalsIgnoreCase(&quot;S&quot;)) {</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">                        if (createParameterCtrl.saveParameter()) {</span>
+<span class="nc" id="L71">                            System.out.println(&quot;The Parameter was created successfully&quot;);</span>
+
+<span class="nc" id="L73">                            String confirm = Utils.readLineFromConsole(&quot;Do you want to create another one? (S/N)&quot;);</span>
+
+<span class="nc bnc" id="L75" title="All 2 branches missed.">                            if (confirm.equalsIgnoreCase(&quot;S&quot;))</span>
+<span class="nc" id="L76">                                dadosInvalidos = true;</span>
+<span class="nc" id="L77">                        } else {</span>
+<span class="nc" id="L78">                            System.out.println(&quot;The Parameter has not been created.&quot;);</span>
+                        }
+                    }
+<span class="nc" id="L81">                } else {</span>
+<span class="nc" id="L82">                    System.out.println(&quot;There's already a Parameter with that code in the System. The Parameter has not been created.&quot;);</span>
+                }
+
+<span class="nc" id="L85">            } catch (IllegalArgumentException e){</span>
+<span class="nc" id="L86">                System.out.printf(&quot;%nMessage: %s%n&quot;,e.getMessage());</span>
+<span class="nc" id="L87">            }</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        } while (dadosInvalidos);</span>
+<span class="nc" id="L89">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

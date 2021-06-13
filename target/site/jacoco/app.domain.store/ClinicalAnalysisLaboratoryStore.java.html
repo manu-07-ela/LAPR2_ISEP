@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClinicalAnalysisLaboratoryStore.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.store</a> &gt; <span class="el_source">ClinicalAnalysisLaboratoryStore.java</span></div><h1>ClinicalAnalysisLaboratoryStore.java</h1><pre class="source lang-java linenums">package app.domain.store;
+
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
+import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author Carlos Rodrigues &lt;1201001@isep.ipp.pt&gt;
+ */
+public class ClinicalAnalysisLaboratoryStore implements Serializable {
+
+    /**
+     * List of all ClinicalAnalysisLaboratory that exist in a comapny
+     */
+    List&lt;ClinicalAnalysisLaboratory&gt; clinicalAnalysisLaboratoryList;
+
+    /**
+     * Creates a new instance of TestTypeStore
+     */
+<span class="fc" id="L24">    public ClinicalAnalysisLaboratoryStore (){</span>
+<span class="fc" id="L25">        clinicalAnalysisLaboratoryList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">    }</span>
+
+    /**
+     * Creates a new ClinicalAnalysisLaboratory
+     * @param calDTO An Object of the Type ClinicalAnalysisLaboratoryDTO with all information to create the ClinicalAnalysisLaboratory
+     * @param calMapper The ClinicalAnalysisLaboratory Mapper that will transform the information in Object of the Type ClinicalAnalysisLaboratoryDTO
+     * @return The ClinicalAnalysisLaboratory
+     */
+    public ClinicalAnalysisLaboratory createClinicalAnalysisLaboratory(ClinicalAnalysisLaboratoryDTO calDTO, CreateClinicalAnalysisLaboratoryMapper calMapper){
+<span class="fc" id="L35">        return calMapper.toModel(calDTO);</span>
+    }
+
+    /**
+     * Checks if the ClinicalAnalysisLaboratory already exist
+     * @param clinicalAnalysisLaboratory the ClinicalAnalysisLaboratory we want to validate
+     * @return false if the ClinicalAnalysisLaboratory already exist or it is null. Otherwise return true
+     */
+    public boolean validateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory) {
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (clinicalAnalysisLaboratory == null)</span>
+<span class="fc" id="L45">            return false;</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        return !this.clinicalAnalysisLaboratoryList.contains(clinicalAnalysisLaboratory);</span>
+    }
+
+    /**
+     * Checks if the ClinicalAnalysisLaboratory has an attribute with the same information as an already created
+     * @param clinicalAnalysisLaboratory  the ClinicalAnalysisLaboratory we want to validate
+     * @return false the ClinicalAnalysisLaboratory has an attribute with the same information as an already created . Otherwise it return true
+     */
+    public boolean validateClinicalAnalysisLaboratoryGlobal(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (ClinicalAnalysisLaboratory cal: clinicalAnalysisLaboratoryList) {</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">            if (clinicalAnalysisLaboratory.equals(cal)){</span>
+<span class="fc" id="L57">                return false;</span>
+            }
+<span class="nc" id="L59">        }</span>
+<span class="fc" id="L60">        return true;</span>
+
+    }
+
+    /**
+     * Get the list of all ClinicalAnalysisLaboratory that exist in the company
+     * @return list of all ClinicalAnalysisLaboratory that exist in the company
+     */
+    public List&lt;ClinicalAnalysisLaboratory&gt; getClinicalAnalysisLaboratoryList() {
+<span class="fc" id="L69">        return clinicalAnalysisLaboratoryList;</span>
+    }
+
+    /**
+     * Adds a ClinicalAnalysisLaboratory in the list of all ClinicalAnalysisLaboratory that exist in the company
+     * @param cal a ClinicalAnalysisLaboratory that we want to add
+     * @return true if the ClinicalAnalysisLaboratory was added. Otherwise it returns false
+     */
+    public boolean addClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal) {
+<span class="fc" id="L78">        return clinicalAnalysisLaboratoryList.add(cal);</span>
+    }
+
+    /**
+     * Save the ClinicalAnalysisLaboratory if it is valid
+     * @param clinicalAnalysisLaboratory a ClinicalAnalysisLaboratory we want to save
+     * @return true if the ClinicalAnalysisLaboratory was saved. Otherwise it returns false
+     */
+    public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory) {
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        if (!validateClinicalAnalysisLaboratory(clinicalAnalysisLaboratory)) {</span>
+<span class="fc" id="L88">            return false;</span>
+        }else {
+<span class="fc" id="L90">            this.clinicalAnalysisLaboratoryList.add(clinicalAnalysisLaboratory);</span>
+<span class="fc" id="L91">            return true;</span>
+        }
+    }
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

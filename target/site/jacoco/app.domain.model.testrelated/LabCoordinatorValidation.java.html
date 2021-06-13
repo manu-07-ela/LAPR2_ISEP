@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LabCoordinatorValidation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model.testrelated</a> &gt; <span class="el_source">LabCoordinatorValidation.java</span></div><h1>LabCoordinatorValidation.java</h1><pre class="source lang-java linenums">package app.domain.model.testrelated;
+
+
+import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * Represents a Lab Coordinator Validation.
+ *
+ * @author Pedro Rocha &lt;1201382@isep.ipp.pt&gt;
+ */
+public class LabCoordinatorValidation implements Serializable {
+
+    /**
+     * Register Date Validation
+     */
+    private boolean registerDateValidation;
+
+    /**
+     * Chemical Analysis Date Validation
+     */
+    private boolean chemicalAnalysisDateValidation;
+
+    /**
+     * Diagnosis Date Validation
+     */
+    private boolean diagnosisDateValidation;
+    /**
+     * The date and time the Lab Coordinator Validation was created.
+     */
+    private Date labCoordDate;
+
+    /**
+     * Build an instance of {@code LabCoordinatorValidation}
+     */
+<span class="fc" id="L37">    public LabCoordinatorValidation(){</span>
+<span class="fc" id="L38">        this.registerDateValidation = false;</span>
+<span class="fc" id="L39">        this.chemicalAnalysisDateValidation = false;</span>
+<span class="fc" id="L40">        this.diagnosisDateValidation = false;</span>
+<span class="fc" id="L41">    }</span>
+
+
+    /**
+     * Confirm the Date according to the requested date to confirm.
+     * @param date
+     */
+    public boolean checkDate(String date){
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (date.equals(&quot;Registration Date&quot;)){</span>
+<span class="nc" id="L50">            return this.registerDateValidation = true;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        } else if ( date.equals(&quot;Chemical Analysis Date&quot;)){</span>
+<span class="nc" id="L52">            return this.chemicalAnalysisDateValidation = true;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        } else if ( date.equals(&quot;Diagnosis Date&quot;)){</span>
+<span class="nc" id="L54">            return this.diagnosisDateValidation= true;</span>
+        } else {
+<span class="nc" id="L56">            System.out.println(&quot;Not available to check.&quot;);</span>
+        }
+<span class="nc" id="L58">        return false;</span>
+    }
+
+    /**
+     * Compare the parameter with the other object provided.
+     * @return true if the Lab Coordinator Validation Date was recorded. Otherwise, it returns false.
+     */
+    public boolean recordDate(){
+<span class="nc" id="L66">        Boolean fl = false;</span>
+<span class="nc bnc" id="L67" title="All 6 branches missed.">        if(registerDateValidation &amp;&amp; chemicalAnalysisDateValidation &amp;&amp; diagnosisDateValidation) {</span>
+<span class="nc" id="L68">            recordLabCoordinatorValidationDate();</span>
+<span class="nc" id="L69">            fl = true;</span>
+        }
+<span class="nc" id="L71">        return fl;</span>
+    }
+
+    /**
+     * Records the Date of the Lab Coordinator Validation Date
+     * @return true
+     */
+    public boolean recordLabCoordinatorValidationDate(){
+<span class="nc" id="L79">        this.labCoordDate= Calendar.getInstance().getTime();</span>
+<span class="nc" id="L80">        return true;</span>
+    }
+
+    /**
+     * Get the date of the Lab Coordinator Validation.
+     * @return Lab Coordinator Validation date
+     */
+<span class="nc" id="L87">    public Date getLabCoordDate(){ return this.labCoordDate; }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

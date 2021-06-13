@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class ClinicalChemistryTecUI {
     private Stage stageViewTests;
-    private SeeTestsUI seeTestsUI;
+    private ClientsUi clientsUI;
     private Stage stage;
 
     @FXML
@@ -87,8 +87,7 @@ public class ClinicalChemistryTecUI {
 
 
             stageViewTests.setScene(scene);
-
-            seeTestsUI = loader.getController();
+            clientsUI = loader.getController();
             stageViewTests.show();
 
         }catch (IOException exception){

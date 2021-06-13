@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TestParameterMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.mappers</a> &gt; <span class="el_source">TestParameterMapper.java</span></div><h1>TestParameterMapper.java</h1><pre class="source lang-java linenums">package app.mappers;
+
+import app.domain.model.testrelated.TestParameter;
+import app.mappers.dto.TestParameterDTO;
+
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L9">public class TestParameterMapper {</span>
+
+    /**
+     * Transforms the list of TestParameter into a list of TestParameterDTO.
+     * @param testParametersList A list of TestParameter.
+     * @return A list of TestParameterDTO.
+     */
+    public List&lt;TestParameterDTO&gt; toDTO(List&lt;TestParameter&gt; testParametersList) {
+<span class="fc" id="L17">        List&lt;TestParameterDTO&gt; testParametersListDto =new ArrayList();</span>
+        TestParameterDTO objDTO;
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        for (TestParameter lista : testParametersList) {</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">            if (lista != null){</span>
+<span class="fc" id="L21">                objDTO = toDTO(lista);</span>
+<span class="fc" id="L22">                testParametersListDto.add(objDTO);</span>
+            }
+<span class="fc" id="L24">        }</span>
+<span class="fc" id="L25">        return testParametersListDto;</span>
+    }
+
+    /**
+     * Transforms the list of TestParameter into a list of TestParameterDTO
+     * @param objList A list of TestParameter
+     * @return A list of TestParameterDTO
+     */
+    public List&lt;TestParameterDTO&gt; testParameterListToDTO(List&lt;TestParameter&gt; objList) {
+<span class="fc" id="L34">        List&lt;TestParameterDTO&gt; testParametersListDto =new ArrayList();</span>
+        TestParameterDTO objDTO;
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (TestParameter lista : objList) {</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">            if (lista != null){</span>
+<span class="fc" id="L38">                objDTO = testParameterToDTO(lista);</span>
+<span class="fc" id="L39">                testParametersListDto.add(objDTO);</span>
+            }
+<span class="fc" id="L41">        }</span>
+<span class="fc" id="L42">        return testParametersListDto;</span>
+    }
+
+
+    /**
+     * Transforms a TestParameter into a TestParameterDTO
+     * @param obj a TestParameter
+     * @return a TestParameterDTO
+     */
+    public TestParameterDTO testParameterToDTO(TestParameter obj){
+<span class="fc" id="L52">        return new TestParameterDTO(obj.getParameterName(), obj.getParameterId());</span>
+    }
+
+    /**
+     * Transforms a TestParameter into a TestParameterDTO.
+     * @param testParameter A TestParameter.
+     * @return A TestParameterDTO.
+     */
+    public TestParameterDTO toDTO(TestParameter testParameter){
+<span class="fc" id="L61">        return new TestParameterDTO(testParameter.getParameterName(), testParameter.getParameterResult(), testParameter.getParameterMetric(), testParameter.getParameterMinRefValue(), testParameter.getParameterMaxRefValue(), testParameter.getRefValueMetric() );</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
