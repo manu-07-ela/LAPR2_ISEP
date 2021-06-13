@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RegisterEmployeeController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.controller</a> &gt; <span class="el_source">RegisterEmployeeController.java</span></div><h1>RegisterEmployeeController.java</h1><pre class="source lang-java linenums">package app.controller;
+
+import app.domain.model.*;
+import app.domain.model.attributes.OrganizationRole;
+import app.domain.model.users.Employee;
+import app.domain.model.users.SpecialistDoctor;
+import app.domain.store.EmployeeStore;
+import app.domain.store.OrganizationRoleStore;
+import app.mappers.OrganizationRoleMapper;
+import app.mappers.dto.EmployeeDTO;
+import app.mappers.dto.OrganizationRoleDTO;
+import auth.AuthFacade;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * Represents the controller used to register a new employee
+ * @author Manuela Leite &lt;1200720@isep.ipp.pt&gt;
+ */
+
+public class RegisterEmployeeController {
+    /**
+     * Represents a instance of company
+     */
+    private final Company company;
+    /**
+     *Represents an instance of the employee store
+     */
+    private final EmployeeStore employeeStore;
+    /**
+     *Represents an instance of the organization role store
+     */
+    private final OrganizationRoleStore organizationRoleStore;
+
+    /**
+     *Represents an instance Auth facade
+     */
+    private final AuthFacade authFacade;
+    /**
+     *Represents an instance of the employee store
+     */
+    private final OrganizationRoleMapper mapperOrgRole;
+     /**
+     *Represents an instance of organization role
+     */
+    private OrganizationRole orgRole;
+
+
+    /**
+     * Constructs an instance of {@code RegisterEmployeeController}
+     */
+<span class="fc" id="L55">    public RegisterEmployeeController(){</span>
+<span class="fc" id="L56">        this.company = App.getInstance().getCompany();</span>
+<span class="fc" id="L57">        this.employeeStore = company.getEmployeeStore();</span>
+<span class="fc" id="L58">        this.organizationRoleStore = company.getOrganizationRoleStore();</span>
+<span class="fc" id="L59">        this.mapperOrgRole = new OrganizationRoleMapper();</span>
+<span class="fc" id="L60">        this.authFacade = company.getAuthFacade();</span>
+
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * Constructs an instance of {@code RegisterEmployeeController} receiving a company
+     * @param company The company
+     */
+<span class="nc" id="L68">    public RegisterEmployeeController(Company company){</span>
+<span class="nc" id="L69">        this.company = company;</span>
+<span class="nc" id="L70">        this.employeeStore = company.getEmployeeStore();</span>
+<span class="nc" id="L71">        this.organizationRoleStore = company.getOrganizationRoleStore();</span>
+<span class="nc" id="L72">        this.mapperOrgRole = new OrganizationRoleMapper();</span>
+<span class="nc" id="L73">        this.authFacade = company.getAuthFacade();</span>
+<span class="nc" id="L74">    }</span>
+
+    /**
+     * Returns a DTO-type list of organizational roles present in the company
+     * @return A DTO-type list of Organization roles
+     */
+    public List&lt;OrganizationRoleDTO&gt; getLisOfOrgRoles(){
+<span class="fc" id="L81">       return this.mapperOrgRole.listOrgRolesDto(this.organizationRoleStore.getListOrgRoles());</span>
+    }
+
+
+    /**
+     * Create an organizational role by receiving an organizational DTO role as a parameter
+     * @param orgRoleDto The organization Role DTO
+     * @return the Organization role
+     */
+    public OrganizationRole createOrganizationRole(OrganizationRoleDTO orgRoleDto) {
+<span class="fc" id="L91">        return this.orgRole = organizationRoleStore.createOrganizationRole(this.mapperOrgRole.toOrganizationRole(orgRoleDto));</span>
+    }
+
+    /**
+     * Create an specialist doctor by receiving an specialist doctor DTO as a parameter
+     * @param empDto The specialist doctor DTO
+     * @return the Specialist Doctor
+     */
+    public SpecialistDoctor createSpecialistDoctor(EmployeeDTO empDto){
+<span class="fc" id="L100">         return employeeStore.createSpecialistDoctor(empDto);</span>
+    }
+
+    /**
+     * Create a employee by receiving an employee DTO as a parameter
+     * @param empDto The Employee DTO
+     * @return the Employee
+     */
+    public Employee createEmployee(EmployeeDTO empDto){
+<span class="fc" id="L109">        return employeeStore.createEmployee(empDto);</span>
+    }
+
+    /**
+     * Saves the employee sent as parameter
+     * @return True if the employee is saved in the employee store, false otherwise
+     */
+    public boolean saveEmployee(Employee emp){
+<span class="fc" id="L117">        return this.employeeStore.saveEmployee(emp);</span>
+    }
+
+    /**
+     *Transforms a employee in a user of system
+     * @param emp an employee
+     * @return True if the employee has been transformed into a user of the system, false otherwise
+     */
+    public boolean transformEmployeeInUser(Employee emp) throws IOException {
+<span class="nc" id="L126">        String password = generatePassword();</span>
+<span class="nc" id="L127">        File archive = new File(&quot;./&quot; + emp.getEmployeeId() + &quot;.txt&quot;);</span>
+<span class="nc" id="L128">        FileWriter fw = new FileWriter(archive, true);</span>
+
+        try {
+<span class="nc bnc" id="L131" title="All 2 branches missed.">            if (archive.exists()) archive.delete();</span>
+<span class="nc" id="L132">            fw.write(&quot;ID: &quot; + emp.getEmail().getEmail() + &quot;\n&quot;);</span>
+<span class="nc" id="L133">            fw.write(&quot;PASSWORD: &quot; + password + &quot;\n&quot;);</span>
+<span class="nc" id="L134">        }catch (IOException e){</span>
+<span class="nc" id="L135">            e.printStackTrace();</span>
+        }finally {
+<span class="nc" id="L137">            fw.close();</span>
+        }
+
+<span class="nc" id="L140">        return this.authFacade.addUserWithRole(emp.getName().getDesignation(), emp.getEmail().getEmail(),password,orgRole.getDesignation());</span>
+
+    }
+
+    /**
+     * Automatically generates a password for a user
+     * @return the password
+     */
+    private String generatePassword(){
+<span class="nc" id="L149">        final String[] characters = {&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;,&quot;g&quot;,&quot;h&quot;,&quot;i&quot;,&quot;j&quot;,&quot;k&quot;,&quot;l&quot;,&quot;m&quot;,&quot;n&quot;,&quot;o&quot;,&quot;p&quot;,&quot;q&quot;,&quot;r&quot;,&quot;s&quot;,&quot;t&quot;,&quot;u&quot;,&quot;v&quot;,&quot;w&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,&quot;E&quot;,&quot;F&quot;,&quot;G&quot;,&quot;H&quot;,&quot;I&quot;,&quot;J&quot;,&quot;K&quot;,&quot;L&quot;,&quot;M&quot;,&quot;N&quot;,&quot;O&quot;,&quot;P&quot;,&quot;Q&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;U&quot;,&quot;V&quot;,&quot;W&quot;,&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;};</span>
+<span class="nc" id="L150">        String aux = &quot;&quot;;</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        for (int i=0; i&lt;10; i++) aux += characters[(int) (Math.random()*characters.length)];</span>
+<span class="nc" id="L152">        return aux;</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

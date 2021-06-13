@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TestStore.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.store</a> &gt; <span class="el_source">TestStore.java</span></div><h1>TestStore.java</h1><pre class="source lang-java linenums">package app.domain.store;
+
+import app.domain.model.attributes.NhsCode;
+
+
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.mappers.dto.ClientDTO;
+import org.apache.commons.lang3.StringUtils;
+
+
+import app.domain.model.testrelated.Sample;
+import app.domain.model.testrelated.Test;
+import app.domain.model.testrelated.TestParameter;
+import app.domain.model.testrelated.TestType;
+import app.domain.model.users.Client;
+
+import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
+import static app.domain.model.testrelated.Test.StateOfTest.*;
+
+/**
+ * Stores laboratory tests provided to customers
+ * @author Group 22
+ */
+
+public class TestStore implements Serializable {
+
+    /**
+     * Represents a list of tests
+     */
+    List&lt;Test&gt; testList;
+
+    /**
+     * Instantiates a new TestStore.
+     */
+<span class="fc" id="L41">    public TestStore(){</span>
+<span class="fc" id="L42">        testList = new ArrayList();</span>
+<span class="fc" id="L43">    }</span>
+
+    /**
+     * Get the list of tests
+     * @return the list of tests
+     */
+    public List&lt;Test&gt; getTestList() {
+<span class="nc" id="L50">        return testList;</span>
+    }
+
+    /**
+     *  Gets a test by the barcode
+     * @param barcodenumber the barcode
+     * @return the test
+     */
+    public Test getTestByBarcode(String barcodenumber){
+<span class="nc" id="L59">        barcodeValidation(barcodenumber);</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        for (Test test: testList ) {</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">            for (Sample sample : test.getSamples() ) {</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">                if (sample.getBarcode().getBarcodeNumber().equals(barcodenumber)){</span>
+<span class="nc" id="L63">                    return test;</span>
+                }
+<span class="nc" id="L65">            }</span>
+<span class="nc" id="L66">        }</span>
+<span class="nc" id="L67">        return null;</span>
+    }
+
+    /**
+     * Global validation of a Test
+     * @param test Test that we intend to validate
+     * @return false if the employee already exists or is null. Otherwise, it returns true.
+     */
+    public boolean validateTest(Test test) {
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (test == null)</span>
+<span class="nc" id="L77">            return false;</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        return !this.testList.contains(test);</span>
+    }
+
+    /**
+     * Create a test
+     * @param cl the client associated with the test
+     * @param nhsCode the nhs code of the test
+     * @param testType the test type associated with the test
+     * @param testParameterList the list of parameters associated with the test
+     * @return the test created
+     */
+    public Test createTest(Client cl, NhsCode nhsCode, TestType testType, List&lt;TestParameter&gt; testParameterList,ClinicalAnalysisLaboratory lab){
+<span class="nc" id="L90">        return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()));</span>
+   }
+
+    /**
+     * Save the Test case it is in a valid state.
+     * @param t The Test we intend to save
+     * @return true if Test was saved. Otherwise, false.
+     */
+    public boolean saveTest(Test t) {
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (!validateTest(t)){</span>
+<span class="nc" id="L100">            return false;</span>
+        }else{
+<span class="nc" id="L102">            return testList.add(t);</span>
+        }
+    }
+
+    /**
+     * Generate the internal code that will be associated with a test
+     * @param numtest the number of test already registered
+     * @return th internal code of a test
+     */
+    public static String generateInternalCode(int numtest) {
+<span class="nc" id="L112">        DecimalFormat df = new DecimalFormat(&quot;000000000000&quot;);</span>
+<span class="nc" id="L113">        return df.format(numtest+1);</span>
+    }
+
+    /**
+     * Adds a new Test to the list
+     * @param t the test to which you want to add
+     * @return true if the test is added to the list, false otherwise
+     */
+    public boolean addTest(Test t) {
+<span class="fc" id="L122">        return testList.add(t);</span>
+    }
+
+    /**
+     * Get a list of test waiting for the collection of samples
+     * @return a list of test waiting for samples
+     */
+    public List&lt;Test&gt; getListOfTestWaitingForSample(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+<span class="nc" id="L130">        List&lt;Test&gt; testsWaintingForSamples = getTestByLaboratory(clinicalAnalysisLaboratory);</span>
+<span class="nc" id="L131">        List&lt;Test&gt; test = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        for (Test t : testsWaintingForSamples){</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">            if (t.getStateOfTest() == TestRegistered) test.add(t);</span>
+<span class="nc" id="L134">        }</span>
+<span class="nc" id="L135">        return test;</span>
+    }
+
+    /**
+     * Get a list of test with the samples analyzed
+     * @return the list of tests with the samples analyzed
+     */
+    public List&lt;Test&gt; getTestHasSamplesAnalyzedList(){
+<span class="nc" id="L143">        List&lt;Test&gt; testHasSamplesAnalyzedList = new ArrayList();</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        for(Test test : testList){</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">            if(test.getStateOfTest() == SamplesAnalyzed){</span>
+<span class="nc" id="L146">                testHasSamplesAnalyzedList.add(test);</span>
+            }
+<span class="nc" id="L148">        }</span>
+<span class="nc" id="L149">        return testHasSamplesAnalyzedList;</span>
+    }
+
+    /**
+     * Get a list of test waiting for the analysis of samples
+     * @return  a list of test waiting for the analysis of samples
+     */
+    public List&lt;Test&gt; getTestWithSamplesCollectedList(){
+<span class="nc" id="L157">        List&lt;Test&gt; testWithSamplesCollectedList = new ArrayList();</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">        for(Test test : testList){</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">            if(test.getStateOfTest() == SamplesCollected){</span>
+<span class="nc" id="L160">                testWithSamplesCollectedList.add(test);</span>
+            }
+<span class="nc" id="L162">        }</span>
+<span class="nc" id="L163">        return testWithSamplesCollectedList;</span>
+    }
+
+    /**
+     * Get a list of test waiting for the Validation of the Lab Coordinator
+     * @return a list of test waiting the Validation of the Lab Coordinator
+     * Get a list of tests with the diagnosis made
+     * @return a list of tests with the diagnosis made
+     */
+    public List&lt;Test&gt; getTestHasReportList(){
+<span class="nc" id="L173">        List&lt;Test&gt; testHasReportList = new ArrayList();</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">        for(Test test : testList){</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">            if(test.getStateOfTest() == DiagnosisMade){</span>
+<span class="nc" id="L176">                testHasReportList.add(test);</span>
+            }
+<span class="nc" id="L178">        }</span>
+<span class="nc" id="L179">        return testHasReportList;</span>
+    }
+
+
+    /**
+     * identifies and returns the test instance corresponding to the internal code passed by parameter
+     * @param code the internal code of a test
+     * @return the test corresponding to the internal code
+     */
+    public Test getTestByInternalCode(String code){
+<span class="fc bfc" id="L189" title="All 2 branches covered.">        for (Test test : testList) {</span>
+<span class="pc bpc" id="L190" title="1 of 2 branches missed.">            if (test.getInternalCode().equals(code)) {</span>
+<span class="fc" id="L191">              return test;</span>
+            }
+<span class="nc" id="L193">        }</span>
+<span class="fc" id="L194">       return null;</span>
+    }
+
+
+    /**
+     * Checks if the barcode contains all business rules
+     * @param barcode  the barcode
+     */
+    public void barcodeValidation(String barcode){
+<span class="pc bpc" id="L203" title="1 of 4 branches missed.">        if (StringUtils.isBlank(barcode) || barcode.length() != 11){</span>
+<span class="fc" id="L204">            throw new IllegalArgumentException(&quot;The barcode number must be a code with 11 characters&quot;);</span>
+        }
+<span class="nc" id="L206">    }</span>
+
+    /**
+     * Get the list of tests associated with a laboratory
+     * @param clinicalAnalysisLaboratory the laboratory that te test will be associated
+     * @return the list of test associated with a laboratory
+     */
+    public List&lt;Test&gt; getTestByLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
+<span class="nc" id="L214">        List&lt;Test&gt; test = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L215" title="All 2 branches missed.">        for (Test t : testList){</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">            if (t.getLab().equals(clinicalAnalysisLaboratory)){</span>
+<span class="nc" id="L217">                test.add(t);</span>
+            }
+<span class="nc" id="L219">        }</span>
+<span class="nc" id="L220">       return test;</span>
+    }
+
+    public List&lt;Client&gt; getClientWithTestsValidated(){
+<span class="nc" id="L224">        List&lt;Client&gt; lista = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">        for (Test t: testList) {</span>
+<span class="nc bnc" id="L226" title="All 2 branches missed.">            if (t.getStateOfTest()==Validated){</span>
+<span class="nc" id="L227">                lista.add(t.getCl());</span>
+            }
+<span class="nc" id="L229">        }</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        if (lista.size()==0){</span>
+<span class="nc" id="L231">            throw new IllegalArgumentException(&quot;There aren't Clients with tests validated&quot;);</span>
+        }
+<span class="nc" id="L233">        return lista;</span>
+    }
+
+    public List&lt;Test&gt; getTestListAssociatedWithClient(ClientDTO selectedClient){
+<span class="nc" id="L237">        List&lt;Test&gt; test = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L238" title="All 2 branches missed.">        for (Test t : testList) {</span>
+<span class="nc bnc" id="L239" title="All 4 branches missed.">            if (t.getCl().getPhoneNumber().equals(selectedClient.getPhoneNumber()) &amp;&amp; t.getStateOfTest()==Validated) {</span>
+<span class="nc" id="L240">                test.add(t);</span>
+            }
+<span class="nc" id="L242">        }</span>
+<span class="nc" id="L243">        return test;</span>
+    }
+
+    public Test getTestbyInternalCode(String internalCode) {
+<span class="nc bnc" id="L247" title="All 2 branches missed.">        for (Test t :testList) {</span>
+<span class="nc bnc" id="L248" title="All 2 branches missed.">            if (t.getInternalCode().equals(internalCode)){</span>
+<span class="nc" id="L249">                return t;</span>
+            }
+<span class="nc" id="L251">        }</span>
+<span class="nc" id="L252">        return null;</span>
+
+    }
+
+    public List&lt;Test&gt; orderClientTestsByRegistratonDate(List&lt;Test&gt; tlist){
+<span class="nc" id="L257">        List&lt;Date&gt; date = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L258">        List&lt;Test&gt; test = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L259" title="All 2 branches missed.">        for(Test t : tlist){</span>
+<span class="nc" id="L260">            date.add(t.getSamplesAddDate());</span>
+<span class="nc" id="L261">        }</span>
+<span class="nc" id="L262">        Collections.sort(date);</span>
+<span class="nc bnc" id="L263" title="All 2 branches missed.">        for(Date d : date){</span>
+<span class="nc" id="L264">            Test t =getTestbyDate(d);</span>
+<span class="nc" id="L265">            test.add(t);</span>
+<span class="nc" id="L266">        }</span>
+<span class="nc" id="L267">        return test;</span>
+    }
+
+    private Test getTestbyDate(Date d){
+<span class="nc bnc" id="L271" title="All 2 branches missed.">            for (Test t: testList) {</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">                if (t.getSamplesAddDate().equals(d)) {</span>
+<span class="nc" id="L273">                    return t;</span>
+                }
+<span class="nc" id="L275">            }</span>
+<span class="nc" id="L276">            return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

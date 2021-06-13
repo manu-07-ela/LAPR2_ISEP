@@ -46,7 +46,12 @@ public class LoginUi {
     AuthController ctrl = new AuthController();
     private Stage stageClient;
     private ClientUi clientUI;
-
+    private Stage stageReceptionist;
+    private ReceptionistUi receptionistUi;
+    private Stage stageMedLabtec;
+    private MedLabTecUi medLabTecUi;
+    private Stage stageDoctor;
+    private SpecialistDoctorUi specialistDoctorUi;
 
 
     @FXML
@@ -118,9 +123,21 @@ public class LoginUi {
                 adminUi.setLabelUI(stageClient);
 
             }
-            if (role.getId().equals("CLINICAL CHEMISTRY TECHNOLOGIST")){
+            if (role.getId().equalsIgnoreCase("CLINICAL CHEMISTRY TECHNOLOGIST")){
                 runClinicalCheTec();
                 clinicalChemistryTecUI.setLabelUI(stageClinicalCheTec);
+            }
+            if (role.getId().equals("RECEPTIONIST")){
+                runReceptionist();
+                receptionistUi.setLabelUI(stageReceptionist);
+            }
+            if (role.getId().equals("MEDICAL LAB TECHNICIAN")){
+                runMedLabTec();
+                medLabTecUi.setLabelUI(stageMedLabtec);
+            }
+            if (role.getId().equals("SPECIALIST DOCTOR")){
+                runDoctor();
+                specialistDoctorUi.setLabelUI(stageDoctor);
             }
         }
     }
@@ -222,6 +239,63 @@ public class LoginUi {
             stageClinicalCheTec.setScene(scene);
             clinicalChemistryTecUI = loader.getController();
             stageClinicalCheTec.show();
+        } catch (IOException ex) {
+            System.out.println("Problems reading admin menu file \n" + ex);
+        }
+    }
+    private void runReceptionist() {
+        try {
+            stageReceptionist = new Stage();
+            stageReceptionist.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ReceptionistUi.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            stageReceptionist.setScene(scene);
+            receptionistUi = loader.getController();
+            stageReceptionist.show();
+        } catch (IOException ex) {
+            System.out.println("Problems reading admin menu file \n" + ex);
+        }
+    }
+    private void runMedLabTec() {
+        try {
+            stageMedLabtec = new Stage();
+            stageMedLabtec.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MedLabTecUi.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            stageMedLabtec.setScene(scene);
+            medLabTecUi = loader.getController();
+            stageMedLabtec.show();
+        } catch (IOException ex) {
+            System.out.println("Problems reading admin menu file \n" + ex);
+        }
+    }
+    private void runDoctor() {
+        try {
+            stageDoctor = new Stage();
+            stageDoctor.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/SpecialistDoctor.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            stageDoctor.setScene(scene);
+            specialistDoctorUi = loader.getController();
+            stageDoctor.show();
         } catch (IOException ex) {
             System.out.println("Problems reading admin menu file \n" + ex);
         }

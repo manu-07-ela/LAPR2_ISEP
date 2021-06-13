@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 import app.ui.console.AuthUI;
+import app.ui.console.functionalities.RegisterEmployeeUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -78,7 +79,7 @@ public class AdmUi {
 
     @FXML
     void registerEmployeeClick() {
-
+        new RegisterEmployeeUI();
     }
 
     @FXML

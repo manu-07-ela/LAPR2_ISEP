@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExternalModule3APIAdapter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.adapter</a> &gt; <span class="el_source">ExternalModule3APIAdapter.java</span></div><h1>ExternalModule3APIAdapter.java</h1><pre class="source lang-java linenums">
+package app.adapter;
+
+
+import app.adapter.interfaces.ExternalModuleReferencesValue;
+import app.controller.App;
+import app.domain.model.testrelated.RefValue;
+import com.example1.ExternalModule3API;
+
+import java.io.Serializable;
+import java.util.Properties;
+
+<span class="fc" id="L13">public class ExternalModule3APIAdapter implements ExternalModuleReferencesValue, Serializable {</span>
+
+    /**
+     *  It creates a object of RefValues using the ExternalModule3API
+     * @param parameterId The code of the parameter
+     * @return an instance of RefValue
+     */
+    @Override
+    public RefValue getRefValue(String parameterId) {
+<span class="fc" id="L22">        ExternalModule3API externalAPI = new ExternalModule3API();</span>
+<span class="fc" id="L23">        Properties props = App.getInstance().getProps();</span>
+<span class="fc" id="L24">        String acessKey = props.getProperty(&quot;accessKey&quot;);</span>
+<span class="fc" id="L25">        int accessKey = Integer.parseInt(acessKey);</span>
+<span class="fc" id="L26">        String metric = externalAPI.usedMetric(parameterId, accessKey);</span>
+<span class="fc" id="L27">        double minValue = externalAPI.getMinReferenceValue(parameterId, accessKey);</span>
+<span class="fc" id="L28">        double maxValue = externalAPI.getMaxReferenceValue(parameterId, accessKey);</span>
+<span class="fc" id="L29">        return new RefValue(metric,minValue,maxValue);</span>
+    }
+
+
+
+
+
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

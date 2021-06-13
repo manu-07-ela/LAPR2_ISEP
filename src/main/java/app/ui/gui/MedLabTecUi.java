@@ -27,6 +27,11 @@ public class MedLabTecUi {
     @FXML
     private BorderPane brdPane;
 
+
+    public void setLabelUI(Stage stage) {
+        this.stage = stage;
+    }
+
     @FXML
     void exitClick() {
         System.exit(0);

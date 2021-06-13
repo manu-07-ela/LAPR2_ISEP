@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ValidateWorkUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.ui.console.functionalities</a> &gt; <span class="el_source">ValidateWorkUI.java</span></div><h1>ValidateWorkUI.java</h1><pre class="source lang-java linenums">package app.ui.console.functionalities;
+
+import app.controller.ValidateWorkController;
+import app.mappers.dto.TestDTO;
+import app.ui.console.utils.Utils;
+
+import java.io.IOException;
+
+/**
+ * Represents an interface with the user to be able to validate the work done by the clinical chemistry technologist and specialist doctor .
+ * @author Pedro Rocha &lt;1201382@isep.ipp.pt&gt;
+ */
+public class ValidateWorkUI implements Runnable{
+
+    /**
+     * Represents a instance of validate work controller.
+     */
+    private ValidateWorkController validateWorkController;
+
+    /**
+     * Constructs an instance of {@code ValidateWorkUI}.
+     */
+<span class="nc" id="L23">    public ValidateWorkUI(){</span>
+<span class="nc" id="L24">       validateWorkController = new ValidateWorkController();</span>
+
+<span class="nc" id="L26">    }</span>
+
+    /**
+     * Invokes the necessary methods for the interface to function.
+     */
+    @Override
+    public void run() {
+        try {
+            boolean flag;
+<span class="nc" id="L35">            System.out.println(&quot;/========== Work Validation ==========/&quot;);</span>
+            do {
+<span class="nc" id="L37">                TestDTO selectedTest = (TestDTO) Utils.showAndSelectOne(validateWorkController.getTestsToValidateList(), &quot;Select test to Validate.&quot;);</span>
+<span class="nc" id="L38">                validateWork(selectedTest);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">                if (!validateWorkController.getTestsToValidateList().isEmpty()) {</span>
+<span class="nc" id="L40">                    flag = Utils.confirm(&quot;Do you want to Validate another Test? (S/N)&quot;);</span>
+                } else {
+<span class="nc" id="L42">                    flag = false;</span>
+                }
+<span class="nc bnc" id="L44" title="All 2 branches missed.">            }while(flag);</span>
+<span class="nc" id="L45">        }catch (IllegalArgumentException e){</span>
+<span class="nc" id="L46">            System.out.printf(&quot;%nMessage: %s%n&quot; ,e.getMessage());</span>
+<span class="nc" id="L47">        }</span>
+<span class="nc" id="L48">    }</span>
+
+
+    /**
+     * Validates the work associated with the selected test.
+     */
+    public void validateWork(TestDTO selectedTest){
+        try {
+<span class="nc" id="L56">            boolean fl=true;</span>
+            do {
+                String resposta;
+<span class="nc" id="L59">                validateWorkController.getSelectedTest(selectedTest);</span>
+<span class="nc" id="L60">                validateWorkController.createTestValidation();</span>
+
+<span class="nc" id="L62">                System.out.println(&quot;\nRegistration Date:&quot;);</span>
+<span class="nc" id="L63">                System.out.printf(&quot;%s&quot;,validateWorkController.showRegistrationDate());</span>
+<span class="nc" id="L64">                resposta = Utils.readLineFromConsole(&quot;Do you want to validate the Registration Date? (S/N):&quot;);</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">                if (resposta.equalsIgnoreCase(&quot;S&quot;)) {</span>
+<span class="nc" id="L66">                    fl = validateWorkController.validateDate(&quot;Registration Date&quot;);</span>
+<span class="nc" id="L67">                    System.out.println(&quot;Registration Validation Date validated with sucess.&quot;);</span>
+                }
+
+<span class="nc" id="L70">                System.out.println(&quot;\nChemical Analysis Date: &quot;);</span>
+<span class="nc" id="L71">                System.out.printf(&quot;%s&quot;,validateWorkController.showChemicalAnalysisDate());</span>
+
+<span class="nc" id="L73">                resposta = Utils.readLineFromConsole(&quot;Do you want to validate the Chemical Analysis Date? (S/N):&quot;);</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">                if (resposta.equalsIgnoreCase(&quot;S&quot;)) {</span>
+<span class="nc" id="L75">                    fl = validateWorkController.validateDate(&quot;Chemical Analysis Date&quot;);</span>
+<span class="nc" id="L76">                    System.out.println(&quot;Chemical Analysis Date validated with sucess.&quot;);</span>
+                }
+
+<span class="nc" id="L79">                System.out.println(&quot;\nDiagnosis Date: &quot;);</span>
+<span class="nc" id="L80">                System.out.printf(&quot;%s&quot;,validateWorkController.showDiagnosisDate());</span>
+
+<span class="nc" id="L82">                resposta = Utils.readLineFromConsole(&quot;Do you want to validate the Diagnosis Date? (S/N):&quot;);</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">                if (resposta.equalsIgnoreCase(&quot;S&quot;)) {</span>
+<span class="nc" id="L84">                    fl = validateWorkController.validateDate(&quot;Diagnosis Date&quot;);</span>
+<span class="nc" id="L85">                    System.out.printf(&quot;Diagnosis Validation Date validated with success.\n&quot;);</span>
+                }
+
+<span class="nc" id="L88">                System.out.printf(&quot;\n%s&quot;, validateWorkController.showDates());</span>
+<span class="nc" id="L89">                boolean flag = Utils.confirm(&quot;Do you validate the three validated dates? (S/N)&quot;);</span>
+
+<span class="nc bnc" id="L91" title="All 2 branches missed.">                if (flag) {</span>
+<span class="nc" id="L92">                    fl = validateWorkController.recordValidationDate(validateWorkController.getSelectedTest(selectedTest));</span>
+<span class="nc" id="L93">                    System.out.printf(&quot;Diagnosis Validation Date validated with sucess - %s\n&quot;, validateWorkController.showLabCoordValidationDate(validateWorkController.getSelectedTest(selectedTest)));</span>
+<span class="nc" id="L94">                    validateWorkController.notifyTheClient(validateWorkController.getSelectedTest(selectedTest));</span>
+<span class="nc" id="L95">                    System.out.println(&quot;\nClient successfully informed.&quot;);</span>
+<span class="nc" id="L96">                    fl = false;</span>
+                }
+
+<span class="nc bnc" id="L99" title="All 2 branches missed.">            } while(fl);</span>
+<span class="nc" id="L100">        } catch (IllegalArgumentException | IOException e){</span>
+<span class="nc" id="L101">            System.out.printf(&quot;\nMessage: %s\n&quot; ,e.getMessage());</span>
+<span class="nc" id="L102">        }</span>
+<span class="nc" id="L103">    }</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
