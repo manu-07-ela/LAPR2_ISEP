@@ -40,7 +40,7 @@ public class ItemController {
     }
 
     @FXML
-    void seeTestResults() {
+    void seeTestResults() throws IOException {
         runViewResults();
         viewResultsUi.setLabelUI(stageViewResult,test);
         testDescription.getScene().getWindow().hide();
