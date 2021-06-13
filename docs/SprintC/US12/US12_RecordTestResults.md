@@ -98,7 +98,7 @@ values.
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![US12_MD](US12_MD.svg)
+![US12_MD](US12_DM.svg)
 
 ### 2.2. Other Remarks
 
