@@ -9,6 +9,7 @@ participant ": Company" as COMP
 participant ": Overview" as OVERVIEW
 participant ": TestStore" as TS
 participant ": TestMapper" as tMAPPER
+participant ": SubsequenceWithMaximumSum" as interface
 
 activate ADMIN
 ADMIN -> UI : Initiates the process of overviewing the tests
@@ -66,6 +67,10 @@ ADMIN -> UI : Asks to evaluate performance
 activate UI
 UI -> CTRL : getAvailableAlgorithms()
 activate CTRL
+CTRL -> OVERVIEW : getAvailableAlgorithms()
+activate OVERVIEW
+OVERVIEW --> CTRL : availableAlgorithmsList
+deactivate OVERVIEW
 CTRL --> UI : availableAlgorithmsList
 deactivate CTRL
 UI --> ADMIN : Shows available algorithms
@@ -77,6 +82,11 @@ UI -> CTRL : getSubsequenceWithMaximumSum()
 activate CTRL
 CTRL -> OVERVIEW : getSubsequenceWithMaximumSum()
 activate OVERVIEW
+OVERVIEW -> interface : getSubsequenceWithMaximumSum()
+activate interface
+interface --> OVERVIEW : subsequenceWithMaximumSum
+deactivate interface
+OVERVIEW --> CTRL : subsequenceWithMaximumSum
 deactivate OVERVIEW
 CTRL --> UI : subsequenceWithMaximumSum
 deactivate CTRL
