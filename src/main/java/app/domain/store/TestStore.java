@@ -259,7 +259,7 @@ public class TestStore implements Serializable {
         for(Test t : tlist){
             date.add(t.getSamplesAddDate());
         }
-        Collections.sort(date);
+        Collections.reverse(date);
         for(Date d : date){
             Test t =getTestbyDate(d);
             test.add(t);
@@ -274,5 +274,15 @@ public class TestStore implements Serializable {
                 }
             }
             return null;
+    }
+
+    public List<Test> getIntervalTestList(Date initialDate, Date endDate){
+        List<Test> intervalTestList = new ArrayList();
+        for (Test t: testList) {
+            if (t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate) ) {
+                intervalTestList.add(t);
+            }
+        }
+        return intervalTestList;
     }
 }

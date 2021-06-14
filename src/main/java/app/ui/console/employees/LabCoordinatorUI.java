@@ -3,6 +3,8 @@ package app.ui.console.employees;
 import app.ui.console.MenuItem;
 import app.ui.console.functionalities.ValidateWorkUI;
 import app.ui.console.utils.Utils;
+import app.ui.gui.OverviewUi;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class LabCoordinatorUI implements Runnable{
 
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Validate Work", new ValidateWorkUI()));
+        options.add(new MenuItem("Oveview",new OverviewUi()));
 
         int option = 0;
         do {
