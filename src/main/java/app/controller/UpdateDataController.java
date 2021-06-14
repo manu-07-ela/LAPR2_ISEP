@@ -123,8 +123,8 @@ public class UpdateDataController {
      */
     public void updatePhoneNumber (Client client, String phoneNumber){store.updatePhoneNumber(client, phoneNumber);}
 
-    public void  clientData(Client client){
-        System.out.println(client);
+    public String  clientData(Client client){
+        return client.toString();
     }
 
     public Client getClientByEmail(String email){

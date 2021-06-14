@@ -3,13 +3,11 @@ package app.ui.gui;
 import app.Serialization;
 import app.controller.App;
 import app.ui.console.AuthUI;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -17,45 +15,46 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class LabCoordinatorUi {
-
     private Stage stage;
 
-    @FXML
-    private VBox ImportBotton;
+
+    private Stage stageImportFiles;
+
+    private ImportFileUi importFileUi;
+
+    private Stage stageViewTests;
+
+    private OverviewUi overviewUi;
 
     @FXML
-    private VBox OverviewBotton;
+    private VBox viewTests;
 
     @FXML
-    private BorderPane brdPane;
+    private Button exit;
 
-    /**
-     * Sets label ui.
-     *
-     * @param stageLabUI the stage adm ui
-     */
-    public void setLabelUI(Stage stageLabUI) {
-        this.stage = stageLabUI;
+    @FXML
+    private Button logout;
+
+    @FXML
+    private VBox validateWork;
+
+    @FXML
+    private VBox importTest;
+
+    public void setLabelUI(Stage stage) {
+        this.stage = stage;
     }
 
     @FXML
-    void OverviewClickButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ImportClickBotton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void closePlatform() {
+    void exitClick() {
         Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
+
     }
 
+
     @FXML
-    void logout() {
+    void logoutClick() {
         AuthUI uiLogin = new AuthUI();
         uiLogin.logout();
         try {
@@ -71,10 +70,73 @@ public class LabCoordinatorUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            System.out.println("Logout Error: " + ex);
         }
         stage.close();
 
     }
 
+    @FXML
+    void validateWorkClick() {
+
+    }
+
+    @FXML
+    void viewTestsClick() {
+        runViewTests();
+
+    }
+
+    @FXML
+    void importTestClick() {
+        viewImportFiles();
+    }
+
+    private void viewImportFiles(){
+        try {
+            stageImportFiles = new Stage();
+            stageImportFiles.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ImportFile.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+
+            stageImportFiles.setScene(scene);
+            importFileUi = loader.getController();
+            stageImportFiles.show();
+
+        }catch (IOException exception){
+            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+        }
+    }
+
+    @FXML
+    private void runViewTests(){
+        try {
+            stageViewTests = new Stage();
+            stageViewTests.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\Overview.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+
+            stageViewTests.setScene(scene);
+
+            overviewUi = loader.getController();
+            stageViewTests.show();
+
+        }catch (IOException exception){
+            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+        }
+    }
+
 }
+

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClinicalAnalysisLaboratory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model.laboratories</a> &gt; <span class="el_source">ClinicalAnalysisLaboratory.java</span></div><h1>ClinicalAnalysisLaboratory.java</h1><pre class="source lang-java linenums">package app.domain.model.laboratories;
+
+import app.domain.model.testrelated.TestType;
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.Serializable;
+import java.util.*;
+
+/**
+ * @author Carlos Rodrigues &lt;1201001@isep.ipp.pt&gt;
+ */
+public class ClinicalAnalysisLaboratory extends Laboratory implements Serializable {
+
+    /**
+     * Clinical Analysis Laboratory's ID
+     */
+    private String laboratoryId;
+
+    /**
+     * List of Test Type that the Clinical Analysis Laboratory does
+     */
+    private List&lt;TestType&gt; listOfTestTypes;
+
+
+    /**
+     * Build an instance of Clinical Analysis Laboratory
+     * @param name                    Clinical Analysis Laboratory's name
+     * @param address                 Clinical Analysis Laboratory's address
+     * @param phoneNumber             Clinical Analysis Laboratory's phone number
+     * @param tin                     Clinical Analysis Laboratory's tax identification number
+     * @param laboratoryId            Clinical Analysis Laboratory's ID
+     * @param listOfTestTypes         List of Test Type that the Clinical Analysis Laboratory does
+     */
+    public ClinicalAnalysisLaboratory(String name, String address, String phoneNumber , String tin, String laboratoryId, List&lt;TestType&gt; listOfTestTypes){
+<span class="fc" id="L35">        super(name,address,phoneNumber,tin);</span>
+<span class="fc" id="L36">        laboratoryIdValidation(laboratoryId);</span>
+<span class="fc" id="L37">        listOfTestTypesValidation(listOfTestTypes);</span>
+<span class="fc" id="L38">        this.laboratoryId=laboratoryId;</span>
+<span class="fc" id="L39">        this.listOfTestTypes= listOfTestTypes;</span>
+<span class="fc" id="L40">    }</span>
+
+    /**
+     * Get the laboratoryId of the Clinical Analysis Laboratory
+     * @return Clinical Analysis Laboratory's ID
+     */
+    public String getLaboratoryId() {
+<span class="fc" id="L47">        return laboratoryId;</span>
+    }
+
+    /**
+     *  Get the list of Test Types of the Clinical Analysis Laboratory
+     * @return List of Test Type that the Clinical Analysis Laboratory
+     */
+    public List&lt;TestType&gt; getListOfTestTypes() {
+<span class="fc" id="L55">        return listOfTestTypes;</span>
+    }
+
+    /**
+     * Checks whether the LaboratoryId contains all business rule
+     * @param laboratoryId Clinical Analysis Laboratory's ID
+     */
+    private void laboratoryIdValidation(String laboratoryId){
+<span class="pc bpc" id="L63" title="1 of 6 branches missed.">        if (StringUtils.isBlank(laboratoryId) || !StringUtils.isAlphanumeric(laboratoryId) || laboratoryId.length() != 5 ) {</span>
+<span class="fc" id="L64">            throw new IllegalArgumentException(&quot;The laboratoryId must have only 5 alphanumeric characters&quot;);</span>
+        }
+<span class="fc" id="L66">    }</span>
+
+    /**
+     * Checks whether the LaboratoryId contains all business rule
+     * @param listOfTestTypes List of Test Type that the Clinical Analysis Laboratory does
+     */
+    private void listOfTestTypesValidation(List&lt;TestType&gt; listOfTestTypes) {
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        if (listOfTestTypes==null){</span>
+<span class="fc" id="L74">            throw new IllegalArgumentException(&quot;The list of Test Types mustn't be null&quot;);</span>
+        }
+<span class="fc" id="L76">    }</span>
+
+    /**
+     * Compare an Object with other.
+     * @param o An Object we want to compare
+     * @return True if the object contains one atribute equal to one of the atributes of the other except the name and the list of Test Types . Otherwise, it return false.
+     */
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L86" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
+
+<span class="fc" id="L88">        ClinicalAnalysisLaboratory that = (ClinicalAnalysisLaboratory) o;</span>
+<span class="fc bfc" id="L89" title="All 8 branches covered.">        return this.getAddress().equals((that).getAddress()) || this.getLaboratoryId().equals((that).getLaboratoryId()) || this.getTin().equals((that).getTin()) || this.getPhoneNumber().equals((that).getPhoneNumber());</span>
+    }
+
+    /**
+     * Textual description of the Laboratory
+     * @return Information about the Laboratory
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L98">        return String.format(&quot;Laboratory ID: %s%n&quot;, laboratoryId);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

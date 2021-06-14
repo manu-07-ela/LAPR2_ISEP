@@ -21,33 +21,45 @@ usecase "UC09: Specify a new type of test and its collecting methods" as UC09
 usecase "UC10: Specify a new test parameter and categorize it" as UC10
 usecase "UC11: Specify a new parameter category" as UC11
 usecase "UC06: Access the internal process of a client" as UC06
-usecase "UC02: Access the company response efficiency" as UC02
+usecase "UC02: Update my personal data" as UC02
 usecase "UC05: Record the samples collected in a scope of a given Test" as UC05
-usecase "UC19: Send daily Covid-19 data" as UC19
+usecase "UC19: Send to the NHS daily reports of Covid-19 data,\nincluding the number of observed values and estimated values.\nReports should be generated automatically with historical data and must be sent every day at 6:00 am." as UC19
 usecase "UC07: Register a new employee" as UC07
 usecase "UC08: Register a new clinical analysis laboratory stating which kind of test(s) it operates." as UC08
 usecase "UC12: Record the results of a given test" as UC12
 usecase "UC15: Validate the work done by the clinical chemistry technologist and specialist doctor." as UC15
+usecase "UC01: Access the application to view the results of the tests I have performed" as UC01
+usecase "UC13: Consult the historical tests performed by a particular client and to be able to check tests details/results" as UC13
+usecase "UC16: Have an overview of all the tests performed by Many Labs \nand analyse the overall performance of the company \n(for instance, check the sub-intervals in which there were more samples waiting for the result). \nTo facilitate overall analysis, the application should also display statistics and graphs" as UC16
+usecase "UC17: Import clinical tests from a CSV file" as UC17
+usecase "UC18: Send the Covid-19 report to the NHS at any time.\nI want to define the interval of dates to fit the regression model,\nthe number of historical points (number of days or number of weeks)\nthat must be sent to the NHS, the regression model to use and select the independent variables to use" as UC18
 }
 
 Recp -- UC03
 Recp -- UC04
 Client --- UC20
+Client -- UC01
+Client -- UC02
 UC14 -- Doc
 MedLab --- UC20
 ClinTec -- UC12
 ClinTec --- UC20
+ClinTec -- UC13
 UC07 --- Adm
 UC08 --- Adm
 UC09 --- Adm
 UC11 --- Adm
 UC10 --- Adm
+UC18 -- Adm
 UC05 --- MedLab
 UC06 --- Doc
 UC20 --- Doc
-UC02 --- LabCod
 UC20 -- LabCod
 UC15 -- LabCod
+UC16 -- LabCod
+UC17 -- LabCod
+
+
 Timer -- UC19
 
 

@@ -3,7 +3,7 @@
 
 autonumber
 
-actor "Administrator" as ADM
+actor "LabCoordinator" as LC
 
 participant ": ValidateWorkUI" as UI
 participant ": ValidateWorkController" as CTRL
@@ -22,8 +22,8 @@ participant ": SMSNotification" as SMSNOTF
 
 autonumber
 
-activate ADM
-ADM -> UI : starts validation
+activate LC
+LC -> UI : starts validation
 activate UI
 UI -> CTRL : getTestsToValidateList()
 activate CTRL
@@ -42,7 +42,7 @@ TMAPPER --> CTRL : testListDto
 deactivate TMAPPER
 CTRL --> UI : listTestsToValidateDto
 deactivate CTRL
-UI --> ADM : shows the tests to validate
+UI --> LC : shows the tests to validate
 deactivate UI
 
 
@@ -50,7 +50,7 @@ deactivate UI
 
 
 
-ADM -> UI:select a tests to validate (selectedTestDto)
+LC -> UI:select a tests to validate (selectedTestDto)
 activate UI
 UI -> CTRL : createTestValidation()
 activate CTRL
@@ -70,7 +70,7 @@ activate DMAPPER
 deactivate DMAPPER
 CTRL --> UI : dateDto
 deactivate CTRL
-UI --> ADM : shows the test registration \n date and asks for validation
+UI --> LC : shows the test registration \n date and asks for validation
 deactivate UI
 
 
@@ -78,7 +78,7 @@ deactivate UI
 
 
 
-ADM -> UI: validate date
+LC -> UI: validate date
 activate UI
 UI -> CTRL : validateDate()
 activate CTRL
@@ -100,7 +100,7 @@ activate DMAPPER
 deactivate DMAPPER
 CTRL --> UI : dateDto
 deactivate CTRL
-UI --> ADM : shows the chemical analysis \n date and asks for validation
+UI --> LC : shows the chemical analysis \n date and asks for validation
 deactivate UI
 
 
@@ -108,7 +108,7 @@ deactivate UI
 
 
 
-ADM -> UI: validate date
+LC -> UI: validate date
 activate UI
 UI -> CTRL : validateDate()
 activate CTRL
@@ -129,14 +129,14 @@ activate DMAPPER
 deactivate DMAPPER
 CTRL --> UI : dateDto
 deactivate CTRL
-UI --> ADM : shows the diagnosis \n date and asks for validation
+UI --> LC : shows the diagnosis \n date and asks for validation
 deactivate UI
 
 
 
 
 
-ADM -> UI: validate date
+LC -> UI: validate date
 activate UI
 UI -> CTRL : validateDate()
 activate CTRL
@@ -161,7 +161,7 @@ deactivate CTRL
 
 CTRL --> UI : showDates (registrationDate,chemicalAnalysisDate,diagnosisDate)
 deactivate CTRL
-UI --> ADM : shows the dates (test registration, \n chemical analysis and diagnosis)
+UI --> LC : shows the dates (test registration, \n chemical analysis and diagnosis)
 deactivate UI
 
 
@@ -169,7 +169,7 @@ deactivate UI
 
 
 
-ADM -> UI: confirms the validation
+LC -> UI: confirms the validation
 activate UI
 UI -> CTRL : recordValidationDate()
 activate CTRL
@@ -198,9 +198,9 @@ CTRL -> SMSNOTF : notification(selectedTest)
 activate SMSNOTF
 deactivate SMSNOTF
 deactivate CTRL
-UI --> ADM : informs the operation success
+UI --> LC : informs the operation success
 deactivate UI
-deactivate ADM
+deactivate LC
 
 
 

@@ -2,56 +2,34 @@ package app.ui.gui;
 
 import app.controller.UpdateDataController;
 import app.domain.model.users.Client;
+import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-public class UpdateDataUi /*implements Initializable*/ {
+import java.io.IOException;
 
+public class UpdateDataUi {
     private UpdateDataController updateDataController;
+
     private Stage stage;
+
     private Client client;
-
-    @FXML
-    private Label errorMessage;
-    @FXML
-    private ImageView logoManyLabs;
-
-    @FXML
-    private TextField writePhoneNumber;
-
-    @FXML
-    private Button savePhoneNumber;
 
     @FXML
     private TextField writeName;
 
     @FXML
-    private Button saveName;
+    private TextField writePhoneNumber;
 
     @FXML
-    private TextField writeCitizenCard;
-
-    @FXML
-    private Button saveCitizenCard;
-
-    @FXML
-    private TextField writeNhsCode;
-
-    @FXML
-    private Button saveNhsCode;
-
-    @FXML
-    private TextField writeBirthDate;
-
-    @FXML
-    private Button saveBirthDate;
-
-    @FXML
-    private TextField writeSex;
+    private Label errorMessage;
 
     @FXML
     private Button saveSex;
@@ -60,13 +38,46 @@ public class UpdateDataUi /*implements Initializable*/ {
     private TextField writeTin;
 
     @FXML
-    private Button saveTin;
+    private Button saveNhsCode;
+
+    @FXML
+    private TextField writeNhsCode;
+
+    @FXML
+    private Button exit;
+
+    @FXML
+    private Button saveBirthDate;
+
+    @FXML
+    private Button logout;
+
+    @FXML
+    private TextField writeBirthDate;
+
+    @FXML
+    private Button saveCitizenCard;
+
+    @FXML
+    private TextField writeSex;
+
+    @FXML
+    private Button saveEmail;
 
     @FXML
     private TextField writeEmail;
 
     @FXML
-    private Button saveEmail;
+    private Button savePhoneNumber;
+
+    @FXML
+    private Button saveName;
+
+    @FXML
+    private Button saveTin;
+
+    @FXML
+    private TextField writeCitizenCard;
 
     public void setLabelUI(Stage stage) {
         this.stage = stage;
@@ -74,6 +85,10 @@ public class UpdateDataUi /*implements Initializable*/ {
 
     public UpdateDataUi() {
         updateDataController = new UpdateDataController();
+    }
+
+    public void getClient(String email){
+        client = updateDataController.getClientByEmail(email);
     }
 
     @FXML
@@ -226,7 +241,7 @@ public class UpdateDataUi /*implements Initializable*/ {
             errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
         }
-       // updateDataController.clientData(client);
+        // updateDataController.clientData(client);
         writeTin.clear();
 
 
@@ -250,12 +265,34 @@ public class UpdateDataUi /*implements Initializable*/ {
         writePhoneNumber.clear();
     }
 
-    /*@Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        logoManyLabs.setImage(new Image(getClass().getResourceAsStream("images/LogoManyLabs.png")));
-    }*/
 
-    public void getClient(String email){
-        client = updateDataController.getClientByEmail(email);
+    @FXML
+    void exitClick() {
+        System.exit(0);
     }
+
+
+    @FXML
+    void logoutClick() {
+        AuthUI uiLogin = new AuthUI();
+        uiLogin.logout();
+        try {
+            Stage newStage = new Stage();
+            newStage.initStyle(StageStyle.UNDECORATED);
+
+            Parent root;
+
+            root = FXMLLoader.load(getClass().getResource("/fxml/LoginUi.fxml"));
+
+            Scene scene = new Scene(root);
+
+            newStage.setScene(scene);
+            newStage.show();
+        } catch (IOException ex) {
+            System.out.println("Erro no lougout: " + ex);
+        }
+        stage.close();
+    }
+
+
 }

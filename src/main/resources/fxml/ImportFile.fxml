@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ImportFileUi">
+   <top>
+      <VBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Import CSV Files " textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Separator>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="exit" mnemonicParsing="false" onMouseClicked="#exitClick" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-width: 3; -fx-border-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logoutClick" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-width: 3; -fx-border-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <left>
+      <Button fx:id="importFile" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#importFileClick" prefHeight="117.0" prefWidth="148.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 15; -fx-border-color: #1a7180; -fx-border-radius: 15; -fx-border-width: 3; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Import File " textFill="#1a7180" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="60.0" />
+         </BorderPane.margin>
+      </Button>
+   </left>
+   <right>
+      <TextArea fx:id="textArea" prefHeight="249.0" prefWidth="302.0" promptText=" " style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 3;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="15.0" right="30.0" top="15.0" />
+         </BorderPane.margin>
+      </TextArea>
+   </right>
+</BorderPane>

@@ -18,7 +18,10 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 > **Question:**  Should we show every client already registered when we show the clients' list to the clinical chemistry technologist or should we only show the clients' with a test or more already assigned?
 >
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8938#p11754) The system should show only clients that have tests already validated by the lab coordinator.
-
+>
+> **Question:**  From the user story description "As a clinical chemistry technologist, I intend to consult the historical tests performed by a particular client and to be able to check tests details/results". What do you mean by "check tests details/results" ?
+>
+> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9055) The clinical chemistry technologist should be able to check the historical tests performed by a particular client and see the results obtained in each test. For a given client (that was selected by the clinical chemistry technologist) the application should show all tests performed by the client and, for each parameter, the application should show the parameter value and the parameter reference values. The clinical chemistry technologist should not have access to the report made by the specialist doctor.
 
 
 ### 1.3. Acceptance Criteria

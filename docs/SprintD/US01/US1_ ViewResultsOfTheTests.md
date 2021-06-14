@@ -24,18 +24,6 @@ application to view those results.
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8787) The test registration date.
 
-> **Question:**
->
-> [**Awnser:**]()
-
-> **Question:**
->
-> [**Awnser:**]()
-
-> **Question:**
->
-> [**Awnser:**]()
-
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
@@ -54,6 +42,7 @@ application to view those results.
 **Input Data:**
 
 * Typed data:
+
 
 * Selected data:
     * Test
@@ -95,12 +84,14 @@ application to view those results.
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Step 1  		 | ... interacting with the actor?                                 | ViewResultsUI                 | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
 |                | ... coordinating the US?                                        | ViewResultsController         | **Controller**                                                                                                                                                                                         |
+|                | ... knows the user using the system?                            | UserSession                   | **IE**: cf. user management component documentation.                                                                                                                                                   |
 | Step 2  		 | ... knowing the tests that have already been validated?         | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
 |                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
 |                | ... transferring business data in DTO?                          | TestMapper                    | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
 | Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
 | Step 4  		 | ... knowing the test results and your diagnosis?                | Test                          | **IE**: Owns its data.                                                                                                                                                                                 |
 |                | ... transferring business data in DTO?                          | TestResultsMapper             | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+|         		 | ... shows successfully test results?                            | ViewResultsUI                 | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 

@@ -2,34 +2,34 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
-actor Administrator
-activate Administrator
-Administrator -> System: starts validation
+actor LabCoordinator
+activate LabCoordinator
+LabCoordinator -> System: starts validation
 activate System
-System --> Administrator : shows the tests to validate
+System --> LabCoordinator : shows the tests to validate
 deactivate System
-Administrator -> System:select a tests to validate
+LabCoordinator -> System:select a tests to validate
 activate System
 
-System --> Administrator : shows the test registration \n date and asks for validation
+System --> LabCoordinator : shows the test registration \n date and asks for validation
 deactivate System
-Administrator -> System: validate date
+LabCoordinator -> System: validate date
 activate System
-System --> Administrator : shows the chemical analysis \n date and asks for validation
+System --> LabCoordinator : shows the chemical analysis \n date and asks for validation
 deactivate System
-Administrator -> System: validate date
+LabCoordinator -> System: validate date
 activate System
-System --> Administrator : shows the diagnosis \n date and asks for validation
+System --> LabCoordinator : shows the diagnosis \n date and asks for validation
 deactivate System
-Administrator -> System: validate date
+LabCoordinator -> System: validate date
 
 activate System
-System --> Administrator : shows the dates (test registration, \n chemical analysis and diagnosis)
+System --> LabCoordinator : shows the dates (test registration, \n chemical analysis and diagnosis)
 deactivate System
-Administrator -> System: confirms the validation
+LabCoordinator -> System: confirms the validation
 activate System
-System --> Administrator : informs the operation success
+System --> LabCoordinator : informs the operation success
 deactivate System
-deactivate Administrator
+deactivate LabCoordinator
 
 @enduml

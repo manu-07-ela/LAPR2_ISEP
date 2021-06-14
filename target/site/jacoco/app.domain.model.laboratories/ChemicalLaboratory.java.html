@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChemicalLaboratory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.domain.model.laboratories</a> &gt; <span class="el_source">ChemicalLaboratory.java</span></div><h1>ChemicalLaboratory.java</h1><pre class="source lang-java linenums">package app.domain.model.laboratories;
+
+import app.domain.store.SampleStore;
+
+import java.io.Serializable;
+
+/**
+ * Represents a chemical laboratory
+ * @author Manuela Leite &lt;1200720@isep.ipp.pt&gt;
+ */
+
+public class ChemicalLaboratory extends Laboratory implements Serializable {
+    /**
+     * Represents an instance of sample store
+     */
+    private final SampleStore sampleStore;
+    /**
+     * builds an instance of the chemical laboratory receiving the following attributes by parameter: name, address, cell phone and tin
+     * @param name        the name of the Laboratory.
+     * @param address     the address of the Laboratory.
+     * @param phoneNumber the phone number of the Laboratory.
+     * @param tin         the tin number of the Laboratory.
+     */
+    public ChemicalLaboratory(String name, String address, String phoneNumber, String tin) {
+<span class="fc" id="L25">        super(name, address, phoneNumber, tin);</span>
+<span class="fc" id="L26">        this.sampleStore = new SampleStore();</span>
+<span class="fc" id="L27">    }</span>
+
+    /**
+     * Get the instance o sample store
+     * @return the sample store
+     */
+    public SampleStore getSampleStore() {
+<span class="fc" id="L34">        return sampleStore;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

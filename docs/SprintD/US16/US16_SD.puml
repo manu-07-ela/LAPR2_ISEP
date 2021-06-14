@@ -8,26 +8,31 @@ participant ": OverviewController" as CTRL
 participant ": Company" as COMP
 participant ": Overview" as OVERVIEW
 participant ": TestStore" as TS
+participant ": TestMapper" as tMAPPER
+participant ": SubsequenceWithMaximumSum" as interface
 
 activate ADMIN
-ADMIN -> UI : initiates the process of overviewing the tests
+ADMIN -> UI : Initiates the process of overviewing the tests
 activate UI
-UI --> ADMIN : requests to delimit the period of dates to analyze
+UI --> ADMIN : Requests to delimit the period of dates to analyze
 deactivate UI
 
-ADMIN -> UI : types the dates and asks to see relative information
+ADMIN -> UI : Selects the dates and asks to see relative information
 activate UI
-UI -> CTRL : recordsLimitDates(initialDate,endDate)
+UI -> CTRL : getIntervalTestList(initialDate,endDate)
 activate CTRL
-CTRL -> OVERVIEW : recordsLimitDates(initialDate,endDate)
-activate OVERVIEW
-deactivate OVERVIEW
 
 CTRL -> COMP : testStore = getTestStore()
 activate COMP
 deactivate COMP
+CTRL -> TS : testList = getIntervalTestList(initialDate,endDate)
+activate TS
+deactivate TS
+CTRL --> OVERVIEW** : create(initialDate,endDate, testList)
 deactivate CTRL
-UI -> CTRL : number of clients = getNumberOfClients()
+
+deactivate CTRL
+UI -> CTRL : numberOfClients = getNumberOfClients()
 activate CTRL
 CTRL -> OVERVIEW : getNumberOfClients()
 activate OVERVIEW
@@ -55,25 +60,39 @@ activate OVERVIEW
 deactivate OVERVIEW
 deactivate CTRL
 
-UI --> ADMIN : shows the relative information ( number of clients, number of tests Waiting for results,\n the number of tests Waiting for diagnosis, total number of tests processed \n in the laboratory in each day, week, month and year
+UI --> ADMIN : Shows successfully the relative information ( number of clients, number of tests Waiting for results,\n the number of tests Waiting for diagnosis, total number of tests processed \n in the laboratory in each day, week, month and year
 deactivate UI
-
-ADMIN -> UI : asks to evaluate performance
+alt select option to evaluate performance
+ADMIN -> UI : Asks to evaluate performance
 activate UI
-UI -> CTRL :
+UI -> CTRL : getAvailableAlgorithms()
 activate CTRL
+CTRL -> OVERVIEW : getAvailableAlgorithms()
+activate OVERVIEW
+OVERVIEW --> CTRL : availableAlgorithmsList
+deactivate OVERVIEW
+CTRL --> UI : availableAlgorithmsList
 deactivate CTRL
-UI --> ADMIN : shows available algorithms
+UI --> ADMIN : Shows available algorithms
 deactivate UI
 
-ADMIN -> UI : selects the algorithm and asks for statistics and graphs
+ADMIN -> UI : Selects the algorithm and asks for the least effective time
 activate UI
-UI -> CTRL :
+UI -> CTRL : getSubsequenceWithMaximumSum()
 activate CTRL
+CTRL -> OVERVIEW : getSubsequenceWithMaximumSum()
+activate OVERVIEW
+OVERVIEW -> interface : getSubsequenceWithMaximumSum()
+activate interface
+interface --> OVERVIEW : subsequenceWithMaximumSum
+deactivate interface
+OVERVIEW --> CTRL : subsequenceWithMaximumSum
+deactivate OVERVIEW
+CTRL --> UI : subsequenceWithMaximumSum
 deactivate CTRL
-UI --> ADMIN : shows statistics and graphs
+UI --> ADMIN : Shows successfully the least effective time
 deactivate UI
-
+end
 deactivate ADMIN
 
 @enduml

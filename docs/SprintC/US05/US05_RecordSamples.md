@@ -104,8 +104,12 @@ automatically generated using an external API.
 * Typed data:
   * The number of samples associated with a test
 
+
+
 * Selected data:
   * The test waiting to be associated with a sample
+
+
 
 * Automatically generated data:
   * Barcode
@@ -179,6 +183,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
 
 Other software classes (i.e. Pure Fabrication) identified: 
+
  * RecordSampleUI  
  * RecordSampleController
  * TestStore
@@ -242,7 +247,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 5. Construction (Implementation)
 
-##Class RecordSampleUI
+## Class RecordSampleUI
 
     /**
      * Generates the amount of barcode entered by the user
@@ -281,7 +286,7 @@ Other software classes (i.e. Pure Fabrication) identified:
     }
 
 
-##Class Test
+## Class Test
 
     /**
      * Change the status of a test for Samples collected

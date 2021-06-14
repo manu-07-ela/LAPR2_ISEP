@@ -7,52 +7,76 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ClientsUi">
    <top>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="67.0" prefWidth="532.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_CENTER" prefHeight="116.0" prefWidth="600.0">
-               <children>
-                  <ImageView fitHeight="67.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/LogoManyLabs.png" />
-                     </image>
-                  </ImageView>
-                  <Label contentDisplay="CENTER" style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="View Historical Tests" textAlignment="CENTER" textFill="#1a7180">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
+            <Label style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Clients" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
-            </HBox>
-            <Separator prefWidth="200.0" />
+            </Separator>
          </children>
-         <opaqueInsets>
-            <Insets bottom="10.0" top="10.0" />
-         </opaqueInsets>
          <BorderPane.margin>
-            <Insets />
+            <Insets top="5.0" />
          </BorderPane.margin>
       </VBox>
    </top>
-   <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Button mnemonicParsing="false" text="Orden By Tin" />
-                  <Button mnemonicParsing="false" text="Orden By Name" />
-               </children>
-            </VBox>
+            <Button fx:id="exit" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#exitClick" prefHeight="36.0" prefWidth="60.0" style="-fx-background-color: #ffffff; -fx-border-color: #1a7180; -fx-border-radius: 15; -fx-border-width: 3;" text="Exit " textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="logout" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logoutClick" prefHeight="36.0" prefWidth="76.0" style="-fx-background-color: #ffffff; -fx-border-color: #1a7180; -fx-border-radius: 15; -fx-border-width: 3;" text="Logout" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
          </children>
+         <opaqueInsets>
+            <Insets bottom="10.0" />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
       </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <CheckBox fx:id="orderedTin" mnemonicParsing="false" onMouseClicked="#orderedTinClick" style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Ordered By TIN" textFill="#1a7180">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="OrderedName" mnemonicParsing="false" onMouseClicked="#OrderedNameClick" style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Ordered By Name" textFill="#1a7180">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <ScrollPane fx:id="scrollPane" prefHeight="354.0" prefWidth="600.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+              </content>
+            </ScrollPane>
+         </children>
+      </VBox>
    </center>
 </BorderPane>

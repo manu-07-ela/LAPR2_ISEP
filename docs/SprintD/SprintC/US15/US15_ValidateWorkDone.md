@@ -99,6 +99,7 @@ From a previous post: "The system shows all tests ready to validate (tests that 
 * **AC2:** The system shows all tests ready to validate (tests that already have the test registration date, the chemical analysis date and the diagnosis date registered in the system).
 * **AC3:** The laboratory coordinator selects one or more tests to mark as validated.
 * **AC4:** The system should record the date (DD/MM/YYYY) and time (HH:MM) when the validation was made.
+* **AC5:** The system should notify the client by SMS and Email.
 
 ### 1.4. Found out Dependencies
 
@@ -116,9 +117,11 @@ From a previous post: "The system shows all tests ready to validate (tests that 
 **Input Data:**
 
 * Selected data:
-  Test results
+  Test 
 
 **Output Data:**
+* Dates (registration date, chemical analysis date and the diagnosis date)
+* Notifications - SMS and Email
 * (In)Success of the operation
 
 
@@ -168,7 +171,7 @@ From a previous post: "The system shows all tests ready to validate (tests that 
 | Step 6  		 | ... knows Client Data?                                          | Client                        | **IE**: Owns its data.
 |        		 | ... recording the Validation Date?                              | LabCoordinatorValidation      | **IE**: Owns its data.|
 |                | ... notify the client by email                                  | EmailResult                   | **IE** and **Pure Fabrication**: has all the required information and means to send the email (IE)                                                                                                                                                 |
-|                | ... notify the client by SMS                                    | SMSResult                     | **IE** and **Pure Fabrication**: has all the required information and means to send the email (IE)
+|                | ... notify the client by SMS                                    | SMSResult                     | **IE** and **Pure Fabrication**: has all the required information and means to send the SMS (IE)
 | Step 7  		 | ... informing operation success?                                | ValidateWorkUI                | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
@@ -178,6 +181,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
  * Company
  * Test
  * LabCoordinatorValidation
+ * Client
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
@@ -193,7 +197,6 @@ Other software classes (i.e. Pure Fabrication) identified:
  * DiagnosisDto
  * EmailResult
  * SMSResult
- * Client
 
 ## 3.2. Sequence Diagram (SD)
 

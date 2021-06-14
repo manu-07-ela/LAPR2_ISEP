@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParameterCategoryDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.mappers.dto</a> &gt; <span class="el_source">ParameterCategoryDTO.java</span></div><h1>ParameterCategoryDTO.java</h1><pre class="source lang-java linenums">package app.mappers.dto;
+
+/**
+ * Represents a data transfer object of parameter category.
+ *
+ * @author Rita Ariana Sobral &lt;1201386@isep.ipp.pt&gt;
+ */
+public class ParameterCategoryDTO {
+
+    /**
+     * The code of the data transfer object of the type parameter category.
+     */
+    private String code;
+
+    /**
+     * The name of the data transfer object of the type parameter category.
+     */
+    private String name;
+
+
+    /**
+     * Creates a new instance of ParameterCategoryDto with the following attributes: code and name.
+     * @param code parameter category's code.
+     * @param name parameter category's name.
+     */
+<span class="fc" id="L26">    public ParameterCategoryDTO(String code, String name){</span>
+<span class="fc" id="L27">        this.code=code;</span>
+<span class="fc" id="L28">        this.name=name;</span>
+<span class="fc" id="L29">    }</span>
+
+    /**
+     * Get the code of the parameter category dto.
+     * @return the code of ParameterCategoryDto.
+     */
+    public String getCode() {
+<span class="fc" id="L36">        return code;</span>
+    }
+
+    /**
+     * Get the name of the parameter category dto.
+     * @return the name of ParameterCategoryDto.
+     */
+    public String getName() {
+<span class="fc" id="L44">        return name;</span>
+    }
+
+    /**
+     *Textual description of the parameter category dto.
+     *@return Information about the characteristics of the parameter category dto.
+     */
+    @Override
+    public String toString(){
+<span class="nc" id="L53">        return String.format(&quot;&lt;Name&gt; %s / &lt;Code&gt; %s&quot;,name,code);</span>
+    }
+
+    /**
+     * Compare the parameter category dto with the other object provided.
+     * @param o Object we want to compare with the parameter category dto.
+     * @return true if the received object represents another parameter category dto equivalent to the parameter category dto. Otherwise, it returns false.
+     */
+    @Override
+    public boolean equals(Object o){
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        if(this == o){</span>
+<span class="fc" id="L64">            return true;</span>
+        }
+
+<span class="pc bpc" id="L67" title="1 of 4 branches missed.">        if(o == null || this.getClass() != o.getClass()){</span>
+<span class="fc" id="L68">            return false;</span>
+        }
+
+<span class="fc" id="L71">        ParameterCategoryDTO otherParameterCategoryDTO = (ParameterCategoryDTO) o;</span>
+
+<span class="fc bfc" id="L73" title="All 4 branches covered.">        return this.getCode().equals(otherParameterCategoryDTO.getCode()) &amp;&amp; this.getName().equalsIgnoreCase(otherParameterCategoryDTO.getName());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

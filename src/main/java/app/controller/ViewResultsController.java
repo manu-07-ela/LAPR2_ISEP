@@ -64,7 +64,7 @@ public class ViewResultsController {
     }
 
     public ClientDTO getUserSession(){
-        Email empemail= company.getAuthFacade().getCurrentUserSession().getUserId();
+        Email empemail= app.getCurrentUserSession().getUserId();
         Client cl = clstore.getClientByEmail(empemail.toString());
         return clMapper.toDto(cl);
     }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DateMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.mappers</a> &gt; <span class="el_source">DateMapper.java</span></div><h1>DateMapper.java</h1><pre class="source lang-java linenums">package app.mappers;
+
+import app.mappers.dto.DateDTO;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Transform objects of type Date into objects of type DateDTO
+ * @author Pedro Rocha &lt;1201382@isep.ipp.pt&gt;
+ */
+
+
+<span class="fc" id="L15">public class DateMapper {</span>
+
+    /**
+     * Transforms an object of type Test into an object of type TestDTO
+     * @param date a Test object
+     * @return an instance of TestDTO
+     */
+    public DateDTO toDto(Date date){
+<span class="fc" id="L23">        return new DateDTO(date);</span>
+    }
+
+    /**
+     * Transforms a list of objects of type Date into a list of objects of type DateDTO
+     * @param dateList a list of Dates
+     * @return a list of DateDTO
+     */
+    public List&lt;DateDTO&gt; toDto(List&lt;Date&gt; dateList) {
+<span class="fc" id="L32">        List&lt;DateDTO&gt; dateListDto =new ArrayList();</span>
+        DateDTO objDTO;
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (Date lista : dateList) {</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">            if (lista != null){</span>
+<span class="fc" id="L36">                objDTO = toDto(lista);</span>
+<span class="fc" id="L37">                dateListDto.add(objDTO);</span>
+            }
+<span class="fc" id="L39">        }</span>
+<span class="fc" id="L40">        return dateListDto;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

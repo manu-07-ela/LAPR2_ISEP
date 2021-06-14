@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sem2App</a> &gt; <a href="index.source.html" class="el_package">app.controller</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package app.controller;
+
+import app.Serialization;
+import app.domain.model.Company;
+import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.testrelated.Parameter;
+import app.domain.model.testrelated.ParameterCategory;
+import app.domain.model.testrelated.TestType;
+import app.domain.model.users.Client;
+import app.domain.shared.Constants;
+import auth.AuthFacade;
+import auth.UserSession;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+/**
+ *
+ * @author Paulo Maio &lt;pam@isep.ipp.pt&gt;
+ */
+public class App implements Serializable {
+
+    private Company company;
+    private AuthFacade authFacade;
+
+    private App()
+<span class="nc" id="L32">    {</span>
+<span class="nc" id="L33">        Properties props = getProperties();</span>
+<span class="nc" id="L34">        this.company = new Company(props.getProperty(Constants.PARAMS_COMPANY_DESIGNATION));</span>
+<span class="nc" id="L35">        this.authFacade = this.company.getAuthFacade();</span>
+<span class="nc" id="L36">        bootstrap();</span>
+<span class="nc" id="L37">    }</span>
+
+    public Company getCompany()
+    {
+<span class="fc" id="L41">        return this.company;</span>
+    }
+
+
+    public UserSession getCurrentUserSession()
+    {
+<span class="nc" id="L47">        return this.authFacade.getCurrentUserSession();</span>
+    }
+
+    public boolean doLogin(String email, String pwd)
+    {
+<span class="nc" id="L52">        return this.authFacade.doLogin(email,pwd).isLoggedIn();</span>
+    }
+
+    public void doLogout()
+    {
+<span class="nc" id="L57">        this.authFacade.doLogout();</span>
+<span class="nc" id="L58">    }</span>
+
+    private Properties getProperties()
+    {
+<span class="fc" id="L62">        Properties props = new Properties();</span>
+
+        // Add default properties and values
+<span class="fc" id="L65">        props.setProperty(Constants.PARAMS_COMPANY_DESIGNATION, &quot;Many Labs&quot;);</span>
+
+
+        // Read configured values
+        try
+        {
+<span class="fc" id="L71">            InputStream in = new FileInputStream(Constants.PARAMS_FILENAME);</span>
+<span class="fc" id="L72">            props.load(in);</span>
+<span class="fc" id="L73">            in.close();</span>
+        }
+<span class="nc" id="L75">        catch(IOException ex)</span>
+        {
+
+<span class="fc" id="L78">        }</span>
+<span class="fc" id="L79">        return props;</span>
+    }
+    public Properties getProps(){
+<span class="fc" id="L82">        return getProperties();</span>
+    }
+
+    private void bootstrap()
+    {
+<span class="nc" id="L87">        this.authFacade.addUserRole(Constants.ROLE_ADMIN,Constants.ROLE_ADMIN);</span>
+<span class="nc" id="L88">        this.authFacade.addUserRole(Constants.ROLE_RECP,Constants.ROLE_RECP);</span>
+<span class="nc" id="L89">        this.authFacade.addUserRole(Constants.ROLE_MED_LAB_TEC,Constants.ROLE_MED_LAB_TEC);</span>
+<span class="nc" id="L90">        this.authFacade.addUserRole(Constants.ROLE_CLI_CHE_TEC,Constants.ROLE_CLI_CHE_TEC);</span>
+<span class="nc" id="L91">        this.authFacade.addUserRole(Constants.ROLE_SPE_DOCTOR,Constants.ROLE_SPE_DOCTOR);</span>
+<span class="nc" id="L92">        this.authFacade.addUserRole(Constants.ROLE_LAB_COD, Constants.ROLE_LAB_COD);</span>
+<span class="nc" id="L93">        this.authFacade.addUserRole(Constants.ROLE_CLIENT, Constants.ROLE_CLIENT);</span>
+
+<span class="nc" id="L95">        this.authFacade.addUserWithRole(&quot;Clinical Chemistry Technologist&quot;, &quot;cheTec@manylabs.pt&quot;, &quot;carlos&quot;, Constants.ROLE_CLI_CHE_TEC);</span>
+<span class="nc" id="L96">        this.authFacade.addUserWithRole(&quot;Main Administrator&quot;, &quot;admin@lei.sem2.pt&quot;, &quot;123456&quot;,Constants.ROLE_ADMIN);</span>
+<span class="nc" id="L97">        this.authFacade.addUserWithRole(&quot;Specialist Doctor&quot;,&quot;doctor@manylabs.pt&quot;,&quot;654321&quot;,Constants.ROLE_SPE_DOCTOR);</span>
+<span class="nc" id="L98">        this.authFacade.addUserWithRole(&quot;Receptionist&quot;, &quot;rep@manylabs.pt&quot;, &quot;abcdef&quot;, Constants.ROLE_RECP);</span>
+<span class="nc" id="L99">        this.authFacade.addUserWithRole(&quot;Medical lab Technician&quot;, &quot;medLabtec@manylabs.pt&quot;, &quot;01928&quot;, Constants.ROLE_MED_LAB_TEC);</span>
+<span class="nc" id="L100">        this.authFacade.addUserWithRole(&quot;Lab Coordinator&quot;,&quot;labCod@manylabs.pt&quot;,&quot;000000&quot;,Constants.ROLE_LAB_COD);</span>
+<span class="nc" id="L101">        this.authFacade.addUserWithRole(&quot;Client&quot;, &quot;client@manylabs.pt&quot;, &quot;pedro&quot;, Constants.ROLE_CLIENT);</span>
+
+<span class="nc" id="L103">        this.company = getCompany();</span>
+<span class="nc" id="L104">        ParameterCategory pc1 = new ParameterCategory(&quot;HM000&quot;,&quot;Hemogram&quot;);</span>
+<span class="nc" id="L105">        company.getParameterCategoryStore().addParameterCategory(pc1);</span>
+
+<span class="nc" id="L107">        Parameter p1 = new Parameter(&quot;HB000&quot;,&quot;HB&quot;,&quot;Hemoglobin&quot;,pc1);</span>
+<span class="nc" id="L108">        company.getParameterStore().addParameter(p1);</span>
+
+<span class="nc" id="L110">        Parameter p2 = new Parameter(&quot;WBC00&quot;,&quot;WBC&quot;,&quot;White Cell Count &quot;,pc1);</span>
+<span class="nc" id="L111">        company.getParameterStore().addParameter(p2);</span>
+
+<span class="nc" id="L113">        List&lt;ParameterCategory&gt; list=new ArrayList();</span>
+<span class="nc" id="L114">        list.add(pc1);</span>
+
+<span class="nc" id="L116">        TestType tt = new TestType(&quot;BL000&quot;,&quot;blood&quot;,&quot;syringe&quot;,list,&quot;ExternalModule2API&quot;);</span>
+<span class="nc" id="L117">        company.getTestTypeStore().addTestType(tt);</span>
+<span class="nc" id="L118">        company.getClientStore().addClient(new Client(&quot;Rita&quot;,&quot;1111111111111111&quot;,&quot;1231231231&quot;,&quot;26/11/2002&quot;,&quot;Female&quot;,&quot;1231231231&quot;,&quot;11111111111&quot;,&quot;rita@gmail.com&quot;));</span>
+<span class="nc" id="L119">        authFacade.addUserWithRole(&quot;Rita&quot;,&quot;rita@gmail.com&quot;,&quot;111111&quot;,&quot;CLIENT&quot;);</span>
+<span class="nc" id="L120">        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory(&quot;Clinical laboratory&quot;, &quot;Rua 20&quot;, &quot;12312312312&quot;, &quot;1234567890&quot;, &quot;1234s&quot;,company.getTestTypeStore().getTestTypeList());</span>
+<span class="nc" id="L121">        this.company.getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(lab);</span>
+
+
+<span class="nc" id="L124">    }</span>
+
+    // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2
+<span class="fc" id="L127">    private static App singleton = null;</span>
+    public static App getInstance() {
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        if(singleton == null) {</span>
+<span class="fc" id="L130">            singleton = Serialization.loadApp(&quot;SavedData.data&quot;);</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">            if (singleton == null) {</span>
+<span class="nc" id="L132">                synchronized (App.class) {</span>
+<span class="nc" id="L133">                    singleton = new App();</span>
+<span class="nc" id="L134">                }</span>
+            } else {
+
+            }
+        }
+<span class="fc" id="L139">        return singleton;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
