@@ -24,7 +24,7 @@ public class LabCoordinatorUi {
 
     private Stage stageViewTests;
 
-    private OverviewUi overviewUi;
+    private OverviewTestUi overviewUi;
 
     @FXML
     private VBox viewTests;

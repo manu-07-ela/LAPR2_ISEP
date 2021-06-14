@@ -115,7 +115,6 @@ public class LoginUi {
             if(role.getId().equals("ADMINISTRATOR")){
                 runAdmin();
                 adminUi.setLabelUI(stageAdminUi);
-
             }
             if (role.getId().equals("RECEPTIONIST")){
                 runReceptionist();
