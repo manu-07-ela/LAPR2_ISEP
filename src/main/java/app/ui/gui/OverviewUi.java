@@ -39,7 +39,9 @@ public class OverviewUi implements Runnable{
            e.printStackTrace();
        }
        overviewController.getIntervalTestList(initialDate, endDate);
-       System.out.printf("Number of clients: %d" , overviewController.getNumberOfClients());
+       System.out.printf("Number of clients: %d\n" , overviewController.getNumberOfClients());
+       System.out.printf("Number Of Tests Waiting For Results: %d\n" , overviewController.getNumberOfTestsWaitingForResults());
+       System.out.printf("Number Of Tests Waiting For Diagnosis: %d\n" , overviewController.getNumberOfTestsWaitingForDiagnosis());
 
     }
 

@@ -58,4 +58,12 @@ public class OverviewController {
         return overview.getNumberOfClients();
     }
 
+    public int  getNumberOfTestsWaitingForResults(){
+        return overview.getNumberOfTestWaitingForResults();
+    }
+
+    public int  getNumberOfTestsWaitingForDiagnosis(){
+        return overview.getNumberOfTestsWaitingForDiagnosis();
+    }
+
 }
