@@ -97,12 +97,36 @@ public class TestParameterDTO {
     }
 
     /**
+     * Get the Max ref value of the Test Parameter dto.
+     * @return the the Max ref value of TestParameterDto.
+     */
+    public double getTestParameterMaxRefValue() {
+<span class="nc" id="L104">        return testParameterMaxRefValue;</span>
+    }
+
+    /**
+     * Get the Min ref value of the Test Parameter dto.
+     * @return thethe Min ref value of TestParameterDto.
+     */
+    public double getTestParameterMinRefValue() {
+<span class="nc" id="L112">        return testParameterMinRefValue;</span>
+    }
+
+    /**
+     * Get the metric of the ref value of the Test Parameter dto.
+     * @return the metric of ref value.
+     */
+    public String getRefValueMetric() {
+<span class="nc" id="L120">        return refValueMetric;</span>
+    }
+
+    /**
      * Textual description of the TestParameterDTO
      * @return Information about the TestParameterDTO
      */
     @Override
     public String toString() {
-<span class="nc" id="L105">        return String.format(&quot;----------* %s Parameter Information *----------%n Parameter Result: %s%n Result Metric: %s%n Min Ref Value: %s%n Max Ref Value: %s%n Ref Value Metric: %s&quot;,parameterName,testParameterResult,testParameterMetric,testParameterMinRefValue,testParameterMaxRefValue,refValueMetric);</span>
+<span class="nc" id="L129">        return String.format(&quot;----------* %s Parameter Information *----------%n Parameter Result: %s%n Result Metric: %s%n Min Ref Value: %s%n Max Ref Value: %s%n Ref Value Metric: %s&quot;,parameterName,testParameterResult,testParameterMetric,testParameterMinRefValue,testParameterMaxRefValue,refValueMetric);</span>
     }
 
     /**
@@ -112,17 +136,17 @@ public class TestParameterDTO {
      */
     @Override
     public boolean equals(Object o){
-<span class="fc bfc" id="L115" title="All 2 branches covered.">        if(this == o){</span>
-<span class="fc" id="L116">            return true;</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">        if(this == o){</span>
+<span class="fc" id="L140">            return true;</span>
         }
 
-<span class="pc bpc" id="L119" title="1 of 4 branches missed.">        if(o == null || this.getClass() != o.getClass()){</span>
-<span class="fc" id="L120">            return false;</span>
+<span class="pc bpc" id="L143" title="1 of 4 branches missed.">        if(o == null || this.getClass() != o.getClass()){</span>
+<span class="fc" id="L144">            return false;</span>
         }
 
-<span class="fc" id="L123">        TestParameterDTO otherTestParameterDTO = (TestParameterDTO) o;</span>
+<span class="fc" id="L147">        TestParameterDTO otherTestParameterDTO = (TestParameterDTO) o;</span>
 
-<span class="pc bpc" id="L125" title="4 of 10 branches missed.">        return this.getParameterName().equals(otherTestParameterDTO.getParameterName()) &amp;&amp; this.getTestParameterResult()==null  || this.getParameterName().equals(otherTestParameterDTO.getParameterName()) &amp;&amp; this.getTestParameterResult().equalsIgnoreCase(otherTestParameterDTO.getTestParameterResult()) &amp;&amp; this.getTestParameterMetric().equalsIgnoreCase(otherTestParameterDTO.getTestParameterMetric());</span>
+<span class="pc bpc" id="L149" title="4 of 10 branches missed.">        return this.getParameterName().equals(otherTestParameterDTO.getParameterName()) &amp;&amp; this.getTestParameterResult()==null  || this.getParameterName().equals(otherTestParameterDTO.getParameterName()) &amp;&amp; this.getTestParameterResult().equalsIgnoreCase(otherTestParameterDTO.getTestParameterResult()) &amp;&amp; this.getTestParameterMetric().equalsIgnoreCase(otherTestParameterDTO.getTestParameterMetric());</span>
     }
 
     /**
@@ -130,7 +154,7 @@ public class TestParameterDTO {
      * @return Information about the TestParameterDTO
      */
     public String toString2(){
-<span class="nc" id="L133">        return String.format(&quot;----------* %s Parameter Information *----------%n ParameterId: %s&quot;,parameterName,parameterId);</span>
+<span class="nc" id="L157">        return String.format(&quot;----------* %s Parameter Information *----------%n ParameterId: %s&quot;,parameterName,parameterId);</span>
     }
 
 }

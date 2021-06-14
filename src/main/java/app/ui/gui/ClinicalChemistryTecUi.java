@@ -74,12 +74,13 @@ public class ClinicalChemistryTecUi {
     @FXML
     void recordResultsClick() {
     }
+
     private void viewTest(){
         try {
             stageViewTests = new Stage();
             stageViewTests.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\UpdateData.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("/fxml/ViewHistoricalTests.fxml"));
             Parent root;
 
             root = loader.load();

@@ -4,21 +4,17 @@
 import app.Serialization;
 import app.controller.App;
 import app.controller.AuthController;
-import app.domain.model.users.Client;
-import app.ui.console.MenuItem;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.UserRoleDTO;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -28,22 +24,20 @@ import javafx.scene.control.Button;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 
-<span class="nc" id="L37">public class LoginUi {</span>
+<span class="nc" id="L31">public class LoginUi {</span>
 
-<span class="nc" id="L39">    private int attempts = 3;</span>
+<span class="nc" id="L33">    private int attempts = 3;</span>
     private Stage stageLabCoordinatorUi;
     private LabCoordinatorUi labCoordinatorUi;
     private Stage stageAdminUi;
     private AdmUi adminUi;
     private Stage stageClinicalCheTec;
-    private  ClinicalChemistryTecUI clinicalChemistryTecUI;
-<span class="nc" id="L46">    AuthController ctrl = new AuthController();</span>
+    private ClinicalChemistryTecUi clinicalChemistryTecUI;
+<span class="nc" id="L40">    AuthController ctrl = new AuthController();</span>
     private Stage stageClient;
     private ClientUi clientUI;
     private Stage stageReceptionist;
@@ -75,31 +69,31 @@ import java.util.ResourceBundle;
     @FXML
     void login() {
 
-<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (attempts &gt; 1) {</span>
-<span class="nc" id="L79">            emailEntered = txtEmail.getText().trim();</span>
-<span class="nc" id="L80">            String passwordEntered = txtPassword.getText();</span>
-<span class="nc" id="L81">            boolean success = ctrl.doLogin(emailEntered, passwordEntered);</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">            if (success) {</span>
-<span class="nc" id="L83">                redirectToRoleUI(ctrl.getUserRoles());</span>
-<span class="nc" id="L84">                txtEmail.getScene().getWindow().hide();</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        if (attempts &gt; 1) {</span>
+<span class="nc" id="L73">            emailEntered = txtEmail.getText().trim();</span>
+<span class="nc" id="L74">            String passwordEntered = txtPassword.getText();</span>
+<span class="nc" id="L75">            boolean success = ctrl.doLogin(emailEntered, passwordEntered);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">            if (success) {</span>
+<span class="nc" id="L77">                redirectToRoleUI(ctrl.getUserRoles());</span>
+<span class="nc" id="L78">                txtEmail.getScene().getWindow().hide();</span>
             } else {
-<span class="nc" id="L86">                attempts--;</span>
-<span class="nc" id="L87">                lblInformation.setText(&quot;Incorrect Data. Remaining Attempts: &quot; + attempts);</span>
-<span class="nc" id="L88">                lblInformation.setVisible(true);</span>
+<span class="nc" id="L80">                attempts--;</span>
+<span class="nc" id="L81">                lblInformation.setText(&quot;Incorrect Data. Remaining Attempts: &quot; + attempts);</span>
+<span class="nc" id="L82">                lblInformation.setVisible(true);</span>
             }
-<span class="nc" id="L90">        } else {</span>
-<span class="nc" id="L91">            Serialization.saveApp(App.getInstance(), &quot;SavedData.data&quot;);</span>
-<span class="nc" id="L92">            closePlatform();</span>
+<span class="nc" id="L84">        } else {</span>
+<span class="nc" id="L85">            Serialization.saveApp(App.getInstance(), &quot;SavedData.data&quot;);</span>
+<span class="nc" id="L86">            closePlatform();</span>
         }
-<span class="nc" id="L94">    }</span>
+<span class="nc" id="L88">    }</span>
 
     /**
      * Close platform.
      */
     @FXML
     public void closePlatform() {
-<span class="nc" id="L101">        System.exit(0);</span>
-<span class="nc" id="L102">    }</span>
+<span class="nc" id="L95">        System.exit(0);</span>
+<span class="nc" id="L96">    }</span>
 
     /**
      * redirects to ui method
@@ -107,40 +101,40 @@ import java.util.ResourceBundle;
      * @param
      */
     private void redirectToRoleUI(List&lt;UserRoleDTO&gt; rolesUi) {
-<span class="nc" id="L110">        UserRoleDTO role = selectsRole(ctrl.getUserRoles());</span>
-<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (!Objects.isNull(role))</span>
+<span class="nc" id="L104">        UserRoleDTO role = selectsRole(ctrl.getUserRoles());</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (!Objects.isNull(role))</span>
         {
-<span class="nc bnc" id="L113" title="All 2 branches missed.">            if (role.getId().equals(&quot;LABORATORY COORDINATOR&quot;)) {</span>
-<span class="nc" id="L114">                runLabCoordinator();</span>
-<span class="nc" id="L115">                labCoordinatorUi.setLabelUI(stageLabCoordinatorUi);</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            if (role.getId().equals(&quot;LABORATORY COORDINATOR&quot;)) {</span>
+<span class="nc" id="L108">                runLabCoordinator();</span>
+<span class="nc" id="L109">                labCoordinatorUi.setLabelUI(stageLabCoordinatorUi);</span>
             }
-<span class="nc bnc" id="L117" title="All 2 branches missed.">            if(role.getId().equals(&quot;CLIENT&quot;)){</span>
-<span class="nc" id="L118">                runClient();</span>
-<span class="nc" id="L119">                clientUI.setLabelUI(stageClient);</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">            if(role.getId().equals(&quot;CLIENT&quot;)){</span>
+<span class="nc" id="L112">                runClient();</span>
+<span class="nc" id="L113">                clientUI.setLabelUI(stageClient);</span>
             }
-<span class="nc bnc" id="L121" title="All 2 branches missed.">            if(role.getId().equals(&quot;ADMINISTRATOR&quot;)){</span>
-<span class="nc" id="L122">                runAdmin();</span>
-<span class="nc" id="L123">                adminUi.setLabelUI(stageClient);</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">            if(role.getId().equals(&quot;ADMINISTRATOR&quot;)){</span>
+<span class="nc" id="L116">                runAdmin();</span>
+<span class="nc" id="L117">                adminUi.setLabelUI(stageAdminUi);</span>
 
             }
-<span class="nc bnc" id="L126" title="All 2 branches missed.">            if (role.getId().equalsIgnoreCase(&quot;CLINICAL CHEMISTRY TECHNOLOGIST&quot;)){</span>
-<span class="nc" id="L127">                runClinicalCheTec();</span>
-<span class="nc" id="L128">                clinicalChemistryTecUI.setLabelUI(stageClinicalCheTec);</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">            if (role.getId().equals(&quot;RECEPTIONIST&quot;)){</span>
+<span class="nc" id="L121">                runReceptionist();</span>
+<span class="nc" id="L122">                receptionistUi.setLabelUI(stageReceptionist);</span>
             }
-<span class="nc bnc" id="L130" title="All 2 branches missed.">            if (role.getId().equals(&quot;RECEPTIONIST&quot;)){</span>
-<span class="nc" id="L131">                runReceptionist();</span>
-<span class="nc" id="L132">                receptionistUi.setLabelUI(stageReceptionist);</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">            if (role.getId().equals(&quot;MEDICAL LAB TECHNICIAN&quot;)){</span>
+<span class="nc" id="L125">                runMedLabTec();</span>
+<span class="nc" id="L126">                medLabTecUi.setLabelUI(stageMedLabtec);</span>
             }
-<span class="nc bnc" id="L134" title="All 2 branches missed.">            if (role.getId().equals(&quot;MEDICAL LAB TECHNICIAN&quot;)){</span>
-<span class="nc" id="L135">                runMedLabTec();</span>
-<span class="nc" id="L136">                medLabTecUi.setLabelUI(stageMedLabtec);</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">            if (role.getId().equals(&quot;SPECIALIST DOCTOR&quot;)){</span>
+<span class="nc" id="L129">                runDoctor();</span>
+<span class="nc" id="L130">                specialistDoctorUi.setLabelUI(stageDoctor);</span>
             }
-<span class="nc bnc" id="L138" title="All 2 branches missed.">            if (role.getId().equals(&quot;SPECIALIST DOCTOR&quot;)){</span>
-<span class="nc" id="L139">                runDoctor();</span>
-<span class="nc" id="L140">                specialistDoctorUi.setLabelUI(stageDoctor);</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">            if(role.getId().equals(&quot;CLINICAL CHEMISTRY TECHNICIAN&quot;)){</span>
+<span class="nc" id="L133">                runClinicalCheTec();</span>
+<span class="nc" id="L134">                clinicalChemistryTecUI.setLabelUI(stageClinicalCheTec);</span>
             }
         }
-<span class="nc" id="L143">    }</span>
+<span class="nc" id="L137">    }</span>
 
     /**
      * selects user role
@@ -150,10 +144,10 @@ import java.util.ResourceBundle;
      */
     private UserRoleDTO selectsRole(List&lt;UserRoleDTO&gt; roles)
     {
-<span class="nc bnc" id="L153" title="All 2 branches missed.">        if (roles.size() == 1)</span>
-<span class="nc" id="L154">            return roles.get(0);</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if (roles.size() == 1)</span>
+<span class="nc" id="L148">            return roles.get(0);</span>
         else
-<span class="nc" id="L156">            return (UserRoleDTO) Utils.showAndSelectOne(roles, &quot;Select the role you want to adopt in this session:&quot;);</span>
+<span class="nc" id="L150">            return (UserRoleDTO) Utils.showAndSelectOne(roles, &quot;Select the role you want to adopt in this session:&quot;);</span>
     }
 
     /**
@@ -161,144 +155,145 @@ import java.util.ResourceBundle;
      */
     private void runLabCoordinator() {
         try {
-<span class="nc" id="L164">            stageLabCoordinatorUi = new Stage();</span>
-<span class="nc" id="L165">            stageLabCoordinatorUi.initStyle(StageStyle.UNDECORATED);</span>
+<span class="nc" id="L158">            stageLabCoordinatorUi = new Stage();</span>
+<span class="nc" id="L159">            stageLabCoordinatorUi.initStyle(StageStyle.UNDECORATED);</span>
 
-<span class="nc" id="L167">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/LabCoordinatorUi.fxml&quot;));</span>
+<span class="nc" id="L161">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/LabCoordinatorUi.fxml&quot;));</span>
             Parent root;
 
-<span class="nc" id="L170">            root = loader.load();</span>
+<span class="nc" id="L164">            root = loader.load();</span>
 
-<span class="nc" id="L172">            Scene scene = new Scene(root);</span>
+<span class="nc" id="L166">            Scene scene = new Scene(root);</span>
 
-<span class="nc" id="L174">            stageLabCoordinatorUi.setScene(scene);</span>
-<span class="nc" id="L175">            labCoordinatorUi = loader.getController();</span>
-<span class="nc" id="L176">            stageLabCoordinatorUi.show();</span>
-<span class="nc" id="L177">        } catch (IOException ex) {</span>
-<span class="nc" id="L178">            System.out.println(&quot;Problems reading lab coordinator menu file \n&quot; + ex);</span>
-<span class="nc" id="L179">        }</span>
-<span class="nc" id="L180">    }</span>
+<span class="nc" id="L168">            stageLabCoordinatorUi.setScene(scene);</span>
+<span class="nc" id="L169">            labCoordinatorUi = loader.getController();</span>
+<span class="nc" id="L170">            stageLabCoordinatorUi.show();</span>
+<span class="nc" id="L171">        } catch (IOException ex) {</span>
+<span class="nc" id="L172">            System.out.println(&quot;Problems reading lab coordinator menu file \n&quot; + ex);</span>
+<span class="nc" id="L173">        }</span>
+<span class="nc" id="L174">    }</span>
     private void runClient(){
         try {
-<span class="nc" id="L183">            stageClient = new Stage();</span>
-<span class="nc" id="L184">            stageClient.initStyle(StageStyle.UNDECORATED);</span>
+<span class="nc" id="L177">            stageClient = new Stage();</span>
+<span class="nc" id="L178">            stageClient.initStyle(StageStyle.UNDECORATED);</span>
 
-<span class="nc" id="L186">            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(&quot;fxml/ClientUi.fxml&quot;));</span>
+<span class="nc" id="L180">            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(&quot;fxml/ClientUi.fxml&quot;));</span>
             Parent root;
 
-<span class="nc" id="L189">            root = loader.load();</span>
+<span class="nc" id="L183">            root = loader.load();</span>
 
-<span class="nc" id="L191">            Scene scene = new Scene(root);</span>
-
-
-<span class="nc" id="L194">            stageClient.setScene(scene);</span>
-
-<span class="nc" id="L196">            clientUI = loader.getController();</span>
-<span class="nc" id="L197">            clientUI.emailClient(emailEntered);</span>
-<span class="nc" id="L198">            stageClient.show();</span>
+<span class="nc" id="L185">            Scene scene = new Scene(root);</span>
 
 
-<span class="nc" id="L201">        }catch (IOException exception){</span>
-<span class="nc" id="L202">            System.out.println(&quot;Problems reading client menu file \n&quot; + exception);</span>
-<span class="nc" id="L203">        }</span>
-<span class="nc" id="L204">    }</span>
+<span class="nc" id="L188">            stageClient.setScene(scene);</span>
+
+<span class="nc" id="L190">            clientUI = loader.getController();</span>
+<span class="nc" id="L191">            clientUI.emailClient(emailEntered);</span>
+<span class="nc" id="L192">            stageClient.show();</span>
+
+
+<span class="nc" id="L195">        }catch (IOException exception){</span>
+<span class="nc" id="L196">            System.out.println(&quot;Problems reading client menu file \n&quot; + exception);</span>
+<span class="nc" id="L197">        }</span>
+<span class="nc" id="L198">    }</span>
     /**
      * runs collaborator menu
      */
     private void runAdmin() {
         try {
-<span class="nc" id="L210">            stageAdminUi = new Stage();</span>
-<span class="nc" id="L211">            stageAdminUi.initStyle(StageStyle.UNDECORATED);</span>
+<span class="nc" id="L204">            stageAdminUi = new Stage();</span>
+<span class="nc" id="L205">            stageAdminUi.initStyle(StageStyle.UNDECORATED);</span>
 
-<span class="nc" id="L213">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/AdminUi.fxml&quot;));</span>
+<span class="nc" id="L207">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/AdminUi.fxml&quot;));</span>
             Parent root;
 
-<span class="nc" id="L216">            root = loader.load();</span>
+<span class="nc" id="L210">            root = loader.load();</span>
 
-<span class="nc" id="L218">            Scene scene = new Scene(root);</span>
+<span class="nc" id="L212">            Scene scene = new Scene(root);</span>
 
-<span class="nc" id="L220">            stageAdminUi.setScene(scene);</span>
-<span class="nc" id="L221">            adminUi = loader.getController();</span>
-<span class="nc" id="L222">            stageAdminUi.show();</span>
-<span class="nc" id="L223">        } catch (IOException ex) {</span>
-<span class="nc" id="L224">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
-<span class="nc" id="L225">        }</span>
-<span class="nc" id="L226">    }</span>
+<span class="nc" id="L214">            stageAdminUi.setScene(scene);</span>
+<span class="nc" id="L215">            adminUi = loader.getController();</span>
+<span class="nc" id="L216">            stageAdminUi.show();</span>
+<span class="nc" id="L217">        } catch (IOException ex) {</span>
+<span class="nc" id="L218">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
+<span class="nc" id="L219">        }</span>
+<span class="nc" id="L220">    }</span>
     private void runClinicalCheTec() {
         try {
-<span class="nc" id="L229">            stageClinicalCheTec = new Stage();</span>
-<span class="nc" id="L230">            stageClinicalCheTec.initStyle(StageStyle.UNDECORATED);</span>
+<span class="nc" id="L223">            stageClinicalCheTec = new Stage();</span>
+<span class="nc" id="L224">            stageClinicalCheTec.initStyle(StageStyle.UNDECORATED);</span>
 
-<span class="nc" id="L232">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/ClinicalChemistryTecUi.fxml&quot;));</span>
+<span class="nc" id="L226">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/ClinicalCheTecUi.fxml&quot;));</span>
             Parent root;
 
-<span class="nc" id="L235">            root = loader.load();</span>
+<span class="nc" id="L229">            root = loader.load();</span>
 
-<span class="nc" id="L237">            Scene scene = new Scene(root);</span>
+<span class="nc" id="L231">            Scene scene = new Scene(root);</span>
 
-<span class="nc" id="L239">            stageClinicalCheTec.setScene(scene);</span>
-<span class="nc" id="L240">            clinicalChemistryTecUI = loader.getController();</span>
-<span class="nc" id="L241">            stageClinicalCheTec.show();</span>
-<span class="nc" id="L242">        } catch (IOException ex) {</span>
-<span class="nc" id="L243">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
-<span class="nc" id="L244">        }</span>
-<span class="nc" id="L245">    }</span>
+<span class="nc" id="L233">            stageClinicalCheTec.setScene(scene);</span>
+<span class="nc" id="L234">            clinicalChemistryTecUI = loader.getController();</span>
+<span class="nc" id="L235">            stageClinicalCheTec.show();</span>
+
+<span class="nc" id="L237">        } catch (IOException ex) {</span>
+<span class="nc" id="L238">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
+<span class="nc" id="L239">        }</span>
+<span class="nc" id="L240">    }</span>
     private void runReceptionist() {
         try {
-<span class="nc" id="L248">            stageReceptionist = new Stage();</span>
-<span class="nc" id="L249">            stageReceptionist.initStyle(StageStyle.UNDECORATED);</span>
+<span class="nc" id="L243">            stageReceptionist = new Stage();</span>
+<span class="nc" id="L244">            stageReceptionist.initStyle(StageStyle.UNDECORATED);</span>
 
-<span class="nc" id="L251">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/ReceptionistUi.fxml&quot;));</span>
+<span class="nc" id="L246">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/ReceptionistUi.fxml&quot;));</span>
             Parent root;
 
-<span class="nc" id="L254">            root = loader.load();</span>
+<span class="nc" id="L249">            root = loader.load();</span>
 
-<span class="nc" id="L256">            Scene scene = new Scene(root);</span>
+<span class="nc" id="L251">            Scene scene = new Scene(root);</span>
 
-<span class="nc" id="L258">            stageReceptionist.setScene(scene);</span>
-<span class="nc" id="L259">            receptionistUi = loader.getController();</span>
-<span class="nc" id="L260">            stageReceptionist.show();</span>
-<span class="nc" id="L261">        } catch (IOException ex) {</span>
-<span class="nc" id="L262">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
-<span class="nc" id="L263">        }</span>
-<span class="nc" id="L264">    }</span>
+<span class="nc" id="L253">            stageReceptionist.setScene(scene);</span>
+<span class="nc" id="L254">            receptionistUi = loader.getController();</span>
+<span class="nc" id="L255">            stageReceptionist.show();</span>
+<span class="nc" id="L256">        } catch (IOException ex) {</span>
+<span class="nc" id="L257">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
+<span class="nc" id="L258">        }</span>
+<span class="nc" id="L259">    }</span>
     private void runMedLabTec() {
         try {
-<span class="nc" id="L267">            stageMedLabtec = new Stage();</span>
-<span class="nc" id="L268">            stageMedLabtec.initStyle(StageStyle.UNDECORATED);</span>
+<span class="nc" id="L262">            stageMedLabtec = new Stage();</span>
+<span class="nc" id="L263">            stageMedLabtec.initStyle(StageStyle.UNDECORATED);</span>
 
-<span class="nc" id="L270">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/MedLabTecUi.fxml&quot;));</span>
+<span class="nc" id="L265">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/MedLabTecUi.fxml&quot;));</span>
             Parent root;
 
-<span class="nc" id="L273">            root = loader.load();</span>
+<span class="nc" id="L268">            root = loader.load();</span>
 
-<span class="nc" id="L275">            Scene scene = new Scene(root);</span>
+<span class="nc" id="L270">            Scene scene = new Scene(root);</span>
 
-<span class="nc" id="L277">            stageMedLabtec.setScene(scene);</span>
-<span class="nc" id="L278">            medLabTecUi = loader.getController();</span>
-<span class="nc" id="L279">            stageMedLabtec.show();</span>
-<span class="nc" id="L280">        } catch (IOException ex) {</span>
-<span class="nc" id="L281">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
-<span class="nc" id="L282">        }</span>
-<span class="nc" id="L283">    }</span>
+<span class="nc" id="L272">            stageMedLabtec.setScene(scene);</span>
+<span class="nc" id="L273">            medLabTecUi = loader.getController();</span>
+<span class="nc" id="L274">            stageMedLabtec.show();</span>
+<span class="nc" id="L275">        } catch (IOException ex) {</span>
+<span class="nc" id="L276">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
+<span class="nc" id="L277">        }</span>
+<span class="nc" id="L278">    }</span>
     private void runDoctor() {
         try {
-<span class="nc" id="L286">            stageDoctor = new Stage();</span>
-<span class="nc" id="L287">            stageDoctor.initStyle(StageStyle.UNDECORATED);</span>
+<span class="nc" id="L281">            stageDoctor = new Stage();</span>
+<span class="nc" id="L282">            stageDoctor.initStyle(StageStyle.UNDECORATED);</span>
 
-<span class="nc" id="L289">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/SpecialistDoctor.fxml&quot;));</span>
+<span class="nc" id="L284">            FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/SpecialistDoctor.fxml&quot;));</span>
             Parent root;
 
-<span class="nc" id="L292">            root = loader.load();</span>
+<span class="nc" id="L287">            root = loader.load();</span>
 
-<span class="nc" id="L294">            Scene scene = new Scene(root);</span>
+<span class="nc" id="L289">            Scene scene = new Scene(root);</span>
 
-<span class="nc" id="L296">            stageDoctor.setScene(scene);</span>
-<span class="nc" id="L297">            specialistDoctorUi = loader.getController();</span>
-<span class="nc" id="L298">            stageDoctor.show();</span>
-<span class="nc" id="L299">        } catch (IOException ex) {</span>
-<span class="nc" id="L300">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
-<span class="nc" id="L301">        }</span>
-<span class="nc" id="L302">    }</span>
+<span class="nc" id="L291">            stageDoctor.setScene(scene);</span>
+<span class="nc" id="L292">            specialistDoctorUi = loader.getController();</span>
+<span class="nc" id="L293">            stageDoctor.show();</span>
+<span class="nc" id="L294">        } catch (IOException ex) {</span>
+<span class="nc" id="L295">            System.out.println(&quot;Problems reading admin menu file \n&quot; + ex);</span>
+<span class="nc" id="L296">        }</span>
+<span class="nc" id="L297">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

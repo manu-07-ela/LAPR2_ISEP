@@ -27,6 +27,7 @@ C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\U
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ImportFileUi.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\WriteMedicalReportController.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\ExternalModule2APIAdapter.java
+C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ParameterResultController.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\mappers\UserRoleMapper.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\Algorithm.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ItemController.java
@@ -38,7 +39,7 @@ C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\e
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\MultipleLinearRegression.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\SMSNotification.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\ParameterMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ClinicalChemistryTecUI.java
+C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ClinicalChemistryTecUi.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ValidateWorkUI.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\TestTypeDTO.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\DevTeamUI.java

@@ -19,7 +19,6 @@ app\ui\console\functionalities\CreateParameterCategoryUI.class
 app\domain\model\testrelated\TestParameterResult.class
 app\ui\gui\ViewTestResultUi.class
 app\domain\model\laboratories\ClinicalAnalysisLaboratory.class
-app\ui\gui\ClinicalChemistryTecUI.class
 app\ui\gui\ViewResultsUi.class
 app\controller\CreateTestTypeController.class
 auth\domain\model\Password.class
@@ -34,6 +33,7 @@ app\domain\model\attributes\NhsCode.class
 app\mappers\dto\TestDTO.class
 app\controller\ItemController.class
 app\controller\ValidateWorkController.class
+app\ui\gui\ClinicalChemistryTecUi.class
 app\domain\store\OrganizationRoleStore.class
 app\domain\store\TestTypeStore.class
 app\ui\gui\ClientUi.class
@@ -59,6 +59,7 @@ app\adapter\SortAlphabetically.class
 app\ui\gui\ErrorUI.class
 app\controller\RegisterTestController.class
 app\controller\WriteMedicalReportController.class
+app\controller\ParameterResultController.class
 app\ui\console\functionalities\WriteMedicalReportUI.class
 app\mappers\dto\ParameterCategoryDTO.class
 app\mappers\ClientMapper.class

@@ -32,7 +32,6 @@ public class ItemController {
     private TestDTO test;
 
     public void setData(TestDTO test){
-
         this.test = test;
         testCode.setText(test.getInternalCode());
         testDescription.setText(test.getDescription());

@@ -1,11 +1,11 @@
 package app.adapter;
 
-import app.adapter.interfaces.Algorithm;
+import app.adapter.interfaces.SortingAlgorithms;
 import app.mappers.dto.ClientDTO;
 
 import java.util.List;
 
-public class SortAlphabetically implements Algorithm {
+public class SortAlphabetically implements SortingAlgorithms {
 
 
     @Override
