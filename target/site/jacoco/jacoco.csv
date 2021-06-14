@@ -14,6 +14,7 @@ Sem2App,app.controller,ViewTestsClientController,84,0,0,0,23,0,6,0,6,0
 Sem2App,app.controller,ItemClientController,76,0,0,0,21,0,4,0,4,0
 Sem2App,app.controller,CreateClinicalAnalysisLaboratoryController,58,0,0,0,14,0,5,0,5,0
 Sem2App,app.controller,ItemController,78,0,0,0,21,0,4,0,4,0
+Sem2App,app.controller,ParameterResultController,39,0,0,0,9,0,2,0,2,0
 Sem2App,app.controller,CreateTestTypeController,34,76,0,2,9,16,3,5,3,4
 Sem2App,app.controller,App,257,40,1,3,44,14,6,6,5,5
 Sem2App,app.controller,CreateParameterController,33,55,0,0,8,12,2,4,2,4
@@ -88,7 +89,7 @@ Sem2App,app.mappers.dto,ClinicalAnalysisLaboratoryDTO,10,39,0,0,1,14,1,7,1,7
 Sem2App,app.mappers.dto,ClientDTO,18,51,0,0,1,18,1,9,1,9
 Sem2App,app.mappers.dto,EmployeeDTO,0,105,0,0,0,24,0,9,0,9
 Sem2App,app.mappers.dto,ParameterDTO,25,67,7,7,1,14,8,6,1,6
-Sem2App,app.mappers.dto,TestParameterDTO,56,86,5,11,3,21,8,9,3,6
+Sem2App,app.mappers.dto,TestParameterDTO,65,86,5,11,6,21,11,9,6,6
 Sem2App,app.mappers,TestMapper,23,11,2,0,5,2,2,2,1,2
 Sem2App,app.mappers,TestParameterMapper,0,81,2,6,0,17,2,7,0,5
 Sem2App,app.mappers,CreateClinicalAnalysisLaboratoryMapper,84,126,6,8,14,22,7,12,4,8
@@ -123,14 +124,14 @@ Sem2App,app.ui.gui,MainApp,38,0,0,0,12,0,3,0,3,0
 Sem2App,app.ui.gui,UpdateDataUi,422,0,0,0,126,0,13,0,13,0
 Sem2App,app.ui.gui,ReceptionistUi,52,0,0,0,20,0,6,0,6,0
 Sem2App,app.ui.gui,ImportFileUi,47,0,0,0,17,0,4,0,4,0
-Sem2App,app.ui.gui,ClinicalChemistryTecUI,100,0,0,0,33,0,7,0,7,0
 Sem2App,app.ui.gui,MedLabTecUi,51,0,0,0,19,0,5,0,5,0
 Sem2App,app.ui.gui,ClientUi,215,0,0,0,64,0,12,0,12,0
 Sem2App,app.ui.gui,SpecialistDoctorUi,51,0,0,0,19,0,5,0,5,0
 Sem2App,app.ui.gui,LoginUi,500,0,22,0,131,0,23,0,12,0
 Sem2App,app.ui.gui,ClientsUi,119,0,2,0,38,0,9,0,8,0
+Sem2App,app.ui.gui,ClinicalChemistryTecUi,100,0,0,0,33,0,7,0,7,0
 Sem2App,app.ui.gui,AdmUi,60,0,0,0,25,0,10,0,10,0
-Sem2App,app.ui.gui,ViewResultsUi,70,0,0,0,22,0,4,0,4,0
+Sem2App,app.ui.gui,ViewResultsUi,130,0,2,0,37,0,6,0,5,0
 Sem2App,app.adapter,SortAlphabetically,54,0,8,0,9,0,6,0,2,0
 Sem2App,app.adapter,ExternalModule2APIAdapter,0,30,0,0,0,6,0,2,0,2
 Sem2App,app.adapter,BenchmarkAdapter,6,0,0,0,2,0,2,0,2,0

@@ -24,7 +24,9 @@ import java.util.List;
 public class ClientsUi {
 
     private Stage stage;
+
     private ViewTestsClientController viewTestsClientController;
+
     private List<ClientDTO> clientDTOList;
 
     @FXML

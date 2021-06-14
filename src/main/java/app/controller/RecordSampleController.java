@@ -23,6 +23,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Properties;
@@ -31,7 +32,7 @@ import java.util.Properties;
  * Represents the controller used to record samples in a test
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
-public class RecordSampleController {
+public class RecordSampleController implements Serializable {
     /**
      * Represents a instance of test store
      */
