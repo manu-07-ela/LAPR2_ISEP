@@ -17,7 +17,6 @@ import java.io.IOException;
 public class LabCoordinatorUi {
     private Stage stage;
 
-
     private Stage stageImportFiles;
 
     private ImportFileUi importFileUi;
@@ -84,7 +83,8 @@ public class LabCoordinatorUi {
     @FXML
     void viewTestsClick() {
         runViewTests();
-
+        overviewUi.setLabelUI(stageViewTests);
+        exit.getScene().getWindow().hide();
     }
 
     @FXML
@@ -120,7 +120,7 @@ public class LabCoordinatorUi {
             stageViewTests = new Stage();
             stageViewTests.initStyle(StageStyle.UNDECORATED);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\Overview.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Overview.fxml"));
             Parent root;
 
             root = loader.load();
@@ -129,9 +129,9 @@ public class LabCoordinatorUi {
 
 
             stageViewTests.setScene(scene);
-
             overviewUi = loader.getController();
             stageViewTests.show();
+
 
         }catch (IOException exception){
             System.out.println("Problems reading the Collaborator's Menu File \n" + exception);

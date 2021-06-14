@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.OverviewTestUi">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.OverviewTestUi">
    <bottom>
-      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="604.0" spacing="15.0">
+      <HBox alignment="CENTER" prefHeight="59.0" prefWidth="653.0" spacing="15.0">
          <children>
             <Button fx:id="closePlatform" mnemonicParsing="false" onMouseClicked="#closePlatform" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="WHITE">
                <font>
@@ -46,23 +46,55 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="613.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="90.0" text="Initial Day " textFill="#747474">
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="90.0" text="Initial Day " textFill="#1a7180">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="datePicker" onAction="#updateData" prefWidth="170.0" />
-                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="102.0" text="End Day " textFill="#747474">
+                  <DatePicker fx:id="initialDay" prefWidth="170.0" />
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="102.0" text="End Day " textFill="#1a7180">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="datePicker1" onAction="#updateData" prefWidth="170.0" />
+                  <DatePicker fx:id="endDay" prefWidth="170.0" />
                </children>
                <VBox.margin>
                   <Insets right="17.0" />
                </VBox.margin>
             </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0">
+               <children>
+                  <Label alignment="CENTER" prefWidth="123.0" text="Initial Time :" textFill="#1a7180">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="initialHour" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: bbbbbb; -fx-border-radius: 4; -fx-background-radius: 10;" />
+                  <Label alignment="CENTER" text=" : " textFill="#1a7180">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="initialMin" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: bbbbbb; -fx-border-radius: 4; -fx-background-radius: 10;" />
+                  <Label alignment="CENTER" prefWidth="123.0" text="End Time :" textFill="#1a7180">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="endHour" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: bbbbbb; -fx-border-radius: 4; -fx-background-radius: 10;" />
+                  <Label alignment="CENTER" text=" : " textFill="#1a7180">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="endMin" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: bbbbbb; -fx-border-radius: 4; -fx-background-radius: 10;" />
+               </children>
+               <VBox.margin>
+                  <Insets right="28.0" />
+               </VBox.margin>
+            </HBox>
+            <Separator prefWidth="200.0" />
          </children>
       </VBox>
    </center>
