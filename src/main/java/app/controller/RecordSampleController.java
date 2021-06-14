@@ -6,11 +6,9 @@ import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.Sample;
 import app.domain.model.testrelated.Test;
 import app.domain.model.testrelated.BarcodeDomain;
-import app.domain.store.ClinicalAnalysisLaboratoryStore;
-import app.domain.store.SampleStore;
+import app.domain.store.SampleList;
 import app.domain.store.TestStore;
 import app.mappers.TestMapper;
-import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 import app.mappers.dto.TestDTO;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
@@ -40,7 +38,7 @@ public class RecordSampleController implements Serializable {
     /**
      * Represents a instance of sample store
      */
-    private final SampleStore sampleStore;
+    private final SampleList sampleList;
     /**
      * Represents a instance of company
      */
@@ -49,10 +47,7 @@ public class RecordSampleController implements Serializable {
      * Represents a instance of test mapper
      */
     private final TestMapper testMapper;
-    /**
-     * Counts the instances of barcodes
-     */
-    private static int instancesOfBarcode;
+
 
 
     /**
@@ -61,7 +56,7 @@ public class RecordSampleController implements Serializable {
     public RecordSampleController() {
         this.company = App.getInstance().getCompany();
         this.testStore = company.getTestStore();
-        this.sampleStore = company.getChemicalLaboratory().getSampleStore();
+        this.sampleList = company.getChemicalLaboratory().getSampleStore();
         this.testMapper = new TestMapper();
     }
 
@@ -108,8 +103,7 @@ public class RecordSampleController implements Serializable {
      */
     public BarcodeDomain generateBarcode() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, BarcodeException {
         DecimalFormat df = new DecimalFormat("00000000000");
-        instancesOfBarcode++;
-        String barcodeNumber = df.format(instancesOfBarcode);
+        String barcodeNumber = df.format(sampleList.getListOfSamples().size()+1);
         ExternalModuleBarcode api = getExternalModule();
         return api.generateBarcode(barcodeNumber);
     }
@@ -132,7 +126,7 @@ public class RecordSampleController implements Serializable {
      * @return the sample
      */
     public Sample associateBarcodeWithSample(BarcodeDomain barcode){
-        return sampleStore.createSample(barcode);
+        return sampleList.createSample(barcode);
 
     }
 
@@ -143,7 +137,7 @@ public class RecordSampleController implements Serializable {
      * @return true, if the association successful. False, otherwise.
      */
     public boolean associateSamplesWithTest(Test test, Sample samples){
-        if (sampleStore.validateSample(samples)){
+        if (sampleList.validateSample(samples)){
             test.addSamples(samples);
             return true;
         }
@@ -188,7 +182,7 @@ public class RecordSampleController implements Serializable {
      * @return true if the sample was saved, false otherwise
      */
     public boolean saveSample(Sample sample){
-        return sampleStore.saveSample(sample);
+        return sampleList.saveSample(sample);
     }
 
     /**

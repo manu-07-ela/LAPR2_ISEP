@@ -1,6 +1,6 @@
 package app.domain.model.laboratories;
 
-import app.domain.store.SampleStore;
+import app.domain.store.SampleList;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ public class ChemicalLaboratory extends Laboratory implements Serializable {
     /**
      * Represents an instance of sample store
      */
-    private final SampleStore sampleStore;
+    private final SampleList sampleList;
     /**
      * builds an instance of the chemical laboratory receiving the following attributes by parameter: name, address, cell phone and tin
      * @param name        the name of the Laboratory.
@@ -23,14 +23,14 @@ public class ChemicalLaboratory extends Laboratory implements Serializable {
      */
     public ChemicalLaboratory(String name, String address, String phoneNumber, String tin) {
         super(name, address, phoneNumber, tin);
-        this.sampleStore = new SampleStore();
+        this.sampleList = new SampleList();
     }
 
     /**
      * Get the instance o sample store
      * @return the sample store
      */
-    public SampleStore getSampleStore() {
-        return sampleStore;
+    public SampleList getSampleStore() {
+        return sampleList;
     }
 }
