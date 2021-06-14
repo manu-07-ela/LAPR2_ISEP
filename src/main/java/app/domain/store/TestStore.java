@@ -259,7 +259,7 @@ public class TestStore implements Serializable {
         for(Test t : tlist){
             date.add(t.getSamplesAddDate());
         }
-        Collections.sort(date);
+        Collections.reverse(date);
         for(Date d : date){
             Test t =getTestbyDate(d);
             test.add(t);
