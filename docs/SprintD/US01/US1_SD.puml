@@ -19,17 +19,23 @@ activate CL
 CL -> UI : asks to view the results of his tests
 activate UI
 
-
+UI -> CTRL : getUserSession()
+activate CTRL
+ref over CTRL
+SD_Get_Client_Of_Current_User
+end ref
+CTRL --> UI : result
+deactivate CTRL
 UI -> CTRL : getTestList()
 activate CTRL
 CTRL -> Comp : testStore = getTestStore()
 activate Comp
 deactivate Comp
-CTRL -> TS : testList = getClientTestsList()
-activate TS
-TS -> TS : orderClientTestsByRegistrationDate()
+CTRL -> TS : testList = getTestListAssociatedWithClient
 activate TS
 deactivate TS
+CTRL -> TS : orderClientTestsByRegistratonDate(testList)
+activate TS
 deactivate TS
 CTRL -> tMAPPER : toDto(testList)
 activate tMAPPER
@@ -61,7 +67,7 @@ deactivate trMAPPER
 CTRL --> UI : testResultsDto
 deactivate CTRL
 deactivate CTRL
-UI --> CL : shows requested data
+UI --> CL : shows successfully requested data
 deactivate UI
 deactivate UI
 deactivate CL
