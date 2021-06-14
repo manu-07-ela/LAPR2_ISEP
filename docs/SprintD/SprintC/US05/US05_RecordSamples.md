@@ -104,8 +104,10 @@ automatically generated using an external API.
 * Typed data:
   * The number of samples associated with a test
 
+
 * Selected data:
   * The test waiting to be associated with a sample
+
 
 * Automatically generated data:
   * Barcode
@@ -115,10 +117,7 @@ automatically generated using an external API.
 **Output Data:**
 
 * The barcodes associated with the samples were recorded
-
-
-
-
+* (In)Success of the operation 
 ### 1.6. System Sequence Diagram (SSD)
 
 ![US05-SSD](US05_SSD.svg)

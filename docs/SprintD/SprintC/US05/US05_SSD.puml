@@ -17,7 +17,7 @@ SYSTEM --> MEDLAB : asks the number of samples that will \n be recorded for the 
 deactivate SYSTEM
 MEDLAB ->SYSTEM : enter the number of samples that \n will be associated with the test
 activate SYSTEM
-SYSTEM --> MEDLAB : shows the data and request confirmation
+SYSTEM --> MEDLAB : shows the barcode and request confirmation
 deactivate SYSTEM
 MEDLAB -> SYSTEM : confirms the data
 activate SYSTEM
