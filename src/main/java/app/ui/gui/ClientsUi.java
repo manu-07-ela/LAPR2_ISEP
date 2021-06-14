@@ -25,7 +25,7 @@ public class ClientsUi {
 
     private Stage stage;
 
-    private ViewTestsClientController viewTestsClientController;
+    private ViewTestsClientController viewTestsClientController = new ViewTestsClientController();
 
     private List<ClientDTO> clientDTOList;
 
@@ -106,7 +106,7 @@ public class ClientsUi {
         } catch (IOException ex) {
             System.out.println("Erro no lougout: " + ex);
         }
-        stage.close();
+        logout.getScene().getWindow().hide();
 
     }
 

@@ -89,11 +89,6 @@ public class ClientUi {
 
 
     @FXML
-    void emailShow() {
-
-    }
-
-    @FXML
     void exitClick() {
         System.exit(0);
     }

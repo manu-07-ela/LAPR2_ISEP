@@ -16,6 +16,7 @@ import java.io.IOException;
 
 public class AdmUi {
     private Stage stage;
+
     @FXML
     private Button exit;
 
@@ -106,6 +107,7 @@ public class AdmUi {
     void sendReportClick() {
 
     }
+
 
 }
 
