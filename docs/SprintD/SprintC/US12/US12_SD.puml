@@ -22,7 +22,7 @@ activate CTRL
 CTRL -> Comp : store = getTestStore()
 activate Comp
 deactivate Comp
-CTRL -> TStore : test=getTestByBarcode()
+CTRL -> TStore : test=getTestByBarcode(barcode)
 activate TStore
 deactivate TStore
 CTRL -> Test : getTestParameterList()
