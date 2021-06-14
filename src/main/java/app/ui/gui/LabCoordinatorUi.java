@@ -16,6 +16,10 @@ import java.io.IOException;
 
 public class LabCoordinatorUi {
     private Stage stage;
+
+    private Stage stageViewTests;
+
+    private OverviewUi overviewUi;
     @FXML
     private VBox viewTests;
 
@@ -73,12 +77,37 @@ public class LabCoordinatorUi {
 
     @FXML
     void viewTestsClick() {
+        runViewTests();
 
     }
 
     @FXML
     void importTestClick() {
 
+    }
+
+    @FXML
+    private void runViewTests(){
+        try {
+            stageViewTests = new Stage();
+            stageViewTests.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\Overview.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+
+            stageViewTests.setScene(scene);
+
+            overviewUi = loader.getController();
+            stageViewTests.show();
+
+        }catch (IOException exception){
+            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+        }
     }
 
 }
