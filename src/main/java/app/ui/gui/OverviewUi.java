@@ -30,15 +30,13 @@ public class OverviewUi implements Runnable{
        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
        String initial = Utils.readLineFromConsole("Initial Date: ");
        String end = Utils.readLineFromConsole("End Date: ");
-       Date initialDate = null;
-       Date endDate = null;
        try {
-           initialDate = formatter.parse(initial);
-           endDate = formatter.parse(end);
+           Date initialDate = formatter.parse(initial);
+           Date endDate = formatter.parse(end);
+           overviewController.getIntervalTestList(initialDate, endDate);
        } catch (ParseException e) {
            e.printStackTrace();
        }
-       overviewController.getIntervalTestList(initialDate, endDate);
        System.out.printf("Number of clients: %d\n" , overviewController.getNumberOfClients());
        System.out.printf("Number Of Tests Waiting For Results: %d\n" , overviewController.getNumberOfTestsWaitingForResults());
        System.out.printf("Number Of Tests Waiting For Diagnosis: %d\n" , overviewController.getNumberOfTestsWaitingForDiagnosis());
