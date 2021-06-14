@@ -54,7 +54,8 @@ public class ImportFileUi {
         } catch (IOException ex) {
             System.out.println("Erro no lougout: " + ex);
         }
-        stage.close();
+        importFile.getScene().getWindow().hide();
+        //stage.close();
 
     }
 

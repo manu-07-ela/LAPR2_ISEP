@@ -16,6 +16,10 @@ import java.io.IOException;
 
 public class LabCoordinatorUi {
     private Stage stage;
+
+    private Stage stageImportFiles;
+
+    private ImportFileUi importFileUi;
     @FXML
     private VBox viewTests;
 
@@ -60,7 +64,7 @@ public class LabCoordinatorUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            System.out.println("Logout Error: " + ex);
         }
         stage.close();
 
@@ -78,7 +82,29 @@ public class LabCoordinatorUi {
 
     @FXML
     void importTestClick() {
+        viewImportFiles();
+    }
 
+    private void viewImportFiles(){
+        try {
+            stageImportFiles = new Stage();
+            stageImportFiles.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ImportFile.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+
+            stageImportFiles.setScene(scene);
+            importFileUi = loader.getController();
+            stageImportFiles.show();
+
+        }catch (IOException exception){
+            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+        }
     }
 
 }
