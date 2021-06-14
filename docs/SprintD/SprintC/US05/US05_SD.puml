@@ -25,12 +25,12 @@ participant "listTestWaitingForSamplesDto :\nList<TestDto>" as TESTDTOLIST
 MEDLAB -> UI : start recording samples for a test
 activate MEDLAB
 activate UI
-UI -> CONTROLLER : listTestWaitingForSampleDto = getListTestDto()
+UI -> CONTROLLER : getListTestDto()
 activate CONTROLLER
 CONTROLLER -> COMPANY : store = getTestStore()
 activate COMPANY
 deactivate COMPANY
-CONTROLLER -> TESTSTORE : listTestWaitingForResult = getListTestWantingForSamples()
+CONTROLLER -> TESTSTORE : getListTestWantingForSamples()
 activate TESTSTORE
 deactivate TESTSTORE
 CONTROLLER -> MAPPER : toDto(listTestWantingForSample)
@@ -53,7 +53,7 @@ deactivate UI
 
 MEDLAB -> UI : select a test
 activate UI
-UI->CONTROLLER : getTestByInternalCode(testDto)
+UI->CONTROLLER : getTestByInternalCode(code)
 activate CONTROLLER
 CONTROLLER->TESTSTORE : test = getTestByInternalCode(code)
 activate TESTSTORE
@@ -66,13 +66,12 @@ activate UI
 loop for the number of samples entered
 UI->CONTROLLER : generateBarcode()
 activate CONTROLLER
-CONTROLLER->INTERFACE : generateBarcode()
-activate INTERFACE
-INTERFACE-> "barcode : BarcodeDomain"** : create()
-INTERFACE-->CONTROLLER : barcode
+CONTROLLER->COMPANY : generateBarcode()
+activate COMPANY
+COMPANY-> "barcode : BarcodeDomain"** : create()
+COMPANY-->CONTROLLER : barcode
+deactivate COMPANY
 CONTROLLER-->UI : barcode
-deactivate INTERFACE
-
 
 deactivate CONTROLLER
 

@@ -104,8 +104,12 @@ automatically generated using an external API.
 * Typed data:
   * The number of samples associated with a test
 
+
+
 * Selected data:
   * The test waiting to be associated with a sample
+
+
 
 * Automatically generated data:
   * Barcode
