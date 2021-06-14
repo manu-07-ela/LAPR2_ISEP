@@ -52,14 +52,14 @@ public class TestStore implements Serializable {
 
     /**
      *  Gets a test by the barcode
-     * @param barcodenumber the barcode
+     * @param barcodeNumber the barcode
      * @return the test
      */
-    public Test getTestByBarcode(String barcodenumber){
-        barcodeValidation(barcodenumber);
+    public Test getTestByBarcode(String barcodeNumber){
+        barcodeValidation(barcodeNumber);
         for (Test test: testList ) {
             for (Sample sample : test.getSamples() ) {
-                if (sample.getBarcode().getBarcodeNumber().equals(barcodenumber)){
+                if (sample.getBarcode().getBarcodeNumber().equals(barcodeNumber)){
                     return test;
                 }
             }
@@ -105,12 +105,12 @@ public class TestStore implements Serializable {
 
     /**
      * Generate the internal code that will be associated with a test
-     * @param numtest the number of test already registered
+     * @param numTest the number of test already registered
      * @return th internal code of a test
      */
-    public static String generateInternalCode(int numtest) {
+    public static String generateInternalCode(int numTest) {
         DecimalFormat df = new DecimalFormat("000000000000");
-        return df.format(numtest+1);
+        return df.format(numTest+1);
     }
 
     /**

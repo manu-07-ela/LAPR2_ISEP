@@ -11,7 +11,7 @@ import java.util.List;
  * stores all samples recorded in the system
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
-public class SampleStore implements Serializable {
+public class SampleList implements Serializable {
     /**
      * the list of existing samples in the system
      */
@@ -20,7 +20,7 @@ public class SampleStore implements Serializable {
     /**
      * Instantiates a new SampleStore
      */
-    public SampleStore() {
+    public SampleList() {
         this.samples = new ArrayList<>();
     }
 
