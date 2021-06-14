@@ -6,7 +6,36 @@ participant ":{???}Controller" as CTRL
 participant "APP" as APP
 participant "app: APP" as app
 participant "session: UserSession" as session
-participant ""
+participant "comp: Company" as COMPANY
+participant "cStore: ClientStore" as Store
+participant "client: Client" as Client
+participant ": ClientMapper" as Mapper
+participant ": ClientDTO" as cDto
+
+->CTRL: doSomething()
+activate CTRL
+CTRL -> APP : app= getIntance()
+activate APP
+deactivate APP
+CTRL -> app : session = getCurrentUserSession()
+activate app
+deactivate app
+CTRL -> session : email = getUserId()
+activate session
+deactivate session
+CTRL -> app : comp = getCompany()
+activate app
+deactivate app
+CTRL -> COMPANY : cStore = getClientStore()
+activate COMPANY
+deactivate COMPANY
+CTRL -> Store : client = getClientByEmail(email)
+activate Store
+deactivate Store
+CTRL -> Mapper : toDto(client)
+activate Mapper
+deactivate Mapper
+deactivate CTRL
 
 
 
