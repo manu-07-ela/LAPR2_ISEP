@@ -89,7 +89,7 @@ public class OverviewTestUi {
      * Load choise box.
      */
     public void loadChoiseBox() {
-        for (int i = 0; i < 24; i++) {
+        for (int i = 8; i < 21; i++) {
             initialHour.getItems().add(String.valueOf(i));
             endHour.getItems().add(String.valueOf(i));
         }
