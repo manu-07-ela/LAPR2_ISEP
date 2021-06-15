@@ -5,11 +5,7 @@ actor "Administrator" as Admin
 activate Admin
 Admin -> ":System" : Initiates the process of sending a Covid-19 report to NHS.
 activate ":System"
-":System" --> Admin : Request the current day
-deactivate ":System"
 
-Admin -> ":System" : Introduce the current day
-activate ":System"
 ":System" --> Admin : Show the type of data (day or week)  and ask to select one
 deactivate ":System"
 

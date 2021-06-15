@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static app.domain.model.testrelated.Test.StateOfTest.*;
+
 public class Overview {
 
     private Integer numberOfClients;
@@ -27,23 +29,11 @@ public class Overview {
     public Overview(Date initialDate, Date endDate, List<Test> testList){
         this.testList=testList;
         getAssociatedClients();
-        if(testsWaitingForDiagnosis==null){
-            this.numberOfClients=0;
-        } else {
-            this.numberOfClients=clientList.size();
-        }
+        this.numberOfClients=clientList.size();
         getTestWaitingForResults();
-        if(testsWaitingForDiagnosis==null){
-            this.numberOfTestWaitingForResults=0;
-        } else {
-            this.numberOfTestWaitingForResults=testWaitingForResults.size();
-        }
+        this.numberOfTestWaitingForResults=testWaitingForResults.size();
         getTestsWaitingForDiagnosis();
-        if(testsWaitingForDiagnosis==null){
-            this.numberOfTestsWaitingForDiagnosis=0;
-        } else {
-            this.numberOfTestsWaitingForDiagnosis=testsWaitingForDiagnosis.size();
-        }
+        this.numberOfTestsWaitingForDiagnosis=testsWaitingForDiagnosis.size();
     }
 
     private void getAssociatedClients(){
@@ -58,7 +48,7 @@ public class Overview {
     private void getTestWaitingForResults(){
         testWaitingForResults = new ArrayList();
         for (Test t: testList) {
-            if (t.getStateOfTest().equals("SamplesCollected")) {
+            if (t.getStateOfTest() == SamplesCollected) {
                 testWaitingForResults.add(t);
             }
         }
@@ -67,7 +57,7 @@ public class Overview {
     private void getTestsWaitingForDiagnosis(){
         testsWaitingForDiagnosis = new ArrayList();
         for (Test t: testList) {
-            if (t.getStateOfTest().equals("SamplesAnalyzed")) {
+            if (t.getStateOfTest() == SamplesAnalyzed) {
                 testsWaitingForDiagnosis.add(t);
             }
         }

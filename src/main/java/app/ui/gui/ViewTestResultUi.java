@@ -63,7 +63,6 @@ public class ViewTestResultUi implements Initializable {
     }
 
     public void showTestsList() throws IOException {
-        //testsList=getData();
         int row = 1;
         try {
             for (int i=0; i<testsList.size();i++) {
@@ -84,17 +83,6 @@ public class ViewTestResultUi implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private List<TestDTO> getData(){
-        List<TestDTO> tests = new ArrayList<>();
-        TestDTO test;
-
-        for (int i=0;i<20;i++){
-            test=new TestDTO("111111111111","seringa");
-            tests.add(test);
-        }
-        return tests;
     }
 
     @FXML
