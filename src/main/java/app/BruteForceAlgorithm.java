@@ -11,18 +11,18 @@ public class BruteForceAlgorithm {
 
         for (int i = 0; i < seq.length; i++) {
 
-            int sumEndingHere = 0;
+            int sum = 0;
 
             for (int j = i; j < seq.length; j++) {
-                sumEndingHere += seq[j];
+                sum += seq[j];
 
-                if (sumEndingHere > maxSubArraySum) {
-                    maxSubArraySum = sumEndingHere;
+                if (sum > maxSubArraySum) {
+                    maxSubArraySum = sum;
                     start = i;
-                    end = j + 1;
+                    end = j;
                 }
             }
         }
-        return Arrays.copyOfRange(seq, start, end);
+        return Arrays.copyOfRange(seq, start, end+1);
     }
 }

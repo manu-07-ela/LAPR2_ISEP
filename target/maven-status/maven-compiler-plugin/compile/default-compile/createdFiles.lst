@@ -1,5 +1,6 @@
 app\controller\App.class
 app\adapter\BarcodeAdapter.class
+app\controller\ImportFileController.class
 app\domain\model\attributes\DoctorIndexNumber.class
 app\ui\console\DevTeamUI.class
 app\controller\CreateClinicalAnalysisLaboratoryController.class
@@ -10,9 +11,11 @@ app\domain\model\laboratories\ChemicalLaboratory.class
 app\mappers\dto\ClinicalAnalysisLaboratoryDTO.class
 app\ui\console\ShowTextUI.class
 app\mappers\dto\TestParameterDTO.class
+app\BruteForceAlgorithm.class
 app\ui\console\functionalities\RegisterTestUI.class
 app\mappers\dto\TestTypeDTO.class
 app\mappers\TestResultsMapper.class
+app\ui\gui\OverviewTestUi.class
 app\adapter\BruteForceAdapter.class
 app\ui\console\employees\SpecialistDoctorUI.class
 app\ui\console\functionalities\CreateParameterCategoryUI.class
@@ -24,6 +27,7 @@ app\controller\CreateTestTypeController.class
 auth\domain\model\Password.class
 app\controller\ViewTestsClientController.class
 app\domain\model\testrelated\ParameterCategory.class
+app\domain\store\SampleList.class
 app\domain\store\TestStore.class
 app\domain\model\testrelated\SMSNotification.class
 app\mappers\TestTyperMapper.class
@@ -55,6 +59,7 @@ app\domain\model\testrelated\MedicalReport.class
 app\mappers\ParameterCategoryMapper.class
 app\ui\gui\MainApp.class
 app\domain\model\Company.class
+app\ui\console\functionalities\ImportFileUI.class
 app\adapter\SortAlphabetically.class
 app\ui\gui\ErrorUI.class
 app\controller\RegisterTestController.class
@@ -67,9 +72,9 @@ app\domain\store\ClientStore.class
 app\ui\console\functionalities\RegisterEmployeeUI.class
 app\domain\store\ClinicalAnalysisLaboratoryStore.class
 auth\mappers\dto\UserRoleDTO.class
+app\adapter\interfaces\SortingAlgorithms.class
 app\adapter\interfaces\ExternalModuleBarcode.class
 app\adapter\ExternalModule2APIAdapter.class
-app\domain\store\SampleStore.class
 app\mappers\EmployeeMapper.class
 app\ui\gui\ClientsUi.class
 app\domain\model\attributes\PhoneNumber.class
@@ -96,6 +101,7 @@ app\mappers\dto\testResultDto.class
 app\ui\console\AuthUI.class
 app\adapter\interfaces\SubsequenceWithMaximumSum.class
 app\ui\console\employees\ClinicalChemistryTechUI.class
+app\controller\OverviewController.class
 app\domain\model\users\SpecialistDoctor.class
 app\domain\model\users\Employee.class
 app\ui\console\employees\MedLabTechnicianUI.class
@@ -122,7 +128,6 @@ app\controller\CreateParameterController.class
 app\ui\console\functionalities\ViewTestsClientUI.class
 app\mappers\dto\EmployeeDTO.class
 app\domain\store\ParameterStore.class
-app\adapter\interfaces\Algorithm.class
 app\domain\model\testrelated\Test$StateOfTest.class
 app\ui\console\functionalities\CreateParameterUI.class
 app\mappers\TestParameterMapper.class
@@ -133,14 +138,17 @@ app\controller\AuthController.class
 app\ui\console\functionalities\ViewResultsUI.class
 app\ui\console\functionalities\ValidateWorkUI.class
 app\mappers\dto\OrganizationRoleDTO.class
+app\domain\model\testrelated\Overview.class
 app\domain\model\attributes\OrganizationRole.class
 app\domain\model\testrelated\EmailNotification.class
+app\ui\console\functionalities\OverviewUi.class
 app\ui\gui\UpdateDataUi.class
 app\controller\ItemClientController.class
 app\ui\console\functionalities\CreateClientUI.class
 app\mappers\dto\ClientDTO.class
 app\Serialization.class
 app\ui\console\functionalities\CreateTestTypeUI.class
+app\domain\model\CSVFileReader.class
 app\ui\gui\ImportFileUi.class
 app\domain\store\ParameterCategoryStore.class
 app\controller\RecordResultsController.class
