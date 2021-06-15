@@ -37,5 +37,9 @@ public class SendCovid19ReportController {
         return company.getAvailableTypesOfData();
     }
 
+    public List<String> getAvailableRegressionModels(){
+        return company.getAvailableRegressionModels();
+    }
+
 
 }

@@ -86,6 +86,12 @@ public class Company implements Serializable {
     private List<String> availableTypesOfData = new ArrayList(Arrays.asList("Day", "Week"));
 
     /**
+     *
+     */
+    private List<String> availableRegressionModels = new ArrayList(Arrays.asList("Simple Linear", "Multiple Linear"));
+
+
+    /**
      * Creates an instance of Company
      * @param designation Company's designation
      */
@@ -208,6 +214,14 @@ public class Company implements Serializable {
      */
     public List<String> getAvailableTypesOfData(){
         return availableTypesOfData;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<String> getAvailableRegressionModels(){
+        return availableRegressionModels;
     }
 
 

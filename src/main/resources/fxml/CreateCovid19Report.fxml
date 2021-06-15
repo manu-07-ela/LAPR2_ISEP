@@ -8,14 +8,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.SendCovid19ReportUi">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="656.0" prefWidth="615.0" style="-fx-background-color: #1a7180;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.SendCovid19ReportUi">
    <top>
       <VBox prefHeight="76.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="400.0">
                <children>
-                  <Label style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Send Covid-19 Report" textFill="#1a7180">
+                  <Label style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Send Covid-19 Report" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
@@ -27,43 +26,148 @@
       </VBox>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="516.0" prefWidth="615.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="600.0" spacing="10.0">
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="600.0" spacing="10.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="90.0" text="Current Day" textFill="#1a7180">
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="119.0" text="Current Day: " textFill="WHITE">
                      <font>
-                        <Font size="17.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="currentDay" prefWidth="170.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" spacing="5.0">
-               <children>
-                  <Label alignment="CENTER" prefWidth="123.0" text="Type Of Data" textFill="#1a7180">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="typeOfData" prefHeight="41.0" prefWidth="176.0" style="-fx-background-color: white; -fx-border-color: bbbbbb; -fx-border-radius: 4; -fx-background-radius: 10;" />
+                  <DatePicker fx:id="currentDay" prefHeight="34.0" prefWidth="170.0" style="-fx-border-radius: 5;">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </DatePicker>
                </children>
                <VBox.margin>
-                  <Insets right="20.0" />
+                  <Insets right="13.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="78.0" prefWidth="600.0" spacing="15.0">
+               <children>
+                  <Label alignment="CENTER" prefWidth="123.0" text="Type Of Data:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="typeOfData" prefHeight="35.0" prefWidth="182.0" style="-fx-background-color: white; -fx-border-color: #1a7180; -fx-border-radius: 4; -fx-background-radius: 10;" />
+               </children>
+               <VBox.margin>
+                  <Insets right="12.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="550.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="159.0" text="Historical Points:  " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtHistoricalPoints" prefHeight="21.0" prefWidth="155.0" style="-fx-background-radius: 15; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets right="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="86.0" prefWidth="615.0" spacing="5.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="107.0" text="Initial Date: " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="initialDate" prefWidth="170.0" />
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="102.0" text="End Date: " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="endDate" prefWidth="170.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="64.0" prefWidth="570.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="167.0" text="Regression Model:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="regressionModel" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: white; -fx-border-color: #1a7180; -fx-border-radius: 4; -fx-background-radius: 10;" />
+               </children>
+               <VBox.margin>
+                  <Insets right="45.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="535.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="202.0" text="Independent Variable:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="independentVariable" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: white; -fx-border-color: #1a7180; -fx-border-radius: 4; -fx-background-radius: 10;" />
+               </children>
+               <VBox.margin>
+                  <Insets right="80.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="550.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="159.0" text="Significance Level:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtSignificanceLevel" prefHeight="21.0" prefWidth="155.0" style="-fx-background-radius: 15; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets right="63.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="565.0" spacing="15.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="159.0" text="Confidence Level:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtConfidenceLevel" prefHeight="21.0" prefWidth="155.0" style="-fx-background-radius: 15; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets right="60.0" />
                </VBox.margin>
             </HBox>
          </children>
       </VBox>
    </center>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="59.0" prefWidth="653.0" spacing="15.0">
+      <HBox alignment="CENTER" prefHeight="73.0" prefWidth="615.0" spacing="15.0">
          <children>
-            <Button fx:id="closePlatform" mnemonicParsing="false" onMouseClicked="#closePlatform" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="WHITE">
+            <Button fx:id="closePlatform" mnemonicParsing="false" onMouseClicked="#closePlatform" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="#1a7180">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logout" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#logout" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Send" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logout" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
