@@ -57,6 +57,11 @@ public class Client implements Serializable {
     private String email;
 
     /**
+     * Client's adress
+     */
+    private String address;
+
+    /**
      * Constructs an instance of {@code Client} receiving the name, Citizen card number, National Healthcare Service number, birth date, gender, tax identification number, phone number and e-mail
      * @param name name of Client
      * @param citizenCardNumber Citizen card number of Client
@@ -66,8 +71,9 @@ public class Client implements Serializable {
      * @param tin Tax identification number of Client
      * @param phoneNumber Phone number of Client
      * @param email E-mail of Client
+     * @param address Address of Client
      */
-    public Client(String name, String citizenCardNumber, String nhs, String date, String sex, String tin, String phoneNumber, String email) {
+    public Client(String name, String citizenCardNumber, String nhs, String date, String sex, String tin, String phoneNumber, String email,String address) {
         nameValidation(name);
         citizenCardNumberValidation(citizenCardNumber);
         nhsValidation(nhs);
@@ -76,6 +82,7 @@ public class Client implements Serializable {
         tinValidation(tin);
         phoneNumberValidation(phoneNumber);
         emailValidation(email);
+        addressValidation(address);
         this.name = name;
         this.citizenCardNumber = citizenCardNumber;
         this.nhs = nhs;
@@ -84,6 +91,7 @@ public class Client implements Serializable {
         this.tin = tin;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.address = address;
     }
 
     /**
@@ -96,7 +104,7 @@ public class Client implements Serializable {
      * @param phoneNumber Phone number of Client
      * @param email E-mail of Client
      */
-    public Client(String name, String citizenCardNumber, String nhs, String date, String tin, String phoneNumber, String email) {
+    public Client(String name, String citizenCardNumber, String nhs, String date, String tin, String phoneNumber, String email,String address) {
         nameValidation(name);
         citizenCardNumberValidation(citizenCardNumber);
         nhsValidation(nhs);
@@ -104,6 +112,7 @@ public class Client implements Serializable {
         tinValidation(tin);
         phoneNumberValidation(phoneNumber);
         emailValidation(email);
+        addressValidation(address);
         this.name = name;
         this.citizenCardNumber = citizenCardNumber;
         this.nhs = nhs;
@@ -111,6 +120,7 @@ public class Client implements Serializable {
         this.tin = tin;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.address = address;
     }
 
     /**
@@ -178,6 +188,14 @@ public class Client implements Serializable {
     }
 
     /**
+     * Get the address of a client
+     * @return the client's adress
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
      * Sets the name of a client
      * @param name the name of a client
      */
@@ -218,6 +236,14 @@ public class Client implements Serializable {
         this.sex = sex;
     }
 
+    /**
+     * Sets the adress of a client
+     * @param address the adress of a client
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -229,6 +255,7 @@ public class Client implements Serializable {
                 ", tin='" + tin + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 
@@ -275,9 +302,6 @@ public class Client implements Serializable {
     private void citizenCardNumberValidation(String citizenCardNumber){
         if (StringUtils.isEmpty(citizenCardNumber)) throw new NullPointerException("Citizen card number can't be empty");
         if (!StringUtils.isNumeric(citizenCardNumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
-        if (citizenCardNumber.length()!=16){
-            throw  new IllegalArgumentException("The citizen card number must have 16 digits");
-        }
 
     }
 
@@ -373,6 +397,17 @@ public class Client implements Serializable {
         Pattern pat = Pattern.compile(emailRegex);
         if(!pat.matcher(email).matches()){
             throw new IllegalArgumentException("Invalid E-mail Address");
+        }
+    }
+
+    /**
+     * Checks whether the address associated with the client we intend to register complies with all business rules.
+     * @param address The Client's address
+     */
+    private void addressValidation(String address){
+        if (StringUtils.isEmpty(address)) throw new NullPointerException("Adress can't be blank.");
+        if (address.length()>90){
+            throw  new IllegalArgumentException("The address mustn't have more then 90 characters");
         }
     }
 

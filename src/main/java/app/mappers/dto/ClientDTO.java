@@ -46,6 +46,11 @@ public class ClientDTO {
     private final String email;
 
     /**
+     * Client's adress
+     */
+    private String address;
+
+    /**
      * Creates a new instance of ClientDto with the following attributes: name, citizencardnumber, nhs, date, sex, tin, phonenumber, email
      * @param name name of Client
      * @param citizenCardNumber Citizen card number of Client
@@ -55,8 +60,9 @@ public class ClientDTO {
      * @param tin Tax identification number of Client
      * @param phoneNumber Phone number of Client
      * @param email E-mail of Client
+     * @param address Address of Client
      */
-    public ClientDTO(String name, String citizenCardNumber, String nhs, String date, String sex, String tin, String phoneNumber, String email) {
+    public ClientDTO(String name, String citizenCardNumber, String nhs, String date, String sex, String tin, String phoneNumber, String email,String address) {
         this.name = name;
         this.citizenCardNumber = citizenCardNumber;
         this.nhs = nhs;
@@ -65,6 +71,30 @@ public class ClientDTO {
         this.tin = tin;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.address = address;
+    }
+
+    /**
+     * Creates a new instance of ClientDto with the following attributes: name, citizencardnumber, nhs, date, sex, tin, phonenumber, email
+     * @param name name of Client
+     * @param citizenCardNumber Citizen card number of Client
+     * @param nhs National HealthCare Service number of Client
+     * @param date Birth-date of Client
+     * @param tin Tax identification number of Client
+     * @param phoneNumber Phone number of Client
+     * @param email E-mail of Client
+     * @param address Address of Client
+     */
+    public ClientDTO(String name, String citizenCardNumber, String nhs, String date,String tin, String phoneNumber, String email,String address) {
+        this.name = name;
+        this.citizenCardNumber = citizenCardNumber;
+        this.nhs = nhs;
+        this.date = date;
+        this.tin = tin;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.sex = null;
     }
 
     /**
@@ -131,17 +161,26 @@ public class ClientDTO {
         return email;
     }
 
+    /**
+     * Get the address of the client
+     * @return the adress of ClientDto
+     */
+    public String getAddress() {
+        return address;
+    }
+
+
     @Override
     public String toString() {
-        return "ClientDTO{" +
-                "name='" + name + '\'' +
-                ", citizencardnumber='" + citizenCardNumber + '\'' +
-                ", nhs='" + nhs + '\'' +
-                ", date='" + date + '\'' +
-                ", sex='" + sex + '\'' +
-                ", tin='" + tin + '\'' +
-                ", phonenumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return "Client Data \n" +
+                "Name : " + name +
+                "\nCitizen Card Number : " + citizenCardNumber +
+                "\nNational Healthcare Service number : " + nhs +
+                "\nBirth date : " + date +
+                "\nGender : " + sex +
+                "\nTax identification number : " + tin +
+                "\nPhone number : " + phoneNumber +
+                "\nEmail : " + email +
+                "\nAddress : " + address;
     }
 }
