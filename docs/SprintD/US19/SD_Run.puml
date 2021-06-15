@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ":Timer" as Timer
+participant "task : OperationTask" as Task
+participant ":Company" as Comp
+
+
+Timer -> Task : run()
+activate Task
+Task -> Comp :
+deactivate Task
+
+@enduml

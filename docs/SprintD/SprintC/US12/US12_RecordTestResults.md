@@ -64,6 +64,7 @@ values.
 
 * There is a dependency to "US04 Register a test to be performed to a registered client " since at least the test must exist to record the results .
 
+* There is a dependency to "US05 - Record the samples collected in the scope of a given test. " since at least the test must have a barcode associated to record the results .
 
 
 ### 1.5 Input and Output Data
@@ -109,8 +110,6 @@ n/a
 
 ### 3.1. Rationale
 
-**SSD - Alternative 1 is adopted.**
-
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1  		 |	 ... interacting with the actor?                                 | RecordResultsUI          | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
@@ -147,13 +146,9 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## 3.2. Sequence Diagram (SD)
 
-**Alternative 1**
-
 ![US12_SD](US12_SD.svg)
 
 ## 3.3. Class Diagram (CD)
-
-**From alternative 1**
 
 ![US12_CD](US12_CD.svg)
 

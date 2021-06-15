@@ -60,5 +60,8 @@ public class Address implements Serializable {
      */
     private void checkRulesForAddress(String address){
         if (StringUtils.isBlank(address)) throw new IllegalArgumentException("ERROR: Address can´t be blank");
+        if (address.length()>90){
+            throw  new IllegalArgumentException("The address mustn't have more then 90 characters");
+        }
     }
 }

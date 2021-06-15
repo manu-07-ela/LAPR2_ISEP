@@ -3,6 +3,7 @@ package app.ui.console.functionalities;
 import app.controller.ImportFileController;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ImportFileUI implements Runnable{
 
@@ -17,10 +18,14 @@ public class ImportFileUI implements Runnable{
 
     public void run(){
         System.out.printf("%nReading File%n");
-        readfile();
+        try {
+            readfile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void readfile(){
-        filectrl.loadFile();
+    public void readfile() throws IOException {
+        filectrl.loadFile("tests_BloodMDISCCSV.csv");
     }
 }
