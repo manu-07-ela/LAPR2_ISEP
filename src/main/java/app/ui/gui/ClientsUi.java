@@ -5,6 +5,7 @@ import app.controller.ItemClientController;
 import app.controller.ItemController;
 import app.controller.ViewTestsClientController;
 import app.mappers.dto.ClientDTO;
+import app.mappers.dto.TestDTO;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClientsUi {
@@ -43,7 +45,6 @@ public class ClientsUi {
 
     @FXML
     private CheckBox orderedTin;
-
     @FXML
     private GridPane grid;
 
@@ -58,7 +59,7 @@ public class ClientsUi {
     }
 
     public void showClientList() throws IOException {
-        //testsList=getData();
+        //clientDTOList = getData();
         int row = 1;
         try {
             for (int i=0; i<clientDTOList.size();i++) {
@@ -67,7 +68,9 @@ public class ClientsUi {
                 fxmlLoader.setLocation(getClass().getResource("/fxml/ClientItem.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
-                ItemClientController itemClientController = new ItemClientController();
+                ItemClientController itemClientController = fxmlLoader.getController();
+                System.out.println(clientDTOList.get(i));
+                System.out.println(i);
                 itemClientController.setClient(clientDTOList.get(i));
 
                 grid.prefHeight(grid.getPrefHeight()+60);
@@ -122,6 +125,16 @@ public class ClientsUi {
     void OrderedNameClick() {
     }
 
+    private List<ClientDTO> getData(){
+        List<ClientDTO> clients = new ArrayList<>();
+        ClientDTO clientDTO;
+
+        for (int i=0;i<20;i++){
+            clientDTO=new ClientDTO("Manuela", "1111111111111111", "11111", "07/09/2002", "female", "283740", "18273", "manu@gmail.com");
+            clients.add(clientDTO);
+        }
+        return clients;
+    }
 
 
 }

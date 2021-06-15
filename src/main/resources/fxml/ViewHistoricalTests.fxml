@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ClientsUi">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ClientsUi">
    <top>
       <VBox alignment="CENTER" prefHeight="67.0" prefWidth="532.0" BorderPane.alignment="CENTER">
          <children>
@@ -30,11 +28,11 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="exit" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#exitClick" prefHeight="36.0" prefWidth="60.0" style="-fx-background-color: #ffffff; -fx-border-color: #1a7180; -fx-border-radius: 15; -fx-border-width: 3;" text="Exit " textFill="#1a7180">
+            <Button fx:id="exit" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#exitClick" prefHeight="36.0" prefWidth="60.0" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-radius: 15; -fx-border-width: 3;" text="Exit " textFill="#1a7180">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button fx:id="logout" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logoutClick" prefHeight="36.0" prefWidth="76.0" style="-fx-background-color: #ffffff; -fx-border-color: #1a7180; -fx-border-radius: 15; -fx-border-width: 3;" text="Logout" textFill="#1a7180">
+            <Button fx:id="logout" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logoutClick" prefHeight="36.0" prefWidth="76.0" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-radius: 15; -fx-border-width: 3;" text="Logout" textFill="#1a7180">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -72,9 +70,19 @@
                </children>
             </HBox>
             <ScrollPane fx:id="scrollPane" prefHeight="354.0" prefWidth="600.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-              </content>
+               <content>
+                  <GridPane fx:id="grid" prefHeight="36.0" prefWidth="541.0" vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="15.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </content>
             </ScrollPane>
          </children>
       </VBox>
