@@ -165,13 +165,13 @@ activate CTRL
 CTRL -> COMP : tstore = getTestStore()
 activate COMP
 deactivate COMP
-CTRL -> TS : t = CreateTest(tin,nhscode)
+CTRL -> TS : t = CreateTest(cl,nhscode,tt,TPM,lab)
 
 activate TS
 TS -> TS: internalcode = generateInternalCode(t)
 activate TS
 deactivate TS
-TS --> T**: create(tin,nhscode,tt,TPM,internalcode)
+TS --> T**: create(tin,nhscode,tt,TPM,lab,internalcode)
 deactivate TS
 
 CTRL -> TS : validateTest(t)

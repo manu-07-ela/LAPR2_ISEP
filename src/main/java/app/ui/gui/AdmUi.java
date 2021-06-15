@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 import app.ui.console.AuthUI;
+import app.ui.console.functionalities.CreateTestTypeUI;
 import app.ui.console.functionalities.RegisterEmployeeUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,12 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class AdmUi {
+
     private Stage stage;
+
+    private Stage stageSendCovid19Report;
+
+    private SendCovid19ReportUi sendCovid19ReportUi;
 
     @FXML
     private Button exit;
@@ -85,7 +91,8 @@ public class AdmUi {
 
     @FXML
     void specifyTestTypeClick() {
-
+        CreateTestTypeUI testTypeUi = new CreateTestTypeUI();
+        testTypeUi.run();
     }
 
     @FXML
@@ -104,8 +111,33 @@ public class AdmUi {
     }
 
     @FXML
-    void sendReportClick() {
+    void sendReportClick() throws IOException {
+        runSendCovid19Report();
+        sendCovid19ReportUi.setLabelUI(stageSendCovid19Report);
+    }
 
+    @FXML
+    private void runSendCovid19Report(){
+        try {
+            stageSendCovid19Report = new Stage();
+            stageSendCovid19Report.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("\\fxml\\CreateCovid19Report.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+
+            stageSendCovid19Report.setScene(scene);
+
+            sendCovid19ReportUi = loader.getController();
+            stageSendCovid19Report.show();
+
+        }catch (IOException exception){
+            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+        }
     }
 
 

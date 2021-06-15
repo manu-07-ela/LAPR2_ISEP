@@ -34,10 +34,6 @@ file.
 >  
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8894#p11691) The application should write the event into a log file.
 
-> **Question:** which significance level should we use for the hypothesis tests?
->  
-> [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8890#p11690) The application should allow the user to choose the significance level.
-
 > **Question:** Regarding US18 and US19, it is only one report containing all the tests performed by Many Labs to be sent each time, correct? Or is it one report per laboratory, for example? Or other option?
 >
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8892#p11693) The report should contain all the tests made by Many Labs.
@@ -62,6 +58,7 @@ As the Report is to be automatically sent very early in the morning, do you wish
   estimated) values, the regression model used to estimate each value, R(SLR), R2
   and R2 adjusted for SLR and MLR, hypothesis tests for regression coefficients
   significance model with Anova. 
+  
 * **AC2:** Simple linear and multilinear regression models
   can be used to compute the estimates and corresponding confidence intervals.
   
@@ -79,12 +76,15 @@ As the Report is to be automatically sent very early in the morning, do you wish
   
 * **AC6:** The system should send the report using the
   NHS API (available in moodle).
+  
+* **AC7** The NHS Covid report should include statistics computed only from validated tests.
 
 ### 1.4. Found out Dependencies
 
 
 * There is a dependency with user story 12 since it is only possible to perform statistic tests from the moment there are results associated with the test.
 
+* There is a dependency with "US 15 - I want to validate the work done by the clinical chemistry technologist and specialist doctor." since the report will only be about the tests validated
 
 ### 1.5 Input and Output Data
 
@@ -92,32 +92,21 @@ As the Report is to be automatically sent very early in the morning, do you wish
 **Input Data:**
 
 * Typed data:
-	* a reference, 
-	* a designation, 
-	* an informal description
-	* a technical description
-	* an estimated duration
-	* an estimated cost
+	None
 	
 * Selected data:
-	* Classifying task category 
-
+     None
 
 **Output Data:**
 
-* List of existing task categories
+* A Covid report
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
-**Alternative 1**
 
-![US006_SSD](US006_SSD.svg)
+![US19_SSD](US19_SSD.svg)
 
-
-**Alternative 2**
-
-![US006_SSD_v2](US006_SSD_v2.svg)
 
 
 **Other alternatives might exist.**
@@ -131,7 +120,7 @@ As the Report is to be automatically sent very early in the morning, do you wish
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![US006_MD](US006_MD.svg)
+![US19_MD](US19_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -141,8 +130,6 @@ n/a
 ## 3. Design - User Story Realization 
 
 ### 3.1. Rationale
-
-**SSD - Alternative 1 is adopted.**
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
@@ -167,31 +154,25 @@ n/a
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Organization
- * Platform
- * Task
+ * 
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * CreateTaskUI  
- * CreateTaskController
+ * 
 
 
 ## 3.2. Sequence Diagram (SD)
 
 **Alternative 1**
 
-![US006_SD](US006_SD.svg)
+![US19_SD](US19_SD.svg)
 
-**Alternative 2**
-
-![US006_SD](US006_SD_v2.svg)
 
 ## 3.3. Class Diagram (CD)
 
 **From alternative 1**
 
-![US006_CD](US006_CD.svg)
+![US19_CD](US19_CD.svg)
 
 # 4. Tests 
 

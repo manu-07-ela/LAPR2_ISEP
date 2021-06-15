@@ -42,6 +42,7 @@ public class CreateClientUI implements Runnable {
         boolean dadosInvalidos=true;
         do {
             try {
+                ClientDTO cldto;
                 System.out.printf("%nEnter the following data about the Client you want to register%n");
 
                 String name = Utils.readLineFromConsole("Name: ");
@@ -56,11 +57,16 @@ public class CreateClientUI implements Runnable {
                 String tin = Utils.readLineFromConsole("Tax identification number: ");
                 String phonenumber = Utils.readLineFromConsole("Phone number: ");
                 String email = Utils.readLineFromConsole("E-mail: ");
-                ClientDTO cldto = new ClientDTO(name,citizencardnumber,nhs,date,sex,tin,phonenumber,email);
+                String address = Utils.readLineFromConsole("Address: ");
+                if(sex==null){
+                    cldto = new ClientDTO(name, citizencardnumber, nhs, date,tin, phonenumber, email, address);
+                }else {
+                    cldto = new ClientDTO(name, citizencardnumber, nhs, date, sex, tin, phonenumber, email, address);
+                }
                 createClientctrl.CreateClient(cldto);
                 dadosInvalidos = false;
-                System.out.printf("Do you want to create a Client with the name %s, citizen card number %s, National Healthcare Service number %s, \n birth date %s, gender %s,Tax identification number %s, phone number %s, and e-mail %s?",name,citizencardnumber,nhs,date,sex,tin,phonenumber,email);
-
+                System.out.printf("%nDo you want to create a Client with this data?%n");
+                System.out.println(cldto.toString());
                 String resposta = Utils.readLineFromConsole("S/N:");
 
                 if (resposta.equalsIgnoreCase("S")) {
