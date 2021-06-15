@@ -67,8 +67,10 @@ public class ClinicalChemistryTecUi {
 
 
     @FXML
-    void consultTheTestsClick() {
+    void consultTheTestsClick() throws IOException {
         viewTest();
+        clientsUI.setLabelUI(stageViewTests);
+
     }
 
     @FXML

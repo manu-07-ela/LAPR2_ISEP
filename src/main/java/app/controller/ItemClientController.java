@@ -19,10 +19,10 @@ public class ItemClientController {
     private Button selectClient;
 
     @FXML
-    private Label citizenCardNumberClient;
+    private Label name;
 
     @FXML
-    private Label nameClient;
+    private Label citizenCardNumber;
 
     private ClientDTO clientDTO;
 
@@ -32,15 +32,14 @@ public class ItemClientController {
 
     public void setClient(ClientDTO client){
         this.clientDTO = client;
-        nameClient.setText(client.getName());
-        citizenCardNumberClient.setText(client.getCitizenCardNumber());
-
+        name.setText(clientDTO.getName());
+        citizenCardNumber.setText(clientDTO.getCitizenCardNumber());
     }
     @FXML
     void selectClientClick() throws IOException {
         runClients();
         clientsUi.setLabelUI(clientStage);
-        nameClient.getScene().getWindow().hide();
+        name.getScene().getWindow().hide();
 
     }
 

@@ -68,7 +68,9 @@ public class ClientsUi {
                 fxmlLoader.setLocation(getClass().getResource("/fxml/ClientItem.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
-                ItemClientController itemClientController = new ItemClientController();
+                ItemClientController itemClientController = fxmlLoader.getController();
+                System.out.println(clientDTOList.get(i));
+                System.out.println(i);
                 itemClientController.setClient(clientDTOList.get(i));
 
                 grid.prefHeight(grid.getPrefHeight()+60);
