@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="brdPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#1a7180, #239ba1);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.MedLabTecUi">
+    <top>
+        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
+            <BorderPane.margin>
+                <Insets top="5.0" />
+            </BorderPane.margin>
+            <children>
+                <VBox alignment="CENTER" prefHeight="50.0" prefWidth="535.0">
+                    <children>
+                        <Label text="Medical Lab Technician Menu" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Separator prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Separator>
+                    </children>
+                    <HBox.margin>
+                        <Insets top="10.0" />
+                    </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="exit" mnemonicParsing="false" onMouseClicked="#exitClick" prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="#1a7180">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logoutClick" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" />
+            </BorderPane.margin>
+        </HBox>
+    </bottom>
+    <center>
+        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox fx:id="recordSample" alignment="CENTER" onMouseClicked="#recordSampleClick" prefHeight="200.0" prefWidth="167.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                    <children>
+                        <Label text="Record">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets top="10.0" />
+                            </opaqueInsets>
+                        </Label>
+                        <Label text="samples">
+                            <font>
+                                <Font name="System Italic" size="14.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets top="10.0" />
+                            </opaqueInsets>
+                        </Label>
+                        <ImageView fitHeight="83.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+                            <VBox.margin>
+                                <Insets bottom="10.0" top="10.0" />
+                            </VBox.margin>
+                            <image>
+                                <Image url="@../images/blood-tube.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                    <padding>
+                        <Insets top="20.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </VBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="50.0" top="45.0" />
+            </BorderPane.margin>
+        </HBox>
+    </center>
+</BorderPane>
