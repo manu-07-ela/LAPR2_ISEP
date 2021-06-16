@@ -103,9 +103,9 @@ public class ClientStoreTest {
         clMapper = new ClientMapper();
         clauth = new AuthFacade();
         cl = new Client("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
-
+        clStore.addClient(cl);
         Client cl1 = clStore.getClientByEmail("pessoa@gmail.com");
-        Assert.assertTrue(cl,cl1);
+        Assert.assertEquals(cl,cl1);
 
     }
 }
