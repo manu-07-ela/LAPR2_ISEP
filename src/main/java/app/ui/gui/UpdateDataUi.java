@@ -10,9 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 
 public class UpdateDataUi {
@@ -295,7 +295,7 @@ public class UpdateDataUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            System.out.println("Logout error: " + ex);
         }
         stage.close();
     }
@@ -317,6 +317,31 @@ public class UpdateDataUi {
         }
         //updateDataController.clientData(client);
         writeAddress.clear();
+
+    }
+    @FXML
+    void exitIn() {
+        exit.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px");
+        exit.setTextFill(Paint.valueOf("#ffffff"));
+    }
+
+    @FXML
+    void exitOut(){
+        exit.setStyle("-fx-background-color: #EAEEEE;-fx-background-radius: 15px");
+        exit.setTextFill(Paint.valueOf("#0f3648"));
+
+    }
+
+    @FXML
+    void logoutIn() {
+        logout.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px");
+        logout.setTextFill(Paint.valueOf("#ffffff"));
+    }
+
+    @FXML
+    void logoutOut(){
+        logout.setStyle("-fx-background-color: #EAEEEE;-fx-background-radius: 15px");
+        logout.setTextFill(Paint.valueOf("#0f3648"));
 
     }
 

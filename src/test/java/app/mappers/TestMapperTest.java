@@ -32,7 +32,7 @@ public class TestMapperTest {
 
     @Test
     public void toDto() {
-        client = new Client("Manuela", "1234567890123456", "1234567890", "07/09/2002", "female", "1234567890","12345678901", "manu@leite.pt");
+        client = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
         nhsCode = new NhsCode("123456789012");
         parameterCategory = new ParameterCategory("12se3", "blood");
         parameter = new Parameter("w82ks", "blood", "blood", parameterCategory);
@@ -55,7 +55,7 @@ public class TestMapperTest {
 
     @Test
     public void testToDto() {
-        client = new Client("Manuela", "1234567890123456", "1234567890", "07/09/2002", "female", "1234567890","12345678901", "manu@leite.pt");
+        client = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
         nhsCode = new NhsCode("123456789012");
         parameterCategory = new ParameterCategory("12se3", "blood");
         parameter = new Parameter("w82ks", "blood", "blood", parameterCategory);
