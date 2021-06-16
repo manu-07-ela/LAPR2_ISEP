@@ -11,7 +11,7 @@ public class MultipleLinearRegression {
          matrixXTY = matrixXTY(matrixXTransposed, y);
          matrixXTYInverse = invert(matrixXTY);
          matrixXXTInverse = invert(matrixXXT);
-         
+
     }
 
     private double[][] matrixX(double[] x1, double[]x2){
