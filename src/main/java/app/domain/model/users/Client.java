@@ -241,6 +241,7 @@ public class Client implements Serializable {
      * @param address the adress of a client
      */
     public void setAddress(String address) {
+        addressValidation(address);
         this.address = address;
     }
 
