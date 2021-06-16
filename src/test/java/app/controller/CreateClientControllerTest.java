@@ -17,17 +17,13 @@ public class CreateClientControllerTest {
     ClientStore clStore;
     Company company;
 
-    @Before
-    public void setup(){
-        company = new Company("Many Labs");
-        controller = new CreateClientController();
-        clDto = new ClientDTO("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
-        cl = new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
-        clStore = company.getClientStore();
-    }
-
     @Test
     public void CreateClient1(){
+        company = new Company("Many Labs");
+        controller = new CreateClientController();
+        clDto = new ClientDTO("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+        cl = new Client("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+        clStore = company.getClientStore();
         clStore.addClient(cl);
         boolean result = controller.CreateClient(clDto);
         Assert.assertTrue(result);
@@ -35,12 +31,23 @@ public class CreateClientControllerTest {
 
     @Test
     public void createClient2() {
+        company = new Company("Many Labs");
+        controller = new CreateClientController();
+        clDto = new ClientDTO("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+        cl = new Client("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+        clStore = company.getClientStore();
         boolean result = controller.CreateClient(clDto);
         Assert.assertTrue(result);
     }
 
+    /*
     @Test
     public void saveClient() throws IOException {
+        company = new Company("Many Labs");
+        controller = new CreateClientController();
+        clDto = new ClientDTO("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+        cl = new Client("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+        clStore = company.getClientStore();
         controller.CreateClient(clDto);
         clStore.addClient(cl);
         boolean result = controller.saveClient();
@@ -49,9 +56,14 @@ public class CreateClientControllerTest {
 
     @Test
     public void saveClient2() throws IOException {
+        company = new Company("Many Labs");
+        controller = new CreateClientController();
+        clDto = new ClientDTO("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+        cl = new Client("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+        clStore = company.getClientStore();
         controller.CreateClient(clDto);
         boolean result = controller.saveClient();
         Assert.assertFalse(result);
-    }
+    }*/
 
 }
