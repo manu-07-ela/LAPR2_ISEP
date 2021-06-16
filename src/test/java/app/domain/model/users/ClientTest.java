@@ -197,18 +197,13 @@ public class ClientTest {
     @Test(expected = IllegalArgumentException.class)
     public void setNhs4() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setNhs("sxwdefrgthyjukiolkijuhygtfr");
+        cl.setNhs("12345678908765432223456789876543");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setNhs5() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setNhs("sxdfg");
-    }
-
-    @Test
-    public void setDate() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setNhs("1234");
     }
 
     @Test
@@ -318,5 +313,31 @@ public class ClientTest {
         cl.setEmail("Lasdsd@gmail.com");
         Assert.assertEquals("Lasdsd@gmail.com",cl.getEmail());
     }
+
+    @Test
+    public void setDate1() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setDate("02/04/2003");
+        Assert.assertEquals("02/04/2003",cl.getDate());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setDate2() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setDate("02-04-2003");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setDate3() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setDate("");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setDate4() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setDate("04/05/1300");
+    }
+
 }
 
