@@ -79,6 +79,12 @@ public class UpdateDataUi {
     @FXML
     private TextField writeCitizenCard;
 
+    @FXML
+    private TextField writeAddress;
+
+    @FXML
+    private Button saveAddress;
+
     public void setLabelUI(Stage stage) {
         this.stage = stage;
     }
@@ -292,6 +298,10 @@ public class UpdateDataUi {
             System.out.println("Erro no lougout: " + ex);
         }
         stage.close();
+    }
+    @FXML
+    void saveAddressClick() {
+
     }
 
 
