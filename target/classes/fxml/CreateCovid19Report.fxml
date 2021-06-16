@@ -124,7 +124,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtHistoricalPoints1" prefHeight="21.0" prefWidth="155.0" style="-fx-background-radius: 15; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
+                  <TextField fx:id="txtSignificanceLevel" prefHeight="21.0" prefWidth="155.0" style="-fx-background-radius: 15; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
                      <font>
                         <Font name="System Italic" size="18.0" />
                      </font>
@@ -141,7 +141,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtHistoricalPoints2" prefHeight="21.0" prefWidth="155.0" style="-fx-background-radius: 15; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
+                  <TextField fx:id="txtConfidenceLevel" prefHeight="21.0" prefWidth="155.0" style="-fx-background-radius: 15; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
                      <font>
                         <Font name="System Italic" size="18.0" />
                      </font>
