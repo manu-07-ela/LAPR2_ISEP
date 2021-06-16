@@ -2,6 +2,7 @@ package app.ui.gui;
 
 import app.Serialization;
 import app.controller.App;
+import app.controller.EvaluatePerformanceController;
 import app.controller.OverviewController;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
@@ -34,6 +35,10 @@ public class OverviewTestUi {
     private final OverviewController overviewCtrl;
 
     private Stage stage;
+
+    private Stage stageEvaluatePerformance;
+
+    private EvaluatePerformanceController evaluatePerformanceController;
 
     @FXML
     private DatePicker initialDay;
@@ -91,10 +96,34 @@ public class OverviewTestUi {
 
     }
 
-    public void evaluetePerformance() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        overviewCtrl.getAvailableAlgorithms();
-        overviewCtrl.getSubsequenceWithMaximumSum(algorithm);
+    public void evaluetePerformance() {
+        runEvaluetePerformance();
+        evaluatePerformanceController.setLabelUI(stageEvaluatePerformance);
+        closePlatform.getScene().getWindow().hide();
+    }
 
+    @FXML
+    private void runEvaluetePerformance(){
+        try {
+            stageEvaluatePerformance = new Stage();
+            stageEvaluatePerformance.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/EvaluatePerformance.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+
+            stageEvaluatePerformance.setScene(scene);
+            evaluatePerformanceController = loader.getController();
+            stageEvaluatePerformance.show();
+
+
+        }catch (IOException exception){
+            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+        }
     }
 
     public void setLabelUI(Stage stage) {
