@@ -87,7 +87,7 @@ public class OverviewTestUi {
     public void setLabelUI(Stage stage) {
         this.stage = stage;
         loadChoiseBox();
-        run();
+
     }
 
     /**
