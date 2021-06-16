@@ -5,8 +5,6 @@ import app.ui.console.functionalities.ImportFileUI;
 import app.ui.console.functionalities.OverviewUi;
 import app.ui.console.functionalities.ValidateWorkUI;
 import app.ui.console.utils.Utils;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
