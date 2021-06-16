@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.adapter.interfaces.ExternalModuleBarcode;
+import app.interfaces.ExternalModuleBarcode;
 import app.domain.model.Company;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.Sample;

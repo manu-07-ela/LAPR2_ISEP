@@ -1,7 +1,7 @@
 package app.adapter;
 
 import app.BruteForceAlgorithm;
-import app.adapter.interfaces.SubsequenceWithMaximumSum;
+import app.interfaces.SubsequenceWithMaximumSum;
 
 public class BruteForceAdapter implements SubsequenceWithMaximumSum {
 

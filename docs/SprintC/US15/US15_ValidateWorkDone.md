@@ -479,7 +479,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 ##Class EmailNotification
     package app.domain.model.testrelated;
     
-    import app.adapter.interfaces.Notification;
+    import app.interfaces.Notification;
     import java.io.File;
     import java.io.FileWriter;
     import java.io.IOException;
@@ -527,7 +527,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
     package app.domain.model.testrelated;
     
-    import app.adapter.interfaces.Notification;
+    import app.interfaces.Notification;
     import java.io.File;
     import java.io.FileWriter;
     import java.io.IOException;

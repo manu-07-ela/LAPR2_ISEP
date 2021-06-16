@@ -17,7 +17,7 @@ public class CreateClientControllerTest {
     ClientStore clStore;
     Company company;
 
-    @Test
+    /*@Test
     public void CreateClient1(){
         company = new Company("Many Labs");
         controller = new CreateClientController();
@@ -38,7 +38,7 @@ public class CreateClientControllerTest {
         clStore = company.getClientStore();
         boolean result = controller.CreateClient(clDto);
         Assert.assertTrue(result);
-    }
+    }*/
 
     /*
     @Test
