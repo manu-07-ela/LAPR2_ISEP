@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -17,15 +18,11 @@ import java.io.IOException;
 
 public class EvaluatePerformanceController {
 
-    /**
-     * Represents a instance of Overview controller
-     */
-    private final OverviewController overviewCtrl;
+    private OverviewController overviewController;
 
     private Stage stage;
 
-    @FXML
-    private ComboBox<String> availableAlgorithms;
+    private int[] seq;
 
     @FXML
     private CategoryAxis x;
@@ -36,28 +33,24 @@ public class EvaluatePerformanceController {
     @FXML
     private LineChart<?, ?> performanceChart;
 
-    /**
-     * Initializes the controller
-     */
-    public EvaluatePerformanceController(){
-        overviewCtrl  = new OverviewController();
-    }
 
-    public void setLabelUI(Stage stage) {
+    public void setLabelUI(Stage stage,OverviewController overviewController, String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         this.stage = stage;
-        System.out.println("1");
-        loadChoiseBox();
-        System.out.println("2");
+        this.overviewController=overviewController;
+        seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
+        loadLineChart();
     }
 
-    /**
-     * Load choise box.
-     */
-    public void loadChoiseBox() {
-        for (int i = 0; i < overviewCtrl.getAvailableAlgorithms().size(); i++) {
-            availableAlgorithms.getItems().add(overviewCtrl.getAvailableAlgorithms().get(i));
+    public void loadLineChart(){
+        XYChart.Series series = new XYChart.Series();
+        for (int i = 0; i<seq.length; i++){
+            series.getData().add(new XYChart.Data(String.valueOf(i),seq[i]));
         }
+        performanceChart.getData().addAll(series);
+
     }
+
+
 
     @FXML
     void closePlatform() {
