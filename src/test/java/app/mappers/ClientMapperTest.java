@@ -14,17 +14,12 @@ public class ClientMapperTest {
     ClientMapper clMapper;
 
 
-    @Before
-    public void setup(){
-
-        clMapper = new ClientMapper();
-        clDto=new ClientDTO("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
-        cl=new Client("José Pessoa","1234567891234567","1234567891","12/12/1995","Male","1234567891","12345678910","pessoa@gmail.com");
-
-    }
-
     @Test
     public void toModel() {
+        clMapper = new ClientMapper();
+        clDto=new ClientDTO("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+        cl=new Client("Test","1234567892345678","1234567891","12/12/1995","Male","1234567890","12345678911","pessoa@gmail.com", "Rua da Paz");
+
         Client result = clMapper.toModel(clDto);
         Assert.assertEquals(cl,result);
     }
