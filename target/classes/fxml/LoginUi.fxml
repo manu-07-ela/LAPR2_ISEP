@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: #1a7180; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.LoginUi">
+   <bottom>
+      <HBox alignment="TOP_CENTER" prefHeight="80.0" prefWidth="200.0" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="exit" mnemonicParsing="false" onMouseClicked="#closePlatform" onMouseEntered="#exitIn" onMouseExited="#exitOut" prefWidth="80.0" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnLogin" defaultButton="true" mnemonicParsing="false" onMouseClicked="#login" onMouseEntered="#logIn" onMouseExited="#logOut" prefWidth="80.0" style="-fx-background-radius: 15; -fx-background-color: #1a7180; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <GridPane alignment="CENTER" prefWidth="100.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="31.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="359.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="3.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="txtEmail" promptText="Username" style="-fx-background-radius: 15; -fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-width: 0px 0px 2px 0px;" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font></TextField>
+            <PasswordField fx:id="txtPassword" promptText="Password" style="-fx-background-radius: 15; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #1a7180;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font></PasswordField>
+            <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="48.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../images/padlock.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblInformation" prefHeight="27.0" prefWidth="350.0" textFill="#b21c1c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="100.0" right="100.0" top="30.0" />
+         </padding>
+      </GridPane>
+   </center>
+   <top>
+      <VBox alignment="TOP_CENTER" prefHeight="86.0" prefWidth="590.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" text="Welcome to Many Labs!">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label text="Sign in by entering the information bellow">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets top="35.0" />
+         </padding>
+      </VBox>
+   </top>
+</BorderPane>

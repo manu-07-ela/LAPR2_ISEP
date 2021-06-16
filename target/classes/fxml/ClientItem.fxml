@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.ItemClientController">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="593.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #1a7180; -fx-border-radius: 20;">
+            <children>
+            <ImageView fitHeight="31.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user%20(1).png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+                <Label alignment="CENTER" prefHeight="35.0" prefWidth="66.0" text="Client">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets right="5.0" />
+                    </HBox.margin>
+                </Label>
+                <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="6.0">
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </Separator>
+            <Label fx:id="name" alignment="CENTER" prefHeight="27.0" prefWidth="182.0">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+                <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="6.0">
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </Separator>
+            <Label fx:id="citizenCardNumber" alignment="CENTER" prefHeight="27.0" prefWidth="200.0">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+                <Separator orientation="VERTICAL" prefHeight="49.0" prefWidth="17.0">
+                    <padding>
+                        <Insets right="3.0" />
+                    </padding>
+                </Separator>
+                <Button fx:id="selectClient" mnemonicParsing="false" onMouseClicked="#selectClientClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 15; -fx-font-weight: bold;" text="Select" textFill="#f8f7f7">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
