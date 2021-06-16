@@ -30,7 +30,7 @@ public class ClientsUi {
 
     private Stage stage;
 
-    private ViewTestsClientController viewTestsClientController = new ViewTestsClientController();
+    private ViewTestsClientController viewTestsClientController;
 
     private List<ClientDTO> clientDTOList;
 
@@ -54,6 +54,10 @@ public class ClientsUi {
     @FXML
     private Label errorMessage;
 
+    public ClientsUi(){
+        viewTestsClientController = new ViewTestsClientController();
+    }
+
     public void setLabelUI(Stage stage) throws IOException {
         this.stage = stage;
         try {
@@ -70,7 +74,7 @@ public class ClientsUi {
         clientDTOList = viewTestsClientController.getClientList();
     }
 
-    public void showClientList() throws IOException {
+    public void showClientList() {
         //clientDTOList = getData();
         int row = 1;
         try {
@@ -128,13 +132,26 @@ public class ClientsUi {
 
 
     @FXML
-    void orderedTinClick() {
-
+    void orderedTinClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        clientDTOList = viewTestsClientController.getClientListByTin();
+        try {
+            showClientList();
+        }catch (Exception e){
+            errorMessage.setText("There are no clients with validated tests");
+            errorMessage.setVisible(true);
+        }
     }
 
 
     @FXML
-    void OrderedNameClick() {
+    void OrderedNameClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        clientDTOList = viewTestsClientController.getClientsListByAlphabeticalOrder();
+        try {
+            showClientList();
+        }catch (Exception e){
+            errorMessage.setText("There are no clients with validated tests");
+            errorMessage.setVisible(true);
+        }
     }
 
     private List<ClientDTO> getData(){

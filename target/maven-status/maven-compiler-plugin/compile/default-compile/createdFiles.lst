@@ -16,6 +16,7 @@ app\ui\console\functionalities\RegisterTestUI.class
 app\mappers\dto\TestTypeDTO.class
 app\mappers\TestResultsMapper.class
 app\ui\gui\OverviewTestUi.class
+app\controller\EvaluatePerformanceController.class
 app\adapter\BruteForceAdapter.class
 app\ui\console\employees\SpecialistDoctorUI.class
 app\ui\console\functionalities\CreateParameterCategoryUI.class
@@ -50,6 +51,7 @@ app\domain\model\attributes\SocCode.class
 app\ui\console\employees\ReceptionistUI.class
 app\ui\Main.class
 app\domain\model\users\Client.class
+app\controller\SendCovid19ReportController.class
 app\domain\shared\Constants.class
 app\domain\model\testrelated\Test.class
 app\SimpleLinearRegression.class
@@ -105,6 +107,7 @@ app\controller\OverviewController.class
 app\domain\model\users\SpecialistDoctor.class
 app\domain\model\users\Employee.class
 app\ui\console\employees\MedLabTechnicianUI.class
+app\ui\gui\SendCovid19ReportUi.class
 app\ui\console\MenuItem.class
 auth\domain\model\UserRole.class
 app\mappers\dto\ParameterDTO.class

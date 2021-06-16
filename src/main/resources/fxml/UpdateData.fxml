@@ -436,12 +436,12 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="1.0" prefWidth="420.0">
                      <children>
-                        <Button fx:id="exit" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#exitClick" prefHeight="31.0" prefWidth="57.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit " textFill="#0f3648">
+                        <Button fx:id="exit" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#exitClick" onMouseEntered="#exitIn" onMouseExited="#exitOut" prefHeight="31.0" prefWidth="57.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit " textFill="#0f3648">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="logout" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logoutClick" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#0f3648">
+                        <Button fx:id="logout" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logoutClick" onMouseEntered="#logoutIn" onMouseExited="#logoutOut" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#0f3648">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>

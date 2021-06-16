@@ -6,7 +6,6 @@ import app.controller.App;
 import app.controller.AuthController;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.UserRoleDTO;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,15 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-
-
-
 import javafx.scene.control.Button;
-
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
@@ -42,11 +36,13 @@ public class LoginUi {
     private ClientUi clientUI;
     private Stage stageReceptionist;
     private ReceptionistUi receptionistUi;
-    private Stage stageMedLabtec;
+    private Stage stageMedLabTec;
     private MedLabTecUi medLabTecUi;
     private Stage stageDoctor;
     private SpecialistDoctorUi specialistDoctorUi;
 
+    @FXML
+    private Button exit;
 
     @FXML
     private Button btnLogin;
@@ -60,7 +56,6 @@ public class LoginUi {
     @FXML
     private Label lblInformation;
     String emailEntered;
-
 
 
     /**
@@ -122,7 +117,7 @@ public class LoginUi {
             }
             if (role.getId().equals("MEDICAL LAB TECHNICIAN")){
                 runMedLabTec();
-                medLabTecUi.setLabelUI(stageMedLabtec);
+                medLabTecUi.setLabelUI(stageMedLabTec);
             }
             if (role.getId().equals("SPECIALIST DOCTOR")){
                 runDoctor();
@@ -258,8 +253,8 @@ public class LoginUi {
     }
     private void runMedLabTec() {
         try {
-            stageMedLabtec = new Stage();
-            stageMedLabtec.initStyle(StageStyle.UNDECORATED);
+            stageMedLabTec = new Stage();
+            stageMedLabTec.initStyle(StageStyle.UNDECORATED);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MedLabTecUi.fxml"));
             Parent root;
@@ -268,9 +263,9 @@ public class LoginUi {
 
             Scene scene = new Scene(root);
 
-            stageMedLabtec.setScene(scene);
+            stageMedLabTec.setScene(scene);
             medLabTecUi = loader.getController();
-            stageMedLabtec.show();
+            stageMedLabTec.show();
         } catch (IOException ex) {
             System.out.println("Problems reading admin menu file \n" + ex);
         }
@@ -293,5 +288,28 @@ public class LoginUi {
         } catch (IOException ex) {
             System.out.println("Problems reading admin menu file \n" + ex);
         }
+    }
+
+    @FXML
+    void exitIn(){
+        exit.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
+        exit.setTextFill(Paint.valueOf("#1a7180"));
+
+    }
+    @FXML
+    void exitOut(){
+        exit.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
+        exit.setTextFill(Paint.valueOf("#ffffff"));
+    }
+    @FXML
+    void logIn(){
+        btnLogin.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
+        btnLogin.setTextFill(Paint.valueOf("#1a7180"));
+
+    }
+    @FXML
+    void logOut(){
+        btnLogin.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
+        btnLogin.setTextFill(Paint.valueOf("#ffffff"));
     }
 }
