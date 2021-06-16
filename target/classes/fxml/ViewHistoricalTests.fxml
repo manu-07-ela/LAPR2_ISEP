@@ -60,7 +60,7 @@
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="OrderedName" mnemonicParsing="false" onMouseClicked="#OrderedNameClick" style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Ordered By Name" textFill="#1a7180">
+                  <CheckBox fx:id="orderedName" mnemonicParsing="false" onMouseClicked="#OrderedNameClick" style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Ordered By Name" textFill="#1a7180">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>

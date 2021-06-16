@@ -5,7 +5,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
-import java.util.List;
 import java.util.regex.Pattern;
 
 import static java.lang.Integer.parseInt;
@@ -303,7 +302,7 @@ public class Client implements Serializable {
     private void citizenCardNumberValidation(String citizenCardNumber){
         if (StringUtils.isEmpty(citizenCardNumber)) throw new NullPointerException("Citizen card number can't be empty");
         if (!StringUtils.isNumeric(citizenCardNumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
-
+        if (citizenCardNumber.length() != 16){ throw new IllegalArgumentException("The citizen card number has 16 digits"); }
     }
 
     /**

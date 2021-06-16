@@ -44,7 +44,7 @@
                         <Insets left="5.0" right="5.0" />
                     </padding>
                 </Separator>
-            <Label fx:id="citizenCardNumber" alignment="CENTER" prefHeight="27.0" prefWidth="200.0">
+            <Label fx:id="tin" alignment="CENTER" prefHeight="27.0" prefWidth="200.0">
                <font>
                   <Font name="System Italic" size="14.0" />
                </font>

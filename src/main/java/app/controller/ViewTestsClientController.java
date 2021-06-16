@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.adapter.interfaces.SortingAlgorithms;
+import app.interfaces.SortingAlgorithms;
 import app.domain.model.Company;
 import app.domain.model.users.Client;
 import app.domain.store.TestStore;
@@ -9,8 +9,7 @@ import app.mappers.TestMapper;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
 
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class ViewTestsClientController {
 
@@ -47,7 +46,7 @@ public class ViewTestsClientController {
      */
     public ViewTestsClientController(Company company) {
         this.company = company;
-        this.tstore = null;
+        this.tstore = new TestStore();
         this.clMapper = new ClientMapper();
         this.client= null;
     }
@@ -79,9 +78,11 @@ public class ViewTestsClientController {
         String algorithm = props.getProperty("Controller.SortAlphabetically.Class");
 
         Class<?> oClass = Class.forName(algorithm);
-        SortingAlgorithms sort = (SortingAlgorithms) oClass.newInstance();
+        Comparator comp = (Comparator) oClass.newInstance();
 
-        return sort.orderClientList(list);
+        Collections.sort(list, comp);
+
+        return list;
     }
 
     /**

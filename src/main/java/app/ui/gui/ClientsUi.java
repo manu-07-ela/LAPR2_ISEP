@@ -2,10 +2,8 @@ package app.ui.gui;
 
 
 import app.controller.ItemClientController;
-import app.controller.ItemController;
 import app.controller.ViewTestsClientController;
 import app.mappers.dto.ClientDTO;
-import app.mappers.dto.TestDTO;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
@@ -44,15 +41,20 @@ public class ClientsUi {
     private ScrollPane scrollPane;
 
     @FXML
-    private CheckBox OrderedName;
+    private CheckBox orderedName;
 
     @FXML
     private CheckBox orderedTin;
+
     @FXML
     private GridPane grid;
 
     @FXML
     private Label errorMessage;
+
+    private int disableName;
+
+    private int disableTin;
 
     public ClientsUi(){
         viewTestsClientController = new ViewTestsClientController();
@@ -60,21 +62,21 @@ public class ClientsUi {
 
     public void setLabelUI(Stage stage) throws IOException {
         this.stage = stage;
-        try {
+       try {
             getListOfClients();
-            showClientList();
-        }catch (Exception e){
+       }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
             errorMessage.setVisible(true);
-        }
-
+            orderedTin.setDisable(true);
+            orderedName.setVisible(true);
+       }
     }
 
     public void getListOfClients(){
         clientDTOList = viewTestsClientController.getClientList();
     }
 
-    public void showClientList() {
+    private void showClientList() {
         //clientDTOList = getData();
         int row = 1;
         try {
@@ -99,6 +101,7 @@ public class ClientsUi {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     void exitClick() {
@@ -131,11 +134,20 @@ public class ClientsUi {
 
 
 
-    @FXML
+   @FXML
     void orderedTinClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        disableName++;
         clientDTOList = viewTestsClientController.getClientListByTin();
         try {
-            showClientList();
+            if (disableName %2 != 0){
+                orderedName.setDisable(true);
+                showClientList();
+                grid.setVisible(true);
+            }else {
+                orderedName.setDisable(false);
+                grid.setVisible(false);
+            }
+
         }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
             errorMessage.setVisible(true);
@@ -145,25 +157,23 @@ public class ClientsUi {
 
     @FXML
     void OrderedNameClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        disableTin++;
         clientDTOList = viewTestsClientController.getClientsListByAlphabeticalOrder();
         try {
-            showClientList();
+            if (disableTin %2 != 0){
+                orderedTin.setDisable(true);
+                showClientList();
+                grid.setVisible(true);
+            }else {
+                orderedTin.setDisable(false);
+                grid.setVisible(false);
+            }
         }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
             errorMessage.setVisible(true);
         }
     }
 
-    private List<ClientDTO> getData(){
-        List<ClientDTO> clients = new ArrayList<>();
-        ClientDTO clientDTO;
-
-        for (int i=0;i<20;i++){
-            clientDTO=new ClientDTO("Manuela", "1111111111111111", "11111", "07/09/2002", "female", "283740", "18273", "manu@gmail.com");
-            clients.add(clientDTO);
-        }
-        return clients;
-    }
 
 
     public void in() {

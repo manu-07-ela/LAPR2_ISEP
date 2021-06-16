@@ -64,7 +64,9 @@ public class OverviewTestUi {
     @FXML
     private Button closePlatform;
 
-    private String algorithm;
+    @FXML
+    private ComboBox<String> availableAlgorithms;
+
 
     /**
      * Initializes the controller
@@ -79,8 +81,8 @@ public class OverviewTestUi {
     public void run() {
         String initial = initialDay.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         String end = endDay.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        String initialDateStr = initial.concat(" ").concat(String.valueOf(initialHour)).concat(":").concat(String.valueOf(initialMin));
-        String endDateStr = end.concat(" ").concat(String.valueOf(endHour)).concat(":").concat(String.valueOf(endMin));
+        String initialDateStr = initial.concat(" ").concat(String.valueOf(initialHour.getValue())).concat(":").concat(String.valueOf(initialMin.getValue()));
+        String endDateStr = end.concat(" ").concat(String.valueOf(endHour.getValue())).concat(":").concat(String.valueOf(endMin.getValue()));
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         try {
             Date initialDate = formatter.parse(initialDateStr);
@@ -93,12 +95,13 @@ public class OverviewTestUi {
         overviewCtrl.getNumberOfTestsWaitingForResults();
         overviewCtrl.getNumberOfTestsWaitingForDiagnosis();
         overviewCtrl.getTotalNumberOfTestsProcessed();
-
+        overviewCtrl.getAvailableAlgorithms();
+        loadAvailableAlgorithmsChoiseBox();
     }
 
-    public void evaluetePerformance() {
+    public void evaluetePerformance() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         runEvaluetePerformance();
-        evaluatePerformanceController.setLabelUI(stageEvaluatePerformance);
+        evaluatePerformanceController.setLabelUI(stageEvaluatePerformance,overviewCtrl,availableAlgorithms.getValue());
         closePlatform.getScene().getWindow().hide();
     }
 
@@ -143,6 +146,12 @@ public class OverviewTestUi {
         for (int j = 0; j < 60; j++) {
             initialMin.getItems().add(valueOf(j));
             endMin.getItems().add(valueOf(j));
+        }
+    }
+
+    public void loadAvailableAlgorithmsChoiseBox(){
+        for (int i = 0; i < overviewCtrl.getAvailableAlgorithms().size(); i++) {
+            availableAlgorithms.getItems().add(overviewCtrl.getAvailableAlgorithms().get(i));
         }
     }
 

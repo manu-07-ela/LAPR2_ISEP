@@ -22,7 +22,7 @@ public class ItemClientController {
     private Label name;
 
     @FXML
-    private Label citizenCardNumber;
+    private Label tin;
 
     private ClientDTO clientDTO;
 
@@ -33,7 +33,8 @@ public class ItemClientController {
     public void setClient(ClientDTO client){
         this.clientDTO = client;
         name.setText(clientDTO.getName());
-        citizenCardNumber.setText(clientDTO.getCitizenCardNumber());
+        tin.setText("");
+        tin.setText(clientDTO.getTin());
     }
     @FXML
     void selectClientClick() throws IOException {

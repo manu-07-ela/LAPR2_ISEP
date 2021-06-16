@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -16,7 +18,11 @@ import java.io.IOException;
 
 public class EvaluatePerformanceController {
 
+    private OverviewController overviewController;
+
     private Stage stage;
+
+    private int[] seq;
 
     @FXML
     private CategoryAxis x;
@@ -27,9 +33,24 @@ public class EvaluatePerformanceController {
     @FXML
     private LineChart<?, ?> performanceChart;
 
-    public void setLabelUI(Stage stage) {
+
+    public void setLabelUI(Stage stage,OverviewController overviewController, String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         this.stage = stage;
+        this.overviewController=overviewController;
+        seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
+        loadLineChart();
     }
+
+    public void loadLineChart(){
+        XYChart.Series series = new XYChart.Series();
+        for (int i = 0; i<seq.length; i++){
+            series.getData().add(new XYChart.Data(String.valueOf(i),seq[i]));
+        }
+        performanceChart.getData().addAll(series);
+
+    }
+
+
 
     @FXML
     void closePlatform() {
