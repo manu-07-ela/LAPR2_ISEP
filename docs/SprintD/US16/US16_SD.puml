@@ -3,7 +3,7 @@ autonumber
 'hide footbox
 actor "Administrator" as ADMIN
 
-participant ": OverviewUI" as UI
+participant ": OverviewTestUi" as UI
 participant ": OverviewController" as CTRL
 participant ": Company" as COMP
 participant ": Overview" as OVERVIEW

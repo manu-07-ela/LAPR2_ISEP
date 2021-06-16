@@ -4,7 +4,11 @@ import java.util.Arrays;
 
 public class BruteForceAlgorithm {
 
-    public static int[] BruteForceAlgorithm(int[] seq) {
+    public BruteForceAlgorithm() {
+
+    }
+
+    public int[] MaxSubsequence(int[] seq){
         int maxSubArraySum = Integer.MIN_VALUE;
         int start = 0;
         int end = 0;
