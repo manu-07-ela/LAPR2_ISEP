@@ -1,6 +1,7 @@
 package app.domain.store;
 
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
+import app.domain.model.testrelated.TestType;
 import app.mappers.CreateClinicalAnalysisLaboratoryMapper;
 import app.mappers.dto.ClinicalAnalysisLaboratoryDTO;
 
@@ -92,7 +93,14 @@ public class ClinicalAnalysisLaboratoryStore implements Serializable {
         }
     }
 
-
+    public ClinicalAnalysisLaboratory getClinicalAnalysisLaboratoryByLabId(String labId) {
+        for (ClinicalAnalysisLaboratory lab : clinicalAnalysisLaboratoryList) {
+            if (lab.getLaboratoryId().equals(labId)) {
+                return lab;
+            }
+        }
+        return null;
+    }
 
 
 }

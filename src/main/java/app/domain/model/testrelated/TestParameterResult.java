@@ -24,6 +24,13 @@ public class TestParameterResult implements Serializable {
      */
     private Date chemicalAnalysisDate;
 
+    public TestParameterResult(){
+        this.refValue=null;
+        this.result = null;
+        this.metric = null;
+        this.chemicalAnalysisDate = null;
+    }
+
     /**
      * Constructs an instance of the TestParameterResult
      * @param refValue An object of RefValue with the reference values
@@ -66,6 +73,13 @@ public class TestParameterResult implements Serializable {
      * @return the Date of the Chemical Analysis
      */
     public Date getChemicalAnalysisDate() { return this.chemicalAnalysisDate;}
+
+    /**
+     * Sets the Date of the Chemical Analysis
+     */
+    public void setChemicalAnalysisDate(Date chemicalAnalysisDate) {
+        this.chemicalAnalysisDate = chemicalAnalysisDate;
+    }
 
     @Override
     public String toString() {

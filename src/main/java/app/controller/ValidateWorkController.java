@@ -123,7 +123,7 @@ public class ValidateWorkController {
      * @return Registration Date formatted.
      */
     public String showRegistrationDate() {
-        return dateMapper.toDto(test.getTestAddDate()).toString();
+            return dateMapper.toDto(test.getSamplesAddDate()).toString();
     }
 
     /**
