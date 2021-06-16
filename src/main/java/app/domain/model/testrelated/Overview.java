@@ -1,8 +1,10 @@
 package app.domain.model.testrelated;
 
+import app.adapter.interfaces.SubsequenceWithMaximumSum;
 import app.domain.model.users.Client;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +28,14 @@ public class Overview {
 
     private List<Test> testsWaitingForDiagnosis;
 
+
+
+    /**
+     *
+     */
+    private List<String> availableAlgorithms = new ArrayList(Arrays.asList("Benchmark", "Brute Force"));
+
+
     public Overview(Date initialDate, Date endDate, List<Test> testList){
         this.testList=testList;
         getAssociatedClients();
@@ -34,6 +44,7 @@ public class Overview {
         this.numberOfTestWaitingForResults=testWaitingForResults.size();
         getTestsWaitingForDiagnosis();
         this.numberOfTestsWaitingForDiagnosis=testsWaitingForDiagnosis.size();
+        this.totalNumberOfTestsProcessed=testList.size();
     }
 
     private void getAssociatedClients(){
@@ -73,5 +84,30 @@ public class Overview {
 
     public Integer getNumberOfTestsWaitingForDiagnosis() {
         return numberOfTestsWaitingForDiagnosis;
+    }
+
+    public Integer getTotalNumberOfTestsProcessed() {
+        return totalNumberOfTestsProcessed;
+    }
+
+    public List<String> getAvailableAlgorithms(){
+        return availableAlgorithms;
+    }
+
+    /**
+     *
+     * @param algorithm
+     * @return
+     * @throws ClassNotFoundException
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
+    public int[] getSubsequenceWithMaximumSum(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        String api= String.format("app.adapter.%sAdapter",algorithm);
+
+        Class <?> oClass = Class.forName(api);
+
+        SubsequenceWithMaximumSum subMaxSum = (SubsequenceWithMaximumSum) oClass.newInstance();
+        return subMaxSum.getSubsequenceWithMaximumSum( new int[]{29, -32, -9, -25, 44, 12, -61, 51, -9, 44, 74, 4});
     }
 }
