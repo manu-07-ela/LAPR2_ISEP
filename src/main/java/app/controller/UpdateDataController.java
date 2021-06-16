@@ -123,6 +123,13 @@ public class UpdateDataController {
      */
     public void updatePhoneNumber (Client client, String phoneNumber){store.updatePhoneNumber(client, phoneNumber);}
 
+    /**
+     * It updates the Address of the Client
+     * @param client The Client
+     * @param address The address of the Client you want to update
+     */
+    public void updateAddress (Client client, String address){store.updateAddress(client, address);}
+
     public String  clientData(Client client){
         return client.toString();
     }

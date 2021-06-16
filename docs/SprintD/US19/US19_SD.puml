@@ -10,7 +10,8 @@ participant ":Timer" as Timer
 activate TM
 TM -> Comp : scheduleOperation(delay,interval)
 activate Comp
-Comp -> Task** : create(...)
+
+Comp -> Task** : create(ListOfTestsValidatedWithininterval)
 Comp -> Timer** : create()
 Comp -> Timer : schedule(task,delay,interval)
 activate Timer
