@@ -289,4 +289,5 @@ public class TestStoreTest {
         app.domain.model.testrelated.Test result = ttStore.getTestByInternalCode("123123123123");
         Assert.assertNull(result);
     }
+
 }

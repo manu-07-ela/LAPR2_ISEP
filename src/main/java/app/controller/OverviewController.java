@@ -9,6 +9,7 @@ import app.domain.store.TestStore;
 import app.mappers.TestMapper;
 import app.mappers.TestParameterMapper;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class OverviewController {
         this.company =company;
     }
 
-    public void getIntervalTestList(Date initialDate, Date endDate){
+    public void getIntervalTestList(Date initialDate, Date endDate) throws ParseException {
         this.testStore=company.getTestStore();
         List<Test> testList = testStore.getIntervalTestList(initialDate, endDate);
         this.overview=new Overview(initialDate,endDate,testList);
