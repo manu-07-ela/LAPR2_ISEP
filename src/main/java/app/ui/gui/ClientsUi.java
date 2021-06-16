@@ -64,7 +64,6 @@ public class ClientsUi {
         this.stage = stage;
        try {
             getListOfClients();
-            showClientList();
        }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
             errorMessage.setVisible(true);
@@ -77,7 +76,7 @@ public class ClientsUi {
         clientDTOList = viewTestsClientController.getClientList();
     }
 
-    public void showClientList() {
+    private void showClientList() {
         //clientDTOList = getData();
         int row = 1;
         try {
@@ -102,6 +101,7 @@ public class ClientsUi {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     void exitClick() {
@@ -137,14 +137,17 @@ public class ClientsUi {
    @FXML
     void orderedTinClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         disableName++;
-        if (disableName %2 != 0){
-            orderedName.setDisable(true);
-        }else {
-            orderedName.setDisable(false);
-        }
         clientDTOList = viewTestsClientController.getClientListByTin();
         try {
-            showClientList();
+            if (disableName %2 != 0){
+                orderedName.setDisable(true);
+                showClientList();
+                grid.setVisible(true);
+            }else {
+                orderedName.setDisable(false);
+                grid.setVisible(false);
+            }
+
         }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
             errorMessage.setVisible(true);
@@ -155,30 +158,22 @@ public class ClientsUi {
     @FXML
     void OrderedNameClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         disableTin++;
-        if (disableTin %2 != 0){
-            orderedTin.setDisable(true);
-        }else {
-            orderedTin.setDisable(false);
-        }
         clientDTOList = viewTestsClientController.getClientsListByAlphabeticalOrder();
         try {
-            showClientList();
+            if (disableTin %2 != 0){
+                orderedTin.setDisable(true);
+                showClientList();
+                grid.setVisible(true);
+            }else {
+                orderedTin.setDisable(false);
+                grid.setVisible(false);
+            }
         }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
             errorMessage.setVisible(true);
         }
     }
 
-    private List<ClientDTO> getData(){
-        List<ClientDTO> clients = new ArrayList<>();
-        ClientDTO clientDTO;
-
-        for (int i=0;i<20;i++){
-            clientDTO=new ClientDTO("Manuela", "1111111111111111", "11111", "07/09/2002", "female", "283740", "18273", "manu@gmail.com");
-            clients.add(clientDTO);
-        }
-        return clients;
-    }
 
 
     public void in() {
