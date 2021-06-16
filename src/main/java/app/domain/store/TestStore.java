@@ -221,16 +221,17 @@ public class TestStore implements Serializable {
     }
 
     public List<Client> getClientWithTestsValidated(){
-        List<Client> lista = new ArrayList<>();
+        List<Client> list = new ArrayList<>();
         for (Test t: testList) {
-            if (t.getStateOfTest()==Validated){
-                lista.add(t.getCl());
+            if (t.getStateOfTest()==Validated && !list.contains(t.getCl())){
+                list.add(t.getCl());
             }
         }
-        if (lista.size()==0){
+        if (list.size()==0){
             throw new IllegalArgumentException("There aren't Clients with tests validated");
         }
-        return lista;
+
+        return list;
     }
 
     public List<Test> getTestListAssociatedWithClient(ClientDTO selectedClient){
@@ -261,13 +262,13 @@ public class TestStore implements Serializable {
         }
         Collections.reverse(date);
         for(Date d : date){
-            Test t =getTestbyDate(d);
+            Test t = getTestByDate(d);
             test.add(t);
         }
         return test;
     }
 
-    private Test getTestbyDate(Date d){
+    private Test getTestByDate(Date d){
             for (Test t: testList) {
                 if (t.getSamplesAddDate().equals(d)) {
                     return t;

@@ -1,11 +1,13 @@
 package app.adapter;
 
-import app.adapter.interfaces.SubsequenceWithMaximumSum;
+import app.interfaces.SubsequenceWithMaximumSum;
+import com.isep.mdis.Sum;
 
 public class BenchmarkAdapter implements SubsequenceWithMaximumSum {
 
     @Override
     public int[] getSubsequenceWithMaximumSum(int[] seq) {
-        return new int[0];
+        Sum externalAPI = new Sum();
+        return externalAPI.Max(seq);
     }
 }

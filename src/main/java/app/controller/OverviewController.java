@@ -66,4 +66,16 @@ public class OverviewController {
         return overview.getNumberOfTestsWaitingForDiagnosis();
     }
 
+    public int  getTotalNumberOfTestsProcessed(){
+        return overview.getTotalNumberOfTestsProcessed();
+    }
+
+    public List<String> getAvailableAlgorithms(){
+        return overview.getAvailableAlgorithms();
+    }
+
+    public int[] getSubsequenceWithMaximumSum(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        return overview.getSubsequenceWithMaximumSum(algorithm);
+    }
+
 }

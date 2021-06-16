@@ -2,10 +2,8 @@ package app.ui.gui;
 
 
 import app.controller.ItemClientController;
-import app.controller.ItemController;
 import app.controller.ViewTestsClientController;
 import app.mappers.dto.ClientDTO;
-import app.mappers.dto.TestDTO;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +11,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -27,7 +27,7 @@ public class ClientsUi {
 
     private Stage stage;
 
-    private ViewTestsClientController viewTestsClientController = new ViewTestsClientController();
+    private ViewTestsClientController viewTestsClientController;
 
     private List<ClientDTO> clientDTOList;
 
@@ -41,24 +41,43 @@ public class ClientsUi {
     private ScrollPane scrollPane;
 
     @FXML
-    private CheckBox OrderedName;
+    private CheckBox orderedName;
 
     @FXML
     private CheckBox orderedTin;
+
     @FXML
     private GridPane grid;
 
+    @FXML
+    private Label errorMessage;
+
+    private int disableName;
+
+    private int disableTin;
+
+    public ClientsUi(){
+        viewTestsClientController = new ViewTestsClientController();
+    }
+
     public void setLabelUI(Stage stage) throws IOException {
         this.stage = stage;
-        getListOfClients();
-        showClientList();
+       try {
+            getListOfClients();
+            showClientList();
+       }catch (Exception e){
+            errorMessage.setText("There are no clients with validated tests");
+            errorMessage.setVisible(true);
+            orderedTin.setDisable(true);
+            orderedName.setVisible(true);
+       }
     }
 
     public void getListOfClients(){
         clientDTOList = viewTestsClientController.getClientList();
     }
 
-    public void showClientList() throws IOException {
+    public void showClientList() {
         //clientDTOList = getData();
         int row = 1;
         try {
@@ -115,14 +134,39 @@ public class ClientsUi {
 
 
 
-    @FXML
-    void orderedTinClick() {
-
+   @FXML
+    void orderedTinClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        disableName++;
+        if (disableName %2 != 0){
+            orderedName.setDisable(true);
+        }else {
+            orderedName.setDisable(false);
+        }
+        clientDTOList = viewTestsClientController.getClientListByTin();
+        try {
+            showClientList();
+        }catch (Exception e){
+            errorMessage.setText("There are no clients with validated tests");
+            errorMessage.setVisible(true);
+        }
     }
 
 
     @FXML
-    void OrderedNameClick() {
+    void OrderedNameClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        disableTin++;
+        if (disableTin %2 != 0){
+            orderedTin.setDisable(true);
+        }else {
+            orderedTin.setDisable(false);
+        }
+        clientDTOList = viewTestsClientController.getClientsListByAlphabeticalOrder();
+        try {
+            showClientList();
+        }catch (Exception e){
+            errorMessage.setText("There are no clients with validated tests");
+            errorMessage.setVisible(true);
+        }
     }
 
     private List<ClientDTO> getData(){
@@ -137,5 +181,22 @@ public class ClientsUi {
     }
 
 
+    public void in() {
+        exit.setStyle("-fx-background-color: #ffffff ;-fx-background-radius: 15px");
+        exit.setTextFill(Paint.valueOf("#1a7180"));
+    }
+    public void out() {
+        exit.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px");
+        exit.setTextFill(Paint.valueOf("#ffffff"));
+    }
+
+    public void inLog() {
+        logout.setStyle("-fx-background-color: #ffffff ;-fx-background-radius: 15px");
+        logout.setTextFill(Paint.valueOf("#1a7180"));
+    }
+    public void onLog(){
+        logout.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px");
+        logout.setTextFill(Paint.valueOf("#ffffff"));
+    }
 }
 

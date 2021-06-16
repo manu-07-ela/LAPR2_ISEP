@@ -1,4 +1,4 @@
-package app.adapter.interfaces;
+package app.interfaces;
 
 import app.domain.model.testrelated.BarcodeDomain;
 import net.sourceforge.barbecue.BarcodeException;
@@ -10,6 +10,7 @@ import java.io.IOException;
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 public interface ExternalModuleBarcode {
+
     /**
      * Method that will generate and return the barcode that will be associated with a sample
      * @return A barcode

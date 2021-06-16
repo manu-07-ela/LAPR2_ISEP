@@ -49,30 +49,46 @@ public class Company implements Serializable {
      * Represents an instance of the store of ClinicalAnalysisLaboratories
      */
     private final ClinicalAnalysisLaboratoryStore clinicalAnalysisLaboratoryStore;
+
     /**
      *
      */
     private final ChemicalLaboratory chemicalLaboratory;
+
     /**
      * Represents a instance of the store of employees
      */
     private final EmployeeStore employeeStore;
+
     /**
      * Represents a instance of the store of organization roles
      */
     private final OrganizationRoleStore organizationRoleStore;
+
     /**
      * Represents a instance of the store of Client
      */
     private final ClientStore clientStore;
+
     /**
      *  Represents a instance of the store of Tests
      */
     private final TestStore testStore;
+
     /**
      * A List with all API's
      */
     private List<String> listaDeAPI = new ArrayList(Arrays.asList("CovidReferenceValues1API", "ExternalModule1API","ExternalModule2API"));
+
+    /**
+     *
+     */
+    private List<String> availableTypesOfData = new ArrayList(Arrays.asList("Day", "Week"));
+
+    /**
+     *
+     */
+    private List<String> availableRegressionModels = new ArrayList(Arrays.asList("Simple Linear", "Multiple Linear"));
 
 
     /**
@@ -103,7 +119,6 @@ public class Company implements Serializable {
     public ChemicalLaboratory getChemicalLaboratory() {
         return chemicalLaboratory;
     }
-
 
     /**
      * Get the company designation.
@@ -161,12 +176,13 @@ public class Company implements Serializable {
         return parameterStore;
     }
 
-
     /**
      * Gets the list containing the ClinicalAnalysisLaboratoryStore
      * @return The ClinicalAnalysisLaboratoryStore
      */
-    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){ return clinicalAnalysisLaboratoryStore; }
+    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){
+        return clinicalAnalysisLaboratoryStore;
+    }
 
     /**
      * Gets the instance of ClientStore
@@ -175,6 +191,7 @@ public class Company implements Serializable {
     public ClientStore getClientStore() {
         return clientStore;
     }
+
     /**
      * Gets the instance of TestStore
      * @return the instance of testStore
@@ -182,6 +199,7 @@ public class Company implements Serializable {
     public TestStore getTestStore(){
         return testStore;
     }
+
     /**
      * Gets the list of API´s
      * @return the list of API´s
@@ -189,4 +207,22 @@ public class Company implements Serializable {
     public  List<String> getListDeAPI() {
         return listaDeAPI;
     }
+
+    /**
+     *
+     * @return
+     */
+    public List<String> getAvailableTypesOfData(){
+        return availableTypesOfData;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<String> getAvailableRegressionModels(){
+        return availableRegressionModels;
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package app.adapter.interfaces;
+package app.interfaces;
 
 import app.mappers.dto.ClientDTO;
 

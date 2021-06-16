@@ -1,6 +1,6 @@
 package app.adapter;
 
-import app.adapter.interfaces.SortingAlgorithms;
+import app.interfaces.SortingAlgorithms;
 import app.mappers.dto.ClientDTO;
 
 import java.util.List;

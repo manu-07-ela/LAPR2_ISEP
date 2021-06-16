@@ -1,4 +1,4 @@
-package app.adapter.interfaces;
+package app.interfaces;
 
 import app.domain.model.testrelated.Test;
 import java.io.IOException;

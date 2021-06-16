@@ -3,7 +3,7 @@ autonumber
 'hide footbox
 actor "Administrator" as ADMIN
 
-participant ": OverviewUI" as UI
+participant ": OverviewTestUi" as UI
 participant ": OverviewController" as CTRL
 participant ": Company" as COMP
 participant ": Overview" as OVERVIEW
@@ -69,9 +69,9 @@ UI -> CTRL : getAvailableAlgorithms()
 activate CTRL
 CTRL -> OVERVIEW : getAvailableAlgorithms()
 activate OVERVIEW
-OVERVIEW --> CTRL : availableAlgorithmsList
+OVERVIEW --> CTRL : availableAlgorithms
 deactivate OVERVIEW
-CTRL --> UI : availableAlgorithmsList
+CTRL --> UI : availableAlgorithms
 deactivate CTRL
 UI --> ADMIN : Shows available algorithms
 deactivate UI

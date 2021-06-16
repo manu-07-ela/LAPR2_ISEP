@@ -5,7 +5,6 @@ import com.example3.CovidReferenceValues1API;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 public class CovidReferenceValues1APIAdapterTest {
 
