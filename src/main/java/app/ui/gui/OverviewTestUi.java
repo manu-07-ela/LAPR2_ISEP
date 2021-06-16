@@ -59,6 +59,8 @@ public class OverviewTestUi {
     @FXML
     private Button closePlatform;
 
+    private String algorithm;
+
     /**
      * Initializes the controller
      */
@@ -82,6 +84,17 @@ public class OverviewTestUi {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        overviewCtrl.getNumberOfClients();
+        overviewCtrl.getNumberOfTestsWaitingForResults();
+        overviewCtrl.getNumberOfTestsWaitingForDiagnosis();
+        overviewCtrl.getTotalNumberOfTestsProcessed();
+
+    }
+
+    public void evaluetePerformance() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        overviewCtrl.getAvailableAlgorithms();
+        overviewCtrl.getSubsequenceWithMaximumSum(algorithm);
+
     }
 
     public void setLabelUI(Stage stage) {
