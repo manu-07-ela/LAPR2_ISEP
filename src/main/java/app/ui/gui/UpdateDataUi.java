@@ -301,6 +301,22 @@ public class UpdateDataUi {
     }
     @FXML
     void saveAddressClick() {
+        //updateDataController.clientData(client);
+        String address = writeAddress.getText().trim();
+        try {
+            updateDataController.updateAddress(client, address);
+            errorMessage.setText("Address was updated!");
+            errorMessage.setVisible(true);
+        }catch (NullPointerException e){
+            errorMessage.setText(e.getMessage());
+            errorMessage.setVisible(true);
+        }
+        catch (IllegalArgumentException e){
+            errorMessage.setText(e.getMessage());
+            errorMessage.setVisible(true);
+        }
+        //updateDataController.clientData(client);
+        writeAddress.clear();
 
     }
 
