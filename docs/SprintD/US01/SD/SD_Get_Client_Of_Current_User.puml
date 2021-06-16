@@ -14,7 +14,7 @@ participant ": ClientDTO" as cDto
 
 ->CTRL: doSomething()
 activate CTRL
-CTRL -> APP : app= getIntance()
+CTRL -> APP : app= getInstance()
 activate APP
 deactivate APP
 CTRL -> app : session = getCurrentUserSession()
