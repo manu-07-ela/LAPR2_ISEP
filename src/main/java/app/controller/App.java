@@ -116,6 +116,7 @@ public class App implements Serializable {
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         company.getTestTypeStore().addTestType(tt);
         company.getClientStore().addClient(new Client("Rita","1111111111111111","1231231231","26/11/2002","Female","1231231231","11111111111","rita@gmail.com","Rua das gaitas"));
+        company.getClientStore().addClient(new Client("Manuela", "1234567890123456", "1234567890", "07/09/2002", "Female", "1234567890","12345678901", "manu@gmail.com", "Rua 10 do Cerrado"));
         authFacade.addUserWithRole("Rita","rita@gmail.com","111111","CLIENT");
         ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Clinical laboratory", "Rua 20", "12312312312", "1234567890", "1234s",company.getTestTypeStore().getTestTypeList());
         this.company.getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(lab);

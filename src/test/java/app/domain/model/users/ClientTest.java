@@ -138,24 +138,23 @@ public class ClientTest {
         cl.setName("");
     }
 
-    /*
-    @Test(expected = IllegalArgumentException.class)
+
+    @Test
     public void setName4() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
         cl.setName("qwertyuiopçlkmjhgfdsanbvcxzqwertyui");
         Assert.assertEquals("qwertyuiopçlkmjhgfdsanbvcxzqwertyui",cl.getName());
     }
 
-     */
 
-    /*
+
     @Test(expected = IllegalArgumentException.class)
     public void setCitizenCardNumber1() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
         cl.setCitizenCardNumber("12345678909876543213456789765432");
     }
     
-     */
+
 
     @Test(expected = NullPointerException.class)
     public void setCitizenCardNumber2() {
@@ -198,43 +197,147 @@ public class ClientTest {
     @Test(expected = IllegalArgumentException.class)
     public void setNhs4() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setNhs("sxwdefrgthyjukiolkijuhygtfr");
+        cl.setNhs("12345678908765432223456789876543");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setNhs5() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setNhs("sxdfg");
+        cl.setNhs("1234");
     }
 
     @Test
-    public void setDate() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+    public void setSex1() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","male","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setSex("female");
+        Assert.assertEquals("female",cl.getSex());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setSex2() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","male","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setSex("rdtfgyuhij");
     }
 
     @Test
-    public void setSex() {
+    public void setAddress1() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setAddress("Rua dos Montes");
+        Assert.assertEquals("Rua dos Montes",cl.getAddress());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setAddress2() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setAddress("Rua dos Montes fegrthyjhtgrfgthyjuyhgtrfdccegtryjukiouyjhtgrfedxsdcefgtyjukiujnybgvfcdefrgtyjukiojyhtbgrvfecdfrtgyjukiokujyh");
+
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void setTin1() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setTin("");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setTin2() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setTin("erghy12345");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setTin3() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setTin("123456789087654321345678");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setTin4() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setTin("123");
     }
 
     @Test
-    public void setAddress() {
+    public void setTin5() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setTin("1234567890");
+        Assert.assertEquals("1234567890",cl.getTin());
     }
 
     @Test
-    public void setTin() {
+    public void setPhoneNumber1() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setPhoneNumber("12345678901");
+        Assert.assertEquals("12345678901",cl.getPhoneNumber());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void setPhoneNumber2() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setPhoneNumber("");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setPhoneNumber3() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setPhoneNumber("asdfretg123");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setPhoneNumber4() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setPhoneNumber("123456789098765432123456789");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setPhoneNumber5() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setPhoneNumber("123456");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setEmail1() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setEmail("");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setEmail2() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setEmail("erwgewrgewrggtrgr");
     }
 
     @Test
-    public void setPhoneNumber() {
+    public void setEmail3() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setEmail("Lasdsd@gmail.com");
+        Assert.assertEquals("Lasdsd@gmail.com",cl.getEmail());
     }
 
     @Test
-    public void setEmail() {
+    public void setDate1() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setDate("02/04/2003");
+        Assert.assertEquals("02/04/2003",cl.getDate());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setDate2() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setDate("02-04-2003");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setDate3() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setDate("");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setDate4() {
+        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
+        cl.setDate("04/05/1300");
+    }
+
 }
 

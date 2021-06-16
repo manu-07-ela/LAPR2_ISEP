@@ -1,6 +1,6 @@
 package app.domain.model.testrelated;
 
-import app.adapter.interfaces.SubsequenceWithMaximumSum;
+import app.interfaces.SubsequenceWithMaximumSum;
 import app.domain.model.users.Client;
 
 import java.util.ArrayList;

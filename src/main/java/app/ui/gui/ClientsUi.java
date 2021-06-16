@@ -2,10 +2,8 @@ package app.ui.gui;
 
 
 import app.controller.ItemClientController;
-import app.controller.ItemController;
 import app.controller.ViewTestsClientController;
 import app.mappers.dto.ClientDTO;
-import app.mappers.dto.TestDTO;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
@@ -44,15 +41,20 @@ public class ClientsUi {
     private ScrollPane scrollPane;
 
     @FXML
-    private CheckBox OrderedName;
+    private CheckBox orderedName;
 
     @FXML
     private CheckBox orderedTin;
+
     @FXML
     private GridPane grid;
 
     @FXML
     private Label errorMessage;
+
+    private int disableName;
+
+    private int disableTin;
 
     public ClientsUi(){
         viewTestsClientController = new ViewTestsClientController();
@@ -60,14 +62,15 @@ public class ClientsUi {
 
     public void setLabelUI(Stage stage) throws IOException {
         this.stage = stage;
-        try {
+       try {
             getListOfClients();
             showClientList();
-        }catch (Exception e){
+       }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
             errorMessage.setVisible(true);
-        }
-
+            orderedTin.setDisable(true);
+            orderedName.setVisible(true);
+       }
     }
 
     public void getListOfClients(){
@@ -131,8 +134,14 @@ public class ClientsUi {
 
 
 
-    @FXML
+   @FXML
     void orderedTinClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        disableName++;
+        if (disableName %2 != 0){
+            orderedName.setDisable(true);
+        }else {
+            orderedName.setDisable(false);
+        }
         clientDTOList = viewTestsClientController.getClientListByTin();
         try {
             showClientList();
@@ -145,6 +154,12 @@ public class ClientsUi {
 
     @FXML
     void OrderedNameClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        disableTin++;
+        if (disableTin %2 != 0){
+            orderedTin.setDisable(true);
+        }else {
+            orderedTin.setDisable(false);
+        }
         clientDTOList = viewTestsClientController.getClientsListByAlphabeticalOrder();
         try {
             showClientList();
