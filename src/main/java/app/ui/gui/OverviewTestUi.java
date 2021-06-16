@@ -64,7 +64,6 @@ public class OverviewTestUi {
     @FXML
     private Button closePlatform;
 
-    private String algorithm;
 
     /**
      * Initializes the controller
@@ -93,13 +92,14 @@ public class OverviewTestUi {
         overviewCtrl.getNumberOfTestsWaitingForResults();
         overviewCtrl.getNumberOfTestsWaitingForDiagnosis();
         overviewCtrl.getTotalNumberOfTestsProcessed();
-
     }
 
     public void evaluetePerformance() {
         runEvaluetePerformance();
         evaluatePerformanceController.setLabelUI(stageEvaluatePerformance);
+        System.out.println("3");
         closePlatform.getScene().getWindow().hide();
+        System.out.println("4");
     }
 
     @FXML
