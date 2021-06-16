@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.EvaluatePerformanceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.EvaluatePerformanceController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="55.0" prefWidth="604.0" spacing="15.0">
          <children>
@@ -27,7 +27,7 @@
       </HBox>
    </bottom>
    <top>
-      <VBox prefHeight="100.0" prefWidth="425.0">
+      <VBox prefHeight="83.0" prefWidth="600.0">
          <children>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="400.0">
                <children>
@@ -45,15 +45,34 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <LineChart fx:id="performanceChart">
+            <HBox alignment="CENTER" prefHeight="78.0" prefWidth="600.0" spacing="15.0">
+               <children>
+                  <Label alignment="CENTER" prefWidth="123.0" text="Algorithm:" textFill="#1a7180">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="availableAlgorithms" prefHeight="35.0" prefWidth="182.0" style="-fx-background-color: white; -fx-border-color: #1a7180; -fx-border-radius: 4; -fx-background-radius: 10;" />
+               </children>
+               <VBox.margin>
+                  <Insets right="12.0" />
+               </VBox.margin>
+            </HBox>
+            <LineChart fx:id="performanceChart" prefHeight="247.0" prefWidth="734.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" fx:id="x" />
               </xAxis>
               <yAxis>
                 <NumberAxis fx:id="y" side="LEFT" />
               </yAxis>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </LineChart>
          </children>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
       </VBox>
    </center>
 </BorderPane>
