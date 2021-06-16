@@ -1,157 +1,157 @@
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\App.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\ClinicalAnalysisLaboratoryStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\TestStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateParameterCategoryUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\domain\store\UserRoleStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\ClientMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\ClientDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\TestParameterDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateClientUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\domain\model\Password.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\laboratories\ClinicalAnalysisLaboratory.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\EmailNotification.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\RecordSampleController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\laboratories\Laboratory.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\Overview.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\RegisterTestController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\Notification.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\MainApp.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\ParameterCategory.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\DateDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\RegisterEmployeeController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\UpdateDataUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\ClientStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\WriteMedicalReportUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\SocCode.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\UpdateDataController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ImportFileUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\WriteMedicalReportController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\SendCovid19ReportUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\ExternalModule2APIAdapter.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ParameterResultController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\BruteForceAlgorithm.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ImportFileController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\mappers\UserRoleMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ItemController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\RegisterEmployeeUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\CovidReferenceValues1APIAdapter.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\OverviewController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\users\Employee.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ValidateWorkController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\LabCoordinatorUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\MultipleLinearRegression.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\SampleList.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\SMSNotification.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\ParameterMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ClinicalChemistryTecUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\EvaluatePerformanceController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ValidateWorkUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\TestTypeDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\DevTeamUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\BenchmarkAdapter.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateParameterUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\TestTypeStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\SortByTin.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\AdmUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\ReceptionistUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\Test.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ItemClientController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ViewTestsClientController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ViewTestResultUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateTestTypeUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\DoctorIndexNumber.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ImportFileUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\utils\Utils.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\CreateTestTypeController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\mappers\dto\UserRoleDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\SubsequenceWithMaximumSum.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\CreateParameterCategoryController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\domain\model\User.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\laboratories\ChemicalLaboratory.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\Serialization.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\SpecialistDoctorUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateClinicalAnalysisLaboratoryUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ClientsUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\RecordResultsUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\CSVFileReader.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\ClinicalChemistryTechUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\ExternalModuleReferencesValue.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\TestParameterResult.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ClientUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\PhoneNumber.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\ClientUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\BarcodeAdapter.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\MedicalReport.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\Address.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\TestTyperMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\LabCoordinatorUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\AuthFacade.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\domain\store\UserStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\MainMenuUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\ExternalModule3APIAdapter.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\DateMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\OverviewTestUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\Company.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\SortingAlgorithms.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\SpecialistDoctorUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\TestResultsMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\TestParameter.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\domain\model\Email.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\OrganizationRoleStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\TestDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\ParameterCategoryStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ReceptionistUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\OrganizationRole.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\EmployeeDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\ParameterDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\SendCovid19ReportController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\ClinicalAnalysisLaboratoryDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\SimpleLinearRegression.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\Name.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ErrorUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\MedLabTecUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ViewResultsUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\BruteForceAdapter.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\domain\model\UserRole.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\RefValue.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\users\Client.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\EmployeeMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\MenuItem.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\LabCoordinatorValidation.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\Sample.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\OrganizationRoleDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\BarcodeDomain.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\MedLabTechnicianUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\SortAlphabetically.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\TestParameterMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\OrganizationRoleMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\auth\UserSession.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\LoginUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\users\SpecialistDoctor.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\ShowTextUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ViewResultsUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\AuthController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\AdminUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\CreateClinicalAnalysisLaboratoryMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\Main.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\OverviewUi.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\AuthUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\shared\Constants.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\CreateParameterController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\TestMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\ParameterCategoryDTO.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\testResultDto.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\CreateClientController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\Parameter.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ViewTestsClientUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\ParameterStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\RecordSampleUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\ParameterCategoryMapper.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\RegisterTestUI.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\NhsCode.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\TestType.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\CreateClinicalAnalysisLaboratoryController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\EmployeeStore.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\ExternalModuleBarcode.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\RecordResultsController.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ViewResultsController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\DoctorIndexNumber.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\domain\store\UserRoleStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\BarcodeAdapter.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\SMSNotification.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\ClientDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ViewTestsClientUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\TestResultsMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\EvaluatePerformanceController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\UpdateDataUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\CreateClinicalAnalysisLaboratoryMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\RefValue.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\TestParameterDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\SpecialistDoctorUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\EmailNotification.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\TestParameter.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\SendCovid19ReportUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\LoginUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\DateDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ImportFileUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ViewTestResultUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\ParameterCategory.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\TestParameterResult.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\Test.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\CreateParameterController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\ReceptionistUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\DevTeamUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\MedicalReport.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\BarcodeDomain.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\ParameterCategoryMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateParameterCategoryUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\CreateClientController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\ClientUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\AuthController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\domain\model\UserRole.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ClientUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\AuthUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ClientsUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\testResultDto.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\TestParameterMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\ItemClientController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\TestMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\store\OrganizationRoleStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\shared\Constants.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\users\Employee.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\store\ClientStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\laboratories\Laboratory.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateClinicalAnalysisLaboratoryUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\TestTypeDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\Address.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\Notification.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\NhsCode.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\SimpleLinearRegression.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\mappers\dto\UserRoleDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\Company.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\MultipleLinearRegression.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\store\ParameterStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\ExternalModuleBarcode.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\UpdateDataController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\RegisterTestController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\ClinicalAnalysisLaboratoryDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\WriteMedicalReportUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ImportFileUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\RegisterEmployeeUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\RecordResultsController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\TestTyperMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\ItemController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\EmployeeDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\AuthFacade.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\ParameterResultController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\ExternalModule2APIAdapter.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\ImportFileController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\BruteForceAdapter.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\ClientMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ViewResultsUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\SendCovid19ReportController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\SpecialistDoctorUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\MainApp.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\BenchmarkAdapter.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\BruteForceAlgorithm.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ClinicalChemistryTecUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\TestDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\Main.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\store\ParameterCategoryStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\store\TestStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\MenuItem.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\MedLabTecUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\WriteMedicalReportController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\domain\model\Email.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\utils\Utils.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\store\ClinicalAnalysisLaboratoryStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\domain\model\User.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\ParameterCategoryDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\ValidateWorkController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\ViewTestsClientController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\DateMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\Sample.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\OverviewUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\users\SpecialistDoctor.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\store\TestTypeStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\OverviewController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\ViewResultsController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\RecordResultsUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\ParameterDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\RegisterEmployeeController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\Parameter.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\LabCoordinatorUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\Overview.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\UserSession.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ReceptionistUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\domain\store\UserStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\ShowTextUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\PhoneNumber.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\CovidReferenceValues1APIAdapter.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ErrorUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\LabCoordinatorUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\SortingAlgorithms.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ValidateWorkUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\OverviewTestUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\OrganizationRoleDTO.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\store\EmployeeStore.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ViewResultsUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\TestType.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\LabCoordinatorValidation.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\Serialization.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\OrganizationRole.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\mappers\UserRoleMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\AdminUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateClientUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\CreateTestTypeController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\store\SampleList.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\EmployeeMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\CreateClinicalAnalysisLaboratoryController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\Name.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateParameterUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\ExternalModule3APIAdapter.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\gui\AdmUi.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\RecordSampleController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateTestTypeUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\OrganizationRoleMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\RecordSampleUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\MedLabTechnicianUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\CSVFileReader.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\users\Client.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\SortByTin.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\RegisterTestUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\MainMenuUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\ExternalModuleReferencesValue.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\SortAlphabetically.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\auth\domain\model\Password.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\App.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\SocCode.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\ClinicalChemistryTechUI.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\mappers\ParameterMapper.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\laboratories\ChemicalLaboratory.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\domain\model\laboratories\ClinicalAnalysisLaboratory.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\controller\CreateParameterCategoryController.java
+C:\Users\Pedro Celestino\Documents\lei-21-s2-1de-g22\src\main\java\app\adapter\interfaces\SubsequenceWithMaximumSum.java
