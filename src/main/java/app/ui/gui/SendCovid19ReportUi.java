@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -33,6 +34,18 @@ public class SendCovid19ReportUi {
     @FXML
     private ComboBox<String> typeOfData;
 
+    @FXML
+    private TextField txtHistoricalPoints;
+
+    @FXML
+    private DatePicker initialDate;
+
+    @FXML
+    private DatePicker endDate;
+
+    @FXML
+    private ComboBox<String> regressionModel;
+
     /**
      * Initializes the Send Covid-19 Report Interface and the controller.
      */
@@ -50,7 +63,10 @@ public class SendCovid19ReportUi {
      */
     public void loadChoiseBox() {
         for (int i = 0; i < sendCovid19ReportController.getAvailableTypesOfData().size(); i++) {
-            typeOfData.getItems().add(String.valueOf(i));
+            typeOfData.getItems().add(sendCovid19ReportController.getAvailableTypesOfData().get(i));
+        }
+        for (int i = 0; i< sendCovid19ReportController.getAvailableRegressionModels().size(); i++){
+            regressionModel.getItems().add(sendCovid19ReportController.getAvailableRegressionModels().get(i));
         }
     }
 

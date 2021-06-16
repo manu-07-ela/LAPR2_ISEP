@@ -14,8 +14,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -137,5 +139,22 @@ public class ClientsUi {
     }
 
 
+    public void in(MouseEvent mouseEvent) {
+        exit.setStyle("-fx-background-color: #1a7180; -fx-border-radius:  15px;-fx-border-width:  3px; -fx-border-color: black;-fx-background-radius: 15px;");
+        exit.setTextFill(Paint.valueOf("black"));
+    }
+    public void out(MouseEvent mouseEvent) {
+        exit.setStyle("-fx-background-color:  transparent;-fx-border-radius:  15px;-fx-border-width:  3px;-fx-border-color: #1a7180;-fx-background-radius: 15px;");
+        exit.setTextFill(Paint.valueOf("#1a7180"));
+    }
+
+    public void inlog(MouseEvent mouseEvent) {
+        logout.setStyle("-fx-background-color: #1a7180; -fx-border-radius:  15px;-fx-border-width:  3px; -fx-border-color: black;-fx-background-radius: 15px;");
+        logout.setTextFill(Paint.valueOf("black"));
+    }
+    public void outlog(MouseEvent mouseEvent) {
+        logout.setStyle("-fx-background-color:  transparent;-fx-border-radius:  15px;-fx-border-width:  3px;-fx-border-color: #1a7180;-fx-background-radius: 15px;");
+        logout.setTextFill(Paint.valueOf("#1a7180"));
+    }
 }
 

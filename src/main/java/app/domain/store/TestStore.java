@@ -230,6 +230,11 @@ public class TestStore implements Serializable {
         if (lista.size()==0){
             throw new IllegalArgumentException("There aren't Clients with tests validated");
         }
+        for (Client c : lista){
+            if (lista.contains(c)){
+                lista.remove(c);
+            }
+        }
         return lista;
     }
 
