@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -16,7 +17,15 @@ import java.io.IOException;
 
 public class EvaluatePerformanceController {
 
+    /**
+     * Represents a instance of Overview controller
+     */
+    private final OverviewController overviewCtrl;
+
     private Stage stage;
+
+    @FXML
+    private ComboBox<String> availableAlgorithms;
 
     @FXML
     private CategoryAxis x;
@@ -27,8 +36,27 @@ public class EvaluatePerformanceController {
     @FXML
     private LineChart<?, ?> performanceChart;
 
+    /**
+     * Initializes the controller
+     */
+    public EvaluatePerformanceController(){
+        overviewCtrl  = new OverviewController();
+    }
+
     public void setLabelUI(Stage stage) {
         this.stage = stage;
+        System.out.println("1");
+        loadChoiseBox();
+        System.out.println("2");
+    }
+
+    /**
+     * Load choise box.
+     */
+    public void loadChoiseBox() {
+        for (int i = 0; i < overviewCtrl.getAvailableAlgorithms().size(); i++) {
+            availableAlgorithms.getItems().add(overviewCtrl.getAvailableAlgorithms().get(i));
+        }
     }
 
     @FXML

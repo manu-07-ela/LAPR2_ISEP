@@ -33,6 +33,7 @@ public class ItemClientController {
     public void setClient(ClientDTO client){
         this.clientDTO = client;
         name.setText(clientDTO.getName());
+        tin.setText("");
         tin.setText(clientDTO.getTin());
     }
     @FXML
