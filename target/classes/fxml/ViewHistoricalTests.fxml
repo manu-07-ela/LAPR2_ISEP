@@ -70,15 +70,15 @@
                   </CheckBox>
                </children>
             </HBox>
-            <Label fx:id="errorMessage" alignment="CENTER" prefHeight="35.0" prefWidth="650.0" textFill="#b92626">
+            <Label fx:id="errorMessage" alignment="CENTER" prefHeight="28.0" prefWidth="650.0" textFill="#b92626">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ScrollPane fx:id="scrollPane" prefHeight="311.0" prefWidth="650.0">
+            <ScrollPane fx:id="scrollPane" prefHeight="324.0" prefWidth="650.0">
                <content>
                   <GridPane fx:id="grid" prefHeight="36.0" prefWidth="541.0" vgap="10.0">
                      <columnConstraints>

@@ -29,7 +29,7 @@ public class TestTest {
         TestParameter tpm2 = new TestParameter(p2);
         // listaDeParametros.add(tpm1);
         listaDeParametros.add(tpm2);
-        Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
+        Client la = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         NhsCode nhs = new NhsCode("123456789012");
         List<TestType> ttlist = new ArrayList<>();
@@ -55,7 +55,7 @@ public class TestTest {
         TestParameter tpm2 = new TestParameter(p2);
         // listaDeParametros.add(tpm1);
         listaDeParametros.add(tpm2);
-        Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
+        Client la = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         List<TestType> ttlist = new ArrayList<>();
         ttlist.add(tt);
@@ -81,7 +81,7 @@ public class TestTest {
         TestParameter tpm2 = new TestParameter(p2);
         // listaDeParametros.add(tpm1);
         listaDeParametros.add(tpm2);
-        Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
+        Client la = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         List<TestType> ttlist = new ArrayList<>();
         ttlist.add(tt);
@@ -107,7 +107,7 @@ public class TestTest {
         TestParameter tpm2 = new TestParameter(p2);
         // listaDeParametros.add(tpm1);
         listaDeParametros.add(tpm2);
-        Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com");
+        Client la = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
         List<TestType> ttlist = new ArrayList<>();
         ttlist.add(tt);
@@ -128,7 +128,7 @@ public class TestTest {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
-        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         RefValue rv = new RefValue("mg",10,20);
@@ -151,7 +151,7 @@ public class TestTest {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
-        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         RefValue rv = new RefValue("mg",10,20);
@@ -175,7 +175,7 @@ public class TestTest {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
-        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         RefValue rv = new RefValue("mg",10,20);
@@ -199,7 +199,7 @@ public class TestTest {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
-        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         RefValue rv = new RefValue("mg",10,20);
@@ -222,7 +222,7 @@ public class TestTest {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
-        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         RefValue rv = new RefValue("mg",10,20);
@@ -246,7 +246,7 @@ public class TestTest {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
-        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
         NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         RefValue rv = new RefValue("mg",10,20);

@@ -32,7 +32,7 @@ public class TestDtoTest {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
-        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        Client client = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         RefValue rv = new RefValue("mg",10,20);
         TestParameterResult tpr = new TestParameterResult(rv,"15","mg");

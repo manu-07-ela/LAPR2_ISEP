@@ -247,7 +247,7 @@ public class TestStoreTest {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
-        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        Client client = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         List<TestType> ttlist = new ArrayList<>();
         ttlist.add(tt);
@@ -259,7 +259,7 @@ public class TestStoreTest {
         TestParameter tp = new TestParameter(p1,tpr);
         List<TestParameter> tpList = new ArrayList<>();
         tpList.add(tp);
-        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab, "123123123123");
+        app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
         TestStore ttStore = company.getTestStore();
         ttStore.addTest(test);
         app.domain.model.testrelated.Test result = ttStore.getTestByInternalCode("123123123123");
@@ -273,7 +273,7 @@ public class TestStoreTest {
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         List<ParameterCategory> list=new ArrayList();
         list.add(pc1);
-        Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","Female","1231231231","12312312312","rita@gmail.com");
+        Client client = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
         NhsCode nhs = new NhsCode("123456789012");
         TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
         List<TestType> ttlist = new ArrayList<>();
