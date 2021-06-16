@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -50,10 +51,19 @@ public class ClientsUi {
     @FXML
     private GridPane grid;
 
+    @FXML
+    private Label errorMessage;
+
     public void setLabelUI(Stage stage) throws IOException {
         this.stage = stage;
-        getListOfClients();
-        showClientList();
+        try {
+            getListOfClients();
+            showClientList();
+        }catch (Exception e){
+            errorMessage.setText("There are no clients with validated tests");
+            errorMessage.setVisible(true);
+        }
+
     }
 
     public void getListOfClients(){
@@ -139,22 +149,22 @@ public class ClientsUi {
     }
 
 
-    public void in(MouseEvent mouseEvent) {
-        exit.setStyle("-fx-background-color: #1a7180; -fx-border-radius:  15px;-fx-border-width:  3px; -fx-border-color: black;-fx-background-radius: 15px;");
-        exit.setTextFill(Paint.valueOf("black"));
-    }
-    public void out(MouseEvent mouseEvent) {
-        exit.setStyle("-fx-background-color:  transparent;-fx-border-radius:  15px;-fx-border-width:  3px;-fx-border-color: #1a7180;-fx-background-radius: 15px;");
+    public void in() {
+        exit.setStyle("-fx-background-color: #ffffff ;-fx-background-radius: 15px");
         exit.setTextFill(Paint.valueOf("#1a7180"));
     }
-
-    public void inlog(MouseEvent mouseEvent) {
-        logout.setStyle("-fx-background-color: #1a7180; -fx-border-radius:  15px;-fx-border-width:  3px; -fx-border-color: black;-fx-background-radius: 15px;");
-        logout.setTextFill(Paint.valueOf("black"));
+    public void out() {
+        exit.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px");
+        exit.setTextFill(Paint.valueOf("#ffffff"));
     }
-    public void outlog(MouseEvent mouseEvent) {
-        logout.setStyle("-fx-background-color:  transparent;-fx-border-radius:  15px;-fx-border-width:  3px;-fx-border-color: #1a7180;-fx-background-radius: 15px;");
+
+    public void inLog() {
+        logout.setStyle("-fx-background-color: #ffffff ;-fx-background-radius: 15px");
         logout.setTextFill(Paint.valueOf("#1a7180"));
+    }
+    public void onLog(){
+        logout.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px");
+        logout.setTextFill(Paint.valueOf("#ffffff"));
     }
 }
 

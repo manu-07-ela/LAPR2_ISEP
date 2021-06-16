@@ -228,6 +228,15 @@ public class ClientStore implements Serializable {
     }
 
     /**
+     * It updates the Address of the Client
+     * @param client The Client
+     * @param address THe Address of the Client you want to update
+     */
+    public void updateAddress(Client client, String address) {
+        /*if (clientExists(client))*/ client.setAddress(address);
+    }
+
+    /**
      * It updates the attribute of a Client
      * @param attribute the attribute of a Client to be updated
      * @param client The Client
@@ -267,5 +276,6 @@ public class ClientStore implements Serializable {
         */
 
     }
+
 
 }

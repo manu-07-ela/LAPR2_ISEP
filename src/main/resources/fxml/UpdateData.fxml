@@ -50,7 +50,7 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0); -fx-background-radius: 30;">
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="420.0" style="-fx-background-color: #EAEEEE; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0); -fx-background-radius: 30;">
                      <children>
                         <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Name " textFill="#0f3648">
                            <font>
@@ -74,7 +74,7 @@
                            </font>
                         </TextField>
                         <Pane prefHeight="50.0" prefWidth="50.0" />
-                        <Button fx:id="saveName" mnemonicParsing="false" onMouseClicked="#saveNameClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20;" text="Save " textFill="WHITE">
+                        <Button fx:id="saveName" mnemonicParsing="false" onMouseClicked="#saveNameClick" prefHeight="20.0" prefWidth="70.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20;" text="Save " textFill="WHITE">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -93,7 +93,7 @@
                         <Insets bottom="15.0" top="5.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="389.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="420.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                      <children>
                         <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Citizen Card " textFill="#0f3648">
                            <font>
@@ -117,7 +117,7 @@
                            </font>
                         </TextField>
                         <Pane prefHeight="50.0" prefWidth="50.0" />
-                        <Button fx:id="saveCitizenCard" mnemonicParsing="false" onMouseClicked="#saveCitizenCardClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20;" text="Save " textFill="WHITE">
+                        <Button fx:id="saveCitizenCard" mnemonicParsing="false" onMouseClicked="#saveCitizenCardClick" prefHeight="20.0" prefWidth="70.0" style="-fx-background-color: #239ba1; -fx-background-radius: 20;" text="Save " textFill="WHITE">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -136,7 +136,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                      <children>
                         <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="NHS Code" textFill="#0f3648">
                            <font>
@@ -160,7 +160,7 @@
                            </font>
                         </TextField>
                         <Pane prefHeight="50.0" prefWidth="50.0" />
-                        <Button fx:id="saveNhsCode" mnemonicParsing="false" onMouseClicked="#saveNhsCodeClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                        <Button fx:id="saveNhsCode" mnemonicParsing="false" onMouseClicked="#saveNhsCodeClick" prefHeight="20.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -179,7 +179,7 @@
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                      <children>
                         <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Birth Date " textFill="#0f3648">
                            <font>
@@ -203,7 +203,7 @@
                            </font>
                         </TextField>
                         <Pane prefHeight="50.0" prefWidth="50.0" />
-                        <Button fx:id="saveBirthDate" mnemonicParsing="false" onMouseClicked="#saveBirthDateClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                        <Button fx:id="saveBirthDate" mnemonicParsing="false" onMouseClicked="#saveBirthDateClick" prefHeight="20.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -219,7 +219,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </opaqueInsets>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                      <children>
                         <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Sex" textFill="#0f3648">
                            <font>
@@ -243,7 +243,7 @@
                            </font>
                         </TextField>
                         <Pane prefHeight="50.0" prefWidth="50.0" />
-                        <Button fx:id="saveSex" mnemonicParsing="false" onMouseClicked="#saveSexClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                        <Button fx:id="saveSex" mnemonicParsing="false" onMouseClicked="#saveSexClick" prefHeight="20.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -262,7 +262,7 @@
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                      <children>
                         <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="TIN" textFill="#0f3648">
                            <font>
@@ -286,7 +286,7 @@
                            </font>
                         </TextField>
                         <Pane prefHeight="50.0" prefWidth="50.0" />
-                        <Button fx:id="saveTin" mnemonicParsing="false" onMouseClicked="#saveTinClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                        <Button fx:id="saveTin" mnemonicParsing="false" onMouseClicked="#saveTinClick" prefHeight="20.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -305,7 +305,7 @@
                         <Insets bottom="15.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                      <children>
                         <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Email " textFill="#0f3648">
                            <font>
@@ -329,7 +329,7 @@
                            </font>
                         </TextField>
                         <Pane prefHeight="50.0" prefWidth="50.0" />
-                        <Button fx:id="saveEmail" mnemonicParsing="false" onMouseClicked="#saveEmailClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                        <Button fx:id="saveEmail" mnemonicParsing="false" onMouseClicked="#saveEmailClick" prefHeight="20.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -348,7 +348,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                      <children>
                         <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Phone Number " textFill="#0f3648">
                            <font>
@@ -372,7 +372,7 @@
                            </font>
                         </TextField>
                         <Pane prefHeight="50.0" prefWidth="50.0" />
-                        <Button fx:id="savePhoneNumber" mnemonicParsing="false" onMouseClicked="#savePhoneNumberClick" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                        <Button fx:id="savePhoneNumber" mnemonicParsing="false" onMouseClicked="#savePhoneNumberClick" prefHeight="20.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -382,6 +382,49 @@
                            <font>
                               <Font name="System Bold" size="10.0" />
                            </font>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" top="10.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="500.0" style="-fx-background-color: #EAEEEE; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="20.0" prefWidth="160.0" text="Adress" textFill="#0f3648">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Pane prefHeight="45.0" prefWidth="23.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Pane>
+                        <TextField fx:id="writeAddress" alignment="CENTER" prefHeight="25.0" prefWidth="181.0" promptText="Insert the new Adress" style="-fx-background-color: rgba(0,0,0,0);">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                        </TextField>
+                        <Pane prefHeight="50.0" prefWidth="50.0" />
+                        <Button fx:id="saveAdress" mnemonicParsing="false" onMouseClicked="#saveAddressClick" prefHeight="20.0" prefWidth="70.0" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Save " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin>
                         </Button>
                      </children>
                      <opaqueInsets>
@@ -408,7 +451,7 @@
                         </Button>
                      </children>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets bottom="20.0" top="30.0" />
                      </VBox.margin>
                   </HBox>
                </children>

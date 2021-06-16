@@ -29,11 +29,11 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="exit" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#exitClick" onMouseEntered="#in" onMouseExited="#out" prefHeight="36.0" prefWidth="60.0" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-radius: 15; -fx-border-width: 3;" text="Exit " textFill="#1a7180">
+            <Button fx:id="exit" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#exitClick" onMouseEntered="#in" onMouseExited="#out" prefHeight="36.0" prefWidth="60.0" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button fx:id="logout" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logoutClick" onMouseEntered="#inlog" onMouseExited="#outlog" prefHeight="36.0" prefWidth="76.0" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-radius: 15; -fx-border-width: 3;" text="Logout" textFill="#1a7180">
+            <Button fx:id="logout" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logoutClick" onMouseEntered="#inLog" onMouseExited="#onLog" prefHeight="36.0" prefWidth="76.0" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -70,7 +70,15 @@
                   </CheckBox>
                </children>
             </HBox>
-            <ScrollPane fx:id="scrollPane" prefHeight="354.0" prefWidth="600.0">
+            <Label fx:id="errorMessage" alignment="CENTER" prefHeight="28.0" prefWidth="650.0" textFill="#b92626">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ScrollPane fx:id="scrollPane" prefHeight="324.0" prefWidth="650.0">
                <content>
                   <GridPane fx:id="grid" prefHeight="36.0" prefWidth="541.0" vgap="10.0">
                      <columnConstraints>
