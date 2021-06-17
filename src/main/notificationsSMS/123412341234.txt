@@ -3,4 +3,9 @@ Recipient: 12345678901
 Dear Client, 
 The results are available in the central application, you must access them. 
 
+Many LabsSender: +44 1980 301 565 
+Recipient: 12345678901
+Dear Client, 
+The results are available in the central application, you must access them. 
+
 Many Labs

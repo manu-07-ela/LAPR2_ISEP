@@ -12,7 +12,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="400.0">
                <children>
-                  <Label style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Your Tests Performed" textFill="#1a7180">
+                  <Label style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Yours Tests Performed" textFill="#1a7180">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font></Label>
