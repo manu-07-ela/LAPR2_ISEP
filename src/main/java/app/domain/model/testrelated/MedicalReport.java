@@ -50,6 +50,13 @@ public class MedicalReport implements Serializable {
     public Date getCreatedAt() { return this.createdAt;}
 
     /**
+     * Set the medical report creation date.
+     */
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    /**
      * Get the diagnosis of the medical report.
      */
     public String getDiagnosis() {

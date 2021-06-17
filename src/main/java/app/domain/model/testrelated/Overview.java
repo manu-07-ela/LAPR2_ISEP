@@ -1,12 +1,14 @@
 package app.domain.model.testrelated;
 
+import app.controller.App;
 import app.interfaces.SubsequenceWithMaximumSum;
 import app.domain.model.users.Client;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 import static app.domain.model.testrelated.Test.StateOfTest.*;
 
@@ -20,6 +22,10 @@ public class Overview {
 
     private Integer totalNumberOfTestsProcessed;
 
+    private List<Integer> sequenceTestWaitingForResults;
+
+    private List<Integer> sequenceTestWaitingForDiagnosis;
+
     private List<Client> clientList;
 
     private List<Test> testList;
@@ -28,15 +34,21 @@ public class Overview {
 
     private List<Test> testsWaitingForDiagnosis;
 
+    private Date initialDate;
 
+    private Date endDate;
+
+    private int[] sequence;
 
     /**
      *
      */
-    private List<String> availableAlgorithms = new ArrayList(Arrays.asList("Benchmark", "Brute Force"));
+    private List<String> availableAlgorithms = new ArrayList(Arrays.asList("Benchmark", "BruteForce"));
 
 
-    public Overview(Date initialDate, Date endDate, List<Test> testList){
+    public Overview(Date initialDate, Date endDate, List<Test> testList) throws ParseException {
+        this.initialDate=initialDate;
+        this.endDate=endDate;
         this.testList=testList;
         getAssociatedClients();
         this.numberOfClients=clientList.size();
@@ -45,6 +57,11 @@ public class Overview {
         getTestsWaitingForDiagnosis();
         this.numberOfTestsWaitingForDiagnosis=testsWaitingForDiagnosis.size();
         this.totalNumberOfTestsProcessed=testList.size();
+        sequenceTestWaitingForResults = new ArrayList();
+        sequenceTestWaitingForDiagnosis = new ArrayList<>();
+        getSequenceTestWaitingForResults();
+        getSequenceTestWaitingForDiagnosis();
+        getSequence();
     }
 
     private void getAssociatedClients(){
@@ -94,6 +111,47 @@ public class Overview {
         return availableAlgorithms;
     }
 
+    public void getSequenceTestWaitingForResults()  {
+        Date date1 = initialDate;
+        Date date2 = date1;
+        do {
+            int aux = 0;
+            date2.setMinutes(date2.getMinutes() + 30);
+            for (Test t : testList) {
+                if (t.getSamplesAddDate().after(date1) && t.getSamplesAddDate().before(date2)) {
+                    aux++;
+                }
+            }
+            sequenceTestWaitingForResults.add(aux);
+            date2.setMinutes(date2.getMinutes() + 1);
+            date1 = date2;
+        }while (date2.before(endDate));
+    }
+
+    public void getSequenceTestWaitingForDiagnosis()  {
+        Date date1 = initialDate;
+        Date date2 = date1;
+        do {
+            int aux = 0;
+            date2.setMinutes(date2.getMinutes() + 30);
+            for (Test t : testList) {
+                if (t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size())-1).after(date1) && t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size())-1).before(date2)) {
+                    aux++;
+                }
+            }
+            sequenceTestWaitingForDiagnosis.add(aux);
+            date2.setMinutes(date2.getMinutes() + 1);
+            date1 = date2;
+        }while (date2.before(endDate));
+    }
+
+    public void getSequence(){
+        sequence = new int[sequenceTestWaitingForResults.size()];
+        for (int i=0;i<sequence.length;i++){
+            sequence[i]=sequenceTestWaitingForResults.get(i)-sequenceTestWaitingForDiagnosis.get(i);
+        }
+    }
+
     /**
      *
      * @param algorithm
@@ -103,10 +161,9 @@ public class Overview {
      * @throws InstantiationException
      */
     public int[] getSubsequenceWithMaximumSum(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        String api= String.format("app.adapter.%sAdapter",algorithm);
-
-        Class <?> oClass = Class.forName(api);
-
+        Properties props = App.getInstance().getProps();
+        String classAux = props.getProperty(String.format("Controller.%sAdapter.Class",algorithm));
+        Class<?> oClass = Class.forName(classAux);
         SubsequenceWithMaximumSum subMaxSum = (SubsequenceWithMaximumSum) oClass.newInstance();
         return subMaxSum.getSubsequenceWithMaximumSum( new int[]{29, -32, -9, -25, 44, 12, -61, 51, -9, 44, 74, 4});
     }

@@ -302,7 +302,7 @@ public class Client implements Serializable {
     private void citizenCardNumberValidation(String citizenCardNumber){
         if (StringUtils.isEmpty(citizenCardNumber)) throw new NullPointerException("Citizen card number can't be empty");
         if (!StringUtils.isNumeric(citizenCardNumber)) throw new IllegalArgumentException("Citizen card number is numeric only.");
-        if (citizenCardNumber.length() != 16){ throw new IllegalArgumentException("The citizen card number has 16 digits"); }
+        if (citizenCardNumber.length() > 16){ throw new IllegalArgumentException("The citizen card number has a maximum of 16 digits"); }
     }
 
     /**
@@ -407,7 +407,7 @@ public class Client implements Serializable {
     private void addressValidation(String address){
         if (StringUtils.isEmpty(address)) throw new NullPointerException("Adress can't be blank.");
         if (address.length()>90){
-            throw  new IllegalArgumentException("The address mustn't have more then 90 characters");
+            throw  new IllegalArgumentException("The address mustn't have more than 90 characters");
         }
     }
 

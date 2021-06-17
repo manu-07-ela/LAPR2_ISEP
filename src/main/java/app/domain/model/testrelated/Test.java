@@ -61,16 +61,6 @@ public class Test implements Serializable {
     private Date samplesAddDate;
 
     /**
-     * Represents the date when the test was registered
-     */
-    private Date testAddDate;
-
-    /**
-     * Represents the date when the chemical analysis were added to the test
-     */
-    private Date chemicalAnalysisDate;
-
-    /**
      * The Test Parameter Result of the test.
      */
     private TestParameterResult tpr;
@@ -108,12 +98,30 @@ public class Test implements Serializable {
         this.testParameterList = testParameterList;
         this.stateOfTest = StateOfTest.TestRegistered;
         this.internalCode = internalCode;
-        this.testAddDate = Calendar.getInstance().getTime();
         this.description = testType.getCollectingMethod();
         this.lab = lab;
         this.md = null;
         this.samples = new ArrayList<>();
         this.lcv = null;
+    }
+
+    public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,String internalCode,Date samplesAddDate,Date chemicalAnalysisDate,Date LabCoordDate,Date createdAt) {
+        this.client = cl;
+        this.nhscode = new NhsCode(nhscode);
+        this.testType = testType;
+        this.testParameterList = testParameterList;
+        this.stateOfTest = StateOfTest.Validated;
+        this.internalCode = internalCode;
+        this.description = testType.getCollectingMethod();
+        this.lab = lab;
+        this.md = new MedicalReport("default");
+        this.samples = new ArrayList<>();
+        this.lcv = new LabCoordinatorValidation();
+        this.tpr = new TestParameterResult();
+        setSamplesAddDate(samplesAddDate);
+        lcv.setLabCoordDate(LabCoordDate);
+        md.setCreatedAt(createdAt);
+        tpr.setChemicalAnalysisDate(chemicalAnalysisDate);
     }
 
 
@@ -226,16 +234,12 @@ public class Test implements Serializable {
      * Takes the test creation date
      * @return the date of creation of the test
      */
-    public Date getTestAddDate() {
-        return testAddDate;
-    }
-
-    /**
-     * Takes the test creation date
-     * @return the date of creation of the test
-     */
     public Date getSamplesAddDate() {
         return samplesAddDate;
+    }
+
+    public void setSamplesAddDate(Date samplesAddDate) {
+        this.samplesAddDate = samplesAddDate;
     }
 
     /**
@@ -389,8 +393,6 @@ public class Test implements Serializable {
                 ", internalCode='" + internalCode + '\'' +
                 ", description='" + description + '\'' +
                 ", samplesAddDate=" + samplesAddDate +
-                ", registerTestDate=" + testAddDate +
-                ", chemicalAnalysisDate=" + chemicalAnalysisDate +
                 ", tpr=" + tpr +
                 ", md=" + md +
                 ", lcv=" + lcv +
