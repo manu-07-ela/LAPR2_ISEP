@@ -1,7 +1,10 @@
 package app.controller;
 
 import app.domain.model.Company;
+import app.domain.model.testrelated.Test;
+import app.domain.store.TestStore;
 
+import java.util.Date;
 import java.util.List;
 
 public class SendCovid19ReportController {
@@ -15,6 +18,12 @@ public class SendCovid19ReportController {
      * Represents a instance of company.
      */
     private Company company;
+
+    private TestStore tStore;
+
+    private List<Test> lstCovidTestsByInterval;
+
+    private List<Test> getCovidTestsLstHistoricalPoints;
 
     /**
      * Constructs an instance of {@code SendCovid19ReportController}.
@@ -39,6 +48,11 @@ public class SendCovid19ReportController {
 
     public List<String> getAvailableRegressionModels(){
         return company.getAvailableRegressionModels();
+    }
+
+    public void createCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints){
+        this.tStore=company.getTestStore();
+        this.lstCovidTestsByInterval=tStore.getCovidTestsLstByInterval(initialDate, endDate);
     }
 
 

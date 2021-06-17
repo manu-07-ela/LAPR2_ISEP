@@ -16,10 +16,7 @@ import app.domain.model.users.Client;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static app.domain.model.testrelated.Test.StateOfTest.*;
 
@@ -284,6 +281,38 @@ public class TestStore implements Serializable {
                 intervalTestList.add(t);
             }
         }
+        return intervalTestList;
+    }
+
+    public List<Test> getCovidTestsLstByInterval(Date initialDate, Date endDate){
+        List<Test> intervalTestList = new ArrayList();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(initialDate);
+        int initialDay = calendar.get(Calendar.DAY_OF_YEAR);
+        int initialYear = calendar.get(Calendar.YEAR);
+        calendar.setTime(endDate);
+        int endDay = calendar.get(Calendar.DAY_OF_YEAR);
+        int endYear = calendar.get(Calendar.YEAR);
+        for (Test t: testList) {
+            calendar.setTime(t.getLabValidationDate());
+            int validationDay = calendar.get(Calendar.DAY_OF_YEAR);
+            int validationYear = calendar.get(Calendar.YEAR);
+            if ( ( (t.getLabValidationDate().after(initialDate) && t.getLabValidationDate().before(endDate) ) || (initialDay==validationDay && initialYear == validationYear) || (endDay==validationDay && endYear == validationYear) ) && t.getTestType().getReferenceAdapter().equals("CovidReferenceValues1API")) {
+                intervalTestList.add(t);
+            }
+        }
+        return intervalTestList;
+    }
+
+    public List<Test> getCovidTestsLstHistoricalPoints(Date currentDay, int historicalPoints){
+        List<Test> intervalTestList = new ArrayList();
+        int validDays=0;
+        int aux=1;
+        do{
+            Date dateAux = new Date(currentDay.getTime());
+            dateAux.setHours(dateAux.getHours()-24);
+
+        } while (validDays<historicalPoints);
         return intervalTestList;
     }
 }
