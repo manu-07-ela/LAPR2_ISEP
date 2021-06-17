@@ -8,16 +8,16 @@ import java.util.List;
 public class SortByTin implements SortingAlgorithms {
 
     @Override
-    public List<ClientDTO> orderClientList (List<ClientDTO> lista) {
-        for (int i = 0;i<lista.size();i++) {
-            for (int j=0;j< lista.size();j++){
-                if (Integer.parseInt(lista.get(i).getTin()) < Integer.parseInt(lista.get(j).getTin()) ){
-                        ClientDTO temp = lista.get(j);
-                        lista.set(j,lista.get(i));
-                        lista.set(i,temp);
+    public List<ClientDTO> orderClientList (List<ClientDTO> list) {
+        for (int i = 0;i<list.size();i++) {
+            for (int j=0;j< list.size();j++){
+                if (Integer.parseInt(list.get(i).getTin()) < Integer.parseInt(list.get(j).getTin()) ){
+                        ClientDTO temp = list.get(j);
+                        list.set(j,list.get(i));
+                        list.set(i,temp);
                 }
             }
         }
-        return lista;
+        return list;
     }
 }

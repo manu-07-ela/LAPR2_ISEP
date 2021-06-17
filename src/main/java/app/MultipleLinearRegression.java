@@ -2,7 +2,7 @@ package app;
 
 public class MultipleLinearRegression {
 
-    private final double[][] matrixX, matrixXTransposed,matrixXXT, matrixXTY, matrixXXTInverse, matrixXTYInverse;
+    private final double[][] matrixX, matrixXTransposed,matrixXXT, matrixXTY, matrixXXTInverse, matrixXTYInverse, matrixB, matrixY;
 
     public MultipleLinearRegression(double[] x1, double[]x2, double[]y) {
          matrixX = matrixX(x1, x2);
@@ -11,6 +11,9 @@ public class MultipleLinearRegression {
          matrixXTY = matrixXTY(matrixXTransposed, y);
          matrixXTYInverse = invert(matrixXTY);
          matrixXXTInverse = invert(matrixXXT);
+         matrixB = multipleMatrix(matrixXXTInverse, matrixXTY);
+         matrixY = multipleMatrix(matrixX, matrixB);
+
 
     }
 
@@ -170,5 +173,20 @@ public class MultipleLinearRegression {
                     a[index[i]][l] -= pj*a[index[j]][l];
             }
         }
+    }
+
+    private double[][] multipleMatrix(double[][] matrix, double[][] matrixAux){
+        double[][] matrixMultiplication = new double[matrix[0].length][matrixAux.length];
+        if (matrix.length==matrix[0].length){
+            for(int i=0;i<matrixMultiplication.length;i++) {
+                for (int j = 0; j < matrixMultiplication[0].length; j++) {
+                    matrixMultiplication[i][j] = 0;
+                    for (int k = 0; k < 3; k++) {
+                        matrixAux[i][j] += matrix[i][k] * matrixAux[k][j];
+                    }
+                }
+            }
+        }
+        return matrixMultiplication;
     }
 }
