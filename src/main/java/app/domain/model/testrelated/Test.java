@@ -242,6 +242,10 @@ public class Test implements Serializable {
         this.samplesAddDate = samplesAddDate;
     }
 
+    public void setStateOfTest(StateOfTest stateOfTest) {
+        this.stateOfTest = stateOfTest;
+    }
+
     /**
      * Compare the test with the other object provided.
      * @param other Object we want to compare with the employee.
