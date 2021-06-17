@@ -179,7 +179,7 @@ public class ClientStore implements Serializable {
      * @param email the email of the Client
      */
     public void updateEmail(Client client, String email){
-        /*if (clientExists(client))*/ client.setCitizenCardNumber(email);
+        /*if (clientExists(client))*/ client.setEmail(email);
     }
 
     /**

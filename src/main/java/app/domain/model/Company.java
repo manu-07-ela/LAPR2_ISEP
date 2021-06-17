@@ -180,9 +180,7 @@ public class Company implements Serializable {
      * Gets the list containing the ClinicalAnalysisLaboratoryStore
      * @return The ClinicalAnalysisLaboratoryStore
      */
-    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){
-        return clinicalAnalysisLaboratoryStore;
-    }
+    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){ return clinicalAnalysisLaboratoryStore; }
 
     /**
      * Gets the instance of ClientStore

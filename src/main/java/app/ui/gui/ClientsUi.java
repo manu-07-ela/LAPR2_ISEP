@@ -102,6 +102,30 @@ public class ClientsUi {
         }
     }
 
+    private void cleanClientsList(){
+        int row = 1;
+        ClientDTO clientDTO = new ClientDTO(null, null, null, null, null, null, null, null, null);
+        try {
+            for (int i=0; i<clientDTOList.size();i++) {
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/fxml/ClientItem.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                ItemClientController itemClientController = fxmlLoader.getController();
+                itemClientController.setClient(clientDTO);
+
+                grid.prefHeight(grid.getPrefHeight()+60);
+                grid.add(anchorPane, 0, row);
+
+                row++;
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void exitClick() {
@@ -126,7 +150,7 @@ public class ClientsUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            System.out.println("Logout error: " + ex);
         }
         logout.getScene().getWindow().hide();
 
@@ -137,6 +161,7 @@ public class ClientsUi {
    @FXML
     void orderedTinClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         disableName++;
+        //cleanClientsList();
         clientDTOList = viewTestsClientController.getClientListByTin();
         try {
             if (disableName %2 != 0){
@@ -158,6 +183,7 @@ public class ClientsUi {
     @FXML
     void OrderedNameClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         disableTin++;
+        //cleanClientsList();
         clientDTOList = viewTestsClientController.getClientsListByAlphabeticalOrder();
         try {
             if (disableTin %2 != 0){

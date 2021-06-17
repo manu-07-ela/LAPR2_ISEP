@@ -17,6 +17,11 @@ public class ClientTest {
         new Client("José David Teixeira Pessoa Pessoa Pessoa","1234567891234567","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");
     }
 
+    @Test
+    public void nameLengthValidation2(){
+        new Client("José David Teixeira","1234567891234567","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void citizenCardNumberNumericValidation(){
         new Client("José David Teixeira Pessoa Pessoa Pessoa","1234567891234567aaaaa","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");

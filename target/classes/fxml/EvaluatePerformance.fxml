@@ -47,7 +47,7 @@
          <children>
             <LineChart fx:id="performanceChart" prefHeight="290.0" prefWidth="694.0">
               <xAxis>
-                <CategoryAxis side="BOTTOM" fx:id="x" />
+                <CategoryAxis prefHeight="21.0" prefWidth="629.0" side="BOTTOM" fx:id="x" />
               </xAxis>
               <yAxis>
                 <NumberAxis fx:id="y" side="LEFT" />
