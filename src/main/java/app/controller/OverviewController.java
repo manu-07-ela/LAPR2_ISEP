@@ -79,4 +79,8 @@ public class OverviewController {
         return overview.getSubsequenceWithMaximumSum(algorithm);
     }
 
+    public int[] getSequence(){
+        return overview.getSequence();
+    }
+
 }

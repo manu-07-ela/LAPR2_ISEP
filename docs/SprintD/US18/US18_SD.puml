@@ -7,7 +7,8 @@ participant ": SendCovid19ReportUI" as UI
 participant ": SendCovid19ReportController" as CTRL
 participant ": Company" as comp
 participant ": TestStore" as store
-participant ": Covid19Report" as report
+participant "report: Covid19Report" as report
+
 
 activate ADMIN
 ADMIN -> UI : Initiates the process of sending a Covid-19 comp to NHS.
@@ -80,11 +81,24 @@ deactivate UI
 
 ADMIN -> UI : Introduce the confidence level
 activate UI
+
 UI -> CTRL : createCovid19Report()
 activate CTRL
-CTRL -> comp : createCovid19Report()
+CTRL -> comp : testStore = getTestStore()
 activate comp
-comp --> report** :create()
+deactivate comp
+CTRL -> store : lstCovidTestsValidateByInterval = getCovidTestsLstByInterval(initialDate, endDate)
+activate store
+deactivate store
+CTRL -> store : lstCovidTestsValidateHistoricalPoints = getCovidTestsLstHistoricalPoints(currentDay, historicalPoints)
+activate store
+deactivate store
+CTRL -> comp : createCovid19Report(lstCovidTests,lstCovidTestsHistoricalPoints)
+activate comp
+comp --> report** :create(lstCovidTests,lstCovidTestsHistoricalPoints)
+report -> report : getPositiveCases()
+activate report
+deactivate report
 deactivate comp
 deactivate CTRL
 UI --> ADMIN :  Presents all data and requests confirmation
