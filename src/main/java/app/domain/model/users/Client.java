@@ -407,7 +407,7 @@ public class Client implements Serializable {
     private void addressValidation(String address){
         if (StringUtils.isEmpty(address)) throw new NullPointerException("Adress can't be blank.");
         if (address.length()>90){
-            throw  new IllegalArgumentException("The address mustn't have more then 90 characters");
+            throw  new IllegalArgumentException("The address mustn't have more than 90 characters");
         }
     }
 
