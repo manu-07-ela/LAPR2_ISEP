@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.store.ClientStore;
 import app.interfaces.SortingAlgorithms;
 import app.domain.model.Company;
 import app.domain.model.users.Client;
@@ -26,13 +27,18 @@ public class ViewTestsClientController {
      */
     private ClientMapper clMapper;
     /**
-     * Representes an instance of Client
+     * Represents an instance of Client
      */
     private Client client;
     /**
      * Represents an instance of the test mapper.
      */
     private TestMapper tmapper;
+
+    /**
+     * Represents an instance of the client store.
+     */
+    private ClientStore clientStore;
 
     /**
      * Creates an instance of ViewTestsClientController
@@ -78,11 +84,9 @@ public class ViewTestsClientController {
         String algorithm = props.getProperty("Controller.SortAlphabetically.Class");
 
         Class<?> oClass = Class.forName(algorithm);
-        Comparator comp = (Comparator) oClass.newInstance();
+        SortingAlgorithms sort = (SortingAlgorithms) oClass.newInstance();
 
-        Collections.sort(list, comp);
-
-        return list;
+        return sort.orderClientList(list);
     }
 
     /**
@@ -92,6 +96,15 @@ public class ViewTestsClientController {
      */
     public List<TestDTO> getAssociatedWithClient(ClientDTO selectedClient){
         return tmapper.toDto(tstore.getTestListAssociatedWithClient(selectedClient));
+    }
+
+    /**
+     * Picks up a customer associated with a particular TIN
+     * @param tin the tin of the customer we want to search in the client store
+     * @return the client
+     */
+    public ClientDTO getClientByTin(String tin){
+        return clMapper.toDto(clientStore.getClientbytin(tin));
     }
 
 

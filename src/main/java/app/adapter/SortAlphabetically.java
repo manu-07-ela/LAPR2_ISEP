@@ -6,10 +6,10 @@ import app.mappers.dto.ClientDTO;
 import java.util.Comparator;
 import java.util.List;
 
-public class SortAlphabetically implements Comparator{
+public class SortAlphabetically implements SortingAlgorithms{
 
 
-    /*@Override
+    @Override
     public List<ClientDTO> orderClientList (List<ClientDTO> list) {
 
         for (int i = 0;i<list.size();i++) {
@@ -24,10 +24,10 @@ public class SortAlphabetically implements Comparator{
         }
         return list;
 
-    }*/
+    }
 
-    @Override
+    /*@Override
     public int compare(Object o1, Object o2) {
         return ((ClientDTO) o1).getName().compareTo(((ClientDTO) o2).getName());
-    }
+    }*/
 }

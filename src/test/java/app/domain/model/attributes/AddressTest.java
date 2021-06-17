@@ -32,5 +32,10 @@ public class AddressTest {
         Assert.assertEquals(adr1, adr2);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void AddressValidation(){
+        Address adr1 = new Address("Rua do fojofrgthykuyjtgrfwxdtgikçpkiugtredrgnjmlçpº+çikhgtfdswdefghyjkloplkiyhgtfdertgjkilokuyhrthjgfdsfgthyjugfrdgthjuhg");
+    }
+
 }
 

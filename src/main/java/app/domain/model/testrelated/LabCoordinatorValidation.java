@@ -86,4 +86,10 @@ public class LabCoordinatorValidation implements Serializable {
      */
     public Date getLabCoordDate(){ return this.labCoordDate; }
 
+    /**
+     * Set the date of the Lab Coordinator Validation.
+     */
+    public void setLabCoordDate(Date labCoordDate) {
+        this.labCoordDate = labCoordDate;
+    }
 }
