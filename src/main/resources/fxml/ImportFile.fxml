@@ -60,8 +60,8 @@
    <right>
       <TableView fx:id="clientRelated" prefHeight="279.0" prefWidth="282.0" style="-fx-border-color: #1a7180;" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="Name" />
-          <TableColumn prefWidth="75.0" text="Tin" />
+          <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="tin" prefWidth="75.0" text="Tin" />
         </columns>
          <BorderPane.margin>
             <Insets bottom="20.0" right="50.0" top="20.0" />

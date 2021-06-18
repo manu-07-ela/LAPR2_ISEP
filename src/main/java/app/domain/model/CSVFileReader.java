@@ -23,6 +23,7 @@ public class CSVFileReader {
     }
 
     public CSVFileReader(Company company){
+        clientList = new ArrayList<>();
         this.company = App.getInstance().getCompany();
         this.clStore = company.getClientStore();
         clAuthFacade = company.getAuthFacade();
@@ -90,10 +91,11 @@ public class CSVFileReader {
      */
     private Date lcv;
 
+    private List<Client> clientList;
 
-    public void read(String csvFile) throws IOException {
 
-            File file = new File(csvFile);
+    public void read(File file) throws IOException {
+
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line = "";
@@ -123,6 +125,7 @@ public class CSVFileReader {
                 if(cl==null) {
                     try {
                         cl = new Client(tempArr[8], tempArr[3], tempArr[4], tempArr[6], tempArr[5], tempArr[7], tempArr[9],tempArr[10]);
+                        clientList.add(cl);
                         clStore.saveClient(cl, clAuthFacade);
                         NhsCode nhsCode = new NhsCode(tempArr[1]);
                         createTest(tpList,cl,nhsCode, ttStore.getTestTypeByCode("BL000"), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]),validParametersString,parametersNumb,tempArr);
@@ -175,7 +178,8 @@ public class CSVFileReader {
                 }
             j++;
         }
-        System.out.printf("These parameters are invalid in the file : %s"+invalidParameters);
+        System.out.println(invalidParameters);
+        //System.out.printf("These parameters are invalid in the file : %s"+invalidParameters);
         return pmList;
     }
 //    private void parameterCategory(List<Integer> parameterCategory,String[] tempArr) {
@@ -228,5 +232,8 @@ public class CSVFileReader {
 
 //    private List<TestParameter> testParameterList(){
 //    }
+    public List<Client> getClientsList(){
+        return clientList;
+    }
 
     }
