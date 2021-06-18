@@ -1,49 +1,60 @@
 package app.ui.gui;
 
-import app.controller.ItemClientController;
-import app.controller.ItemController;
 import app.controller.ViewTestsClientController;
+import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
 import app.ui.console.AuthUI;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class TestsUi {
+public class TestsUi implements Initializable {
     private Stage stage;
 
-    @FXML
-    private Button exit;
+    private ClientDTO clientDTO;
 
-    @FXML
-    private Button logout;
-
-    @FXML
-    private GridPane grid;
-
-    private List<TestDTO> tests;
-
-    private ItemClientController itemClientController;
+    private List<TestDTO> testDTOList;
 
     private ViewTestsClientController viewTestsClientController;
+    @FXML
+    private TableView<TestDTO> tests;
 
-    public TestsUi(){
-        itemClientController = new ItemClientController();
-        viewTestsClientController = new ViewTestsClientController();
-        this.tests = viewTestsClientController.getAssociatedWithClient(itemClientController.getClient());
-    }
-    public void setLabelUi(Stage stage){
+    @FXML
+    private TableColumn<TestDTO, String> description;
+
+    @FXML
+    private TableColumn<TestDTO, String> internalCode;
+
+
+
+    public void setLabelUi(Stage stage, ClientDTO clientDTO){
         this.stage = stage;
-        showTestsList();
+        this.clientDTO = clientDTO;
+
+    }
+    public void getTestsByClient(ClientDTO clientDTO){
+        this.testDTOList = viewTestsClientController.getAssociatedWithClient(clientDTO);
+        System.out.println(testDTOList);
+        internalCode.setCellValueFactory(new PropertyValueFactory<>("internalCode"));
+        description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        tests.setItems(getTests());
+
     }
     @FXML
     void exitClick() {
@@ -72,32 +83,30 @@ public class TestsUi {
         stage.close();
 
     }
+    @FXML
+    void selectTestClick() {
 
-    public void showTestsList(){
-        int row = 1;
-        try {
-            for (int i=0; i<tests.size();i++) {
 
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/fxml/Item.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-
-                ItemController itemController = fxmlLoader.getController();
-                itemController.setData(tests.get(i));
-
-                grid.prefHeight(grid.getPrefHeight()+60);
-                grid.add(anchorPane, 0, row);
-
-                row++;
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(testDTOList);
 
+    }
+
+    public ObservableList<TestDTO> getTests() {
+        ObservableList<TestDTO> tests = FXCollections.observableArrayList();
+
+        for (TestDTO t : testDTOList){
+            //System.out.println(c);
+            tests.add(t);
+        }
+
+        return tests;
+
+    }
 }
 
 

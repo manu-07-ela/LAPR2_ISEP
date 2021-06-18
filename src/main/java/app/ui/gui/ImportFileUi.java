@@ -6,13 +6,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class ImportFileUi {
+    @FXML
+    private TableView<?> clientRelated;
 
     private Stage stage;
 
@@ -61,6 +67,9 @@ public class ImportFileUi {
 
     @FXML
     void importFileClick() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        List<File> f = fileChooser.showOpenMultipleDialog(null);
 
     }
 
