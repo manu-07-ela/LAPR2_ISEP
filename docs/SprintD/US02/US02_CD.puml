@@ -54,13 +54,9 @@ class UserSession {
 class ClientStore {
 -clientExists(client)
 +getClientByEmail()
-+updateBirthDate(client, birthDate)
-+updateCitizenCard(client, citizenCard)
-+updateEmail(client, email)
++updateAddress(client, address)
 +updateName(client, name)
-+updateNhsCode(client, nhsCode)
 +updateSex(client, sex)
-+updateTin(client, tin)
 +updatePhoneNumber (client, phoneNumber)
 }
 
@@ -73,14 +69,11 @@ class Client {
 -phoneNumber
 -e-mail
 -name
+-address
 
 +setName(name)
-+setCitizenCardNumber(citizenCardNumber)
-+setNhsCode(nhsCode)
-+setDateOfBirth(dateOfBirth)
-+setEmail(email)
++setAddress(address)
 +setPhoneNumber(phoneNumber)
-+setDateOfTin(tin)
 +setSex(sex)
 }
 
@@ -111,14 +104,11 @@ class ClientDto {
 
 class UpdateDataController {
 +getUserSession()
-+updateBirthDate(birthDate)
-+updateCitizenCard(citizenCard)
-+updateEmail(email)
-+updateName(name)
-+updateNhsCode(nhsCode)
-+updateSex(sex)
-+updateTin(tin)
-+updatePhoneNumber (phoneNumber)
++updateName(Client client, String name)
++updateAddress (client,address)
++updateSex(Client client, String sex)
++updatePhoneNumber (client,phoneNumber)
++getClientByEmail(email)
 
 }
 

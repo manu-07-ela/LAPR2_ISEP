@@ -1,6 +1,8 @@
 package app.domain.model;
 
 import app.domain.model.laboratories.ChemicalLaboratory;
+import app.domain.model.testrelated.Covid19Report;
+import app.domain.model.testrelated.Test;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
@@ -12,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -89,6 +92,11 @@ public class Company implements Serializable {
      *
      */
     private List<String> availableRegressionModels = new ArrayList(Arrays.asList("Simple Linear", "Multiple Linear"));
+
+    /**
+     *
+     */
+    private List<String> availableIndependentVariables = new ArrayList(Arrays.asList("Mean Age", "Tests Performed"));
 
 
     /**
@@ -222,5 +230,11 @@ public class Company implements Serializable {
         return availableRegressionModels;
     }
 
+    public List<String> getAvailableIndependentVariables() {
+        return availableIndependentVariables;
+    }
 
+    public void createCovid19Report(List<Test> lstCovidTestsByInterval,List<Test> covidTestsLstHistoricalPoints, Date initialDate, Date endDate, Date currentDay, int historicalPoints){
+        new Covid19Report(lstCovidTestsByInterval,covidTestsLstHistoricalPoints,initialDate,endDate,currentDay,historicalPoints);
+    }
 }

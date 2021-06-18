@@ -29,7 +29,6 @@ class Test
 class Company
 }
 package store {
-class ClientStore
 class TestStore
 }
 }
@@ -41,6 +40,8 @@ class SeeTestsController {
 +getClientsWithValidatedTests()
 +orderClientList(clientListDto)
 +getTestAssociatedWithClient(selectedClient)
++getClientsListByAlphabeticalOrder()
++getClientListByTin()
 
 
 }
@@ -54,15 +55,17 @@ class  ClientDTO{
 -phoneNumber
 -e-mail
 -name
+-address
 
-+getName(name)
-+getCitizenCardNumber(citizenCardNumber)
-+getNhsCode(nhsCode)
-+getDateOfBirth(dateOfBirth)
-+getEmail(email)
-+getPhoneNumber(phoneNumber)
-+getDateOfTin(tin)
-+getSex(sex)
++getName()
++getCitizenCardNumber()
++getNhsCode()
++getDateOfBirth()
++getEmail()
++getPhoneNumber()
++getTin()
++getSex()
++getAddress()
 }
 
 class TestDTO{
@@ -76,10 +79,6 @@ class Company{
 
 }
 
-class ClientStore{
-+getClientListWithTestsValidated()
-
-}
 
 class ClientMapper{
 +toDTO(ClientsList)
@@ -130,8 +129,6 @@ SeeTestsController .> TestMapper
 SeeTestsController ..> ClientMapper
 SeeTestsController ..> Company
 Company "1" ----> "1" TestStore : uses
-Company "1" -----> "1" ClientStore : uses
-ClientStore "1" --> "*" Client : know
 TestStore"1" --> "*" Test : know
 TestMapper ..> TestDTO
 TestMapper .....> Test

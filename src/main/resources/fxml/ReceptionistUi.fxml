@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -41,6 +42,9 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logoutClick" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
                <font>
@@ -49,6 +53,9 @@
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
          <BorderPane.margin>
@@ -92,6 +99,9 @@
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </VBox>
             <VBox fx:id="registerTest" alignment="CENTER" onMouseClicked="#registerTestClick" prefHeight="200.0" prefWidth="167.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
@@ -126,6 +136,9 @@
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </VBox>
             </children>
             <BorderPane.margin>

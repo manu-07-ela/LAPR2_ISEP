@@ -1,9 +1,12 @@
 package app.ui.console.functionalities;
 
 import app.controller.ViewTestsClientController;
+import app.domain.model.testrelated.Test;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.ParameterDTO;
+import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;
+import jdk.jshell.execution.Util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,6 +41,8 @@ public class ViewTestsClientUI implements Runnable{
 
     public void viewtestsclient() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         List<ClientDTO> clist = new ArrayList<>();
+        List<TestDTO> la = new ArrayList<>();
+
 
         List<String>  sortlist  = new ArrayList(Arrays.asList("Tin","Name"));
         String choice = (String) Utils.showAndSelectOne(sortlist,"Do you want to order the clients list by Tax identification number or by Name?");
@@ -47,8 +52,12 @@ public class ViewTestsClientUI implements Runnable{
             clist=viewTestsctrl.getClientsListByAlphabeticalOrder();
         }
 
-        for (ClientDTO cl : clist) {
-            System.out.println(cl);
+        ClientDTO cl = (ClientDTO) Utils.showAndSelectOne(clist,"Escolha um cliente");
+
+        la= viewTestsctrl.getAssociatedWithClient(cl);
+
+        for (TestDTO t:la) {
+            System.out.println(t);
         }
     }
 }
