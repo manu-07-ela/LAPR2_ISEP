@@ -202,30 +202,7 @@ public class Client implements Serializable {
         nameValidation(name);
         this.name = name;
     }
-    /**
-     * Sets the Citizen card number of a client
-     * @param citizenCardNumber the Citizen card number of a client
-     */
-    public void setCitizenCardNumber(String citizenCardNumber) {
-        citizenCardNumberValidation(citizenCardNumber);
-        this.citizenCardNumber = citizenCardNumber;
-    }
-    /**
-     * Sets the National Healthcare Service number of a client
-     * @param nhs the National Healthcare Service number of a client
-     */
-    public void setNhs(String nhs) {
-        nhsValidation(nhs);
-        this.nhs = nhs;
-    }
-    /**
-     * Sets the birth date of a client
-     * @param date the birth date of a client
-     */
-    public void setDate(String date) {
-        dateValidation(date);
-        this.date = date;
-    }
+
     /**
      * Sets the gender of a client
      * @param sex the gender of a client
@@ -259,14 +236,7 @@ public class Client implements Serializable {
                 '}';
     }
 
-    /**
-     * Sets the tax identification number of a client
-     * @param tin the tax identification number of a client
-     */
-    public void setTin(String tin) {
-        tinValidation(tin);
-        this.tin = tin;
-    }
+
     /**
      * Sets the phone number of a client
      * @param phoneNumber the phone number of a client
@@ -274,14 +244,6 @@ public class Client implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         phoneNumberValidation(phoneNumber);
         this.phoneNumber = phoneNumber;
-    }
-    /**
-     * Sets the e-mail of a client
-     * @param email the e-mail of a client
-     */
-    public void setEmail(String email) {
-        emailValidation(email);
-        this.email = email;
     }
 
     /**

@@ -61,29 +61,6 @@ public class UpdateDataController {
         return clMapper.toDto(client);
     }
 
-    /**
-     * It updates the Birth Date of the Client
-     * @param birthDate the Birth Date
-     */
-    public  void updateBirthDate(Client client, String birthDate){
-        store.updateBirthDate(client, birthDate);
-    }
-
-    /**
-     * It updates the Citizen Card Number of the Client
-     * @param citizenCard the Citizen Card Number of the Client
-     */
-    public  void updateCitizenCard(Client client, String citizenCard){
-        store.updateCitizenCard(client, citizenCard);
-    }
-
-    /**
-     * It updates the email of the Client
-     * @param email the email of the Client
-     */
-    public  void updateEmail(Client client, String email){
-        store.updateEmail(client, email);
-    }
 
     /**
      * It updates the name of the Client
@@ -94,14 +71,6 @@ public class UpdateDataController {
     }
 
     /**
-     * It updates the NHS Code of the Client
-     * @param nhsCode the NHS Code of the Client
-     */
-    public  void updateNhsCode(Client client, String nhsCode){
-        store.updateNhsCode(client, nhsCode);
-    }
-
-    /**
      * It updates the sex of the Client
      * @param sex the sex of the Client
      */
@@ -109,13 +78,6 @@ public class UpdateDataController {
         store.updateSex(client, sex);
     }
 
-    /**
-     * It updates the TIN of the Client
-     * @param tin the TIN of the Client
-     */
-    public  void updateTin(Client client, String tin){
-        store.updateTin(client, tin);
-    }
 
     /**
      * It updates the Phone Number of the Client

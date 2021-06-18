@@ -24,30 +24,33 @@ birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
 >
 >[**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8838#p11582)  In this sprint each team should develop a graphical user interface for US2. The application should show the current user data and the client can update any attribute.
 
->**Question:** What is the Data that the Client can update?
+>**Question:** To update the attribute, should the Client type the previous data?
 >
 >[**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8838#p11582)  In this sprint each team should develop a graphical user interface for US2. The application should show the current user data and the client can update any attribute.
+
+>**Question:** Up until now, we haven’t had any need to assign an address to a client. Seeing that there is now an Address column, that for us is somewhat left unused, would you advise us to add it as an attribute to the Client entity?
+>
+>[**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9163)  Yes. The address should have no more than 90 characters. Please consider the address of the Employee to have the same format that I am suggesting now for the client's address. In the beginning of the project I said that the address of the Employee should have no more than 30 characters but with this size we can not write a normal UK address.
+
 
 > **Question:** To register a Client which is the format of each attribute?
 >
 > [**Answer:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7563#p10179)
-> * Citizen Card: 16 digit.
-> * number NHS: 10 digit number.
-> * TIN: 10 digit number.
-> * Birth day - in which format: DD/MM/YYYY.
+> * Citizen Card: 16 digit number
+> * NHS: 10 digit number
+> * TIN: 10 digit number
+> * Birth day - in which format: DD/MM/YY
 > * Sex - should only be Male/Female or include more options.
-> * Phone number: 11 digit number.
-> * The sex is opcional. All other fields are required.
+> * Phone number: 11-digit number.
+> * The sex is optional. All other fields are required.
 
 ### 1.3. Acceptance Criteria
 
-* **AC1:** The Citizen Card number must have 16 digits.
-* **AC2:** The National Healthcare Service number must have 10 digits.
-* **AC3:** The Birth date should be in this format: DD/MM/YYYY.
-* **AC4:** A client should not have more than 150 years of age.
-* **AC5:** The gender should only be Male/Female or include more options.
-* **AC6:** The phone number must be a 11 digit number.
-* **AC7:** The tax identification number must have 10 digits.
+* **AC1:** The gender should only be Male/Female or include more options.
+* **AC2:** The phone number must be a 11 digit number.
+* **AC3:** The Address mustn't have more than 90 characters
+* **AC4:** The Name mustn't have more than 35 characters
+
 
 ### 1.4. Found out Dependencies
 
