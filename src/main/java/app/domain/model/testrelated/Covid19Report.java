@@ -1,5 +1,7 @@
 package app.domain.model.testrelated;
 
+import com.nhs.report.Report2NHS;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -7,6 +9,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Covid19Report {
+
+    private String nhsReport;
 
     private List<Test> lstCovidTestsByInterval;
 
@@ -104,6 +108,10 @@ public class Covid19Report {
             sum+=lstCovidTestsByInterval.get(i).getCl().getAge();
         }
         return sum/lstCovidTestsByInterval.size();
+    }
+
+    public void sendReportNhs(){
+        Report2NHS.writeUsingFileWriter(nhsReport);
     }
 
 
