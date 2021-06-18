@@ -48,10 +48,25 @@ class TestMapper{
 package dto{
 }
 
-class SubsequenceWithMaximumSum{
+package interfaces{
+interface SubsequenceWithMaximumSum{
 +getSubsequenceWithMaximumSum()
 }
+}
 
+
+OverviewUI ..> OverviewController
+
+OverviewController ..> TestMapper
+OverviewController ..> TestStore
+OverviewController ..> Company
+OverviewController ..> Test
+
+Company -> Test
+Company -> TestStore
+
+TestMapper ..> TestDto
+TestMapper ..> Test
 
 
 
