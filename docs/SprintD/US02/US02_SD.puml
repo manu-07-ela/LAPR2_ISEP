@@ -48,7 +48,7 @@ deactivate UI
 CL->UI: confirm data
 activate UI
 alt attribute == name
-UI-> CTRL : updateName(name)
+UI-> CTRL : updateName(client,name)
 activate CTRL
 CTRL -> STORE : updateName(client,name)
 activate STORE
@@ -62,7 +62,7 @@ CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == address
-UI-> CTRL : updateAddress(address)
+UI-> CTRL : updateAddress(client,address)
 activate CTRL
 CTRL -> STORE : updateAddress(client,address)
 activate STORE
@@ -76,7 +76,7 @@ CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == sex
-UI-> CTRL : updateSex(sex)
+UI-> CTRL : updateSex(client,sex)
 activate CTRL
 CTRL -> STORE : updateSex(client,sex)
 activate STORE
@@ -90,7 +90,7 @@ CTRL --> UI : show the operation success
 deactivate CTRL
 UI-->CL : show the operation success
 else attribute == phoneNumber
-UI-> CTRL : updatePhoneNumber(phoneNumber)
+UI-> CTRL : updatePhoneNumber(client,phoneNumber)
 activate CTRL
 CTRL -> STORE : updatePhoneNumber(client,phoneNumber)
 activate STORE
