@@ -87,6 +87,10 @@ public class TestStore implements Serializable {
         return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()));
    }
 
+    public Test createTestByCsvFile(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,Date samplesAddDate,Date chemicalAnalysisDate,Date LabCoordDate,Date createdAt){
+        return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()),samplesAddDate,chemicalAnalysisDate,LabCoordDate,createdAt);
+    }
+
     /**
      * Save the Test case it is in a valid state.
      * @param t The Test we intend to save
