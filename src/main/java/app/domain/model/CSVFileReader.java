@@ -18,20 +18,6 @@ import java.util.List;
 
 public class CSVFileReader {
 
-    public CSVFileReader(){
-        this(App.getInstance().getCompany());
-    }
-
-    public CSVFileReader(Company company){
-        this.company = App.getInstance().getCompany();
-        this.clStore = company.getClientStore();
-        clAuthFacade = company.getAuthFacade();
-        this.tStore=company.getTestStore();
-        this.ttStore=company.getTestTypeStore();
-        this.pmStore = company.getParameterStore();
-        this.calStore = company.getClinicalAnalysisLaboratoryStore();
-        this.cl = null;
-    }
 
     /**
      * Represents a instance of company
@@ -69,10 +55,51 @@ public class CSVFileReader {
      * Represents an instance of the Clinical Analysis Laboratory store
      */
     private ClinicalAnalysisLaboratoryStore calStore;
+    /**
+     * Represents an instance of Date when samples were registered
+     */
+    private Date samples;
+    /**
+     * Represents an instance of Date when the results of a given test are recorded
+     */
+    private Date tpr;
+    /**
+     * Represents an instance of Date when the medical report was registered
+     */
+    private Date mr;
+    /**
+     * Represents an instance of Date when the test was validated
+     */
+    private Date lcv;
+    /**
+     * Represents an instance of Client List
+     */
+    private List<Client> clientList;
 
-    public void read(String csvFile) throws IOException {
+    public CSVFileReader(){
+        this(App.getInstance().getCompany());
+    }
 
-            File file = new File(csvFile);
+    public CSVFileReader(Company company){
+        clientList = new ArrayList<>();
+        this.company = App.getInstance().getCompany();
+        this.clStore = company.getClientStore();
+        clAuthFacade = company.getAuthFacade();
+        this.tStore=company.getTestStore();
+        this.ttStore=company.getTestTypeStore();
+        this.pmStore = company.getParameterStore();
+        this.calStore = company.getClinicalAnalysisLaboratoryStore();
+        this.cl = null;
+        this.samples=null;
+        this.tpr=null;
+        this.mr=null;
+        this.lcv=null;
+    }
+
+
+
+    public void read(File file) throws IOException {
+
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line = "";
@@ -81,29 +108,16 @@ public class CSVFileReader {
             String[] tempArr;
         line = br.readLine();
         tempArr = line.split(delimiter);
-        List<String> parameterstest=new ArrayList<>();
-        List<String> parametersString=new ArrayList<>();
-        List<Integer> parametersIndextest=new ArrayList<>();
+        List<String> allParametersString=new ArrayList<>();
+        List<String> validParametersString=new ArrayList<>();
+        List<Integer> parametersNumb=new ArrayList<>();
         List<TestParameter> tpList = new ArrayList<>();
-//        List<Integer> parameterCategorytest=new ArrayList<>();
         List<String> invalidParameters= new ArrayList<>();
         List<Parameter> pmList = new ArrayList<>();
-
-        for (int n=1; n<tempArr.length;n++){
-
-            if (tempArr[n-1].equalsIgnoreCase("Category")){
-//                parameterCategorytest.add(n-1);
-                while (!tempArr[n].equalsIgnoreCase("Category") && !tempArr[n].equalsIgnoreCase("Test_Reg_DateHour")){
-                    parameterstest.add(tempArr[n]);
-                    parametersIndextest.add(i);
-                    n++;
-                    System.out.println(n);
-                }
-            }
-        }
-
-        parametersString=fillParameters(parameterstest,invalidParameters,parametersString);
-        pmList=convertStringIntoParameter(parametersString,pmList);
+//        List<Integer> parameterCategory=new ArrayList<>();
+        fillParameters(tempArr,parametersNumb,allParametersString);
+        validParametersString=fillValidParameters(allParametersString,invalidParameters,validParametersString);
+        pmList=convertStringIntoParameter(validParametersString,pmList);
         tpList=convertParameterIntoTestParameter(pmList,tpList);
 //        parameterCategory(parameterCategorytest,tempArr);
 
@@ -115,13 +129,10 @@ public class CSVFileReader {
                 if(cl==null) {
                     try {
                         cl = new Client(tempArr[8], tempArr[3], tempArr[4], tempArr[6], tempArr[5], tempArr[7], tempArr[9],tempArr[10]);
+                        clientList.add(cl);
                         clStore.saveClient(cl, clAuthFacade);
-                        Date mr = new Date(tempArr[23]);
-                        Date lcv = new Date(tempArr[24]);
-                        Date samples = new Date(tempArr[21]);
-                        Date tpr = new Date(tempArr[22]);
                         NhsCode nhsCode = new NhsCode(tempArr[1]);
-                        createTest(tpList,cl,nhsCode, ttStore.getTestTypeByCode("BL000"), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]), tStore.generateInternalCode(i), samples, tpr, lcv,mr,parametersString,parametersIndextest,tempArr);
+                        createTest(tpList,cl,nhsCode, ttStore.getTestTypeByDescription(tempArr[11]), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]),validParametersString,parametersNumb,tempArr);
                     } catch (IllegalArgumentException | IllegalAccessException | ClassNotFoundException | InstantiationException e) {
                         System.out.printf("Error in line %d : %s\n", i, e.getMessage());
                     }
@@ -132,8 +143,12 @@ public class CSVFileReader {
             br.close();
     }
 
-    private void createTest(List<TestParameter> tpList, Client cl, NhsCode nhscode, TestType testType,ClinicalAnalysisLaboratory lab, String internalCode, Date samplesAddDate, Date chemicalAnalysisDate, Date LabCoordDate, Date createdAt,List<String> parametersString,List<Integer> parametersIndextest,String[] tempArr) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
-        Test t = new Test(cl,nhscode,testType,tpList,lab,internalCode,samplesAddDate,chemicalAnalysisDate,LabCoordDate,createdAt);
+    private void createTest(List<TestParameter> tpList, Client cl, NhsCode nhscode, TestType testType,ClinicalAnalysisLaboratory lab, List<String> parametersString,List<Integer> parametersIndextest,String[] tempArr) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
+        samples=generateDate(tempArr,"Test_Reg_DateHour");
+        tpr=generateDate(tempArr,"Test_Chemical_DateHour");
+        mr=generateDate(tempArr,"Test_Doctor_DateHour");
+        lcv=generateDate(tempArr,"Test_Validation_DateHour");
+        Test t = tStore.createTestByCsvFile(cl,nhscode,testType,tpList,lab,samples,tpr,lcv,mr);
         for(String parameterID : parametersString){
             for(int place : parametersIndextest) {
                 t.addTestResult(parameterID,tempArr[place], "N");
@@ -143,7 +158,21 @@ public class CSVFileReader {
         tStore.saveTest(t);
     }
 
-    private List<String> fillParameters(List<String> parameterstest, List<String> invalidParameters,List<String> pmList) {
+    private void fillParameters(String[] tempArr,List<Integer> parametersNumb,List<String> allParametersString){
+        for (int n=1; n<tempArr.length;n++){
+
+            if (tempArr[n-1].equalsIgnoreCase("Category")){
+//                parameterCategory.add(n-1);
+                while (!tempArr[n].equalsIgnoreCase("Category") && !tempArr[n].equalsIgnoreCase("Test_Reg_DateHour")){
+                    allParametersString.add(tempArr[n]);
+                    parametersNumb.add(n);
+                    n++;
+                }
+            }
+        }
+    }
+
+    private List<String> fillValidParameters(List<String> parameterstest, List<String> invalidParameters,List<String> pmList) {
         int j = 0;
         while (j < parameterstest.size()) {
                 if(!(null==pmStore.getParameterByCode(parameterstest.get(j)))) {
@@ -154,16 +183,17 @@ public class CSVFileReader {
             j++;
         }
         System.out.println(invalidParameters);
+        //System.out.printf("These parameters are invalid in the file : %s"+invalidParameters);
         return pmList;
     }
-//    private void parameterCategory(List<Integer> parameterCategorytest,String[] tempArr) {
+//    private void parameterCategory(List<Integer> parameterCategory,String[] tempArr) {
 //        int j=0;
-//        while (j < parameterCategorytest.size()) {
+//        while (j < parameterCategory.size()) {
 //            try {
 //
 //
-//                if (!tempArr[parameterCategorytest.get(j)].equalsIgnoreCase("NA")) {
-//                    pmcStore.getParameterCategoryList().add(pmcStore.getParameterCategoryByCode(tempArr[parameterCategorytest.get(j)]));
+//                if (!tempArr[parameterCategory.get(j)].equalsIgnoreCase("NA")) {
+//                    pmcStore.getParameterCategoryList().add(pmcStore.getParameterCategoryByCode(tempArr[parameterCategory.get(j)]));
 //                }
 //
 //            } catch (Exception e) {
@@ -193,7 +223,21 @@ public class CSVFileReader {
         return tpList;
     }
 
+    private Date generateDate(String[] tempArr,String title){
+        Date test=null;
+        for (int n=1; n<tempArr.length;n++){
+
+            if (tempArr[n].equalsIgnoreCase(title)){
+                test = new Date(tempArr[n]);
+            }
+        }
+        return test;
+    }
+
 //    private List<TestParameter> testParameterList(){
 //    }
+    public List<Client> getClientsList(){
+        return clientList;
+    }
 
     }

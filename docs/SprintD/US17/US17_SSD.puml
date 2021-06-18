@@ -6,10 +6,10 @@ activate LabCod
 LabCod -> ":System" : Initiates the process of Importing Clinical Tests
 activate ":System"
 
-":System" --> LabCod : Asks for the File's Path
+":System" --> LabCod : Asks to choose the File(s)
 deactivate ":System"
 
-LabCod -> ":System" : Introduces the File's Path
+LabCod -> ":System" : Selects the File(s)
 activate ":System"
 
 ":System" --> LabCod : Requests confirmation

@@ -1,33 +1,31 @@
 package app.ui.gui;
 
-
-import app.controller.ItemClientController;
 import app.controller.ViewTestsClientController;
 import app.mappers.dto.ClientDTO;
 import app.ui.console.AuthUI;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class ClientsUi {
+public class ClientsUi implements Initializable {
 
+    private Stage tests;
     private Stage stage;
-
-    private ViewTestsClientController viewTestsClientController;
+    private  TestsUi testsUi;
+    private final ViewTestsClientController viewTestsClientController;
 
     private List<ClientDTO> clientDTOList;
 
@@ -38,16 +36,11 @@ public class ClientsUi {
     private Button logout;
 
     @FXML
-    private ScrollPane scrollPane;
-
-    @FXML
     private CheckBox orderedName;
 
     @FXML
     private CheckBox orderedTin;
 
-    @FXML
-    private GridPane grid;
 
     @FXML
     private Label errorMessage;
@@ -55,6 +48,41 @@ public class ClientsUi {
     private int disableName;
 
     private int disableTin;
+    @FXML
+    private TableColumn<ClientDTO, String> name;
+
+    @FXML
+    private TableColumn<ClientDTO, String> tin;
+
+    @FXML
+    private TableView<ClientDTO> table;
+
+    @FXML
+    private Button selectedClient;
+
+
+    @FXML
+    void selectedClientClick() throws IOException {
+        ClientDTO client = table.getSelectionModel().getSelectedItems().get(0);
+
+        tests = new Stage();
+        tests.initStyle(StageStyle.UNDECORATED);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Tests.fxml"));
+        Parent root;
+
+        root = loader.load();
+
+        Scene scene = new Scene(root);
+
+
+        tests.setScene(scene);
+        testsUi = loader.getController();
+        testsUi.getTestsByClient(client);
+        tests.show();
+        testsUi.setLabelUi(tests, client);
+
+    }
 
     public ClientsUi(){
         viewTestsClientController = new ViewTestsClientController();
@@ -66,64 +94,16 @@ public class ClientsUi {
             getListOfClients();
        }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
+            table.setVisible(false);
             errorMessage.setVisible(true);
             orderedTin.setDisable(true);
-            orderedName.setVisible(true);
+            orderedName.setDisable(true);
+            selectedClient.setDisable(true);
        }
     }
 
     public void getListOfClients(){
         clientDTOList = viewTestsClientController.getClientList();
-    }
-
-    private void showClientList() {
-        //clientDTOList = getData();
-        int row = 1;
-        try {
-            for (int i=0; i<clientDTOList.size();i++) {
-
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/fxml/ClientItem.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-
-                ItemClientController itemClientController = fxmlLoader.getController();
-                System.out.println(clientDTOList.get(i));
-                System.out.println(i);
-                itemClientController.setClient(clientDTOList.get(i));
-
-                grid.prefHeight(grid.getPrefHeight()+60);
-                grid.add(anchorPane, 0, row);
-
-                row++;
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void cleanClientsList(){
-        int row = 1;
-        ClientDTO clientDTO = new ClientDTO(null, null, null, null, null, null, null, null, null);
-        try {
-            for (int i=0; i<clientDTOList.size();i++) {
-
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/fxml/ClientItem.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-
-                ItemClientController itemClientController = fxmlLoader.getController();
-                itemClientController.setClient(clientDTO);
-
-                grid.prefHeight(grid.getPrefHeight()+60);
-                grid.add(anchorPane, 0, row);
-
-                row++;
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
@@ -166,11 +146,13 @@ public class ClientsUi {
         try {
             if (disableName %2 != 0){
                 orderedName.setDisable(true);
-                showClientList();
-                grid.setVisible(true);
+                name.setCellValueFactory(new PropertyValueFactory<>("name"));
+                tin.setCellValueFactory(new PropertyValueFactory<>("tin"));
+                table.setItems(getClients());
+                table.setVisible(true);
             }else {
                 orderedName.setDisable(false);
-                grid.setVisible(false);
+                table.setVisible(false);
             }
 
         }catch (Exception e){
@@ -188,11 +170,13 @@ public class ClientsUi {
         try {
             if (disableTin %2 != 0){
                 orderedTin.setDisable(true);
-                showClientList();
-                grid.setVisible(true);
+                name.setCellValueFactory(new PropertyValueFactory<>("name"));
+                tin.setCellValueFactory(new PropertyValueFactory<>("tin"));
+                table.setItems(getClients());
+                table.setVisible(true);
             }else {
                 orderedTin.setDisable(false);
-                grid.setVisible(false);
+                table.setVisible(false);
             }
         }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
@@ -218,6 +202,24 @@ public class ClientsUi {
     public void onLog(){
         logout.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px");
         logout.setTextFill(Paint.valueOf("#ffffff"));
+    }
+
+    public ObservableList<ClientDTO> getClients() {
+        ObservableList<ClientDTO> clients = FXCollections.observableArrayList();
+
+
+        for (ClientDTO c : clientDTOList){
+            //System.out.println(c);
+            clients.add(c);
+        }
+
+        return clients;
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        table.setVisible(false);
     }
 }
 

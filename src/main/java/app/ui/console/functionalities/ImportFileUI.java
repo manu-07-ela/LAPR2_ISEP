@@ -1,23 +1,28 @@
 package app.ui.console.functionalities;
 
 import app.controller.ImportFileController;
+import app.controller.RegisterTestController;
+import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ImportFileUI implements Runnable{
 
     /**
      * Represents a instance of register test controller
      */
-    private final ImportFileController filectrl;
+    private final ImportFileController importFileController;
 
     public ImportFileUI(){
-        filectrl = new ImportFileController();
+        importFileController = new ImportFileController();
     }
 
-    public void run(){
-        System.out.printf("%nReading File%n");
+    @Override
+    public void run() {
+        System.out.printf("%nReading a file%n");
         try {
             readfile();
         } catch (IOException e) {
@@ -26,6 +31,9 @@ public class ImportFileUI implements Runnable{
     }
 
     public void readfile() throws IOException {
-        filectrl.loadFile("tests_BloodMDISCCSV.csv");
+        File f = new File("tests_BloodMDISCCSV.csv");
+        List<File> flist = new ArrayList<>();
+        flist.add(f);
+        importFileController.loadFile(flist);
     }
 }

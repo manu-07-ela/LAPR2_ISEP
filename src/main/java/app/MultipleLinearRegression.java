@@ -1,18 +1,26 @@
 package app;
 
+import org.apache.commons.math3.distribution.TDistribution;
+
 public class MultipleLinearRegression {
 
-    private final double[][] matrixX, matrixXTransposed,matrixXXT, matrixXTY, matrixXXTInverse, matrixXTYInverse, matrixB, matrixY;
+    private double[][] matrixX, matrixXTransposed, matrixXTX, matrixXTY, matrixXTXInverse, matrixXTYInverse, matrixB,matrixYChapeu, matrixYYT;
+    private double[] matrixY;
+    private double sqt, y, sqr;
 
     public MultipleLinearRegression(double[] x1, double[]x2, double[]y) {
+        for (int i=0; i< y.length; i++){
+            this.y += y[i];
+        }
+        this.y = this.y/matrixY.length;
          matrixX = matrixX(x1, x2);
-         matrixXTransposed = matrixXTransposed(matrixX);
-         matrixXXT = matrixXXT(matrixX, matrixXTransposed);
-         matrixXTY = matrixXTY(matrixXTransposed, y);
+         matrixXTransposed = transpose(matrixX);
+         matrixXTX = matrixXXT(matrixXTransposed, matrixX);
+         matrixXTY = matrixXTY(matrixXTransposed, matrixY);
          matrixXTYInverse = invert(matrixXTY);
-         matrixXXTInverse = invert(matrixXXT);
-         matrixB = multipleMatrix(matrixXXTInverse, matrixXTY);
-         matrixY = multipleMatrix(matrixX, matrixB);
+         matrixXTXInverse = invert(matrixXTX);
+         matrixB = multipleMatrix(matrixXTXInverse, matrixXTY);
+         matrixYChapeu = multipleMatrix(matrixX, matrixB);
 
 
     }
@@ -31,7 +39,7 @@ public class MultipleLinearRegression {
         return  matrixAux;
     }
 
-    private double[][] matrixXTransposed(double[][] matrix){
+    private double[][] transpose(double[][] matrix){
         double[][] matrixTransposed = new double[matrix[0].length][matrix.length];
 
         for (int i=0; i<matrix[0].length; i++) {
@@ -45,37 +53,37 @@ public class MultipleLinearRegression {
     }
 
 
-    public double[][] matrixXXT(double[][] matrixX, double[][] matrixXTranposta){
+    public double[][] matrixXXT(double[][] matrixX, double[][] matrixXTransposed){
         int n = matrixX[0].length; //A.columns = B.rows
         //Verfica se A.columns = B.rows
-        if(n != matrixXTranposta.length){
+        if(n != matrixXTransposed.length){
             throw new IllegalArgumentException("A.columns != B.rows");
         }
         int rows = matrixX.length; //A.rows
-        int cols = matrixXTranposta[0].length; //B.columns
+        int cols = matrixXTransposed[0].length; //B.columns
         double[][] matrixXXT = new double[rows][cols];
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < cols; j++){
                 for(int k = 0; k < n; k++){
-                    matrixXXT[i][j] = matrixXXT[i][j] + matrixX[i][k] * matrixXTranposta[k][j];
+                    matrixXXT[i][j] = matrixXXT[i][j] + matrixX[i][k] * matrixXTransposed[k][j];
                 }
             }
         }
         return matrixXXT;
     }
-    public double[][] matrixXTY(double[][] matrixXTransposta, double[] y) {
-        int n = matrixXTransposta[0].length; //A.columns = B.rows
+    public double[][] matrixXTY(double[][] matrixXTransposed, double[] y) {
+        int n = matrixXTransposed[0].length; //A.columns = B.rows
         //Verfica se A.columns = B.rows
         if (n != y.length) {
             throw new IllegalArgumentException("A.columns != B.rows");
         }
-        int rows = matrixXTransposta.length; //A.rows
+        int rows = matrixXTransposed.length; //A.rows
         int cols = y.length; //B.columns
         double[][] matrixXTY = new double[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 for (int k = 0; k < n; k++) {
-                    matrixXTY[i][j] = matrixXTY[i][j] + matrixXTransposta[i][k] * y[k];
+                    matrixXTY[i][j] = matrixXTY[i][j] + matrixXTransposed[i][k] * y[k];
                 }
             }
         }
@@ -181,7 +189,7 @@ public class MultipleLinearRegression {
             for(int i=0;i<matrixMultiplication.length;i++) {
                 for (int j = 0; j < matrixMultiplication[0].length; j++) {
                     matrixMultiplication[i][j] = 0;
-                    for (int k = 0; k < 3; k++) {
+                    for (int k = 0; k < matrixMultiplication.length; k++) {
                         matrixAux[i][j] += matrix[i][k] * matrixAux[k][j];
                     }
                 }
@@ -189,4 +197,76 @@ public class MultipleLinearRegression {
         }
         return matrixMultiplication;
     }
+
+    private double sqt(){
+        return multipleYTY()-matrixY.length*(1/Math.pow(y, 2));
+    }
+    private double multipleYTY(){
+        double som=0;
+        for (int i=0; i<matrixY.length; i++){
+            som+= Math.pow(matrixY[i], 2);
+        }
+        return som;
+    }
+    public double sqr(){
+        double[][] bTransposed, bTxTy;
+        bTransposed = transpose(matrixB);
+        bTxTy = multipleMatrix(bTransposed,matrixXTY);
+        return bTxTy[0][0] - matrixY.length*(1/Math.pow(y, 2));
+    }
+    public double sqe(){
+        double[][] bTransposed, bTxTy;
+        bTransposed = transpose(matrixB);
+        bTxTy = multipleMatrix(bTransposed,matrixXTY);
+        return multipleYTY() - bTxTy[0][0];
+
+    }
+
+    public double rQuadrado(){
+        return sqr/sqt;
+    }
+
+    public double rQuadradoAjustado(){
+        return (1-((matrixY.length-1)/(matrixY.length-matrixX[0].length))*(1-rQuadrado()));
+    }
+
+    public double desvioPadrão(){
+        return sqe()/(matrixY.length-matrixX.length);
+        //((XTX)-1*XT*)*X
+    }
+
+    private double cjj(){
+        double[][] matrix = multipleMatrix(matrixXTXInverse, transpose(matrixX));
+        return multipleMatrix(matrix, matrixX)[0][0];
+    }
+
+    private double tStudent(double alpha){
+        TDistribution td= new TDistribution(matrixX[0].length-1);
+        double critTD;
+        double alphaTD =1-alpha/2;
+        if(alphaTD> 0.5) {
+            critTD = td.inverseCumulativeProbability(alphaTD);
+            System.out.println("t-student critical value: " + critTD);
+        }
+        else {
+            critTD = td.inverseCumulativeProbability(1 - alphaTD);
+            System.out.println("t-student critical value: " + critTD);
+        }
+        return critTD;
+    }
+
+    private double regressionStraight(int x){
+        return 0;
+
+    }
+
+    @Override
+    public String  toString(){
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(String.format("The regression model fitted using data from the interval: y = %.2f + %.2fx1 + %.2fx2", matrixB[0],matrixB[1], matrixB[2]));
+        return "Manu";
+    }
+
+
 }
