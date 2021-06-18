@@ -1,0 +1,26 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+
+class Test {
+-internalCode
+-nhsCode
+-description
+-dateOfSampleCollected
+-timeOfSampleCollected
+-dateOfSampleAnalysis
+-timeOfSampleAnalysis
+-state
+}
+
+
+
+
+Test "*"---"1" Employee : registered by >
+
+
+
+@enduml
