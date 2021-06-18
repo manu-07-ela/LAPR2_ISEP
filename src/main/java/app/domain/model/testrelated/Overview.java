@@ -5,9 +5,6 @@ import app.interfaces.SubsequenceWithMaximumSum;
 import app.domain.model.users.Client;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static app.domain.model.testrelated.Test.StateOfTest.*;
@@ -61,7 +58,11 @@ public class Overview {
         sequenceTestWaitingForDiagnosis = new ArrayList<>();
         getSequenceTestWaitingForResults();
         getSequenceTestWaitingForDiagnosis();
-        getSequence();
+        getSequenceAux();
+    }
+
+    public void getNumberOfTestsProcessed(){
+
     }
 
     private void getAssociatedClients(){
@@ -95,6 +96,10 @@ public class Overview {
         return numberOfClients;
     }
 
+    public int[] getSequence(){
+        return sequence;
+    }
+
     public Integer getNumberOfTestWaitingForResults(){
         return numberOfTestWaitingForResults;
     }
@@ -112,40 +117,44 @@ public class Overview {
     }
 
     public void getSequenceTestWaitingForResults()  {
-        Date date1 = initialDate;
-        Date date2 = date1;
+        Date date1 = new Date(initialDate.getTime());
+        Date date2 = new Date(date1.getTime());
         do {
             int aux = 0;
             date2.setMinutes(date2.getMinutes() + 30);
             for (Test t : testList) {
-                if (t.getSamplesAddDate().after(date1) && t.getSamplesAddDate().before(date2)) {
-                    aux++;
+                if (t.getStateOfTest() == SamplesCollected) {
+                    if (t.getSamplesAddDate().after(date1) && t.getSamplesAddDate().before(date2)) {
+                        aux++;
+                    }
                 }
             }
             sequenceTestWaitingForResults.add(aux);
             date2.setMinutes(date2.getMinutes() + 1);
-            date1 = date2;
+            date1 = new Date(date2.getTime());
         }while (date2.before(endDate));
     }
 
     public void getSequenceTestWaitingForDiagnosis()  {
-        Date date1 = initialDate;
-        Date date2 = date1;
+        Date date1 = new Date(initialDate.getTime());
+        Date date2 = new Date(date1.getTime());
         do {
             int aux = 0;
             date2.setMinutes(date2.getMinutes() + 30);
             for (Test t : testList) {
-                if (t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size())-1).after(date1) && t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size())-1).before(date2)) {
-                    aux++;
+                if (t.getStateOfTest() == SamplesAnalyzed) {
+                    if (t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).after(date1) && t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).before(date2)) {
+                        aux++;
+                    }
                 }
             }
             sequenceTestWaitingForDiagnosis.add(aux);
             date2.setMinutes(date2.getMinutes() + 1);
-            date1 = date2;
+            date1 = new Date(date2.getTime());
         }while (date2.before(endDate));
     }
 
-    public void getSequence(){
+    public void getSequenceAux(){
         sequence = new int[sequenceTestWaitingForResults.size()];
         for (int i=0;i<sequence.length;i++){
             sequence[i]=sequenceTestWaitingForResults.get(i)-sequenceTestWaitingForDiagnosis.get(i);
@@ -165,6 +174,6 @@ public class Overview {
         String classAux = props.getProperty(String.format("Controller.%sAdapter.Class",algorithm));
         Class<?> oClass = Class.forName(classAux);
         SubsequenceWithMaximumSum subMaxSum = (SubsequenceWithMaximumSum) oClass.newInstance();
-        return subMaxSum.getSubsequenceWithMaximumSum( new int[]{29, -32, -9, -25, 44, 12, -61, 51, -9, 44, 74, 4});
+        return subMaxSum.getSubsequenceWithMaximumSum(sequence);
     }
 }

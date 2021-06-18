@@ -66,14 +66,4 @@ public class TestParameterResultTest {
         Assert.assertEquals(ref,tr.getRefValue());
     }
 
-    @Test
-    public void getChemicalAnalysisDate() {
-       /* RefValue ref = new RefValue("metric1",30.0,50.0);
-        TestParameterResult tr = new TestParameterResult(ref,"45","metric");
-        Date chemicalAnalysisDate = Calendar.getInstance().getTime();
-
-        Assert.assertEquals(chemicalAnalysisDate,tr.getChemicalAnalysisDate());
-
-        */
-    }
 }

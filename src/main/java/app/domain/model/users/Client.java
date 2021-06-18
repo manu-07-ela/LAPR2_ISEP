@@ -5,6 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 import static java.lang.Integer.parseInt;
@@ -154,6 +157,19 @@ public class Client implements Serializable {
         return date;
     }
 
+    public  int getAge() throws ParseException {
+        SimpleDateFormat format=new SimpleDateFormat("dd/MM/yyyy");
+        Date birth=format.parse(this.date);
+        LocalDate birthDate=new java.sql.Date(birth.getTime()).toLocalDate();
+        Date current=new Date();
+        LocalDate currentDate=new java.sql.Date(current.getTime()).toLocalDate();
+        if ((birthDate != null) && (currentDate != null)) {
+            return Period.between(birthDate, currentDate).getYears();
+        } else {
+            return 0;
+        }
+    }
+
     /**
      * Get the gender of a client
      * @return the gender of client
@@ -202,30 +218,7 @@ public class Client implements Serializable {
         nameValidation(name);
         this.name = name;
     }
-    /**
-     * Sets the Citizen card number of a client
-     * @param citizenCardNumber the Citizen card number of a client
-     */
-    public void setCitizenCardNumber(String citizenCardNumber) {
-        citizenCardNumberValidation(citizenCardNumber);
-        this.citizenCardNumber = citizenCardNumber;
-    }
-    /**
-     * Sets the National Healthcare Service number of a client
-     * @param nhs the National Healthcare Service number of a client
-     */
-    public void setNhs(String nhs) {
-        nhsValidation(nhs);
-        this.nhs = nhs;
-    }
-    /**
-     * Sets the birth date of a client
-     * @param date the birth date of a client
-     */
-    public void setDate(String date) {
-        dateValidation(date);
-        this.date = date;
-    }
+
     /**
      * Sets the gender of a client
      * @param sex the gender of a client
@@ -259,14 +252,7 @@ public class Client implements Serializable {
                 '}';
     }
 
-    /**
-     * Sets the tax identification number of a client
-     * @param tin the tax identification number of a client
-     */
-    public void setTin(String tin) {
-        tinValidation(tin);
-        this.tin = tin;
-    }
+
     /**
      * Sets the phone number of a client
      * @param phoneNumber the phone number of a client
@@ -274,14 +260,6 @@ public class Client implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         phoneNumberValidation(phoneNumber);
         this.phoneNumber = phoneNumber;
-    }
-    /**
-     * Sets the e-mail of a client
-     * @param email the e-mail of a client
-     */
-    public void setEmail(String email) {
-        emailValidation(email);
-        this.email = email;
     }
 
     /**
@@ -407,7 +385,7 @@ public class Client implements Serializable {
     private void addressValidation(String address){
         if (StringUtils.isEmpty(address)) throw new NullPointerException("Adress can't be blank.");
         if (address.length()>90){
-            throw  new IllegalArgumentException("The address mustn't have more then 90 characters");
+            throw  new IllegalArgumentException("The address mustn't have more than 90 characters");
         }
     }
 

@@ -156,33 +156,6 @@ public class ClientStore implements Serializable {
     }*/
 
     /**
-     * It updates the Birth Date of the Client
-     * @param client  The Client
-     * @param birthDate the Birth Date of the Client
-     */
-    public void updateBirthDate(Client client, String birthDate){
-       /*if (clientExists(client))*/ client.setDate(birthDate);
-    }
-
-    /**
-     * It updates the Citizen Card Number of the Client
-     * @param client The Client
-     * @param citizenCard the Citizen Card Number of the Client
-     */
-    public void updateCitizenCard(Client client, String citizenCard){
-        /*if (clientExists(client))*/ client.setCitizenCardNumber(citizenCard);
-    }
-
-    /**
-     * It updates the email of the Client
-     * @param client The Client
-     * @param email the email of the Client
-     */
-    public void updateEmail(Client client, String email){
-        /*if (clientExists(client))*/ client.setCitizenCardNumber(email);
-    }
-
-    /**
      *  It updates the name of the Client
      * @param client The Client
      * @param name the name of the Client
@@ -191,14 +164,6 @@ public class ClientStore implements Serializable {
         /*if (clientExists(client))*/ client.setName(name);
     }
 
-    /**
-     * It updates the NHS Code of the Client
-     * @param client the Client
-     * @param nhsCode the NHS Code of the Client
-     */
-    public void updateNhsCode(Client client, String nhsCode){
-        /*if (clientExists(client))*/ client.setNhs(nhsCode);
-    }
 
     /**
      * It updates the sex of the Client
@@ -207,15 +172,6 @@ public class ClientStore implements Serializable {
      */
     public void updateSex(Client client, String sex){
         /*if (clientExists(client))*/ client.setSex(sex);
-    }
-
-    /**
-     * It updates the TIN of the Client
-     * @param client the Client
-     * @param tin the TIN of the Client
-     */
-    public void updateTin(Client client, String tin){
-        /*if (clientExists(client))*/ client.setTin(tin);
     }
 
     /**
@@ -236,46 +192,6 @@ public class ClientStore implements Serializable {
         /*if (clientExists(client))*/ client.setAddress(address);
     }
 
-    /**
-     * It updates the attribute of a Client
-     * @param attribute the attribute of a Client to be updated
-     * @param client The Client
-     */
-    public void updateAttribute(String attribute, Client client) {
-       /* for (Client cl :clientList ) {
-            if (cl.equals(client)){
-                switch (attribute){
-                    case "name" :
-                        client.setName(name);
-                        break;
-                    case "citizencardnumber" :
-                        client.setCitizencardnumber(citizencardnember);
-                        break;
-                    case "nhsCode" :
-                        client.setNhs(nhs);
-                        break;
-                    case "dateOfBirth" :
-                        client.setDate(date);
-                        break;
-                    case "sex" :
-                        client.setSex(sex);
-                        break;
-                    case "Tin" :
-                        client.setTin(tin);
-                        break;
-                    case "phonenumber" :
-                        client.setPhonenumber(phonenumber);
-                        break;
-                    case "email" :
-                        client.setEmail(email);
-                        break;
-                }
-            }
-        }
-
-        */
-
-    }
 
 
 }

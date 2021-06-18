@@ -101,7 +101,7 @@ public class OverviewTestUi {
 
     public void evaluetePerformance() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         runEvaluetePerformance();
-        evaluatePerformanceController.setLabelUI(stageEvaluatePerformance,overviewCtrl,availableAlgorithms.getValue());
+        evaluatePerformanceController.setLabelUI(stageEvaluatePerformance,overviewCtrl,availableAlgorithms.getValue(),overviewCtrl.getSequence());
         closePlatform.getScene().getWindow().hide();
     }
 

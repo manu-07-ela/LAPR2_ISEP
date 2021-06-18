@@ -90,6 +90,7 @@ public class RecordSampleController implements Serializable {
         Class<?> oClass = Class.forName(classAux);
         ExternalModuleBarcode api = (ExternalModuleBarcode) oClass.newInstance();
         return api;
+
     }
 
     /**

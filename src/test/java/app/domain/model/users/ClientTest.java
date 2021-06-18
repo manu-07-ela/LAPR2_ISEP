@@ -17,6 +17,11 @@ public class ClientTest {
         new Client("José David Teixeira Pessoa Pessoa Pessoa","1234567891234567","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");
     }
 
+    @Test
+    public void nameLengthValidation2(){
+        new Client("José David Teixeira","1234567891234567","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void citizenCardNumberNumericValidation(){
         new Client("José David Teixeira Pessoa Pessoa Pessoa","1234567891234567aaaaa","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");
@@ -148,63 +153,7 @@ public class ClientTest {
 
 
 
-    @Test(expected = IllegalArgumentException.class)
-    public void setCitizenCardNumber1() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setCitizenCardNumber("12345678909876543213456789765432");
-    }
-    
 
-
-    @Test(expected = NullPointerException.class)
-    public void setCitizenCardNumber2() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setCitizenCardNumber("");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setCitizenCardNumber3() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setCitizenCardNumber("asfv12345678902k");
-    }
-
-    @Test
-    public void setCitizenCardNumber4() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setCitizenCardNumber("1234567891234528");
-        Assert.assertEquals("1234567891234528",cl.getCitizenCardNumber());
-    }
-
-    @Test
-    public void setNhs1() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setNhs("2234567831");
-        Assert.assertEquals("2234567831",cl.getNhs());
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void setNhs2() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setNhs("");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setNhs3() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setNhs("adertgyh12");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setNhs4() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setNhs("12345678908765432223456789876543");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setNhs5() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setNhs("1234");
-    }
 
     @Test
     public void setSex1() {
@@ -233,36 +182,7 @@ public class ClientTest {
 
     }
 
-    @Test(expected = NullPointerException.class)
-    public void setTin1() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setTin("");
-    }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void setTin2() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setTin("erghy12345");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setTin3() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setTin("123456789087654321345678");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setTin4() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setTin("123");
-    }
-
-    @Test
-    public void setTin5() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setTin("1234567890");
-        Assert.assertEquals("1234567890",cl.getTin());
-    }
 
     @Test
     public void setPhoneNumber1() {
@@ -295,49 +215,7 @@ public class ClientTest {
         cl.setPhoneNumber("123456");
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void setEmail1() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setEmail("");
-    }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void setEmail2() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setEmail("erwgewrgewrggtrgr");
-    }
-
-    @Test
-    public void setEmail3() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setEmail("Lasdsd@gmail.com");
-        Assert.assertEquals("Lasdsd@gmail.com",cl.getEmail());
-    }
-
-    @Test
-    public void setDate1() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setDate("02/04/2003");
-        Assert.assertEquals("02/04/2003",cl.getDate());
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setDate2() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setDate("02-04-2003");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setDate3() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setDate("");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setDate4() {
-        Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
-        cl.setDate("04/05/1300");
-    }
 
 }
 

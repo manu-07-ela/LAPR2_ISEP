@@ -1,5 +1,6 @@
 package app;
 
+import org.apache.commons.math3.distribution.TDistribution;
 
 /**
  *  The code SimpleLinearRegression class performs a simple linear regression
@@ -19,6 +20,15 @@ public class SimpleLinearRegression {
     private final double intercept, slope;
     private final double r2;
     private final double svar0, svar1;
+    private final double r2Adjusted;
+    private final int confidenceLevel;
+    private final int significanceLevel;
+    private final int n;
+    private final int degreesOfFreedom;
+    private final double variance;
+    private double xbar;
+    private double xxbar;
+    private double auxYMenosYChapeuQuadrado;
 
     /**
      * Performs a linear regression on the data points (y[i], x[i]).
@@ -27,11 +37,13 @@ public class SimpleLinearRegression {
      * @param  y the corresponding values of the response variable
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
-    public SimpleLinearRegression(double[] x, double[] y) {
+    public SimpleLinearRegression(double[] x, double[] y, int confidenceLevel, int significanceLevel) {
+        this.confidenceLevel=confidenceLevel;
+        this.significanceLevel=significanceLevel;
         if (x.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
-        int n = x.length;
+        this.n = x.length;
 
         // first pass
         double sumx = 0.0, sumy = 0.0, sumx2 = 0.0;
@@ -40,11 +52,12 @@ public class SimpleLinearRegression {
             sumx2 += x[i]*x[i];
             sumy  += y[i];
         }
-        double xbar = sumx / n;
+        xbar = sumx / n;
         double ybar = sumy / n;
 
         // second pass: compute summary statistics
-        double xxbar = 0.0, yybar = 0.0, xybar = 0.0;
+        xxbar = 0.0;
+        double yybar = 0.0, xybar = 0.0;
         for (int i = 0; i < n; i++) {
             xxbar += (x[i] - xbar) * (x[i] - xbar);
             yybar += (y[i] - ybar) * (y[i] - ybar);
@@ -62,11 +75,17 @@ public class SimpleLinearRegression {
             ssr += (fit - ybar) * (fit - ybar);
         }
 
-        int degreesOfFreedom = n-2;
+        this.degreesOfFreedom = n-2;
         r2    = ssr / yybar;
         double svar  = rss / degreesOfFreedom;
         svar1 = svar / xxbar;
         svar0 = svar/n + xbar*xbar*svar1;
+        r2Adjusted = 1-(1-r2)*(n-1)/(n-2);
+        this.auxYMenosYChapeuQuadrado = 0;
+        for (int i = 0; i < n; i++) {
+            auxYMenosYChapeuQuadrado += (y[i]-predict(x[i]))*(y[i]-predict(x[i]));
+        }
+        this.variance = Math.sqrt(auxYMenosYChapeuQuadrado/(degreesOfFreedom));
     }
 
     /**
@@ -125,6 +144,54 @@ public class SimpleLinearRegression {
      */
     public double predict(double x) {
         return slope*x + intercept;
+    }
+
+    public double r2Adjusted (){
+        return r2Adjusted;
+    }
+
+    public double[] trustInterval(double x0, double yEstimated){
+        double[] limits = new double[2];
+        double confidenceLevelAux = (double) confidenceLevel/100;
+        double alpha = 1.0 - confidenceLevelAux;
+        double tc = tStudent(alpha/2,degreesOfFreedom);
+        double aux = Math.sqrt(1.0+(1/n)+(((x0-xbar)*(x0-xbar))/xxbar));
+        double delta = variance*aux*tc;
+        double linf = yEstimated-delta;
+        double lsup = yEstimated + delta;
+        limits[0] = linf;
+        limits[1] = lsup;
+        return limits;
+    }
+
+    public void straightSlopeHypothesisTest(){
+        double alpha = (double) significanceLevel/100;
+        double tc = tStudent(alpha/2,degreesOfFreedom);
+        int b0 = 0;
+        double S = Math.sqrt(auxYMenosYChapeuQuadrado/degreesOfFreedom);
+        double aux=Math.sqrt(1/xxbar);
+        double tb = (slope-b0)/(S*aux);
+    }
+
+    public void ordinateOriginHypothesisTest(){
+        double alpha = (double) significanceLevel/100;
+        double tc = tStudent(alpha/2,degreesOfFreedom);
+        int a0 = 0;
+        double S = Math.sqrt(((1.0/degreesOfFreedom))*(auxYMenosYChapeuQuadrado));
+        double aux=Math.sqrt((1.0/n)+((xbar*xbar)/xxbar));
+        double tb = (intercept-a0)/(S*aux);
+    }
+
+    private double tStudent(double alpha,int degreesOfFreedom){
+        TDistribution td= new TDistribution(degreesOfFreedom);
+        double critTD;
+        if(alpha> 0.5) {
+            critTD = td.inverseCumulativeProbability(alpha);
+        }
+        else {
+            critTD = td.inverseCumulativeProbability(1 - alpha);
+        }
+        return critTD;
     }
 
     /**

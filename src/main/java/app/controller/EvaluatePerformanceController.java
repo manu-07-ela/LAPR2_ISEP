@@ -24,26 +24,28 @@ public class EvaluatePerformanceController {
     private int[] seq;
 
     @FXML
+    private LineChart performanceChart;
+
+    @FXML
     private CategoryAxis x;
 
     @FXML
     private NumberAxis y;
 
-    @FXML
-    private LineChart performanceChart;
 
-
-    public void setLabelUI(Stage stage,OverviewController overviewController, String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public void setLabelUI(Stage stage,OverviewController overviewController, String algorithm, int[] sequence) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         this.stage = stage;
         this.overviewController=overviewController;
         seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
-        loadLineChart();
+        loadLineChart(sequence);
     }
 
-    public void loadLineChart(){
+    public void loadLineChart(int[] sequence){
+        y.setUpperBound(125);
+        y.setLowerBound(-125);
         XYChart.Series series = new XYChart.Series();
-        for (int i = 0; i<seq.length; i++){
-            series.getData().add(new XYChart.Data(String.valueOf(i),seq[i]));
+        for (int i = 0; i<sequence.length; i++){
+            series.getData().add(new XYChart.Data(String.valueOf(i),sequence[i]));
         }
         performanceChart.getData().addAll(series);
     }
