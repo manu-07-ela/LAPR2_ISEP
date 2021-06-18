@@ -1,7 +1,11 @@
 package app;
 
+import app.ui.gui.LabCoordinatorUi;
 import org.apache.commons.math3.distribution.FDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  *  The code SimpleLinearRegression class performs a simple linear regression
@@ -45,7 +49,7 @@ public class SimpleLinearRegression {
      * @param  y the corresponding values of the response variable
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
-    public SimpleLinearRegression(double[] x, double[] y, double confidenceLevel, double significanceLevel) {
+    public SimpleLinearRegression(double[] x, double[] y, double[] xHistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, List<String> datesHistoricalPoints) {
         this.confidenceLevel=confidenceLevel;
         this.significanceLevel=significanceLevel;
         if (x.length != y.length) {

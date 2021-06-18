@@ -16,6 +16,8 @@ import app.domain.model.users.Client;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static app.domain.model.testrelated.Test.StateOfTest.*;
@@ -310,30 +312,310 @@ public class TestStore implements Serializable {
         return intervalTestList;
     }
 
-    public List<Test> getCovidTestsLstHistoricalPoints(Date currentDay, int historicalPoints){
-        List<Test> intervalTestList = new ArrayList();
-        int validDays=0;
-        Date dateAux = new Date(currentDay.getTime());
+
+    public double[] getNumberOfPositiveCovidTestsForDayInInterval(Date initialDate, Date endDate){
+
+        List<Double> auxiliar = new ArrayList<>();
+
+        List<Test> tests = getCovidTestsLstByInterval(initialDate,endDate);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(initialDate);
+
+        Date aux = new Date(initialDate.getTime());
+
+        Date date = new Date(endDate.getTime());
+
+        date.setHours(aux.getHours()+24);
+
         do{
-            dateAux.setHours(dateAux.getHours()-24);
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(dateAux);
-            int day = calendar.get(Calendar.DAY_OF_YEAR);
-            int year = calendar.get(Calendar.YEAR);
-            if(dateAux.getDay()!=0){
-                validDays++;
-                for (Test t: testList) {
-                    if(t.getStateOfTest() == Validated) {
-                        calendar.setTime(t.getSamplesAddDate());
-                        int validationDay = calendar.get(Calendar.DAY_OF_YEAR);
-                        int validationYear = calendar.get(Calendar.YEAR);
-                        if (day == validationDay && year == validationYear && t.getTestType().getReferenceAdapter().equals("CovidReferenceValues1API")) {
-                            intervalTestList.add(t);
+            double temp = 0;
+            if(aux.getDay()!=0){
+                calendar.setTime(aux);
+                int day = calendar.get(Calendar.DAY_OF_YEAR);
+                int year = calendar.get(Calendar.YEAR);
+                for (int i = 0; i<tests.size();i++){
+                    calendar.setTime(tests.get(i).getSamplesAddDate());
+                    int sampleDay = calendar.get(Calendar.DAY_OF_YEAR);
+                    int sampleYear = calendar.get(Calendar.YEAR);
+                    if(day == sampleDay && year == sampleYear) {
+                        if (tests.get(i).getTestParameterList().get(0).getParameterId().equals("IgGAN")) {
+                            if (Double.parseDouble(tests.get(i).getTestParameterList().get(0).getParamResult().getResult()) > 1.4) {
+                                temp++;
+                            }
                         }
                     }
                 }
+                auxiliar.add(temp);
             }
-        } while (validDays<historicalPoints);
-        return intervalTestList;
+            aux.setHours(aux.getHours()+24);
+        }while (aux.before(date));
+
+        double[] positives = new double[auxiliar.size()];
+        for(int j = 0; j<auxiliar.size(); j++){
+            positives[j]=auxiliar.get(j);
+        }
+
+        return positives;
+
     }
+
+    public double[] getNumberOfPositiveCovidTestsForDayHistoricalPoints(Date currentDay, int historicalPoints){
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDay);
+
+        int validDays=0;
+        Date dateAux = new Date(currentDay.getTime());
+
+        Date endDate = null;
+        do {
+            dateAux.setHours(dateAux.getHours() - 24);
+            if(dateAux.getDay()!=0) {
+                validDays++;
+                if (validDays == 1){
+                    endDate = new Date(dateAux.getTime());
+                }
+            }
+        }while (validDays<historicalPoints);
+
+        Date initialDate = new Date(dateAux.getTime());
+
+        return getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
+
+    }
+
+    public double[] getNumberOfTestsPerformedForDayInInterval(Date initialDate, Date endDate){
+
+        List<Double> auxiliar = new ArrayList<>();
+
+        List<Test> test = getCovidTestsLstByInterval(initialDate,endDate);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(initialDate);
+
+        Date aux = new Date(initialDate.getTime());
+
+        Date date = new Date(endDate.getTime());
+
+        date.setHours(aux.getHours()+24);
+
+        do{
+            double temp = 0;
+            if(aux.getDay()!=0){
+                calendar.setTime(aux);
+                int day = calendar.get(Calendar.DAY_OF_YEAR);
+                int year = calendar.get(Calendar.YEAR);
+                for (int i = 0; i<test.size();i++){
+                    calendar.setTime(test.get(i).getSamplesAddDate());
+                    int sampleDay = calendar.get(Calendar.DAY_OF_YEAR);
+                    int sampleYear = calendar.get(Calendar.YEAR);
+                    if(day == sampleDay && year == sampleYear) {
+                        temp++;
+                    }
+                }
+                auxiliar.add(temp);
+            }
+            aux.setHours(aux.getHours()+24);
+        }while (aux.before(date));
+
+        double[] performed = new double[auxiliar.size()];
+        for(int j = 0; j<auxiliar.size(); j++){
+            performed[j]=auxiliar.get(j);
+        }
+
+        return performed;
+
+
+    }
+
+
+    public double[] getNumberOfTestsPerformedForDayHistoricalPoints(Date currentDay, int historicalPoints){
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDay);
+
+        int validDays=0;
+        Date dateAux = new Date(currentDay.getTime());
+
+        Date endDate = null;
+        do {
+            dateAux.setHours(dateAux.getHours() - 24);
+            if(dateAux.getDay()!=0) {
+                validDays++;
+                if (validDays == 1){
+                    endDate = new Date(dateAux.getTime());
+                }
+            }
+        }while (validDays<historicalPoints);
+
+        Date initialDate = new Date(dateAux.getTime());
+
+        return getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
+
+    }
+
+
+
+    public double[] getMeanAgeForDayInInterval(Date initialDate, Date endDate) throws ParseException {
+
+        List<Double> auxiliar = new ArrayList<>();
+
+
+        List<Test> test = getCovidTestsLstByInterval(initialDate,endDate);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(initialDate);
+
+        Date aux = new Date(initialDate.getTime());
+
+        Date date = new Date(endDate.getTime());
+
+        date.setHours(aux.getHours()+24);
+
+        do{
+            int numberOfClients=0;
+            double age = 0;
+            if(aux.getDay()!=0){
+                calendar.setTime(aux);
+                int day = calendar.get(Calendar.DAY_OF_YEAR);
+                int year = calendar.get(Calendar.YEAR);
+                for (int i = 0; i<test.size();i++){
+                    calendar.setTime(test.get(i).getSamplesAddDate());
+                    int sampleDay = calendar.get(Calendar.DAY_OF_YEAR);
+                    int sampleYear = calendar.get(Calendar.YEAR);
+                    if(day == sampleDay && year == sampleYear) {
+                        age += test.get(i).getCl().getAge();
+                        numberOfClients++;
+                    }
+                }
+                if (numberOfClients!=0) {
+                    auxiliar.add(age / numberOfClients);
+                }else {
+                    auxiliar.add((double) numberOfClients);
+                }
+            }
+            aux.setHours(aux.getHours()+24);
+        }while (aux.before(date));
+
+        double[] meanAge = new double[auxiliar.size()];
+        for(int j = 0; j<auxiliar.size(); j++){
+            meanAge[j]=auxiliar.get(j);
+        }
+
+        return meanAge;
+
+
+    }
+
+
+    public double[] getMeanAgeForDayHistoricalPoints(Date currentDay, int historicalPoints) throws ParseException {
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDay);
+
+        int validDays=0;
+        Date dateAux = new Date(currentDay.getTime());
+
+        Date endDate = null;
+        do {
+            dateAux.setHours(dateAux.getHours() - 24);
+            if(dateAux.getDay()!=0) {
+                validDays++;
+                if (validDays == 1){
+                    endDate = new Date(dateAux.getTime());
+                }
+            }
+        }while (validDays<historicalPoints);
+
+        Date initialDate = new Date(dateAux.getTime());
+
+        return getMeanAgeForDayInInterval(initialDate,endDate);
+
+    }
+
+    public double[] getNumberOfTestsPerformedForWeekHistoricalPoints(Date currentDay, int historicalPoints){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDay);
+        double[] numberOfTests = new double[historicalPoints];
+        double[] aux;
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        Date date = new Date(currentDay.getTime());
+        date.setHours(date.getHours() - (day*24-48));
+        date.setHours(date.getHours() - 7 * 24 * historicalPoints);
+        for (int i = 0; i < historicalPoints; i++) {
+            calendar.setTime(date);
+            Date dateEnd = new Date(date.getTime());
+            dateEnd.setHours(dateEnd.getHours() + 5*24);
+            aux = getNumberOfTestsPerformedForDayInInterval(date, dateEnd);
+            int temp=0;
+            for (int j =0; j<aux.length; j++){
+                temp+= aux[j];
+            }
+            numberOfTests[i] = temp;
+            date.setHours(date.getHours() + 7*24);
+        }
+        return numberOfTests;
+    }
+
+    public double[] getNumberOfPositiveCovidTestsForWeekHistoricalPoints(Date currentDay, int historicalPoints) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDay);
+        double[] numberOfPositives = new double[historicalPoints];
+        double[] aux;
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        Date date = new Date(currentDay.getTime());
+        date.setHours(date.getHours() - (day*24-48));
+        date.setHours(date.getHours() - 7 * 24 * historicalPoints);
+        for (int i = 0; i < historicalPoints; i++) {
+            calendar.setTime(date);
+            Date dateEnd = new Date(date.getTime());
+            dateEnd.setHours(dateEnd.getHours() + 5*24);
+            aux = getNumberOfPositiveCovidTestsForDayInInterval(date, dateEnd);
+            int temp=0;
+            for (int j =0; j<aux.length; j++){
+                temp+= aux[j];
+            }
+            numberOfPositives[i] = temp;
+            date.setHours(date.getHours() + 7*24);
+        }
+        return numberOfPositives;
+    }
+
+    public double[] getMeanAgeForWeekHistoricalPoints(Date currentDay, int historicalPoints) throws ParseException {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDay);
+        double[] meanAge = new double[historicalPoints];
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        Date date = new Date(currentDay.getTime());
+        date.setHours(date.getHours() - (day*24-48));
+        date.setHours(date.getHours() - 7 * 24 * historicalPoints);
+        for (int i = 0; i < historicalPoints; i++) {
+            calendar.setTime(date);
+            Date dateEnd = new Date(date.getTime());
+            dateEnd.setHours(dateEnd.getHours() + 5*24);
+            double temp = 0;
+            double sum = 0;
+            for (Test t: getCovidTestsLstByInterval(date,dateEnd)){
+                temp++;
+                sum += t.getCl().getAge();
+            }
+            if(temp!=0) {
+                 meanAge[i] = sum / temp;
+            }else{
+                 meanAge[i] = temp;
+            }
+            date.setHours(date.getHours() + 7*24);
+        }
+        return meanAge;
+    }
+
+
+
+
+
+
 }
