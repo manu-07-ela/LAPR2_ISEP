@@ -23,7 +23,7 @@ public class SendCovid19ReportController {
 
     private List<Test> lstCovidTestsByInterval;
 
-    private List<Test> getCovidTestsLstHistoricalPoints;
+    private List<Test> covidTestsLstHistoricalPoints;
 
     /**
      * Constructs an instance of {@code SendCovid19ReportController}.
@@ -53,6 +53,8 @@ public class SendCovid19ReportController {
     public void createCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints){
         this.tStore=company.getTestStore();
         this.lstCovidTestsByInterval=tStore.getCovidTestsLstByInterval(initialDate, endDate);
+        this.covidTestsLstHistoricalPoints=tStore.getCovidTestsLstHistoricalPoints(currentDay,historicalPoints);
+        //this.company.createCovid19Report(lstCovidTestsByInterval,covidTestsLstHistoricalPoints);
     }
 
 
