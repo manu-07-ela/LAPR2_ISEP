@@ -8,6 +8,11 @@ public class BruteForceAlgorithm {
 
     }
 
+    /**
+     * Calculate the maximum subsequence of a sequence
+     * @param seq the sequence
+     * @return the maximum subsequence
+     */
     public int[] MaxSubsequence(int[] seq){
         int maxSubArraySum = Integer.MIN_VALUE;
         int start = 0;

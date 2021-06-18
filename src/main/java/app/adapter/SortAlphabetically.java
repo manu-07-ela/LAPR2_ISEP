@@ -1,14 +1,16 @@
 package app.adapter;
-
 import app.interfaces.SortingAlgorithms;
 import app.mappers.dto.ClientDTO;
 
-import java.util.Comparator;
 import java.util.List;
 
 public class SortAlphabetically implements SortingAlgorithms{
 
-
+    /**
+     * Algorithm responsible for sorting the customer list alphabetically
+     * @param list the list of clients
+     * @return the ordered customer list
+     */
     @Override
     public List<ClientDTO> orderClientList (List<ClientDTO> list) {
 
@@ -26,8 +28,4 @@ public class SortAlphabetically implements SortingAlgorithms{
 
     }
 
-    /*@Override
-    public int compare(Object o1, Object o2) {
-        return ((ClientDTO) o1).getName().compareTo(((ClientDTO) o2).getName());
-    }*/
 }

@@ -17,10 +17,17 @@ import java.io.IOException;
 
 public class EvaluatePerformanceController {
 
+    /**
+     * Represents an instance of OverviewController
+     */
     private OverviewController overviewController;
-
+    /**
+     * Represents a instance of stage
+     */
     private Stage stage;
-
+    /**
+     * Represents a array
+     */
     private int[] seq;
 
     @FXML
@@ -32,7 +39,16 @@ public class EvaluatePerformanceController {
     @FXML
     private NumberAxis y;
 
-
+    /**
+     * Set the stage
+     * @param stage the stage we want to show
+     * @param overviewController the controller of the stage
+     * @param algorithm the type of algorithm to be used
+     * @param sequence the sequence that we intend to calculate the maximum subsequence
+     * @throws ClassNotFoundException if it is not possible to instantiate the desired class
+     * @throws IllegalAccessException if the object we intend to create it's not  correctly
+     * @throws InstantiationException if we can't instantiate an object
+     */
     public void setLabelUI(Stage stage,OverviewController overviewController, String algorithm, int[] sequence) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         this.stage = stage;
         this.overviewController=overviewController;
@@ -40,6 +56,10 @@ public class EvaluatePerformanceController {
         loadLineChart(sequence);
     }
 
+    /**
+     * Shows the bar graph representing maximum subsequence
+     * @param sequence The sequence we want to show
+     */
     public void loadLineChart(int[] sequence){
         y.setUpperBound(125);
         y.setLowerBound(-125);
@@ -51,13 +71,18 @@ public class EvaluatePerformanceController {
     }
 
 
-
+    /**
+     * Close the application
+     */
     @FXML
     void closePlatform() {
         Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
     }
 
+    /**
+     * Log out of the application
+     */
     @FXML
     void logout() {
         AuthUI uiLogin = new AuthUI();

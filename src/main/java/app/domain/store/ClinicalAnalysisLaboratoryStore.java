@@ -93,6 +93,11 @@ public class ClinicalAnalysisLaboratoryStore implements Serializable {
         }
     }
 
+    /**
+     * Get the clinical analysis laboratory by the ID
+     * @param labId the Id we intend to find the laboratory
+     * @return the laboratory associated with the Id
+     */
     public ClinicalAnalysisLaboratory getClinicalAnalysisLaboratoryByLabId(String labId) {
         for (ClinicalAnalysisLaboratory lab : clinicalAnalysisLaboratoryList) {
             if (lab.getLaboratoryId().equals(labId)) {

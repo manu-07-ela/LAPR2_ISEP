@@ -24,7 +24,7 @@ public class RecordResultsController {
      */
     private TestParameterMapper tpMapper;
     /**
-     * Representes an instance of Test
+     * Represents an instance of Test
      */
     private Test test;
 

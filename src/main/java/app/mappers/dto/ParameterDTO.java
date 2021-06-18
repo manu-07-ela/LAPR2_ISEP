@@ -77,17 +77,25 @@ public class ParameterDTO {
      *@return Information about the characteristics of the parameter dto.
      */
 
-
+    /**
+     * Textual description of a parameter
+     * @return the textual description
+     */
     @Override
     public String toString(){
         return String.format("<Code> %s / <Short Name> %s/ <Description> %s",code,shortName,description);
     }
 
+    /**
+     * Compare the parameter DTO with the other object provided
+     * @param other Object we want to compare with the parameter DTO
+     * @return true if the received object represents another parameterDTO equivalent to the parameterDTO. Otherwise, it returns false.
+     */
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ParameterDTO that = (ParameterDTO) o;
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        ParameterDTO that = (ParameterDTO) other;
         return Objects.equals(code, that.code) && Objects.equals(shortName, that.shortName) && Objects.equals(description, that.description) && Objects.equals(category, that.category);
     }
 

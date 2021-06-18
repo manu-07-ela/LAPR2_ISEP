@@ -81,6 +81,7 @@ public class ClientsUi implements Initializable {
         testsUi.getTestsByClient(client);
         tests.show();
         testsUi.setLabelUi(tests, client);
+        logout.getScene().getWindow().hide();
 
     }
 

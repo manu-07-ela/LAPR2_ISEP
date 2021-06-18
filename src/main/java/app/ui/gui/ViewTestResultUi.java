@@ -15,13 +15,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,7 +28,7 @@ public class ViewTestResultUi implements Initializable {
     /**
      * Represents a instance of view results controller
      */
-    private final ViewResultsController viewResultsctrl  = new ViewResultsController();
+    private final ViewResultsController viewResultsCtrl = new ViewResultsController();
 
     private Stage stage;
 
@@ -55,11 +53,11 @@ public class ViewTestResultUi implements Initializable {
     }
 
     public void getClient(){
-        client = viewResultsctrl.getUserSession();
+        client = viewResultsCtrl.getUserSession();
     }
 
     public void getTestsList(){
-       testsList = viewResultsctrl.getTestList(client);
+       testsList = viewResultsCtrl.getTestList(client);
     }
 
     public void showTestsList() throws IOException {

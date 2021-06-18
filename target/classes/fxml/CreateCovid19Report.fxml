@@ -171,7 +171,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#logout" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Send" textFill="#1a7180">
+            <Button mnemonicParsing="false" onMouseClicked="#sendCovid19Report" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Send" textFill="#1a7180">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

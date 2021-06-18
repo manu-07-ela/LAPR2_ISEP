@@ -80,7 +80,7 @@ public class TestTyperMapperTest {
 
     @Test
     public void toModellistpc() {
-        ParameterCategory result = ttMapper.toModelpc(pcDto);
+        ParameterCategory result = ttMapper.toModelPc(pcDto);
         Assert.assertEquals(pc,result);
     }
 }

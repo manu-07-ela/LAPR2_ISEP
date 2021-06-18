@@ -78,7 +78,7 @@ public class CreateTestTypeUI implements Runnable {
                     }
                 } while (confirmation);
 
-                List <String> listaDeAPI = createTestTypectrl.getListaDeAPIs();
+                List <String> listaDeAPI = createTestTypectrl.getListDeAPIs();
                 Utils.showList(listaDeAPI,"Choose the API the will generate it's reference values");
                 Object optionAPI = Utils.selectsObject(listaDeAPI);
                 if (optionAPI == null){

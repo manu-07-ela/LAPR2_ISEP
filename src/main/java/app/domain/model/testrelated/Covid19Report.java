@@ -9,32 +9,64 @@ import java.util.Date;
 import java.util.List;
 
 public class Covid19Report {
-
+    /**
+     *
+     */
     private String nhsReport;
-
+    /**
+     *
+     */
     private List<Test> lstCovidTestsByInterval;
-
+    /**
+     *
+     */
     private List<Test> covidTestsLstHistoricalPoints;
-
+    /**
+     *
+     */
     private List<Date> intervalDate;
-
+    /**
+     *
+     */
     private List<Date> historicalPointsDate;
-
+    /**
+     *
+     */
     private Date initialDate;
-
+    /**
+     *
+     */
     private Date endDate;
-
+    /**
+     *
+     */
     private Date currentDay;
-
+    /**
+     *
+     */
     private int historicalPoints;
-
+    /**
+     *
+     */
     private double meanAge;
-
+    /**
+     *
+     */
     private double[] lstPositiveTestsByInterval;
-
+    /**
+     *
+     */
     private double[] lstPositiveTestsHistoricalPoints;
 
-
+    /**
+     *
+     * @param lstCovidTestsByInterval
+     * @param covidTestsLstHistoricalPoints
+     * @param initialDate
+     * @param endaDate
+     * @param currentDay
+     * @param historicalPoints
+     */
     public Covid19Report(List<Test> lstCovidTestsByInterval, List<Test> covidTestsLstHistoricalPoints, Date initialDate, Date endaDate, Date currentDay, int historicalPoints){
         this.lstCovidTestsByInterval=lstCovidTestsByInterval;
         this.covidTestsLstHistoricalPoints=covidTestsLstHistoricalPoints;
@@ -48,6 +80,10 @@ public class Covid19Report {
         lstPositiveTestsHistoricalPoints=getPositiveCases(historicalPointsDate,covidTestsLstHistoricalPoints);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Date> getIntervalDates(){
         intervalDate = new ArrayList();
         Date aux = new Date(initialDate.getTime());
@@ -63,6 +99,10 @@ public class Covid19Report {
         return intervalDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Date> getHistoricalDates(){
         historicalPointsDate = new ArrayList();
         int validDays=0;
@@ -77,6 +117,12 @@ public class Covid19Report {
         return historicalPointsDate;
     }
 
+    /**
+     *
+     * @param dates
+     * @param tests
+     * @return
+     */
     public double[] getPositiveCases(List<Date> dates, List<Test> tests){
         double[] auxiliar = new double[dates.size()];
         for (int i = 0; i < dates.size(); i++ ){
@@ -102,6 +148,11 @@ public class Covid19Report {
         return auxiliar;
     }
 
+    /**
+     *
+     * @return
+     * @throws ParseException
+     */
     public double getMeanAge() throws ParseException {
         int sum=0;
         for(int i = 0; i<lstCovidTestsByInterval.size(); i++){
@@ -110,6 +161,9 @@ public class Covid19Report {
         return sum/lstCovidTestsByInterval.size();
     }
 
+    /**
+     *
+     */
     public void sendReportNhs(){
         Report2NHS.writeUsingFileWriter(nhsReport);
     }
