@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 import app.controller.ViewTestsClientController;
+import app.domain.model.testrelated.Test;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
 import app.ui.console.AuthUI;
@@ -25,8 +26,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class TestsUi implements Initializable {
-    private Stage stage;
 
+    private Stage stageViewResult;
+    private Stage stage;
+    private ViewResultsUi viewResultsUi;
     private ClientDTO clientDTO;
 
     private List<TestDTO> testDTOList;
@@ -49,8 +52,8 @@ public class TestsUi implements Initializable {
 
     }
     public void getTestsByClient(ClientDTO clientDTO){
+        viewTestsClientController = new ViewTestsClientController();
         this.testDTOList = viewTestsClientController.getAssociatedWithClient(clientDTO);
-        System.out.println(testDTOList);
         internalCode.setCellValueFactory(new PropertyValueFactory<>("internalCode"));
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         tests.setItems(getTests());
@@ -84,7 +87,11 @@ public class TestsUi implements Initializable {
 
     }
     @FXML
-    void selectTestClick() {
+    void selectTestClick() throws IOException {
+        TestDTO test = tests.getSelectionModel().getSelectedItems().get(0);
+        runViewResults();
+        viewResultsUi.setLabelUI(stageViewResult, test);
+        tests.getScene().getWindow().hide();
 
 
     }
@@ -106,6 +113,28 @@ public class TestsUi implements Initializable {
 
         return tests;
 
+    }
+    public void runViewResults(){
+        try {
+            stageViewResult = new Stage();
+            stageViewResult.initStyle(StageStyle.UNDECORATED);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ViewResults.fxml"));
+            Parent root;
+
+            root = loader.load();
+
+            Scene scene = new Scene(root);
+
+
+            stageViewResult.setScene(scene);
+
+            viewResultsUi = loader.getController();
+            stageViewResult.show();
+
+        }catch (IOException exception){
+            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+        }
     }
 }
 

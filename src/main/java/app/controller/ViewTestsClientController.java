@@ -44,7 +44,12 @@ public class ViewTestsClientController {
      * Creates an instance of ViewTestsClientController
      */
     public ViewTestsClientController() {
-        this(App.getInstance().getCompany());
+        this.company = App.getInstance().getCompany();
+        this.tstore = company.getTestStore();
+        this.clMapper = new ClientMapper();
+        this.clientStore = company.getClientStore();
+        this.tmapper = new TestMapper();
+
     }
     /**
      * Creates an instance of ViewTestsClientController receiving the company

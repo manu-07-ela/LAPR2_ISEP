@@ -57,6 +57,9 @@
                     <HBox.margin>
                         <Insets bottom="50.0" top="40.0" />
                     </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </VBox>
             </children>
         </HBox>
@@ -71,6 +74,9 @@
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
                 <Button fx:id="logout" mnemonicParsing="false" onMouseExited="#logoutClick" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
                     <font>
@@ -79,6 +85,9 @@
                     <HBox.margin>
                         <Insets left="20.0" />
                     </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
             </children>
         </HBox>
