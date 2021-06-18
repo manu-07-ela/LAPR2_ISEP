@@ -3,7 +3,6 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.testrelated.Test;
 import app.domain.store.TestStore;
-
 import java.util.Date;
 import java.util.List;
 
@@ -18,11 +17,17 @@ public class SendCovid19ReportController {
      * Represents a instance of company.
      */
     private Company company;
-
+    /**
+     * Represents a instance of test store
+     */
     private TestStore tStore;
-
+    /**
+     * Represents a list of tests in a interval
+     */
     private List<Test> lstCovidTestsByInterval;
-
+    /**
+     * Represents a list of historical points
+     */
     private List<Test> covidTestsLstHistoricalPoints;
 
     /**
@@ -42,19 +47,43 @@ public class SendCovid19ReportController {
         this.company =company;
     }
 
+    /**
+     * Get a list of the types of available type data in the system
+     * @return the list of available type data in the system
+     */
     public List<String> getAvailableTypesOfData(){
         return company.getAvailableTypesOfData();
     }
 
+    /**
+     * Get a list of the types of available regression models in the system
+     * @return the list of available regression models in the system
+     */
     public List<String> getAvailableRegressionModels(){
         return company.getAvailableRegressionModels();
     }
 
+    /**
+     * Get the list of available independents variables
+     * @return the list of independent variables 
+     */
     public List<String> getAvailableIndependentVariable(){
         return company.getAvailableIndependentVariables();
     }
 
+<<<<<<< HEAD
     public void sendCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String regressionModel, String independentVariable, double significanceLevel, double confidenceLevel){
+=======
+    /**
+     * Create the covid-19 report
+     * @param initialDate the initial date of the interval
+     * @param endDate the end date of the interval
+     * @param currentDay the current day
+     * @param historicalPoints the historical points
+     */
+    public void createCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String regressionModel, String independentVariable, double significanceLevel, double confidenceLevel){
+
+>>>>>>> f295d8292a3f228a9cfa72cc4da0ba8576694edf
         this.tStore=company.getTestStore();
         double[] yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
         double[] yHistoricalPoints =tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);

@@ -29,7 +29,7 @@ public class LabCoordinatorValidation implements Serializable {
     /**
      * The date and time the Lab Coordinator Validation was created.
      */
-    private Date labCoordDate;
+    private Date labCoordinatorDate;
 
     /**
      * Build an instance of {@code LabCoordinatorValidation}
@@ -76,7 +76,7 @@ public class LabCoordinatorValidation implements Serializable {
      * @return true
      */
     public boolean recordLabCoordinatorValidationDate(){
-        this.labCoordDate= Calendar.getInstance().getTime();
+        this.labCoordinatorDate = Calendar.getInstance().getTime();
         return true;
     }
 
@@ -84,12 +84,12 @@ public class LabCoordinatorValidation implements Serializable {
      * Get the date of the Lab Coordinator Validation.
      * @return Lab Coordinator Validation date
      */
-    public Date getLabCoordDate(){ return this.labCoordDate; }
+    public Date getLabCoordinatorDate(){ return this.labCoordinatorDate; }
 
     /**
      * Set the date of the Lab Coordinator Validation.
      */
-    public void setLabCoordDate(Date labCoordDate) {
-        this.labCoordDate = labCoordDate;
+    public void setLabCoordinatorDate(Date labCoordinatorDate) {
+        this.labCoordinatorDate = labCoordinatorDate;
     }
 }

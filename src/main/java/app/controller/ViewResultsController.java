@@ -8,9 +8,8 @@ import app.domain.store.TestStore;
 import app.mappers.*;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
-import app.mappers.dto.testResultDto;
+import app.mappers.dto.TestResultDto;
 import auth.domain.model.Email;
-
 import java.util.List;
 
 public class ViewResultsController {
@@ -43,10 +42,17 @@ public class ViewResultsController {
      */
     private TestResultsMapper trMapper;
 
+    /**
+     * Initialize the instance variables
+     */
     public ViewResultsController() {
         this(App.getInstance().getCompany());
     }
 
+    /**
+     * Initialize the instance variables
+     * @param company the company
+     */
     public ViewResultsController(Company company) {
         this.app = App.getInstance();
         this.company = app.getCompany();
@@ -57,18 +63,33 @@ public class ViewResultsController {
         this.trMapper = new TestResultsMapper();
     }
 
+    /**
+     * Get the list of test associated with the client
+     * @param cl the client
+     * @return the list of the tests
+     */
     public List<TestDTO> getTestList(ClientDTO cl){
         List<Test> listTest = tStore.getTestListAssociatedWithClient(cl);
         listTest = tStore.orderClientTestsByRegistratonDate(listTest);
         return tmapper.toDto(listTest);
     }
 
+    /**
+     * Get the user of the system
+     * @return the user of the system
+     */
     public ClientDTO getUserSession(){
         Email empemail= app.getCurrentUserSession().getUserId();
         Client cl = clstore.getClientByEmail(empemail.toString());
         return clMapper.toDto(cl);
     }
-    public testResultDto showTestResults(TestDTO selectedTest){
+
+    /**
+     * Get the test selected by the user
+     * @param selectedTest the selected test
+     * @return the test that has the same internal code that the test received
+     */
+    public TestResultDto showTestResults(TestDTO selectedTest){
         Test t =tStore.getTestbyInternalCode(selectedTest.getInternalCode());
         return trMapper.toDTO(t);
     }

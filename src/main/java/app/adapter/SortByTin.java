@@ -7,6 +7,11 @@ import java.util.List;
 
 public class SortByTin implements SortingAlgorithms {
 
+    /**
+     * Method responsible for sorting the customer list by tin
+     * @param list the list of clients
+     * @return the ordered customer list
+     */
     @Override
     public List<ClientDTO> orderClientList (List<ClientDTO> list) {
         for (int i = 0;i<list.size();i++) {

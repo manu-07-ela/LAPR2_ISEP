@@ -92,10 +92,11 @@ public class UpdateDataController {
      */
     public void updateAddress (Client client, String address){store.updateAddress(client, address);}
 
-    public String  clientData(Client client){
-        return client.toString();
-    }
-
+    /**
+     * Get a client by his email
+     * @param email the client email
+     * @return the client associated with the email
+     */
     public Client getClientByEmail(String email){
        return store.getClientByEmail(email);
     }
