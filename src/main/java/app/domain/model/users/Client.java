@@ -5,6 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 import static java.lang.Integer.parseInt;
@@ -152,6 +155,19 @@ public class Client implements Serializable {
      */
     public String getDate() {
         return date;
+    }
+
+    public  int getAge() throws ParseException {
+        SimpleDateFormat format=new SimpleDateFormat("dd/MM/yyyy");
+        Date birth=format.parse(this.date);
+        LocalDate birthDate=new java.sql.Date(birth.getTime()).toLocalDate();
+        Date current=new Date();
+        LocalDate currentDate=new java.sql.Date(current.getTime()).toLocalDate();
+        if ((birthDate != null) && (currentDate != null)) {
+            return Period.between(birthDate, currentDate).getYears();
+        } else {
+            return 0;
+        }
     }
 
     /**

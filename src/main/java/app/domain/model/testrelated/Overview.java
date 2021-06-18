@@ -5,9 +5,6 @@ import app.interfaces.SubsequenceWithMaximumSum;
 import app.domain.model.users.Client;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static app.domain.model.testrelated.Test.StateOfTest.*;
@@ -62,6 +59,10 @@ public class Overview {
         getSequenceTestWaitingForResults();
         getSequenceTestWaitingForDiagnosis();
         getSequenceAux();
+    }
+
+    public void getNumberOfTestsProcessed(){
+
     }
 
     private void getAssociatedClients(){
