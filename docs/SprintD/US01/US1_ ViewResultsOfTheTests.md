@@ -24,6 +24,16 @@ application to view those results.
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8787) The test registration date.
 
+> **Question:** What are the data to show the customer? and in what way do we have to show? do you have any examples you can give us?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9038) I want to access the application to view the results of the tests I have performed. This includes the report made by the specialist doctor.
+The client tests must be shown ordered from the most recent to the oldest one. The test results are shown only after the client has selected a test.
+
+> **Question:** My group is assuming that the client only wants to see the validated tests. Do you want to see tests in other states and if that's the case say the state of the test and show only the information available for that state?
+>
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9162) The client should only see tests that have already been validated.
+
+
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
