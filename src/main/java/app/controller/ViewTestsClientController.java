@@ -54,6 +54,7 @@ public class ViewTestsClientController {
         this.company = company;
         this.tstore = new TestStore();
         this.clMapper = new ClientMapper();
+        this.tmapper = new TestMapper();
         this.client= null;
     }
 
