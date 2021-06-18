@@ -55,7 +55,6 @@ public class ClientUi {
     public void emailClient(String email){
         this.emailClient = email;
         client = updateDataController.getClientByEmail(email);
-        System.out.println(client);
     }
 
     public void setLabelUI(Stage stageClient) {
@@ -102,7 +101,7 @@ public class ClientUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            ex.printStackTrace();
         }
         stage.close();
 
@@ -127,7 +126,7 @@ public class ClientUi {
             stageUpdateData.show();
 
         }catch (IOException exception){
-            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+           exception.printStackTrace();
         }
     }
     @FXML
@@ -150,7 +149,7 @@ public class ClientUi {
             stageViewResult.show();
 
         }catch (IOException exception){
-            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+            exception.printStackTrace();
         }
     }
 

@@ -59,7 +59,7 @@ public class ClinicalChemistryTecUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Logout error: " + ex);
+            ex.printStackTrace();
         }
         stage.close();
 
@@ -95,7 +95,7 @@ public class ClinicalChemistryTecUi {
             stageViewTests.show();
 
         }catch (IOException exception){
-            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+            exception.printStackTrace();
         }
     }
 

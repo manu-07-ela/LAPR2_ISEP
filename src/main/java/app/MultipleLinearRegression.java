@@ -1,48 +1,62 @@
 package app;
-
+import org.apache.commons.math3.distribution.FDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
+
+import java.util.Arrays;
 
 public class MultipleLinearRegression {
 
-    private double[][] matrixX, matrixXTransposed, matrixXTX, matrixXTY, matrixXTXInverse, matrixXTYInverse, matrixB,matrixYChapeu, matrixYYT;
-    private double[] matrixY;
-    private double sqt, y, sqr;
+    private final double[][] matrixX, matrixXTransposed, matrixXTX,matrixXTXInverse;
+    private final double[] matrixY, matrixXTY, matrixB, matrixYHat, cjj;
+    private double  y, f0, alpha;
 
-    public MultipleLinearRegression(double[] x1, double[]x2, double[]y) {
-        for (int i=0; i< y.length; i++){
+    /**
+     *
+     * @param x1
+     * @param x2
+     * @param y
+     */
+    public MultipleLinearRegression(double[] x1, double[] x2, double[] y, double trustLevel, double significanceLevel) {
+        if (x1.length!=y.length){
+            throw new IllegalArgumentException();
+        }
+        matrixY = y;
+        for (int i = 0; i < y.length; i++) {
             this.y += y[i];
         }
-        this.y = this.y/matrixY.length;
-         matrixX = matrixX(x1, x2);
-         matrixXTransposed = transpose(matrixX);
-         matrixXTX = matrixXXT(matrixXTransposed, matrixX);
-         matrixXTY = matrixXTY(matrixXTransposed, matrixY);
-         matrixXTYInverse = invert(matrixXTY);
-         matrixXTXInverse = invert(matrixXTX);
-         matrixB = multipleMatrix(matrixXTXInverse, matrixXTY);
-         matrixYChapeu = multipleMatrix(matrixX, matrixB);
+        this.y = this.y / y.length;
+        matrixX = matrixX(x1, x2);
+        matrixXTransposed = transpose(matrixX);
+        matrixXTX = matrixXXT(matrixXTransposed, matrixX);
+        matrixXTY = matrixXTY(matrixXTransposed, y);
+        matrixXTXInverse = invert(matrixXTX);
+
+        matrixB = multiplyBiArrayWithArray(matrixXTXInverse, matrixXTY);
+        matrixYHat = multiplyBiArrayWithArray(matrixX, matrixB);
+        this.cjj = cjj();
+        f0 = testStatistics();
 
 
     }
 
-    private double[][] matrixX(double[] x1, double[]x2){
-        if (x1.length!= x2.length) throw new IllegalArgumentException("The arrays sizes should be the same");
+    private double[][] matrixX(double[] x1, double[] x2) {
+        if (x1.length != x2.length) throw new IllegalArgumentException("The arrays sizes should be the same");
         int length = x1.length;
 
-        double[][] matrixAux = new double[3][length];
+        double[][] matrixAux = new double[length][3];
         // X matrix
-        for (int i=0; i<length;  i++){
+        for (int i = 0; i < matrixY.length; i++) {
             matrixAux[i][0] = 1;
             matrixAux[i][1] = x1[i];
             matrixAux[i][2] = x2[i];
         }
-        return  matrixAux;
+        return matrixAux;
     }
 
-    private double[][] transpose(double[][] matrix){
+    private double[][] transpose(double[][] matrix) {
         double[][] matrixTransposed = new double[matrix[0].length][matrix.length];
 
-        for (int i=0; i<matrix[0].length; i++) {
+        for (int i = 0; i < matrix[0].length; i++) {
             for (int j = 0; j < matrix.length; j++) {
                 matrixTransposed[i][j] = matrix[j][i];
             }
@@ -53,72 +67,40 @@ public class MultipleLinearRegression {
     }
 
 
-    public double[][] matrixXXT(double[][] matrixX, double[][] matrixXTransposed){
-        int n = matrixX[0].length; //A.columns = B.rows
-        //Verfica se A.columns = B.rows
-        if(n != matrixXTransposed.length){
-            throw new IllegalArgumentException("A.columns != B.rows");
-        }
-        int rows = matrixX.length; //A.rows
-        int cols = matrixXTransposed[0].length; //B.columns
-        double[][] matrixXXT = new double[rows][cols];
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < cols; j++){
-                for(int k = 0; k < n; k++){
-                    matrixXXT[i][j] = matrixXXT[i][j] + matrixX[i][k] * matrixXTransposed[k][j];
-                }
-            }
-        }
-        return matrixXXT;
-    }
-    public double[][] matrixXTY(double[][] matrixXTransposed, double[] y) {
-        int n = matrixXTransposed[0].length; //A.columns = B.rows
-        //Verfica se A.columns = B.rows
-        if (n != y.length) {
-            throw new IllegalArgumentException("A.columns != B.rows");
-        }
-        int rows = matrixXTransposed.length; //A.rows
-        int cols = y.length; //B.columns
-        double[][] matrixXTY = new double[rows][cols];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                for (int k = 0; k < n; k++) {
-                    matrixXTY[i][j] = matrixXTY[i][j] + matrixXTransposed[i][k] * y[k];
-                }
-            }
-        }
-        return matrixXTY;
+    public double[][] matrixXXT(double[][] matrixX, double[][] matrixXTransposed) {
+        return multiplyTwoArraysBi(matrixX, matrixXTransposed);
     }
 
-    public static double[][] invert(double a[][])
-    {
+    public double[] matrixXTY(double[][] matrixXTransposed, double[] y) {
+        return multiplyBiArrayWithArray(matrixXTransposed, y);
+
+    }
+
+    public static double[][] invert(double a[][]) {
         int n = a.length;
         double x[][] = new double[n][n];
         double b[][] = new double[n][n];
         int index[] = new int[n];
-        for (int i=0; i<n; ++i)
+        for (int i = 0; i < n; ++i)
             b[i][i] = 1;
 
         // Transform the matrix into an upper triangle
         gaussian(a, index);
 
         // Update the matrix b[i][j] with the ratios stored
-        for (int i=0; i<n-1; ++i)
-            for (int j=i+1; j<n; ++j)
-                for (int k=0; k<n; ++k)
+        for (int i = 0; i < n - 1; ++i)
+            for (int j = i + 1; j < n; ++j)
+                for (int k = 0; k < n; ++k)
                     b[index[j]][k]
-                            -= a[index[j]][i]*b[index[i]][k];
+                            -= a[index[j]][i] * b[index[i]][k];
 
         // Perform backward substitutions
-        for (int i=0; i<n; ++i)
-        {
-            x[n-1][i] = b[index[n-1]][i]/a[index[n-1]][n-1];
-            for (int j=n-2; j>=0; --j)
-            {
+        for (int i = 0; i < n; ++i) {
+            x[n - 1][i] = b[index[n - 1]][i] / a[index[n - 1]][n - 1];
+            for (int j = n - 2; j >= 0; --j) {
                 x[j][i] = b[index[j]][i];
-                for (int k=j+1; k<n; ++k)
-                {
-                    x[j][i] -= a[index[j]][k]*x[k][i];
+                for (int k = j + 1; k < n; ++k) {
+                    x[j][i] -= a[index[j]][k] * x[k][i];
                 }
                 x[j][i] /= a[index[j]][j];
             }
@@ -128,21 +110,18 @@ public class MultipleLinearRegression {
 
     // Method to carry out the partial-pivoting Gaussian
     // elimination.  Here index[] stores pivoting order.
-    public static void gaussian(double a[][], int index[])
-    {
+    public static void gaussian(double a[][], int index[]) {
         int n = index.length;
         double c[] = new double[n];
 
         // Initialize the index
-        for (int i=0; i<n; ++i)
+        for (int i = 0; i < n; ++i)
             index[i] = i;
 
         // Find the rescaling factors, one from each row
-        for (int i=0; i<n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             double c1 = 0;
-            for (int j=0; j<n; ++j)
-            {
+            for (int j = 0; j < n; ++j) {
                 double c0 = Math.abs(a[i][j]);
                 if (c0 > c1) c1 = c0;
             }
@@ -151,15 +130,12 @@ public class MultipleLinearRegression {
 
         // Search the pivoting element from each column
         int k = 0;
-        for (int j=0; j<n-1; ++j)
-        {
+        for (int j = 0; j < n - 1; ++j) {
             double pi1 = 0;
-            for (int i=j; i<n; ++i)
-            {
+            for (int i = j; i < n; ++i) {
                 double pi0 = Math.abs(a[index[i]][j]);
                 pi0 /= c[index[i]];
-                if (pi0 > pi1)
-                {
+                if (pi0 > pi1) {
                     pi1 = pi0;
                     k = i;
                 }
@@ -169,104 +145,202 @@ public class MultipleLinearRegression {
             int itmp = index[j];
             index[j] = index[k];
             index[k] = itmp;
-            for (int i=j+1; i<n; ++i)
-            {
-                double pj = a[index[i]][j]/a[index[j]][j];
+            for (int i = j + 1; i < n; ++i) {
+                double pj = a[index[i]][j] / a[index[j]][j];
 
                 // Record pivoting ratios below the diagonal
                 a[index[i]][j] = pj;
 
                 // Modify other elements accordingly
-                for (int l=j+1; l<n; ++l)
-                    a[index[i]][l] -= pj*a[index[j]][l];
+                for (int l = j + 1; l < n; ++l)
+                    a[index[i]][l] -= pj * a[index[j]][l];
             }
         }
     }
 
-    private double[][] multipleMatrix(double[][] matrix, double[][] matrixAux){
-        double[][] matrixMultiplication = new double[matrix[0].length][matrixAux.length];
-        if (matrix.length==matrix[0].length){
-            for(int i=0;i<matrixMultiplication.length;i++) {
-                for (int j = 0; j < matrixMultiplication[0].length; j++) {
-                    matrixMultiplication[i][j] = 0;
-                    for (int k = 0; k < matrixMultiplication.length; k++) {
-                        matrixAux[i][j] += matrix[i][k] * matrixAux[k][j];
-                    }
-                }
-            }
-        }
-        return matrixMultiplication;
+
+    private double sqt() {
+        return multipleYTY() - (matrixY.length * y * y);
     }
 
-    private double sqt(){
-        return multipleYTY()-matrixY.length*(1/Math.pow(y, 2));
-    }
-    private double multipleYTY(){
-        double som=0;
-        for (int i=0; i<matrixY.length; i++){
-            som+= Math.pow(matrixY[i], 2);
+    private double multipleYTY() {
+        double som = 0;
+        for (int i = 0; i < matrixY.length; i++) {
+            som += Math.pow(matrixY[i], 2);
         }
         return som;
     }
-    public double sqr(){
-        double[][] bTransposed, bTxTy;
-        bTransposed = transpose(matrixB);
-        bTxTy = multipleMatrix(bTransposed,matrixXTY);
-        return bTxTy[0][0] - matrixY.length*(1/Math.pow(y, 2));
-    }
-    public double sqe(){
-        double[][] bTransposed, bTxTy;
-        bTransposed = transpose(matrixB);
-        bTxTy = multipleMatrix(bTransposed,matrixXTY);
-        return multipleYTY() - bTxTy[0][0];
 
-    }
-
-    public double rQuadrado(){
-        return sqr/sqt;
-    }
-
-    public double rQuadradoAjustado(){
-        return (1-((matrixY.length-1)/(matrixY.length-matrixX[0].length))*(1-rQuadrado()));
-    }
-
-    public double desvioPadrão(){
-        return sqe()/(matrixY.length-matrixX.length);
-        //((XTX)-1*XT*)*X
-    }
-
-    private double cjj(){
-        double[][] matrix = multipleMatrix(matrixXTXInverse, transpose(matrixX));
-        return multipleMatrix(matrix, matrixX)[0][0];
-    }
-
-    private double tStudent(double alpha){
-        TDistribution td= new TDistribution(matrixX[0].length-1);
-        double critTD;
-        double alphaTD =1-alpha/2;
-        if(alphaTD> 0.5) {
-            critTD = td.inverseCumulativeProbability(alphaTD);
-            System.out.println("t-student critical value: " + critTD);
+    public double sqr() {
+        double som=0;
+        for (int i=0; i<matrixB.length; i++){
+            som+=matrixB[i]*matrixXTY[i];
         }
-        else {
+        return som-(matrixY.length*(Math.pow(y,2)));
+
+    }
+
+    public double sqe() {
+        double som=0;
+        for (int i=0; i<matrixB.length; i++){
+            som+=matrixB[i]*matrixXTY[i];
+        }
+        return multipleYTY() - som;
+
+    }
+
+    public double rSquare() {
+        return sqr() / sqt();
+    }
+
+    public double rSquareAdjusted() {
+        return (1-(((double)(matrixY.length-1)/(matrixY.length-matrixX[0].length))*(1- rSquare())));
+    }
+
+    public double standardDeviation() {
+        return sqe() / (matrixY.length - matrixX[0].length);
+    }
+
+    private double[] cjj() {
+        double[] xt, cjj = new double[matrixY.length];
+        for (int i=0; i<matrixX.length; i++){
+            xt = matrixX[i];
+            double[] aux = multiplyBiArrayWithArray(xt, matrixXTXInverse);
+            for (int j=0; j<aux.length; j++){
+                cjj[i]+=aux[j]*xt[j];
+            }
+        }
+        return cjj;
+    }
+
+    private double tStudent(double alpha) {
+        TDistribution td = new TDistribution(matrixY.length-matrixX[0].length);
+        double critTD;
+        double alphaTD = (double) 1 - alpha / 200;
+        System.out.println("alpha" + alphaTD);
+        if (alphaTD > 0.5) {
+            critTD = td.inverseCumulativeProbability(alphaTD);
+        } else {
             critTD = td.inverseCumulativeProbability(1 - alphaTD);
-            System.out.println("t-student critical value: " + critTD);
         }
         return critTD;
     }
 
-    private double regressionStraight(int x){
-        return 0;
-
+    private double yHat(int index){
+        return matrixB[0]+matrixB[1]*matrixX[index][1]+matrixB[2]*matrixX[index][2];
     }
 
     @Override
-    public String  toString(){
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(String.format("The regression model fitted using data from the interval: y = %.2f + %.2fx1 + %.2fx2\n", matrixB[0], matrixB[1], matrixB[2]));
+        stringBuilder.append(String.format("R^2: %f\n", rSquare()));
+        stringBuilder.append(String.format("R^2Ajustada: %f\n", rSquareAdjusted()));
+        stringBuilder.append(String.format("Sqr: %f\n", sqr()));
+        stringBuilder.append(String.format("Sqt: %f\n", sqt()));
+        stringBuilder.append(String.format("Sqe: %f\n", sqe()));
+        stringBuilder.append(String.format("Média: %f\n", y));
+        stringBuilder.append(String.format("Desvio padrão: %f\n", standardDeviation()));
+        stringBuilder.append(String.format("f0: %f\n",f0));
+        stringBuilder.append(String.format("mqe: %f\n",mqe()));
+        stringBuilder.append(String.format("mqr: %f\n",mqr()));
 
-        stringBuilder.append(String.format("The regression model fitted using data from the interval: y = %.2f + %.2fx1 + %.2fx2", matrixB[0],matrixB[1], matrixB[2]));
-        return "Manu";
+
+
+        return stringBuilder.toString();
+    }
+    public double[][] multiplyTwoArraysBi(double[][] xt, double[][] x){
+        double[][] temp = new double[xt.length][x[0].length];
+        for (int i = 0; i < xt.length; i++) {
+            for (int j = 0; j < x[0].length; j++) {
+                temp[i][j] = 0;
+                for (int k = 0; k < x.length; k++) {
+                    temp[i][j] += xt[i][k] * x[k][j];
+                }
+            }
+        }
+        return temp;
+    }
+    public double[] multiplyBiArrayWithArray(double[][] x, double[]y){
+        double[] temp=new double[x.length];
+        int result=-1;
+        for (double[] doubles : x) {
+            result++;
+            for (int j = 0; j < y.length; j++) {
+                temp[result] += doubles[j] * y[j];
+            }
+
+        }
+        return temp;
+    }
+    public double[] multiplyBiArrayWithArray(double[] x, double[][]y){
+        double[] temp=new double[y.length];
+        int result=-1;
+        for (double[] doubles : y) {
+            result++;
+            for (int j = 0; j < y.length; j++) {
+                temp[result] += doubles[j] * x[j];
+            }
+
+        }
+        return temp;
     }
 
+    public double[][] confidenceInterval(int significancia){
+        this.alpha = 1-((double)significancia/100);
+        double[][] intervalos = new double[matrixY.length][2];
+
+        for (int i=0; i< matrixY.length; i++){
+            intervalos[i][0] = yHat(i)-(tStudent(alpha)*Math.sqrt(standardDeviation()*(1+cjj[i])));
+            intervalos[i][1] = yHat(i)+(tStudent(alpha)*Math.sqrt(standardDeviation()*(1+cjj[i])));
+        }
+        return intervalos;
+    }
+    public double mqr(){
+        return sqr()/(double) (matrixX[0].length-1);
+    }
+    public double mqe(){
+        return sqe()/(double) (matrixY.length-matrixX[0].length);
+    }
+    public double testStatistics(){
+        return mqr()/mqe();
+    }
+
+    public double fDistribution(){
+        FDistribution fd= new FDistribution(matrixX[0].length-1,matrixY.length-matrixX[0].length);
+        double alphaFD= alpha;
+        return fd.inverseCumulativeProbability(1- alphaFD);
+    }
+
+    public void decision(){
+        if (testStatistics()>fDistribution()){
+            System.out.println("Rejeita-se H0, o modelo é significativo");
+        }else {
+            System.out.println("Não se rejeita H0, o modelo não é significativo");
+        }
+    }
+
+    public double[][] hypothesisTest(int significanceLevel){
+        double[][] matrix = new double[3][2];
+        double tAlpha;
+        tAlpha = tStudent(significanceLevel);
+        for (int i=0; i<matrix.length;i++){
+            matrix[i][0] = tAlpha;
+            matrix[i][1] = matrixB[i]/Math.sqrt(standardDeviation()*matrixXTXInverse[i][i]);
+        }
+        System.out.println(Arrays.deepToString(matrix));
+        hypothesisTestText(matrix);
+        return matrix;
+    }
+
+    public void hypothesisTestText(double[][] matrix){
+        for (int i=0; i<matrix.length; i++){
+            if (Math.abs(matrix[i][1])<=matrix[i][0]){
+                System.out.println("Não se rejeita H0");
+            }else {
+                System.out.println("Rejeita-se H0");
+            }
+        }
+    }
 
 }
