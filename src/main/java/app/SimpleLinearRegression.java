@@ -22,20 +22,20 @@ public class SimpleLinearRegression {
     private final double r2;
     private final double svar0, svar1;
     private final double r2Adjusted;
-    private final int confidenceLevel;
-    private final int significanceLevel;
+    private final double confidenceLevel;
+    private final double significanceLevel;
     private final int n;
     private final int degreesOfFreedom;
     private final double variance;
-    private double xbar;
+    private final double xbar;
     private double xxbar;
     private double auxYMenosYChapeuQuadrado;
     private double rss;
     private double ssr;
-    private double st;
-    private double msr;
-    private double mse;
-    private double fObs;
+    private final double st;
+    private final double msr;
+    private final double mse;
+    private final double fObs;
     private final double fSnedecor;
 
     /**
@@ -45,7 +45,7 @@ public class SimpleLinearRegression {
      * @param  y the corresponding values of the response variable
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
-    public SimpleLinearRegression(double[] x, double[] y, int confidenceLevel, int significanceLevel) {
+    public SimpleLinearRegression(double[] x, double[] y, double confidenceLevel, double significanceLevel) {
         this.confidenceLevel=confidenceLevel;
         this.significanceLevel=significanceLevel;
         if (x.length != y.length) {
@@ -87,7 +87,7 @@ public class SimpleLinearRegression {
         this.msr=ssr/1;
         this.mse=rss/degreesOfFreedom;
         this.fObs=msr/mse;
-        this.fSnedecor=fSnedecor((double) significanceLevel/100);
+        this.fSnedecor=fSnedecor(significanceLevel /100);
         r2    = ssr / yybar;
         double svar  = rss / degreesOfFreedom;
         svar1 = svar / xxbar;
@@ -190,12 +190,12 @@ public class SimpleLinearRegression {
         return r2Adjusted;
     }
 
-    public double[] trustInterval(double x0, double yEstimated){
+    private double[] trustInterval(double x0, double yEstimated){
         double[] limits = new double[2];
-        double confidenceLevelAux = (double) confidenceLevel/100;
+        double confidenceLevelAux = confidenceLevel /100;
         double alpha = 1.0 - confidenceLevelAux;
         double tc = tStudent(alpha/2,degreesOfFreedom);
-        double aux = Math.sqrt(1.0+(1/n)+(((x0-xbar)*(x0-xbar))/xxbar));
+        double aux = Math.sqrt(1.0+(1.0/n)+(((x0-xbar)*(x0-xbar))/xxbar));
         double delta = variance*aux*tc;
         double linf = yEstimated-delta;
         double lsup = yEstimated + delta;
@@ -204,7 +204,7 @@ public class SimpleLinearRegression {
         return limits;
     }
 
-    public void straightSlopeHypothesisTest(){
+    private void straightSlopeHypothesisTest(){
         double alpha = (double) significanceLevel/100;
         double tc = tStudent(alpha/2,degreesOfFreedom);
         int b0 = 0;
@@ -213,8 +213,8 @@ public class SimpleLinearRegression {
         double tb = (slope-b0)/(S*aux);
     }
 
-    public void ordinateOriginHypothesisTest(){
-        double alpha = (double) significanceLevel/100;
+    private void ordinateOriginHypothesisTest(){
+        double alpha = significanceLevel /100;
         double tc = tStudent(alpha/2,degreesOfFreedom);
         int a0 = 0;
         double S = Math.sqrt(((1.0/degreesOfFreedom))*(auxYMenosYChapeuQuadrado));
@@ -224,8 +224,7 @@ public class SimpleLinearRegression {
 
     private double fSnedecor(double alpha){
         FDistribution fd= new FDistribution(1,degreesOfFreedom);
-        double alphaFD= alpha;
-        return fd.inverseCumulativeProbability(1- alphaFD);
+        return fd.inverseCumulativeProbability(1- alpha);
     }
 
     private double tStudent(double alpha,int degreesOfFreedom){
@@ -249,8 +248,13 @@ public class SimpleLinearRegression {
      */
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append(String.format("%.2f n + %.2f", slope(), intercept()));
+        s.append("The regression model fitted using data from the interval");
+        s.append(String.format("y = %.2fx + %.2f", slope(), intercept()));
+        s.append("Other statistics");
         s.append("  (R^2 = " + String.format("%.3f", R2()) + ")");
+        s.append("  (R^2adjusted = " + String.format("%.3f", r2Adjusted()) + ")");
+        s.append("  (R = " + String.format("%.3f", Math.sqrt(R2())) + ")");
+        s.append("Hypothesis tests for regression coefficients");
         return s.toString();
     }
 

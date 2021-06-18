@@ -1,6 +1,8 @@
 package app.domain.model.testrelated;
 
+import app.SimpleLinearRegression;
 import com.nhs.report.Report2NHS;
+
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -29,9 +31,14 @@ public class Covid19Report {
      *
      */
     private List<Date> historicalPointsDate;
+
     /**
      *
      */
+
+
+    private double[] numberTestsPerformedByInterval;
+
     private Date initialDate;
     /**
      *
@@ -58,26 +65,51 @@ public class Covid19Report {
      */
     private double[] lstPositiveTestsHistoricalPoints;
 
+
     /**
      *
      * @param lstCovidTestsByInterval
      * @param covidTestsLstHistoricalPoints
      * @param initialDate
-     * @param endaDate
+     * @param endDate
      * @param currentDay
      * @param historicalPoints
      */
-    public Covid19Report(List<Test> lstCovidTestsByInterval, List<Test> covidTestsLstHistoricalPoints, Date initialDate, Date endaDate, Date currentDay, int historicalPoints){
+
+    public Covid19Report(List<Test> lstCovidTestsByInterval, List<Test> covidTestsLstHistoricalPoints,Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String regressionModel, String independentVariable, double significanceLevel, double confidenceLevel){
+
         this.lstCovidTestsByInterval=lstCovidTestsByInterval;
         this.covidTestsLstHistoricalPoints=covidTestsLstHistoricalPoints;
         this.initialDate=initialDate;
-        this.endDate=endaDate;
+        this.endDate=endDate;
         this.currentDay=currentDay;
         this.historicalPoints=historicalPoints;
         intervalDate=getIntervalDates();
         historicalPointsDate=getHistoricalDates();
         lstPositiveTestsByInterval=getPositiveCases(intervalDate,lstCovidTestsByInterval);
         lstPositiveTestsHistoricalPoints=getPositiveCases(historicalPointsDate,covidTestsLstHistoricalPoints);
+        new SimpleLinearRegression(numberTestsPerformedByInterval,lstPositiveTestsByInterval,confidenceLevel,significanceLevel);
+    }
+
+    public double[] getNumberOfTestsPerformed(List<Date> dates, List<Test> tests){
+        double[] auxiliar = new double[dates.size()];
+        for (int i = 0; i < dates.size(); i++ ){
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(dates.get(i));
+            int day = calendar.get(Calendar.DAY_OF_YEAR);
+            int year = calendar.get(Calendar.YEAR);
+            double aux=0;
+            for (int j = 0; j<tests.size(); j++ ){
+                calendar.setTime(tests.get(j).getSamplesAddDate());
+                int sampleDay = calendar.get(Calendar.DAY_OF_YEAR);
+                int sampleYear = calendar.get(Calendar.YEAR);
+                if(day == sampleDay && year == sampleYear){
+                    aux++;
+                }
+            }
+            auxiliar[i]=aux;
+        }
+        return auxiliar;
     }
 
     /**
