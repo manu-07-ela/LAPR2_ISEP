@@ -234,7 +234,7 @@ public class TestStore implements Serializable {
     public List<Test> getTestListAssociatedWithClient(ClientDTO selectedClient){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
-            if (t.getCl().getPhoneNumber().equals(selectedClient.getPhoneNumber()) && t.getStateOfTest()==Validated) {
+            if (t.getCl().getTin().equals(selectedClient.getTin()) && t.getStateOfTest()==Validated) {
                 test.add(t);
             }
         }

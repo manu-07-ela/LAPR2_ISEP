@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class BarcodeDomainTest {
+    //criar variaveis só dentro dos testes
     String barcodeNumber = "00000000000";
     BarcodeDomain barcodeDomain;
     BarcodeDomain barcodeDomainAux;
