@@ -97,66 +97,6 @@ public class UpdateDataUi {
         client = updateDataController.getClientByEmail(email);
     }
 
-    @FXML
-    void saveBirthDateClick() {
-        String birthDate = writeBirthDate.getText().trim();
-        //updateDataController.clientData(client);
-        try {
-            updateDataController.updateBirthDate(client, birthDate);
-            errorMessage.setText("Birth date was updated!");
-            errorMessage.setVisible(true);
-        }catch (NullPointerException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        catch (IllegalArgumentException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        //updateDataController.clientData(client);
-        writeBirthDate.clear();
-    }
-
-    @FXML
-    void saveCitizenCardClick() {
-        //updateDataController.clientData(client);
-        String citizenCard = writeCitizenCard.getText().trim();
-        try {
-            updateDataController.updateCitizenCard(client, citizenCard);
-            errorMessage.setText("Citizen Card Number was updated!");
-            errorMessage.setVisible(true);
-        }catch (NullPointerException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        catch (IllegalArgumentException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        //updateDataController.clientData(client);
-        writeCitizenCard.clear();
-
-    }
-
-    @FXML
-    void saveEmailClick() {
-        //updateDataController.clientData(client);
-        String email = writeEmail.getText().trim();
-        try {
-            updateDataController.updateEmail(client, email);
-            errorMessage.setText("Email was updated!");
-            errorMessage.setVisible(true);
-        }catch (NullPointerException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        catch (IllegalArgumentException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        //updateDataController.clientData(client);
-        writeEmail.clear();
-    }
 
     @FXML
     void saveNameClick() {
@@ -189,26 +129,7 @@ public class UpdateDataUi {
 
     }
 
-    @FXML
-    void saveNhsCodeClick() {
-        //updateDataController.clientData(client);
-        String nhsCode = writeNhsCode.getText().trim();
-        try {
-            updateDataController.updateNhsCode(client, nhsCode);
-            errorMessage.setText("NHS Code was updated!");
-            errorMessage.setVisible(true);
-        }catch (NullPointerException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        catch (IllegalArgumentException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        //updateDataController.clientData(client);
-        writeNhsCode.clear();
 
-    }
 
     @FXML
     void saveSexClick() {
@@ -231,27 +152,7 @@ public class UpdateDataUi {
 
     }
 
-    @FXML
-    void saveTinClick() {
-        String tin = writeTin.getText().trim();
-        //updateDataController.clientData(client);
-        try {
-            updateDataController.updateTin(client, tin);
-            errorMessage.setText("Tax Identification Number was updated!");
-            errorMessage.setVisible(true);
-        }catch (NullPointerException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        catch (IllegalArgumentException e){
-            errorMessage.setText(e.getMessage());
-            errorMessage.setVisible(true);
-        }
-        // updateDataController.clientData(client);
-        writeTin.clear();
 
-
-    }
     @FXML
     void savePhoneNumberClick() {
         String phoneNumber = writePhoneNumber.getText().trim();

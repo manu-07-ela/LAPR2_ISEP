@@ -26,6 +26,7 @@ class Overview{
 +getNumberOfTestsWaitingForResults()
 +getNumberOfTestsWaitingForDiagnosis()
 +getTotalNumberOfTestsProcessed()
++getAvailableAlgorithms()
 +getSubsequenceWithMaximumSum()
 }
 }
@@ -34,7 +35,7 @@ class Overview{
 
 package store{
 class TestStore{
-getIntervalTestList(initialDate,endDate)
++getIntervalTestList(initialDate,endDate)
 }
 }
 
@@ -45,6 +46,10 @@ class TestMapper{
 
 
 package dto{
+}
+
+class SubsequenceWithMaximumSum{
++getSubsequenceWithMaximumSum()
 }
 
 
