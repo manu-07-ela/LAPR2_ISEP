@@ -71,26 +71,18 @@ public class SendCovid19ReportController {
         return company.getAvailableIndependentVariables();
     }
 
-<<<<<<< HEAD
-    public void sendCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String regressionModel, String independentVariable, double significanceLevel, double confidenceLevel){
-=======
-    /**
-     * Create the covid-19 report
-     * @param initialDate the initial date of the interval
-     * @param endDate the end date of the interval
-     * @param currentDay the current day
-     * @param historicalPoints the historical points
-     */
-    public void createCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String regressionModel, String independentVariable, double significanceLevel, double confidenceLevel){
 
->>>>>>> f295d8292a3f228a9cfa72cc4da0ba8576694edf
+    public void sendCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String regressionModel, String independentVariable, double significanceLevel, double confidenceLevel){
         this.tStore=company.getTestStore();
         double[] yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
         double[] yHistoricalPoints =tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
         double[] xInterval =tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
         double[] xHistoricalPoints =tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
         this.company.createCovid19Report(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,historicalPoints,typeOfData);
+
     }
+
+    
 
 
 }

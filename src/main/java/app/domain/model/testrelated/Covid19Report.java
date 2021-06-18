@@ -91,7 +91,7 @@ public class Covid19Report {
                 validDays++;
             }
         } while (validDays<historicalPoints);
-        
+
         return dateInformation;
     }
 
