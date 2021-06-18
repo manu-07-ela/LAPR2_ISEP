@@ -58,7 +58,7 @@ public class SendCovid19ReportController {
         this.tStore=company.getTestStore();
         this.lstCovidTestsByInterval=tStore.getCovidTestsLstByInterval(initialDate, endDate);
         this.covidTestsLstHistoricalPoints=tStore.getCovidTestsLstHistoricalPoints(currentDay,historicalPoints);
-        this.company.createCovid19Report(lstCovidTestsByInterval,covidTestsLstHistoricalPoints,initialDate,endDate,currentDay,historicalPoints);
+        this.company.createCovid19Report(lstCovidTestsByInterval,covidTestsLstHistoricalPoints,initialDate,endDate,currentDay,historicalPoints,typeOfData,regressionModel,independentVariable,significanceLevel,confidenceLevel);
     }
 
 

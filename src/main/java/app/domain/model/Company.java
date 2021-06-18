@@ -234,7 +234,7 @@ public class Company implements Serializable {
         return availableIndependentVariables;
     }
 
-    public void createCovid19Report(List<Test> lstCovidTestsByInterval,List<Test> covidTestsLstHistoricalPoints, Date initialDate, Date endDate, Date currentDay, int historicalPoints){
-        new Covid19Report(lstCovidTestsByInterval,covidTestsLstHistoricalPoints,initialDate,endDate,currentDay,historicalPoints);
+    public void createCovid19Report(List<Test> lstCovidTestsByInterval,List<Test> covidTestsLstHistoricalPoints,Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String regressionModel, String independentVariable, double significanceLevel, double confidenceLevel){
+        new Covid19Report(lstCovidTestsByInterval,covidTestsLstHistoricalPoints,initialDate,endDate,currentDay,historicalPoints,typeOfData,regressionModel,independentVariable,significanceLevel,confidenceLevel);
     }
 }
