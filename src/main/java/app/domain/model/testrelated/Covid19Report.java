@@ -1,6 +1,7 @@
 package app.domain.model.testrelated;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,12 @@ public class Covid19Report {
 
     private List<Date> historicalPointsDate;
 
+    private Date initialDate;
+
+    private Date endDate;
+
+    private Date currentDay;
+
     private int historicalPoints;
 
     private double meanAge;
@@ -24,14 +31,46 @@ public class Covid19Report {
     private double[] lstPositiveTestsHistoricalPoints;
 
 
-    public Covid19Report(List<Test> lstCovidTestsByInterval, List<Test> covidTestsLstHistoricalPoints, List<Date> intervalDate, List<Date> historicalPointsDate, int historicalPoints){
+    public Covid19Report(List<Test> lstCovidTestsByInterval, List<Test> covidTestsLstHistoricalPoints, Date initialDate, Date endaDate, Date currentDay, int historicalPoints){
         this.lstCovidTestsByInterval=lstCovidTestsByInterval;
         this.covidTestsLstHistoricalPoints=covidTestsLstHistoricalPoints;
-        this.intervalDate=intervalDate;
-        this.historicalPointsDate=historicalPointsDate;
+        this.initialDate=initialDate;
+        this.endDate=endaDate;
+        this.currentDay=currentDay;
         this.historicalPoints=historicalPoints;
+        intervalDate=getIntervalDates();
+        historicalPointsDate=getHistoricalDates();
         lstPositiveTestsByInterval=getPositiveCases(intervalDate,lstCovidTestsByInterval);
         lstPositiveTestsHistoricalPoints=getPositiveCases(historicalPointsDate,covidTestsLstHistoricalPoints);
+    }
+
+    public List<Date> getIntervalDates(){
+        intervalDate = new ArrayList();
+        Date aux = new Date(initialDate.getTime());
+        do{
+            if(aux.getDay()!=0){
+                intervalDate.add(aux);
+            }
+            aux.setHours(aux.getHours()-24);
+        }while (aux.before(endDate));
+        if(endDate.getDay()!=0){
+            intervalDate.add(endDate);
+        }
+        return intervalDate;
+    }
+
+    public List<Date> getHistoricalDates(){
+        historicalPointsDate = new ArrayList();
+        int validDays=0;
+        Date dateAux = new Date(currentDay.getTime());
+        do {
+            dateAux.setHours(dateAux.getHours() - 24);
+            if(dateAux.getDay()!=0) {
+                validDays++;
+                historicalPointsDate.add(dateAux);
+            }
+        }while (validDays<historicalPoints);
+        return historicalPointsDate;
     }
 
     public double[] getPositiveCases(List<Date> dates, List<Test> tests){
