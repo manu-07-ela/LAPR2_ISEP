@@ -5,19 +5,14 @@ import app.domain.model.users.Client;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ClientUi {
     private Stage stage;
@@ -30,38 +25,27 @@ public class ClientUi {
 
     private ViewTestResultUi viewTestResultUi;
 
-    private String email;
+    private String emailClient;
 
     UpdateDataController updateDataController;
 
     Client client;
+    @FXML
+    private Label email;
 
     @FXML
-    private Button exit;
+    private Label name;
 
-    @FXML
-    private Button logout;
 
     @FXML
     private VBox updateDataButton;
 
-    @FXML
-    private ImageView imageTouch;
-
-    @FXML
-    private Label nameField;
-
-    @FXML
-    private VBox viewTestResultButton;
-
-    @FXML
-    private Label emailField;
 
     public ClientUi(){
         updateDataController = new UpdateDataController();
     }
     public void emailClient(String email){
-        this.email = email;
+        this.emailClient = email;
         client = updateDataController.getClientByEmail(email);
         System.out.println(client);
     }
@@ -75,7 +59,7 @@ public class ClientUi {
     void updateDataClick() {
         runUpdateData();
         updateDataUi.setLabelUI(stageUpdateData);
-        updateDataUi.getClient(email);
+        updateDataUi.getClient(emailClient);
         updateDataButton.getScene().getWindow().hide();
     }
 
@@ -163,15 +147,24 @@ public class ClientUi {
     }
 
     @FXML
-    public void nameFieldAction(){
-        nameField.setText(client.getName());
-        nameField.setVisible(true);
+    void emailIn() {
+        email.setText(client.getEmail());
+
     }
 
     @FXML
-    public void emailFieldAction(){
-        emailField.setText(client.getEmail());
-        emailField.setVisible(true);
+    void emailOut() {
+        email.setText("Email");
+
+    }
+    @FXML
+    void nameIn() {
+        name.setText(client.getName());
+    }
+
+    @FXML
+    void nameOut() {
+        name.setText("Name");
     }
 }
 

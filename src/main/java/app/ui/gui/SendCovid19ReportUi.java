@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -15,6 +16,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 import static java.lang.String.valueOf;
@@ -29,22 +34,38 @@ public class SendCovid19ReportUi {
     private Stage stage;
 
     @FXML
-    private DatePicker currentDay;
-
-    @FXML
-    private ComboBox<String> typeOfData;
-
-    @FXML
     private TextField txtHistoricalPoints;
 
     @FXML
-    private DatePicker initialDate;
+    private Button logout;
+
+    @FXML
+    private TextField txtSignificanceLevel;
+
+    @FXML
+    private DatePicker currentDay;
+
+    @FXML
+    private TextField txtConfidenceLevel;
 
     @FXML
     private DatePicker endDate;
 
     @FXML
+    private ComboBox<String> independentVariable;
+
+    @FXML
+    private Button closePlatform;
+
+    @FXML
     private ComboBox<String> regressionModel;
+
+    @FXML
+    private ComboBox<String> typeOfData;
+
+    @FXML
+    private DatePicker initialDate;
+
 
     /**
      * Initializes the Send Covid-19 Report Interface and the controller.
@@ -67,6 +88,25 @@ public class SendCovid19ReportUi {
         }
         for (int i = 0; i< sendCovid19ReportController.getAvailableRegressionModels().size(); i++){
             regressionModel.getItems().add(sendCovid19ReportController.getAvailableRegressionModels().get(i));
+        }
+        for (int i = 0; i< sendCovid19ReportController.getAvailableRegressionModels().size(); i++){
+            independentVariable.getItems().add(sendCovid19ReportController.getAvailableIndependentVariable().get(i));
+        }
+    }
+
+    @FXML
+    void sendCovid19Report() {
+        String initialAux = initialDate.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        String endAux = endDate.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        String currentAux = currentDay.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date initial = formatter.parse(initialAux);
+            Date end = formatter.parse(endAux);
+            Date current = formatter.parse(currentAux);
+            sendCovid19ReportController.createCovid19Report(initial,end,current,Integer.parseInt(String.valueOf(txtHistoricalPoints)),typeOfData.getValue(),regressionModel.getValue(),independentVariable.getValue(),Double.parseDouble(String.valueOf(txtSignificanceLevel)),Double.parseDouble(String.valueOf(txtConfidenceLevel)));
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
 

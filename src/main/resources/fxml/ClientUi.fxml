@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -48,11 +49,15 @@
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </VBox>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.margin></HBox>
+               </VBox.margin>
+            </HBox>
             <HBox alignment="CENTER" prefHeight="172.0" prefWidth="200.0">
                <children>
                   <VBox fx:id="viewTestResultButton" alignment="CENTER" onMouseClicked="#viewTestResultsClick" prefHeight="170.0" prefWidth="145.0" style="-fx-background-color: #239ba1; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
@@ -75,7 +80,11 @@
                      </children>
                      <HBox.margin>
                         <Insets top="20.0" />
-                     </HBox.margin></VBox>
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </VBox>
                </children>
             </HBox>
          </children>
@@ -107,18 +116,10 @@
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER" prefHeight="37.0" prefWidth="261.0" style="-fx-border-color: #239ba1; -fx-border-radius: 30; -fx-border-width: 3; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label text="Name" textFill="#154d5f">
+                  <Label fx:id="name" onMouseEntered="#nameIn" onMouseExited="#nameOut" text="Name" textFill="#154d5f">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="nameField" onMouseMoved="#nameFieldAction" prefHeight="20.0" prefWidth="161.0" textFill="#239ba1">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="15.0" />
-                     </HBox.margin>
                   </Label>
                </children>
                <VBox.margin>
@@ -127,18 +128,10 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="37.0" prefWidth="255.0" style="-fx-border-color: #239ba1; -fx-border-radius: 30; -fx-border-width: 3; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
                <children>
-                  <Label text="Email" textFill="#154d5f">
+                  <Label fx:id="email" onMouseEntered="#emailIn" onMouseExited="#emailOut" text="Email" textFill="#154d5f">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="emailField" onMouseMoved="#emailFieldAction" prefHeight="20.0" prefWidth="161.0" textFill="#239ba1">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="15.0" />
-                     </HBox.margin>
                   </Label>
                </children>
                <VBox.margin>
@@ -154,6 +147,9 @@
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logoutClick" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #239ba1; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="WHITE">
                      <font>
@@ -162,6 +158,9 @@
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </HBox>

@@ -12,6 +12,12 @@ participant "client : Client" as Client
 participant ":AuthFacade" as AF
 participant "testStr: TestStore" as testStr
 participant "test : Test" as Test
+participant "allParametersStringList : List<String>"
+participant "validParametersStringList : List<String>"
+participant "parametersNumbList : List<Integer>"
+participant "pmList : List<Parameter>"
+participant "tpList : List<TestParameter>"
+
 
 activate ADMIN
 ADMIN -> UI : Initiates the process of Importing Clinical Tests
@@ -37,6 +43,26 @@ deactivate reader
 reader -> reader : lineContent = split()
 activate reader
 deactivate reader
+reader -> reader : fillParametersString(tempArr,parametersNumbList,allParametersStringList);
+activate reader
+deactivate reader
+reader -> reader : validParametersStringList= fillValidParametersString(allParametersStringList,validParametersStringList);
+activate reader
+deactivate reader
+reader -> reader : pmList=convertStringIntoParameter(validParametersStringList,pmList);
+activate reader
+deactivate reader
+reader -> reader : tpList=convertParameterIntoTestParameter(pmList,tpList);
+activate reader
+deactivate reader
+
+loop
+reader -> reader : line = readLine()
+activate reader
+deactivate reader
+reader -> reader : lineContent = split()
+activate reader
+deactivate reader
 reader -> COMP : clientStr = getClientStore()
 activate COMP
 deactivate COMP
@@ -44,11 +70,7 @@ reader -> clientStr : getClientbytin(lineContent[5])
 activate clientStr
 clientStr --> reader : client
 deactivate clientStr
-alt client = null
-reader --> Client :  create(lineContent[8], lineContent[3], lineContent[4], lineContent[6], lineContent[5], lineContent[7], lineContent[9],lineContent[10])
-activate Client
-deactivate Client
-end
+reader --> Client**:  create(lineContent[8], lineContent[3], lineContent[4], lineContent[6], lineContent[5], lineContent[7], lineContent[9],lineContent[10])
 reader -> clientStr : saveClient(client)
 activate clientStr
 clientStr -> clientStr: validateClient(cl)
@@ -89,6 +111,7 @@ activate testStr
 deactivate testStr
 deactivate testStr
 deactivate reader
+end
 deactivate CTRL
 
 UI --> ADMIN : Informs the operation sucess.

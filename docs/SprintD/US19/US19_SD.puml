@@ -1,14 +1,14 @@
 @startuml
 autonumber
 'hide footbox
-actor "Timer" as TM
+
 
 participant ":Company" as Comp
 participant "task : OperationTask" as Task
 participant ":Timer" as Timer
 
-activate TM
-TM -> Comp : scheduleOperation(delay,interval)
+
+-> Comp : scheduleOperation(delay,interval)
 activate Comp
 
 Comp -> Task** : create(ListOfTestsValidatedWithininterval)
@@ -28,6 +28,6 @@ deactivate Comp
 
 
 
-deactivate TM
+
 
 @enduml
