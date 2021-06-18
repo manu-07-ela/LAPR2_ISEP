@@ -16,10 +16,10 @@ participant "test : Test" as Test
 activate ADMIN
 ADMIN -> UI : Initiates the process of Importing Clinical Tests
 activate UI
-UI --> ADMIN : Asks for the File's Path
+UI --> ADMIN : Asks to choose the File(s)
 deactivate UI
 
-ADMIN -> UI : Introduces the File's Path
+ADMIN -> UI : Selects the File(s)
 activate UI
 
 UI --> ADMIN : Requests confirmation
