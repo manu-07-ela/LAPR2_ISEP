@@ -13,11 +13,7 @@ participant "report: Covid19Report" as report
 activate ADMIN
 ADMIN -> UI : Initiates the process of sending a Covid-19 comp to NHS.
 activate UI
-UI --> ADMIN : Request the current day
-deactivate UI
 
-ADMIN -> UI : Introduce the current day
-activate UI
 UI -> CTRL : getAvailableTypesOfData()
 activate CTRL
 CTRL -> comp : getAvailableTypesOfData()
@@ -26,22 +22,7 @@ comp --> CTRL : availableTypesOfData
 deactivate comp
 CTRL --> UI : availableTypesOfData
 deactivate CTRL
-UI --> ADMIN : Show the type of data (day or week)  and ask to select one
-deactivate UI
 
-ADMIN -> UI : Select the desired type of data
-activate UI
-UI --> ADMIN : Request the number of historical points
-deactivate UI
-
-ADMIN -> UI : Introduce the number of historical points
-activate UI
-
-UI --> ADMIN : Request the dates interval
-deactivate UI
-
-ADMIN -> UI : Defines the dates interval to fit the model
-activate UI
 UI -> CTRL : getAvailableRegressionModels()
 activate CTRL
 CTRL -> comp : getAvailableRegressionModels()
@@ -50,11 +31,8 @@ comp --> CTRL : availableRegressionModels
 deactivate comp
 CTRL --> UI : availableRegressionModels
 deactivate CTRL
-UI --> ADMIN : Show available regression models and ask to select one
+UI --> ADMIN : Request the necessary data (current day, type of data, historical points, dates interval, regression model,significance level,confidence level)
 deactivate UI
-
-ADMIN-> UI : Select the desired regression model
-activate UI
 alt regression model = Simple linear regression
 UI -> CTRL : getAvailableIndependentVariables()
 activate CTRL
@@ -70,16 +48,6 @@ ADMIN-> UI : Select the desired independent variable
 activate UI
 end
 
-UI --> ADMIN : Request the significance level
-deactivate UI
-
-ADMIN -> UI : Introduce the significance level
-activate UI
-
-UI --> ADMIN : Request the confidence level
-deactivate UI
-
-ADMIN -> UI : Introduce the confidence level
 activate UI
 
 UI -> CTRL : createCovid19Report()

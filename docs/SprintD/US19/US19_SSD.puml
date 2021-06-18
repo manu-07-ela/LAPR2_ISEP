@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Timer" as TM
+
+participant ":System" as SY
+
+TM -> SY : starts the scheduling of the reports
+
+activate SY
+deactivate SY
+
+@enduml
