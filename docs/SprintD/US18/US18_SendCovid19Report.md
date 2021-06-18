@@ -61,9 +61,58 @@ application.
 >
 > [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8890#p11690) <br /> The application should allow the user to choose the significance level.
 
-> **Question:**<br />
+> **Question:**<br /> From Sprint D requirements we get "I want to define... the number of historical points (number of days or number of weeks) that must be sent to the NHS".
+Is the Administrator who must choose between days or weeks? If so, how should he make this choice?
 >
-> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8182#p10891) <br />
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8937) <br /> Yes. The Administrator should select between days and weeks using the user interface.
+
+
+> **Question:**<br /> If the admin selects the multilinear regression he/she can select more than one independent variable. Should he select from a checklist the ones that he/she want? If so, what are the supposed independent variables we need to include in the checklist?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9104) <br /> to apply mlr you need two independent variables- daily number tests and mean age person tested daily. Also you need the same records per week.
+
+> **Question:**<br /> Should the number of historical points have the same range as the date interval defined by the administrator?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8942) <br /> No. The points within the interval are used to fit the linear regression model. The number of historical points are the points for which we want to send the estimates/expect values to NHS. The points within the interval and historical points can overlap. Please carefully review the report example file available in moodle.
+
+> **Question:**<br /> From the report example we got that the administrator defines the dates interval to fit the model. Which date should the application use to provide the report? Is it the registration date or results registration date?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8944) <br /> The registration date should be considered. But only tests that have already been validated should be considered.
+
+> **Question:**<br /> From the covid report example you gave us we can see that is missing two dates(16/05/2021 and 23/05/2021) in the predictions table. Is there any specific reason?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9059) <br /> These days of the week are two Sundays and the laboratory does not work on Sundays.
+
+> **Question:**<br /> Could you clarify how the historical points work? Acording to the NhsReportExample, it was chosen 15 points and the dates to fit the regression model but it seems that it was not chosen the day to start the prediction table.
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9142) <br />  In the header of the exampleNHSReport.txt file it says "If the administrator selects: The current day to be 31/05/2021...". Please relate this information with the table available in the exampleNHSReport.txt file.
+> In US19, the current day is the day when the report is sent automatically to the NHS.
+The teams should not include sundays in their analysis or estimates.
+When the time resolution is a week, please consider only complete weeks.
+
+> **Question:**<br /> I read from a previous post that " to apply mlr you need two independent variables- daily number tests and mean age person tested daily. Also you need the same records per week. " so when de administrator selects a MLR the system should adopt by default that the independent variables are daily number tests and mean age person , or he should write or select the independent variables that he wants ?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9121) <br /> When the Administrator selects MLR, the number tests and mean age independent variables should be used without being selected.
+
+> **Question:**<br /> I know that the administrator chose 15 historical points and it is shown in the table down below in the file, but my question is, what's the criteria for showing 3 days before 17/05 and 6 days after 22/05?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9232) <br /> The interval data is used to fit the regression model. The historical points are defined to get the number of ESTIMATED positive cases. Please study MATCP and linear regression.
+
+> **Question:**<br /> Should I find the line/equation (and everything else derived from it) using the data concerning the interval of days chosen, or from the historical days chosen?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9232) <br /> The interval data is used to fit the regression model.
+
+> **Question:**<br />  Should the reports sent to the NHS be saved in the app, or are they just sent?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9271) <br /> There is no need to save the report in the app.
+
+> **Question:**<br /> In US 18, should we ask the user to select which parameter he/she wants be analyzed for the hypothesis tests (a or b)?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9234) <br /> Yes.
+
+> **Question:**<br /> If on a certain day or week there aren't any Covid 19 tests realized and therefore no clients, should we consider the mean age to be 0?
+>
+> [_**Answer:**_](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9297) <br /> Yes, you should consider the mean age to be zero. Sundays should not be considered in your analysis.
 
 ### 1.3. Acceptance Criteria
 

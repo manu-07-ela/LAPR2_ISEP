@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ImportFileUi">
    <top>
       <VBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -59,10 +58,17 @@
       </Button>
    </left>
    <right>
-      <TextArea fx:id="textArea" prefHeight="249.0" prefWidth="302.0" promptText=" " style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 3;" BorderPane.alignment="CENTER">
+      <TableView fx:id="clientRelated" prefHeight="279.0" prefWidth="282.0" style="-fx-border-color: #1a7180;" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="tin" prefWidth="75.0" text="Tin" />
+        </columns>
          <BorderPane.margin>
-            <Insets bottom="15.0" right="30.0" top="15.0" />
+            <Insets bottom="20.0" right="50.0" top="20.0" />
          </BorderPane.margin>
-      </TextArea>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
    </right>
 </BorderPane>
