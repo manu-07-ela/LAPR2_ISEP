@@ -1,5 +1,6 @@
 package app;
 
+import org.apache.commons.math3.distribution.FDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
 
 /**
@@ -29,6 +30,13 @@ public class SimpleLinearRegression {
     private double xbar;
     private double xxbar;
     private double auxYMenosYChapeuQuadrado;
+    private double rss;
+    private double ssr;
+    private double st;
+    private double msr;
+    private double mse;
+    private double fObs;
+    private final double fSnedecor;
 
     /**
      * Performs a linear regression on the data points (y[i], x[i]).
@@ -67,15 +75,19 @@ public class SimpleLinearRegression {
         intercept = ybar - slope * xbar;
 
         // more statistical analysis
-        double rss = 0.0;      // residual sum of squares
-        double ssr = 0.0;      // regression sum of squares
+        rss = 0.0;      // residual sum of squares
+        ssr = 0.0;      // regression sum of squares
         for (int i = 0; i < n; i++) {
             double fit = slope*x[i] + intercept;
             rss += (fit - y[i]) * (fit - y[i]);
             ssr += (fit - ybar) * (fit - ybar);
         }
-
         this.degreesOfFreedom = n-2;
+        this.st=ssr+rss;
+        this.msr=ssr/1;
+        this.mse=rss/degreesOfFreedom;
+        this.fObs=msr/mse;
+        this.fSnedecor=fSnedecor((double) significanceLevel/100);
         r2    = ssr / yybar;
         double svar  = rss / degreesOfFreedom;
         svar1 = svar / xxbar;
@@ -86,6 +98,34 @@ public class SimpleLinearRegression {
             auxYMenosYChapeuQuadrado += (y[i]-predict(x[i]))*(y[i]-predict(x[i]));
         }
         this.variance = Math.sqrt(auxYMenosYChapeuQuadrado/(degreesOfFreedom));
+    }
+
+    public double getfObs() {
+        return fObs;
+    }
+
+    public double getfSnedecor() {
+        return fSnedecor;
+    }
+
+    public double getMse() {
+        return mse;
+    }
+
+    public double getMsr() {
+        return msr;
+    }
+
+    public double getRss() {
+        return rss;
+    }
+
+    public double getSsr() {
+        return ssr;
+    }
+
+    public double getSt() {
+        return st;
     }
 
     /**
@@ -180,6 +220,12 @@ public class SimpleLinearRegression {
         double S = Math.sqrt(((1.0/degreesOfFreedom))*(auxYMenosYChapeuQuadrado));
         double aux=Math.sqrt((1.0/n)+((xbar*xbar)/xxbar));
         double tb = (intercept-a0)/(S*aux);
+    }
+
+    private double fSnedecor(double alpha){
+        FDistribution fd= new FDistribution(1,degreesOfFreedom);
+        double alphaFD= alpha;
+        return fd.inverseCumulativeProbability(1- alphaFD);
     }
 
     private double tStudent(double alpha,int degreesOfFreedom){
