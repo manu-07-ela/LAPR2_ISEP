@@ -18,25 +18,6 @@ import java.util.List;
 
 public class CSVFileReader {
 
-    public CSVFileReader(){
-        this(App.getInstance().getCompany());
-    }
-
-    public CSVFileReader(Company company){
-        clientList = new ArrayList<>();
-        this.company = App.getInstance().getCompany();
-        this.clStore = company.getClientStore();
-        clAuthFacade = company.getAuthFacade();
-        this.tStore=company.getTestStore();
-        this.ttStore=company.getTestTypeStore();
-        this.pmStore = company.getParameterStore();
-        this.calStore = company.getClinicalAnalysisLaboratoryStore();
-        this.cl = null;
-        this.samples=null;
-        this.tpr=null;
-        this.mr=null;
-        this.lcv=null;
-    }
 
     /**
      * Represents a instance of company
@@ -90,8 +71,31 @@ public class CSVFileReader {
      * Represents an instance of Date when the test was validated
      */
     private Date lcv;
-
+    /**
+     * Represents an instance of Client List
+     */
     private List<Client> clientList;
+
+    public CSVFileReader(){
+        this(App.getInstance().getCompany());
+    }
+
+    public CSVFileReader(Company company){
+        clientList = new ArrayList<>();
+        this.company = App.getInstance().getCompany();
+        this.clStore = company.getClientStore();
+        clAuthFacade = company.getAuthFacade();
+        this.tStore=company.getTestStore();
+        this.ttStore=company.getTestTypeStore();
+        this.pmStore = company.getParameterStore();
+        this.calStore = company.getClinicalAnalysisLaboratoryStore();
+        this.cl = null;
+        this.samples=null;
+        this.tpr=null;
+        this.mr=null;
+        this.lcv=null;
+    }
+
 
 
     public void read(File file) throws IOException {
@@ -128,7 +132,7 @@ public class CSVFileReader {
                         clientList.add(cl);
                         clStore.saveClient(cl, clAuthFacade);
                         NhsCode nhsCode = new NhsCode(tempArr[1]);
-                        createTest(tpList,cl,nhsCode, ttStore.getTestTypeByCode("BL000"), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]),validParametersString,parametersNumb,tempArr);
+                        createTest(tpList,cl,nhsCode, ttStore.getTestTypeByDescription(tempArr[11]), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]),validParametersString,parametersNumb,tempArr);
                     } catch (IllegalArgumentException | IllegalAccessException | ClassNotFoundException | InstantiationException e) {
                         System.out.printf("Error in line %d : %s\n", i, e.getMessage());
                     }

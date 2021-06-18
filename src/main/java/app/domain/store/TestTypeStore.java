@@ -90,4 +90,18 @@ public class TestTypeStore implements Serializable {
         }
         return null;
     }
+
+    /**
+     * Get test type through code.
+     * @param description The code of the type of test we want to get.
+     * @return The type of test associated with that code. If there is no type of test that has that code it returns null.
+     */
+    public TestType getTestTypeByDescription(String description) {
+        for (TestType testType : testTypeList) {
+            if (testType.getDescription().equalsIgnoreCase(description)) {
+                return testType;
+            }
+        }
+        return null;
+    }
 }
