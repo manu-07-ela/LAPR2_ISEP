@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="685.5px" preserveAspectRatio="none" style="width:1000px;height:685px;" version="1.1" viewBox="0 0 1000 685" width="1000.5px" zoomAndPan="magnify"><defs><filter height="300%" id="f1i5g7yjnuim1i" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="1.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="3.0" dy="3.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[64e2e010ba86d7988e5cd73bd64f61f9]
+cluster ui--><polygon fill="#FFFFFF" filter="url(#f1i5g7yjnuim1i)" points="542.25,4.5,556.5,4.5,561.75,22.207,683.25,22.207,683.25,79.5,542.25,79.5,542.25,4.5" style="stroke:#000000;stroke-width:1.125;"/><line style="stroke:#000000;stroke-width:1.125;" x1="542.25" x2="561.75" y1="22.207" y2="22.207"/><text fill="#000000" font-family="sans-serif" font-size="10.5" font-weight="bold" lengthAdjust="spacing" textLength="9.75" x="545.25" y="16.8999">ui</text><!--MD5=[10ea673caf457862023e152271927b45]
+cluster controller--><polygon fill="#FFFFFF" filter="url(#f1i5g7yjnuim1i)" points="526.5,104.25,582.75,104.25,588,121.957,699,121.957,699,220.5,526.5,220.5,526.5,104.25" style="stroke:#000000;stroke-width:1.125;"/><line style="stroke:#000000;stroke-width:1.125;" x1="526.5" x2="588" y1="121.957" y2="121.957"/><text fill="#000000" font-family="sans-serif" font-size="10.5" font-weight="bold" lengthAdjust="spacing" textLength="51.75" x="529.5" y="116.6499">controller</text><!--MD5=[5d4cd377749310b66bf14896f5cd8d9b]
+cluster model--><polygon fill="#FFFFFF" filter="url(#f1i5g7yjnuim1i)" points="12,338.25,48.75,338.25,54,355.957,601.5,355.957,601.5,680.25,12,680.25,12,338.25" style="stroke:#000000;stroke-width:1.125;"/><line style="stroke:#000000;stroke-width:1.125;" x1="12" x2="54" y1="355.957" y2="355.957"/><text fill="#000000" font-family="sans-serif" font-size="10.5" font-weight="bold" lengthAdjust="spacing" textLength="32.25" x="15" y="350.6499">model</text><!--MD5=[c23849cc5f4a85746a20de4317c530fc]
+cluster store--><polygon fill="#FFFFFF" filter="url(#f1i5g7yjnuim1i)" points="626.25,343.5,658.5,343.5,663.75,361.207,987.75,361.207,987.75,459.75,626.25,459.75,626.25,343.5" style="stroke:#000000;stroke-width:1.125;"/><line style="stroke:#000000;stroke-width:1.125;" x1="626.25" x2="663.75" y1="361.207" y2="361.207"/><text fill="#000000" font-family="sans-serif" font-size="10.5" font-weight="bold" lengthAdjust="spacing" textLength="27.75" x="629.25" y="355.8999">store</text><!--MD5=[a59c1d05a8f6fb54290705d41e67acbe]
+cluster interface--><polygon fill="#FFFFFF" filter="url(#f1i5g7yjnuim1i)" points="619.5,501,671.25,501,676.5,518.707,741,518.707,741,586.5,619.5,586.5,619.5,501" style="stroke:#000000;stroke-width:1.125;"/><line style="stroke:#000000;stroke-width:1.125;" x1="619.5" x2="676.5" y1="518.707" y2="518.707"/><text fill="#000000" font-family="sans-serif" font-size="10.5" font-weight="bold" lengthAdjust="spacing" textLength="47.25" x="622.5" y="513.3999">interface</text><!--MD5=[d4c1ac13cd5072636331f21999c34d7d]
+class SendCovid19ReportUI--><rect codeLine="5" fill="#FEFECE" filter="url(#f1i5g7yjnuim1i)" height="36" id="SendCovid19ReportUI" style="stroke:#A80036;stroke-width:1.125;" width="116.25" x="554.625" y="31.5"/><ellipse cx="565.875" cy="43.5" fill="#ADD1B2" rx="8.25" ry="8.25" style="stroke:#A80036;stroke-width:0.75;"/><path d="M567.375,40.875 Q567.5273,40.5 567.7031,40.3125 Q567.8789,40.125 568.0781,40.125 Q568.4297,40.125 568.6523,40.3359 Q568.875,40.5469 568.875,41.0391 L568.875,42.2109 Q568.875,42.7031 568.6641,42.9141 Q568.4531,43.125 568.125,43.125 Q567.832,43.125 567.6445,42.9961 Q567.457,42.8672 567.375,42.5273 Q567.3398,42.293 567.2109,42.1641 Q566.9766,41.918 566.5547,41.7773 Q566.1328,41.625 565.7109,41.625 Q565.1836,41.625 564.7383,41.8359 Q564.3047,42.0469 563.9648,42.5156 Q563.625,42.9844 563.625,43.6289 L563.625,44.3203 Q563.625,45.0938 564.2578,45.6094 Q564.8906,46.125 566.0156,46.125 Q566.6836,46.125 567.1523,45.9727 Q567.4219,45.8906 567.7266,45.6211 Q567.9258,45.4688 568.0313,45.4219 Q568.1367,45.375 568.2656,45.375 Q568.5117,45.375 568.6875,45.5742 Q568.875,45.7617 568.875,46.0313 Q568.875,46.2891 568.6172,46.5938 Q568.2422,47.0391 567.6445,47.2852 Q566.8594,47.625 565.8984,47.625 Q564.7734,47.625 563.8711,47.1797 Q563.1445,46.8281 562.6289,46.0664 Q562.125,45.3047 562.125,44.4023 L562.125,43.582 Q562.125,42.6445 562.5703,41.8242 Q563.0273,41.0039 563.8125,40.5703 Q564.6094,40.125 565.5,40.125 Q566.0391,40.125 566.5078,40.3125 Q566.9766,40.5 567.375,40.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="9" lengthAdjust="spacing" textLength="92.25" x="576.375" y="47.1826">SendCovid19ReportUI</text><line style="stroke:#A80036;stroke-width:1.125;" x1="555.375" x2="670.125" y1="55.5" y2="55.5"/><line style="stroke:#A80036;stroke-width:1.125;" x1="555.375" x2="670.125" y1="61.5" y2="61.5"/><!--MD5=[67a95bbc61ee770dc4f9dd2baaeb2781]
+class SendCovid19ReportController--><rect codeLine="26" fill="#FEFECE" filter="url(#f1i5g7yjnuim1i)" height="77.5078" id="SendCovid19ReportController" style="stroke:#A80036;stroke-width:1.125;" width="148.5" x="538.5" y="131.25"/><ellipse cx="550.0875" cy="143.25" fill="#ADD1B2" rx="8.25" ry="8.25" style="stroke:#A80036;stroke-width:0.75;"/><path d="M551.5875,140.625 Q551.7398,140.25 551.9156,140.0625 Q552.0914,139.875 552.2906,139.875 Q552.6422,139.875 552.8648,140.0859 Q553.0875,140.2969 553.0875,140.7891 L553.0875,141.9609 Q553.0875,142.4531 552.8766,142.6641 Q552.6656,142.875 552.3375,142.875 Q552.0445,142.875 551.857,142.7461 Q551.6695,142.6172 551.5875,142.2773 Q551.5523,142.043 551.4234,141.9141 Q551.1891,141.668 550.7672,141.5273 Q550.3453,141.375 549.9234,141.375 Q549.3961,141.375 548.9508,141.5859 Q548.5172,141.7969 548.1773,142.2656 Q547.8375,142.7344 547.8375,143.3789 L547.8375,144.0703 Q547.8375,144.8438 548.4703,145.3594 Q549.1031,145.875 550.2281,145.875 Q550.8961,145.875 551.3648,145.7227 Q551.6344,145.6406 551.9391,145.3711 Q552.1383,145.2188 552.2438,145.1719 Q552.3492,145.125 552.4781,145.125 Q552.7242,145.125 552.9,145.3242 Q553.0875,145.5117 553.0875,145.7813 Q553.0875,146.0391 552.8297,146.3438 Q552.4547,146.7891 551.857,147.0352 Q551.0719,147.375 550.1109,147.375 Q548.9859,147.375 548.0836,146.9297 Q547.357,146.5781 546.8414,145.8164 Q546.3375,145.0547 546.3375,144.1523 L546.3375,143.332 Q546.3375,142.3945 546.7828,141.5742 Q547.2398,140.7539 548.025,140.3203 Q548.8219,139.875 549.7125,139.875 Q550.2516,139.875 550.7203,140.0625 Q551.1891,140.25 551.5875,140.625 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="9" lengthAdjust="spacing" textLength="123.75" x="560.6625" y="146.9326">SendCovid19ReportController</text><line style="stroke:#A80036;stroke-width:1.125;" x1="539.25" x2="686.25" y1="155.25" y2="155.25"/><line style="stroke:#A80036;stroke-width:1.125;" x1="539.25" x2="686.25" y1="161.25" y2="161.25"/><ellipse cx="546.75" cy="169.5" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="98.25" x="553.5" y="172.8142">getAvailableTypesOfData()</text><ellipse cx="546.75" cy="179.877" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="117" x="553.5" y="183.1912">getAvailableRegressionModels()</text><ellipse cx="546.75" cy="190.2539" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="129" x="553.5" y="193.5681">getAvailableIndependentVariables()</text><ellipse cx="546.75" cy="200.6309" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="77.25" x="553.5" y="203.9451">sendCovid19Report()</text><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><rect codeLine="33" fill="#FEFECE" filter="url(#f1i5g7yjnuim1i)" height="87.8848" id="Company" style="stroke:#A80036;stroke-width:1.125;" width="565.5" x="24" y="365.25"/><ellipse cx="283.6875" cy="377.25" fill="#ADD1B2" rx="8.25" ry="8.25" style="stroke:#A80036;stroke-width:0.75;"/><path d="M285.1875,374.625 Q285.3398,374.25 285.5156,374.0625 Q285.6914,373.875 285.8906,373.875 Q286.2422,373.875 286.4648,374.0859 Q286.6875,374.2969 286.6875,374.7891 L286.6875,375.9609 Q286.6875,376.4531 286.4766,376.6641 Q286.2656,376.875 285.9375,376.875 Q285.6445,376.875 285.457,376.7461 Q285.2695,376.6172 285.1875,376.2773 Q285.1523,376.043 285.0234,375.9141 Q284.7891,375.668 284.3672,375.5273 Q283.9453,375.375 283.5234,375.375 Q282.9961,375.375 282.5508,375.5859 Q282.1172,375.7969 281.7773,376.2656 Q281.4375,376.7344 281.4375,377.3789 L281.4375,378.0703 Q281.4375,378.8438 282.0703,379.3594 Q282.7031,379.875 283.8281,379.875 Q284.4961,379.875 284.9648,379.7227 Q285.2344,379.6406 285.5391,379.3711 Q285.7383,379.2188 285.8438,379.1719 Q285.9492,379.125 286.0781,379.125 Q286.3242,379.125 286.5,379.3242 Q286.6875,379.5117 286.6875,379.7813 Q286.6875,380.0391 286.4297,380.3438 Q286.0547,380.7891 285.457,381.0352 Q284.6719,381.375 283.7109,381.375 Q282.5859,381.375 281.6836,380.9297 Q280.957,380.5781 280.4414,379.8164 Q279.9375,379.0547 279.9375,378.1523 L279.9375,377.332 Q279.9375,376.3945 280.3828,375.5742 Q280.8398,374.7539 281.625,374.3203 Q282.4219,373.875 283.3125,373.875 Q283.8516,373.875 284.3203,374.0625 Q284.7891,374.25 285.1875,374.625 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="9" lengthAdjust="spacing" textLength="39.75" x="299.0625" y="380.9326">Company</text><line style="stroke:#A80036;stroke-width:1.125;" x1="24.75" x2="588.75" y1="389.25" y2="389.25"/><line style="stroke:#A80036;stroke-width:1.125;" x1="24.75" x2="588.75" y1="395.25" y2="395.25"/><ellipse cx="32.25" cy="403.5" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="98.25" x="39" y="406.8142">getAvailableTypesOfData()</text><ellipse cx="32.25" cy="413.877" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="117" x="39" y="417.1912">getAvailableRegressionModels()</text><ellipse cx="32.25" cy="424.2539" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="129" x="39" y="427.5681">getAvailableIndependentVariables()</text><ellipse cx="32.25" cy="434.6309" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="52.5" x="39" y="437.9451">getTestStore()</text><ellipse cx="32.25" cy="445.0078" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="546" x="39" y="448.322">createCovid19Report(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)</text><!--MD5=[8ccb22436dd277bde4e48928c0f3fb40]
+class Covid19Report--><rect codeLine="48" fill="#FEFECE" filter="url(#f1i5g7yjnuim1i)" height="46.377" id="Covid19Report" style="stroke:#A80036;stroke-width:1.125;" width="138" x="237.75" y="528"/><ellipse cx="272.8125" cy="540" fill="#ADD1B2" rx="8.25" ry="8.25" style="stroke:#A80036;stroke-width:0.75;"/><path d="M274.3125,537.375 Q274.4648,537 274.6406,536.8125 Q274.8164,536.625 275.0156,536.625 Q275.3672,536.625 275.5898,536.8359 Q275.8125,537.0469 275.8125,537.5391 L275.8125,538.7109 Q275.8125,539.2031 275.6016,539.4141 Q275.3906,539.625 275.0625,539.625 Q274.7695,539.625 274.582,539.4961 Q274.3945,539.3672 274.3125,539.0273 Q274.2773,538.793 274.1484,538.6641 Q273.9141,538.418 273.4922,538.2773 Q273.0703,538.125 272.6484,538.125 Q272.1211,538.125 271.6758,538.3359 Q271.2422,538.5469 270.9023,539.0156 Q270.5625,539.4844 270.5625,540.1289 L270.5625,540.8203 Q270.5625,541.5938 271.1953,542.1094 Q271.8281,542.625 272.9531,542.625 Q273.6211,542.625 274.0898,542.4727 Q274.3594,542.3906 274.6641,542.1211 Q274.8633,541.9688 274.9688,541.9219 Q275.0742,541.875 275.2031,541.875 Q275.4492,541.875 275.625,542.0742 Q275.8125,542.2617 275.8125,542.5313 Q275.8125,542.7891 275.5547,543.0938 Q275.1797,543.5391 274.582,543.7852 Q273.7969,544.125 272.8359,544.125 Q271.7109,544.125 270.8086,543.6797 Q270.082,543.3281 269.5664,542.5664 Q269.0625,541.8047 269.0625,540.9023 L269.0625,540.082 Q269.0625,539.1445 269.5078,538.3242 Q269.9648,537.5039 270.75,537.0703 Q271.5469,536.625 272.4375,536.625 Q272.9766,536.625 273.4453,536.8125 Q273.9141,537 274.3125,537.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="9" lengthAdjust="spacing" textLength="61.5" x="288.1875" y="543.6826">Covid19Report</text><line style="stroke:#A80036;stroke-width:1.125;" x1="238.5" x2="375" y1="552" y2="552"/><line style="stroke:#A80036;stroke-width:1.125;" x1="238.5" x2="375" y1="558" y2="558"/><ellipse cx="246" cy="566.25" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="118.5" x="252.75" y="569.5642">generatesDatesHistoricalPoints()</text><!--MD5=[81164bbe8e5195468dfeb4ce11f58a69]
+class SimpleLinearRegression--><rect codeLine="52" fill="#FEFECE" filter="url(#f1i5g7yjnuim1i)" height="46.377" id="SimpleLinearRegression" style="stroke:#A80036;stroke-width:1.125;" width="466.5" x="73.5" y="621.75"/><ellipse cx="251.4375" cy="633.75" fill="#ADD1B2" rx="8.25" ry="8.25" style="stroke:#A80036;stroke-width:0.75;"/><path d="M252.9375,631.125 Q253.0898,630.75 253.2656,630.5625 Q253.4414,630.375 253.6406,630.375 Q253.9922,630.375 254.2148,630.5859 Q254.4375,630.7969 254.4375,631.2891 L254.4375,632.4609 Q254.4375,632.9531 254.2266,633.1641 Q254.0156,633.375 253.6875,633.375 Q253.3945,633.375 253.207,633.2461 Q253.0195,633.1172 252.9375,632.7773 Q252.9023,632.543 252.7734,632.4141 Q252.5391,632.168 252.1172,632.0273 Q251.6953,631.875 251.2734,631.875 Q250.7461,631.875 250.3008,632.0859 Q249.8672,632.2969 249.5273,632.7656 Q249.1875,633.2344 249.1875,633.8789 L249.1875,634.5703 Q249.1875,635.3438 249.8203,635.8594 Q250.4531,636.375 251.5781,636.375 Q252.2461,636.375 252.7148,636.2227 Q252.9844,636.1406 253.2891,635.8711 Q253.4883,635.7188 253.5938,635.6719 Q253.6992,635.625 253.8281,635.625 Q254.0742,635.625 254.25,635.8242 Q254.4375,636.0117 254.4375,636.2813 Q254.4375,636.5391 254.1797,636.8438 Q253.8047,637.2891 253.207,637.5352 Q252.4219,637.875 251.4609,637.875 Q250.3359,637.875 249.4336,637.4297 Q248.707,637.0781 248.1914,636.3164 Q247.6875,635.5547 247.6875,634.6523 L247.6875,633.832 Q247.6875,632.8945 248.1328,632.0742 Q248.5898,631.2539 249.375,630.8203 Q250.1719,630.375 251.0625,630.375 Q251.6016,630.375 252.0703,630.5625 Q252.5391,630.75 252.9375,631.125 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="9" lengthAdjust="spacing" textLength="104.25" x="266.8125" y="637.4326">SimpleLinearRegression</text><line style="stroke:#A80036;stroke-width:1.125;" x1="74.25" x2="539.25" y1="645.75" y2="645.75"/><line style="stroke:#A80036;stroke-width:1.125;" x1="74.25" x2="539.25" y1="651.75" y2="651.75"/><ellipse cx="81.75" cy="660" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="447" x="88.5" y="663.3142">getNhsReport(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,datesHistoricalPoints)</text><!--MD5=[0f6f7964b844a64b0496af0dda7914bd]
+class TestStore--><rect codeLine="41" fill="#FEFECE" filter="url(#f1i5g7yjnuim1i)" height="77.5078" id="TestStore" style="stroke:#A80036;stroke-width:1.125;" width="337.5" x="638.25" y="370.5"/><ellipse cx="783.9375" cy="382.5" fill="#ADD1B2" rx="8.25" ry="8.25" style="stroke:#A80036;stroke-width:0.75;"/><path d="M785.4375,379.875 Q785.5898,379.5 785.7656,379.3125 Q785.9414,379.125 786.1406,379.125 Q786.4922,379.125 786.7148,379.3359 Q786.9375,379.5469 786.9375,380.0391 L786.9375,381.2109 Q786.9375,381.7031 786.7266,381.9141 Q786.5156,382.125 786.1875,382.125 Q785.8945,382.125 785.707,381.9961 Q785.5195,381.8672 785.4375,381.5273 Q785.4023,381.293 785.2734,381.1641 Q785.0391,380.918 784.6172,380.7773 Q784.1953,380.625 783.7734,380.625 Q783.2461,380.625 782.8008,380.8359 Q782.3672,381.0469 782.0273,381.5156 Q781.6875,381.9844 781.6875,382.6289 L781.6875,383.3203 Q781.6875,384.0938 782.3203,384.6094 Q782.9531,385.125 784.0781,385.125 Q784.7461,385.125 785.2148,384.9727 Q785.4844,384.8906 785.7891,384.6211 Q785.9883,384.4688 786.0938,384.4219 Q786.1992,384.375 786.3281,384.375 Q786.5742,384.375 786.75,384.5742 Q786.9375,384.7617 786.9375,385.0313 Q786.9375,385.2891 786.6797,385.5938 Q786.3047,386.0391 785.707,386.2852 Q784.9219,386.625 783.9609,386.625 Q782.8359,386.625 781.9336,386.1797 Q781.207,385.8281 780.6914,385.0664 Q780.1875,384.3047 780.1875,383.4023 L780.1875,382.582 Q780.1875,381.6445 780.6328,380.8242 Q781.0898,380.0039 781.875,379.5703 Q782.6719,379.125 783.5625,379.125 Q784.1016,379.125 784.5703,379.3125 Q785.0391,379.5 785.4375,379.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="9" lengthAdjust="spacing" textLength="39.75" x="799.3125" y="386.1826">TestStore</text><line style="stroke:#A80036;stroke-width:1.125;" x1="639" x2="975" y1="394.5" y2="394.5"/><line style="stroke:#A80036;stroke-width:1.125;" x1="639" x2="975" y1="400.5" y2="400.5"/><ellipse cx="646.5" cy="408.75" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="249" x="653.25" y="412.0642">getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate)</text><ellipse cx="646.5" cy="419.127" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="306" x="653.25" y="422.4412">getNumberOfPositiveCovidTestsForDayHistoricalPoints(current day, historical points)</text><ellipse cx="646.5" cy="429.5039" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="255" x="653.25" y="432.8181">getNumberOfIndependentVariableForDayInInterval(initialDate, endDate)</text><ellipse cx="646.5" cy="439.8809" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="318" x="653.25" y="443.1951">getNumberOfIndependentVariableForDayInHistoricalPoints(current day, historical points)</text><!--MD5=[6b613c47955d26261bf1ca67a1458210]
+class NhsApi--><rect codeLine="56" fill="#FEFECE" filter="url(#f1i5g7yjnuim1i)" height="46.377" id="NhsApi" style="stroke:#A80036;stroke-width:1.125;" width="96.75" x="631.875" y="528"/><ellipse cx="662.3625" cy="540" fill="#B4A7E5" rx="8.25" ry="8.25" style="stroke:#A80036;stroke-width:0.75;"/><path d="M663.1125,537.75 L663.1125,542.25 L664.6125,542.25 L664.9758,542.25 L665.3625,542.7188 L665.3625,543 L665.3625,543.2813 L664.9758,543.75 L664.6125,543.75 L660.1125,543.75 L659.7492,543.75 L659.3625,543.2813 L659.3625,543 L659.3625,542.7188 L659.7492,542.25 L660.1125,542.25 L661.6125,542.25 L661.6125,537.75 L660.1125,537.75 L659.7492,537.75 L659.3625,537.2813 L659.3625,537 L659.3625,536.7188 L659.7492,536.25 L660.1125,536.25 L664.6125,536.25 L664.9758,536.25 L665.3625,536.7188 L665.3625,537 L665.3625,537.2813 L664.9758,537.75 L664.6125,537.75 L663.1125,537.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="9" font-style="italic" lengthAdjust="spacing" textLength="30" x="677.1375" y="543.6826">NhsApi</text><line style="stroke:#A80036;stroke-width:1.125;" x1="632.625" x2="727.875" y1="552" y2="552"/><line style="stroke:#A80036;stroke-width:1.125;" x1="632.625" x2="727.875" y1="558" y2="558"/><ellipse cx="640.125" cy="566.25" fill="#84BE84" rx="2.25" ry="2.25" style="stroke:#038048;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="8.25" lengthAdjust="spacing" textLength="77.25" x="646.875" y="569.5642">sendCovid19Report()</text><!--MD5=[cf401ef79e99d82f67df1e1644088dca]
+link SendCovid19ReportUI to SendCovid19ReportController--><path codeLine="60" d="M612.75,67.5375 C612.75,83.175 612.75,106.8375 612.75,127.395 " fill="none" id="SendCovid19ReportUI-to-SendCovid19ReportController" style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="612.75,131.19,615.75,124.44,612.75,127.44,609.75,124.44,612.75,131.19" style="stroke:#A80036;stroke-width:0.75;"/><!--MD5=[70d276fc936d108f9ed2b942efb8bb8b]
+link SendCovid19ReportController to Company--><path codeLine="61" d="M563.925,208.56 C509.97,250.485 423.09,317.985 365.46,362.76 " fill="none" id="SendCovid19ReportController-to-Company" style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="362.4,365.1375,369.5717,363.3686,365.3624,362.8382,365.8928,358.6288,362.4,365.1375" style="stroke:#A80036;stroke-width:0.75;"/><!--MD5=[85b65deaa5a810d7498ba433569d6dd0]
+link SendCovid19ReportController to TestStore--><path codeLine="62" d="M643.7475,208.56 C679.155,251.895 736.89,322.5675 773.37,367.2075 " fill="none" id="SendCovid19ReportController-to-TestStore" style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="775.9575,370.38,774.0165,363.2529,773.5875,367.4738,769.3666,367.0449,775.9575,370.38" style="stroke:#A80036;stroke-width:0.75;"/><!--MD5=[7449b8cd0f46c95a2c65666eb7f038bd]
+link Company to Covid19Report--><path codeLine="63" d="M306.75,453.0225 C306.75,476.1825 306.75,503.9925 306.75,523.9725 " fill="none" id="Company-to-Covid19Report" style="stroke:#A80036;stroke-width:0.75;"/><polygon fill="#A80036" points="306.75,527.8575,309.75,521.1075,306.75,524.1075,303.75,521.1075,306.75,527.8575" style="stroke:#A80036;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="21" x="307.5" y="486.3713">uses</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="5.25" x="301.1801" y="469.233">1</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="3.75" x="302.6133" y="519.9565">*</text><!--MD5=[7f6cf7f175eae0af66201860de5de971]
+link Company to TestStore--><path codeLine="64" d="M589.7625,409.125 C604.7175,409.125 619.515,409.125 633.93,409.125 " fill="none" id="Company-to-TestStore" style="stroke:#A80036;stroke-width:0.75;"/><polygon fill="#A80036" points="637.9875,409.125,631.2375,406.125,634.2375,409.125,631.2375,412.125,637.9875,409.125" style="stroke:#A80036;stroke-width:0.75;"/><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="21" x="603.375" y="404.2463">uses</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="5.25" x="595.5645" y="407.1258">1</text><text fill="#000000" font-family="sans-serif" font-size="9.75" lengthAdjust="spacing" textLength="5.25" x="627.1056" y="407.0496">1</text><!--MD5=[b845843cb17016f6a8b81b5b15531d2b]
+link Company to NhsApi--><path codeLine="65" d="M491.67,453.045 C528.885,464.5575 567.105,478.4925 601.5,495 C618.465,503.145 635.7225,514.845 649.7475,525.405 " fill="none" id="Company-to-NhsApi" style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="652.8675,527.7825,649.3081,521.31,649.8817,525.5137,645.678,526.0873,652.8675,527.7825" style="stroke:#A80036;stroke-width:0.75;"/><!--MD5=[4a61c339467a9989dbbcbe3c60ad577b]
+link Covid19Report to SimpleLinearRegression--><path codeLine="66" d="M306.75,574.5675 C306.75,587.6325 306.75,604.1475 306.75,617.82 " fill="none" id="Covid19Report-to-SimpleLinearRegression" style="stroke:#A80036;stroke-width:0.75;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="306.75,621.6,309.75,614.85,306.75,617.85,303.75,614.85,306.75,621.6" style="stroke:#A80036;stroke-width:0.75;"/><!--MD5=[66812d8bba69055d9db98c80c6a2fb9e]
+@startuml
+'https://plantuml.com/class-diagram
+
+
+package ui{
+class SendCovid19ReportUI
+}
+
+package controller{
+class SendCovid19ReportController
+}
+
+
+package model{
+class Company
+class Covid19Report
+class SimpleLinearRegression
+}
+
+package store{
+class TestStore
+}
+package interface{
+interface NhsApi
+}
+
+class SendCovid19ReportController {
++getAvailableTypesOfData()
++getAvailableRegressionModels()
++getAvailableIndependentVariables()
++sendCovid19Report()
+}
+
+class Company{
++getAvailableTypesOfData()
++getAvailableRegressionModels()
++getAvailableIndependentVariables()
++getTestStore()
++createCovid19Report(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
+}
+
+class TestStore{
++getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate)
++getNumberOfPositiveCovidTestsForDayHistoricalPoints(current day, historical points)
++getNumberOfIndependentVariableForDayInInterval(initialDate, endDate)
++getNumberOfIndependentVariableForDayInHistoricalPoints(current day, historical points)
+}
+
+class Covid19Report{
++generatesDatesHistoricalPoints()
+}
+
+class SimpleLinearRegression{
++getNhsReport(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,datesHistoricalPoints)
+}
+
+interface NhsApi{
++sendCovid19Report()
+}
+
+SendCovid19ReportUI ..> SendCovid19ReportController
+SendCovid19ReportController ....> Company
+SendCovid19ReportController ...> TestStore
+Company"1" - -> "*" Covid19Report : uses
+Company "1" -> "1" TestStore : uses
+Company..>NhsApi
+Covid19Report ..> SimpleLinearRegression
+
+
+@enduml
+
+@startuml
+
+
+package ui{
+class SendCovid19ReportUI
+}
+
+package controller{
+class SendCovid19ReportController
+}
+
+
+package model{
+class Company
+class Covid19Report
+class SimpleLinearRegression
+}
+
+package store{
+class TestStore
+}
+package interface{
+interface NhsApi
+}
+
+class SendCovid19ReportController {
++getAvailableTypesOfData()
++getAvailableRegressionModels()
++getAvailableIndependentVariables()
++sendCovid19Report()
+}
+
+class Company{
++getAvailableTypesOfData()
++getAvailableRegressionModels()
++getAvailableIndependentVariables()
++getTestStore()
++createCovid19Report(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
+}
+
+class TestStore{
++getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate)
++getNumberOfPositiveCovidTestsForDayHistoricalPoints(current day, historical points)
++getNumberOfIndependentVariableForDayInInterval(initialDate, endDate)
++getNumberOfIndependentVariableForDayInHistoricalPoints(current day, historical points)
+}
+
+class Covid19Report{
++generatesDatesHistoricalPoints()
+}
+
+class SimpleLinearRegression{
++getNhsReport(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,datesHistoricalPoints)
+}
+
+interface NhsApi{
++sendCovid19Report()
+}
+
+SendCovid19ReportUI ..> SendCovid19ReportController
+SendCovid19ReportController ....> Company
+SendCovid19ReportController ...> TestStore
+Company"1" - -> "*" Covid19Report : uses
+Company "1" -> "1" TestStore : uses
+Company..>NhsApi
+Covid19Report ..> SimpleLinearRegression
+
+
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
