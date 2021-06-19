@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.EvaluatePerformanceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="985.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.EvaluatePerformanceController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="55.0" prefWidth="604.0" spacing="15.0">
          <children>
@@ -51,9 +51,9 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <LineChart fx:id="performanceChart" prefHeight="475.0" prefWidth="791.0">
+            <LineChart fx:id="performanceChart" prefHeight="364.0" prefWidth="945.0">
               <xAxis>
-                <CategoryAxis prefHeight="158.0" prefWidth="726.0" side="BOTTOM" fx:id="x" />
+                <CategoryAxis prefHeight="28.0" prefWidth="1114.0" side="BOTTOM" fx:id="x" />
               </xAxis>
               <yAxis>
                 <NumberAxis fx:id="y" side="LEFT" />
@@ -62,6 +62,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </LineChart>
+            <HBox prefHeight="270.0" prefWidth="1236.0" />
          </children>
          <BorderPane.margin>
             <Insets left="20.0" right="20.0" />
