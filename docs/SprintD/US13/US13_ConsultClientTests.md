@@ -156,25 +156,73 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ![US13-CD](US13_CD.svg)
 
-# 4. Tests 
-*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
+# 4. Tests
 
-**_DO NOT COPY ALL DEVELOPED TESTS HERE_**
+**Test 1:** Check if the algorithm is ordering the clients by name
 
-**Test 1:** Check that it is not possible to create an instance of the Example class with null values. 
+	 ClientDTO cl1 = new ClientDTO("Carlos","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl2 = new ClientDTO("Ana","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl3 = new ClientDTO("Daniel","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl4 = new ClientDTO("Joana","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl5 = new ClientDTO("Ricardo","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
 
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Exemplo instance = new Exemplo(null, null);
-	}
+        List<ClientDTO> listResult = new ArrayList<>();
+        listResult.add(cl1);
+        listResult.add(cl2);
+        listResult.add(cl3);
+        listResult.add(cl4);
+        listResult.add(cl5);
 
-*It is also recommended to organize this content by subsections.* 
+        List<ClientDTO> listExpected = new ArrayList<>();
+        listExpected.add(cl2);
+        listExpected.add(cl1);
+        listExpected.add(cl3);
+        listExpected.add(cl4);
+        listExpected.add(cl5);
+
+        SortAlphabetically sortAlphabetically = new SortAlphabetically();
+        listResult = sortAlphabetically.orderClientList(listResult);
+
+        Assert.assertEquals(listExpected,listResult);
+     }
+
+**Test 2:** Check if the algorithm is ordering the clients by Tin
+
+        @Test
+    public void orderClientList() {
+        ClientDTO cl1 = new ClientDTO("Carlos","123456789012","02/05/2020","female","8421345003","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl2 = new ClientDTO("Carlos","123456789012","02/05/2020","female","4382710056","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl3 = new ClientDTO("Carlos","123456789012","02/05/2020","female","1999999999","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl4 = new ClientDTO("Carlos","123456789012","02/05/2020","female","1300000000","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl5 = new ClientDTO("Carlos","123456789012","02/05/2020","female","2045689605","12345678901","lola@gmail.com","Rua das cavalas");
+
+        List<ClientDTO> listExpected = new ArrayList<>();
+        listExpected.add(cl4);
+        listExpected.add(cl3);
+        listExpected.add(cl5);
+        listExpected.add(cl2);
+        listExpected.add(cl1);
+
+        List<ClientDTO> listResult = new ArrayList<>();
+        listResult.add(cl1);
+        listResult.add(cl2);
+        listResult.add(cl3);
+        listResult.add(cl4);
+        listResult.add(cl5);
+
+        SortByTin sort = new SortByTin();
+        listResult = sort.orderClientList(listResult);
+
+        Assert.assertEquals(listExpected,listResult);
+    }
+
 
 # 5. Construction (Implementation)
 
-*In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
+## SeeTestsController
+   
 
-*It is also recommended to organize this content by subsections.* 
+     
 
 # 6. Integration and Demo 
 
