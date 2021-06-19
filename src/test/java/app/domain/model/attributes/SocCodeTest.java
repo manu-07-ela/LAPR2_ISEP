@@ -30,13 +30,28 @@ public class SocCodeTest {
     public void socCodeEquals(){
         SocCode sc1 = new SocCode("1234");
         SocCode sc2 = new SocCode("1234");
-        Assert.assertEquals(sc1, sc2);
+        Assert.assertTrue(sc1.equals(sc2));
     }
+
     @Test
     public void socCodeReferenceEquals(){
         SocCode sc1 = new SocCode("1234");
         SocCode sc2 = sc1;
-        Assert.assertEquals(sc1, sc2);
+        Assert.assertTrue(sc1.equals(sc2));
+    }
+
+    @Test
+    public void socCodeEqualsNull(){
+        SocCode sc1 = new SocCode("1234");
+        SocCode sc2 = null;
+        Assert.assertFalse(sc1.equals(sc2));
+    }
+
+    @Test
+    public void socCodeEqualsOtherClass(){
+        SocCode sc1 = new SocCode("1234");
+        Address name2 = new Address("Rua das cavalas");
+        Assert.assertFalse(sc1.equals(name2));
     }
 
 
