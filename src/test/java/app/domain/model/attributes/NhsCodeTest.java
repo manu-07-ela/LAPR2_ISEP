@@ -26,6 +26,22 @@ public class NhsCodeTest extends TestCase {
     public void testTestReferenceEquals() {
         NhsCode nhs1 = new NhsCode("123123123123");
         NhsCode nhs2 = nhs1;
-        Assert.assertEquals(nhs1, nhs2);
+        Assert.assertTrue(nhs1.equals(nhs2));
     }
+
+    @Test
+    public void testTestEqualsNull() {
+        NhsCode nhs1 = new NhsCode("123123123123");
+        NhsCode nhs2 = null;
+        Assert.assertFalse(nhs1.equals(nhs2));
+    }
+
+    @Test
+    public void testTestEqualsOtherCLass() {
+        NhsCode nhs1 = new NhsCode("123123123123");
+        Address name2 = new Address("Rua das cavalas");
+        Assert.assertFalse(nhs1.equals(name2));
+    }
+
+
 }
