@@ -3,6 +3,7 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.testrelated.Overview;
 import app.domain.model.testrelated.Test;
+import app.domain.store.ClientStore;
 import app.domain.store.TestStore;
 import java.text.ParseException;
 import java.util.Date;
@@ -24,6 +25,11 @@ public class OverviewController {
      * Represents an instance of the test store.
      */
     private TestStore testStore;
+
+    /**
+     * Represents an instance of the client store.
+     */
+    private ClientStore clientStore;
     /**
      * Represents an instance of Overview
      */
@@ -54,6 +60,7 @@ public class OverviewController {
      */
     public void getIntervalTestList(Date initialDate, Date endDate) throws ParseException {
         this.testStore=company.getTestStore();
+        this.clientStore=company.getClientStore();
         List<Test> testList = testStore.getIntervalTestList(initialDate, endDate);
         this.overview=new Overview(initialDate,endDate,testList);
     }
@@ -64,6 +71,21 @@ public class OverviewController {
      */
     public int getNumberOfClients(){
         return overview.getNumberOfClients();
+    }
+
+    public int getNumberTestsSystem(){
+        return testStore.getTestList().size();
+    }
+
+    public int getNumberClientsSystem(){
+        return clientStore.getClientList().size();
+    }
+
+    /**
+     *
+     */
+    public List<String> getDates(){
+        return overview.getDates();
     }
 
     /**

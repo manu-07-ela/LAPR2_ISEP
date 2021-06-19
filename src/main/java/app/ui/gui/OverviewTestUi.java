@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -67,6 +68,15 @@ public class OverviewTestUi {
     @FXML
     private ComboBox<String> availableAlgorithms;
 
+    @FXML
+    private TextField txtNumberOfClientsScope;
+
+    @FXML
+    private TextField txtNumberOfClientsSystem;
+
+    @FXML
+    private TextField txtNumberOfTests;
+
 
     /**
      * Initializes the controller
@@ -91,7 +101,9 @@ public class OverviewTestUi {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        overviewCtrl.getNumberOfClients();
+        txtNumberOfClientsScope.setText(String.valueOf(overviewCtrl.getNumberOfClients()));
+        txtNumberOfTests.setText(String.valueOf(overviewCtrl.getNumberTestsSystem()));
+        txtNumberOfClientsSystem.setText(String.valueOf(overviewCtrl.getNumberClientsSystem()));
         overviewCtrl.getNumberOfTestsWaitingForResults();
         overviewCtrl.getNumberOfTestsWaitingForDiagnosis();
         overviewCtrl.getTotalNumberOfTestsProcessed();
@@ -101,7 +113,7 @@ public class OverviewTestUi {
 
     public void evaluetePerformance() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         runEvaluetePerformance();
-        evaluatePerformanceController.setLabelUI(stageEvaluatePerformance,overviewCtrl,availableAlgorithms.getValue(),overviewCtrl.getSequence());
+        evaluatePerformanceController.setLabelUI(stageEvaluatePerformance,overviewCtrl,availableAlgorithms.getValue(),overviewCtrl.getSequence(),overviewCtrl.getDates());
         closePlatform.getScene().getWindow().hide();
     }
 
@@ -132,7 +144,21 @@ public class OverviewTestUi {
     public void setLabelUI(Stage stage) {
         this.stage = stage;
         loadChoiseBox();
+    }
 
+    public void clean(){
+        initialDay.getEditor().clear();
+        endDay.getEditor().clear();
+        initialHour.getItems().clear();
+        endHour.getItems().clear();
+        initialMin.getItems().clear();
+        endMin.getItems().clear();
+        txtNumberOfClientsScope.setText("");
+        txtNumberOfClientsSystem.setText("");
+        txtNumberOfTests.setText("");
+        availableAlgorithms.getItems().clear();
+        loadChoiseBox();
+        run();
     }
 
     /**

@@ -112,6 +112,9 @@ public class App implements Serializable {
         Parameter p2 = new Parameter("WBC00","WBC","White Cell Count ",pc1);
         company.getParameterStore().addParameter(p2);
 
+        Parameter p4 = new Parameter("PLT00","PLT","PLTT ",pc1);
+        company.getParameterStore().addParameter(p4);
+
         Parameter p3 = new Parameter("IgGAN","KW","Covid count",pc2);
         company.getParameterStore().addParameter(p3);
 
@@ -128,7 +131,9 @@ public class App implements Serializable {
         company.getClientStore().addClient(new Client("Manuela", "1234567890123456", "1234567890", "07/09/2002", "Female", "1234567890","12345678901", "manu@gmail.com", "Rua 10 do Cerrado"));
         authFacade.addUserWithRole("Rita","rita@gmail.com","111111","CLIENT");
         ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Clinical laboratory", "Rua 20", "12312312312", "1234567890", "1234s",company.getTestTypeStore().getTestTypeList());
+        ClinicalAnalysisLaboratory lab2 = new ClinicalAnalysisLaboratory("Clinical laboratoryy", "Rua 203", "12312312313", "1234567891", "001WA",company.getTestTypeStore().getTestTypeList());
         this.company.getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(lab);
+        this.company.getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(lab2);
 
 
     }

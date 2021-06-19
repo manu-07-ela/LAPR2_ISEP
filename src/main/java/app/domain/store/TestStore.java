@@ -102,7 +102,13 @@ public class TestStore implements Serializable {
      * @return
      */
     public Test createTestByCsvFile(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,Date samplesAddDate,Date chemicalAnalysisDate,Date LabCoordDate,Date createdAt){
-        return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()),samplesAddDate,chemicalAnalysisDate,LabCoordDate,createdAt);
+        Test test = new Test(cl, nhsCode, testType, testParameterList, lab, generateInternalCode(testList.size()), samplesAddDate, chemicalAnalysisDate, LabCoordDate, createdAt);
+        for(Test t : testList) {
+            if(t.equals(test)) {
+                return null;
+            }
+        }
+        return test;
     }
 
     /**
@@ -294,8 +300,11 @@ public class TestStore implements Serializable {
     public List<Test> getIntervalTestList(Date initialDate, Date endDate){
         List<Test> intervalTestList = new ArrayList();
         for (Test t: testList) {
-            if (t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate) ) {
-                intervalTestList.add(t);
+            System.out.println(t.getSamplesAddDate());
+            if(t.getSamplesAddDate()!=null) {
+                if (t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate)) {
+                    intervalTestList.add(t);
+                }
             }
         }
         return intervalTestList;
