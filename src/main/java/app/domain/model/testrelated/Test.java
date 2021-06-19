@@ -16,8 +16,8 @@ public class Test implements Serializable {
      * Represents the states of a test
      */
     public static enum StateOfTest {
-        TestRegistered, SamplesCollected, SamplesAnalyzed,
-        DiagnosisMade, Validated
+        testRegistered, samplesCollected, samplesAnalyzed,
+        diagnosisMade, validated
     }
 
     /**
@@ -96,7 +96,7 @@ public class Test implements Serializable {
         this.nhscode = new NhsCode(nhsCode);
         this.testType = testType;
         this.testParameterList = testParameterList;
-        this.stateOfTest = StateOfTest.TestRegistered;
+        this.stateOfTest = StateOfTest.testRegistered;
         this.internalCode = internalCode;
         this.description = testType.getCollectingMethod();
         this.lab = lab;
@@ -123,7 +123,7 @@ public class Test implements Serializable {
         this.nhscode = new NhsCode(nhsCode);
         this.testType = testType;
         this.testParameterList = testParameterList;
-        this.stateOfTest = StateOfTest.Validated;
+        this.stateOfTest = StateOfTest.validated;
         this.internalCode = internalCode;
         this.description = testType.getCollectingMethod();
         this.lab = lab;
@@ -142,7 +142,7 @@ public class Test implements Serializable {
      * Change the status of a test for Samples collected
      */
     private void changeStateForSamplesCollected() {
-        this.stateOfTest = StateOfTest.SamplesCollected;
+        this.stateOfTest = StateOfTest.samplesCollected;
     }
 
     /**
@@ -301,7 +301,7 @@ public class Test implements Serializable {
             }
         }
         if (countAddResult==testParameterList.size()){
-            stateOfTest = StateOfTest.SamplesAnalyzed;
+            stateOfTest = StateOfTest.samplesAnalyzed;
             countAddResult=0;
         }
         return verificacao;
@@ -316,7 +316,7 @@ public class Test implements Serializable {
     public boolean addMedicalReport(String diagnosis) {
         if (validateMedicalReport()) {
             this.md = new MedicalReport(diagnosis);
-            this.stateOfTest = StateOfTest.DiagnosisMade;
+            this.stateOfTest = StateOfTest.diagnosisMade;
             return true;
         }
         return false;
@@ -399,7 +399,7 @@ public class Test implements Serializable {
      * Generates the date and time when the Lab Coordinator Validation is made.
      */
     public boolean generateDataAndTimeLabCoordinatorValidation(){
-        this.stateOfTest = Test.StateOfTest.Validated;
+        this.stateOfTest = Test.StateOfTest.validated;
         return lcv.recordDate();
     }
 
