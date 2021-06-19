@@ -6,6 +6,7 @@ import app.domain.model.testrelated.BarcodeDomain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * stores all samples recorded in the system
@@ -69,4 +70,13 @@ public class SampleList implements Serializable {
     public List<Sample> getListOfSamples(){
         return samples;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SampleList that = (SampleList) o;
+        return Objects.equals(samples, that.samples);
+    }
+
 }

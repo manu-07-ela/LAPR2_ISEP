@@ -7,6 +7,7 @@ import app.mappers.dto.EmployeeDTO;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The different employees that the company has.
@@ -77,6 +78,14 @@ public class EmployeeStore implements Serializable {
      */
     public List<Employee> getEmployeesList(){
         return employees;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeStore that = (EmployeeStore) o;
+        return Objects.equals(employees, that.employees);
     }
 
 }

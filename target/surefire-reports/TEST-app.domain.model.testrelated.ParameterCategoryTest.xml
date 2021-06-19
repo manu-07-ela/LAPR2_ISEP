@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.testrelated.ParameterCategoryTest" time="0.008" tests="14" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.testrelated.ParameterCategoryTest" time="0.014" tests="14" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -67,18 +67,18 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="parameterCategoriesCodesEquals" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0.001"/>
+  <testcase name="parameterCategoriesCodesEquals" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
   <testcase name="parameterCategoriesNotEqualsClass" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
   <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
   <testcase name="parameterCategoriesNotEqualsNull" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
-  <testcase name="ensureNameMeetsAC1_1" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0.001"/>
+  <testcase name="ensureNameMeetsAC1_1" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
   <testcase name="parameterCategoriesEquals" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
   <testcase name="parameterCategoriesNamesEquals" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
-  <testcase name="ensureCodeMeetsAC2_1" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
+  <testcase name="ensureCodeMeetsAC2_1" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0.001"/>
   <testcase name="ensureCodeMeetsAC2_2" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
-  <testcase name="ensureCodeMeetsAC2_3" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
+  <testcase name="ensureCodeMeetsAC2_3" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0.001"/>
   <testcase name="parameterCategoriesNotEquals" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
   <testcase name="ensureBlankNameIsNotAllowed" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
-  <testcase name="ensureCodeAndNameMeetsAC" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
+  <testcase name="ensureCodeAndNameMeetsAC" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0.001"/>
   <testcase name="parameterCategoriesRefEquals" classname="app.domain.model.testrelated.ParameterCategoryTest" time="0"/>
 </testsuite>

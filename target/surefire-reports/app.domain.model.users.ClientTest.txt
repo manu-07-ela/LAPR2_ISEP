@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: app.domain.model.users.ClientTest
 -------------------------------------------------------------------------------
-Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in app.domain.model.users.ClientTest
+Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in app.domain.model.users.ClientTest

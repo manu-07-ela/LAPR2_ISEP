@@ -1,11 +1,9 @@
 package app.controller;
 
 import app.Serialization;
-import app.domain.model.testrelated.Overview;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
@@ -17,10 +15,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
 import java.net.URL;
+import java.util.Arrays;
+>>>>>>> 49f642b32fda849ecf50d3b82d8750de96916ba7
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class EvaluatePerformanceController{
 
@@ -66,12 +66,7 @@ public class EvaluatePerformanceController{
         this.overviewController=overviewController;
         this.dates=dates;
         seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
-        String aux = "(" ;
-        for (int i =0; i<seq.length;i++){
-            aux.concat(String.valueOf(seq[i])).concat("  ");
-        }
-        aux.concat(")");
-        txtSubsequence.setText(aux);
+        txtSubsequence.setText(Arrays.toString(seq));
         loadLineChart(sequence);
     }
 
@@ -82,7 +77,7 @@ public class EvaluatePerformanceController{
     public void loadLineChart(int[] sequence){
         XYChart.Series series = new XYChart.Series();
         for (int i = 0; i<sequence.length; i++){
-            series.getData().add(new XYChart.Data(" ",sequence[i]));
+            series.getData().add(new XYChart.Data(String.valueOf(i),sequence[i]));
         }
         performanceChart.getData().addAll(series);
     }

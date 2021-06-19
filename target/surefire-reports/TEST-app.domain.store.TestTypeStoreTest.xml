@@ -67,8 +67,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="getAnExistingTestTypeByCode" classname="app.domain.store.TestTypeStoreTest" time="0.001"/>
-  <testcase name="getAnNonexistentTestTypeByCode" classname="app.domain.store.TestTypeStoreTest" time="0.001"/>
+  <testcase name="getAnExistingTestTypeByCode" classname="app.domain.store.TestTypeStoreTest" time="0"/>
+  <testcase name="getAnNonexistentTestTypeByCode" classname="app.domain.store.TestTypeStoreTest" time="0"/>
   <testcase name="saveANullTestType" classname="app.domain.store.TestTypeStoreTest" time="0"/>
   <testcase name="getAnNonexistentParameterCategoryByCode_2" classname="app.domain.store.TestTypeStoreTest" time="0"/>
   <testcase name="saveAnValidTestType" classname="app.domain.store.TestTypeStoreTest" time="0"/>

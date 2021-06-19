@@ -13,8 +13,8 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
 
         stage.initStyle(StageStyle.UNDECORATED);
-
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/LoginUi.fxml"));
+        System.out.println(getClass().getClassLoader().getResource("fxml/LoginUi.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/LoginUi.fxml"));
 
         Scene scene = new Scene(root);
 

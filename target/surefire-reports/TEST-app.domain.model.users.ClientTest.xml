@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.users.ClientTest" time="0.023" tests="34" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.users.ClientTest" time="0.059" tests="35" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -67,38 +67,39 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="NameValidation" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="dateageLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="citizenCardNumberLengthValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
-  <testcase name="nhsNumericValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="nameLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="citizenCardNumberLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="nhsNumericValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="nameLengthValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
   <testcase name="citizenCardNumberNumericValidation" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="phonenumberLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="setPhoneNumber1" classname="app.domain.model.users.ClientTest" time="0.001"/>
-  <testcase name="setPhoneNumber2" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="setPhoneNumber1" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="setPhoneNumber2" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="setPhoneNumber3" classname="app.domain.model.users.ClientTest" time="0.001"/>
-  <testcase name="setPhoneNumber4" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="setPhoneNumber5" classname="app.domain.model.users.ClientTest" time="0.002"/>
+  <testcase name="setPhoneNumber4" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="setPhoneNumber5" classname="app.domain.model.users.ClientTest" time="0.005"/>
   <testcase name="emailformatValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
-  <testcase name="citizencardnumberEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
-  <testcase name="nameLengthValidation2" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="tinEquals" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="citizencardnumberEquals" classname="app.domain.model.users.ClientTest" time="0.004"/>
+  <testcase name="nameLengthValidation2" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="tinEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
   <testcase name="dateformatValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="nhsEquals" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="nhsEquals" classname="app.domain.model.users.ClientTest" time="0.013"/>
   <testcase name="setAddress1" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="setAddress2" classname="app.domain.model.users.ClientTest" time="0.002"/>
+  <testcase name="setAddress2" classname="app.domain.model.users.ClientTest" time="0.001"/>
   <testcase name="phonenumberNumericValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="phonenumberEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="phonenumberEquals" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="tinNumericValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="nullReferenceEquals" classname="app.domain.model.users.ClientTest" time="0"/>
+  <testcase name="nullReferenceEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
   <testcase name="nhsLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="setName1" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="setName2" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="setName1" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="setName2" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="setName3" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="setName4" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="setName4" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="tinLengthValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="emailEquals" classname="app.domain.model.users.ClientTest" time="0.001"/>
-  <testcase name="sexValidation" classname="app.domain.model.users.ClientTest" time="0"/>
-  <testcase name="setSex1" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="emailEquals" classname="app.domain.model.users.ClientTest" time="0.005"/>
+  <testcase name="sexValidation" classname="app.domain.model.users.ClientTest" time="0.001"/>
+  <testcase name="setSex1" classname="app.domain.model.users.ClientTest" time="0"/>
   <testcase name="setSex2" classname="app.domain.model.users.ClientTest" time="0"/>
 </testsuite>

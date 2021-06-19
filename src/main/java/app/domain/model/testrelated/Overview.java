@@ -170,7 +170,7 @@ public class Overview {
             date2 = new Date(date1.getTime());
             date2.setMinutes(date2.getMinutes() + 30);
             if(date2.getDay()!=0) {
-                
+
                 for (Test t : testList) {
                     if (t.getLabValidationDate() != null) {
                         if (t.getLabValidationDate().after(date1) && t.getLabValidationDate().before(date2)) {

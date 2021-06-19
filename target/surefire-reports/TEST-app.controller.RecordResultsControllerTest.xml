@@ -67,9 +67,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="getTestParameterList" classname="app.controller.RecordResultsControllerTest" time="0"/>
+  <testcase name="getTestParameterList" classname="app.controller.RecordResultsControllerTest" time="0.001"/>
   <testcase name="possibilityOfRecordResult" classname="app.controller.RecordResultsControllerTest" time="0"/>
   <testcase name="possibilityOfRecordResult2" classname="app.controller.RecordResultsControllerTest" time="0"/>
   <testcase name="addTestResult1" classname="app.controller.RecordResultsControllerTest" time="0"/>
-  <testcase name="addTestResult2" classname="app.controller.RecordResultsControllerTest" time="0.001"/>
+  <testcase name="addTestResult2" classname="app.controller.RecordResultsControllerTest" time="0"/>
 </testsuite>

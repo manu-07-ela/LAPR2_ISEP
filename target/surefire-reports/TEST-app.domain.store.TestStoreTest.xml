@@ -67,8 +67,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="getTestByInternalCode" classname="app.domain.store.TestStoreTest" time="0.002"/>
-  <testcase name="getTestByInternalCodeNull" classname="app.domain.store.TestStoreTest" time="0"/>
+  <testcase name="getTestByInternalCode" classname="app.domain.store.TestStoreTest" time="0.001"/>
+  <testcase name="getTestByInternalCodeNull" classname="app.domain.store.TestStoreTest" time="0.002"/>
   <testcase name="barcodeValidation1" classname="app.domain.store.TestStoreTest" time="0"/>
-  <testcase name="barcodeValidation2" classname="app.domain.store.TestStoreTest" time="0.001"/>
+  <testcase name="barcodeValidation2" classname="app.domain.store.TestStoreTest" time="0"/>
 </testsuite>
