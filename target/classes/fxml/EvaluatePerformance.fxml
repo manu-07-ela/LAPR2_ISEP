@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.EvaluatePerformanceController">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="604.0" spacing="15.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#closePlatform" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#logout" style="-fx-background-color: #1a7180; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <VBox prefHeight="83.0" prefWidth="600.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="96.0" prefWidth="800.0">
+               <children>
+                  <Label style="-fx-font-size: 25; -fx-font-family: system; -fx-text-fill: #1a7180; -fx-font-weight: bold;" text="Many Labs Performance " />
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </Separator>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="469.0" prefWidth="945.0" BorderPane.alignment="CENTER">
+         <children>
+            <LineChart fx:id="performanceChart" prefHeight="264.0" prefWidth="1070.0">
+              <xAxis>
+                <CategoryAxis label="Interval Times" prefHeight="28.0" prefWidth="5218.0" side="BOTTOM" fx:id="x" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="y" side="LEFT" />
+              </yAxis>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </LineChart>
+            <HBox prefHeight="23.0" prefWidth="1070.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="291.0" text="Subsequence With Maximum Sum:" textAlignment="CENTER" textFill="#1a7180" />
+                  <TextField fx:id="txtSubsequence" prefHeight="27.0" prefWidth="780.0" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-width: 0px 0px 2px 0px;" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </HBox>
+            <ScrollPane prefHeight="240.0" prefWidth="976.0">
+               <content>
+                  <HBox prefHeight="216.0" prefWidth="1686.0">
+                     <children>
+                        <LineChart prefHeight="211.0" prefWidth="483.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                        <Pane prefHeight="211.0" prefWidth="54.0" />
+                        <LineChart>
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                        <Pane prefHeight="211.0" prefWidth="44.0" />
+                        <LineChart>
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                     </children>
+                  </HBox>
+               </content>
+            </ScrollPane>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
