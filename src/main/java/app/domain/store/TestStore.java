@@ -89,6 +89,19 @@ public class TestStore implements Serializable {
         return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()));
    }
 
+    /**
+     *
+     * @param cl
+     * @param nhsCode
+     * @param testType
+     * @param testParameterList
+     * @param lab
+     * @param samplesAddDate
+     * @param chemicalAnalysisDate
+     * @param LabCoordDate
+     * @param createdAt
+     * @return
+     */
     public Test createTestByCsvFile(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,Date samplesAddDate,Date chemicalAnalysisDate,Date LabCoordDate,Date createdAt){
         return new Test(cl,nhsCode,testType,testParameterList,lab,generateInternalCode(testList.size()),samplesAddDate,chemicalAnalysisDate,LabCoordDate,createdAt);
     }
@@ -130,9 +143,9 @@ public class TestStore implements Serializable {
      * @return a list of test waiting for samples
      */
     public List<Test> getListOfTestWaitingForSample(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory){
-        List<Test> testsWaintingForSamples = getTestByLaboratory(clinicalAnalysisLaboratory);
+        List<Test> testsWaitingForSamples = getTestByLaboratory(clinicalAnalysisLaboratory);
         List<Test> test = new ArrayList<>();
-        for (Test t : testsWaintingForSamples){
+        for (Test t : testsWaitingForSamples){
             if (t.getStateOfTest() == TestRegistered) test.add(t);
         }
         return test;
@@ -247,20 +260,10 @@ public class TestStore implements Serializable {
         return test;
     }
 
-    public Test getTestbyInternalCode(String internalCode) {
-        for (Test t :testList) {
-            if (t.getInternalCode().equals(internalCode)){
-                return t;
-            }
-        }
-        return null;
-
-    }
-
-    public List<Test> orderClientTestsByRegistratonDate(List<Test> tlist){
+    public List<Test> orderClientTestsByRegistrationDate(List<Test> tList){
         List<Date> date = new ArrayList<>();
         List<Test> test = new ArrayList<>();
-        for(Test t : tlist){
+        for(Test t : tList){
             date.add(t.getSamplesAddDate());
         }
         Collections.reverse(date);

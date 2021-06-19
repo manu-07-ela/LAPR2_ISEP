@@ -6,9 +6,15 @@ import java.util.Arrays;
 
 public class MultipleLinearRegression {
 
-    private final double[][] matrixX, matrixXTransposed, matrixXTX,matrixXTXInverse;
-    private final double[] matrixY, matrixXTY, matrixB, matrixYHat, cjj;
-    private double  y, f0, alpha;
+    private final double[][] matrixX;
+    private final double[][] matrixXTXInverse;
+    private final double[] matrixY;
+    private final double[] matrixXTY;
+    private final double[] matrixB;
+    private final double[] cjj;
+    private double  y;
+    private final double f0;
+    private double alpha;
 
     /**
      *
@@ -26,13 +32,13 @@ public class MultipleLinearRegression {
         }
         this.y = this.y / y.length;
         matrixX = matrixX(x1, x2);
-        matrixXTransposed = transpose(matrixX);
-        matrixXTX = matrixXXT(matrixXTransposed, matrixX);
+        double[][] matrixXTransposed = transpose(matrixX);
+        double[][] matrixXTX = matrixXXT(matrixXTransposed, matrixX);
         matrixXTY = matrixXTY(matrixXTransposed, y);
         matrixXTXInverse = invert(matrixXTX);
 
         matrixB = multiplyBiArrayWithArray(matrixXTXInverse, matrixXTY);
-        matrixYHat = multiplyBiArrayWithArray(matrixX, matrixB);
+        double[] matrixYHat = multiplyBiArrayWithArray(matrixX, matrixB);
         this.cjj = cjj();
         f0 = testStatistics();
 

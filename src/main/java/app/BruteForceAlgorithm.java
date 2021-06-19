@@ -13,7 +13,7 @@ public class BruteForceAlgorithm {
      * @param seq the sequence
      * @return the maximum subsequence
      */
-    public int[] MaxSubsequence(int[] seq){
+    public int[] maximumSubsequence(int[] seq){
         int maxSubArraySum = Integer.MIN_VALUE;
         int start = 0;
         int end = 0;
