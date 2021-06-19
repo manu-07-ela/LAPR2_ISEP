@@ -17,7 +17,7 @@ public class ClinicalAnalysisLaboratoryStore implements Serializable {
     /**
      * List of all ClinicalAnalysisLaboratory that exist in a comapny
      */
-    List<ClinicalAnalysisLaboratory> clinicalAnalysisLaboratoryList;
+    private List<ClinicalAnalysisLaboratory> clinicalAnalysisLaboratoryList;
 
     /**
      * Creates a new instance of TestTypeStore

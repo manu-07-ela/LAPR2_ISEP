@@ -77,7 +77,6 @@ public class LoginUi {
                 lblInformation.setVisible(true);
             }
         } else {
-            Serialization.saveApp(App.getInstance(), "SavedData.data");
             closePlatform();
         }
     }
@@ -87,6 +86,7 @@ public class LoginUi {
      */
     @FXML
     public void closePlatform() {
+        Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
     }
 

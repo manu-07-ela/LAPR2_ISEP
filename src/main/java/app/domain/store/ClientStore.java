@@ -22,7 +22,7 @@ public class ClientStore implements Serializable {
     /**
      * List of all existing clients in the company.
      */
-    List<Client> clientList;
+    private List<Client> clientList;
 
     /**
      * Instantiates a new ClientStore.

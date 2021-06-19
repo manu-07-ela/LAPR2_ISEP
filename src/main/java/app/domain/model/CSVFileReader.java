@@ -154,7 +154,7 @@ public class CSVFileReader {
         for(int i=0;i<test.size();i++) {
             Test t = tStore.createTestByCsvFile(cl, nhscode, testType, tpList, lab, samples, tpr, lcv, mr);
             t.addTestResult(test.get(i), tempArr[testnumb.get(i)], testType.getExternalModule().getRefValue(parametersString.get(i)).getMetric());
-            t.setStateOfTest(Test.StateOfTest.Validated);
+            t.setStateOfTest(Test.StateOfTest.validated);
             tStore.saveTest(t);
         }
     }
