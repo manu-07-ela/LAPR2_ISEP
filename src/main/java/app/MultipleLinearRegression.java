@@ -2,13 +2,11 @@ package app;
 import org.apache.commons.math3.distribution.FDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
 
-import java.util.Arrays;
-
 public class MultipleLinearRegression {
 
     private final double[][] matrixX;
     private final double[][] matrixXTXInverse;
-    private final double[][] cofidenceInterval;
+    private final double[][] confidenceInterval;
     private final double[] matrixY;
     private final double[] matrixXTY;
     private final double[] matrixB;
@@ -57,7 +55,7 @@ public class MultipleLinearRegression {
         this.historicalPoints = historicalPoints;
 
 
-        this.cofidenceInterval = confidenceInterval();
+        this.confidenceInterval = confidenceInterval();
 
 
 
@@ -348,7 +346,7 @@ public class MultipleLinearRegression {
         if (Math.abs(matrix[index][1])<=matrix[index][0]){
             result = "Don't reject H0";
         }else {
-            result = "Rejects H0";
+            result = "Reject H0";
         }
         return  result;
     }
@@ -397,7 +395,7 @@ public class MultipleLinearRegression {
         stringBuilder.append(String.format("\n"));
         stringBuilder.append(String.format("Date                    |          Number of OBSERVED positive cases          |          Number of ESTIMATED positive cases           |          %.1f%% intervals             \n", trustLevel*100));
         for (int i=0; i<historicalPointsY.length; i++){
-            stringBuilder.append(String.format("%s              |                       %.2f                          |                       %.2f                           |          ] %.2f; %.2f [             \n", historicalPoints[i], historicalPointsY[i], regressionLine(historicalPointsX1[i], historicalPointsX2[i]), cofidenceInterval[i][0], cofidenceInterval[i][1]));
+            stringBuilder.append(String.format("%s              |                       %.2f                          |                       %.2f                           |          ] %.2f; %.2f [             \n", historicalPoints[i], historicalPointsY[i], regressionLine(historicalPointsX1[i], historicalPointsX2[i]), confidenceInterval[i][0], confidenceInterval[i][1]));
         }
 
 

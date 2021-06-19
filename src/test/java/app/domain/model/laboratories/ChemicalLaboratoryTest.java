@@ -7,10 +7,10 @@ import org.junit.Test;
 
 public class ChemicalLaboratoryTest {
 
-    @Test
+   /* @Test
     public void getSampleStore() {
         ChemicalLaboratory chemicalLab = new ChemicalLaboratory("Chemical Laboratory", "Oxford Street", "23145623781", "7293817263");
         SampleList result = chemicalLab.getSampleStore();
         Assert.assertNotEquals(result, new SampleList());
-    }
+    }*/
 }

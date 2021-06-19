@@ -69,7 +69,11 @@ public class LabCoordinatorValidationTest {
 
     @Test
     public void recordLabCoordinatorValidationDate() {
+        LabCoordinatorValidation labCoordinatorValidation = new LabCoordinatorValidation();
+        Assert.assertTrue( labCoordinatorValidation.recordLabCoordinatorValidationDate());
     }
+
+
 
 
 }

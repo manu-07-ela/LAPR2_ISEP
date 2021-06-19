@@ -9,6 +9,20 @@ PASSWORD: vOmDMOjX92
 ID: CoraJAMES2155@yahoo.com
 PASSWORD: 1MMu4P1OyP
 ID: CoraJAMES2155@yahoo.com
+<<<<<<< HEAD
 PASSWORD: yjBl8gWqg7
 ID: CoraJAMES2155@yahoo.com
 PASSWORD: j90QnjJzbl
+=======
+PASSWORD: KhbZWxZeez
+ID: CoraJAMES2155@yahoo.com
+PASSWORD: 65zk1YCh7A
+ID: CoraJAMES2155@yahoo.com
+PASSWORD: PJJKyTHelN
+ID: CoraJAMES2155@yahoo.com
+PASSWORD: s9Bb6s1G9N
+ID: CoraJAMES2155@yahoo.com
+PASSWORD: gpDdWbifSI
+ID: CoraJAMES2155@yahoo.com
+PASSWORD: Al4DhXzGWe
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6

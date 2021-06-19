@@ -120,6 +120,7 @@ public class TestStore implements Serializable {
         if (!validateTest(t)){
             return false;
         }else{
+            System.out.println(t.getSamplesAddDate());
             return testList.add(t);
         }
     }
@@ -304,6 +305,7 @@ public class TestStore implements Serializable {
             if(t.getSamplesAddDate()!=null) {
                 if (t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate)) {
                     intervalTestList.add(t);
+                    System.out.println(t.getSamplesAddDate());
                 }
             }
         }

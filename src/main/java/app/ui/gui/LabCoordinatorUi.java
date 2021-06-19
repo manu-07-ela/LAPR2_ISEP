@@ -2,7 +2,6 @@ package app.ui.gui;
 
 import app.Serialization;
 import app.controller.App;
-import app.controller.ValidateWorkController;
 import app.ui.console.AuthUI;
 import app.ui.console.functionalities.ValidateWorkUI;
 import javafx.fxml.FXML;

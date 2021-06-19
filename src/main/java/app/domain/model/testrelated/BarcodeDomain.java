@@ -35,7 +35,7 @@ public class BarcodeDomain implements Serializable {
     public BarcodeDomain(BarcodeDomain barcodeDomain){
         if (barcodeDomain==null) throw new IllegalArgumentException("Barcode can't be blank");
         this.barcode = barcodeDomain.getBarcode();
-        this.barcode = barcodeDomain.getBarcodeNumber();
+        this.barcodeNumber = barcodeDomain.getBarcodeNumber();
     }
 
     /**

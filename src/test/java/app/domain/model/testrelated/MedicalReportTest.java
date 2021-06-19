@@ -39,6 +39,13 @@ public class MedicalReportTest {
         MedicalReport md = new MedicalReport(" ");
     }
 
+    @Test
+    public void getDiagnosis() {
+        MedicalReport md = new MedicalReport("lallalalalla");
+        String dia ="lallalalalla";
+        Assert.assertEquals(dia,md.getDiagnosis());
+    }
+
 
 }
 

@@ -9,6 +9,20 @@ PASSWORD: 9aP1YdoALX
 ID: BrooklynJARDINE2155@yahoo.com
 PASSWORD: qLPjkHOvyq
 ID: BrooklynJARDINE2155@yahoo.com
+<<<<<<< HEAD
 PASSWORD: Ew9sMSn2vo
 ID: BrooklynJARDINE2155@yahoo.com
 PASSWORD: CEg4LgE6o8
+=======
+PASSWORD: qsHDMKeUFo
+ID: BrooklynJARDINE2155@yahoo.com
+PASSWORD: AvG1iM1ZTI
+ID: BrooklynJARDINE2155@yahoo.com
+PASSWORD: iFEuxzqXyx
+ID: BrooklynJARDINE2155@yahoo.com
+PASSWORD: x4CBN81fxx
+ID: BrooklynJARDINE2155@yahoo.com
+PASSWORD: tEcbZQ6cGD
+ID: BrooklynJARDINE2155@yahoo.com
+PASSWORD: 47SmCCnySd
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6

@@ -22,7 +22,7 @@ import java.util.List;
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
 public class Company implements Serializable {
-
+    private static final long serialVersionUID = -2873965375442155042L;
     /**
      * Company's designation
      */
@@ -81,22 +81,22 @@ public class Company implements Serializable {
     /**
      * A List with all API's available in the system
      */
-    private List<String> listaDeAPI = new ArrayList(Arrays.asList("CovidReferenceValues1API", "ExternalModule1API","ExternalModule2API"));
+    private final List<String> listaDeAPI = new ArrayList(Arrays.asList("CovidReferenceValues1API", "ExternalModule1API","ExternalModule2API"));
 
     /**
      * A list with the types of dates available in the system
      */
-    private List<String> availableTypesOfData = new ArrayList(Arrays.asList("Day", "Week"));
+    private final List<String> availableTypesOfData = new ArrayList(Arrays.asList("Day", "Week"));
 
     /**
      * A list with the types of regression models available in the system
      */
-    private List<String> availableRegressionModels = new ArrayList(Arrays.asList("Simple Linear", "Multiple Linear"));
+    private final List<String> availableRegressionModels = new ArrayList(Arrays.asList("Simple Linear", "Multiple Linear"));
 
     /**
      *
      */
-    private List<String> availableIndependentVariables = new ArrayList(Arrays.asList("Mean Age", "Tests Performed"));
+    private final List<String> availableIndependentVariables = new ArrayList(Arrays.asList("Mean Age", "Tests Performed"));
 
 
     /**

@@ -9,6 +9,20 @@ PASSWORD: Gird4YVKUy
 ID: AlexisJEFFERY2155@hotmail.com
 PASSWORD: 5Cq0qlyx40
 ID: AlexisJEFFERY2155@hotmail.com
+<<<<<<< HEAD
 PASSWORD: VF5hvbhzXK
 ID: AlexisJEFFERY2155@hotmail.com
 PASSWORD: 1noXWDSGH2
+=======
+PASSWORD: rEM0S9tAsE
+ID: AlexisJEFFERY2155@hotmail.com
+PASSWORD: kNmwCmb4TS
+ID: AlexisJEFFERY2155@hotmail.com
+PASSWORD: HpvN6Typ8s
+ID: AlexisJEFFERY2155@hotmail.com
+PASSWORD: nwo5u2vBib
+ID: AlexisJEFFERY2155@hotmail.com
+PASSWORD: yXCSY0LDDi
+ID: AlexisJEFFERY2155@hotmail.com
+PASSWORD: Q1Q0zXVqfC
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6

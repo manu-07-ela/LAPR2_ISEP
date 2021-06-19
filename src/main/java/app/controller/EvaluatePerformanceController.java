@@ -1,25 +1,22 @@
 package app.controller;
 
 import app.Serialization;
-import app.domain.model.testrelated.Overview;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class EvaluatePerformanceController{
 
@@ -47,6 +44,9 @@ public class EvaluatePerformanceController{
     @FXML
     private NumberAxis y;
 
+    @FXML
+    private TextField txtSubsequence;
+
     /**
      * Set the stage
      * @param stage the stage we want to show
@@ -62,6 +62,7 @@ public class EvaluatePerformanceController{
         this.overviewController=overviewController;
         this.dates=dates;
         seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
+        txtSubsequence.setText(Arrays.toString(seq));
         loadLineChart(sequence);
     }
 
@@ -72,7 +73,7 @@ public class EvaluatePerformanceController{
     public void loadLineChart(int[] sequence){
         XYChart.Series series = new XYChart.Series();
         for (int i = 0; i<sequence.length; i++){
-            series.getData().add(new XYChart.Data(dates.get(i),sequence[i]));
+            series.getData().add(new XYChart.Data(String.valueOf(i),sequence[i]));
         }
         performanceChart.getData().addAll(series);
     }

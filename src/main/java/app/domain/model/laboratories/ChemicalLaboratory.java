@@ -3,6 +3,7 @@ package app.domain.model.laboratories;
 import app.domain.store.SampleList;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Represents a chemical laboratory
@@ -10,6 +11,7 @@ import java.io.Serializable;
  */
 
 public class ChemicalLaboratory extends Laboratory implements Serializable {
+    private static final long serialVersionUID = -4509042032461916565L;
     /**
      * Represents an instance of sample store
      */
@@ -33,4 +35,13 @@ public class ChemicalLaboratory extends Laboratory implements Serializable {
     public SampleList getSampleStore() {
         return sampleList;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChemicalLaboratory that = (ChemicalLaboratory) o;
+        return Objects.equals(sampleList, that.sampleList);
+    }
+
 }

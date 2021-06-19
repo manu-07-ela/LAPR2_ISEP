@@ -9,6 +9,20 @@ PASSWORD: 04PF5JqjCH
 ID: IndieADAM2155@hotmail.com
 PASSWORD: sFgiaGjMpg
 ID: IndieADAM2155@hotmail.com
+<<<<<<< HEAD
 PASSWORD: w9kl32hoDy
 ID: IndieADAM2155@hotmail.com
 PASSWORD: GygOtwhJx7
+=======
+PASSWORD: b5PmYc3zke
+ID: IndieADAM2155@hotmail.com
+PASSWORD: aUfCg8XYjY
+ID: IndieADAM2155@hotmail.com
+PASSWORD: H6ynTu9Mjz
+ID: IndieADAM2155@hotmail.com
+PASSWORD: 7WnNK8WXOe
+ID: IndieADAM2155@hotmail.com
+PASSWORD: 81xk7rO6CC
+ID: IndieADAM2155@hotmail.com
+PASSWORD: lQAzW1M5k2
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6

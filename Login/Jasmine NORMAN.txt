@@ -9,6 +9,20 @@ PASSWORD: sNSqmZJpgA
 ID: JasmineNORMAN2155@yahoo.com
 PASSWORD: 3PsGKsM8td
 ID: JasmineNORMAN2155@yahoo.com
+<<<<<<< HEAD
 PASSWORD: 0XnOt7R2ca
 ID: JasmineNORMAN2155@yahoo.com
 PASSWORD: Zw1VgrZHUX
+=======
+PASSWORD: qYjzgAyuX1
+ID: JasmineNORMAN2155@yahoo.com
+PASSWORD: 5mXeft7kQL
+ID: JasmineNORMAN2155@yahoo.com
+PASSWORD: nB3W91YDKd
+ID: JasmineNORMAN2155@yahoo.com
+PASSWORD: jUSWInBMXJ
+ID: JasmineNORMAN2155@yahoo.com
+PASSWORD: vChWdz7pHQ
+ID: JasmineNORMAN2155@yahoo.com
+PASSWORD: gUoV5f5m5k
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
