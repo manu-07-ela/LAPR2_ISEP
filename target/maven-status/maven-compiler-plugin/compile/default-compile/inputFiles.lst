@@ -20,6 +20,7 @@ C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\MainA
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\ParameterCategory.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\DateDTO.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\RegisterEmployeeController.java
+C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\SeeTestsController.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\UpdateDataUi.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\store\ClientStore.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\WriteMedicalReportUI.java
@@ -47,6 +48,7 @@ C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\ParameterMapper.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ClinicalChemistryTecUi.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\EvaluatePerformanceController.java
+C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\UpdateDataNotification.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\ValidateWorkUI.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\mappers\dto\TestTypeDTO.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\DevTeamUI.java
@@ -57,7 +59,6 @@ C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\adapter\Sort
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\AdmUi.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\employees\ReceptionistUI.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\testrelated\Test.java
-C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\controller\ViewTestsClientController.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\gui\ViewTestResultUi.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\ui\console\functionalities\CreateTestTypeUI.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\main\java\app\domain\model\attributes\DoctorIndexNumber.java

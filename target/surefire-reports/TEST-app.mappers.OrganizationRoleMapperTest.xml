@@ -67,6 +67,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="toDTO" classname="app.mappers.OrganizationRoleMapperTest" time="0"/>
+  <testcase name="toDTO" classname="app.mappers.OrganizationRoleMapperTest" time="0.001"/>
   <testcase name="toOrganizationRole" classname="app.mappers.OrganizationRoleMapperTest" time="0"/>
 </testsuite>

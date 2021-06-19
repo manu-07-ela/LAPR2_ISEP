@@ -13,6 +13,7 @@ app\domain\model\attributes\NhsCodeTest.class
 app\mappers\CreateClinicalAnalysisLaboratoryMapperTest.class
 app\domain\model\attributes\PhoneNumberTest.class
 app\domain\model\users\EmployeeTest.class
+app\adapter\SortAlphabeticallyTest.class
 app\controller\WriteMedicalReportControllerTest.class
 app\mappers\dto\TestParameterDtoTest.class
 app\mappers\ParameterMapperTest.class
@@ -62,3 +63,4 @@ app\mappers\dto\ParameterCategoryDtoTest.class
 app\controller\CreateClientControllerTest.class
 app\domain\model\testrelated\TestParameterResultTest.class
 app\adapter\ExternalModule3APIAdapterTest.class
+app\adapter\SortByTinTest.class

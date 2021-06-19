@@ -51,7 +51,15 @@
    <center>
       <VBox prefHeight="469.0" prefWidth="945.0" BorderPane.alignment="CENTER">
          <children>
+<<<<<<< HEAD
             <LineChart fx:id="performanceChart" prefHeight="264.0" prefWidth="1070.0">
+=======
+<<<<<<< HEAD
+            <LineChart fx:id="performanceChart" prefHeight="714.0" prefWidth="945.0">
+=======
+            <LineChart fx:id="performanceChart" prefHeight="496.0" prefWidth="945.0">
+>>>>>>> 5f8b5f845943a9587d7a16ef26ce73f8306be9a3
+>>>>>>> 388882f7fdaacca8299955fa970575b5cd737cbd
               <xAxis>
                 <CategoryAxis label="Interval Times" prefHeight="28.0" prefWidth="5218.0" side="BOTTOM" fx:id="x" />
               </xAxis>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.testrelated.TestTypeTest" time="0.008" tests="23" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.model.testrelated.TestTypeTest" time="0.006" tests="23" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -67,27 +67,27 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
-  <testcase name="testTypesRefEquals" classname="app.domain.model.testrelated.TestTypeTest" time="0.001"/>
+  <testcase name="ensureNullIsNotAllowed" classname="app.domain.model.testrelated.TestTypeTest" time="0.001"/>
+  <testcase name="testTypesRefEquals" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="TestTypesNotEquals" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="getExternalModule" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="ensureCodeMeetsAC1_1" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
-  <testcase name="ensureCodeMeetsAC1_2" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
+  <testcase name="ensureCodeMeetsAC1_2" classname="app.domain.model.testrelated.TestTypeTest" time="0.001"/>
   <testcase name="ensureCodeMeetsAC1_3" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
-  <testcase name="ensureCodeMeetsAC1_4" classname="app.domain.model.testrelated.TestTypeTest" time="0.001"/>
+  <testcase name="ensureCodeMeetsAC1_4" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="testTypesCodesEquals" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="ensureDescriptionMeetsAC2" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="ensureBlankCollectingMethodNotAllowed" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="getCode" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="ensureBlankDescriptioNotAllowed" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="ensureCollectingMethodMeetsAC3_1" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
-  <testcase name="testTypesDescriptionEquals" classname="app.domain.model.testrelated.TestTypeTest" time="0.001"/>
+  <testcase name="testTypesDescriptionEquals" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="getListOfParameterCategories" classname="app.domain.model.testrelated.TestTypeTest" time="0.001"/>
   <testcase name="ensureDescriptionMeetsAC2_1" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="testTypesNotEqualsClass" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="testTypesNotEquals" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="getCollectingMethod" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
-  <testcase name="ensureCollectingMethodMeetsAC3" classname="app.domain.model.testrelated.TestTypeTest" time="0.001"/>
+  <testcase name="ensureCollectingMethodMeetsAC3" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="testTypesNotEqualsNull" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
   <testcase name="getDescription" classname="app.domain.model.testrelated.TestTypeTest" time="0"/>
 </testsuite>
