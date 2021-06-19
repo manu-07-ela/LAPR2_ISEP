@@ -4,7 +4,6 @@ import app.Serialization;
 import app.controller.App;
 import app.controller.ImportFileController;
 import app.domain.model.users.Client;
-import app.mappers.dto.TestDTO;
 import app.ui.console.AuthUI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

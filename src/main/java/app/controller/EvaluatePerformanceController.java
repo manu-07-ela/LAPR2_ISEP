@@ -1,11 +1,9 @@
 package app.controller;
 
 import app.Serialization;
-import app.domain.model.testrelated.Overview;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
@@ -16,10 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class EvaluatePerformanceController{
 
