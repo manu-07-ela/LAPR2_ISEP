@@ -286,8 +286,11 @@ public class TestStore implements Serializable {
     public List<Test> getIntervalTestList(Date initialDate, Date endDate){
         List<Test> intervalTestList = new ArrayList();
         for (Test t: testList) {
-            if (t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate) ) {
-                intervalTestList.add(t);
+            System.out.println(t.getSamplesAddDate());
+            if(t.getSamplesAddDate()!=null) {
+                if (t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate)) {
+                    intervalTestList.add(t);
+                }
             }
         }
         return intervalTestList;
