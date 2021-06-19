@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0.024" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0.005" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -69,12 +69,12 @@
   </properties>
   <testcase name="validateGlobalLaboratory1" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0.001"/>
   <testcase name="validateGlobalLaboratory2" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0"/>
-  <testcase name="saveLaboratory1" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0.001"/>
+  <testcase name="saveLaboratory1" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0"/>
   <testcase name="saveLaboratory2" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0"/>
   <testcase name="saveLaboratory3" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0"/>
   <testcase name="getClinicalAnalysisLaboratory" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0"/>
-  <testcase name="createLaboratory" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0.004"/>
+  <testcase name="createLaboratory" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0"/>
   <testcase name="validateLaboratory1" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0"/>
-  <testcase name="validateLaboratory2" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0.001"/>
+  <testcase name="validateLaboratory2" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0"/>
   <testcase name="validateLaboratory3" classname="app.domain.store.ClinicalAnalysisLaboratoryStoreTest" time="0"/>
 </testsuite>

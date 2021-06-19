@@ -38,5 +38,24 @@ public class DoctorIndexNumberTest {
         DoctorIndexNumber docNum2 = docNum1;
         Assert.assertEquals(docNum1, docNum2);
     }
+
+    @Test
+    public void doctorIndexNumberNull(){
+        DoctorIndexNumber docNum1 = new DoctorIndexNumber("123456");
+        DoctorIndexNumber docNum2 = null;
+        Assert.assertFalse(docNum1.equals(docNum2));
+    }
+
+    @Test
+    public void doctorIndexNumberOtherClass(){
+        DoctorIndexNumber docNum1 = new DoctorIndexNumber("123456");
+        Address adrs1 = new Address("Rua da cavala");
+        Assert.assertFalse(docNum1.equals(adrs1));
+    }
+
+
+
+
+
 }
 

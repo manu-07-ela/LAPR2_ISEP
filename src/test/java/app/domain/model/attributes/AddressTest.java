@@ -37,5 +37,37 @@ public class AddressTest {
         Address adr1 = new Address("Rua do fojofrgthykuyjtgrfwxdtgikçpkiugtredrgnjmlçpº+çikhgtfdswdefghyjkloplkiyhgtfdertgjkilokuyhrthjgfdsfgthyjugfrdgthjuhg");
     }
 
+    @Test
+    public void AddressValidation2(){
+        Address adr1 = new Address("tehtrrggrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgrgreggreggrgrgrgrgrgrggrgrrg");
+    }
+
+    @Test
+    public void AddressEqualsReference(){
+        Address adr1 = new Address("Rua das cavalas");
+        Address adr2 = adr1;
+
+        Assert.assertTrue(adr1.equals(adr2));
+    }
+
+    @Test
+    public void AddressEqualsNull(){
+        Address adr1 = new Address("Rua das cavalas");
+        Address adr2 = null;
+
+        Assert.assertFalse(adr1.equals(adr2));
+    }
+
+    @Test
+    public void AddressEqualsClass(){
+        Address adr1 = new Address("Rua das cavalas");
+        Name adr2 = new Name("carlos");
+
+        Assert.assertFalse(adr1.equals(adr2));
+    }
+
+
+
+
 }
 
