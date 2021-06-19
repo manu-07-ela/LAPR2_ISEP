@@ -7,6 +7,7 @@ app\controller\CreateClinicalAnalysisLaboratoryController.class
 app\mappers\DateMapper.class
 app\controller\RegisterEmployeeController.class
 app\domain\model\attributes\Name.class
+app\domain\UpdateDataNotification.class
 app\domain\model\laboratories\ChemicalLaboratory.class
 app\mappers\dto\ClinicalAnalysisLaboratoryDTO.class
 app\ui\console\ShowTextUI.class
@@ -27,7 +28,6 @@ app\domain\model\laboratories\ClinicalAnalysisLaboratory.class
 app\ui\gui\ViewResultsUi.class
 app\controller\CreateTestTypeController.class
 auth\domain\model\Password.class
-app\controller\ViewTestsClientController.class
 app\domain\model\testrelated\ParameterCategory.class
 app\domain\store\SampleList.class
 app\domain\store\TestStore.class
@@ -53,6 +53,7 @@ app\adapter\SortByTin.class
 app\interfaces\ExternalModuleReferencesValue.class
 app\domain\model\attributes\SocCode.class
 app\ui\console\employees\ReceptionistUI.class
+app\controller\SeeTestsController.class
 app\ui\Main.class
 app\domain\model\users\Client.class
 app\controller\SendCovid19ReportController.class

@@ -68,6 +68,6 @@
     <property name="java.class.version" value="55.0"/>
   </properties>
   <testcase name="testDtoNotEqualsNull" classname="app.mappers.dto.DateDTOTest" time="0.001"/>
-  <testcase name="testDtoRefEquals" classname="app.mappers.dto.DateDTOTest" time="0.001"/>
+  <testcase name="testDtoRefEquals" classname="app.mappers.dto.DateDTOTest" time="0"/>
   <testcase name="dateDtoEquals" classname="app.mappers.dto.DateDTOTest" time="0.001"/>
 </testsuite>

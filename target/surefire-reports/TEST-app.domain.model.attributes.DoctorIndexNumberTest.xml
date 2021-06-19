@@ -69,9 +69,9 @@
   </properties>
   <testcase name="ensureDoctorIndexNumberMeetsAC6_1" classname="app.domain.model.attributes.DoctorIndexNumberTest" time="0"/>
   <testcase name="ensureDoctorIndexNumberMeetsAC6_2" classname="app.domain.model.attributes.DoctorIndexNumberTest" time="0"/>
-  <testcase name="ensureDoctorIndexNumberMeetsAC6_3" classname="app.domain.model.attributes.DoctorIndexNumberTest" time="0.001"/>
+  <testcase name="ensureDoctorIndexNumberMeetsAC6_3" classname="app.domain.model.attributes.DoctorIndexNumberTest" time="0"/>
   <testcase name="doctorIndexNumberReferenceEquals" classname="app.domain.model.attributes.DoctorIndexNumberTest" time="0"/>
-  <testcase name="doctorIndexNumberEquals" classname="app.domain.model.attributes.DoctorIndexNumberTest" time="0"/>
+  <testcase name="doctorIndexNumberEquals" classname="app.domain.model.attributes.DoctorIndexNumberTest" time="0.001"/>
   <testcase name="getDoctorIndexNumber" classname="app.domain.model.attributes.DoctorIndexNumberTest" time="0"/>
   <testcase name="ensureDoctorIndexNumberNullIsNotAllowed" classname="app.domain.model.attributes.DoctorIndexNumberTest" time="0"/>
 </testsuite>
