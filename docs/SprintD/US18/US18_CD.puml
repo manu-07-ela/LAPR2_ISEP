@@ -1,0 +1,74 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package app{
+package ui{
+class SendCovid19ReportUI
+}
+
+package controller{
+class SendCovid19ReportController
+}
+
+package domain {
+package model{
+class Company
+package testrelated{
+class Covid19Report
+}
+package store{
+class TestStore
+}
+}
+
+}
+class SimpleLinearRegression
+package interface{
+interface NhsApi
+}
+}
+
+class SendCovid19ReportController {
++getAvailableTypesOfData()
++getAvailableRegressionModels()
++getAvailableIndependentVariables()
++sendCovid19Report()
+}
+
+class Company{
++getAvailableTypesOfData()
++getAvailableRegressionModels()
++getAvailableIndependentVariables()
++getTestStore()
++createCovid19Report(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
+}
+
+class TestStore{
++getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate)
++getNumberOfPositiveCovidTestsForDayHistoricalPoints(current day, historical points)
++getNumberOfIndependentVariableForDayInInterval(initialDate, endDate)
++getNumberOfIndependentVariableForDayInHistoricalPoints(current day, historical points)
+}
+
+class Covid19Report{
++generatesDatesHistoricalPoints()
+}
+
+class SimpleLinearRegression{
++getNhsReport(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,datesHistoricalPoints)
+}
+
+interface NhsApi{
++sendCovid19Report()
+}
+
+SendCovid19ReportUI ..> SendCovid19ReportController
+SendCovid19ReportController ....> Company
+SendCovid19ReportController ...> TestStore
+Company"1" --> "*" Covid19Report : uses
+Company "1" -> "1" TestStore : uses
+Company ..> NhsApi
+Covid19Report ..> SimpleLinearRegression
+
+
+@enduml

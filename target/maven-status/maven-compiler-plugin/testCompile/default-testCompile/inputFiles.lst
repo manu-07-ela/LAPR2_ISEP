@@ -33,6 +33,7 @@ C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\domain\model
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\domain\model\testrelated\MedicalReportTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\domain\store\TestTypeStoreTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\mappers\DateMapperTest.java
+C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\adapter\SortByTinTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\domain\store\TestStoreTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\domain\model\testrelated\ParameterTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\domain\store\ClientStoreTest.java
@@ -55,6 +56,7 @@ C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\mappers\dto\
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\adapter\ExternalModule3APIAdapterTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\mappers\dto\ClinicalAnalysisLaboratoryDTOTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\mappers\TestMapperTest.java
+C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\adapter\SortAlphabeticallyTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\domain\model\attributes\NameTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\adapter\ExternalModule2APIAdapterTest.java
 C:\Users\manua\OneDrive\Desktop\lei-21-s2-1de-g22\src\test\java\app\mappers\ParameterCategoryMapperTest.java

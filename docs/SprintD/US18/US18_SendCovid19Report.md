@@ -116,10 +116,12 @@ When the time resolution is a week, please consider only complete weeks.
 
 ### 1.3. Acceptance Criteria
 
-* **AC1:** The user could be choose the significance level for hip t and confidence level for IC.
+* **AC1:** The user should choose the significance level for hip t and confidence level for IC.
 * **AC2:** The system should allow the Administrator to select between a simple linear and multilinear regression model to fit the data.
-* **AC3:** Moreover, the Administrator should be able to choose the independent variable to use with the simple linear regression model (either the number of tests realized or the mean age).
-* **AC4:** The system should send the report using the NHS API (available in moodle).
+* **AC3:** The Administrator should be able to choose the independent variable to use with the simple linear regression model (either the number of tests realized or the mean age).
+* **AC4:** The Administrator should select between days and weeks using the user interface.
+* **AC5:** The system should send the report using the NHS API (available in moodle).
+* **AC6:** The report should contain all the tests made by Many Labs.
 
 ### 1.4. Found out Dependencies
 
@@ -136,11 +138,9 @@ When the time resolution is a week, please consider only complete weeks.
 	* Significance level
 	* Confidence level
 	
-
 * Selected data:
 	* Regression model
 	* Independent variable
-	* 
 
 **Output Data:**
 
@@ -162,7 +162,7 @@ When the time resolution is a week, please consider only complete weeks.
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![US14_DM](US14_DM.svg)
+![US18_DM](US18_DM.svg)
 
 ### 2.2. Other Remarks
 
@@ -177,49 +177,47 @@ When the time resolution is a week, please consider only complete weeks.
 
 | Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Step 1  		 | ... interacting with the actor?                                 | WriteMedicalReportUI          | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
-|                | ... coordinating the US?                                        | WriteMedicalReportController  | **Controller**                                                                                                                                                                                         |
-| Step 2  		 | ... knowing the tests that are waiting for the medical report?  | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
+| Step 1  		 | ... interacting with the actor?                                 | SendCovid19ReportUI           | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
+|                | ... coordinating the US?                                        | SendCovid19ReportController   | **Controller**                                                                                                                                                                                         |
+| Step 2  		 | ... knowing available types of Data?                            | Company                       | **IE**: Knows the available types of data (day or week).                                                                                                                                               |
+| Step 3  		 | ... knowing available regression models?                        | Company                       | **IE**: Knows the available regression models.                                                                                                                                               |
+| Step 4  		 | ... knowing available regression models?                        | Company                       | **IE**: Knows the available regression models.                                                                                                                                               |
+|                | ... knowing available independent variables?                    | Company                       | **IE**: Knows the available independent variables.                                                                                                                                                          |
+| Step 5         | ... saving the typed data?                                      |                               | **IE**: Owns its data.                                                                                                                                                                                 |
 |                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
-|                | ... transferring business data in DTO?                          | TestMapper                    | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
-| Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 4  		 | ... knowing the parameters analyzed and the respective data?    | Test                          | **IE**: The test knows its own results.                                                                                                                                                                |
-|                | ... transferring business data in DTO?                          | TestParameterMapper           | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
-| Step 5         | ... saving the typed data?                                      | MedicalReport                 | **IE**: Owns its data.                                                                                                                                                                                 |
+|                | ... knowing the number of covid Tests in any interval?          | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
 | Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 7         | ... validating all data (global validation)?                    | Test                          | **IE**: Know if already have a medical report.                                                                                                                                                         |
-|                | ... instantiating a new Medical Report?                         | Test                          | **Creator (R1)**                                                                                                                                                                                       |
-|        		 | ... validating all data (local validation)?                     | MedicalReport                 | **IE**: Owns its data.                                                                                                                                                                                 |
-|        		 | ... saving the creation time?                                   | MedicalReport                 | **IE**: The medical report knows when it was created.                                                                                                                                                  |
-| Step 8  		 | ... informing operation success?                                | WriteMedicalReportUI          | **IE**: Is responsible for user interactions.                                                                                                                                                          |
+| Step 7         | ... instantiating a Covid-19 Report?                            | Company                       | **Creator (R1)**                                                                                                                                                                                       |
+|        		 | ... generating historical points dates?                         | Covid19Report                 | **IE**: Owns its data.                                                                                                                                                                                 |
+| Step 8  		 | ... sending to NHS covid-19 report?                             | NhsApi                        | **IE**: The medical report knows when it was created.                                                                                                                                                  |
+| Step 9  		 | ... informing operation success?                                | SendCovid19ReportUI           | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  * Company
- * Test
- * MedicalReport 
+ * NhsApi
+ * Covid19Report
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * WriteMedicalReportUI
- * WriteMedicalReportController
+ * SendCovid19ReportUI
+ * SendCovid19ReportController
  * TestStore
- * TestMapper
- * TestParameterMapper
+ * SimpleLinearRegression
 
 ## 3.2. Sequence Diagram (SD)
 
 **Alternative 1**
 
-![US14_SD](US14_SD.svg)
+![US18_SD](US18_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
 **From alternative 1**
 
-![US14_CD](US14_CD.svg)
+![US18_CD](US18_CD.svg)
 
 # 4. Tests
 
