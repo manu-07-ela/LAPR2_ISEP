@@ -235,6 +235,10 @@ public class TestStore implements Serializable {
        return test;
     }
 
+    /**
+     * Gets the list of Clients that have at least one Test Validated
+     * @return the list of Clients that have at least one Test Validated
+     */
     public List<Client> getClientWithTestsValidated(){
         List<Client> list = new ArrayList<>();
         for (Test t: testList) {
@@ -249,6 +253,11 @@ public class TestStore implements Serializable {
         return list;
     }
 
+    /**
+     * Gets the list of all test associated with a specific client
+     * @param selectedClient The specific client we want to gets it's tests
+     * @return the list of all test associated with a specific client
+     */
     public List<Test> getTestListAssociatedWithClient(ClientDTO selectedClient){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
