@@ -113,6 +113,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
  * Client
  * Company
 
+
 Other software classes (i.e. Pure Fabrication) identified: 
 
  * UpdateDataUI  
