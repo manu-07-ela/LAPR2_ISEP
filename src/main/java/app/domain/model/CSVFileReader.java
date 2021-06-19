@@ -4,13 +4,13 @@ import app.controller.App;
 import app.controller.RecordSampleController;
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
-import app.domain.model.testrelated.Parameter;
-import app.domain.model.testrelated.Test;
-import app.domain.model.testrelated.TestParameter;
-import app.domain.model.testrelated.TestType;
+import app.domain.model.testrelated.*;
 import app.domain.model.users.Client;
 import app.domain.store.*;
+import app.ui.console.utils.Utils;
 import auth.AuthFacade;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 
 import java.io.*;
 import java.text.ParseException;
@@ -79,7 +79,7 @@ public class CSVFileReader {
      */
     private List<Client> clientList;
     /**
-     * Represents an instance of SamplesList
+     * Represents an instance of Record Samples Controller
      */
     private RecordSampleController samplesctrl;
 
@@ -111,7 +111,7 @@ public class CSVFileReader {
             BufferedReader br = new BufferedReader(fr);
             String line = "";
             String delimiter = ";";
-            int i=0;
+            int i=1;
             int date=0;
             String[] tempArr;
         line = br.readLine();
@@ -128,24 +128,28 @@ public class CSVFileReader {
                 tempArr = line.split(delimiter);
                 i++;
                 cl= clStore.getClientbytin(tempArr[5]);
-                if(cl==null) {
                     try {
+                        if(cl==null) {
                         cl = new Client(tempArr[8], tempArr[3], tempArr[4], tempArr[6], tempArr[5], tempArr[7], tempArr[9],tempArr[10]);
+                        }else{
+                            System.out.printf("Error in line %d : That client alredy exists in the system\n", i);
+                        }
                         clientList.add(cl);
                         clStore.saveClient(cl, clAuthFacade);
                         NhsCode nhsCode = new NhsCode(tempArr[1]);
-                        createTest(cl,nhsCode, ttStore.getTestTypeByDescription(tempArr[11]), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]),validParametersStringList,parametersNumbList,tempArr,date);
-                    } catch (IllegalArgumentException | IllegalAccessException | ClassNotFoundException | InstantiationException | ParseException e) {
+                        if(calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2])!=null) {
+                            createTest(cl, nhsCode, ttStore.getTestTypeByDescription(tempArr[11]), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]), validParametersStringList, parametersNumbList, tempArr, date);
+                        }else{
+                            throw new IllegalArgumentException("This laboratory doesn´t exist");
+                        }
+                        } catch (IllegalArgumentException | IllegalAccessException | ClassNotFoundException | InstantiationException | ParseException | BarcodeException e) {
                         System.out.printf("Error in line %d : %s\n", i, e.getMessage());
                     }
-                }else{
-                    System.out.printf("Error in line %d : That client alredy exists in the system\n", i);
-                }
             }
             br.close();
     }
 
-    private void createTest(Client cl, NhsCode nhscode, TestType testType,ClinicalAnalysisLaboratory lab, List<String> parametersString,List<Integer> parametersIndextest,String[] tempArr,int date) throws IllegalAccessException, ClassNotFoundException, InstantiationException, ParseException {
+    private void createTest(Client cl, NhsCode nhscode, TestType testType,ClinicalAnalysisLaboratory lab, List<String> parametersString,List<Integer> parametersIndextest,String[] tempArr,int date) throws IllegalAccessException, ClassNotFoundException, InstantiationException, ParseException, IOException, BarcodeException {
         generateDate(tempArr,date);
         List<String> test = new ArrayList<>();
         List<Integer> testnumb = new ArrayList<>();
@@ -160,11 +164,14 @@ public class CSVFileReader {
         convertStringIntoParameter(test,pmList);
         convertParameterIntoTestParameter(pmList,tpList);
         Test t = tStore.createTestByCsvFile(cl, nhscode, testType, tpList, lab, samples, tpr, lcv, mr);
-        for(int i=0;i<test.size();i++) {
-            t.addTestResult(test.get(i), tempArr[testnumb.get(i)], testType.getExternalModule().getRefValue(parametersString.get(i)).getMetric());
+        if(t!=null) {
+            createBarcode(t);
+            for (int i = 0; i < test.size(); i++) {
+                t.addTestResult(test.get(i), tempArr[testnumb.get(i)], testType.getExternalModule().getRefValue(parametersString.get(i)).getMetric());
+            }
+            t.setStateOfTest(Test.StateOfTest.validated);
+            tStore.saveTest(t);
         }
-        t.setStateOfTest(Test.StateOfTest.validated);
-        tStore.saveTest(t);
     }
 
     private int fillParametersString(String[] tempArr, List<Integer> parametersNumb, List<String> allParametersString){
@@ -237,10 +244,6 @@ public class CSVFileReader {
     }
 
     private void generateDate(String[] tempArr,int n) throws ParseException {
-        System.out.println(tempArr[n]);
-        System.out.println(tempArr[n+1]);
-        System.out.println(tempArr[n+2]);
-        System.out.println(tempArr[n+3]);
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy HH:mm");
         samples=formatter.parse(tempArr[n]);
         tpr=formatter.parse(tempArr[n+1]);
@@ -252,9 +255,17 @@ public class CSVFileReader {
         return clientList;
     }
 
-    public void generateBarcode(){
+    public void createBarcode(Test t) throws IOException, InstantiationException, BarcodeException, IllegalAccessException {
+        Sample sample;
+        try {
+            BarcodeDomain barcodeDomain = samplesctrl.generateBarcode();
+            sample = samplesctrl.associateBarcodeWithSample(barcodeDomain);
+            samplesctrl.associateSamplesWithTest(t, sample);
+            samplesctrl.imageIoWrite(samplesctrl.barcodeImage(barcodeDomain), "Barcode_" + barcodeDomain.getBarcodeNumber());
+            samplesctrl.saveSample(sample);
+        } catch (ClassNotFoundException | OutputException e) {
+            e.printStackTrace();
+        }
 
     }
-
-    }
-
+}

@@ -14,7 +14,7 @@ public class ClientTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void nameLengthValidation(){
-        new Client("José David Teixeira Pessoa Pessoa Pessoa","1234567891234567","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");
+       Client cl= new Client("José David Teixeira Pessoa Pessoa Pessoa","1234567891234567","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");
     }
 
     @Test
@@ -213,6 +213,11 @@ public class ClientTest {
     public void setPhoneNumber5() {
         Client cl = new Client("José Pedrosa","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
         cl.setPhoneNumber("123456");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void NameValidation() {
+        Client cl = new Client("José Pedrosa ergtyjujygtrfdegtyjkiojynbgfvdcefvbnyjmukjnhbgfv","2234567891234567","2234567891","14/12/1995","3231231231","12345678900","pedrosa@gmail.com","Rua da República");
     }
 
 
