@@ -12,6 +12,6 @@ public class BruteForceAdapter implements SubsequenceWithMaximumSum {
     @Override
     public int[] getSubsequenceWithMaximumSum(int[] seq) {
         BruteForceAlgorithm externalAPI = new BruteForceAlgorithm();
-        return externalAPI.MaxSubsequence(seq);
+        return externalAPI.maximumSubsequence(seq);
     }
 }

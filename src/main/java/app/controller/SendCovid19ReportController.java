@@ -65,7 +65,7 @@ public class SendCovid19ReportController {
 
     /**
      * Get the list of available independents variables
-     * @return the list of independent variables 
+     * @return the list of independent variables
      */
     public List<String> getAvailableIndependentVariable(){
         return company.getAvailableIndependentVariables();

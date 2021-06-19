@@ -20,7 +20,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnLogin" defaultButton="true" mnemonicParsing="false" onMouseClicked="#login" onMouseEntered="#logIn" onMouseExited="#logOut" prefWidth="80.0" style="-fx-background-radius: 15; -fx-background-color: #1a7180; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Login" textFill="WHITE">
+            <Button fx:id="btnLogin" defaultButton="true" mnemonicParsing="false" onMouseClicked="#login" onMouseEntered="#logoutIn" onMouseExited="#logoutOn" prefWidth="80.0" style="-fx-background-radius: 15; -fx-background-color: #1a7180; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
