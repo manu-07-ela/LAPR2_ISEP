@@ -1,6 +1,6 @@
 package app.ui.gui;
 
-import app.controller.ViewTestsClientController;
+import app.controller.SeeTestsController;
 import app.mappers.dto.ClientDTO;
 import app.ui.console.AuthUI;
 import javafx.collections.FXCollections;
@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 public class ClientsUi implements Initializable {
 
-    private final ViewTestsClientController viewTestsClientController;
+    private final SeeTestsController seeTestsController;
 
     private List<ClientDTO> clientDTOList;
 
@@ -82,7 +82,7 @@ public class ClientsUi implements Initializable {
     }
 
     public ClientsUi(){
-        viewTestsClientController = new ViewTestsClientController();
+        seeTestsController = new SeeTestsController();
     }
 
     public void setLabelUI(Stage stage) throws IOException {
@@ -99,7 +99,7 @@ public class ClientsUi implements Initializable {
     }
 
     public void getListOfClients(){
-        clientDTOList = viewTestsClientController.getClientList();
+        clientDTOList = seeTestsController.getClientList();
     }
 
 
@@ -137,7 +137,7 @@ public class ClientsUi implements Initializable {
    @FXML
     void orderedTinClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         disableName++;
-        clientDTOList = viewTestsClientController.getClientListByTin();
+        clientDTOList = seeTestsController.getClientListByTin();
         try {
             if (disableName %2 != 0){
                 orderedName.setDisable(true);
@@ -160,7 +160,7 @@ public class ClientsUi implements Initializable {
     @FXML
     void OrderedNameClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         disableTin++;
-        clientDTOList = viewTestsClientController.getClientsListByAlphabeticalOrder();
+        clientDTOList = seeTestsController.getClientsListByAlphabeticalOrder();
         try {
             if (disableTin %2 != 0){
                 orderedTin.setDisable(true);

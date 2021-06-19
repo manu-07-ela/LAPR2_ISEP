@@ -33,12 +33,15 @@ class TestStore
 }
 }
 
+package interface {
+interface SortingAlgorithms
+}
+
 class SeeTestsUI {
 }
 
 class SeeTestsController {
-+getClientsWithValidatedTests()
-+orderClientList(clientListDto)
++getClientList()
 +getTestAssociatedWithClient(selectedClient)
 +getClientsListByAlphabeticalOrder()
 +getClientListByTin()
@@ -122,6 +125,10 @@ class Test {
 
 }
 
+interface SortingAlgorithms{
++orderClientList (list)
+}
+
 SeeTestsUI .> SeeTestsController
 SeeTestsUI ....> ClientDTO
 SeeTestsUI ....> TestDTO
@@ -134,5 +141,6 @@ TestMapper ..> TestDTO
 TestMapper .....> Test
 ClientMapper ..> ClientDTO
 ClientMapper ..> Client
+SeeTestsController ...> SortingAlgorithms
 
 @enduml

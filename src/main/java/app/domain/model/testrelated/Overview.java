@@ -80,7 +80,7 @@ public class Overview {
     private void getTestWaitingForResults(){
         testWaitingForResults = new ArrayList();
         for (Test t: testList) {
-            if (t.getStateOfTest() == SamplesCollected) {
+            if (t.getStateOfTest() == samplesCollected) {
                 testWaitingForResults.add(t);
             }
         }
@@ -89,7 +89,7 @@ public class Overview {
     private void getTestsWaitingForDiagnosis(){
         testsWaitingForDiagnosis = new ArrayList();
         for (Test t: testList) {
-            if (t.getStateOfTest() == SamplesAnalyzed) {
+            if (t.getStateOfTest() == samplesAnalyzed) {
                 testsWaitingForDiagnosis.add(t);
             }
         }

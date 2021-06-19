@@ -2,7 +2,9 @@ package app.ui.gui;
 
 import app.Serialization;
 import app.controller.App;
+import app.controller.ValidateWorkController;
 import app.ui.console.AuthUI;
+import app.ui.console.functionalities.ValidateWorkUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -77,6 +79,8 @@ public class LabCoordinatorUi {
 
     @FXML
     void validateWorkClick() {
+        ValidateWorkUI validateWorkUI = new ValidateWorkUI();
+        validateWorkUI.run();
 
     }
 
@@ -110,7 +114,7 @@ public class LabCoordinatorUi {
             stageImportFiles.show();
 
         }catch (IOException exception){
-            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+            exception.printStackTrace();
         }
     }
 
@@ -134,7 +138,7 @@ public class LabCoordinatorUi {
 
 
         }catch (IOException exception){
-            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+            exception.printStackTrace();
         }
     }
 

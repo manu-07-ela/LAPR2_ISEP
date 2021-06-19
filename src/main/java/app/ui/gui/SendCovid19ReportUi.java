@@ -96,10 +96,11 @@ public class SendCovid19ReportUi {
 
     @FXML
     void sendCovid19Report() {
-        String initialAux = initialDate.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        String endAux = endDate.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        String currentAux = currentDay.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String date = "dd/MM/yyyy";
+        String initialAux = initialDate.getValue().format(DateTimeFormatter.ofPattern(date));
+        String endAux = endDate.getValue().format(DateTimeFormatter.ofPattern(date));
+        String currentAux = currentDay.getValue().format(DateTimeFormatter.ofPattern(date));
+        SimpleDateFormat formatter = new SimpleDateFormat(date);
         try {
             Date initial = formatter.parse(initialAux);
             Date end = formatter.parse(endAux);
@@ -133,7 +134,7 @@ public class SendCovid19ReportUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            ex.printStackTrace();
         }
         stage.close();
 

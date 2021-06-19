@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 import app.ui.console.AuthUI;
+import app.ui.console.functionalities.WriteMedicalReportUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -52,7 +53,7 @@ public class SpecialistDoctorUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            ex.printStackTrace();
         }
         stage.close();
 
@@ -60,7 +61,8 @@ public class SpecialistDoctorUi {
 
     @FXML
     void writeReportClick() {
-
+        WriteMedicalReportUI writeMedicalReportUI = new WriteMedicalReportUI();
+        writeMedicalReportUI.run();
     }
 
 }

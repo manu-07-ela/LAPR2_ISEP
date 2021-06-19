@@ -130,6 +130,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Client
  * Test
+ * Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
  * SeeTestsUI  
@@ -138,6 +139,7 @@ Other software classes (i.e. Pure Fabrication) identified:
  * ClientMapper
  * TestMapper 
  * TestStore
+ * ClientDto
 
 ## 3.2. Sequence Diagram (SD)
 
@@ -156,30 +158,167 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ![US13-CD](US13_CD.svg)
 
-# 4. Tests 
-*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
+# 4. Tests
 
-**_DO NOT COPY ALL DEVELOPED TESTS HERE_**
+**Test 1:** Check if the algorithm is ordering the clients by name
 
-**Test 1:** Check that it is not possible to create an instance of the Example class with null values. 
+	 ClientDTO cl1 = new ClientDTO("Carlos","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl2 = new ClientDTO("Ana","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl3 = new ClientDTO("Daniel","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl4 = new ClientDTO("Joana","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl5 = new ClientDTO("Ricardo","123456789012","02/05/2020","female","1234567890","12345678901","lola@gmail.com","Rua das cavalas");
 
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Exemplo instance = new Exemplo(null, null);
-	}
+        List<ClientDTO> listResult = new ArrayList<>();
+        listResult.add(cl1);
+        listResult.add(cl2);
+        listResult.add(cl3);
+        listResult.add(cl4);
+        listResult.add(cl5);
 
-*It is also recommended to organize this content by subsections.* 
+        List<ClientDTO> listExpected = new ArrayList<>();
+        listExpected.add(cl2);
+        listExpected.add(cl1);
+        listExpected.add(cl3);
+        listExpected.add(cl4);
+        listExpected.add(cl5);
+
+        SortAlphabetically sortAlphabetically = new SortAlphabetically();
+        listResult = sortAlphabetically.orderClientList(listResult);
+
+        Assert.assertEquals(listExpected,listResult);
+     }
+
+**Test 2:** Check if the algorithm is ordering the clients by Tin
+
+        @Test
+    public void orderClientList() {
+        ClientDTO cl1 = new ClientDTO("Carlos","123456789012","02/05/2020","female","8421345003","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl2 = new ClientDTO("Carlos","123456789012","02/05/2020","female","4382710056","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl3 = new ClientDTO("Carlos","123456789012","02/05/2020","female","1999999999","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl4 = new ClientDTO("Carlos","123456789012","02/05/2020","female","1300000000","12345678901","lola@gmail.com","Rua das cavalas");
+        ClientDTO cl5 = new ClientDTO("Carlos","123456789012","02/05/2020","female","2045689605","12345678901","lola@gmail.com","Rua das cavalas");
+
+        List<ClientDTO> listExpected = new ArrayList<>();
+        listExpected.add(cl4);
+        listExpected.add(cl3);
+        listExpected.add(cl5);
+        listExpected.add(cl2);
+        listExpected.add(cl1);
+
+        List<ClientDTO> listResult = new ArrayList<>();
+        listResult.add(cl1);
+        listResult.add(cl2);
+        listResult.add(cl3);
+        listResult.add(cl4);
+        listResult.add(cl5);
+
+        SortByTin sort = new SortByTin();
+        listResult = sort.orderClientList(listResult);
+
+        Assert.assertEquals(listExpected,listResult);
+    }
+
 
 # 5. Construction (Implementation)
 
-*In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
+## SeeTestsController
+   
+       /**
+     * Sort the list of clients by Tin
+     * @return the ordered list
+     * @throws ClassNotFoundException if it is not possible to instantiate the desired class
+     * @throws IllegalAccessException if the object we intend to create it's not  correctly
+     * @throws InstantiationException if we can't instantiate an object
+     */
+    public List<ClientDTO> getClientListByTin() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        List<ClientDTO> list = getClientList();
 
-*It is also recommended to organize this content by subsections.* 
+        Properties props = App.getInstance().getProps();
+        String algorithm = props.getProperty("Controller.SortByTin.Class");
+        Class<?> oClass = Class.forName(algorithm);
+        SortingAlgorithms sort = (SortingAlgorithms) oClass.newInstance();
+
+        return sort.orderClientList(list);
+    }
+
+    /**
+     * Sort the client list alphabetically
+     * @return the ordered list
+     * @throws ClassNotFoundException if it is not possible to instantiate the desired class
+     * @throws IllegalAccessException if the object we intend to create it's not  correctly
+     * @throws InstantiationException if we can't instantiate an object
+     */
+    public List<ClientDTO> getClientsListByAlphabeticalOrder() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        List<ClientDTO> list = getClientList();
+
+        Properties props = App.getInstance().getProps();
+        String algorithm = props.getProperty("Controller.SortAlphabetically.Class");
+
+        Class<?> oClass = Class.forName(algorithm);
+        SortingAlgorithms sort = (SortingAlgorithms) oClass.newInstance();
+
+        return sort.orderClientList(list);
+    }
+
+    /**
+     * It gets a list of tests of a Client
+     * @param selectedClient the Client we want to see his tests
+     * @return a Dto list of tests of a Client
+     */
+    public List<TestDTO> getAssociatedWithClient(ClientDTO selectedClient){
+        return tmapper.toDto(tstore.getTestListAssociatedWithClient(selectedClient));
+    }
+
+
+## TestStore
+
+      /**
+     * Gets the list of Clients that have at least one Test Validated
+     * @return the list of Clients that have at least one Test Validated
+     */
+    public List<Client> getClientWithTestsValidated(){
+        List<Client> list = new ArrayList<>();
+        for (Test t: testList) {
+            if (t.getStateOfTest()== validated && !list.contains(t.getCl())){
+                list.add(t.getCl());
+            }
+        }
+        if (list.size()==0){
+            throw new IllegalArgumentException("There aren't Clients with tests validated");
+        }
+
+        return list;
+    }
+
+    /**
+     * Gets the list of all test associated with a specific client
+     * @param selectedClient The specific client we want to gets it's tests
+     * @return the list of all test associated with a specific client
+     */
+    public List<Test> getTestListAssociatedWithClient(ClientDTO selectedClient){
+        List<Test> test = new ArrayList<>();
+        for (Test t : testList) {
+            if (t.getCl().getTin().equals(selectedClient.getTin()) && t.getStateOfTest()== validated) {
+                test.add(t);
+            }
+        }
+        return test;
+    }
+     
+## Company
+
+     /**
+     * Get the instance of TestTypeStore.
+     * @return the instance of TestTypeStore.
+     */
+    public TestTypeStore getTestTypeStore(){
+        return testTypeStore;
+    }
+
 
 # 6. Integration and Demo 
 
-*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
-
+To implement and test this user storie we needed to have the functionality to create clients , test and associate them to the clients.
 
 # 7. Observations
 

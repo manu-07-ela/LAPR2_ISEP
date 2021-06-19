@@ -1,6 +1,8 @@
 package app.ui.gui;
 
 import app.ui.console.AuthUI;
+import app.ui.console.functionalities.CreateClientUI;
+import app.ui.console.functionalities.RegisterTestUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -68,12 +70,15 @@ public class ReceptionistUi {
 
     @FXML
     void registerClientClick() {
+        CreateClientUI createClientUI = new CreateClientUI();
+        createClientUI.run();
 
     }
 
     @FXML
     void registerTestClick() {
-
+        RegisterTestUI registerTestUI = new RegisterTestUI();
+        registerTestUI.run();
     }
 
 }

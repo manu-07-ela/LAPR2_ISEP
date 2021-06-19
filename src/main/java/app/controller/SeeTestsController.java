@@ -12,7 +12,7 @@ import app.mappers.dto.TestDTO;
 
 import java.util.*;
 
-public class ViewTestsClientController {
+public class SeeTestsController {
 
     /**
      * Represents a instance of company
@@ -43,7 +43,7 @@ public class ViewTestsClientController {
     /**
      * Creates an instance of ViewTestsClientController
      */
-    public ViewTestsClientController() {
+    public SeeTestsController() {
         this.company = App.getInstance().getCompany();
         this.tstore = company.getTestStore();
         this.clMapper = new ClientMapper();
@@ -55,7 +55,7 @@ public class ViewTestsClientController {
      * Creates an instance of ViewTestsClientController receiving the company
      * @param company The company
      */
-    public ViewTestsClientController(Company company) {
+    public SeeTestsController(Company company) {
         this.company = company;
         this.tstore = new TestStore();
         this.clMapper = new ClientMapper();
@@ -116,15 +116,6 @@ public class ViewTestsClientController {
      */
     public List<TestDTO> getAssociatedWithClient(ClientDTO selectedClient){
         return tmapper.toDto(tstore.getTestListAssociatedWithClient(selectedClient));
-    }
-
-    /**
-     * Picks up a customer associated with a particular TIN
-     * @param tin the tin of the customer we want to search in the client store
-     * @return the client
-     */
-    public ClientDTO getClientByTin(String tin){
-        return clMapper.toDto(clientStore.getClientbytin(tin));
     }
 
 

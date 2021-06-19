@@ -16,7 +16,7 @@ public class EmployeeStore implements Serializable {
     /**
      * List of all existing employees in the company.
      */
-    List<Employee> employees;
+    private List<Employee> employees;
 
     /**
      * Instantiates a new EmployeeStore.
