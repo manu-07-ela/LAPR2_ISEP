@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import app.controller.App;
+import app.controller.RecordSampleController;
 import app.domain.model.attributes.NhsCode;
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.Parameter;
@@ -9,9 +10,13 @@ import app.domain.model.testrelated.TestParameter;
 import app.domain.model.testrelated.TestType;
 import app.domain.model.users.Client;
 import app.domain.store.*;
+import app.interfaces.ExternalModuleBarcode;
 import auth.AuthFacade;
 
 import java.io.*;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -75,6 +80,10 @@ public class CSVFileReader {
      * Represents an instance of Client List
      */
     private List<Client> clientList;
+    /**
+     * Represents an instance of SamplesList
+     */
+    private RecordSampleController samplesctrl;
 
     public CSVFileReader(){
         this(App.getInstance().getCompany());
@@ -85,6 +94,7 @@ public class CSVFileReader {
         this.company = App.getInstance().getCompany();
         this.clStore = company.getClientStore();
         clAuthFacade = company.getAuthFacade();
+        this.samplesctrl = new RecordSampleController();
         this.tStore=company.getTestStore();
         this.ttStore=company.getTestTypeStore();
         this.pmStore = company.getParameterStore();
@@ -127,7 +137,7 @@ public class CSVFileReader {
                         clStore.saveClient(cl, clAuthFacade);
                         NhsCode nhsCode = new NhsCode(tempArr[1]);
                         createTest(cl,nhsCode, ttStore.getTestTypeByDescription(tempArr[11]), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]),validParametersStringList,parametersNumbList,tempArr,date);
-                    } catch (IllegalArgumentException | IllegalAccessException | ClassNotFoundException | InstantiationException e) {
+                    } catch (IllegalArgumentException | IllegalAccessException | ClassNotFoundException | InstantiationException | ParseException e) {
                         System.out.printf("Error in line %d : %s\n", i, e.getMessage());
                     }
                 }else{
@@ -137,7 +147,7 @@ public class CSVFileReader {
             br.close();
     }
 
-    private void createTest(Client cl, NhsCode nhscode, TestType testType,ClinicalAnalysisLaboratory lab, List<String> parametersString,List<Integer> parametersIndextest,String[] tempArr,int date) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
+    private void createTest(Client cl, NhsCode nhscode, TestType testType,ClinicalAnalysisLaboratory lab, List<String> parametersString,List<Integer> parametersIndextest,String[] tempArr,int date) throws IllegalAccessException, ClassNotFoundException, InstantiationException, ParseException {
         generateDate(tempArr,date);
         List<String> test = new ArrayList<>();
         List<Integer> testnumb = new ArrayList<>();
@@ -151,12 +161,12 @@ public class CSVFileReader {
         }
         convertStringIntoParameter(test,pmList);
         convertParameterIntoTestParameter(pmList,tpList);
+        Test t = tStore.createTestByCsvFile(cl, nhscode, testType, tpList, lab, samples, tpr, lcv, mr);
         for(int i=0;i<test.size();i++) {
-            Test t = tStore.createTestByCsvFile(cl, nhscode, testType, tpList, lab, samples, tpr, lcv, mr);
             t.addTestResult(test.get(i), tempArr[testnumb.get(i)], testType.getExternalModule().getRefValue(parametersString.get(i)).getMetric());
-            t.setStateOfTest(Test.StateOfTest.Validated);
-            tStore.saveTest(t);
         }
+        t.setStateOfTest(Test.StateOfTest.Validated);
+        tStore.saveTest(t);
     }
 
     private int fillParametersString(String[] tempArr, List<Integer> parametersNumb, List<String> allParametersString){
@@ -228,15 +238,25 @@ public class CSVFileReader {
         }
     }
 
-    private void generateDate(String[] tempArr,int n){
-            samples=new Date(tempArr[n]);
-            tpr=new Date(tempArr[n+1]);
-            mr=new Date(tempArr[n+2]);
-            lcv=new Date(tempArr[n+3]);
+    private void generateDate(String[] tempArr,int n) throws ParseException {
+        System.out.println(tempArr[n]);
+        System.out.println(tempArr[n+1]);
+        System.out.println(tempArr[n+2]);
+        System.out.println(tempArr[n+3]);
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        samples=formatter.parse(tempArr[n]);
+        tpr=formatter.parse(tempArr[n+1]);
+        mr=formatter.parse(tempArr[n+2]);
+        lcv=formatter.parse(tempArr[n+3]);
     }
 
     public List<Client> getClientsList(){
         return clientList;
     }
 
+    public void generateBarcode(){
+
     }
+
+    }
+
