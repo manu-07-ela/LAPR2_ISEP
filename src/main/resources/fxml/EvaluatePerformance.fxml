@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0" prefWidth="985.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.EvaluatePerformanceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.EvaluatePerformanceController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="55.0" prefWidth="604.0" spacing="15.0">
          <children>
@@ -51,9 +51,9 @@
    <center>
       <VBox prefHeight="469.0" prefWidth="945.0" BorderPane.alignment="CENTER">
          <children>
-            <LineChart fx:id="performanceChart" prefHeight="496.0" prefWidth="945.0">
+            <LineChart fx:id="performanceChart" prefHeight="264.0" prefWidth="1070.0">
               <xAxis>
-                <CategoryAxis prefHeight="28.0" prefWidth="5218.0" side="BOTTOM" fx:id="x" />
+                <CategoryAxis label="Interval Times" prefHeight="28.0" prefWidth="5218.0" side="BOTTOM" fx:id="x" />
               </xAxis>
               <yAxis>
                 <NumberAxis fx:id="y" side="LEFT" />
@@ -62,7 +62,53 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </LineChart>
-            <HBox prefHeight="270.0" prefWidth="1236.0" />
+            <ScrollPane prefHeight="287.0" prefWidth="1070.0">
+               <content>
+                  <VBox>
+                     <children>
+                        <HBox prefHeight="23.0" prefWidth="1070.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="291.0" text="Subsequence With Maximum Sum:" textAlignment="CENTER" textFill="#1a7180" />
+                              <TextField fx:id="txtSubsequence" prefHeight="41.0" prefWidth="1350.0" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-width: 0px 0px 2px 0px;" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="216.0" prefWidth="1686.0">
+                           <children>
+                              <LineChart prefHeight="211.0" prefWidth="483.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <Pane prefHeight="211.0" prefWidth="54.0" />
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                              <Pane prefHeight="211.0" prefWidth="44.0" />
+                              <LineChart>
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
          </children>
          <BorderPane.margin>
             <Insets left="20.0" right="20.0" />
