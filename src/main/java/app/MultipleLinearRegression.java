@@ -14,7 +14,8 @@ public class MultipleLinearRegression {
     private final double[] cjj;
     private double  y;
     private final double f0;
-    private double alpha;
+    private double trustLevel;
+    private double significanceLevel;
 
     /**
      *
@@ -31,6 +32,8 @@ public class MultipleLinearRegression {
             this.y += y[i];
         }
         this.y = this.y / y.length;
+        this.trustLevel = trustLevel/100;
+        this.significanceLevel = significanceLevel/100;
         matrixX = matrixX(x1, x2);
         double[][] matrixXTransposed = transpose(matrixX);
         double[][] matrixXTX = matrixXXT(matrixXTransposed, matrixX);
@@ -222,8 +225,7 @@ public class MultipleLinearRegression {
     private double tStudent(double alpha) {
         TDistribution td = new TDistribution(matrixY.length-matrixX[0].length);
         double critTD;
-        double alphaTD = (double) 1 - alpha / 200;
-        System.out.println("alpha" + alphaTD);
+        double alphaTD = 1 - trustLevel/2;
         if (alphaTD > 0.5) {
             critTD = td.inverseCumulativeProbability(alphaTD);
         } else {
@@ -234,26 +236,6 @@ public class MultipleLinearRegression {
 
     private double yHat(int index){
         return matrixB[0]+matrixB[1]*matrixX[index][1]+matrixB[2]*matrixX[index][2];
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(String.format("The regression model fitted using data from the interval: y = %.2f + %.2fx1 + %.2fx2\n", matrixB[0], matrixB[1], matrixB[2]));
-        stringBuilder.append(String.format("R^2: %f\n", rSquare()));
-        stringBuilder.append(String.format("R^2Ajustada: %f\n", rSquareAdjusted()));
-        stringBuilder.append(String.format("Sqr: %f\n", sqr()));
-        stringBuilder.append(String.format("Sqt: %f\n", sqt()));
-        stringBuilder.append(String.format("Sqe: %f\n", sqe()));
-        stringBuilder.append(String.format("Média: %f\n", y));
-        stringBuilder.append(String.format("Desvio padrão: %f\n", standardDeviation()));
-        stringBuilder.append(String.format("f0: %f\n",f0));
-        stringBuilder.append(String.format("mqe: %f\n",mqe()));
-        stringBuilder.append(String.format("mqr: %f\n",mqr()));
-
-
-
-        return stringBuilder.toString();
     }
     public double[][] multiplyTwoArraysBi(double[][] xt, double[][] x){
         double[][] temp = new double[xt.length][x[0].length];
@@ -292,15 +274,14 @@ public class MultipleLinearRegression {
         return temp;
     }
 
-    public double[][] confidenceInterval(int significancia){
-        this.alpha = 1-((double)significancia/100);
-        double[][] intervalos = new double[matrixY.length][2];
+    public double[][] confidenceInterval(int meaningfulness){
+        double[][] breaks = new double[matrixY.length][2];
 
         for (int i=0; i< matrixY.length; i++){
-            intervalos[i][0] = yHat(i)-(tStudent(alpha)*Math.sqrt(standardDeviation()*(1+cjj[i])));
-            intervalos[i][1] = yHat(i)+(tStudent(alpha)*Math.sqrt(standardDeviation()*(1+cjj[i])));
+            breaks[i][0] = yHat(i)-(tStudent(trustLevel)*Math.sqrt(standardDeviation()*(1+cjj[i])));
+            breaks[i][1] = yHat(i)+(tStudent(trustLevel)*Math.sqrt(standardDeviation()*(1+cjj[i])));
         }
-        return intervalos;
+        return breaks;
     }
     public double mqr(){
         return sqr()/(double) (matrixX[0].length-1);
@@ -314,16 +295,21 @@ public class MultipleLinearRegression {
 
     public double fDistribution(){
         FDistribution fd= new FDistribution(matrixX[0].length-1,matrixY.length-matrixX[0].length);
-        double alphaFD= alpha;
+        double alphaFD= significanceLevel;
         return fd.inverseCumulativeProbability(1- alphaFD);
     }
 
-    public void decision(){
+    public String  decision(){
+        StringBuilder stringBuilder = new StringBuilder();
         if (testStatistics()>fDistribution()){
-            System.out.println("Rejeita-se H0, o modelo é significativo");
+            stringBuilder.append(String.format("Decision: (f0 = %.2f) > (f%.2f(%d, %d) = %.2f\n)", f0, significanceLevel,matrixX[0].length-1, matrixY.length-1,fDistribution()));
+            stringBuilder.append(String.format("Reject H0, the model is significant\n"));
         }else {
-            System.out.println("Não se rejeita H0, o modelo não é significativo");
+            stringBuilder.append(String.format("Decision: (f0 = %.2f) <= (f%.2f(%d, %d) = %.2f)\n", f0, significanceLevel,matrixX[0].length-1, matrixY.length-1,fDistribution()));
+            stringBuilder.append(String.format("Don't reject H0, the model is not significant\n"));
         }
+
+        return stringBuilder.toString();
     }
 
     public double[][] hypothesisTest(int significanceLevel){
@@ -342,11 +328,36 @@ public class MultipleLinearRegression {
     public void hypothesisTestText(double[][] matrix){
         for (int i=0; i<matrix.length; i++){
             if (Math.abs(matrix[i][1])<=matrix[i][0]){
-                System.out.println("Não se rejeita H0");
+                System.out.println("Don't reject H0");
             }else {
-                System.out.println("Rejeita-se H0");
+                System.out.println("Rejects H0");
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(String.format("The regression model fitted using data from the interval: y = %.2f + %.2fx1 + %.2fx2\n", matrixB[0], matrixB[1], matrixB[2]));
+        stringBuilder.append(String.format("\n"));
+        stringBuilder.append(String.format("----------* Other statistics *----------\n"));
+        stringBuilder.append(String.format("R^2 = %.2f\n", rSquare() ));
+        stringBuilder.append(String.format("R^2 adjusted = %.2f\n", rSquareAdjusted()));
+        stringBuilder.append(String.format("y Average = %f\n", y));
+        stringBuilder.append(String.format("Standard deviation = %f\n", standardDeviation()));
+        stringBuilder.append(String.format("\n"));
+        stringBuilder.append(String.format("----------* Significance model with Anova *----------\n"));
+        stringBuilder.append(String.format("                     Sum of squares          Degrees of freedom          Root mean          Test statistic f \n"));
+        stringBuilder.append(String.format(" Regression        |     %.2f           |             %d            |      %.2f       |          %.2f        \n", sqr(), matrixX[0].length-1, mqr(), testStatistics()));
+        stringBuilder.append(String.format(" Error             |     %.2f           |             %d            |      %.2f       |                       \n", sqe(), matrixY.length-matrixX[0].length, mqe()));
+        stringBuilder.append(String.format(" Error             |     %.2f           |             %d            |                 |                       \n", sqt(), matrixY.length-1));
+        stringBuilder.append(String.format("\n"));
+        stringBuilder.append(decision());
+        stringBuilder.append(String.format("f0: %f\n",f0));
+        stringBuilder.append(String.format("mqe: %f\n",mqe()));
+        stringBuilder.append(String.format("mqr: %f\n",mqr()));
+
+        return stringBuilder.toString();
     }
 
 }

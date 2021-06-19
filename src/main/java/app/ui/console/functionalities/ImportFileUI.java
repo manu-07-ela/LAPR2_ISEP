@@ -31,7 +31,7 @@ public class ImportFileUI implements Runnable{
     }
 
     public void readfile() throws IOException {
-        File f = new File("tests_BloodCovidMATCPMDISCCSV.csv");
+        File f = new File("tests_BloodMDISCCSV.csv");
         List<File> flist = new ArrayList<>();
         flist.add(f);
         importFileController.loadFile(flist);

@@ -78,7 +78,7 @@ public class TestsUi implements Initializable {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Logout Error: " + ex);
+            ex.printStackTrace();
         }
         stage.close();
 
@@ -88,6 +88,7 @@ public class TestsUi implements Initializable {
         TestDTO test = tests.getSelectionModel().getSelectedItems().get(0);
         runViewResults();
         viewResultsUi.setLabelUI(stageViewResult, test);
+        viewResultsUi.getLabelMedicalReport().setText("You are not allowed to see the medical report");
         tests.getScene().getWindow().hide();
 
 
