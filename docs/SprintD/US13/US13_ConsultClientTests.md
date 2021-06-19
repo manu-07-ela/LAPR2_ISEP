@@ -130,6 +130,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Client
  * Test
+ * Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
  * SeeTestsUI  
@@ -138,6 +139,7 @@ Other software classes (i.e. Pure Fabrication) identified:
  * ClientMapper
  * TestMapper 
  * TestStore
+ * ClientDto
 
 ## 3.2. Sequence Diagram (SD)
 
@@ -221,13 +223,102 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## SeeTestsController
    
+       /**
+     * Sort the list of clients by Tin
+     * @return the ordered list
+     * @throws ClassNotFoundException if it is not possible to instantiate the desired class
+     * @throws IllegalAccessException if the object we intend to create it's not  correctly
+     * @throws InstantiationException if we can't instantiate an object
+     */
+    public List<ClientDTO> getClientListByTin() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        List<ClientDTO> list = getClientList();
 
+        Properties props = App.getInstance().getProps();
+        String algorithm = props.getProperty("Controller.SortByTin.Class");
+        Class<?> oClass = Class.forName(algorithm);
+        SortingAlgorithms sort = (SortingAlgorithms) oClass.newInstance();
+
+        return sort.orderClientList(list);
+    }
+
+    /**
+     * Sort the client list alphabetically
+     * @return the ordered list
+     * @throws ClassNotFoundException if it is not possible to instantiate the desired class
+     * @throws IllegalAccessException if the object we intend to create it's not  correctly
+     * @throws InstantiationException if we can't instantiate an object
+     */
+    public List<ClientDTO> getClientsListByAlphabeticalOrder() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        List<ClientDTO> list = getClientList();
+
+        Properties props = App.getInstance().getProps();
+        String algorithm = props.getProperty("Controller.SortAlphabetically.Class");
+
+        Class<?> oClass = Class.forName(algorithm);
+        SortingAlgorithms sort = (SortingAlgorithms) oClass.newInstance();
+
+        return sort.orderClientList(list);
+    }
+
+    /**
+     * It gets a list of tests of a Client
+     * @param selectedClient the Client we want to see his tests
+     * @return a Dto list of tests of a Client
+     */
+    public List<TestDTO> getAssociatedWithClient(ClientDTO selectedClient){
+        return tmapper.toDto(tstore.getTestListAssociatedWithClient(selectedClient));
+    }
+
+
+## TestStore
+
+      /**
+     * Gets the list of Clients that have at least one Test Validated
+     * @return the list of Clients that have at least one Test Validated
+     */
+    public List<Client> getClientWithTestsValidated(){
+        List<Client> list = new ArrayList<>();
+        for (Test t: testList) {
+            if (t.getStateOfTest()== validated && !list.contains(t.getCl())){
+                list.add(t.getCl());
+            }
+        }
+        if (list.size()==0){
+            throw new IllegalArgumentException("There aren't Clients with tests validated");
+        }
+
+        return list;
+    }
+
+    /**
+     * Gets the list of all test associated with a specific client
+     * @param selectedClient The specific client we want to gets it's tests
+     * @return the list of all test associated with a specific client
+     */
+    public List<Test> getTestListAssociatedWithClient(ClientDTO selectedClient){
+        List<Test> test = new ArrayList<>();
+        for (Test t : testList) {
+            if (t.getCl().getTin().equals(selectedClient.getTin()) && t.getStateOfTest()== validated) {
+                test.add(t);
+            }
+        }
+        return test;
+    }
      
+## Company
+
+     /**
+     * Get the instance of TestTypeStore.
+     * @return the instance of TestTypeStore.
+     */
+    public TestTypeStore getTestTypeStore(){
+        return testTypeStore;
+    }
+
 
 # 6. Integration and Demo 
 
-*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
-
+To implement and test this user storie we needed to have the functionality to create clients , test and associate them to the clients.
 
 # 7. Observations
 

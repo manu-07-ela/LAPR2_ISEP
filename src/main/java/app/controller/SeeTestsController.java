@@ -118,14 +118,5 @@ public class SeeTestsController {
         return tmapper.toDto(tstore.getTestListAssociatedWithClient(selectedClient));
     }
 
-    /**
-     * Picks up a customer associated with a particular TIN
-     * @param tin the tin of the customer we want to search in the client store
-     * @return the client
-     */
-    public ClientDTO getClientByTin(String tin){
-        return clMapper.toDto(clientStore.getClientbytin(tin));
-    }
-
 
 }
