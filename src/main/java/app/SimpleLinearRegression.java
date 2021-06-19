@@ -252,13 +252,16 @@ public class SimpleLinearRegression {
      */
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append("The regression model fitted using data from the interval");
-        s.append(String.format("y = %.2fx + %.2f", slope(), intercept()));
-        s.append("Other statistics");
-        s.append("  (R^2 = " + String.format("%.3f", R2()) + ")");
-        s.append("  (R^2adjusted = " + String.format("%.3f", r2Adjusted()) + ")");
-        s.append("  (R = " + String.format("%.3f", Math.sqrt(R2())) + ")");
-        s.append("Hypothesis tests for regression coefficients");
+        s.append("----------* The regression model fitted using data from the interval *----------\n");
+        s.append(String.format("y = %.2fx + %.2f\n", slope(), intercept()));
+        s.append(String.format("\n"));
+        s.append("----------* Other statistics *----------\n");
+        s.append(String.format("R^2 = %.3f\n", R2()));
+        s.append(String.format("R^2 adjusted = %.3f\n", r2Adjusted()));
+        s.append(String.format("R = %.3f\n", Math.sqrt(R2())));
+        s.append(String.format("\n"));
+        s.append("----------* Hypothesis tests for regression coefficients *----------\n");
+
         return s.toString();
     }
 

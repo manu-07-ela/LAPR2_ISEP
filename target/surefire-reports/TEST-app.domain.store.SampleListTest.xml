@@ -68,8 +68,8 @@
     <property name="java.class.version" value="55.0"/>
   </properties>
   <testcase name="validateSampleNull" classname="app.domain.store.SampleListTest" time="0"/>
-  <testcase name="validateSampleOfAListAlreadyContainsTheSample" classname="app.domain.store.SampleListTest" time="0.001"/>
-  <testcase name="validateSampleNotNull" classname="app.domain.store.SampleListTest" time="0"/>
+  <testcase name="validateSampleOfAListAlreadyContainsTheSample" classname="app.domain.store.SampleListTest" time="0"/>
+  <testcase name="validateSampleNotNull" classname="app.domain.store.SampleListTest" time="0.001"/>
   <testcase name="addValidSample" classname="app.domain.store.SampleListTest" time="0"/>
   <testcase name="saveValidSample" classname="app.domain.store.SampleListTest" time="0"/>
   <testcase name="saveTestAlreadyExistInSystem" classname="app.domain.store.SampleListTest" time="0"/>
