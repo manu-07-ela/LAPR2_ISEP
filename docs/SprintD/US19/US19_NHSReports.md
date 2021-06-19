@@ -108,9 +108,6 @@ As the Report is to be automatically sent very early in the morning, do you wish
 ![US19_SSD](US19_SSD.svg)
 
 
-
-**Other alternatives might exist.**
-
 ### 1.7 Other Relevant Remarks
 
 * The created task stays in a "not published" state in order to distinguish from "published" tasks.
@@ -121,10 +118,6 @@ As the Report is to be automatically sent very early in the morning, do you wish
 ### 2.1. Relevant Domain Model Excerpt 
 
 ![US19_MD](US19_MD.svg)
-
-### 2.2. Other Remarks
-
-n/a
 
 
 ## 3. Design - User Story Realization 
