@@ -272,7 +272,7 @@ public class Test implements Serializable {
 
     /**
      * Compare the test with the other object provided.
-     * @param other Object we want to compare with the employee.
+     * @param other Object we want to compare with the test.
      * @return true if the received object represents another test equivalent to the test. Otherwise, it returns false.
      */
     @Override
@@ -280,7 +280,7 @@ public class Test implements Serializable {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         Test test = (Test) other;
-        return this.getCl().equals(test.getCl()) && this.getTestType().equals(test.getTestType()) && this.getTestParameterList().toString().equals(test.getTestParameterList().toString());
+        return this.getNhsCode().equals(test.getNhsCode());
     }
 
     /**
