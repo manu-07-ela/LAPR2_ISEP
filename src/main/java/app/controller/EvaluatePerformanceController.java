@@ -18,6 +18,7 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -66,12 +67,7 @@ public class EvaluatePerformanceController{
         this.overviewController=overviewController;
         this.dates=dates;
         seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
-        String aux = "(" ;
-        for (int i =0; i<seq.length;i++){
-            aux.concat(String.valueOf(seq[i])).concat("  ");
-        }
-        aux.concat(")");
-        txtSubsequence.setText(aux);
+        txtSubsequence.setText(Arrays.toString(seq));
         loadLineChart(sequence);
     }
 
@@ -82,7 +78,7 @@ public class EvaluatePerformanceController{
     public void loadLineChart(int[] sequence){
         XYChart.Series series = new XYChart.Series();
         for (int i = 0; i<sequence.length; i++){
-            series.getData().add(new XYChart.Data(" ",sequence[i]));
+            series.getData().add(new XYChart.Data(String.valueOf(i),sequence[i]));
         }
         performanceChart.getData().addAll(series);
     }
