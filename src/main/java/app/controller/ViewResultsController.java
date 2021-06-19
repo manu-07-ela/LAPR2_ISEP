@@ -90,7 +90,7 @@ public class ViewResultsController {
      * @return the test that has the same internal code that the test received
      */
     public TestResultDto showTestResults(TestDTO selectedTest){
-        Test t =tStore.getTestbyInternalCode(selectedTest.getInternalCode());
+        Test t =tStore.getTestByInternalCode(selectedTest.getInternalCode());
         return trMapper.toDTO(t);
     }
 }
