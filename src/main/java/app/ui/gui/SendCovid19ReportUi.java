@@ -104,8 +104,7 @@ public class SendCovid19ReportUi {
             Date initial = formatter.parse(initialAux);
             Date end = formatter.parse(endAux);
             Date current = formatter.parse(currentAux);
-            sendCovid19ReportController.createCovid19Report(initial,end,current,Integer.parseInt(String.valueOf(txtHistoricalPoints)),typeOfData.getValue(),regressionModel.getValue(),independentVariable.getValue(),Double.parseDouble(String.valueOf(txtSignificanceLevel)),Double.parseDouble(String.valueOf(txtConfidenceLevel)));
-
+            sendCovid19ReportController.sendCovid19Report(initial,end,current,Integer.parseInt(String.valueOf(txtHistoricalPoints)),typeOfData.getValue(),regressionModel.getValue(),independentVariable.getValue(),Double.parseDouble(String.valueOf(txtSignificanceLevel)),Double.parseDouble(String.valueOf(txtConfidenceLevel)));
         } catch (ParseException e) {
             e.printStackTrace();
         }

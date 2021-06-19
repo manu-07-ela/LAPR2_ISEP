@@ -92,7 +92,7 @@ public class TestTyperMapper {
     public List<ParameterCategory> toModelpclist (List<ParameterCategoryDTO> parameterCategoriesDTO){
         List<ParameterCategory> parameterCategory = new ArrayList<>();
         for(ParameterCategoryDTO parameterCategoryDTO:parameterCategoriesDTO) {
-            parameterCategory.add(this.toModelpc(parameterCategoryDTO));
+            parameterCategory.add(this.toModelPc(parameterCategoryDTO));
         }
         return parameterCategory;
     }
@@ -102,7 +102,7 @@ public class TestTyperMapper {
      * @param parameterCategory An ParameterCategoryDTO object.
      * @return An instance of ParameterCategory.
      */
-    public ParameterCategory toModelpc(ParameterCategoryDTO parameterCategory) {
+    public ParameterCategory toModelPc(ParameterCategoryDTO parameterCategory) {
         return new ParameterCategory(parameterCategory.getCode(),parameterCategory.getName());
     }
 }

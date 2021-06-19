@@ -1,8 +1,10 @@
 package app.domain.model.testrelated;
 
+import app.SimpleLinearRegression;
 import com.nhs.report.Report2NHS;
 
-import java.text.ParseException;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,111 +12,114 @@ import java.util.List;
 
 public class Covid19Report {
 
+    private SimpleLinearRegression regression;
+
+    private double[] xInterval;
+
+    private double[] yInterval;
+
+    private double[] xHistoricalPoints;
+
+    private double[] yHistoricalPoints;
+
+    private double confidenceLevel;
+
+    private double significanceLevel;
+
+    private String typeData;
+
+
+    /**
+     *
+     */
     private String nhsReport;
 
-    private List<Test> lstCovidTestsByInterval;
-
-    private List<Test> covidTestsLstHistoricalPoints;
-
-    private List<Date> intervalDate;
-
+    /**
+     *
+     */
     private List<Date> historicalPointsDate;
 
-    private Date initialDate;
-
-    private Date endDate;
-
+    /**
+     *
+     */
     private Date currentDay;
 
     private int historicalPoints;
 
-    private double meanAge;
-
-    private double[] lstPositiveTestsByInterval;
-
-    private double[] lstPositiveTestsHistoricalPoints;
+    private List<String> dateInformation;
 
 
-    public Covid19Report(List<Test> lstCovidTestsByInterval, List<Test> covidTestsLstHistoricalPoints, Date initialDate, Date endaDate, Date currentDay, int historicalPoints){
-        this.lstCovidTestsByInterval=lstCovidTestsByInterval;
-        this.covidTestsLstHistoricalPoints=covidTestsLstHistoricalPoints;
-        this.initialDate=initialDate;
-        this.endDate=endaDate;
+    /**
+     * @param xInterval
+     * @param yInterval
+     * @param xHistoricalPoints
+     * @param yHistoricalPoints
+     * @param confidenceLevel
+     * @param significanceLevel
+     * @param currentDay
+     * @param historicalPoints
+     * @param typeOfData
+     */
+
+    public Covid19Report(double[] xInterval, double[] yInterval, double[] xHistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, int historicalPoints, String typeOfData) {
+        this.xInterval = xInterval;
+        this.yInterval = yInterval;
+        this.xHistoricalPoints = xHistoricalPoints;
+        this.yHistoricalPoints = yHistoricalPoints;
+        this.confidenceLevel = confidenceLevel;
+        this.significanceLevel = significanceLevel;
         this.currentDay=currentDay;
         this.historicalPoints=historicalPoints;
-        intervalDate=getIntervalDates();
-        historicalPointsDate=getHistoricalDates();
-        lstPositiveTestsByInterval=getPositiveCases(intervalDate,lstCovidTestsByInterval);
-        lstPositiveTestsHistoricalPoints=getPositiveCases(historicalPointsDate,covidTestsLstHistoricalPoints);
+        this.typeData=typeOfData;
+        regression = new SimpleLinearRegression(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation);
     }
 
-    public List<Date> getIntervalDates(){
-        intervalDate = new ArrayList();
-        Date aux = new Date(initialDate.getTime());
-        do{
-            if(aux.getDay()!=0){
-                intervalDate.add(aux);
-            }
-            aux.setHours(aux.getHours()-24);
-        }while (aux.before(endDate));
-        if(endDate.getDay()!=0){
-            intervalDate.add(endDate);
-        }
-        return intervalDate;
-    }
+    /**
+     * @return
+     */
+    public List<String> getIntervalDates() {
 
-    public List<Date> getHistoricalDates(){
-        historicalPointsDate = new ArrayList();
-        int validDays=0;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        dateInformation = new ArrayList<>();
+        int validDays =0;
         Date dateAux = new Date(currentDay.getTime());
         do {
-            dateAux.setHours(dateAux.getHours() - 24);
-            if(dateAux.getDay()!=0) {
+            dateAux.setHours(dateAux.getHours() -24);
+            if(dateAux.getDay() != 0){
+                dateInformation.add(formatter.format(dateAux));
                 validDays++;
-                historicalPointsDate.add(dateAux);
             }
-        }while (validDays<historicalPoints);
-        return historicalPointsDate;
+        } while (validDays<historicalPoints);
+
+        return dateInformation;
     }
 
-    public double[] getPositiveCases(List<Date> dates, List<Test> tests){
-        double[] auxiliar = new double[dates.size()];
-        for (int i = 0; i < dates.size(); i++ ){
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(dates.get(i));
-            int day = calendar.get(Calendar.DAY_OF_YEAR);
-            int year = calendar.get(Calendar.YEAR);
-            double aux=0;
-            for (int j = 0; j<tests.size(); j++ ){
-                calendar.setTime(tests.get(j).getSamplesAddDate());
-                int sampleDay = calendar.get(Calendar.DAY_OF_YEAR);
-                int sampleYear = calendar.get(Calendar.YEAR);
-                if(day == sampleDay && year == sampleYear){
-                    if (tests.get(j).getTestParameterList().get(0).getParameterId().equals("IgGAN")) {
-                        if (Double.parseDouble(tests.get(j).getTestParameterList().get(0).getParamResult().getResult()) > 1.4) {
-                            aux++;
-                        }
-                    }
-                }
-            }
-            auxiliar[i]=aux;
+    public List<String> getHistoricalWeeks(){
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        dateInformation = new ArrayList<>();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDay);
+
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        Date date = new Date(currentDay.getTime());
+        date.setHours(date.getHours() - (day*24-48));
+        date.setHours(date.getHours() - 7 * 24 * historicalPoints);
+        for (int i = 0; i < historicalPoints; i++) {
+            calendar.setTime(date);
+            Date dateEnd = new Date(date.getTime());
+            dateEnd.setHours(dateEnd.getHours() + 5 * 24);
+            dateInformation.add(String.format("%s - %s",formatter.format(date),formatter.format(dateEnd)));
+            date.setHours(date.getHours() + 7*24);
         }
-        return auxiliar;
+
+        return dateInformation;
     }
 
-    public double getMeanAge() throws ParseException {
-        int sum=0;
-        for(int i = 0; i<lstCovidTestsByInterval.size(); i++){
-            sum+=lstCovidTestsByInterval.get(i).getCl().getAge();
-        }
-        return sum/lstCovidTestsByInterval.size();
-    }
-
-    public void sendReportNhs(){
+    public void sendReportNhs() {
         Report2NHS.writeUsingFileWriter(nhsReport);
     }
-
-
-
-
 }

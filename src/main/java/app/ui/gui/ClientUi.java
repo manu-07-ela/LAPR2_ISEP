@@ -7,8 +7,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -40,6 +42,12 @@ public class ClientUi {
     @FXML
     private VBox updateDataButton;
 
+    @FXML
+    private Button exit;
+
+    @FXML
+    private Button logout;
+
 
     public ClientUi(){
         updateDataController = new UpdateDataController();
@@ -47,7 +55,6 @@ public class ClientUi {
     public void emailClient(String email){
         this.emailClient = email;
         client = updateDataController.getClientByEmail(email);
-        System.out.println(client);
     }
 
     public void setLabelUI(Stage stageClient) {
@@ -94,7 +101,7 @@ public class ClientUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            ex.printStackTrace();
         }
         stage.close();
 
@@ -119,7 +126,7 @@ public class ClientUi {
             stageUpdateData.show();
 
         }catch (IOException exception){
-            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+           exception.printStackTrace();
         }
     }
     @FXML
@@ -142,7 +149,7 @@ public class ClientUi {
             stageViewResult.show();
 
         }catch (IOException exception){
-            System.out.println("Problems reading the Collaborator's Menu File \n" + exception);
+            exception.printStackTrace();
         }
     }
 
@@ -165,6 +172,31 @@ public class ClientUi {
     @FXML
     void nameOut() {
         name.setText("Name");
+    }
+
+    @FXML
+    void exitIn() {
+        exit.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
+        exit.setTextFill(Paint.valueOf("#239ba1"));
+    }
+
+    @FXML
+    void exitOut() {
+        exit.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
+        exit.setTextFill(Paint.valueOf("#ffffff"));
+    }
+
+    @FXML
+    void logoutIn() {
+        logout.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
+        logout.setTextFill(Paint.valueOf("#239ba1"));
+    }
+
+    @FXML
+    void logoutOut() {
+        logout.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
+        logout.setTextFill(Paint.valueOf("#ffffff"));
+
     }
 }
 

@@ -54,7 +54,7 @@ public class Company implements Serializable {
     private final ClinicalAnalysisLaboratoryStore clinicalAnalysisLaboratoryStore;
 
     /**
-     *
+     * Represents a instance of the chemical laboratory
      */
     private final ChemicalLaboratory chemicalLaboratory;
 
@@ -79,17 +79,17 @@ public class Company implements Serializable {
     private final TestStore testStore;
 
     /**
-     * A List with all API's
+     * A List with all API's available in the system
      */
     private List<String> listaDeAPI = new ArrayList(Arrays.asList("CovidReferenceValues1API", "ExternalModule1API","ExternalModule2API"));
 
     /**
-     *
+     * A list with the types of dates available in the system
      */
     private List<String> availableTypesOfData = new ArrayList(Arrays.asList("Day", "Week"));
 
     /**
-     *
+     * A list with the types of regression models available in the system
      */
     private List<String> availableRegressionModels = new ArrayList(Arrays.asList("Simple Linear", "Multiple Linear"));
 
@@ -215,16 +215,16 @@ public class Company implements Serializable {
     }
 
     /**
-     *
-     * @return
+     * Get the available types of data in the system
+     * @return the list of data
      */
     public List<String> getAvailableTypesOfData(){
         return availableTypesOfData;
     }
 
     /**
-     *
-     * @return
+     * Get the available models of regression in the system
+     * @return the list of available models of regression in the system
      */
     public List<String> getAvailableRegressionModels(){
         return availableRegressionModels;
@@ -234,7 +234,7 @@ public class Company implements Serializable {
         return availableIndependentVariables;
     }
 
-    public void createCovid19Report(List<Test> lstCovidTestsByInterval,List<Test> covidTestsLstHistoricalPoints, Date initialDate, Date endDate, Date currentDay, int historicalPoints){
-        new Covid19Report(lstCovidTestsByInterval,covidTestsLstHistoricalPoints,initialDate,endDate,currentDay,historicalPoints);
+    public void createCovid19Report(double[] xInterval,double[] yInterval,double[] xHistoricalPoints,double[] yHistoricalPoints,double confidenceLevel,double significanceLevel,Date currentDay,int historicalPoints,String typeOfData){
+        new Covid19Report(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,historicalPoints,typeOfData);
     }
 }

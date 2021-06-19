@@ -22,9 +22,6 @@ import java.util.ResourceBundle;
 
 public class ClientsUi implements Initializable {
 
-    private Stage tests;
-    private Stage stage;
-    private  TestsUi testsUi;
     private final ViewTestsClientController viewTestsClientController;
 
     private List<ClientDTO> clientDTOList;
@@ -40,7 +37,6 @@ public class ClientsUi implements Initializable {
 
     @FXML
     private CheckBox orderedTin;
-
 
     @FXML
     private Label errorMessage;
@@ -65,7 +61,7 @@ public class ClientsUi implements Initializable {
     void selectedClientClick() throws IOException {
         ClientDTO client = table.getSelectionModel().getSelectedItems().get(0);
 
-        tests = new Stage();
+        Stage tests = new Stage();
         tests.initStyle(StageStyle.UNDECORATED);
 
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Tests.fxml"));
@@ -77,10 +73,11 @@ public class ClientsUi implements Initializable {
 
 
         tests.setScene(scene);
-        testsUi = loader.getController();
+        TestsUi testsUi = loader.getController();
         testsUi.getTestsByClient(client);
         tests.show();
         testsUi.setLabelUi(tests, client);
+        logout.getScene().getWindow().hide();
 
     }
 
@@ -89,8 +86,7 @@ public class ClientsUi implements Initializable {
     }
 
     public void setLabelUI(Stage stage) throws IOException {
-        this.stage = stage;
-       try {
+        try {
             getListOfClients();
        }catch (Exception e){
             errorMessage.setText("There are no clients with validated tests");
@@ -141,7 +137,6 @@ public class ClientsUi implements Initializable {
    @FXML
     void orderedTinClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         disableName++;
-        //cleanClientsList();
         clientDTOList = viewTestsClientController.getClientListByTin();
         try {
             if (disableName %2 != 0){
@@ -165,7 +160,6 @@ public class ClientsUi implements Initializable {
     @FXML
     void OrderedNameClick() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         disableTin++;
-        //cleanClientsList();
         clientDTOList = viewTestsClientController.getClientsListByAlphabeticalOrder();
         try {
             if (disableTin %2 != 0){
@@ -206,15 +200,11 @@ public class ClientsUi implements Initializable {
 
     public ObservableList<ClientDTO> getClients() {
         ObservableList<ClientDTO> clients = FXCollections.observableArrayList();
-
-
         for (ClientDTO c : clientDTOList){
-            //System.out.println(c);
             clients.add(c);
         }
 
         return clients;
-
     }
 
     @Override

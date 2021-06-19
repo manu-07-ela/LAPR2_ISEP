@@ -72,6 +72,13 @@ public class ViewTestsClientController {
         return clMapper.toDto(tstore.getClientWithTestsValidated());
     }
 
+    /**
+     * Sort the list of clients by Tin
+     * @return the ordered list
+     * @throws ClassNotFoundException if it is not possible to instantiate the desired class
+     * @throws IllegalAccessException if the object we intend to create it's not  correctly
+     * @throws InstantiationException if we can't instantiate an object
+     */
     public List<ClientDTO> getClientListByTin() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         List<ClientDTO> list = getClientList();
 
@@ -83,6 +90,13 @@ public class ViewTestsClientController {
         return sort.orderClientList(list);
     }
 
+    /**
+     * Sort the client list alphabetically
+     * @return the ordered list
+     * @throws ClassNotFoundException if it is not possible to instantiate the desired class
+     * @throws IllegalAccessException if the object we intend to create it's not  correctly
+     * @throws InstantiationException if we can't instantiate an object
+     */
     public List<ClientDTO> getClientsListByAlphabeticalOrder() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         List<ClientDTO> list = getClientList();
 

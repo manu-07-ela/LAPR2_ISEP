@@ -46,10 +46,13 @@
                   <Insets right="3.0" />
                </padding>
             </Separator>
-            <Button fx:id="selectTest" mnemonicParsing="false" onMouseClicked="#seeTestResults" style="-fx-background-radius: 20; -fx-background-color: #239ba1; -fx-font-size: 15; -fx-font-weight: bold;" text="Select" textFill="#f8f7f7">
+            <Button fx:id="selectTest" mnemonicParsing="false" onMouseClicked="#seeTestResults" onMouseEntered="#selectTestIn" onMouseExited="#selectTestOut" style="-fx-background-radius: 20; -fx-background-color: #239ba1;" text="Select" textFill="#f8f7f7">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>

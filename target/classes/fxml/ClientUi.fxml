@@ -143,7 +143,7 @@
                   <Insets top="160.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="exit" mnemonicParsing="false" onMouseClicked="#exitClick" prefHeight="18.0" prefWidth="56.0" style="-fx-background-color: #239ba1; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="WHITE">
+                  <Button fx:id="exit" mnemonicParsing="false" onMouseClicked="#exitClick" onMouseEntered="#exitIn" onMouseExited="#exitOut" prefHeight="18.0" prefWidth="56.0" style="-fx-background-color: #239ba1; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -151,7 +151,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logoutClick" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #239ba1; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="WHITE">
+                  <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logoutClick" onMouseEntered="#logoutIn" onMouseExited="#logoutOut" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #239ba1; -fx-background-radius: 15; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

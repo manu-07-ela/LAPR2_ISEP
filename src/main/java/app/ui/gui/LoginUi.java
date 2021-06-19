@@ -163,7 +163,7 @@ public class LoginUi {
             labCoordinatorUi = loader.getController();
             stageLabCoordinatorUi.show();
         } catch (IOException ex) {
-            System.out.println("Problems reading lab coordinator menu file \n" + ex);
+            ex.printStackTrace();
         }
     }
     private void runClient(){
@@ -187,7 +187,7 @@ public class LoginUi {
 
 
         }catch (IOException exception){
-            System.out.println("Problems reading client menu file \n" + exception);
+            exception.printStackTrace();
         }
     }
     /**
@@ -209,7 +209,7 @@ public class LoginUi {
             adminUi = loader.getController();
             stageAdminUi.show();
         } catch (IOException ex) {
-            System.out.println("Problems reading admin menu file \n" + ex);
+            ex.printStackTrace();
         }
     }
     private void runClinicalCheTec() {
@@ -229,7 +229,7 @@ public class LoginUi {
             stageClinicalCheTec.show();
 
         } catch (IOException ex) {
-            System.out.println("Problems reading admin menu file \n" + ex);
+           ex.printStackTrace();
         }
     }
     private void runReceptionist() {
@@ -248,7 +248,7 @@ public class LoginUi {
             receptionistUi = loader.getController();
             stageReceptionist.show();
         } catch (IOException ex) {
-            System.out.println("Problems reading admin menu file \n" + ex);
+            ex.printStackTrace();
         }
     }
     private void runMedLabTec() {
@@ -267,7 +267,7 @@ public class LoginUi {
             medLabTecUi = loader.getController();
             stageMedLabTec.show();
         } catch (IOException ex) {
-            System.out.println("Problems reading admin menu file \n" + ex);
+            ex.printStackTrace();
         }
     }
     private void runDoctor() {
@@ -286,7 +286,7 @@ public class LoginUi {
             specialistDoctorUi = loader.getController();
             stageDoctor.show();
         } catch (IOException ex) {
-            System.out.println("Problems reading admin menu file \n" + ex);
+            ex.printStackTrace();
         }
     }
 
@@ -302,13 +302,13 @@ public class LoginUi {
         exit.setTextFill(Paint.valueOf("#ffffff"));
     }
     @FXML
-    void logIn(){
+    void logoutIn(){
         btnLogin.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
         btnLogin.setTextFill(Paint.valueOf("#1a7180"));
 
     }
     @FXML
-    void logOut(){
+    void logoutOn(){
         btnLogin.setStyle("-fx-background-color: #1a7180;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0)");
         btnLogin.setTextFill(Paint.valueOf("#ffffff"));
     }
