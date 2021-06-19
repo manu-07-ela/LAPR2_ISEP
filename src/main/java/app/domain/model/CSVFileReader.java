@@ -136,7 +136,7 @@ public class CSVFileReader {
                             throw new IllegalArgumentException("This laboratory doesn´t exist");
                         }
                         } catch (IllegalArgumentException | IllegalAccessException | ClassNotFoundException | InstantiationException | ParseException | BarcodeException e) {
-                        System.out.printf("Error in line %d : %s\n", i, e.getMessage());
+                        System.err.printf("Error in line %d : %s%n", i, e.getMessage());
                     }
             }
             br.close();
