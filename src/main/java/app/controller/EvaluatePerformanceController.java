@@ -1,9 +1,11 @@
 package app.controller;
 
 import app.Serialization;
+import app.domain.model.testrelated.Overview;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
@@ -14,8 +16,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class EvaluatePerformanceController {
+public class EvaluatePerformanceController{
 
     /**
      * Represents an instance of OverviewController
@@ -29,6 +35,8 @@ public class EvaluatePerformanceController {
      * Represents a array
      */
     private int[] seq;
+
+    private List<String> dates;
 
     @FXML
     private LineChart performanceChart;
@@ -49,9 +57,10 @@ public class EvaluatePerformanceController {
      * @throws IllegalAccessException if the object we intend to create it's not  correctly
      * @throws InstantiationException if we can't instantiate an object
      */
-    public void setLabelUI(Stage stage,OverviewController overviewController, String algorithm, int[] sequence) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public void setLabelUI(Stage stage, OverviewController overviewController, String algorithm, int[] sequence, List<String> dates) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         this.stage = stage;
         this.overviewController=overviewController;
+        this.dates=dates;
         seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
         loadLineChart(sequence);
     }
@@ -61,11 +70,9 @@ public class EvaluatePerformanceController {
      * @param sequence The sequence we want to show
      */
     public void loadLineChart(int[] sequence){
-        y.setUpperBound(125);
-        y.setLowerBound(-125);
         XYChart.Series series = new XYChart.Series();
         for (int i = 0; i<sequence.length; i++){
-            series.getData().add(new XYChart.Data(String.valueOf(i),sequence[i]));
+            series.getData().add(new XYChart.Data(dates.get(i),sequence[i]));
         }
         performanceChart.getData().addAll(series);
     }
@@ -104,4 +111,5 @@ public class EvaluatePerformanceController {
         }
         stage.close();
     }
+
 }

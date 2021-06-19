@@ -5,6 +5,7 @@ import app.interfaces.SubsequenceWithMaximumSum;
 import app.domain.model.users.Client;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static app.domain.model.testrelated.Test.StateOfTest.*;
@@ -35,7 +36,9 @@ public class Overview {
 
     private Date endDate;
 
-    private int[] sequence;
+    private static int[] sequence;
+
+    private List<String> dates;
 
     /**
      *
@@ -96,8 +99,12 @@ public class Overview {
         return numberOfClients;
     }
 
-    public int[] getSequence(){
+    public static int[] getSequence(){
         return sequence;
+    }
+
+    public List<String> getDates() {
+        return dates;
     }
 
     public Integer getNumberOfTestWaitingForResults(){
@@ -117,33 +124,53 @@ public class Overview {
     }
 
     public void getSequenceTestWaitingForResults()  {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
+        dates= new ArrayList<>();
         Date date1 = new Date(initialDate.getTime());
-        Date date2 = new Date(date1.getTime());
+        Date date2 ;
+
         do {
+
             int aux = 0;
+
+            date2 = new Date(date1.getTime());
             date2.setMinutes(date2.getMinutes() + 30);
+
+
             for (Test t : testList) {
-                if (t.getSamplesAddDate()!= null) {
+                if (t.getSamplesAddDate()!= null ) {
                     if (t.getSamplesAddDate().after(date1) && t.getSamplesAddDate().before(date2)) {
                         aux++;
                     }
                 }
             }
+            System.out.println(aux);
             sequenceTestWaitingForResults.add(aux);
+            dates.add(String.format("%s - %s",dateFormat.format(date1),dateFormat.format(date2)));
             date2.setMinutes(date2.getMinutes() + 1);
             date1 = new Date(date2.getTime());
-        }while (date2.before(endDate));
+
+            if (date1.getHours()>=20){
+                date1.setDate(date1.getDate()+1);
+                date1.setHours(8);
+            }
+
+            System.out.println(date1);
+
+        }while (date1.before(endDate));
     }
 
     public void getSequenceTestWaitingForDiagnosis()  {
         Date date1 = new Date(initialDate.getTime());
-        Date date2 = new Date(date1.getTime());
+        Date date2;
         do {
             int aux = 0;
+            date2 = new Date(date1.getTime());
             date2.setMinutes(date2.getMinutes() + 30);
             for (Test t : testList) {
-                if (t.getChemicalAnalysisDate() != null) {
-                    if (t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).after(date1) && t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).before(date2)) {
+                if (t.getLabValidationDate() != null ) {
+                    if (t.getLabValidationDate().after(date1) && t.getLabValidationDate().before(date2)) {
                         aux++;
                     }
                 }
@@ -151,13 +178,20 @@ public class Overview {
             sequenceTestWaitingForDiagnosis.add(aux);
             date2.setMinutes(date2.getMinutes() + 1);
             date1 = new Date(date2.getTime());
-        }while (date2.before(endDate));
+
+            if (date1.getHours()>=20){
+                date1.setDate(date1.getDate()+1);
+                date1.setHours(8);
+            }
+
+        }while (date1.before(endDate));
     }
 
     public void getSequenceAux(){
         this.sequence = new int[sequenceTestWaitingForResults.size()];
         for (int i=0;i<sequence.length;i++){
             sequence[i]=sequenceTestWaitingForResults.get(i)-sequenceTestWaitingForDiagnosis.get(i);
+            System.out.println(sequence);
         }
     }
 
