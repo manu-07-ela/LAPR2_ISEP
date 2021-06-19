@@ -12,6 +12,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -47,6 +48,9 @@ public class EvaluatePerformanceController{
     @FXML
     private NumberAxis y;
 
+    @FXML
+    private TextField txtSubsequence;
+
     /**
      * Set the stage
      * @param stage the stage we want to show
@@ -62,6 +66,12 @@ public class EvaluatePerformanceController{
         this.overviewController=overviewController;
         this.dates=dates;
         seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
+        String aux = "(" ;
+        for (int i =0; i<seq.length;i++){
+            aux.concat(String.valueOf(seq[i])).concat("  ");
+        }
+        aux.concat(")");
+        txtSubsequence.setText(aux);
         loadLineChart(sequence);
     }
 
@@ -72,7 +82,7 @@ public class EvaluatePerformanceController{
     public void loadLineChart(int[] sequence){
         XYChart.Series series = new XYChart.Series();
         for (int i = 0; i<sequence.length; i++){
-            series.getData().add(new XYChart.Data(dates.get(i),sequence[i]));
+            series.getData().add(new XYChart.Data(" ",sequence[i]));
         }
         performanceChart.getData().addAll(series);
     }
