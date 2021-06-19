@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 public class SampleList implements Serializable {
+    private static final long serialVersionUID = -3284548447529458871L;
     /**
      * the list of existing samples in the system
      */

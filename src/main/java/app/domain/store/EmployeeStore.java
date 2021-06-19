@@ -14,6 +14,7 @@ import java.util.Objects;
  * @author Manuela Leite <1200720@isep.ipp.pt>
  */
 public class EmployeeStore implements Serializable {
+    private static final long serialVersionUID = 1070425777620790996L;
     /**
      * List of all existing employees in the company.
      */

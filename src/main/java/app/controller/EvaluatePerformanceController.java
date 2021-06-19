@@ -13,13 +13,9 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
-<<<<<<< HEAD
-=======
 import java.net.URL;
 import java.util.Arrays;
->>>>>>> 49f642b32fda849ecf50d3b82d8750de96916ba7
 import java.util.List;
 
 public class EvaluatePerformanceController{

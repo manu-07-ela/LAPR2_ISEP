@@ -11,6 +11,7 @@ import java.util.Objects;
  */
 
 public class ChemicalLaboratory extends Laboratory implements Serializable {
+    private static final long serialVersionUID = -4509042032461916565L;
     /**
      * Represents an instance of sample store
      */

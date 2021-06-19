@@ -22,7 +22,7 @@ import java.util.List;
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
 public class Company implements Serializable {
-
+    private static final long serialVersionUID = -2873965375442155042L;
     /**
      * Company's designation
      */
