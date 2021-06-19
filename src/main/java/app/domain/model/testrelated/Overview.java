@@ -137,27 +137,28 @@ public class Overview {
             date2 = new Date(date1.getTime());
             date2.setMinutes(date2.getMinutes() + 30);
 
-
-            for (Test t : testList) {
-                if (t.getSamplesAddDate()!= null ) {
-                    if (t.getSamplesAddDate().after(date1) && t.getSamplesAddDate().before(date2)) {
-                        aux++;
+            if(date2.getDay()!=0) {
+                for (Test t : testList) {
+                    if (t.getSamplesAddDate() != null) {
+                        if (t.getSamplesAddDate().after(date1) && t.getSamplesAddDate().before(date2)) {
+                            aux++;
+                        }
                     }
                 }
+
+                sequenceTestWaitingForResults.add(aux);
+                dates.add(String.format("%s - %s", dateFormat.format(date1), dateFormat.format(date2)));
+                date2.setMinutes(date2.getMinutes() + 1);
+                date1 = new Date(date2.getTime());
+
+                if (date1.getHours() >= 20) {
+                    date1.setDate(date1.getDate() + 1);
+                    date1.setHours(8);
+                }
+
+            } else {
+                date1.setDate(date1.getDate() + 1);
             }
-            System.out.println(aux);
-            sequenceTestWaitingForResults.add(aux);
-            dates.add(String.format("%s - %s",dateFormat.format(date1),dateFormat.format(date2)));
-            date2.setMinutes(date2.getMinutes() + 1);
-            date1 = new Date(date2.getTime());
-
-            if (date1.getHours()>=20){
-                date1.setDate(date1.getDate()+1);
-                date1.setHours(8);
-            }
-
-            System.out.println(date1);
-
         }while (date1.before(endDate));
     }
 
@@ -168,20 +169,25 @@ public class Overview {
             int aux = 0;
             date2 = new Date(date1.getTime());
             date2.setMinutes(date2.getMinutes() + 30);
-            for (Test t : testList) {
-                if (t.getLabValidationDate() != null ) {
-                    if (t.getLabValidationDate().after(date1) && t.getLabValidationDate().before(date2)) {
-                        aux++;
+            if(date2.getDay()!=0) {
+
+                for (Test t : testList) {
+                    if (t.getLabValidationDate() != null) {
+                        if (t.getLabValidationDate().after(date1) && t.getLabValidationDate().before(date2)) {
+                            aux++;
+                        }
                     }
                 }
-            }
-            sequenceTestWaitingForDiagnosis.add(aux);
-            date2.setMinutes(date2.getMinutes() + 1);
-            date1 = new Date(date2.getTime());
+                sequenceTestWaitingForDiagnosis.add(aux);
+                date2.setMinutes(date2.getMinutes() + 1);
+                date1 = new Date(date2.getTime());
 
-            if (date1.getHours()>=20){
-                date1.setDate(date1.getDate()+1);
-                date1.setHours(8);
+                if (date1.getHours() >= 20) {
+                    date1.setDate(date1.getDate() + 1);
+                    date1.setHours(8);
+                }
+            } else {
+                date1.setDate(date1.getDate() + 1);
             }
 
         }while (date1.before(endDate));
@@ -191,7 +197,6 @@ public class Overview {
         this.sequence = new int[sequenceTestWaitingForResults.size()];
         for (int i=0;i<sequence.length;i++){
             sequence[i]=sequenceTestWaitingForResults.get(i)-sequenceTestWaitingForDiagnosis.get(i);
-            System.out.println(sequence);
         }
     }
 

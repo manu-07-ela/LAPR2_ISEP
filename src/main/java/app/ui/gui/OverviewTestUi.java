@@ -101,6 +101,7 @@ public class OverviewTestUi {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         txtNumberOfClientsScope.setText(String.valueOf(overviewCtrl.getNumberOfClients()));
         txtNumberOfTests.setText(String.valueOf(overviewCtrl.getNumberTestsSystem()));
         txtNumberOfClientsSystem.setText(String.valueOf(overviewCtrl.getNumberClientsSystem()));
@@ -112,7 +113,9 @@ public class OverviewTestUi {
     }
 
     public void evaluetePerformance() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        System.out.println("...........................................");
         runEvaluetePerformance();
+        System.out.println("__________________________________________________");
         evaluatePerformanceController.setLabelUI(stageEvaluatePerformance,overviewCtrl,availableAlgorithms.getValue(),overviewCtrl.getSequence(),overviewCtrl.getDates());
         closePlatform.getScene().getWindow().hide();
     }
@@ -126,13 +129,16 @@ public class OverviewTestUi {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/EvaluatePerformance.fxml"));
             Parent root;
 
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             root = loader.load();
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
             Scene scene = new Scene(root);
 
 
             stageEvaluatePerformance.setScene(scene);
             evaluatePerformanceController = loader.getController();
+            System.out.println("#######################");
             stageEvaluatePerformance.show();
 
 

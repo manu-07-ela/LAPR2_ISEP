@@ -29,13 +29,28 @@ public class PhoneNumberTest {
     public void phoneNumberEquals(){
         PhoneNumber pn1 = new PhoneNumber("12345678901");
         PhoneNumber pn2 = new PhoneNumber("12345678901");
-        Assert.assertEquals(pn1, pn2);
+        Assert.assertTrue(pn1.equals(pn2));
     }
+
     @Test
     public void phoneNumberReferenceEquals(){
         PhoneNumber pn1 = new PhoneNumber("12345678901");
         PhoneNumber pn2 = pn1;
-        Assert.assertEquals(pn1, pn2);
+        Assert.assertTrue(pn1.equals(pn2));
+    }
+
+    @Test
+    public void phoneNumberEqualsNull(){
+        PhoneNumber pn1 = new PhoneNumber("12345678901");
+        PhoneNumber pn2 = null;
+        Assert.assertFalse(pn1.equals(pn2));
+    }
+
+    @Test
+    public void phoneNumberEqualsOtherClass(){
+        PhoneNumber pn1 = new PhoneNumber("12345678901");
+        Address name2 = new Address("Rua das cavalas");
+        Assert.assertFalse(pn1.equals(name2));
     }
 
 
