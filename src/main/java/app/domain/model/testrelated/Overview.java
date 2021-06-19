@@ -5,6 +5,7 @@ import app.interfaces.SubsequenceWithMaximumSum;
 import app.domain.model.users.Client;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static app.domain.model.testrelated.Test.StateOfTest.*;
@@ -35,7 +36,9 @@ public class Overview {
 
     private Date endDate;
 
-    private int[] sequence;
+    private static int[] sequence;
+
+    private List<String> dates;
 
     /**
      *
@@ -77,7 +80,7 @@ public class Overview {
     private void getTestWaitingForResults(){
         testWaitingForResults = new ArrayList();
         for (Test t: testList) {
-            if (t.getStateOfTest() == SamplesCollected) {
+            if (t.getStateOfTest() == samplesCollected) {
                 testWaitingForResults.add(t);
             }
         }
@@ -86,7 +89,7 @@ public class Overview {
     private void getTestsWaitingForDiagnosis(){
         testsWaitingForDiagnosis = new ArrayList();
         for (Test t: testList) {
-            if (t.getStateOfTest() == SamplesAnalyzed) {
+            if (t.getStateOfTest() == samplesAnalyzed) {
                 testsWaitingForDiagnosis.add(t);
             }
         }
@@ -96,8 +99,12 @@ public class Overview {
         return numberOfClients;
     }
 
-    public int[] getSequence(){
+    public static int[] getSequence(){
         return sequence;
+    }
+
+    public List<String> getDates() {
+        return dates;
     }
 
     public Integer getNumberOfTestWaitingForResults(){
@@ -117,19 +124,26 @@ public class Overview {
     }
 
     public void getSequenceTestWaitingForResults()  {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        dates= new ArrayList<>();
         Date date1 = new Date(initialDate.getTime());
         Date date2 = new Date(date1.getTime());
         do {
             int aux = 0;
             date2.setMinutes(date2.getMinutes() + 30);
             for (Test t : testList) {
-                if (t.getStateOfTest() == SamplesCollected) {
+                if (t.getSamplesAddDate()!= null && t.getChemicalAnalysisDate() == null) {
                     if (t.getSamplesAddDate().after(date1) && t.getSamplesAddDate().before(date2)) {
+                        aux++;
+                    }
+                } else if (t.getSamplesAddDate()!= null) {
+                    if (t.getSamplesAddDate().after(date1) && t.getSamplesAddDate().before(date2) && t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).before(date2)) {
                         aux++;
                     }
                 }
             }
             sequenceTestWaitingForResults.add(aux);
+            dates.add(String.format("%s - %s",dateFormat.format(date1),dateFormat.format(date2)));
             date2.setMinutes(date2.getMinutes() + 1);
             date1 = new Date(date2.getTime());
         }while (date2.before(endDate));
@@ -142,8 +156,12 @@ public class Overview {
             int aux = 0;
             date2.setMinutes(date2.getMinutes() + 30);
             for (Test t : testList) {
-                if (t.getStateOfTest() == SamplesAnalyzed) {
+                if (t.getChemicalAnalysisDate() != null && t.getCreatedAt() == null) {
                     if (t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).after(date1) && t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).before(date2)) {
+                        aux++;
+                    }
+                } else if (t.getChemicalAnalysisDate() != null) {
+                    if (t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).after(date1) && t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).before(date2) && t.getCreatedAt().before(date2)) {
                         aux++;
                     }
                 }
@@ -155,7 +173,7 @@ public class Overview {
     }
 
     public void getSequenceAux(){
-        sequence = new int[sequenceTestWaitingForResults.size()];
+        this.sequence = new int[sequenceTestWaitingForResults.size()];
         for (int i=0;i<sequence.length;i++){
             sequence[i]=sequenceTestWaitingForResults.get(i)-sequenceTestWaitingForDiagnosis.get(i);
         }

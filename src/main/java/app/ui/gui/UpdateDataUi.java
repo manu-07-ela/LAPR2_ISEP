@@ -100,16 +100,8 @@ public class UpdateDataUi {
 
     @FXML
     void saveNameClick() {
-        //updateDataController.clientData(client);
+
         String name = writeName.getText().trim();
-        /*if(name.isEmpty()) {
-            errorMessage.setText("Name can't be empty");
-            errorMessage.setVisible(true);
-        }
-        if (name.length()>35){
-            errorMessage.setText("Name should have maximum 35 characters");
-            errorMessage.setVisible(true);
-        }*/
         try {
             updateDataController.updateName(client, name);
             errorMessage.setText("Name was updated!");
@@ -121,8 +113,10 @@ public class UpdateDataUi {
         catch (IllegalArgumentException e){
             errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
-        //updateDataController.clientData(client);
+
         writeName.clear();
 
 
@@ -133,7 +127,7 @@ public class UpdateDataUi {
 
     @FXML
     void saveSexClick() {
-        //updateDataController.clientData(client);
+
         String sex = writeSex.getText().trim();
         try {
             updateDataController.updateSex(client, sex);
@@ -146,8 +140,10 @@ public class UpdateDataUi {
         catch (IllegalArgumentException e){
             errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
-        //updateDataController.clientData(client);
+
         writeSex.clear();
 
     }
@@ -167,8 +163,10 @@ public class UpdateDataUi {
         catch (IllegalArgumentException e){
             errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
-        //updateDataController.clientData(client);
+
         writePhoneNumber.clear();
     }
 
@@ -202,7 +200,7 @@ public class UpdateDataUi {
     }
     @FXML
     void saveAddressClick() {
-        //updateDataController.clientData(client);
+
         String address = writeAddress.getText().trim();
         try {
             updateDataController.updateAddress(client, address);
@@ -215,8 +213,10 @@ public class UpdateDataUi {
         catch (IllegalArgumentException e){
             errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
-        //updateDataController.clientData(client);
+
         writeAddress.clear();
 
     }

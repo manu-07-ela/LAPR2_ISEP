@@ -46,6 +46,10 @@ public class ViewResultsUi {
         showMedicalReport.setText(result.getDiagnosis());
     }
 
+    public Label getLabelMedicalReport(){
+        return showMedicalReport;
+    }
+
     @FXML
     void closePlatform() {
         Serialization.saveApp(App.getInstance(), "SavedData.data");
@@ -69,7 +73,7 @@ public class ViewResultsUi {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Erro no lougout: " + ex);
+            ex.printStackTrace();
         }
         stage.close();
 

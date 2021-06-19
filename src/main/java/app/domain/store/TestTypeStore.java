@@ -17,7 +17,7 @@ public class TestTypeStore implements Serializable {
     /**
      * List containing all types of tests that exist in a company.
      */
-    List<TestType> testTypeList;
+    private List<TestType> testTypeList;
 
     /**
      * Instantiates a new TestTypeStore.

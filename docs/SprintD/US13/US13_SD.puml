@@ -15,7 +15,15 @@ participant ": SortingAlgorithms" as ALGORITHM
 activate CCT
 CCT -> UI : asks to consult the tests performed by a particular client
 activate UI
-UI->CONTROLLER : getClientsWithValidatedTests()
+UI --> CCT : asks if the Clinical Chemistry Technologist wants to order the clients list \n by tin or by name
+deactivate UI
+
+CCT -> UI : chooses an option
+activate UI
+opt option == "Tin"
+UI->CONTROLLER : getClientListByTin()
+activate CONTROLLER
+CONTROLLER -> CONTROLLER : getClientList()
 activate CONTROLLER
 CONTROLLER->COMPANY : tstore = getTestStore()
 activate COMPANY
@@ -35,23 +43,37 @@ end ref
 CLIENTMAPPER-->CONTROLLER : clientListDto
 deactivate CLIENTMAPPER
 deactivate TESTSTORE
-CONTROLLER-->UI : clientListDto
 deactivate CONTROLLER
-UI --> CCT : asks if the Clinical Chemistry Technologist wants to order the clients list \n by tin or by name
-deactivate UI
 
-CCT -> UI : chooses an option
-activate UI
-opt option == "Tin"
-UI->CONTROLLER : getClientListByTin(clientListDto)
-activate CONTROLLER
 CONTROLLER->ALGORITHM : orderedClientListDto = orderClientList(clientListDto)
 activate ALGORITHM
 ALGORITHM-->CONTROLLER : orderedClientListDto
 deactivate ALGORITHM
 deactivate CLIENTMAPPER
 else option == "Name"
-UI->CONTROLLER : getClientListByTin(clientListDto)
+UI->CONTROLLER : getClientsListByAlphabeticalOrder()
+CONTROLLER -> CONTROLLER : getClientList()
+activate CONTROLLER
+CONTROLLER->COMPANY : tstore = getTestStore()
+activate COMPANY
+deactivate COMPANY
+CONTROLLER->TESTSTORE : clientList = getClientsWithValidatedTests()
+activate TESTSTORE
+ref over TESTSTORE
+SD_GetTheClientListWithTestValidated
+end ref
+TESTSTORE-->CONTROLLER : clientList
+deactivate TESTSTORE
+CONTROLLER->CLIENTMAPPER : toDto(clientList)
+activate CLIENTMAPPER
+ref over CLIENTMAPPER
+SD_ClientMapper_toDto_List
+end ref
+CLIENTMAPPER-->CONTROLLER : clientListDto
+deactivate CLIENTMAPPER
+deactivate TESTSTORE
+deactivate CONTROLLER
+
 CONTROLLER->ALGORITHM : orderedClientListDto = orderClientList(clientListDto)
 activate ALGORITHM
 ALGORITHM-->CONTROLLER : orderedClientListDto

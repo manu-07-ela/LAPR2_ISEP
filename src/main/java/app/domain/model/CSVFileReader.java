@@ -10,11 +10,9 @@ import app.domain.model.testrelated.TestParameter;
 import app.domain.model.testrelated.TestType;
 import app.domain.model.users.Client;
 import app.domain.store.*;
-import app.interfaces.ExternalModuleBarcode;
 import auth.AuthFacade;
 
 import java.io.*;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -165,7 +163,7 @@ public class CSVFileReader {
         for(int i=0;i<test.size();i++) {
             t.addTestResult(test.get(i), tempArr[testnumb.get(i)], testType.getExternalModule().getRefValue(parametersString.get(i)).getMetric());
         }
-        t.setStateOfTest(Test.StateOfTest.Validated);
+        t.setStateOfTest(Test.StateOfTest.validated);
         tStore.saveTest(t);
     }
 

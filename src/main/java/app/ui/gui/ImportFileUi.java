@@ -1,5 +1,7 @@
 package app.ui.gui;
 
+import app.Serialization;
+import app.controller.App;
 import app.controller.ImportFileController;
 import app.domain.model.users.Client;
 import app.mappers.dto.TestDTO;
@@ -53,6 +55,7 @@ public class ImportFileUi {
     private List<Client> clientList;
     @FXML
     void exitClick() {
+        Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
     }
 

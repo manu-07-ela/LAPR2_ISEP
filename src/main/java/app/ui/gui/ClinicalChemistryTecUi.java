@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 import app.ui.console.AuthUI;
+import app.ui.console.functionalities.RecordResultsUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -75,6 +76,8 @@ public class ClinicalChemistryTecUi {
 
     @FXML
     void recordResultsClick() {
+        RecordResultsUI recordResultsUI = new RecordResultsUI();
+        recordResultsUI.run();
     }
 
     private void viewTest(){

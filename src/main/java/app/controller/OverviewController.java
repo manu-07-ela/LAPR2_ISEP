@@ -67,6 +67,13 @@ public class OverviewController {
     }
 
     /**
+     *
+     */
+    public List<String> getDates(){
+        return overview.getDates();
+    }
+
+    /**
      * Get the number of tests waiting for results in the system
      * @return the number of tests waiting for results in the system
      */

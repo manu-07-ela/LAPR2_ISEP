@@ -1,7 +1,6 @@
 package app.ui.gui;
 
-import app.controller.ViewTestsClientController;
-import app.domain.model.testrelated.Test;
+import app.controller.SeeTestsController;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
 import app.ui.console.AuthUI;
@@ -12,11 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -34,7 +31,7 @@ public class TestsUi implements Initializable {
 
     private List<TestDTO> testDTOList;
 
-    private ViewTestsClientController viewTestsClientController;
+    private SeeTestsController seeTestsController;
     @FXML
     private TableView<TestDTO> tests;
 
@@ -52,8 +49,8 @@ public class TestsUi implements Initializable {
 
     }
     public void getTestsByClient(ClientDTO clientDTO){
-        viewTestsClientController = new ViewTestsClientController();
-        this.testDTOList = viewTestsClientController.getAssociatedWithClient(clientDTO);
+        seeTestsController = new SeeTestsController();
+        this.testDTOList = seeTestsController.getAssociatedWithClient(clientDTO);
         internalCode.setCellValueFactory(new PropertyValueFactory<>("internalCode"));
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         tests.setItems(getTests());
@@ -81,7 +78,7 @@ public class TestsUi implements Initializable {
             newStage.setScene(scene);
             newStage.show();
         } catch (IOException ex) {
-            System.out.println("Logout Error: " + ex);
+            ex.printStackTrace();
         }
         stage.close();
 
@@ -91,6 +88,7 @@ public class TestsUi implements Initializable {
         TestDTO test = tests.getSelectionModel().getSelectedItems().get(0);
         runViewResults();
         viewResultsUi.setLabelUI(stageViewResult, test);
+        viewResultsUi.getLabelMedicalReport().setText("You are not allowed to see the medical report");
         tests.getScene().getWindow().hide();
 
 
