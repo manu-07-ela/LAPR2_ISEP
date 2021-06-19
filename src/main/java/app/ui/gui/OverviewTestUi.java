@@ -101,6 +101,7 @@ public class OverviewTestUi {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         txtNumberOfClientsScope.setText(String.valueOf(overviewCtrl.getNumberOfClients()));
         txtNumberOfTests.setText(String.valueOf(overviewCtrl.getNumberTestsSystem()));
         txtNumberOfClientsSystem.setText(String.valueOf(overviewCtrl.getNumberClientsSystem()));
