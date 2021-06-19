@@ -7,7 +7,6 @@ import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.domain.model.testrelated.*;
 import app.domain.model.users.Client;
 import app.domain.store.*;
-import app.ui.console.utils.Utils;
 import auth.AuthFacade;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
@@ -33,31 +32,27 @@ public class CSVFileReader {
     /**
      * Represents an instance of the client store
      */
-    private ClientStore clStore;
+    private final ClientStore clStore;
     /**
      * Represents an instance of the test store
      */
-    private TestStore tStore;
+    private final TestStore tStore;
     /**
      * Represents an instance Auth facade
      */
-    private AuthFacade clAuthFacade;
+    private final AuthFacade clAuthFacade;
     /**
      * Represents an instance of the Parameter store
      */
-    private ParameterStore pmStore;
-    /**
-     * Represents an instance of the Parameter store
-     */
-    private ParameterCategoryStore pmcStore;
+    private final ParameterStore pmStore;
     /**
      * Represents an instance of the Test Type store
      */
-    private TestTypeStore ttStore;
+    private final TestTypeStore ttStore;
     /**
      * Represents an instance of the Clinical Analysis Laboratory store
      */
-    private ClinicalAnalysisLaboratoryStore calStore;
+    private final ClinicalAnalysisLaboratoryStore calStore;
     /**
      * Represents an instance of Date when samples were registered
      */
@@ -81,7 +76,7 @@ public class CSVFileReader {
     /**
      * Represents an instance of Record Samples Controller
      */
-    private RecordSampleController samplesctrl;
+    private final RecordSampleController samplesctrl;
 
     public CSVFileReader(){
         this(App.getInstance().getCompany());
@@ -119,10 +114,8 @@ public class CSVFileReader {
         List<String> allParametersStringList=new ArrayList<>();
         List<String> validParametersStringList=new ArrayList<>();
         List<Integer> parametersNumbList=new ArrayList<>();
-//        List<Integer> parameterCategory=new ArrayList<>();
         date=fillParametersString(tempArr,parametersNumbList,allParametersStringList);
         parametersNumbList=fillValidParametersString(allParametersStringList,validParametersStringList,parametersNumbList);
-//        parameterCategory(parameterCategorytest,tempArr);
 
             while((line = br.readLine()) != null) {
                 tempArr = line.split(delimiter);
@@ -166,6 +159,7 @@ public class CSVFileReader {
         Test t = tStore.createTestByCsvFile(cl, nhscode, testType, tpList, lab, samples, tpr, lcv, mr);
         if(t!=null) {
             createBarcode(t);
+            t.setSamplesAddDate(samples);
             for (int i = 0; i < test.size(); i++) {
                 t.addTestResult(test.get(i), tempArr[testnumb.get(i)], testType.getExternalModule().getRefValue(parametersString.get(i)).getMetric());
             }
@@ -178,7 +172,6 @@ public class CSVFileReader {
         for (int n=1; n<tempArr.length;n++){
 
             if (tempArr[n-1].equalsIgnoreCase("Category")){
-//                parameterCategory.add(n-1);
                 while (!tempArr[n].equalsIgnoreCase("Category") && !tempArr[n].equalsIgnoreCase("Test_Reg_DateHour")){
                     allParametersString.add(tempArr[n]);
                     parametersNumb.add(n);
@@ -208,22 +201,6 @@ public class CSVFileReader {
         return parameterNumbTestValid;
 
     }
-//    private void parameterCategory(List<Integer> parameterCategory,String[] tempArr) {
-//        int j=0;
-//        while (j < parameterCategory.size()) {
-//            try {
-//
-//
-//                if (!tempArr[parameterCategory.get(j)].equalsIgnoreCase("NA")) {
-//                    pmcStore.getParameterCategoryList().add(pmcStore.getParameterCategoryByCode(tempArr[parameterCategory.get(j)]));
-//                }
-//
-//            } catch (Exception e) {
-//                System.out.println("Couldn't add this Parameter Category");
-//            }
-//            j++;
-//        }
-//    }
 
     private void convertStringIntoParameter(List<String> parameter, List<Parameter> pmList){
         Parameter pm;
