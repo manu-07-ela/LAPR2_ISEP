@@ -6,7 +6,7 @@ import app.controller.ParameterResultController;
 import app.controller.ViewResultsController;
 import app.mappers.dto.TestDTO;
 import app.mappers.dto.TestParameterDTO;
-import app.mappers.dto.testResultDto;
+import app.mappers.dto.TestResultDto;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +25,7 @@ public class ViewResultsUi {
 
     private Stage stage;
 
-    private testResultDto result;
+    private TestResultDto result;
 
     @FXML
     private GridPane grid;
@@ -42,7 +42,7 @@ public class ViewResultsUi {
     public void setLabelUI(Stage stageViewResult, TestDTO test) throws IOException {
         this.stage = stageViewResult;
         result=viewResultsctrl.showTestResults(test);
-        showParameterResults(result.getTplist());
+        showParameterResults(result.getTpList());
         showMedicalReport.setText(result.getDiagnosis());
     }
 

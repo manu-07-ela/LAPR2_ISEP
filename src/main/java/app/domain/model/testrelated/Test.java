@@ -85,15 +85,15 @@ public class Test implements Serializable {
     /**
      * Constructs an instance of {@code Test} receiving the client, National Healthcare Service code, test type, test parameter list , Clinical Analysis Laboratory and internal code by parameter
      * @param cl a client
-     * @param nhscode the National Healthcare Service code
+     * @param nhsCode the National Healthcare Service code
      * @param testType the test type
      * @param testParameterList the Test Parameter List
      * @param lab the Clinical Analysis Laboratory
      * @param internalCode the Internal code
      */
-    public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,String internalCode) {
+    public Test(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,String internalCode) {
         this.client = cl;
-        this.nhscode = new NhsCode(nhscode);
+        this.nhscode = new NhsCode(nhsCode);
         this.testType = testType;
         this.testParameterList = testParameterList;
         this.stateOfTest = StateOfTest.TestRegistered;
@@ -105,9 +105,22 @@ public class Test implements Serializable {
         this.lcv = null;
     }
 
-    public Test(Client cl, NhsCode nhscode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,String internalCode,Date samplesAddDate,Date chemicalAnalysisDate,Date LabCoordDate,Date createdAt) {
+    /**
+     * Constructs an instance of {@code Test} receiving the client, National Healthcare Service code, test type, test parameter list , Clinical Analysis Laboratory, internal code, Samples added date, chemical analyses date, lab coordinator date and creation day by parameter
+     * @param cl a client
+     * @param nhsCode the National Healthcare Service code
+     * @param testType the test type
+     * @param testParameterList the Test Parameter List
+     * @param lab the Clinical Analysis Laboratory
+     * @param internalCode the Internal code
+     * @param samplesAddDate the date of samples added
+     * @param chemicalAnalysisDate the date of chemical analysis
+     * @param LabCoordDate the date of the lab coordination validation
+     * @param createdAt the date of creation
+     */
+    public Test(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,String internalCode,Date samplesAddDate,Date chemicalAnalysisDate,Date LabCoordDate,Date createdAt) {
         this.client = cl;
-        this.nhscode = new NhsCode(nhscode);
+        this.nhscode = new NhsCode(nhsCode);
         this.testType = testType;
         this.testParameterList = testParameterList;
         this.stateOfTest = StateOfTest.Validated;
@@ -119,7 +132,7 @@ public class Test implements Serializable {
         this.lcv = new LabCoordinatorValidation();
         this.tpr = new TestParameterResult();
         setSamplesAddDate(samplesAddDate);
-        lcv.setLabCoordDate(LabCoordDate);
+        lcv.setLabCoordinatorDate(LabCoordDate);
         md.setCreatedAt(createdAt);
         tpr.setChemicalAnalysisDate(chemicalAnalysisDate);
     }
@@ -225,9 +238,12 @@ public class Test implements Serializable {
      * @return the list of samples associated with a test
      */
 
-    public Date getLabValidationDate() { return lcv.getLabCoordDate();}
+    public Date getLabValidationDate() { return lcv.getLabCoordinatorDate();}
 
-
+    /**
+     *
+     * @return
+     */
     public List<Sample> getSamples() { return samples; }
 
     /**
@@ -238,10 +254,18 @@ public class Test implements Serializable {
         return samplesAddDate;
     }
 
+    /**
+     * Set the date of the samples added
+     * @param samplesAddDate the new date
+     */
     public void setSamplesAddDate(Date samplesAddDate) {
         this.samplesAddDate = samplesAddDate;
     }
 
+    /**
+     * Set the state of the test
+     * @param stateOfTest the new state of the test
+     */
     public void setStateOfTest(StateOfTest stateOfTest) {
         this.stateOfTest = stateOfTest;
     }

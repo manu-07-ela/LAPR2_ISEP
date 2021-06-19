@@ -123,7 +123,7 @@ public class Overview {
             int aux = 0;
             date2.setMinutes(date2.getMinutes() + 30);
             for (Test t : testList) {
-                if (t.getStateOfTest() == SamplesCollected) {
+                if (t.getSamplesAddDate()!= null) {
                     if (t.getSamplesAddDate().after(date1) && t.getSamplesAddDate().before(date2)) {
                         aux++;
                     }
@@ -142,7 +142,7 @@ public class Overview {
             int aux = 0;
             date2.setMinutes(date2.getMinutes() + 30);
             for (Test t : testList) {
-                if (t.getStateOfTest() == SamplesAnalyzed) {
+                if (t.getChemicalAnalysisDate() != null) {
                     if (t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).after(date1) && t.getChemicalAnalysisDate().get((t.getChemicalAnalysisDate().size()) - 1).before(date2)) {
                         aux++;
                     }
@@ -155,7 +155,7 @@ public class Overview {
     }
 
     public void getSequenceAux(){
-        sequence = new int[sequenceTestWaitingForResults.size()];
+        this.sequence = new int[sequenceTestWaitingForResults.size()];
         for (int i=0;i<sequence.length;i++){
             sequence[i]=sequenceTestWaitingForResults.get(i)-sequenceTestWaitingForDiagnosis.get(i);
         }

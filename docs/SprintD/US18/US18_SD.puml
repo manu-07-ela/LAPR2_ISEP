@@ -112,6 +112,8 @@ report -> report: generatesDatesHistoricalPoints()
 activate report
 deactivate report
 report -> sRegression : getNhsReport(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,datesHistoricalPoints)
+activate report
+deactivate report
 activate sRegression
 deactivate sRegression
 comp -> api : sendCovid19Report()

@@ -103,6 +103,8 @@ public class App implements Serializable {
         this.company = getCompany();
         ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
         company.getParameterCategoryStore().addParameterCategory(pc1);
+        ParameterCategory pc2 = new ParameterCategory("KW000","Covid");
+        company.getParameterCategoryStore().addParameterCategory(pc2);
 
         Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
         company.getParameterStore().addParameter(p1);
@@ -110,11 +112,18 @@ public class App implements Serializable {
         Parameter p2 = new Parameter("WBC00","WBC","White Cell Count ",pc1);
         company.getParameterStore().addParameter(p2);
 
-        List<ParameterCategory> list=new ArrayList();
-        list.add(pc1);
+        Parameter p3 = new Parameter("IgGAN","KW","Covid count",pc2);
+        company.getParameterStore().addParameter(p3);
 
-        TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+        List<ParameterCategory> list1=new ArrayList();
+        list1.add(pc1);
+        List<ParameterCategory> list2=new ArrayList();
+        list2.add(pc2);
+
+        TestType tt = new TestType("BL000","blood","syringe",list1,"ExternalModule2API");
+        TestType tt2 = new TestType("CV000","covid","swab",list2,"CovidReferenceValues1API");
         company.getTestTypeStore().addTestType(tt);
+        company.getTestTypeStore().addTestType(tt2);
         company.getClientStore().addClient(new Client("Rita","1111111111111111","1231231231","26/11/2002","Female","1231231231","11111111111","rita@gmail.com","Rua das gaitas"));
         company.getClientStore().addClient(new Client("Manuela", "1234567890123456", "1234567890", "07/09/2002", "Female", "1234567890","12345678901", "manu@gmail.com", "Rua 10 do Cerrado"));
         authFacade.addUserWithRole("Rita","rita@gmail.com","111111","CLIENT");
