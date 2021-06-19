@@ -17,7 +17,6 @@ import app.domain.model.users.Client;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static app.domain.model.testrelated.Test.StateOfTest.*;
@@ -146,7 +145,7 @@ public class TestStore implements Serializable {
         List<Test> testsWaitingForSamples = getTestByLaboratory(clinicalAnalysisLaboratory);
         List<Test> test = new ArrayList<>();
         for (Test t : testsWaitingForSamples){
-            if (t.getStateOfTest() == TestRegistered) test.add(t);
+            if (t.getStateOfTest() == testRegistered) test.add(t);
         }
         return test;
     }
@@ -158,7 +157,7 @@ public class TestStore implements Serializable {
     public List<Test> getTestHasSamplesAnalyzedList(){
         List<Test> testHasSamplesAnalyzedList = new ArrayList();
         for(Test test : testList){
-            if(test.getStateOfTest() == SamplesAnalyzed){
+            if(test.getStateOfTest() == samplesAnalyzed){
                 testHasSamplesAnalyzedList.add(test);
             }
         }
@@ -172,7 +171,7 @@ public class TestStore implements Serializable {
     public List<Test> getTestWithSamplesCollectedList(){
         List<Test> testWithSamplesCollectedList = new ArrayList();
         for(Test test : testList){
-            if(test.getStateOfTest() == SamplesCollected){
+            if(test.getStateOfTest() == samplesCollected){
                 testWithSamplesCollectedList.add(test);
             }
         }
@@ -188,7 +187,7 @@ public class TestStore implements Serializable {
     public List<Test> getTestHasReportList(){
         List<Test> testHasReportList = new ArrayList();
         for(Test test : testList){
-            if(test.getStateOfTest() == DiagnosisMade){
+            if(test.getStateOfTest() == diagnosisMade){
                 testHasReportList.add(test);
             }
         }
@@ -236,10 +235,14 @@ public class TestStore implements Serializable {
        return test;
     }
 
+    /**
+     * Gets the list of Clients that have at least one Test Validated
+     * @return the list of Clients that have at least one Test Validated
+     */
     public List<Client> getClientWithTestsValidated(){
         List<Client> list = new ArrayList<>();
         for (Test t: testList) {
-            if (t.getStateOfTest()==Validated && !list.contains(t.getCl())){
+            if (t.getStateOfTest()== validated && !list.contains(t.getCl())){
                 list.add(t.getCl());
             }
         }
@@ -250,10 +253,15 @@ public class TestStore implements Serializable {
         return list;
     }
 
+    /**
+     * Gets the list of all test associated with a specific client
+     * @param selectedClient The specific client we want to gets it's tests
+     * @return the list of all test associated with a specific client
+     */
     public List<Test> getTestListAssociatedWithClient(ClientDTO selectedClient){
         List<Test> test = new ArrayList<>();
         for (Test t : testList) {
-            if (t.getCl().getTin().equals(selectedClient.getTin()) && t.getStateOfTest()==Validated) {
+            if (t.getCl().getTin().equals(selectedClient.getTin()) && t.getStateOfTest()== validated) {
                 test.add(t);
             }
         }
@@ -303,7 +311,7 @@ public class TestStore implements Serializable {
         int endDay = calendar.get(Calendar.DAY_OF_YEAR);
         int endYear = calendar.get(Calendar.YEAR);
         for (Test t: testList) {
-            if(t.getStateOfTest() == Validated) {
+            if(t.getStateOfTest() == validated) {
                 calendar.setTime(t.getSamplesAddDate());
                 int validationDay = calendar.get(Calendar.DAY_OF_YEAR);
                 int validationYear = calendar.get(Calendar.YEAR);

@@ -1,12 +1,9 @@
 package app.ui.console.functionalities;
 
-import app.controller.ViewTestsClientController;
-import app.domain.model.testrelated.Test;
+import app.controller.SeeTestsController;
 import app.mappers.dto.ClientDTO;
-import app.mappers.dto.ParameterDTO;
 import app.mappers.dto.TestDTO;
 import app.ui.console.utils.Utils;
-import jdk.jshell.execution.Util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,10 +14,10 @@ public class ViewTestsClientUI implements Runnable{
     /**
      * Represents a instance of ViewTestsClientController
      */
-    private final ViewTestsClientController viewTestsctrl;
+    private final SeeTestsController viewTestsctrl;
 
     public ViewTestsClientUI() {
-        viewTestsctrl = new ViewTestsClientController();
+        viewTestsctrl = new SeeTestsController();
     }
 
     /**

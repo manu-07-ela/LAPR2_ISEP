@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.UpdateDataNotification;
 import app.domain.model.Company;
 import app.domain.model.testrelated.Test;
 import app.domain.model.users.Client;
@@ -10,6 +11,7 @@ import app.mappers.TestParameterMapper;
 import app.mappers.dto.ClientDTO;
 import auth.domain.model.Email;
 
+import java.io.IOException;
 import java.util.List;
 
 public class UpdateDataController {
@@ -31,6 +33,7 @@ public class UpdateDataController {
      */
     private Client client;
 
+    private UpdateDataNotification updateDataNotification;
 
 
     /**
@@ -39,6 +42,7 @@ public class UpdateDataController {
     public UpdateDataController() {
         this.company = App.getInstance().getCompany();
         this.store = company.getClientStore();
+        updateDataNotification = new UpdateDataNotification();
     }
     /**
      * Creates an instance of UpdateDataController receiving the company
@@ -66,15 +70,18 @@ public class UpdateDataController {
      * It updates the name of the Client
      * @param name the name of the Client
      */
-    public void updateName(Client client, String name){
+    public void updateName(Client client, String name) throws IOException {
+        updateDataNotification.notification(client, name, "Name", client.getName());
         store.updateName(client, name);
+
     }
 
     /**
      * It updates the sex of the Client
      * @param sex the sex of the Client
      */
-    public  void updateSex(Client client, String sex){
+    public  void updateSex(Client client, String sex) throws IOException {
+        updateDataNotification.notification(client, sex, "Sex", client.getSex());
         store.updateSex(client, sex);
     }
 
@@ -83,14 +90,20 @@ public class UpdateDataController {
      * It updates the Phone Number of the Client
      * @param phoneNumber the Phone Number of the Client
      */
-    public void updatePhoneNumber (Client client, String phoneNumber){store.updatePhoneNumber(client, phoneNumber);}
+    public void updatePhoneNumber (Client client, String phoneNumber) throws IOException {
+        updateDataNotification.notification(client, phoneNumber, "Phone Number", client.getPhoneNumber());
+        store.updatePhoneNumber(client, phoneNumber);
+    }
 
     /**
      * It updates the Address of the Client
      * @param client The Client
      * @param address The address of the Client you want to update
      */
-    public void updateAddress (Client client, String address){store.updateAddress(client, address);}
+    public void updateAddress (Client client, String address) throws IOException {
+        updateDataNotification.notification(client, address, "Address", client.getAddress());
+        store.updateAddress(client, address);
+    }
 
     /**
      * Get a client by his email

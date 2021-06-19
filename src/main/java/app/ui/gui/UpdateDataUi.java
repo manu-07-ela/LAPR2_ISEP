@@ -121,6 +121,8 @@ public class UpdateDataUi {
         catch (IllegalArgumentException e){
             errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
         //updateDataController.clientData(client);
         writeName.clear();
@@ -146,6 +148,8 @@ public class UpdateDataUi {
         catch (IllegalArgumentException e){
             errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
         //updateDataController.clientData(client);
         writeSex.clear();
@@ -167,6 +171,8 @@ public class UpdateDataUi {
         catch (IllegalArgumentException e){
             errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
         //updateDataController.clientData(client);
         writePhoneNumber.clear();
@@ -215,6 +221,8 @@ public class UpdateDataUi {
         catch (IllegalArgumentException e){
             errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
         //updateDataController.clientData(client);
         writeAddress.clear();

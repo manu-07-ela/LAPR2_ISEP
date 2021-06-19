@@ -1,8 +1,7 @@
 package app.ui.gui;
 
 import app.ui.console.AuthUI;
-import app.ui.console.functionalities.CreateTestTypeUI;
-import app.ui.console.functionalities.RegisterEmployeeUI;
+import app.ui.console.functionalities.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -97,16 +96,21 @@ public class AdmUi {
 
     @FXML
     void specifyParameterClick() {
+        CreateParameterUI createParameterUI = new CreateParameterUI();
+        createParameterUI.run();
 
     }
 
     @FXML
     void registerLaboratoryClick() {
-
+        CreateClinicalAnalysisLaboratoryUI createClinicalAnalysisLaboratoryUI = new CreateClinicalAnalysisLaboratoryUI();
+        createClinicalAnalysisLaboratoryUI.run();
     }
 
     @FXML
     void specifyParameterCategoryClick() {
+        CreateParameterCategoryUI createParameterCategoryUI = new CreateParameterCategoryUI();
+        createParameterCategoryUI.run();
 
     }
 

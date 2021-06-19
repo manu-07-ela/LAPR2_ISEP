@@ -1,5 +1,6 @@
 package app.ui.gui;
 import app.ui.console.AuthUI;
+import app.ui.console.functionalities.RecordSampleUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -62,5 +63,7 @@ public class MedLabTecUi {
 
     @FXML
     void recordSampleClick() {
+        RecordSampleUI recordSampleUI = new RecordSampleUI();
+        recordSampleUI.run();
     }
 }

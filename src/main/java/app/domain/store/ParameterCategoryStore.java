@@ -16,7 +16,7 @@ public class ParameterCategoryStore implements Serializable {
     /**
      * List containing all categories of parameters existing in the Company.
      */
-    List<ParameterCategory> parameterCategoryList;
+    private List<ParameterCategory> parameterCategoryList;
 
     /**
      * Instantiates a new ParameterCategoryStore.
