@@ -51,9 +51,9 @@
    <center>
       <VBox prefHeight="469.0" prefWidth="945.0" BorderPane.alignment="CENTER">
          <children>
-            <LineChart fx:id="performanceChart" prefHeight="714.0" prefWidth="945.0">
+            <LineChart fx:id="performanceChart" prefHeight="496.0" prefWidth="945.0">
               <xAxis>
-                <CategoryAxis prefHeight="28.0" prefWidth="1114.0" side="BOTTOM" fx:id="x" />
+                <CategoryAxis prefHeight="28.0" prefWidth="5218.0" side="BOTTOM" fx:id="x" />
               </xAxis>
               <yAxis>
                 <NumberAxis fx:id="y" side="LEFT" />
