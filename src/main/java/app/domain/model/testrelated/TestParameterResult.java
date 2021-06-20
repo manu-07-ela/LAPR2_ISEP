@@ -24,6 +24,9 @@ public class TestParameterResult implements Serializable {
      */
     private Date chemicalAnalysisDate;
 
+    /**
+     * Constructs an instance of the TestParameterResult
+     */
     public TestParameterResult(){
         this.refValue=null;
         this.result = null;
@@ -44,6 +47,22 @@ public class TestParameterResult implements Serializable {
         this.result = result;
         this.metric = metric;
         this.chemicalAnalysisDate = Calendar.getInstance().getTime();
+    }
+
+    /**
+     * Constructs an instance of the TestParameterResult
+     * @param refValue An object of RefValue with the reference values
+     * @param result The result of the testParameter
+     * @param metric The metric of the result
+     * @param chemicalAnalysisDate the date of chemical analysis
+     */
+    public TestParameterResult(RefValue refValue , String result , String metric,Date chemicalAnalysisDate){
+        resultValidation(result);
+        metricValidation(metric);
+        this.refValue=refValue;
+        this.result = result;
+        this.metric = metric;
+        this.chemicalAnalysisDate = chemicalAnalysisDate;
     }
 
     /**

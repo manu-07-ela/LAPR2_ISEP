@@ -133,7 +133,7 @@ public class CSVFileReader {
                         if(calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2])!=null) {
                             createTest(cl, nhsCode, ttStore.getTestTypeByDescription(tempArr[11]), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]), validParametersStringList, parametersNumbList, tempArr, date);
                         }else{
-                            throw new IllegalArgumentException("This laboratory doesn´t exist");
+                            System.out.printf("Error in line %d : This laboratory doesn´t exist\n", i);
                         }
                         } catch (IllegalArgumentException | IllegalAccessException | ClassNotFoundException | InstantiationException | ParseException | BarcodeException e) {
                         System.err.printf("Error in line %d : %s%n", i, e.getMessage());
@@ -161,7 +161,7 @@ public class CSVFileReader {
             createBarcode(t);
             t.setSamplesAddDate(samples);
             for (int i = 0; i < test.size(); i++) {
-                t.addTestResult(test.get(i), tempArr[testnumb.get(i)], testType.getExternalModule().getRefValue(parametersString.get(i)).getMetric());
+                t.addTestResultWithDate(test.get(i), tempArr[testnumb.get(i)], testType.getExternalModule().getRefValue(parametersString.get(i)).getMetric(),tpr);
             }
             t.setStateOfTest(Test.StateOfTest.validated);
             tStore.saveTest(t);

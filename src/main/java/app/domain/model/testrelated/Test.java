@@ -131,10 +131,8 @@ public class Test implements Serializable {
         this.samples = new ArrayList<>();
         this.lcv = new LabCoordinatorValidation();
         this.tpr = new TestParameterResult();
-        setSamplesAddDate(samplesAddDate);
         lcv.setLabCoordinatorDate(LabCoordDate);
         md.setCreatedAt(createdAt);
-        tpr.setChemicalAnalysisDate(chemicalAnalysisDate);
     }
 
 
@@ -294,6 +292,32 @@ public class Test implements Serializable {
         for (TestParameter testParameter: testParameterList) {
             if (testParameter.getParameterId().equals(parameterID)){
                     verificacao =  testParameter.addResult(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric);
+                if (!verificacao){
+                    return false;
+                }
+                countAddResult++;
+            }
+        }
+        if (countAddResult==testParameterList.size()){
+            stateOfTest = StateOfTest.samplesAnalyzed;
+            countAddResult=0;
+        }
+        return verificacao;
+
+    }
+
+    /**
+     * It adds the result of a TestParameter
+     * @param parameterID The code of the parameter
+     * @param result the result of the TestParameter
+     * @param metric the metric of the result
+     * @param chemicalAnalysisDate the date of Chemical Analysis
+     */
+    public boolean addTestResultWithDate(String  parameterID, String result, String metric,Date chemicalAnalysisDate) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        boolean verificacao=false;
+        for (TestParameter testParameter: testParameterList) {
+            if (testParameter.getParameterId().equals(parameterID)){
+                verificacao =  testParameter.addResultWithDate(testType.getExternalModule().getRefValue(testParameter.getParameterId()) ,result,metric,chemicalAnalysisDate);
                 if (!verificacao){
                     return false;
                 }

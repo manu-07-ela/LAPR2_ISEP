@@ -1,6 +1,7 @@
 package app.domain.model.testrelated;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class TestParameter implements Serializable {
 
@@ -57,6 +58,24 @@ public class TestParameter implements Serializable {
     public boolean addResult(RefValue refValue, String result, String metric){
         try {
             tparamresult = new TestParameterResult(refValue, result, metric);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
+    }
+
+    /**
+     * It adds the result of the testParameter
+     * @param refValue An object of RefValue with the reference values
+     * @param result The result of the testParameter
+     * @param metric the metric of the result
+     * @param chemicalAnalysisDate the date of chemicalAnalysisDate
+     * @return true if the result was successful
+     */
+    public boolean addResultWithDate(RefValue refValue, String result, String metric, Date chemicalAnalysisDate){
+        try {
+            tparamresult = new TestParameterResult(refValue, result, metric,chemicalAnalysisDate);
             return true;
         }catch (Exception e){
             return false;
