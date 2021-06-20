@@ -321,6 +321,7 @@ public class SimpleLinearRegression implements RegressionModel {
 
     @Override
     public double r2() {
+        System.out.println(r2());
         return r2();
     }
 }

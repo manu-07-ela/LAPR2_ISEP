@@ -2,19 +2,34 @@
 skinparam classAttributeIconSize 0
 
 class Company {
++createCovid19ReportSimple(xInterval, yInterval, xHistoricalPoints,yHistoricalPoints, confidenceLevel,significanceLevel,currentDay,typeOfData)
++createCovid19ReportMultiple(x1Interval, x2Interval, yInterval, x1HistoricalPoints, x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData)
++sendCovid19Report(report)
 }
 
-class Timer{
+class SendAutomaticallyCovid19Report() {
++SendAutomaticallyCovid19Report()
++createCovid19ReportSimple(initialDate, endDate,currentDay, historicalPoints, typeOfData,independentVariable,significanceLevel,confidenceLevel)
++createCovid19ReportMultiple(initialDate, endDate, currentDay,historicalPoints,typeOfData,significanceLevel,confidenceLevel)
++readFromConfigurationFile()
 }
 
-class OperationTask{
+class TestStore(){
++getIntervalTestList(initialDate, endDate)
++getCovidTestsLstByInterval(initialDate, endDate)
++getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate)
++getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay, historicalPoints)
++getNumberOfTestsPerformedForDayInInterval(initialDate, endDate)
++getNumberOfTestsPerformedForDayHistoricalPoints(currentDay, historicalPoints)
++getMeanAgeForDayInInterval(initialDate, endDate)
++getMeanAgeForDayHistoricalPoints(currentDay, historicalPoints)
++getNumberOfTestsPerformedForWeekHistoricalPoints(currentDay,historicalPoints)
++getNumberOfPositiveCovidTestsForWeekHistoricalPoints(currentDay, historicalPoints)
++getMeanAgeForWeekHistoricalPoints(currentDay,historicalPoints)
+
 }
 
 
-
-Company ..> Timer
-
-
-
-
+Company..>SendAutomaticallyCovid19Report
+Company "1"-->"1" TestStore : uses
 @enduml
