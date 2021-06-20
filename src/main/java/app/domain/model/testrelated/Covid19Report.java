@@ -16,7 +16,8 @@ public class Covid19Report {
 
     private String report;
 
-    private RegressionModel regression;
+    private SimpleLinearRegression regression;
+    private MultipleLinearRegression regressionMultiple;
 
     private double[] x1Interval;
 
@@ -33,6 +34,8 @@ public class Covid19Report {
     private double confidenceLevel;
 
     private double significanceLevel;
+
+    private double r2;
 
 
     /**
@@ -68,11 +71,10 @@ public class Covid19Report {
             this.dateInformation = getHistoricalWeeks();
         }
         regression = new SimpleLinearRegression(x1Interval,yInterval, x1HistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation);
-        this.report = regression.regressionInformation();
+        this.r2 = regression.getR2();
+        this.report = regression.toString();
     }
-    public double r2(){
-        return regression.r2();
-    }
+
     public Covid19Report(double[] x1Interval, double[] x2Interval, double[] yInterval, double[] x1HistoricalPoints, double[] x2HistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel,Date currentDay, String typeOfDate) {
         this.x1Interval = x1Interval;
         this.x2Interval = x2Interval;
@@ -88,8 +90,9 @@ public class Covid19Report {
         }else {
             this.dateInformation = getHistoricalWeeks();
         }
-        regression = new MultipleLinearRegression(x1Interval, x2Interval, yInterval, confidenceLevel, significanceLevel,  dateInformation, yHistoricalPoints, x1HistoricalPoints, x2HistoricalPoints);
-        this.report = regression.regressionInformation();
+        regressionMultiple = new MultipleLinearRegression(x1Interval, x2Interval, yInterval, confidenceLevel, significanceLevel,  dateInformation, yHistoricalPoints, x1HistoricalPoints, x2HistoricalPoints);
+        this.r2 = regressionMultiple.rSquare();
+        this.report = regression.toString();
     }
 
     /**
@@ -143,5 +146,9 @@ public class Covid19Report {
 
     public String getReport(){
         return report;
+    }
+
+    public double getR2(){
+        return  r2;
     }
 }

@@ -1,40 +1,93 @@
 ----------* The regression model fitted using data from the interval *----------
-y = 0,12x + -1,49
+y = NaNx + NaN
 
 ----------* Other statistics *----------
-R^2 = 0,021
-R^2 adjusted = -0,142
-R = 0,145
+R^2 = NaN
+R^2 adjusted = NaN
+R = NaN
 
 ----------* Significance model with Anova *----------
                      Sum of squares          Degrees of freedom          Root mean          Test statistic f 
- Regression        |     0,46           |             1            |      0,46        |          0,13        
- Error             |     21,41           |             6            |      3,57        |                       
- Total             |     21,88           |             7            |                  |                       
+ Regression        |     NaN           |             1            |      NaN        |          NaN        
+ Error             |     NaN           |             6            |      NaN        |                       
+ Total             |     NaN           |             7            |                  |                       
 
-Decision: (f0 = 0,13) <= (f0,05(1, 6) = 5,99)
+Decision: (f0 = NaN) <= (f0,05(1, 6) = 5,99)
 Don't reject H0, the model is not significant
 
 ----------* Hypothesis tests for regression coefficients *----------
 H0: b = 0
 H1: b != 0 
-t observed = 0,36 
+t observed = NaN 
 Don't reject H0
 
 H0: a = 0
 H1: a != 0 
-t observed = -0,11 
+t observed = NaN 
 Don't reject H0
 
 ----------* Prediction values *----------
 
 Date                    |          Number of OBSERVED positive cases          |          Number of ESTIMATED positive cases           |          95,0% intervals             
-29/03/2021 - 03/04/2021              |                       3,00                          |                       1,75                           |          ] -10,37; 13,87 [             
-05/04/2021 - 10/04/2021              |                       1,00                          |                       2,09                           |          ] -7,97; 12,14 [             
-12/04/2021 - 17/04/2021              |                       3,00                          |                       1,81                           |          ] -9,89; 13,52 [             
-19/04/2021 - 24/04/2021              |                       1,00                          |                       1,47                           |          ] -12,40; 15,34 [             
-26/04/2021 - 01/05/2021              |                       1,00                          |                       1,84                           |          ] -9,71; 13,39 [             
-03/05/2021 - 08/05/2021              |                       1,00                          |                       2,09                           |          ] -7,97; 12,14 [             
-10/05/2021 - 15/05/2021              |                       1,00                          |                       1,76                           |          ] -10,30; 13,82 [             
-17/05/2021 - 22/05/2021              |                       0,00                          |                       -1,49                           |          ] -34,98; 32,00 [             
-24/05/2021 - 29/05/2021              |                       0,00                          |                       1,22                           |          ] -14,23; 16,68 [             
+19/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+18/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+17/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+16/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+15/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+14/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+12/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+11/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+10/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+09/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+08/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+07/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+05/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+04/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+03/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+
+----------* The regression model fitted using data from the interval *----------
+y = NaNx + NaN
+
+----------* Other statistics *----------
+R^2 = NaN
+R^2 adjusted = NaN
+R = NaN
+
+----------* Significance model with Anova *----------
+                     Sum of squares          Degrees of freedom          Root mean          Test statistic f 
+ Regression        |     NaN           |             1            |      NaN        |          NaN        
+ Error             |     NaN           |             6            |      NaN        |                       
+ Total             |     NaN           |             7            |                  |                       
+
+Decision: (f0 = NaN) <= (f0,05(1, 6) = 5,99)
+Don't reject H0, the model is not significant
+
+----------* Hypothesis tests for regression coefficients *----------
+H0: b = 0
+H1: b != 0 
+t observed = NaN 
+Don't reject H0
+
+H0: a = 0
+H1: a != 0 
+t observed = NaN 
+Don't reject H0
+
+----------* Prediction values *----------
+
+Date                    |          Number of OBSERVED positive cases          |          Number of ESTIMATED positive cases           |          95,0% intervals             
+08/03/2021 - 13/03/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+15/03/2021 - 20/03/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+22/03/2021 - 27/03/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+29/03/2021 - 03/04/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+05/04/2021 - 10/04/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+12/04/2021 - 17/04/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+19/04/2021 - 24/04/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+26/04/2021 - 01/05/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+03/05/2021 - 08/05/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+10/05/2021 - 15/05/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+17/05/2021 - 22/05/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+24/05/2021 - 29/05/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+31/05/2021 - 05/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+07/06/2021 - 12/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             
+14/06/2021 - 19/06/2021              |                       0,00                          |                       NaN                           |          ] NaN; NaN [             

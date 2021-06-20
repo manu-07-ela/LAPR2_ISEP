@@ -5,7 +5,7 @@ import org.apache.commons.math3.distribution.TDistribution;
 
 import java.util.List;
 
-public class MultipleLinearRegression implements RegressionModel {
+public class MultipleLinearRegression {
 
     private final double[][] matrixX;
     private final double[][] matrixXTXInverse;
@@ -20,6 +20,7 @@ public class MultipleLinearRegression implements RegressionModel {
     private  double[] historicalPointsX1;
     private  double[] historicalPointsX2;
     private double  y;
+    private double r2;
     private final double f0;
     private double trustLevel;
     private double significanceLevel;
@@ -49,15 +50,12 @@ public class MultipleLinearRegression implements RegressionModel {
         double[][] matrixXTX = matrixXXT(matrixXTransposed, matrixX);
         matrixXTY = matrixXTY(matrixXTransposed, y);
         matrixXTXInverse = invert(matrixXTX);
-
         matrixB = multiplyBiArrayWithArray(matrixXTXInverse, matrixXTY);
         double[] matrixYHat = multiplyBiArrayWithArray(matrixX, matrixB);
         this.cjj = cjj();
         f0 = testStatistics();
         matrixHypotheses = hypothesisTest(significanceLevel);
         this.historicalPoints = historicalPoints;
-
-
         this.confidenceInterval = confidenceInterval();
 
 
@@ -406,13 +404,6 @@ public class MultipleLinearRegression implements RegressionModel {
         return stringBuilder.toString();
     }
 
-    @Override
-    public String regressionInformation() {
-        return toString();
-    }
 
-    @Override
-    public double r2() {
-        return r2();
-    }
+
 }

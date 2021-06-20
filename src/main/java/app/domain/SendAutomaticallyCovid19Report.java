@@ -39,20 +39,35 @@ public class SendAutomaticallyCovid19Report {
         double[] x1Interval;
         double[] yHistoricalPoints;
         double[] yInterval;
+        Covid19Report covid19Report = null;
         this.tStore = company.getTestStore();
 
-        if (independentVariable.equals("Tests Performed")){
-            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-            x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
-            x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
-        }else{
-            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-            x1Interval = tStore.getMeanAgeForDayInInterval(initialDate,endDate);
-            x1HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay,historicalPoints);
+        if (independentVariable.equalsIgnoreCase("Tests Performed") && typeOfData.equalsIgnoreCase("Day")) {
+            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate);
+            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay, historicalPoints);
+            x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate, endDate);
+            x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay, historicalPoints);
+            covid19Report = this.company.createCovid19ReportSimple(x1Interval, yInterval, x1HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData);
+        } else if (independentVariable.equalsIgnoreCase("Mean Age") && typeOfData.equalsIgnoreCase("Day")){
+            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate);
+            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay, historicalPoints);
+            x1Interval = tStore.getMeanAgeForDayInInterval(initialDate, endDate);
+            x1HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay, historicalPoints);
+            covid19Report = this.company.createCovid19ReportSimple(x1Interval, yInterval, x1HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData);
+        }else if (independentVariable.equals("Tests Performed") && typeOfData.equalsIgnoreCase("Week")){
+            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate);
+            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForWeekHistoricalPoints(currentDay, historicalPoints);
+            x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate, endDate);
+            x1HistoricalPoints = tStore.getNumberOfTestsPerformedForWeekHistoricalPoints(initialDate, historicalPoints);
+            covid19Report = this.company.createCovid19ReportSimple(x1Interval, yInterval, x1HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData);
+        }else if (independentVariable.equals("Mean Age") && typeOfData.equalsIgnoreCase("Week")){
+            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate);
+            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForWeekHistoricalPoints(currentDay, historicalPoints);
+            x1Interval = tStore.getMeanAgeForDayInInterval(initialDate, endDate);
+            x1HistoricalPoints = tStore.getMeanAgeForWeekHistoricalPoints(initialDate, historicalPoints);
+            covid19Report = this.company.createCovid19ReportSimple(x1Interval, yInterval, x1HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData);
         }
-        return this.company.createCovid19ReportSimple(x1Interval,yInterval,x1HistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,typeOfData);
+        return covid19Report;
 
     }
 
@@ -63,14 +78,26 @@ public class SendAutomaticallyCovid19Report {
         double[] x2Interval;
         double[] yHistoricalPoints;
         double[] yInterval;
+        Covid19Report covid19Report;
         this.tStore = company.getTestStore();
-        yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-        yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-        x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
-        x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
-        x2Interval = tStore.getMeanAgeForDayInInterval(initialDate, endDate);
-        x2HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay, historicalPoints);
-        return this.company.createCovid19ReportMultiple(x1Interval,x2Interval,yInterval,x1HistoricalPoints,x2HistoricalPoints, yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,typeOfData);
+        if (typeOfData.equalsIgnoreCase("Day")){
+            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate);
+            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay, historicalPoints);
+            x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate, endDate);
+            x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay, historicalPoints);
+            x2Interval = tStore.getMeanAgeForDayInInterval(initialDate, endDate);
+            x2HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay, historicalPoints);
+            covid19Report = this.company.createCovid19ReportMultiple(x1Interval, x2Interval, yInterval, x1HistoricalPoints, x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData);
+        }else {
+            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate);
+            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForWeekHistoricalPoints(currentDay, historicalPoints);
+            x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate, endDate);
+            x1HistoricalPoints = tStore.getNumberOfTestsPerformedForWeekHistoricalPoints(currentDay, historicalPoints);
+            x2Interval = tStore.getMeanAgeForDayInInterval(initialDate, endDate);
+            x2HistoricalPoints = tStore.getMeanAgeForWeekHistoricalPoints(currentDay, historicalPoints);
+            covid19Report = this.company.createCovid19ReportMultiple(x1Interval, x2Interval, yInterval, x1HistoricalPoints, x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData);
+        }
+        return covid19Report;
     }
 
     public void readFromConfigurationFile() throws ParseException {
@@ -105,7 +132,7 @@ public class SendAutomaticallyCovid19Report {
         if (classAux.equals("app.SimpleLinearRegression")){
             covid19ReportTestDay = createCovid19ReportSimple(initialDate, endDate,currentDate, historicalPoints,"Day", "Tests performed",significanceLevel,confidenceLevel);
             covid19ReportAgeDay = createCovid19ReportSimple(initialDate, endDate,currentDate, historicalPoints,"Day", "Mean Age",significanceLevel,confidenceLevel);
-            if (covid19ReportTestDay.r2()>covid19ReportAgeDay.r2()){
+            if (covid19ReportTestDay.getR2()>covid19ReportAgeDay.getR2()){
                 covidReportWeeks = createCovid19ReportSimple(initialDate, endDate, currentDate, historicalPoints, "Week", "Tests performed", significanceLevel, confidenceLevel);
                 company.sendCovid19Report(covid19ReportTestDay.getReport() +"\n"+covidReportWeeks.getReport());
             }else {

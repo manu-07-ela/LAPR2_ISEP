@@ -15,7 +15,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -103,8 +102,7 @@ public class SendCovid19ReportUi {
             Date initial = formatter.parse(initialAux);
             Date end = formatter.parse(endAux);
             Date current = formatter.parse(currentAux);
-            System.out.println(txtHistoricalPoints.getText());
-            if (regressionModel.getValue().toString().equals("Simple Linear")){
+            if (regressionModel.getValue().toString().equalsIgnoreCase("Simple Linear")){
                 sendCovid19ReportController.sendCovid19Report(initial,end,current,Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(),independentVariable.getValue().toString(),Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));
             }else{
                 sendCovid19ReportController.sendCovid19ReportMultiple(initial, end, current, Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(), Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));

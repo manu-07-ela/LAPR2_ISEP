@@ -106,7 +106,6 @@ public class Company implements Serializable {
      * @param designation Company's designation
      */
     public Company(String designation) {
-        System.out.println("OLA");
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
@@ -122,7 +121,6 @@ public class Company implements Serializable {
         this.testStore = new TestStore();
         this.chemicalLaboratory = new ChemicalLaboratory("Chemical Laboratory", "Oxford Street", "23145623781", "7293817263");
         this.sendAutomaticallyCovid19Report = new SendAutomaticallyCovid19Report(this);
-        System.out.println("OLA1");
         Timer timer = new Timer();
         Date current = new Date();
         current.setHours(17);
@@ -130,7 +128,6 @@ public class Company implements Serializable {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("ola");
                 try {
                     sendAutomaticallyCovid19Report.readFromConfigurationFile();
                 } catch (ParseException e) {
@@ -269,24 +266,5 @@ public class Company implements Serializable {
         return new Overview(initialDate,endDate,testList);
     }
 
-    private void setTask(){
-        Timer timer = new Timer();
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                System.out.println("OLA");
-                /*try {
 
-                    //sendAutomaticallyCovid19ReportController.readFromConfigurationFile();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }*/
-
-
-                System.out.println("OLA");
-            }
-       };
-        timer.schedule(timerTask, 0,5000);
-
-    }
 }

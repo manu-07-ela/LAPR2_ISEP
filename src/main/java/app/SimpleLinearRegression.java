@@ -21,7 +21,7 @@ import java.util.List;
  *
  */
 
-public class SimpleLinearRegression implements RegressionModel {
+public class SimpleLinearRegression{
     private final double intercept, slope;
     private final double r2;
     private final double svar0, svar1;
@@ -101,6 +101,10 @@ public class SimpleLinearRegression implements RegressionModel {
         this.xHistorical = xHistoricalPoints;
         this.yHistorical = yHistoricalPoints;
         this.dateHistorical = datesHistoricalPoints;
+    }
+
+    public double getR2() {
+        return r2;
     }
 
     public double getfObs() {
@@ -314,14 +318,5 @@ public class SimpleLinearRegression implements RegressionModel {
         return s.toString();
     }
 
-    @Override
-    public String regressionInformation() {
-        return toString();
-    }
 
-    @Override
-    public double r2() {
-        System.out.println(r2());
-        return r2();
-    }
 }
