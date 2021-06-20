@@ -105,9 +105,9 @@ public class SendCovid19ReportUi {
             Date current = formatter.parse(currentAux);
             System.out.println(txtHistoricalPoints.getText());
             if (regressionModel.getValue().toString().equals("Simple Linear")){
-                sendCovid19ReportController.sendCovid19ReportSimple(initial,end,current,Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(), independentVariable.getValue().toString(),Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));
+                //sendCovid19ReportController.sendCovid19ReportSimple(initial,end,current,Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(), independentVariable.getValue().toString(),Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));
             }else{
-                sendCovid19ReportController.sendCovid19ReportMultiple(initial, end, current, Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(), Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));
+                //sendCovid19ReportController.sendCovid19ReportMultiple(initial, end, current, Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(), Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));
             }
             try {
                 Stage stageAdminUi = new Stage();

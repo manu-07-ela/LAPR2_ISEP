@@ -99,7 +99,7 @@ public class Company implements Serializable {
     /**
      *
      */
-    private final SendAutomaticallyCovid19ReportController sendAutomaticallyCovid19ReportController;
+    //private final SendAutomaticallyCovid19ReportController sendAutomaticallyCovid19ReportController;
 
     /**
      * Creates an instance of Company
@@ -120,8 +120,8 @@ public class Company implements Serializable {
         this.clientStore = new ClientStore();
         this.testStore = new TestStore();
         this.chemicalLaboratory = new ChemicalLaboratory("Chemical Laboratory", "Oxford Street", "23145623781", "7293817263");
-        this.sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
-        setTask();
+        //this.sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
+        //setTask();
     }
 
     /**
@@ -255,18 +255,22 @@ public class Company implements Serializable {
     private void setTask(){
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
-            final SendAutomaticallyCovid19ReportController sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
+            //final SendAutomaticallyCovid19ReportController sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
             @Override
             public void run() {
+                /*
                 try {
                     System.out.println("OLA");
                     sendAutomaticallyCovid19ReportController.readFromConfigurationFile();
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+
+                 */
+                System.out.println("OLA");
             }
         };
-        timer.scheduleAtFixedRate(timerTask, 0,5000);
+        //timer.scheduleAtFixedRate(timerTask, 0,5000);
 
     }
 }
