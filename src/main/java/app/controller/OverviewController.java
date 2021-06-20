@@ -96,6 +96,9 @@ public class OverviewController {
         return overview.getTestWaitingForResults();
     }
 
+    public List<Date> getIntervalDates(){
+        return overview.getIntervalDates();
+    }
     /**
      * Get the number of tests waiting for diagnosis in the system
      * @return the number of tests waiting for diagnosis in the system

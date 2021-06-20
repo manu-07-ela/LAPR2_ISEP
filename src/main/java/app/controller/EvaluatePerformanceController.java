@@ -1,14 +1,12 @@
 package app.controller;
 
 import app.Serialization;
-<<<<<<< HEAD
 import app.domain.model.testrelated.Overview;
 import app.domain.model.testrelated.Test;
-=======
->>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
@@ -18,16 +16,12 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.net.URL;
-<<<<<<< HEAD
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-=======
-import java.util.Arrays;
-import java.util.List;
->>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f
 
 public class EvaluatePerformanceController{
 
@@ -51,6 +45,8 @@ public class EvaluatePerformanceController{
     private List<Integer> testsWaitingForDiagnosis;
 
     private List<Integer> testWaitingForResults;
+
+    private List<Date> intervalDates;
 
     @FXML
     private LineChart performanceChart;
@@ -86,15 +82,16 @@ public class EvaluatePerformanceController{
      * @throws IllegalAccessException if the object we intend to create it's not  correctly
      * @throws InstantiationException if we can't instantiate an object
      */
-    public void setLabelUI(Stage stage, OverviewController overviewController, String algorithm, int[] sequence, List<Date> dates, List<Integer> testProcessed, List<Integer> testsWaitingForDiagnosis, List<Integer> testWaitingForResults) throws ClassNotFoundException, IllegalAccessException, InstantiationException, ParseException {
+    public void setLabelUI(Stage stage, OverviewController overviewController, String algorithm, int[] sequence, List<Date> dates, List<Integer> testProcessed, List<Integer> testsWaitingForDiagnosis, List<Integer> testWaitingForResults,List<Date> intervalDates) throws ClassNotFoundException, IllegalAccessException, InstantiationException, ParseException {
         this.stage = stage;
         this.overviewController=overviewController;
         this.dates=dates;
         this.testProcessed=testProcessed;
         this.testsWaitingForDiagnosis=testsWaitingForDiagnosis;
         this.testWaitingForResults=testWaitingForResults;
+        this.intervalDates=intervalDates;
         seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
-        txtSubsequence.setText(Arrays.toString(seq));
+        txtSubsequence.setText(Arrays.toString(getPeriodSubSequenceMaxSum(seq,sequence)));
         loadLineChart(sequence);
     }
 
@@ -174,8 +171,6 @@ public class EvaluatePerformanceController{
         }
         stage.close();
     }
-
-
 
 
     public List<Integer> showTestsByWeek(List<Integer> testsDay, List<Date> dates) throws ParseException {
@@ -265,5 +260,40 @@ public class EvaluatePerformanceController{
         return testsYears;
 
     }
+
+    public String[] getPeriodSubSequenceMaxSum(int[] subSeq,int[] sequence){
+
+        String[] period = new String[2];
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
+        int aux=0;
+
+        boolean flag = false;
+
+        for(int i=0; i<sequence.length;i++){
+            if(!flag)
+            if (sequence[i] == subSeq[0]){
+                aux++;
+                String date= formatter.format(intervalDates.get(i));
+                period[0]= date;
+                for (int j=1;j<subSeq.length;j++){
+                    if(sequence[j]==subSeq[j]){
+                        aux++;
+                    }
+                }
+                if(aux==subSeq.length){
+                    String endDate= formatter.format(intervalDates.get(i+aux));
+                    period[1]=endDate;
+                    flag=true;
+                }
+            }
+        }
+
+        return period;
+
+    }
+
+
 
 }

@@ -114,7 +114,7 @@ public class OverviewTestUi {
 
     public void evaluetePerformance() throws ClassNotFoundException, IllegalAccessException, InstantiationException, ParseException {
         runEvaluetePerformance();
-        evaluatePerformanceController.setLabelUI(stageEvaluatePerformance,overviewCtrl,availableAlgorithms.getValue(),overviewCtrl.getSequence(),overviewCtrl.getDates(),overviewCtrl.getTotalNumberOfTestsProcessed(),overviewCtrl.getNumberOfTestsWaitingForDiagnosis(),overviewCtrl.getNumberOfTestsWaitingForResults());
+        evaluatePerformanceController.setLabelUI(stageEvaluatePerformance,overviewCtrl,availableAlgorithms.getValue(),overviewCtrl.getSequence(),overviewCtrl.getDates(),overviewCtrl.getTotalNumberOfTestsProcessed(),overviewCtrl.getNumberOfTestsWaitingForDiagnosis(),overviewCtrl.getNumberOfTestsWaitingForResults(),overviewCtrl.getIntervalDates());
         closePlatform.getScene().getWindow().hide();
     }
 

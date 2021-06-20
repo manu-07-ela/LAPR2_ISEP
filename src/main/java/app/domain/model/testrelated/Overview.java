@@ -27,6 +27,8 @@ public class Overview {
 
     private List<Integer> testProcessed;
 
+    private List<Date> intervalDates;
+
     private Date initialDate;
 
     private Date endDate;
@@ -239,7 +241,12 @@ public class Overview {
         return testWaitingForResults;
     }
 
+    public List<Date> getIntervalDates() {
+        return intervalDates;
+    }
+
     public void getSequenceTestWaitingForResults()  {
+        intervalDates = new ArrayList<>();
 
         Date date1 = new Date(initialDate.getTime());
         Date date2 ;
@@ -249,6 +256,7 @@ public class Overview {
             int aux = 0;
 
             date2 = new Date(date1.getTime());
+            intervalDates.add(date2);
             date2.setMinutes(date2.getMinutes() + 30);
 
             if(date2.getDay()!=0) {
@@ -274,9 +282,12 @@ public class Overview {
                 date1.setDate(date1.getDate() + 1);
             }
         }while (date1.before(endDate));
+        intervalDates.add(endDate);
     }
 
     public void getSequenceTestWaitingForDiagnosis()  {
+
+
         Date date1 = new Date(initialDate.getTime());
         Date date2;
         do {
