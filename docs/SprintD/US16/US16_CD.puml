@@ -9,11 +9,14 @@ package Controller{
 class OverviewController{
 +getIntervalTestList(initialDate,endDate)
 +getNumberOfClients()
++getNumberTestsSystem()
++getNumberClientsSystem()
 +getNumberOfTestsWaitingForResults()
 +getNumberOfTestsWaitingForDiagnosis()
 +getTotalNumberOfTestsProcessed()
 +getAvailableAlgorithms()
 +getSubsequenceWithMaximumSum()
++getPeriodSubSequenceWithMaximumSum()
 }
 }
 
@@ -28,6 +31,9 @@ class BruteForceAdapter{
 package model{
 class Company{
 +getTestStore()
++getClientStore()
++createOverview()
+
 }
 class Test{
 -client
@@ -39,12 +45,22 @@ class Test{
 class Client{
 }
 class Overview{
++getAssociatedClients()
++getTestsWaitingForResultsDay()
++getTestsWaitingForDiagnosisDay()
++getNumberOfTestsPrcossedDay()
++getIntervalDates()
++getSequenceTestWaitingForResults()
++getSequenceTestValidated()
++getSequenceAux()
 +getNumberOfClients()
 +getNumberOfTestsWaitingForResults()
 +getNumberOfTestsWaitingForDiagnosis()
 +getTotalNumberOfTestsProcessed()
 +getAvailableAlgorithms()
 +getSubsequenceWithMaximumSum()
++getPeriodSubSequenceWithMaximumSum()
++ periodSubSequenceMaxSum(subSequence, sequence)
 }
 }
 
@@ -53,8 +69,11 @@ class Overview{
 package store{
 class TestStore{
 +getIntervalTestList(initialDate,endDate)
++getNumberTestsSystem()
++
 }
 class ClientStore{
++getNumberOfClientsInTheSystem()
 }
 }
 
