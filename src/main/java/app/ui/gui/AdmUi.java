@@ -88,7 +88,8 @@ public class AdmUi {
 
     @FXML
     void registerEmployeeClick() {
-        new RegisterEmployeeUI();
+        RegisterEmployeeUI testTypeUi = new RegisterEmployeeUI();
+        testTypeUi.run();
     }
 
     @FXML
