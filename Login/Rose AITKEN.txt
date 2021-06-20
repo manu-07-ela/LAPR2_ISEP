@@ -1,0 +1,32 @@
+ID: RoseAITKEN2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: uFXqk4OuBR
+=======
+PASSWORD: JzVbNTtvre
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: jDdZsUOm2t
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: i440rS0Qjj
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: DM6OwsFnzZ
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: JNE1gKoG7v
+ID: RoseAITKEN2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: nJ7DbTk9Nf
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: TGIfB3HdYU
+=======
+PASSWORD: WhWzA8dSM4
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: 6iVtA6eWZh
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: yF8hV3IIvq
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: YzcPlfd75N
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: veS4Wm3ROo
+ID: RoseAITKEN2155@gmail.com
+PASSWORD: jwXf2SKgDV
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

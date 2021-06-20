@@ -1,0 +1,32 @@
+ID: AuroraPERRY2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: kTOul7w1NR
+=======
+PASSWORD: 3I5BUmu6qp
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: yubedJqO3x
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: VDAwtbhzNz
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: 2RIdpsbhUV
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: dYlQlso5Es
+ID: AuroraPERRY2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 0myRNKOHxs
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: C37yfdQAuW
+=======
+PASSWORD: Xi21XfwJ9Q
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: UQFsAotWMz
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: 5khbZJZozA
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: JR2Ytjnerp
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: yTPXQ1NRsn
+ID: AuroraPERRY2155@gmail.com
+PASSWORD: bd2Fh0lq8S
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

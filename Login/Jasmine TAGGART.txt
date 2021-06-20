@@ -1,0 +1,32 @@
+ID: JasmineTAGGART2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: L2rtyti21m
+=======
+PASSWORD: J7IPyoCs6S
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: I7XYBq6YxW
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: SDyyzR91gp
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: Z8F5Pgngyy
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: OUGYfjgjJM
+ID: JasmineTAGGART2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: 1gmq3VCrEo
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: y2AR7gY4BF
+=======
+PASSWORD: 7zWAzOhGgE
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: ja57Ep6KYh
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: ybvn5A0YDt
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: xxGUwFCKyv
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: A61j6ZcMA7
+ID: JasmineTAGGART2155@hotmail.com
+PASSWORD: uuhaGHyFd6
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

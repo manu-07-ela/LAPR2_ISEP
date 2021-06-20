@@ -1,0 +1,32 @@
+ID: SofiaCORR2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: xPvSDIRdym
+=======
+PASSWORD: ZgINhRvUDg
+ID: SofiaCORR2155@gmail.com
+PASSWORD: V4pBVSjeDd
+ID: SofiaCORR2155@gmail.com
+PASSWORD: DnNCHHaRQJ
+ID: SofiaCORR2155@gmail.com
+PASSWORD: n2hss45Yfv
+ID: SofiaCORR2155@gmail.com
+PASSWORD: Km37eEeJBU
+ID: SofiaCORR2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: tsLkZe58xN
+ID: SofiaCORR2155@gmail.com
+PASSWORD: ZL8MymWY6w
+=======
+PASSWORD: RD5XjCjtIj
+ID: SofiaCORR2155@gmail.com
+PASSWORD: VAshubEoV2
+ID: SofiaCORR2155@gmail.com
+PASSWORD: tpsqlquEUe
+ID: SofiaCORR2155@gmail.com
+PASSWORD: yLRIydaTfb
+ID: SofiaCORR2155@gmail.com
+PASSWORD: tL5CBRR2sT
+ID: SofiaCORR2155@gmail.com
+PASSWORD: ZLRftmVfwp
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

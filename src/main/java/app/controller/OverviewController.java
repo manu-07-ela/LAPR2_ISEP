@@ -62,7 +62,7 @@ public class OverviewController {
         this.testStore=company.getTestStore();
         this.clientStore=company.getClientStore();
         List<Test> testList = testStore.getIntervalTestList(initialDate, endDate);
-        this.overview=new Overview(initialDate,endDate,testList);
+        this.overview=company.createOverview(initialDate,endDate,testList);
     }
 
     /**
@@ -84,7 +84,7 @@ public class OverviewController {
     /**
      *
      */
-    public List<String> getDates(){
+    public List<Date> getDates(){
         return overview.getDates();
     }
 
@@ -92,24 +92,27 @@ public class OverviewController {
      * Get the number of tests waiting for results in the system
      * @return the number of tests waiting for results in the system
      */
-    public int  getNumberOfTestsWaitingForResults(){
-        return overview.getNumberOfTestWaitingForResults();
+    public List<Integer>  getNumberOfTestsWaitingForResults(){
+        return overview.getTestWaitingForResults();
     }
 
+    public List<Date> getIntervalDates(){
+        return overview.getIntervalDates();
+    }
     /**
      * Get the number of tests waiting for diagnosis in the system
      * @return the number of tests waiting for diagnosis in the system
      */
-    public int  getNumberOfTestsWaitingForDiagnosis(){
-        return overview.getNumberOfTestsWaitingForDiagnosis();
+    public List<Integer>  getNumberOfTestsWaitingForDiagnosis(){
+        return overview.getTestsWaitingForDiagnosis();
     }
 
     /**
      * Get the number of tests processed in the system
      * @return the number of tests processed in the system
      */
-    public int  getTotalNumberOfTestsProcessed(){
-        return overview.getTotalNumberOfTestsProcessed();
+    public List<Integer> getTotalNumberOfTestsProcessed(){
+        return overview.getTestProcessed();
     }
 
     /**
@@ -130,6 +133,14 @@ public class OverviewController {
      */
     public int[] getSubsequenceWithMaximumSum(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         return overview.getSubsequenceWithMaximumSum(algorithm);
+    }
+
+    public void sendAlgorithm(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        overview.setAlgorithm(algorithm);
+    }
+
+    public String[] getPeriodSubSequenceMaxSum(){
+        return overview.getPeriodSubSequenceMaxSum();
     }
 
     /**

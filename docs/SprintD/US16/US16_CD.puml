@@ -64,6 +64,7 @@ OverviewController ..> Test
 
 Company -> Test
 Company -> TestStore
+Company..|>SubsequenceWithMaximumSum
 
 TestMapper ..> TestDto
 TestMapper ..> Test

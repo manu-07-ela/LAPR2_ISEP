@@ -1,0 +1,32 @@
+ID: GeorgiaOATES2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: FCxEcoSuXv
+=======
+PASSWORD: hX6IyJz3mB
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: el2Dr4fuoy
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: H12TAS31B0
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: TecXfsmGGh
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: urMhFZJ6AP
+ID: GeorgiaOATES2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: c7C7YRyM6j
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: qvTDNGiqku
+=======
+PASSWORD: Yo99RClc6P
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: P0OwkSDCR9
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: fKBpEeHU0f
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: 4JAYlfwUpt
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: NIcDo3tqcS
+ID: GeorgiaOATES2155@yahoo.com
+PASSWORD: AKLdKfQptt
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

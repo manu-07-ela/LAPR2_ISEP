@@ -1,0 +1,32 @@
+ID: LaylaBERNARD2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: yV1tD8C18p
+=======
+PASSWORD: FbT0qom6qi
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: V9EUr7objw
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: qEC3ys8UME
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: rA1dzh2YIe
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: c8OlsoHfvd
+ID: LaylaBERNARD2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: ZLYrHJmV7C
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: LttuGZ9gGz
+=======
+PASSWORD: of2IlPiN9g
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: 8eUG1tDSlX
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: NcU3eishcK
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: wMheJLJOFn
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: RJufnCAYm7
+ID: LaylaBERNARD2155@yahoo.com
+PASSWORD: DOySzw60sC
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

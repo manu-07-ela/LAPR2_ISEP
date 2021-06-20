@@ -1,0 +1,32 @@
+ID: SummerGEDDES2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: FSVcLSEUCB
+=======
+PASSWORD: 8crf1yW2yy
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: FfmRXBMw3m
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: RVAOfCS678
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: UVlifQVkvd
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: oPJfWECerp
+ID: SummerGEDDES2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: xiHAWhDlcP
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: xwshoGeU9Q
+=======
+PASSWORD: 7XjGWqFpGj
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: EMngPZIUlP
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: BP4XmHDXq4
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: yemyESaSt6
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: H3inDKHKDu
+ID: SummerGEDDES2155@gmail.com
+PASSWORD: ZyWieusZet
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

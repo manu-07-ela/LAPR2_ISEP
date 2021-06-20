@@ -1,0 +1,32 @@
+ID: ArianaLEGGE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: iNTxR4jbMc
+=======
+PASSWORD: 1VrsYDM2mW
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: GuD8AxMQRa
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: Q0cyxtNkqg
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: uplNj8DAtZ
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: aJg3fnxG94
+ID: ArianaLEGGE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: gM5v3dzQpl
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: 4iaHtpcdlM
+=======
+PASSWORD: 6a0ivxIPjE
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: KjN9uXHULC
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: FUz5A8IbWo
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: bH5BTh8Sw7
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: CyxrNS50j9
+ID: ArianaLEGGE2155@gmail.com
+PASSWORD: 5stg2yPUJ8
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -2,6 +2,11 @@ package app.domain.model;
 
 import app.domain.model.laboratories.ChemicalLaboratory;
 import app.domain.model.testrelated.Covid19Report;
+<<<<<<< HEAD
+=======
+import app.domain.model.testrelated.Overview;
+import app.domain.model.testrelated.Test;
+>>>>>>> d976f7819385cc776b813786356503f8c1d4c1d8
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
@@ -11,6 +16,7 @@ import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -240,5 +246,9 @@ public class Company implements Serializable {
     public void createCovid19ReportMultiple(double[] x1Interval, double[] x2Interval, double[] yInterval, double[] x1HistoricalPoints, double[] x2HistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, String typeOfData){
         new Covid19Report(x1Interval, x2Interval, yInterval, x1HistoricalPoints, x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, typeOfData).sendReportNhs();
 
+    }
+
+    public Overview createOverview(Date initialDate, Date endDate, List<Test> testList) throws ParseException {
+        return new Overview(initialDate,endDate,testList);
     }
 }

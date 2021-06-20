@@ -1,7 +1,7 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-package app{
+
 package ui{
 class SendCovid19ReportUI
 }
@@ -10,22 +10,18 @@ package controller{
 class SendCovid19ReportController
 }
 
-package domain {
+
 package model{
 class Company
-package testrelated{
 class Covid19Report
+class SimpleLinearRegression
 }
+
 package store{
 class TestStore
 }
-}
-
-}
-class SimpleLinearRegression
 package interface{
 interface NhsApi
-}
 }
 
 class SendCovid19ReportController {
@@ -67,7 +63,7 @@ SendCovid19ReportController ....> Company
 SendCovid19ReportController ...> TestStore
 Company"1" --> "*" Covid19Report : uses
 Company "1" -> "1" TestStore : uses
-Company ..> NhsApi
+Company..>NhsApi
 Covid19Report ..> SimpleLinearRegression
 
 

@@ -1,0 +1,32 @@
+ID: CoraFLYNN2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: znmINErt9d
+=======
+PASSWORD: j0I3ZkdcJN
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: QMqIrqgxm4
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: zmqID2V53f
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: 09NR87r0bv
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: stoVhGgctQ
+ID: CoraFLYNN2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: Geir9WCVlQ
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: 9sfXnnoybl
+=======
+PASSWORD: 6304Ul59OH
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: kpHNBBdYEU
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: uvCPce4xAA
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: mcBzCCv1S3
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: zhru10N5jc
+ID: CoraFLYNN2155@yahoo.com
+PASSWORD: q4yOpFwnar
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

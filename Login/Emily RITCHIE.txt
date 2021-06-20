@@ -1,0 +1,32 @@
+ID: EmilyRITCHIE2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: HltXB7ushf
+=======
+PASSWORD: XkNyjFbdaD
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: 9vsNjB4N4V
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: sBGrp6nPJs
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: BpMvcyVLen
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: aMPYbbEF5H
+ID: EmilyRITCHIE2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: vk4Qa5OqT4
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: 3Bi57iIAfm
+=======
+PASSWORD: 3nVB2pntwo
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: mQjlryyGea
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: pLOJtjA02L
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: FtKIdwONt6
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: B5raQf9Wjh
+ID: EmilyRITCHIE2155@hotmail.com
+PASSWORD: mp1kGsmEYi
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

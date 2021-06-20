@@ -1,0 +1,32 @@
+ID: SophiaNOWAK2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Hmo1SUS3sv
+=======
+PASSWORD: zQ3ZFQ4L3G
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: fvqZT5jqrY
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: 8zt9pmp77k
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: FxYUSXfzSj
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: UMsl6SO0JV
+ID: SophiaNOWAK2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 1qzdx6xc6Q
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: pJWMjM8mCu
+=======
+PASSWORD: mWcgwO7dt4
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: 2RrbhxFLPI
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: w7lEugUKpN
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: 2V65aeHVE3
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: zbFmmIh5N2
+ID: SophiaNOWAK2155@gmail.com
+PASSWORD: nemMJEbQUK
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f
