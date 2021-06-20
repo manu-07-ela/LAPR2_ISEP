@@ -91,7 +91,7 @@ public class EvaluatePerformanceController{
         this.testWaitingForResults=testWaitingForResults;
         this.intervalDates=intervalDates;
         seq=overviewController.getSubsequenceWithMaximumSum(algorithm);
-        txtSubsequence.setText(Arrays.toString(getPeriodSubSequenceMaxSum(seq,sequence)));
+        txtSubsequence.setText(Arrays.toString(overviewController.getPeriodSubSequenceMaxSum()));
         loadLineChart(sequence);
     }
 
@@ -258,39 +258,6 @@ public class EvaluatePerformanceController{
         }while (date2.before(dates.get(dates.size()-1)));
 
         return testsYears;
-
-    }
-
-    public String[] getPeriodSubSequenceMaxSum(int[] subSeq,int[] sequence){
-
-        String[] period = new String[2];
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-
-        int aux=0;
-
-        boolean flag = false;
-
-        for(int i=0; i<sequence.length;i++){
-            if(!flag)
-            if (sequence[i] == subSeq[0]){
-                aux++;
-                String date= formatter.format(intervalDates.get(i));
-                period[0]= date;
-                for (int j=1;j<subSeq.length;j++){
-                    if(sequence[j]==subSeq[j]){
-                        aux++;
-                    }
-                }
-                if(aux==subSeq.length){
-                    String endDate= formatter.format(intervalDates.get(i+aux));
-                    period[1]=endDate;
-                    flag=true;
-                }
-            }
-        }
-
-        return period;
 
     }
 

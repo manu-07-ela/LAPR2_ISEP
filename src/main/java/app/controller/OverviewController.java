@@ -62,7 +62,7 @@ public class OverviewController {
         this.testStore=company.getTestStore();
         this.clientStore=company.getClientStore();
         List<Test> testList = testStore.getIntervalTestList(initialDate, endDate);
-        this.overview=new Overview(initialDate,endDate,testList);
+        this.overview=company.createOverview(initialDate,endDate,testList);
     }
 
     /**
@@ -133,6 +133,14 @@ public class OverviewController {
      */
     public int[] getSubsequenceWithMaximumSum(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         return overview.getSubsequenceWithMaximumSum(algorithm);
+    }
+
+    public void sendAlgorithm(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        overview.setAlgorithm(algorithm);
+    }
+
+    public String[] getPeriodSubSequenceMaxSum(){
+        return overview.getPeriodSubSequenceMaxSum();
     }
 
     /**

@@ -35,6 +35,10 @@ public class Overview {
 
     private static int[] sequence;
 
+    private static int[] subSequence;
+
+    private String algorithm;
+
     private List<Date> dates;
 
     /**
@@ -58,6 +62,12 @@ public class Overview {
         getSequenceTestWaitingForResults();
         getSequenceTestWaitingForDiagnosis();
         getSequenceAux();
+
+    }
+
+    public void setAlgorithm(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        this.algorithm = algorithm;
+        subSequence=getSubsequenceWithMaximumSum(algorithm);
     }
 
     public void getIntervalDays() throws ParseException {
@@ -339,5 +349,42 @@ public class Overview {
         Class<?> oClass = Class.forName(classAux);
         SubsequenceWithMaximumSum subMaxSum = (SubsequenceWithMaximumSum) oClass.newInstance();
         return subMaxSum.getSubsequenceWithMaximumSum(sequence);
+    }
+
+    public String[] getPeriodSubSequenceMaxSum(){
+        return periodSubSequenceMaxSum(subSequence,sequence);
+    }
+
+
+    public String[] periodSubSequenceMaxSum(int[] subSeq,int[] sequence) {
+
+        String[] period = new String[2];
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
+        int aux = 0;
+
+        boolean flag = false;
+
+        for (int i = 0; i < sequence.length; i++) {
+            if (!flag)
+                if (sequence[i] == subSeq[0]) {
+                    aux++;
+                    String date = formatter.format(intervalDates.get(i));
+                    period[0] = date;
+                    for (int j = 1; j < subSeq.length; j++) {
+                        if (sequence[j] == subSeq[j]) {
+                            aux++;
+                        }
+                    }
+                    if (aux == subSeq.length) {
+                        String endDate = formatter.format(intervalDates.get(i + aux));
+                        period[1] = endDate;
+                        flag = true;
+                    }
+                }
+        }
+
+        return period;
     }
 }
