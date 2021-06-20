@@ -17,7 +17,7 @@ application to view those results.
 
 **From the client clarifications:**
 
-> **Question:** In US01 which date should be used to arrange the tests in order? The date the test is done or the validation date?
+> **Question:** In US01 which date should be used to arrange the tests in order?The date the test is done or the validation date?
 > 
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8787) The test registration date.
 
@@ -35,17 +35,13 @@ The client tests must be shown ordered from the most recent to the oldest one. T
 
 *Insert here the client acceptance criteria.*
 
-* **AC1:** The client only see tests that have already been validated.
-* **AC2:** The client tests must be shown ordered from the most recent to the oldest one. 
+* **AC1:** The client tests must be shown ordered from the most recent to the oldest one. 
 * **AC3:** The tests are ordered by registration date.
-* **AC4:** The test results are shown only after the client has selected a test.
+* **AC3:** The test results are shown only after the client has selected a test.
 
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
-*US03 - the client has to be registered.
-*US04 - the test performed was registered by the receptionist.
-*US15 - all the tests the client were validated by the Lab Coordinator
 
 ### 1.5 Input and Output Data
 
@@ -124,228 +120,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
 
-* Test test
-
-
-    @Test
-    public void getTestParameterList() {
-    List<TestParameter> listaDeParametros = new ArrayList<>();
-    ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
-    List<ParameterCategory> listPC = new ArrayList();
-    listPC.add(pc);
-    Parameter p = new Parameter("HB000","test","method", pc);
-    Parameter p2 = new Parameter("PLT00","test","method", pc);
-    TestParameterDTO temDto2 = new TestParameterDTO("frefrfe","PLT00");
-    List<TestParameterDTO> listaDeParametrosDTO = new ArrayList<>();
-    listaDeParametrosDTO.add(temDto2);
-    TestParameter tpm1 = new TestParameter(p);
-    TestParameter tpm2 = new TestParameter(p2);
-    // listaDeParametros.add(tpm1);
-    listaDeParametros.add(tpm2);
-    Client la = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
-    TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
-    NhsCode nhs = new NhsCode("123456789012");
-    List<TestType> ttlist = new ArrayList<>();
-    ttlist.add(tt);
-    ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
-    app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
-    
-            Assert.assertEquals(listaDeParametros,test.getTestParameterList());
-        }
-
-
-    @Test
-    public void getDescription(){
-    Company company = new Company("Many Labs");
-    ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
-    Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
-    List<ParameterCategory> list=new ArrayList();
-    list.add(pc1);
-    Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
-    NhsCode nhs = new NhsCode("123456789012");
-    TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
-    RefValue rv = new RefValue("mg",10,20);
-    TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
-    TestParameter tp = new TestParameter(p1,tpr);
-    List<TestParameter> tpList = new ArrayList<>();
-    tpList.add(tp);
-    List<TestType> ttlist = new ArrayList<>();
-    ttlist.add(tt);
-    ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
-    app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
-    
-    
-    
-            String description = test.getDescription();
-            String description2 = "syringe";
-            Assert.assertEquals(description2,description);
-        }
-
-
-    @Test
-    public void getInternalCode(){
-    Company company = new Company("Many Labs");
-    ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
-    Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
-    List<ParameterCategory> list=new ArrayList();
-    list.add(pc1);
-    Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
-    NhsCode nhs = new NhsCode("123456789012");
-    TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
-    RefValue rv = new RefValue("mg",10,20);
-    TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
-    TestParameter tp = new TestParameter(p1,tpr);
-    List<TestParameter> tpList = new ArrayList<>();
-    tpList.add(tp);
-    List<TestType> ttlist = new ArrayList<>();
-    ttlist.add(tt);
-    ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
-    app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
-    
-    
-    
-            String internalcode = test.getInternalCode();
-            String Internal = "123123123123";
-            Assert.assertEquals(internalcode,Internal);
-        }
-
-    @Test
-    public void getMedicalReport(){
-    Company company = new Company("Many Labs");
-    ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
-    Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
-    List<ParameterCategory> list=new ArrayList();
-    list.add(pc1);
-    Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
-    NhsCode nhs = new NhsCode("123456789012");
-    TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
-    RefValue rv = new RefValue("mg",10,20);
-    TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
-    TestParameter tp = new TestParameter(p1,tpr);
-    List<TestParameter> tpList = new ArrayList<>();
-    tpList.add(tp);
-    List<TestType> ttlist = new ArrayList<>();
-    ttlist.add(tt);
-    ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
-    app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"123123123123");
-    
-    
-    
-            MedicalReport description = test.getMedicalReport();
-            MedicalReport medicalReport = null;
-            Assert.assertEquals(medicalReport,description);
-        }
 # 5. Construction (Implementation)
 
 *In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
-    
-
-* Class ViewResultsController
-
-
-    package app.controller;
-    
-    import app.domain.model.Company;
-    import app.domain.model.testrelated.Test;
-    import app.domain.model.users.Client;
-    import app.domain.store.ClientStore;
-    import app.domain.store.TestStore;
-    import app.mappers.*;
-    import app.mappers.dto.ClientDTO;
-    import app.mappers.dto.TestDTO;
-    import app.mappers.dto.TestResultDto;
-    import auth.domain.model.Email;
-    import java.util.List;
-    
-    public class ViewResultsController {
-    /**
-    * Represents an instance of app.
-    */
-    private App app;
-    /**
-    * Represents a instance of company
-    */
-    private Company company;
-    /**
-    * Represents an instance of the test store.
-    */
-    private TestStore tStore;
-    /**
-    * Represents an instance of the test mapper.
-    */
-    private TestMapper tmapper;
-    /**
-    * Represents an instance of Client Store
-    */
-    private ClientStore clstore;
-    /**
-    * Represents an instance of Client Mapper
-    */
-    private ClientMapper clMapper;
-    /**
-    * Represents an instance of TestParameter Mapper
-    */
-    private TestResultsMapper trMapper;
-    
-        /**
-         * Initialize the instance variables
-         */
-        public ViewResultsController() {
-            this(App.getInstance().getCompany());
-        }
-    
-        /**
-         * Initialize the instance variables
-         * @param company the company
-         */
-        public ViewResultsController(Company company) {
-            this.app = App.getInstance();
-            this.company = app.getCompany();
-            this.tStore = company.getTestStore();
-            this.clstore = company.getClientStore();
-            this.clMapper = new ClientMapper();
-            this.tmapper = new TestMapper();
-            this.trMapper = new TestResultsMapper();
-        }
-    
-        /**
-         * Get the list of test associated with the client
-         * @param cl the client
-         * @return the list of the tests
-         */
-        public List<TestDTO> getTestList(ClientDTO cl){
-            List<Test> listTest = tStore.getTestListAssociatedWithClient(cl);
-            listTest = tStore.orderClientTestsByRegistrationDate(listTest);
-            return tmapper.toDto(listTest);
-        }
-    
-        /**
-         * Get the user of the system
-         * @return the user of the system
-         */
-        public ClientDTO getUserSession(){
-            Email empemail= app.getCurrentUserSession().getUserId();
-            Client cl = clstore.getClientByEmail(empemail.toString());
-            return clMapper.toDto(cl);
-        }
-    
-        /**
-         * Get the test selected by the user
-         * @param selectedTest the selected test
-         * @return the test that has the same internal code that the test received
-         */
-        public TestResultDto showTestResults(TestDTO selectedTest){
-            Test t =tStore.getTestByInternalCode(selectedTest.getInternalCode());
-            return trMapper.toDTO(t);
-        }
-    }
-
 
 # 6. Integration and Demo 
 
-*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.
-
-* To test this user storie, we need to create tests to view its results.
+*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
 
 # 7. Observations
 
