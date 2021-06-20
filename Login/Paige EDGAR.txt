@@ -1,4 +1,7 @@
 ID: PaigeEDGAR2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: PVrBYT5Z1L
+=======
 PASSWORD: NfdIaz4Sv3
 ID: PaigeEDGAR2155@yahoo.com
 PASSWORD: vMfqEJFhV3
@@ -26,3 +29,4 @@ PASSWORD: PdRvvl8xql
 ID: PaigeEDGAR2155@yahoo.com
 PASSWORD: pV6ZALGE0g
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

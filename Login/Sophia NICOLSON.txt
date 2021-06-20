@@ -1,4 +1,7 @@
 ID: SophiaNICOLSON2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 73SFsPi1hY
+=======
 PASSWORD: IyU4A8UYFY
 ID: SophiaNICOLSON2155@gmail.com
 PASSWORD: dw6aUx6tYj
@@ -26,3 +29,4 @@ PASSWORD: lJFLfcBc88
 ID: SophiaNICOLSON2155@gmail.com
 PASSWORD: 7QN3mys8JP
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: BrooklynBORTHWICK2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: zSpWFsZ8bU
+=======
 PASSWORD: 6299ifYqNO
 ID: BrooklynBORTHWICK2155@gmail.com
 PASSWORD: wdSwkHPQ1y
@@ -26,3 +29,4 @@ PASSWORD: WfDLpcZ5de
 ID: BrooklynBORTHWICK2155@gmail.com
 PASSWORD: mnw9SWUtf6
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

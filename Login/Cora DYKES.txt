@@ -1,4 +1,7 @@
 ID: CoraDYKES2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: HJdaAa0HWJ
+=======
 PASSWORD: qRCyvWMjWD
 ID: CoraDYKES2155@gmail.com
 PASSWORD: j18GrY3ryT
@@ -26,3 +29,4 @@ PASSWORD: WmxGxC3741
 ID: CoraDYKES2155@gmail.com
 PASSWORD: katBpB2J3X
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

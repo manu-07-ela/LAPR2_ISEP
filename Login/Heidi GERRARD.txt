@@ -1,4 +1,7 @@
 ID: HeidiGERRARD2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: nmxa7SKIzQ
+=======
 PASSWORD: Xumjzl5dqw
 ID: HeidiGERRARD2155@gmail.com
 PASSWORD: KWyqY3CklM
@@ -26,3 +29,4 @@ PASSWORD: 6cMMz1Rg5S
 ID: HeidiGERRARD2155@gmail.com
 PASSWORD: xHpDHdgUYC
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: ElsieLAMBERT2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: jYxN8CjZ4T
+=======
 PASSWORD: V627YXpT5Z
 ID: ElsieLAMBERT2155@yahoo.com
 PASSWORD: 6fZMQI3yix
@@ -26,3 +29,4 @@ PASSWORD: cdjAMc4si4
 ID: ElsieLAMBERT2155@yahoo.com
 PASSWORD: 9SkuH8EfVb
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

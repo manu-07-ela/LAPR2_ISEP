@@ -1,4 +1,7 @@
 ID: EleanorGRIFFITHS2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: eHisWWSlZt
+=======
 PASSWORD: KR6meeVfRF
 ID: EleanorGRIFFITHS2155@gmail.com
 PASSWORD: HvUbHXQkX7
@@ -26,3 +29,4 @@ PASSWORD: Uj4MLHIrV4
 ID: EleanorGRIFFITHS2155@gmail.com
 PASSWORD: Z5VPuTV0Au
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

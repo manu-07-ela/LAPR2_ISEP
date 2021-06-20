@@ -1,4 +1,7 @@
 ID: EllieWARD2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: UgjZhweEGV
+=======
 PASSWORD: 6T4fPiW4dk
 ID: EllieWARD2155@gmail.com
 PASSWORD: U01LwnYbTf
@@ -26,3 +29,4 @@ PASSWORD: wiEixjP8yz
 ID: EllieWARD2155@gmail.com
 PASSWORD: 3APe9btRET
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

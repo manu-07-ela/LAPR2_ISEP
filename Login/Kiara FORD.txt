@@ -1,4 +1,7 @@
 ID: KiaraFORD2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Dyc03xcKOR
+=======
 PASSWORD: pZBinQQOGh
 ID: KiaraFORD2155@gmail.com
 PASSWORD: X8tfwCMg4C
@@ -26,3 +29,4 @@ PASSWORD: TIflGDRRKd
 ID: KiaraFORD2155@gmail.com
 PASSWORD: O3FgMUDypw
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

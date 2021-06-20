@@ -1,4 +1,7 @@
 ID: OliveWISHART2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Ynf5zJHEo5
+=======
 PASSWORD: wrSCV92LSO
 ID: OliveWISHART2155@gmail.com
 PASSWORD: U8CWp9xLWj
@@ -26,3 +29,4 @@ PASSWORD: 6Op9We546W
 ID: OliveWISHART2155@gmail.com
 PASSWORD: ytlHAF4p0w
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

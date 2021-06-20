@@ -1,4 +1,7 @@
 ID: QuinnBENTLEY2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: Bchi91A46N
+=======
 PASSWORD: mEj5QHSwB4
 ID: QuinnBENTLEY2155@hotmail.com
 PASSWORD: 4ffnKKGIy0
@@ -26,3 +29,4 @@ PASSWORD: 8Y0hem1vum
 ID: QuinnBENTLEY2155@hotmail.com
 PASSWORD: k5eRITrxuO
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

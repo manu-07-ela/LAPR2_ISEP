@@ -1,4 +1,7 @@
 ID: EvieCRAN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: Ype6wzoP3P
+=======
 PASSWORD: WWVzWvTt7e
 ID: EvieCRAN2155@hotmail.com
 PASSWORD: wWfiZbIh2o
@@ -26,3 +29,4 @@ PASSWORD: bdV07k1yAc
 ID: EvieCRAN2155@hotmail.com
 PASSWORD: sQrY8EPeE7
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

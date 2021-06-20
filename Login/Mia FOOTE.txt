@@ -1,4 +1,7 @@
 ID: MiaFOOTE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: rWmgOsdlJI
+=======
 PASSWORD: 4EARZN4EhT
 ID: MiaFOOTE2155@gmail.com
 PASSWORD: lczo8CKZGL
@@ -26,3 +29,4 @@ PASSWORD: YpouIMCrcp
 ID: MiaFOOTE2155@gmail.com
 PASSWORD: m4oWEC4FWk
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: AlexisSPINKS2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: pQhhKUVZSV
+=======
 PASSWORD: 269Sf7P9jW
 ID: AlexisSPINKS2155@yahoo.com
 PASSWORD: xUjjjA6h3l
@@ -26,3 +29,4 @@ PASSWORD: cnllvLFzlg
 ID: AlexisSPINKS2155@yahoo.com
 PASSWORD: ivC36aY24T
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

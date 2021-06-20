@@ -1,4 +1,7 @@
 ID: PaigeCARLE2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: EDNzprynUd
+=======
 PASSWORD: QWJfQ3MnIZ
 ID: PaigeCARLE2155@yahoo.com
 PASSWORD: sOFYIGzjZC
@@ -26,3 +29,4 @@ PASSWORD: LicmHg5xGf
 ID: PaigeCARLE2155@yahoo.com
 PASSWORD: dTSnhfOnJX
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

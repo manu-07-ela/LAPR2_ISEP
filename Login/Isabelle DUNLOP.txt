@@ -1,4 +1,7 @@
 ID: IsabelleDUNLOP2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: q9NW7YQvzK
+=======
 PASSWORD: EGXeYT72rW
 ID: IsabelleDUNLOP2155@yahoo.com
 PASSWORD: ubf7bliFfW
@@ -26,3 +29,4 @@ PASSWORD: zHIwdY87Qx
 ID: IsabelleDUNLOP2155@yahoo.com
 PASSWORD: 8p2K3PMo2M
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

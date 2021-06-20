@@ -1,4 +1,7 @@
 ID: ZaraLORD2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: QNgFq7I0ey
+=======
 PASSWORD: p7hV8xNweQ
 ID: ZaraLORD2155@gmail.com
 PASSWORD: INujit0DqY
@@ -26,3 +29,4 @@ PASSWORD: I5PrzTMm0H
 ID: ZaraLORD2155@gmail.com
 PASSWORD: KUiM0nd8Cf
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

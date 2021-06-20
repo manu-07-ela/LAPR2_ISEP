@@ -1,4 +1,7 @@
 ID: HazelBANKS2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: tnaxOJP839
+=======
 PASSWORD: djGM4XXrUo
 ID: HazelBANKS2155@gmail.com
 PASSWORD: QBvFlrYm6X
@@ -26,3 +29,4 @@ PASSWORD: sMitihkfPY
 ID: HazelBANKS2155@gmail.com
 PASSWORD: V4b6qGekq2
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

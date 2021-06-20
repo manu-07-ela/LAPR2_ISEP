@@ -1,4 +1,7 @@
 ID: IsabellaSTRACHAN2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 9IbuyZH0nC
+=======
 PASSWORD: vZIAgs5IUi
 ID: IsabellaSTRACHAN2155@gmail.com
 PASSWORD: HpoEAQ3SLI
@@ -26,3 +29,4 @@ PASSWORD: AacsF0Nzhg
 ID: IsabellaSTRACHAN2155@gmail.com
 PASSWORD: zatsHK614b
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

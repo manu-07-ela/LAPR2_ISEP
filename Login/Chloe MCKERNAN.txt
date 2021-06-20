@@ -1,4 +1,7 @@
 ID: ChloeMCKERNAN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: nmyaFXRYWQ
+=======
 PASSWORD: wqoZQxX3S7
 ID: ChloeMCKERNAN2155@hotmail.com
 PASSWORD: TNz67MoHzk
@@ -26,3 +29,4 @@ PASSWORD: 0zepolMSYK
 ID: ChloeMCKERNAN2155@hotmail.com
 PASSWORD: sQ0O1k0EK3
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

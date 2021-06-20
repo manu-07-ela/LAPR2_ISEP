@@ -1,4 +1,7 @@
 ID: AmeliaREGAN2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: nH9wbGRQhh
+=======
 PASSWORD: kKCSbTI6L3
 ID: AmeliaREGAN2155@gmail.com
 PASSWORD: IRoBGwZrDM
@@ -26,3 +29,4 @@ PASSWORD: hwkxRzl3hL
 ID: AmeliaREGAN2155@gmail.com
 PASSWORD: gwIXomydUA
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

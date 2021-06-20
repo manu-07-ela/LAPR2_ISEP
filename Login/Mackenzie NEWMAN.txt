@@ -1,4 +1,7 @@
 ID: MackenzieNEWMAN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: QEI4zX5HlW
+=======
 PASSWORD: r7F1J6SNIK
 ID: MackenzieNEWMAN2155@hotmail.com
 PASSWORD: oQ0cmq9cAk
@@ -26,3 +29,4 @@ PASSWORD: 0fWCrnzNAo
 ID: MackenzieNEWMAN2155@hotmail.com
 PASSWORD: CJnhDcoAkj
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

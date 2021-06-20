@@ -1,4 +1,7 @@
 ID: PaigeDALTON2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: iBEI4PE0dG
+=======
 PASSWORD: tC74Yxjhaj
 ID: PaigeDALTON2155@gmail.com
 PASSWORD: NKsorcz7ri
@@ -26,3 +29,4 @@ PASSWORD: C149NC0xv9
 ID: PaigeDALTON2155@gmail.com
 PASSWORD: sM2X9ENx8B
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

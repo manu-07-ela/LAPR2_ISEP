@@ -1,4 +1,7 @@
 ID: ChloeMCGHEE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 4BU3d3zW2P
+=======
 PASSWORD: 2NDCSQgae8
 ID: ChloeMCGHEE2155@gmail.com
 PASSWORD: bipFzVykB2
@@ -26,3 +29,4 @@ PASSWORD: F5EkvEBTCe
 ID: ChloeMCGHEE2155@gmail.com
 PASSWORD: Z5mAPxQp93
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

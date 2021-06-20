@@ -1,4 +1,7 @@
 ID: EllieGAULD2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: MZcTzPMWhi
+=======
 PASSWORD: LoSFJtmmWo
 ID: EllieGAULD2155@gmail.com
 PASSWORD: 1Zj9EXSNY6
@@ -26,3 +29,4 @@ PASSWORD: wmMRhQ24JY
 ID: EllieGAULD2155@gmail.com
 PASSWORD: t6KzXekDjJ
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

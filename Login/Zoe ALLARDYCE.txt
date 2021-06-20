@@ -1,4 +1,7 @@
 ID: ZoeALLARDYCE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: lVETn3pZnB
+=======
 PASSWORD: KIZdVMjdLi
 ID: ZoeALLARDYCE2155@gmail.com
 PASSWORD: ZbUzK4hsw9
@@ -26,3 +29,4 @@ PASSWORD: 8EHEegtwEv
 ID: ZoeALLARDYCE2155@gmail.com
 PASSWORD: yutSF0F9M5
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

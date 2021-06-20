@@ -1,4 +1,7 @@
 ID: MatildaBARCLAY2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: z32DNcMrnf
+=======
 PASSWORD: GKrxhZ21Wk
 ID: MatildaBARCLAY2155@hotmail.com
 PASSWORD: Ow8RNBVW09
@@ -26,3 +29,4 @@ PASSWORD: 68hBwx1lPZ
 ID: MatildaBARCLAY2155@hotmail.com
 PASSWORD: z2Bze9XGFM
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

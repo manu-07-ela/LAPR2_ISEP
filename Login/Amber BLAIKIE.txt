@@ -1,4 +1,7 @@
 ID: AmberBLAIKIE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: poJIX1DpWs
+=======
 PASSWORD: XAMlPpRYZS
 ID: AmberBLAIKIE2155@gmail.com
 PASSWORD: xH8ELDZxKZ
@@ -26,3 +29,4 @@ PASSWORD: W9PCdDJSWa
 ID: AmberBLAIKIE2155@gmail.com
 PASSWORD: PxdsDcs5LI
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

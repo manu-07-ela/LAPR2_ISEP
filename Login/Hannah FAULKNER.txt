@@ -1,4 +1,7 @@
 ID: HannahFAULKNER2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: arxcqnvRjr
+=======
 PASSWORD: INW4vudimU
 ID: HannahFAULKNER2155@hotmail.com
 PASSWORD: AtBEoFdBBw
@@ -26,3 +29,4 @@ PASSWORD: UWG2TIgV02
 ID: HannahFAULKNER2155@hotmail.com
 PASSWORD: jk1fnav1QM
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

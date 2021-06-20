@@ -1,4 +1,7 @@
 ID: MaiaDORAN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: BcKSF5UpKx
+=======
 PASSWORD: uXEoju1UW4
 ID: MaiaDORAN2155@hotmail.com
 PASSWORD: Y3t4GBqkvI
@@ -26,3 +29,4 @@ PASSWORD: yYzIB3lAcT
 ID: MaiaDORAN2155@hotmail.com
 PASSWORD: IpMMNtCwOE
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

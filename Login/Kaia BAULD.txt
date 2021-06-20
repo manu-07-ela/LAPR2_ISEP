@@ -1,4 +1,7 @@
 ID: KaiaBAULD2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: MSZOqD8NPH
+=======
 PASSWORD: kfosqWP2sK
 ID: KaiaBAULD2155@gmail.com
 PASSWORD: Dqulrm8g9b
@@ -26,3 +29,4 @@ PASSWORD: 4CssImmpRg
 ID: KaiaBAULD2155@gmail.com
 PASSWORD: dqYQHyUnFd
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

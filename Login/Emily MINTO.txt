@@ -1,4 +1,7 @@
 ID: EmilyMINTO2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: cAarVnEib7
+=======
 PASSWORD: bQXeYguV4f
 ID: EmilyMINTO2155@hotmail.com
 PASSWORD: vTd0kSFl4S
@@ -26,3 +29,4 @@ PASSWORD: aHBYdo1EEI
 ID: EmilyMINTO2155@hotmail.com
 PASSWORD: GUi78j379X
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

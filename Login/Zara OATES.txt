@@ -1,4 +1,7 @@
 ID: ZaraOATES2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: dr1frhlDc9
+=======
 PASSWORD: ag3GRIJUq4
 ID: ZaraOATES2155@gmail.com
 PASSWORD: 8VXf5l01GA
@@ -26,3 +29,4 @@ PASSWORD: TzP4PVE5Vr
 ID: ZaraOATES2155@gmail.com
 PASSWORD: OB7rn9nNFx
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

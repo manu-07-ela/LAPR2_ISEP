@@ -1,4 +1,7 @@
 ID: AuroraNEARY2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: bvfVFC8tAs
+=======
 PASSWORD: 1GJp1MSfaB
 ID: AuroraNEARY2155@hotmail.com
 PASSWORD: kavGySZ7Vp
@@ -26,3 +29,4 @@ PASSWORD: xKxl1go2YK
 ID: AuroraNEARY2155@hotmail.com
 PASSWORD: lQk7KJQsWK
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

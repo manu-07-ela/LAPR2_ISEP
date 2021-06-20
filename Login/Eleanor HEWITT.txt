@@ -1,4 +1,7 @@
 ID: EleanorHEWITT2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 56KXDYcCXl
+=======
 PASSWORD: T7g8rpeHsJ
 ID: EleanorHEWITT2155@gmail.com
 PASSWORD: rGz2obJJHy
@@ -26,3 +29,4 @@ PASSWORD: gJ2MLTbE6l
 ID: EleanorHEWITT2155@gmail.com
 PASSWORD: TsZZxo5fff
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

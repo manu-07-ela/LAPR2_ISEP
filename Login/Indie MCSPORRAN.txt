@@ -1,4 +1,7 @@
 ID: IndieMCSPORRAN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: A82UWL9z67
+=======
 PASSWORD: UpkEtuW6fS
 ID: IndieMCSPORRAN2155@hotmail.com
 PASSWORD: QemgVrRxsC
@@ -26,3 +29,4 @@ PASSWORD: 0cLZieGVWT
 ID: IndieMCSPORRAN2155@hotmail.com
 PASSWORD: PXoaRaCgqe
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

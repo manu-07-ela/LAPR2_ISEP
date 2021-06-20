@@ -1,4 +1,7 @@
 ID: ArianaGUYAN2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: jvL8VZdqBG
+=======
 PASSWORD: KWiZHVG3Me
 ID: ArianaGUYAN2155@gmail.com
 PASSWORD: fJKEQBmvXa
@@ -26,3 +29,4 @@ PASSWORD: m4A0MFHaoT
 ID: ArianaGUYAN2155@gmail.com
 PASSWORD: XsRCgE3Rib
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

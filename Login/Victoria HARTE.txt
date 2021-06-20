@@ -1,4 +1,7 @@
 ID: VictoriaHARTE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: lQjv3u8rVv
+=======
 PASSWORD: 5kKJlnt7O6
 ID: VictoriaHARTE2155@gmail.com
 PASSWORD: UV288IXCfZ
@@ -26,3 +29,4 @@ PASSWORD: Ga7ab15G4C
 ID: VictoriaHARTE2155@gmail.com
 PASSWORD: H0FULmbglx
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

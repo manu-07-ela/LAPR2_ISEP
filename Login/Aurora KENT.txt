@@ -1,4 +1,7 @@
 ID: AuroraKENT2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 6m0zCPdR8T
+=======
 PASSWORD: QmQbiAa4nZ
 ID: AuroraKENT2155@gmail.com
 PASSWORD: yzbLNPZFdu
@@ -26,3 +29,4 @@ PASSWORD: HX2r2xiAcy
 ID: AuroraKENT2155@gmail.com
 PASSWORD: LASuWio5cw
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: MaddisonCOLL2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: rLBK980GX4
+=======
 PASSWORD: 0dUOn0Rq9a
 ID: MaddisonCOLL2155@hotmail.com
 PASSWORD: yKUAmr7nMF
@@ -26,3 +29,4 @@ PASSWORD: 8joQRD1nvo
 ID: MaddisonCOLL2155@hotmail.com
 PASSWORD: VSmZknhZ9y
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

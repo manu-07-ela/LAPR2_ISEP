@@ -1,4 +1,7 @@
 ID: SophiaNELSON2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: 7YZ4GZWd5Z
+=======
 PASSWORD: qDWwJhgQZ4
 ID: SophiaNELSON2155@yahoo.com
 PASSWORD: iTLtrTuLW8
@@ -26,3 +29,4 @@ PASSWORD: Oj8bzCxg8T
 ID: SophiaNELSON2155@yahoo.com
 PASSWORD: oJ4Xprnwfs
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

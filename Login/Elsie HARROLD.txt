@@ -1,4 +1,7 @@
 ID: ElsieHARROLD2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: eeSWEZQtwj
+=======
 PASSWORD: XC1uyC9juR
 ID: ElsieHARROLD2155@gmail.com
 PASSWORD: BGrtCrNKjO
@@ -26,3 +29,4 @@ PASSWORD: xEIus65Tsl
 ID: ElsieHARROLD2155@gmail.com
 PASSWORD: d2LnOZAVVN
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

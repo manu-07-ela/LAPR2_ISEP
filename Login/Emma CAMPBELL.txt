@@ -1,4 +1,7 @@
 ID: EmmaCAMPBELL2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: AEjDSZoGVV
+=======
 PASSWORD: jSeekfKv9F
 ID: EmmaCAMPBELL2155@hotmail.com
 PASSWORD: Vbiy9OJZKW
@@ -26,3 +29,4 @@ PASSWORD: Tt1X1TRtvn
 ID: EmmaCAMPBELL2155@hotmail.com
 PASSWORD: 1sZbHlxaJS
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

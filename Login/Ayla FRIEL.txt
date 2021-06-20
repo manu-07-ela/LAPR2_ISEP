@@ -1,4 +1,7 @@
 ID: AylaFRIEL2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: xSoFmbF0Bm
+=======
 PASSWORD: XxZTpBDVh1
 ID: AylaFRIEL2155@gmail.com
 PASSWORD: drxeTSkGIJ
@@ -26,3 +29,4 @@ PASSWORD: oGmNPr9N2F
 ID: AylaFRIEL2155@gmail.com
 PASSWORD: ima4X3KBd4
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

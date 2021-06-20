@@ -120,7 +120,6 @@ public class TestStore implements Serializable {
         if (!validateTest(t)){
             return false;
         }else{
-            System.out.println(t.getSamplesAddDate());
             return testList.add(t);
         }
     }
@@ -303,7 +302,7 @@ public class TestStore implements Serializable {
         for (Test t: testList) {
             System.out.println(t.getSamplesAddDate());
             if(t.getSamplesAddDate()!=null) {
-                if (t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate)) {
+                if ((t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate)) || (t.getCreatedAt().after(initialDate) && t.getCreatedAt().before(endDate)) || (t.getLabValidationDate().after(initialDate) && t.getLabValidationDate().before(endDate)) || (t.getChemicalAnalysisDate().get(t.getChemicalAnalysisDate().size() - 1).after(initialDate) && t.getChemicalAnalysisDate().get(t.getChemicalAnalysisDate().size() - 1).before(endDate))) {
                     intervalTestList.add(t);
                     System.out.println(t.getSamplesAddDate());
                 }

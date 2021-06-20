@@ -1,4 +1,7 @@
 ID: AliceMACLELLAN2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: whNnGArhiV
+=======
 PASSWORD: KQ0pQZh0r1
 ID: AliceMACLELLAN2155@yahoo.com
 PASSWORD: fKHgLafJYv
@@ -26,3 +29,4 @@ PASSWORD: tl8h127oUy
 ID: AliceMACLELLAN2155@yahoo.com
 PASSWORD: xGIYa8nM3C
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

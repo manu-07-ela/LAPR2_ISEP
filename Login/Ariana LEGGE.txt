@@ -1,4 +1,7 @@
 ID: ArianaLEGGE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: iNTxR4jbMc
+=======
 PASSWORD: 1VrsYDM2mW
 ID: ArianaLEGGE2155@gmail.com
 PASSWORD: GuD8AxMQRa
@@ -26,3 +29,4 @@ PASSWORD: CyxrNS50j9
 ID: ArianaLEGGE2155@gmail.com
 PASSWORD: 5stg2yPUJ8
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: MaiaBORLAND2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: GRUdQKhINa
+=======
 PASSWORD: aP3EbDiXPy
 ID: MaiaBORLAND2155@gmail.com
 PASSWORD: QIl2TL2HCR
@@ -26,3 +29,4 @@ PASSWORD: BEaamoSg4w
 ID: MaiaBORLAND2155@gmail.com
 PASSWORD: 3XavuOndN8
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

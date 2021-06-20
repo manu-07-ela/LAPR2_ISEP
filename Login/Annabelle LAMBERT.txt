@@ -1,4 +1,7 @@
 ID: AnnabelleLAMBERT2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: vNa5UDum4R
+=======
 PASSWORD: aDRNMmg1TE
 ID: AnnabelleLAMBERT2155@gmail.com
 PASSWORD: qSS4r2oHEg
@@ -26,3 +29,4 @@ PASSWORD: AvYPC1tKsW
 ID: AnnabelleLAMBERT2155@gmail.com
 PASSWORD: YKqfPBGhm7
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

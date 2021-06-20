@@ -1,4 +1,7 @@
 ID: MaddisonBARBER2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: krzUjf2vrL
+=======
 PASSWORD: H04BbXNo9H
 ID: MaddisonBARBER2155@gmail.com
 PASSWORD: oB8CQJf0oB
@@ -26,3 +29,4 @@ PASSWORD: rIIMrQhlb9
 ID: MaddisonBARBER2155@gmail.com
 PASSWORD: iZGrm8xf7I
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

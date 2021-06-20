@@ -1,4 +1,7 @@
 ID: ElizabethKIRKPATRICK2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: 4PIZaJgaON
+=======
 PASSWORD: ZMN1xC15rv
 ID: ElizabethKIRKPATRICK2155@hotmail.com
 PASSWORD: PB0ayZm5zT
@@ -26,3 +29,4 @@ PASSWORD: epJ1U9F4Qn
 ID: ElizabethKIRKPATRICK2155@hotmail.com
 PASSWORD: DDBoFcd1KO
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

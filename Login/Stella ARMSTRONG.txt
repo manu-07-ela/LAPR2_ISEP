@@ -1,4 +1,7 @@
 ID: StellaARMSTRONG2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: BrcaNs4d3p
+=======
 PASSWORD: Ox2Vv4sESZ
 ID: StellaARMSTRONG2155@gmail.com
 PASSWORD: CiDhHLW86x
@@ -26,3 +29,4 @@ PASSWORD: kLvOrl8gS4
 ID: StellaARMSTRONG2155@gmail.com
 PASSWORD: N7Mo9ikulO
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

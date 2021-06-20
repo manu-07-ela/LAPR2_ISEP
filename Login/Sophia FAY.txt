@@ -1,4 +1,7 @@
 ID: SophiaFAY2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: 3yU68v0jax
+=======
 PASSWORD: 4CQs5pbYtQ
 ID: SophiaFAY2155@yahoo.com
 PASSWORD: yKQSVSRbOw
@@ -26,3 +29,4 @@ PASSWORD: IRJvosY7KD
 ID: SophiaFAY2155@yahoo.com
 PASSWORD: Sb5vNW9rq1
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

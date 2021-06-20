@@ -1,4 +1,7 @@
 ID: ArianaBLACKIE2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: mE5RjHwDu5
+=======
 PASSWORD: e1Ii1WzRmi
 ID: ArianaBLACKIE2155@hotmail.com
 PASSWORD: N396lVbD2A
@@ -26,3 +29,4 @@ PASSWORD: MyRnt5oESZ
 ID: ArianaBLACKIE2155@hotmail.com
 PASSWORD: lYV6UoykTY
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

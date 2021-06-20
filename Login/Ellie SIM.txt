@@ -1,4 +1,7 @@
 ID: EllieSIM2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: sWtV0B9Grr
+=======
 PASSWORD: 8qhdPHpHKh
 ID: EllieSIM2155@gmail.com
 PASSWORD: cyNW47gZBC
@@ -26,3 +29,4 @@ PASSWORD: NucTsqgoes
 ID: EllieSIM2155@gmail.com
 PASSWORD: NDlSAsFM5j
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

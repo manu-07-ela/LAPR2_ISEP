@@ -1,4 +1,7 @@
 ID: EmilyBRYANT2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: YaUPQSioT8
+=======
 PASSWORD: 087rm5x42h
 ID: EmilyBRYANT2155@gmail.com
 PASSWORD: UoEowe0F91
@@ -26,3 +29,4 @@ PASSWORD: rDwuSUtnO4
 ID: EmilyBRYANT2155@gmail.com
 PASSWORD: AW5swNJp1B
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: NinaSTANLEY2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: 5n7G4CDHrf
+=======
 PASSWORD: a4F2qGPmT8
 ID: NinaSTANLEY2155@hotmail.com
 PASSWORD: f3wbWMbNYa
@@ -26,3 +29,4 @@ PASSWORD: 09eHIEd0JA
 ID: NinaSTANLEY2155@hotmail.com
 PASSWORD: QmMVXsopqh
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

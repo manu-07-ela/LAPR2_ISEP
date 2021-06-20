@@ -1,4 +1,7 @@
 ID: RoseWARNOCK2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: hV6l3wNSS6
+=======
 PASSWORD: Pssad0YczR
 ID: RoseWARNOCK2155@hotmail.com
 PASSWORD: dWrPTod6Gp
@@ -26,3 +29,4 @@ PASSWORD: M8xgp4vQww
 ID: RoseWARNOCK2155@hotmail.com
 PASSWORD: N0Qglt2cBK
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

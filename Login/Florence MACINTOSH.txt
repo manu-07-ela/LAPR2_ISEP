@@ -1,4 +1,7 @@
 ID: FlorenceMACINTOSH2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: j8KhvI4kxn
+=======
 PASSWORD: qccKwSqV7Z
 ID: FlorenceMACINTOSH2155@gmail.com
 PASSWORD: EojAvsfovZ
@@ -26,3 +29,4 @@ PASSWORD: gvVI8qvg9B
 ID: FlorenceMACINTOSH2155@gmail.com
 PASSWORD: 8vSEILD1Xu
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

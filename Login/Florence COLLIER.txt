@@ -1,4 +1,7 @@
 ID: FlorenceCOLLIER2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: amoj2bjYDj
+=======
 PASSWORD: 4MHchLnh80
 ID: FlorenceCOLLIER2155@gmail.com
 PASSWORD: BgjMDZORUc
@@ -26,3 +29,4 @@ PASSWORD: yWjJwaJEa8
 ID: FlorenceCOLLIER2155@gmail.com
 PASSWORD: qTPQv2fMFm
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

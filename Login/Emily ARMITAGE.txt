@@ -1,4 +1,7 @@
 ID: EmilyARMITAGE2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: VmULuKST2n
+=======
 PASSWORD: JqG2NZhd46
 ID: EmilyARMITAGE2155@yahoo.com
 PASSWORD: ExwEvmAjt9
@@ -26,3 +29,4 @@ PASSWORD: sIeCKDUn7a
 ID: EmilyARMITAGE2155@yahoo.com
 PASSWORD: itZSqqwhmO
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

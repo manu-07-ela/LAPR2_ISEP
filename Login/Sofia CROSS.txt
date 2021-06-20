@@ -1,4 +1,7 @@
 ID: SofiaCROSS2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: q3sCD8qF8W
+=======
 PASSWORD: x7P6HVPONC
 ID: SofiaCROSS2155@hotmail.com
 PASSWORD: iN2jtFH9MS
@@ -26,3 +29,4 @@ PASSWORD: y3MiLGZkIl
 ID: SofiaCROSS2155@hotmail.com
 PASSWORD: acH9ghf3ZD
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

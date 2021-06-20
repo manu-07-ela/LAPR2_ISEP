@@ -1,4 +1,7 @@
 ID: ChloeKINGHORN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: r3E9EHTwIQ
+=======
 PASSWORD: 8j9Pf1fTDM
 ID: ChloeKINGHORN2155@hotmail.com
 PASSWORD: n3eGA33bWC
@@ -26,3 +29,4 @@ PASSWORD: 6zN7hHOG3z
 ID: ChloeKINGHORN2155@hotmail.com
 PASSWORD: aX1HUjluTG
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

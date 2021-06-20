@@ -1,4 +1,7 @@
 ID: EllaBARTLETT2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 7APgExBKRE
+=======
 PASSWORD: aQZogTj2i9
 ID: EllaBARTLETT2155@gmail.com
 PASSWORD: eulrJQWcYz
@@ -26,3 +29,4 @@ PASSWORD: Qk4WYlbqTy
 ID: EllaBARTLETT2155@gmail.com
 PASSWORD: DOtZDL6p17
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

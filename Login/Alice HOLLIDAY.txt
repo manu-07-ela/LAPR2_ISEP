@@ -1,4 +1,7 @@
 ID: AliceHOLLIDAY2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: ZUbadWKJSG
+=======
 PASSWORD: goLd0qHuDw
 ID: AliceHOLLIDAY2155@gmail.com
 PASSWORD: XheimeWpLM
@@ -26,3 +29,4 @@ PASSWORD: 9X8NF4jwC7
 ID: AliceHOLLIDAY2155@gmail.com
 PASSWORD: BYIAIpUGI5
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

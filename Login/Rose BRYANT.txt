@@ -1,4 +1,7 @@
 ID: RoseBRYANT2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: TWbhmTiHOV
+=======
 PASSWORD: 8DRCwAPpTV
 ID: RoseBRYANT2155@hotmail.com
 PASSWORD: qoXIuafVLM
@@ -26,3 +29,4 @@ PASSWORD: 9S8WOb7yHP
 ID: RoseBRYANT2155@hotmail.com
 PASSWORD: 7eOC0BHCQH
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

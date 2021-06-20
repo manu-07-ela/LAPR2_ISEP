@@ -1,4 +1,7 @@
 ID: CoraBARR2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: wCIjwBBm7g
+=======
 PASSWORD: KCCQ4awIfT
 ID: CoraBARR2155@gmail.com
 PASSWORD: k3PGRskP4U
@@ -26,3 +29,4 @@ PASSWORD: 8evYSReJZy
 ID: CoraBARR2155@gmail.com
 PASSWORD: b2V3fRiN44
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

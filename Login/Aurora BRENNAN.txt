@@ -1,4 +1,7 @@
 ID: AuroraBRENNAN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: zsgLTrMZb1
+=======
 PASSWORD: 41c3IhuqMl
 ID: AuroraBRENNAN2155@hotmail.com
 PASSWORD: uOPzvAxAg7
@@ -26,3 +29,4 @@ PASSWORD: la2GJg7OKZ
 ID: AuroraBRENNAN2155@hotmail.com
 PASSWORD: QiyDDxwhwJ
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

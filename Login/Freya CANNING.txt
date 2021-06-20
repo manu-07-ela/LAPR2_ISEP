@@ -1,4 +1,7 @@
 ID: FreyaCANNING2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Ibit9dJgAX
+=======
 PASSWORD: gnn8txQulq
 ID: FreyaCANNING2155@gmail.com
 PASSWORD: g0N2V8PnKh
@@ -26,3 +29,4 @@ PASSWORD: 24Tdr78N3f
 ID: FreyaCANNING2155@gmail.com
 PASSWORD: DrTxpSfwjV
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

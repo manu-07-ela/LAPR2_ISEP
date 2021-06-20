@@ -1,4 +1,7 @@
 ID: MilaBORLAND2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: JDwPy9n273
+=======
 PASSWORD: d1puJ9Lfug
 ID: MilaBORLAND2155@gmail.com
 PASSWORD: BFnO3aXAYW
@@ -26,3 +29,4 @@ PASSWORD: x0FZw8Vjjj
 ID: MilaBORLAND2155@gmail.com
 PASSWORD: ynk3G1W03R
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: SummerNICHOLLS2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: cDzJg26hZY
+=======
 PASSWORD: APqZ65Qmd1
 ID: SummerNICHOLLS2155@gmail.com
 PASSWORD: B9GXDLIGEX
@@ -26,3 +29,4 @@ PASSWORD: orWd9G0b5d
 ID: SummerNICHOLLS2155@gmail.com
 PASSWORD: iOWVev6Nh9
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

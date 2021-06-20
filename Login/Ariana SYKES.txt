@@ -1,4 +1,7 @@
 ID: ArianaSYKES2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 8SmoDlvcco
+=======
 PASSWORD: UfY1vwBbWx
 ID: ArianaSYKES2155@gmail.com
 PASSWORD: QKo4SXK9go
@@ -26,3 +29,4 @@ PASSWORD: vC5Ye1xp78
 ID: ArianaSYKES2155@gmail.com
 PASSWORD: SYGw2NGqCe
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

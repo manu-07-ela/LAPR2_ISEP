@@ -1,4 +1,7 @@
 ID: VioletSELLAR2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: B8IqrEaBqH
+=======
 PASSWORD: AlETOmEWaR
 ID: VioletSELLAR2155@gmail.com
 PASSWORD: qK7GBLSdr5
@@ -26,3 +29,4 @@ PASSWORD: P5fp0ucXTz
 ID: VioletSELLAR2155@gmail.com
 PASSWORD: N4Nwg0gM2M
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

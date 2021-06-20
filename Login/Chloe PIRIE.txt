@@ -1,4 +1,7 @@
 ID: ChloePIRIE2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: sELfEDkli7
+=======
 PASSWORD: 17o1dzNIQK
 ID: ChloePIRIE2155@hotmail.com
 PASSWORD: lZDP3rvM01
@@ -26,3 +29,4 @@ PASSWORD: x3Cw75Abhx
 ID: ChloePIRIE2155@hotmail.com
 PASSWORD: ONoiWZCE8D
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

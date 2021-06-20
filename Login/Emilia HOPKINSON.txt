@@ -1,4 +1,7 @@
 ID: EmiliaHOPKINSON2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: buM1firiP7
+=======
 PASSWORD: xLBZ5d9g9Y
 ID: EmiliaHOPKINSON2155@gmail.com
 PASSWORD: LAOe7Ss5Ki
@@ -26,3 +29,4 @@ PASSWORD: JRXDP1xZi6
 ID: EmiliaHOPKINSON2155@gmail.com
 PASSWORD: oaV4motnWL
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

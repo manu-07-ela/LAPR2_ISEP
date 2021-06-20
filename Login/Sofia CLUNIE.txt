@@ -1,4 +1,7 @@
 ID: SofiaCLUNIE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Rn2TElngOs
+=======
 PASSWORD: NPUm6V8cWH
 ID: SofiaCLUNIE2155@gmail.com
 PASSWORD: 2W26C6CL2H
@@ -26,3 +29,4 @@ PASSWORD: BuyIyfStSE
 ID: SofiaCLUNIE2155@gmail.com
 PASSWORD: 7kSWd1F1ch
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

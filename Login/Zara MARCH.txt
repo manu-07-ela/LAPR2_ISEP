@@ -1,4 +1,7 @@
 ID: ZaraMARCH2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: 8mxiYhbMRU
+=======
 PASSWORD: V26W3gZ9o2
 ID: ZaraMARCH2155@hotmail.com
 PASSWORD: BnNySXAXUi
@@ -26,3 +29,4 @@ PASSWORD: C4XyEqw6Gx
 ID: ZaraMARCH2155@hotmail.com
 PASSWORD: YiRTizlAZs
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

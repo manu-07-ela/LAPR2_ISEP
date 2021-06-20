@@ -1,4 +1,7 @@
 ID: AmberRINTOUL2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: GImGcm5zUH
+=======
 PASSWORD: Z2D0mLrjuf
 ID: AmberRINTOUL2155@hotmail.com
 PASSWORD: OtEZkxhSvv
@@ -26,3 +29,4 @@ PASSWORD: qDFV2IHpuF
 ID: AmberRINTOUL2155@hotmail.com
 PASSWORD: srDqBfYU19
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

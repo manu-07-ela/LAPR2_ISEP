@@ -1,4 +1,7 @@
 ID: StellaSIME2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: pkG4fddUro
+=======
 PASSWORD: hfv5ylmq3Z
 ID: StellaSIME2155@gmail.com
 PASSWORD: BLL9GTFWka
@@ -26,3 +29,4 @@ PASSWORD: hFK4ikqcCx
 ID: StellaSIME2155@gmail.com
 PASSWORD: 0cDttVR8rO
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

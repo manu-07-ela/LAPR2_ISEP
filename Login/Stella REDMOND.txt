@@ -1,4 +1,7 @@
 ID: StellaREDMOND2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: uDekWB5Kcq
+=======
 PASSWORD: wSd7SG4JJ7
 ID: StellaREDMOND2155@gmail.com
 PASSWORD: NPhq00WZcI
@@ -26,3 +29,4 @@ PASSWORD: uGLu4MBB9B
 ID: StellaREDMOND2155@gmail.com
 PASSWORD: rYe8vWSRWE
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: MadisonMCLELLAND2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: M1mpfPmx80
+=======
 PASSWORD: eh6oip4mwd
 ID: MadisonMCLELLAND2155@yahoo.com
 PASSWORD: FALoeI0GkI
@@ -26,3 +29,4 @@ PASSWORD: YTp4MZ86rZ
 ID: MadisonMCLELLAND2155@yahoo.com
 PASSWORD: gxxpzWQvVm
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

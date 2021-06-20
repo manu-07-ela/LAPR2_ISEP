@@ -1,4 +1,7 @@
 ID: ArianaRONALD2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: 8DjKfZmPFp
+=======
 PASSWORD: K1VWRQfW2c
 ID: ArianaRONALD2155@yahoo.com
 PASSWORD: zVypCkrd6y
@@ -26,3 +29,4 @@ PASSWORD: batOamQE6n
 ID: ArianaRONALD2155@yahoo.com
 PASSWORD: Xuq4Eb44WH
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

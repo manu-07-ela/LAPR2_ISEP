@@ -1,4 +1,7 @@
 ID: QuinnBUIST2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Etd7iSmYam
+=======
 PASSWORD: pCJCPsVpML
 ID: QuinnBUIST2155@gmail.com
 PASSWORD: xTVKUiFlyJ
@@ -26,3 +29,4 @@ PASSWORD: lz0l1ku5Kh
 ID: QuinnBUIST2155@gmail.com
 PASSWORD: mrSc5HIjJl
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

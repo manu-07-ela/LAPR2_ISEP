@@ -1,4 +1,7 @@
 ID: PaigeUPTON2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: BvZYUQ8g3R
+=======
 PASSWORD: a2kQhC2q2S
 ID: PaigeUPTON2155@gmail.com
 PASSWORD: 2r90J5yKWt
@@ -26,3 +29,4 @@ PASSWORD: NNgKsmcAuy
 ID: PaigeUPTON2155@gmail.com
 PASSWORD: ZmFywr2vs4
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

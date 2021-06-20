@@ -1,4 +1,7 @@
 ID: AriaBARKER2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: IvMAlKirNP
+=======
 PASSWORD: dActWvaZV0
 ID: AriaBARKER2155@gmail.com
 PASSWORD: dut0aak0ju
@@ -26,3 +29,4 @@ PASSWORD: jBfgD8hGFe
 ID: AriaBARKER2155@gmail.com
 PASSWORD: ox3oMJE1ZU
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: AliceGIRVAN2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 0Ujb6OJNc1
+=======
 PASSWORD: egVgEHQsos
 ID: AliceGIRVAN2155@gmail.com
 PASSWORD: 8InkuoxIVs
@@ -26,3 +29,4 @@ PASSWORD: PeT4WnXJGi
 ID: AliceGIRVAN2155@gmail.com
 PASSWORD: t2xiOaTfBh
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

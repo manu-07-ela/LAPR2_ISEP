@@ -1,4 +1,7 @@
 ID: SofiaFINNIE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 0c8xE6ErU4
+=======
 PASSWORD: ebDmK4dFzZ
 ID: SofiaFINNIE2155@gmail.com
 PASSWORD: 0Nl1WkNCY4
@@ -26,3 +29,4 @@ PASSWORD: MS9U7t2SqG
 ID: SofiaFINNIE2155@gmail.com
 PASSWORD: R08AP4aKkS
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

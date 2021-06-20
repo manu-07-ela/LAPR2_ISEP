@@ -1,4 +1,7 @@
 ID: TheaBINGHAM2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: RaR6G7xS8R
+=======
 PASSWORD: k1SvSc5jp2
 ID: TheaBINGHAM2155@hotmail.com
 PASSWORD: 9yc96eSb8A
@@ -26,3 +29,4 @@ PASSWORD: 2I8fosdpNT
 ID: TheaBINGHAM2155@hotmail.com
 PASSWORD: Rgf0oh4bGL
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

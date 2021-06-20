@@ -1,4 +1,7 @@
 ID: FlorenceDALZIEL2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: SvEvbpXOS8
+=======
 PASSWORD: FVg5NDsTrb
 ID: FlorenceDALZIEL2155@hotmail.com
 PASSWORD: fOjDXnacww
@@ -26,3 +29,4 @@ PASSWORD: I92AM13iY8
 ID: FlorenceDALZIEL2155@hotmail.com
 PASSWORD: Q9jrWWmU6v
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

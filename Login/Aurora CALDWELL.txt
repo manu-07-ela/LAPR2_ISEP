@@ -1,4 +1,7 @@
 ID: AuroraCALDWELL2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 4cDH4y930T
+=======
 PASSWORD: fmenTrNYJm
 ID: AuroraCALDWELL2155@gmail.com
 PASSWORD: 89OQKqfdOc
@@ -26,3 +29,4 @@ PASSWORD: zSh5zYyKPd
 ID: AuroraCALDWELL2155@gmail.com
 PASSWORD: S6nqdYyUED
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

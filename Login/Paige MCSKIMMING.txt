@@ -1,4 +1,7 @@
 ID: PaigeMCSKIMMING2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: opUfGvIKyU
+=======
 PASSWORD: 5CdCxMlJaZ
 ID: PaigeMCSKIMMING2155@yahoo.com
 PASSWORD: V7PWweyYmo
@@ -26,3 +29,4 @@ PASSWORD: VZckX5yVvG
 ID: PaigeMCSKIMMING2155@yahoo.com
 PASSWORD: 6zpIw9WKpS
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

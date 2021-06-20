@@ -1,4 +1,7 @@
 ID: RoseJAVED2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: HQ9r1Wc6Hi
+=======
 PASSWORD: mY2thQw1yt
 ID: RoseJAVED2155@gmail.com
 PASSWORD: 7XSkwAGKwh
@@ -26,3 +29,4 @@ PASSWORD: xsfDiKzs3U
 ID: RoseJAVED2155@gmail.com
 PASSWORD: ugGSqPcRnl
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

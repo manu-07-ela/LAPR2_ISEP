@@ -1,4 +1,7 @@
 ID: ChloeCREIGHTON2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: sADXcjiXYz
+=======
 PASSWORD: VJNJmrQgF6
 ID: ChloeCREIGHTON2155@yahoo.com
 PASSWORD: xzf64ernau
@@ -26,3 +29,4 @@ PASSWORD: JpOSyelggg
 ID: ChloeCREIGHTON2155@yahoo.com
 PASSWORD: bWqgxhNAQH
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

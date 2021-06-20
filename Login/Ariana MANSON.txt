@@ -1,4 +1,7 @@
 ID: ArianaMANSON2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: cXZYDbe9tN
+=======
 PASSWORD: GcP2DSgx2P
 ID: ArianaMANSON2155@hotmail.com
 PASSWORD: XfRkR5diIs
@@ -26,3 +29,4 @@ PASSWORD: 8mBXuh4Dp9
 ID: ArianaMANSON2155@hotmail.com
 PASSWORD: 9p3T5tIFbG
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

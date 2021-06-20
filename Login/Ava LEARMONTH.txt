@@ -1,4 +1,7 @@
 ID: AvaLEARMONTH2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: ET6GhTwqgd
+=======
 PASSWORD: lzkfAcjm8X
 ID: AvaLEARMONTH2155@hotmail.com
 PASSWORD: ZcBvz4z8nE
@@ -26,3 +29,4 @@ PASSWORD: quHeBHEiKr
 ID: AvaLEARMONTH2155@hotmail.com
 PASSWORD: 294qU9LLmQ
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

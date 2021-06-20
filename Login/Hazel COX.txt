@@ -1,4 +1,7 @@
 ID: HazelCOX2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: aiz2iAEfSR
+=======
 PASSWORD: tqcC6eMa5s
 ID: HazelCOX2155@gmail.com
 PASSWORD: y7MtU1QS2I
@@ -26,3 +29,4 @@ PASSWORD: xRRHuY0f73
 ID: HazelCOX2155@gmail.com
 PASSWORD: TO0cY11z2i
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

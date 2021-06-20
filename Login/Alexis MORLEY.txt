@@ -1,4 +1,7 @@
 ID: AlexisMORLEY2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: puk3OuArAA
+=======
 PASSWORD: ElzL1DpslY
 ID: AlexisMORLEY2155@gmail.com
 PASSWORD: ulhHaeER8k
@@ -26,3 +29,4 @@ PASSWORD: dFGwI6KHuH
 ID: AlexisMORLEY2155@gmail.com
 PASSWORD: LPOBRAxT0E
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

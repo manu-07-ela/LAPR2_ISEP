@@ -1,4 +1,7 @@
 ID: EleanorMCINTOSH2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Af6Jn8Q0L4
+=======
 PASSWORD: h0U0yTLq6I
 ID: EleanorMCINTOSH2155@gmail.com
 PASSWORD: zGH7tl3Vcm
@@ -26,3 +29,4 @@ PASSWORD: Lg6lGtGDU6
 ID: EleanorMCINTOSH2155@gmail.com
 PASSWORD: dd7Jp74OsA
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

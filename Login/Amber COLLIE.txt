@@ -1,4 +1,7 @@
 ID: AmberCOLLIE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Sk1r8nUmfv
+=======
 PASSWORD: oylWdcpVdo
 ID: AmberCOLLIE2155@gmail.com
 PASSWORD: zU9YH0vZVS
@@ -26,3 +29,4 @@ PASSWORD: 0ql69DtP02
 ID: AmberCOLLIE2155@gmail.com
 PASSWORD: Gt4VsFlIbr
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

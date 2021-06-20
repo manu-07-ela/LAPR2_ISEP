@@ -1,4 +1,7 @@
 ID: SofiaFAULKNER2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: i37qJOpYAH
+=======
 PASSWORD: qtYr2W1IJy
 ID: SofiaFAULKNER2155@yahoo.com
 PASSWORD: Qner5nfLHW
@@ -26,3 +29,4 @@ PASSWORD: 4WhlvxpbKT
 ID: SofiaFAULKNER2155@yahoo.com
 PASSWORD: SIgQWwHPbP
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

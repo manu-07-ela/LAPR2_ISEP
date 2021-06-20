@@ -1,4 +1,7 @@
 ID: DaisyBONNAR2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Sj01hwgQKs
+=======
 PASSWORD: Gp2XM6mh0J
 ID: DaisyBONNAR2155@gmail.com
 PASSWORD: jxVYj6CJj1
@@ -26,3 +29,4 @@ PASSWORD: vlmvJtENDY
 ID: DaisyBONNAR2155@gmail.com
 PASSWORD: Vrg9sMi4cq
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

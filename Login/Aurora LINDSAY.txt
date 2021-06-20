@@ -1,4 +1,7 @@
 ID: AuroraLINDSAY2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: Z0jA9Dczr9
+=======
 PASSWORD: 905dQmeL1S
 ID: AuroraLINDSAY2155@hotmail.com
 PASSWORD: Ydy14JZIVs
@@ -26,3 +29,4 @@ PASSWORD: dSYL1Nkxmn
 ID: AuroraLINDSAY2155@hotmail.com
 PASSWORD: 0XsYQrNAEZ
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

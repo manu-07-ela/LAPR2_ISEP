@@ -1,4 +1,7 @@
 ID: LilySPIERS2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: d1UYzCy8Xe
+=======
 PASSWORD: d6W8dNXkTD
 ID: LilySPIERS2155@gmail.com
 PASSWORD: zFzsYuc63S
@@ -26,3 +29,4 @@ PASSWORD: F83P2zd3ao
 ID: LilySPIERS2155@gmail.com
 PASSWORD: e2s2u1ECAr
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

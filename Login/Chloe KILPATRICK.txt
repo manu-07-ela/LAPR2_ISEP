@@ -1,4 +1,7 @@
 ID: ChloeKILPATRICK2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: rrZqcaBLZo
+=======
 PASSWORD: jeWyTFL5bt
 ID: ChloeKILPATRICK2155@hotmail.com
 PASSWORD: Yjgtxeeycu
@@ -26,3 +29,4 @@ PASSWORD: IDO5Ephqe3
 ID: ChloeKILPATRICK2155@hotmail.com
 PASSWORD: IUHV5pibd0
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

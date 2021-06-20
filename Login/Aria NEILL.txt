@@ -1,4 +1,7 @@
 ID: AriaNEILL2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: qTsNnGjds4
+=======
 PASSWORD: npWPTZFKpX
 ID: AriaNEILL2155@gmail.com
 PASSWORD: BEZROCKPBP
@@ -26,3 +29,4 @@ PASSWORD: bkzG10ghRb
 ID: AriaNEILL2155@gmail.com
 PASSWORD: DXS5KZnjE7
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

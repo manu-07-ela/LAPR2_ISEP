@@ -1,4 +1,7 @@
 ID: StellaABEL2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: e5KT9W9nZ6
+=======
 PASSWORD: cbOujOsDqx
 ID: StellaABEL2155@hotmail.com
 PASSWORD: QM9hurt1qt
@@ -26,3 +29,4 @@ PASSWORD: 36KS3Qoc4n
 ID: StellaABEL2155@hotmail.com
 PASSWORD: mkQm5fvOXO
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: EleanorCARTWRIGHT2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: f1htXJeDtk
+=======
 PASSWORD: ABo15OmNRq
 ID: EleanorCARTWRIGHT2155@gmail.com
 PASSWORD: BIR6kiuD57
@@ -26,3 +29,4 @@ PASSWORD: N4AaxmE82m
 ID: EleanorCARTWRIGHT2155@gmail.com
 PASSWORD: pI0UhXkd7a
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

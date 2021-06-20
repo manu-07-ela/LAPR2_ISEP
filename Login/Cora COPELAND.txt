@@ -1,4 +1,7 @@
 ID: CoraCOPELAND2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: NIh8trr3Bh
+=======
 PASSWORD: qHmsZpgQ31
 ID: CoraCOPELAND2155@gmail.com
 PASSWORD: G2JdrjGp6A
@@ -26,3 +29,4 @@ PASSWORD: va9571jLOu
 ID: CoraCOPELAND2155@gmail.com
 PASSWORD: aZMs6Y1vlR
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

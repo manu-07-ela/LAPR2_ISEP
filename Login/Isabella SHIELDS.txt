@@ -1,4 +1,7 @@
 ID: IsabellaSHIELDS2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: PkABDs2nMf
+=======
 PASSWORD: DfNDiGdGIC
 ID: IsabellaSHIELDS2155@hotmail.com
 PASSWORD: UyReWberzI
@@ -26,3 +29,4 @@ PASSWORD: 8koeS3fFjl
 ID: IsabellaSHIELDS2155@hotmail.com
 PASSWORD: rWtQpfypzv
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

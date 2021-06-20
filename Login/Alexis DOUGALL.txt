@@ -1,4 +1,7 @@
 ID: AlexisDOUGALL2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: K97JB6cgR9
+=======
 PASSWORD: RXRivvwK7e
 ID: AlexisDOUGALL2155@gmail.com
 PASSWORD: j7wIAr9LJj
@@ -26,3 +29,4 @@ PASSWORD: EjZUYLSK6J
 ID: AlexisDOUGALL2155@gmail.com
 PASSWORD: mhosaiyvUS
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

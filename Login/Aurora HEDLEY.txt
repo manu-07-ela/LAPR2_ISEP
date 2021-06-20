@@ -1,4 +1,7 @@
 ID: AuroraHEDLEY2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: er8y4Xf2lT
+=======
 PASSWORD: ql8Xb9JG6H
 ID: AuroraHEDLEY2155@hotmail.com
 PASSWORD: QGZycfCP81
@@ -26,3 +29,4 @@ PASSWORD: GPl8LRJ93a
 ID: AuroraHEDLEY2155@hotmail.com
 PASSWORD: mHzHD9nCNJ
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

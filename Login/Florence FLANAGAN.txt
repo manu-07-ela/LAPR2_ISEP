@@ -1,4 +1,7 @@
 ID: FlorenceFLANAGAN2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: jQaQKsWLRU
+=======
 PASSWORD: Apzxu9U5sA
 ID: FlorenceFLANAGAN2155@gmail.com
 PASSWORD: 1lQNt6MRju
@@ -26,3 +29,4 @@ PASSWORD: s3wS48cQRL
 ID: FlorenceFLANAGAN2155@gmail.com
 PASSWORD: DHWf8dRQqZ
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

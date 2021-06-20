@@ -1,4 +1,7 @@
 ID: RubyFLORENCE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: uSUo1bsPb9
+=======
 PASSWORD: K8ba2km6fo
 ID: RubyFLORENCE2155@gmail.com
 PASSWORD: O7isAyeyiL
@@ -26,3 +29,4 @@ PASSWORD: R3OTWoeqT3
 ID: RubyFLORENCE2155@gmail.com
 PASSWORD: Kw73ceV1rS
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

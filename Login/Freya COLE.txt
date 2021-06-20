@@ -1,4 +1,7 @@
 ID: FreyaCOLE2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: YvC3joLkp2
+=======
 PASSWORD: 4aous9kmsF
 ID: FreyaCOLE2155@yahoo.com
 PASSWORD: mQ87PxmkgT
@@ -26,3 +29,4 @@ PASSWORD: hdTC5BiGBb
 ID: FreyaCOLE2155@yahoo.com
 PASSWORD: w7ygAh5uCl
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

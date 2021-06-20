@@ -1,4 +1,7 @@
 ID: StellaSAMUEL2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: TbRa4JwkO9
+=======
 PASSWORD: 6UL3FMYUr1
 ID: StellaSAMUEL2155@gmail.com
 PASSWORD: TNaKv4ysK9
@@ -26,3 +29,4 @@ PASSWORD: IW8BPFhJJY
 ID: StellaSAMUEL2155@gmail.com
 PASSWORD: E7rblLPWEk
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

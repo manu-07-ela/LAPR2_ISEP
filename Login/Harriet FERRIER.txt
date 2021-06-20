@@ -1,4 +1,7 @@
 ID: HarrietFERRIER2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: waLk1B2Qez
+=======
 PASSWORD: 2EPtPGSvzl
 ID: HarrietFERRIER2155@gmail.com
 PASSWORD: Flyb8jRhae
@@ -26,3 +29,4 @@ PASSWORD: mGwJaXSqGi
 ID: HarrietFERRIER2155@gmail.com
 PASSWORD: CtSD50eI08
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

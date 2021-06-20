@@ -1,4 +1,7 @@
 ID: ChloeKEARNEY2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 3bGwuC8nt2
+=======
 PASSWORD: 52TlmOQaq0
 ID: ChloeKEARNEY2155@gmail.com
 PASSWORD: qsAadHUcBc
@@ -26,3 +29,4 @@ PASSWORD: VftrfTn0mM
 ID: ChloeKEARNEY2155@gmail.com
 PASSWORD: J97uzAkfns
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

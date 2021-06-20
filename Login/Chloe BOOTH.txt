@@ -1,4 +1,7 @@
 ID: ChloeBOOTH2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: XEu7aEmpzx
+=======
 PASSWORD: gmZW4BViMN
 ID: ChloeBOOTH2155@gmail.com
 PASSWORD: f2f9rkMEr8
@@ -26,3 +29,4 @@ PASSWORD: FFpsv3lnLp
 ID: ChloeBOOTH2155@gmail.com
 PASSWORD: AqJ53bzovF
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: CoraGEMMELL2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: 3Fj470IWoM
+=======
 PASSWORD: uAqeXnymeA
 ID: CoraGEMMELL2155@gmail.com
 PASSWORD: VgchxCfa5n
@@ -26,3 +29,4 @@ PASSWORD: 46289IHEZt
 ID: CoraGEMMELL2155@gmail.com
 PASSWORD: vZRcGtjMcm
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

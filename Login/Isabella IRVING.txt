@@ -1,4 +1,7 @@
 ID: IsabellaIRVING2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: Qu8w7YnQyL
+=======
 PASSWORD: gbBkfGQ0q2
 ID: IsabellaIRVING2155@hotmail.com
 PASSWORD: pnXbM0OqUA
@@ -26,3 +29,4 @@ PASSWORD: HybSoadLa5
 ID: IsabellaIRVING2155@hotmail.com
 PASSWORD: Vktg2ePUvW
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

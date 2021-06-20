@@ -1,4 +1,7 @@
 ID: SophiaNOWAK2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Hmo1SUS3sv
+=======
 PASSWORD: zQ3ZFQ4L3G
 ID: SophiaNOWAK2155@gmail.com
 PASSWORD: fvqZT5jqrY
@@ -26,3 +29,4 @@ PASSWORD: zbFmmIh5N2
 ID: SophiaNOWAK2155@gmail.com
 PASSWORD: nemMJEbQUK
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

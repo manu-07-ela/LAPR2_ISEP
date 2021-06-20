@@ -1,4 +1,7 @@
 ID: RileyRUTHVEN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: 2s8npGlsos
+=======
 PASSWORD: VHjN1Ci8SP
 ID: RileyRUTHVEN2155@hotmail.com
 PASSWORD: SJpZIyta9D
@@ -26,3 +29,4 @@ PASSWORD: 2TvNAeq7nO
 ID: RileyRUTHVEN2155@hotmail.com
 PASSWORD: aJrXrvvCmm
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

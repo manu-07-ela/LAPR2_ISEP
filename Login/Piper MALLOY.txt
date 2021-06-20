@@ -1,4 +1,7 @@
 ID: PiperMALLOY2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: Loc2NW5sLq
+=======
 PASSWORD: tYSfS9H1R6
 ID: PiperMALLOY2155@gmail.com
 PASSWORD: ybh7OeZtuG
@@ -26,3 +29,4 @@ PASSWORD: Hg43VusDKe
 ID: PiperMALLOY2155@gmail.com
 PASSWORD: ViKIyEFdbU
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

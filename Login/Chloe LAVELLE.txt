@@ -1,4 +1,7 @@
 ID: ChloeLAVELLE2155@yahoo.com
+<<<<<<< HEAD
+PASSWORD: 4mPA5XSr8M
+=======
 PASSWORD: l2S0fRe2J6
 ID: ChloeLAVELLE2155@yahoo.com
 PASSWORD: HllJlw5SP3
@@ -26,3 +29,4 @@ PASSWORD: X8tiJgsXeJ
 ID: ChloeLAVELLE2155@yahoo.com
 PASSWORD: PyYjJPTE12
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

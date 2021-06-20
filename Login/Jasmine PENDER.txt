@@ -1,4 +1,7 @@
 ID: JasminePENDER2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: oZiyAm6Yhv
+=======
 PASSWORD: DunHRdD9IA
 ID: JasminePENDER2155@gmail.com
 PASSWORD: z3b2uJZPZk
@@ -26,3 +29,4 @@ PASSWORD: YZT8AwDGwq
 ID: JasminePENDER2155@gmail.com
 PASSWORD: ghDH1FRDb7
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

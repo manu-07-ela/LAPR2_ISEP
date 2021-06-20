@@ -1,4 +1,7 @@
 ID: MaddisonCARRIGAN2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: GIk7g3KPyH
+=======
 PASSWORD: rAnAmH0gOF
 ID: MaddisonCARRIGAN2155@gmail.com
 PASSWORD: C2YMQLMqGd
@@ -26,3 +29,4 @@ PASSWORD: qafgPxRSTD
 ID: MaddisonCARRIGAN2155@gmail.com
 PASSWORD: aRWd18G5vq
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

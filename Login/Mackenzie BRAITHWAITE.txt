@@ -1,4 +1,7 @@
 ID: MackenzieBRAITHWAITE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: WqRJXE2myM
+=======
 PASSWORD: 8AaI7T4NRe
 ID: MackenzieBRAITHWAITE2155@gmail.com
 PASSWORD: ix6qLVLT5i
@@ -26,3 +29,4 @@ PASSWORD: 8sVq8pky4n
 ID: MackenzieBRAITHWAITE2155@gmail.com
 PASSWORD: yIOA91YBSd
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

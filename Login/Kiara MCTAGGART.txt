@@ -1,4 +1,7 @@
 ID: KiaraMCTAGGART2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: RSiffVFCcC
+=======
 PASSWORD: UdYP2Mn8DV
 ID: KiaraMCTAGGART2155@hotmail.com
 PASSWORD: 3GzGKL7oZI
@@ -26,3 +29,4 @@ PASSWORD: vP4YGGeh0s
 ID: KiaraMCTAGGART2155@hotmail.com
 PASSWORD: ix4NHegSVm
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

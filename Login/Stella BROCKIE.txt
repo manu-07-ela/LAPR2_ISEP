@@ -1,4 +1,7 @@
 ID: StellaBROCKIE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: RkiMit7Fk3
+=======
 PASSWORD: EUAaAtwRUZ
 ID: StellaBROCKIE2155@gmail.com
 PASSWORD: fivxqNesXM
@@ -26,3 +29,4 @@ PASSWORD: phdc0o5RyH
 ID: StellaBROCKIE2155@gmail.com
 PASSWORD: PhFPfplj6V
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

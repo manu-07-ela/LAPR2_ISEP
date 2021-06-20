@@ -1,4 +1,7 @@
 ID: AmeliaFINCH2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: 6wxJWQ2qwJ
+=======
 PASSWORD: YL4iVGugsg
 ID: AmeliaFINCH2155@hotmail.com
 PASSWORD: HabpXi8mWA
@@ -26,3 +29,4 @@ PASSWORD: KmIipxnm8L
 ID: AmeliaFINCH2155@hotmail.com
 PASSWORD: SaQyKfhIYc
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

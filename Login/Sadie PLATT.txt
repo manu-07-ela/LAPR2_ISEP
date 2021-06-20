@@ -1,4 +1,7 @@
 ID: SadiePLATT2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: 7Ks3s9nd1H
+=======
 PASSWORD: JwVq4zQu2m
 ID: SadiePLATT2155@hotmail.com
 PASSWORD: f2rZ8lIGUd
@@ -26,3 +29,4 @@ PASSWORD: WhOat9N0ZS
 ID: SadiePLATT2155@hotmail.com
 PASSWORD: NUpVMRiJKN
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

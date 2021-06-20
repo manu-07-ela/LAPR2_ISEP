@@ -1,4 +1,7 @@
 ID: IvyALAM2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: LscGjwq0u5
+=======
 PASSWORD: lRTB6exeCI
 ID: IvyALAM2155@gmail.com
 PASSWORD: ZLMSTRPp79
@@ -26,3 +29,4 @@ PASSWORD: Vyr6x6Hts4
 ID: IvyALAM2155@gmail.com
 PASSWORD: kmwSzK4tSC
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

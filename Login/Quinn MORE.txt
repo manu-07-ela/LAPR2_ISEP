@@ -1,4 +1,7 @@
 ID: QuinnMORE2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: gjScNjBaLV
+=======
 PASSWORD: jUQiAew6v3
 ID: QuinnMORE2155@gmail.com
 PASSWORD: 1eOfBr1Szt
@@ -26,3 +29,4 @@ PASSWORD: Zg86EKi5AW
 ID: QuinnMORE2155@gmail.com
 PASSWORD: hYEFDl3a3S
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

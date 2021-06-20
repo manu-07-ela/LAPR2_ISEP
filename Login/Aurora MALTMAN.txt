@@ -1,4 +1,7 @@
 ID: AuroraMALTMAN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: Lyp43pi4i3
+=======
 PASSWORD: hZOEs8mCGK
 ID: AuroraMALTMAN2155@hotmail.com
 PASSWORD: w7FKWy8uk5
@@ -26,3 +29,4 @@ PASSWORD: HGaCFU5EEg
 ID: AuroraMALTMAN2155@hotmail.com
 PASSWORD: wEaG2B7qkS
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,4 +1,7 @@
 ID: ElsieFRENCH2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: HqDV8JZip4
+=======
 PASSWORD: RxE6h2cDmx
 ID: ElsieFRENCH2155@gmail.com
 PASSWORD: CPzYpRZ3t1
@@ -26,3 +29,4 @@ PASSWORD: UDTbJQLEGv
 ID: ElsieFRENCH2155@gmail.com
 PASSWORD: DFtqEMFUr7
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

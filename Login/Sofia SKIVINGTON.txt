@@ -1,4 +1,7 @@
 ID: SofiaSKIVINGTON2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: IPHPpE8ATz
+=======
 PASSWORD: 1qJPEfI3hq
 ID: SofiaSKIVINGTON2155@hotmail.com
 PASSWORD: 3hsXkwy9iO
@@ -26,3 +29,4 @@ PASSWORD: 6T91qSGTso
 ID: SofiaSKIVINGTON2155@hotmail.com
 PASSWORD: AvAcNAf8rH
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

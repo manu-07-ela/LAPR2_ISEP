@@ -1,4 +1,7 @@
 ID: AvaCLANCY2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: e5vhbU8Fo0
+=======
 PASSWORD: 5mhhl1YAlW
 ID: AvaCLANCY2155@hotmail.com
 PASSWORD: J8Wil6Tmif
@@ -26,3 +29,4 @@ PASSWORD: FXaDhEO1YM
 ID: AvaCLANCY2155@hotmail.com
 PASSWORD: C5vWlg0qJI
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

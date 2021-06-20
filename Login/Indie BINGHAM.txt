@@ -1,4 +1,7 @@
 ID: IndieBINGHAM2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: ppLr4cXEVM
+=======
 PASSWORD: GZnkRrxybE
 ID: IndieBINGHAM2155@gmail.com
 PASSWORD: XQqBYM9wiJ
@@ -26,3 +29,4 @@ PASSWORD: FiX03d3ZTx
 ID: IndieBINGHAM2155@gmail.com
 PASSWORD: b7htNcetck
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

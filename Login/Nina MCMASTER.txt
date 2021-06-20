@@ -1,4 +1,7 @@
 ID: NinaMCMASTER2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: IRdJFcm7Up
+=======
 PASSWORD: CaIlp7C38f
 ID: NinaMCMASTER2155@hotmail.com
 PASSWORD: M9c7DghSPp
@@ -26,3 +29,4 @@ PASSWORD: q3Q2zuasnY
 ID: NinaMCMASTER2155@hotmail.com
 PASSWORD: 4i9e3gN62M
 >>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f
