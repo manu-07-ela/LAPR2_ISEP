@@ -122,6 +122,8 @@ The application should present these statistics using four graphs/charts, one fo
 
 ### 1.4. Found out Dependencies
 
+* There are no found out dependencies.
+
 ### 1.5 Input and Output Data
 
 **Input Data:**
