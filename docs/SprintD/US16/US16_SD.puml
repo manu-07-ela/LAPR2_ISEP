@@ -9,7 +9,6 @@ participant ": Company" as COMP
 participant "overview : Overview" as OVERVIEW
 participant ": TestStore" as TS
 participant ": ClientStore" as CS
-participant ": TestMapper" as tMAPPER
 participant ": SubsequenceWithMaximumSum" as interface
 
 activate ADMIN
