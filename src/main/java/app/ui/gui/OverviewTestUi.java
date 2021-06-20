@@ -148,20 +148,6 @@ public class OverviewTestUi {
         loadChoiseBox();
     }
 
-    public void clean(){
-        initialDay.getEditor().clear();
-        endDay.getEditor().clear();
-        initialHour.getItems().clear();
-        endHour.getItems().clear();
-        initialMin.getItems().clear();
-        endMin.getItems().clear();
-        txtNumberOfClientsScope.setText("");
-        txtNumberOfClientsSystem.setText("");
-        txtNumberOfTests.setText("");
-        availableAlgorithms.getItems().clear();
-        loadChoiseBox();
-        run();
-    }
 
     /**
      * Load choise box.
