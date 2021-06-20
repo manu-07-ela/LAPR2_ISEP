@@ -125,7 +125,7 @@ When the time resolution is a week, please consider only complete weeks.
 
 ### 1.4. Found out Dependencies
 
-* 
+* There are no found out dependencies.
 
 ### 1.5 Input and Output Data
 
