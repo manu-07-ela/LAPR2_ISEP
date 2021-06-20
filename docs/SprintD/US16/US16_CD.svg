@@ -27,7 +27,7 @@ link TestStore to Test--><path codeLine="96" d="M517.03,536.29 C526.52,582.81 54
 link ClientStore to Client--><path codeLine="97" d="M737.85,522.18 C726.75,576.6 703.53,690.45 692.74,743.35 " fill="none" id="ClientStore-to-Client" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="691.74,748.28,697.4589,740.2616,692.7398,743.381,689.6204,738.6619,691.74,748.28" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="37" x="728" y="582.4951">knows</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="728.9502" y="543.4394">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="687.314" y="737.5638">*</text><!--MD5=[b93f17079b602d6561eaa7b2f9f4fd74]
 link Overview to SubsequenceWithMaximumSum--><path codeLine="99" d="M306.23,907.01 C318.4,915.97 331.05,924.14 344,931 C467,996.2 626.85,1022.05 732.3,1032.29 " fill="none" id="Overview-to-SubsequenceWithMaximumSum" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="737.28,1032.77,728.7116,1027.9138,732.3037,1032.2838,727.9337,1035.8759,737.28,1032.77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="394" y="953.4951">makes use of</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="308.441" y="928.7433">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="722.5302" y="1029.2124">1</text><!--MD5=[8997d9d13c6ba1f9bb4ee6ff342a097d]
 link BenchmarkAdapter to SubsequenceWithMaximumSum--><path codeLine="101" d="M844,796.6 C844,839.22 844,931.13 844,988.73 " fill="none" id="BenchmarkAdapter-to-SubsequenceWithMaximumSum" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="851,988.95,844,1008.95,837,988.95,851,988.95" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a5b5fe6b30e64a5edc1781e50286c47a]
-link BruteForceAdapter to SubsequenceWithMaximumSum--><path codeLine="102" d="M1004.12,796.66 C989.01,828.04 960.14,885.37 930,931 C915.9,952.35 898.61,974.67 883.24,993.44 " fill="none" id="BruteForceAdapter-to-SubsequenceWithMaximumSum" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="888.53,998.02,870.35,1008.91,877.77,989.06,888.53,998.02" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[33ac0dd67349b2dcf8459d865ee83533]
+link BruteForceAdapter to SubsequenceWithMaximumSum--><path codeLine="102" d="M1004.12,796.66 C989.01,828.04 960.14,885.37 930,931 C915.9,952.35 898.61,974.67 883.24,993.44 " fill="none" id="BruteForceAdapter-to-SubsequenceWithMaximumSum" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="888.53,998.02,870.35,1008.91,877.77,989.06,888.53,998.02" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7d439755bed94283d02e566e33c682ba]
 @startuml
 
 
@@ -134,10 +134,10 @@ BruteForceAdapter..|>SubsequenceWithMaximumSum
 
 @enduml
 
-PlantUML version 1.2021.00(Sun Jan 10 10:25:05 GMT 2021)
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
 (GPL source distribution)
 Java Runtime: OpenJDK Runtime Environment
-JVM: OpenJDK 64-Bit Server VM
+JVM: Dynamic Code Evolution 64-Bit Server VM
 Default Encoding: Cp1252
 Language: pt
 Country: PT
