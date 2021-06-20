@@ -9,7 +9,7 @@ participant ": Company" as comp
 participant ": TestStore" as store
 participant "report: Covid19Report" as report
 participant ":SimpleLinearRegression" as sRegression
-participant ":NhsApi" as api
+participant ":MultipleLinearRegression" as mRegression
 
 activate ADMIN
 ADMIN -> UI : Initiates the process of sending a Covid-19 Report to NHS.
@@ -88,7 +88,7 @@ deactivate UI
 
 ADMIN -> UI : Confirms the data.
 activate UI
-UI -> CTRL : sendCovid19Report()
+UI -> CTRL : sendCovid19Report(initial,end,current,historicalPoints,typeOfData,\nregressionModel,independentVariable,significanceLevel,confidenceLevel)
 activate CTRL
 CTRL -> comp : testStore = getTestStore()
 activate comp
@@ -99,26 +99,65 @@ deactivate store
 CTRL -> store : yHistoricalPoints = getNumberOfPositiveCovidTestsForDayHistoricalPoints(current day, historical points)
 activate store
 deactivate store
-CTRL -> store : xInterval = getNumberOfIndependentVariableForDayInInterval(initialDate, endDate)
+alt regressionModel = "Simple Linear"
+alt independentVariable = "Tests Performed"
+CTRL -> store : xInterval =getNumberOfTestsPerformedForDayInInterval(initialDate,endDate)
 activate store
 deactivate store
-CTRL -> store : xHistoricalPoints = getNumberOfIndependentVariableForDayInHistoricalPoints(current day, historical points)
+CTRL -> store : xHistoricalPoints = getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints)
+activate store
+deactivate store
+else
+CTRL -> store : xInterval =getMeanAgeForDayInInterval(initialDate,endDate)
+activate store
+deactivate store
+CTRL -> store : xHistoricalPoints = getMeanAgeForDayHistoricalPoints(currentDay,historicalPoints)
+activate store
+deactivate store
+end
+CTRL -> comp : createCovid19Report(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
+activate comp
+comp --> report** :create(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
+alt typeOfDate ="Day"
+report -> report : getIntervalDates()
+activate report
+deactivate report
+else
+report -> report : getHistoricalWeeks()
+activate report
+deactivate report
+end
+report --> sRegression** : create(xInterval,yInterval, xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation)
+deactivate comp
+else
+
+CTRL -> store : x1Interval =getNumberOfTestsPerformedForDayInInterval(initialDate,endDate)
+activate store
+deactivate store
+CTRL -> store : x1HistoricalPoints = getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints)
+activate store
+deactivate store
+
+CTRL -> store : x2Interval =getMeanAgeForDayInInterval(initialDate,endDate)
+activate store
+deactivate store
+CTRL -> store : x2HistoricalPoints = getMeanAgeForDayHistoricalPoints(currentDay,historicalPoints)
 activate store
 deactivate store
 CTRL -> comp : createCovid19Report(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
 activate comp
-comp --> report** :create(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
-report -> report: generatesDatesHistoricalPoints()
+comp --> report :create(x1Interval, x2Interval,yInterval, x1HistoricalPoints,x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
+alt typeOfDate ="Day"
+report -> report : getIntervalDates()
 activate report
 deactivate report
-report -> sRegression : getNhsReport(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,datesHistoricalPoints)
+else
+report -> report : getHistoricalWeeks()
 activate report
 deactivate report
-activate sRegression
-deactivate sRegression
-comp -> api : sendCovid19Report()
-activate api
-deactivate api
+end
+report --> mRegression** : create(xInterval,yInterval, xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation)
+end
 deactivate comp
 deactivate CTRL
 

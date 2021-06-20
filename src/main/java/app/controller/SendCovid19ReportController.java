@@ -87,13 +87,9 @@ public class SendCovid19ReportController {
         if (regressionModel.equals("Simple Linear")){
             if (independentVariable.equals("Tests Performed")){
                 yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-                System.out.println(Arrays.toString(yInterval));
                 yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-                System.out.println(Arrays.toString(yHistoricalPoints));
                 x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
-                System.out.println(Arrays.toString(x1Interval));
                 x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
-                System.out.println(Arrays.toString(x1HistoricalPoints));
             }else{
                 yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
                 yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);

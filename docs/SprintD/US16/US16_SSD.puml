@@ -9,7 +9,7 @@ activate ":System"
 ":System" --> User : Requests to delimit the period of dates to analyze
 deactivate ":System"
 
-User -> ":System" : Selects the dates and asks to see relative information
+User -> ":System" : Types the dates and asks to see relative information
 activate ":System"
 
 ":System" --> User : Shows successfully the relative information
