@@ -1,5 +1,6 @@
-package app.controller;
+package app.domain;
 
+import app.controller.App;
 import app.domain.model.Company;
 import app.domain.model.testrelated.Covid19Report;
 import app.domain.store.TestStore;
@@ -9,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
-public class SendAutomaticallyCovid19ReportController {
+public class SendAutomaticallyCovid19Report {
     /**
      * Represents an instance of app.
      */
@@ -24,7 +25,7 @@ public class SendAutomaticallyCovid19ReportController {
      */
     private TestStore tStore;
 
-    public SendAutomaticallyCovid19ReportController(){
+    public SendAutomaticallyCovid19Report(){
         this.app=App.getInstance();
         this.company=app.getCompany();
     }

@@ -1,6 +1,6 @@
 package app.domain.model;
 
-import app.controller.SendAutomaticallyCovid19ReportController;
+import app.domain.SendAutomaticallyCovid19Report;
 import app.domain.model.laboratories.ChemicalLaboratory;
 import app.domain.model.testrelated.Covid19Report;
 import app.domain.model.testrelated.Overview;
@@ -99,7 +99,7 @@ public class Company implements Serializable {
     /**
      *
      */
-    private final SendAutomaticallyCovid19ReportController sendAutomaticallyCovid19ReportController;
+    private final SendAutomaticallyCovid19Report sendAutomaticallyCovid19Report;
 
     /**
      * Creates an instance of Company
@@ -121,7 +121,7 @@ public class Company implements Serializable {
         this.testStore = new TestStore();
         this.chemicalLaboratory = new ChemicalLaboratory("Chemical Laboratory", "Oxford Street", "23145623781", "7293817263");
 
-        this.sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
+        this.sendAutomaticallyCovid19Report = new SendAutomaticallyCovid19Report();
 
 
         //setTask();

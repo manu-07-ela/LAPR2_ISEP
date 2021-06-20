@@ -15,6 +15,7 @@ package model{
 class Company
 class Covid19Report
 class SimpleLinearRegression
+class MultipleLinearRegression
 }
 
 package store{
@@ -44,14 +45,21 @@ class TestStore{
 +getNumberOfPositiveCovidTestsForDayHistoricalPoints(current day, historical points)
 +getNumberOfIndependentVariableForDayInInterval(initialDate, endDate)
 +getNumberOfIndependentVariableForDayInHistoricalPoints(current day, historical points)
++getMeanAgeForDayInInterval(initialDate,endDate)
++getMeanAgeForDayHistoricalPoints(currentDay,historicalPoints)
++getNumberOfTestsPerformedForDayInInterval(initialDate,endDate)
++getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints)
 }
 
 class Covid19Report{
-+generatesDatesHistoricalPoints()
++getIntervalDates()
++getHistoricalWeeks()
 }
 
 class SimpleLinearRegression{
-+getNhsReport(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,datesHistoricalPoints)
+}
+
+class MultipleLinearRegression{
 }
 
 interface NhsApi{
@@ -65,6 +73,7 @@ Company"1" --> "*" Covid19Report : uses
 Company "1" -> "1" TestStore : uses
 Company..>NhsApi
 Covid19Report ..> SimpleLinearRegression
+Covid19Report ..> MultipleLinearRegression
 
 
 @enduml
