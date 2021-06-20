@@ -1,5 +1,7 @@
 package app.ui.gui;
 
+import app.Serialization;
+import app.controller.App;
 import app.ui.console.AuthUI;
 import app.ui.console.functionalities.WriteMedicalReportUI;
 import javafx.fxml.FXML;
@@ -31,6 +33,7 @@ public class SpecialistDoctorUi {
 
     @FXML
     void exitClick() {
+        Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
 
     }

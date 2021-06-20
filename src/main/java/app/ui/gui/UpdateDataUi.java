@@ -1,5 +1,7 @@
 package app.ui.gui;
 
+import app.Serialization;
+import app.controller.App;
 import app.controller.UpdateDataController;
 import app.domain.model.users.Client;
 import app.ui.console.AuthUI;
@@ -173,6 +175,7 @@ public class UpdateDataUi {
 
     @FXML
     void exitClick() {
+        Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
     }
 

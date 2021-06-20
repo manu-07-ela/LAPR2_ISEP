@@ -4,6 +4,23 @@ left to right direction
 skinparam classAttributeIconSize 0
 
 
+class Company{
+-designation
+}
+
+class Overview{
+}
+
+class Client{
+ - name
+ - email
+ - phoneNumber
+ - sex
+ - tin
+ - birthDate
+ - nhsNumber
+ - citizenCardNumber
+}
 
 class Test {
 -internalCode
@@ -18,8 +35,10 @@ class Test {
 
 
 
-
+Company "1"---"1..*" Employee : employ >
+Test "1..*"---"1" Client : associated a >
 Test "*"---"1" Employee : registered by >
+Overview "*"--"1" Employee : requested by >
 
 
 

@@ -98,7 +98,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="regressionModel" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: white; -fx-border-color: #1a7180; -fx-border-radius: 4; -fx-background-radius: 10;" />
+                  <ComboBox fx:id="regressionModel" onAction="#onActionRegressionModel" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: white; -fx-border-color: #1a7180; -fx-border-radius: 4; -fx-background-radius: 10;" />
                </children>
                <VBox.margin>
                   <Insets right="45.0" />

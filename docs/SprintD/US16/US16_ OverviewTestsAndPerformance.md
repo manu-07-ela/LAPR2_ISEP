@@ -122,9 +122,11 @@ The application should present these statistics using four graphs/charts, one fo
 
 *Insert here the client acceptance criteria.*
 
-* **AC1:** The client tests must be shown ordered from the most recent to the oldest one. 
-* **AC2:** The test results are shown only after the client has selected a test.
-
+* **AC1:** While evaluating the performance the laboratory
+  coordinator should have the ability to dynamically select the algorithm to be
+  applied from the ones available on the system (the benchmark algorithm provided
+  in moodle and the brute-force algorithm to be developed). Support for easily
+  adding other similar algorithms is required.
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
@@ -137,18 +139,19 @@ The application should present these statistics using four graphs/charts, one fo
 
 * Typed data:
 
+    * Period to analyze - start date and end date
     
 * Selected data:
-    * Period to analyze - start date and end date
     * Algorithm
 
 **Output Data:**
 
-* Number of clients
-* Number of tests waiting for results
-* Number of tests waiting for diagnosis
+* Number of clients in the scope
+* Number of clients in the system
+* Number of tests waiting for results per day, week, month and year
+* Number of tests waiting for diagnosis per day, week, month and year
 * Total Number of tests processed in the laboratory in each day, week, month and year
-* Statistics and Graphs
+* Least effective interval (Sub sequence with maximum sum)
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -186,11 +189,11 @@ To facilitate overall analysis, the application should also display statistics a
 
 | Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Step 1  		 | ... interacting with the actor?                                 | WriteMedicalReportUI          | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
-|                | ... coordinating the US?                                        | WriteMedicalReportController  | **Controller**                                                                                                                                                                                         |
+| Step 1  		 | ... interacting with the actor?                                 | OverviewTestUI                | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
+|                | ... coordinating the US?                                        | OverviewController            | **Controller**                                                                                                                                                                                         |
 | Step 2  		 | ... knowing the tests that are waiting for the medical report?  | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
 |                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
-|                | ... transferring business data in DTO?                          | TestMapper                    | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+|                | ... knowing the ClientStore?                                    | Company                       | **IE**: The company knows the ClientStore to which it is delegating some tasks.                                                                                                                          |
 | Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
 | Step 4  		 | ... knowing the parameters analyzed and the respective data?    | Test                          | **IE**: The test knows its own results.                                                                                                                                                                |
 |                | ... transferring business data in DTO?                          | TestParameterMapper           | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
@@ -200,7 +203,7 @@ To facilitate overall analysis, the application should also display statistics a
 |                | ... instantiating a new Medical Report?                         | Test                          | **Creator (R1)**                                                                                                                                                                                       |
 |        		 | ... validating all data (local validation)?                     | MedicalReport                 | **IE**: Owns its data.                                                                                                                                                                                 |
 |        		 | ... saving the creation time?                                   | MedicalReport                 | **IE**: The medical report knows when it was created.                                                                                                                                                  |
-| Step 8  		 | ... informing operation success?                                | WriteMedicalReportUI          | **IE**: Is responsible for user interactions.                                                                                                                                                          |
+| Step 8  		 | ... informing operation success?                                | OverviewTestUI                | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 
@@ -210,7 +213,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * OverviewUI  
+ * OverviewTestUI
  * OverviewController
 
 ## 3.2. Sequence Diagram (SD)
