@@ -3,8 +3,12 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.testrelated.Test;
 import app.domain.store.TestStore;
+
+import java.text.ParseException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
 
 public class SendCovid19ReportController {
 
@@ -72,14 +76,40 @@ public class SendCovid19ReportController {
     }
 
 
-    public void sendCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String regressionModel, String independentVariable, double significanceLevel, double confidenceLevel){
-        this.tStore=company.getTestStore();
-        double[] yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-        double[] yHistoricalPoints =tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-        double[] xInterval =tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
-        double[] xHistoricalPoints =tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
-        this.company.createCovid19Report(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,historicalPoints,typeOfData);
-
+    public void sendCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String regressionModel, String independentVariable, double significanceLevel, double confidenceLevel) throws ParseException {
+        double[] x1HistoricalPoints;
+        double[] x1Interval;
+        double[] x2HistoricalPoints;
+        double[] x2Interval;
+        double[] yHistoricalPoints;
+        double[] yInterval;
+        this.tStore = company.getTestStore();
+        if (regressionModel.equals("Simple Linear")){
+            if (independentVariable.equals("Tests Performed")){
+                yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
+                System.out.println(Arrays.toString(yInterval));
+                yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
+                System.out.println(Arrays.toString(yHistoricalPoints));
+                x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
+                System.out.println(Arrays.toString(x1Interval));
+                x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
+                System.out.println(Arrays.toString(x1HistoricalPoints));
+            }else{
+                yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
+                yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
+                x1Interval = tStore.getMeanAgeForDayInInterval(initialDate,endDate);
+                x1HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay,historicalPoints);
+            }
+            this.company.createCovid19ReportSimple(x1Interval,yInterval,x1HistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,typeOfData);
+        }else {
+            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
+            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
+            x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
+            x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
+            x2Interval = tStore.getMeanAgeForDayInInterval(initialDate, endDate);
+            x2HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay, historicalPoints);
+            this.company.createCovid19ReportMultiple(x1Interval,x2Interval,yInterval,x1HistoricalPoints,x2HistoricalPoints, yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,typeOfData);
+        }
     }
 
 

@@ -80,6 +80,7 @@ public class LabCoordinatorUi {
     void validateWorkClick() {
         ValidateWorkUI validateWorkUI = new ValidateWorkUI();
         validateWorkUI.run();
+        exit.getScene().getWindow().hide();
 
     }
 
@@ -93,6 +94,7 @@ public class LabCoordinatorUi {
     @FXML
     void importTestClick() {
         viewImportFiles();
+        exit.getScene().getWindow().hide();
     }
 
     private void viewImportFiles(){

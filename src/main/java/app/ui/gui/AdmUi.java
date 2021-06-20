@@ -118,6 +118,7 @@ public class AdmUi {
     void sendReportClick() throws IOException {
         runSendCovid19Report();
         sendCovid19ReportUi.setLabelUI(stageSendCovid19Report);
+        exit.getScene().getWindow().hide();
     }
 
     @FXML
@@ -142,6 +143,7 @@ public class AdmUi {
         }catch (IOException exception){
             exception.printStackTrace();
         }
+        exit.getScene().getWindow().hide();
     }
 
 

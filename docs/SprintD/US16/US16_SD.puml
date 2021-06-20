@@ -8,6 +8,7 @@ participant ": OverviewController" as CTRL
 participant ": Company" as COMP
 participant ": Overview" as OVERVIEW
 participant ": TestStore" as TS
+participant ": ClientStore" as CS
 participant ": TestMapper" as tMAPPER
 participant ": SubsequenceWithMaximumSum" as interface
 
@@ -25,42 +26,56 @@ activate CTRL
 CTRL -> COMP : testStore = getTestStore()
 activate COMP
 deactivate COMP
+CTRL -> COMP : clientStore = getClientStore()
+activate COMP
+deactivate COMP
 CTRL -> TS : testList = getIntervalTestList(initialDate,endDate)
 activate TS
 deactivate TS
-CTRL --> OVERVIEW** : create(initialDate,endDate, testList)
+CTRL -> COMP : createOverview()
+activate COMP
+COMP --> OVERVIEW** : create(initialDate,endDate, testList)
+deactivate COMP
 deactivate CTRL
 
 deactivate CTRL
-UI -> CTRL : numberOfClients = getNumberOfClients()
+UI -> CTRL : getNumberOfClients()
 activate CTRL
 CTRL -> OVERVIEW : getNumberOfClients()
 activate OVERVIEW
 deactivate OVERVIEW
 deactivate CTRL
 
-UI -> CTRL : numberOfTestsWaitingForResults = getNumberOfTestsWaitingForResults()
+UI -> CTRL : getNumberTestsSystem()
 activate CTRL
-CTRL -> OVERVIEW : getNumberOfTestsWaitingForResults()
+CTRL -> OVERVIEW : getNumberTestsSystem()
 activate OVERVIEW
 deactivate OVERVIEW
 deactivate CTRL
 
-UI -> CTRL : numberOfTestsWaitingForDiagnosis = getNumberOfTestsWaitingForDiagnosis()
+UI -> CTRL : getNumberClientsSystem()
 activate CTRL
 CTRL -> OVERVIEW : getNumberOfTestsWaitingForDiagnosis()
 activate OVERVIEW
 deactivate OVERVIEW
 deactivate CTRL
 
-UI -> CTRL : totalNumberOfTestsProcessed = getTotalNumberOfTestsProcessed()
+UI -> CTRL : getNumberOfTestsWaitingForResults()
 activate CTRL
 CTRL -> OVERVIEW : getTotalNumberOfTestsProcessed()
 activate OVERVIEW
 deactivate OVERVIEW
 deactivate CTRL
 
-UI --> ADMIN : Shows successfully the relative information ( number of clients, number of tests Waiting for results,\n the number of tests Waiting for diagnosis, total number of tests processed \n in the laboratory in each day, week, month and year
+UI -> CTRL : getNumberOfTestsWaitingForDiagnosis()
+activate CTRL
+deactivate CTRL
+
+UI -> CTRL : getTotalNumberOfTestsProcessed()
+activate CTRL
+deactivate CTRL
+
+UI --> ADMIN : Shows successfully the relative information
 deactivate UI
 alt select option to evaluate performance
 ADMIN -> UI : Asks to evaluate performance
@@ -78,6 +93,12 @@ deactivate UI
 
 ADMIN -> UI : Selects the algorithm and asks for the least effective time
 activate UI
+UI -> CTRL : getDates()
+activate CTRL
+deactivate CTRL
+UI -> CTRL : getIntervalDates()
+activate CTRL
+deactivate CTRL
 UI -> CTRL : getSubsequenceWithMaximumSum()
 activate CTRL
 CTRL -> OVERVIEW : getSubsequenceWithMaximumSum()
@@ -90,6 +111,11 @@ OVERVIEW --> CTRL : subsequenceWithMaximumSum
 deactivate OVERVIEW
 CTRL --> UI : subsequenceWithMaximumSum
 deactivate CTRL
+
+UI -> CTRL : getPeriodSubSequenceWithMaximumSum()
+activate CTRL
+deactivate CTRL
+
 UI --> ADMIN : Shows successfully the least effective time
 deactivate UI
 end
