@@ -1,5 +1,7 @@
 package app.ui.gui;
 
+import app.Serialization;
+import app.controller.App;
 import app.controller.SeeTestsController;
 import app.mappers.dto.ClientDTO;
 import app.mappers.dto.TestDTO;
@@ -58,6 +60,7 @@ public class TestsUi implements Initializable {
     }
     @FXML
     void exitClick() {
+        Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
     }
 
