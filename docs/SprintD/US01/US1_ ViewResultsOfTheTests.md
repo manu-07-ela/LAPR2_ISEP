@@ -48,9 +48,6 @@ The client tests must be shown ordered from the most recent to the oldest one. T
 
 **Input Data:**
 
-* Typed data:
-
-
 * Selected data:
     * Test
 
