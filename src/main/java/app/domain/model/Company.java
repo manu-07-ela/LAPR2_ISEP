@@ -2,8 +2,11 @@ package app.domain.model;
 
 import app.domain.model.laboratories.ChemicalLaboratory;
 import app.domain.model.testrelated.Covid19Report;
+<<<<<<< HEAD
+=======
 import app.domain.model.testrelated.Overview;
 import app.domain.model.testrelated.Test;
+>>>>>>> d976f7819385cc776b813786356503f8c1d4c1d8
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
@@ -83,7 +86,7 @@ public class Company implements Serializable {
     /**
      * A List with all API's available in the system
      */
-    private final List<String> listaDeAPI = new ArrayList(Arrays.asList("CovidReferenceValues1API", "ExternalModule1API","ExternalModule2API"));
+    private final List<String> listDeAPI = new ArrayList(Arrays.asList("CovidReferenceValues1API", "ExternalModule1API","ExternalModule2API"));
 
     /**
      * A list with the types of dates available in the system
@@ -213,7 +216,7 @@ public class Company implements Serializable {
      * @return the list of API´s
      */
     public  List<String> getListDeAPI() {
-        return listaDeAPI;
+        return listDeAPI;
     }
 
     /**
@@ -236,8 +239,13 @@ public class Company implements Serializable {
         return availableIndependentVariables;
     }
 
-    public void createCovid19Report(double[] xInterval,double[] yInterval,double[] xHistoricalPoints,double[] yHistoricalPoints,double confidenceLevel,double significanceLevel,Date currentDay,int historicalPoints,String typeOfData){
-        new Covid19Report(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,historicalPoints,typeOfData);
+    public void createCovid19ReportSimple(double[] xInterval, double[] yInterval, double[] xHistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, String typeOfData){
+        new Covid19Report(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay, typeOfData).sendReportNhs();
+
+    }
+    public void createCovid19ReportMultiple(double[] x1Interval, double[] x2Interval, double[] yInterval, double[] x1HistoricalPoints, double[] x2HistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, String typeOfData){
+        new Covid19Report(x1Interval, x2Interval, yInterval, x1HistoricalPoints, x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, typeOfData).sendReportNhs();
+
     }
 
     public Overview createOverview(Date initialDate, Date endDate, List<Test> testList) throws ParseException {

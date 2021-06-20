@@ -1,5 +1,6 @@
 package app;
 
+import app.interfaces.RegressionModel;
 import app.ui.gui.LabCoordinatorUi;
 import org.apache.commons.math3.distribution.FDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
@@ -20,7 +21,7 @@ import java.util.List;
  *
  */
 
-public class SimpleLinearRegression {
+public class SimpleLinearRegression implements RegressionModel {
     private final double intercept, slope;
     private final double r2;
     private final double svar0, svar1;
@@ -291,9 +292,9 @@ public class SimpleLinearRegression {
         s.append("\n");
         s.append("----------* Significance model with Anova *----------\n");
         s.append("                     Sum of squares          Degrees of freedom          Root mean          Test statistic f \n");
-        s.append(String.format(" Regression        |     %.2f           |             %d            |      %.2f       |          %.2f        \n", ssr, 1, msr, fObs));
-        s.append(String.format(" Error             |     %.2f            |             %d            |      %.2f        |                       \n", rss, degreesOfFreedom, mse));
-        s.append(String.format(" Total             |     %.2f           |             %d            |                    |                       \n", st, degreesOfFreedom + 1));
+        s.append(String.format(" Regression        |     %.2f           |             %d            |      %.2f        |          %.2f        \n", ssr, 1, msr, fObs));
+        s.append(String.format(" Error             |     %.2f           |             %d            |      %.2f        |                       \n", rss, degreesOfFreedom, mse));
+        s.append(String.format(" Total             |     %.2f           |             %d            |                  |                       \n", st, degreesOfFreedom + 1));
         s.append("\n");
         s.append(compare());
         s.append("\n");
@@ -304,8 +305,8 @@ public class SimpleLinearRegression {
         s.append("\n");
         s.append("----------* Prediction values *----------\n");
         s.append("\n");
-        s.append(String.format("Date                    |          Number of OBSERVED positive cases             |          Number of ESTIMATED positive cases           |          %.1f%% intervals             \n", confidenceLevel));
-        for (int i = 0; i < 15; i++) {
+        s.append(String.format("Date                    |          Number of OBSERVED positive cases          |          Number of ESTIMATED positive cases           |          %.1f%% intervals             \n", confidenceLevel));
+        for (int i = 0; i < xHistorical.length; i++) {
             double[] intervalOfConfidence = trustInterval(xHistorical[i], predict(xHistorical[i]));
             s.append(String.format("%s              |                       %.2f                          |                       %.2f                           |          ] %.2f; %.2f [             \n", dateHistorical.get(i), yHistorical[i], predict(xHistorical[i]), intervalOfConfidence[0], intervalOfConfidence[1]));
         }
@@ -313,4 +314,8 @@ public class SimpleLinearRegression {
         return s.toString();
     }
 
+    @Override
+    public String regressionInformation() {
+        return toString();
+    }
 }

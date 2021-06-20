@@ -1,6 +1,8 @@
 package app.domain.model.testrelated;
 
+import app.MultipleLinearRegression;
 import app.SimpleLinearRegression;
+import app.interfaces.RegressionModel;
 import com.nhs.report.Report2NHS;
 
 
@@ -12,13 +14,19 @@ import java.util.List;
 
 public class Covid19Report {
 
-    private SimpleLinearRegression regression;
+    private String report;
 
-    private double[] xInterval;
+    private RegressionModel regression;
+
+    private double[] x1Interval;
+
+    private double[] x2Interval;
 
     private double[] yInterval;
 
-    private double[] xHistoricalPoints;
+    private double[] x1HistoricalPoints;
+
+    private double[] x2HistoricalPoints;
 
     private double[] yHistoricalPoints;
 
@@ -26,52 +34,59 @@ public class Covid19Report {
 
     private double significanceLevel;
 
-    private String typeData;
-
-
-    /**
-     *
-     */
-    private String nhsReport;
-
-    /**
-     *
-     */
-    private List<Date> historicalPointsDate;
 
     /**
      *
      */
     private Date currentDay;
 
-    private int historicalPoints;
 
     private List<String> dateInformation;
 
 
     /**
-     * @param xInterval
+     * @param x1Interval
      * @param yInterval
-     * @param xHistoricalPoints
+     * @param x1HistoricalPoints
      * @param yHistoricalPoints
      * @param confidenceLevel
      * @param significanceLevel
      * @param currentDay
-     * @param historicalPoints
-     * @param typeOfData
      */
 
-    public Covid19Report(double[] xInterval, double[] yInterval, double[] xHistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, int historicalPoints, String typeOfData) {
-        this.xInterval = xInterval;
+    public Covid19Report(double[] x1Interval, double[] yInterval, double[] x1HistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, String typeOfDate) {
+        this.x1Interval = x1Interval;
         this.yInterval = yInterval;
-        this.xHistoricalPoints = xHistoricalPoints;
+        this.x1HistoricalPoints = x1HistoricalPoints;
         this.yHistoricalPoints = yHistoricalPoints;
         this.confidenceLevel = confidenceLevel;
         this.significanceLevel = significanceLevel;
         this.currentDay=currentDay;
-        this.historicalPoints=historicalPoints;
-        this.typeData=typeOfData;
-        regression = new SimpleLinearRegression(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation);
+        if (typeOfDate.equals("Day")){
+            this.dateInformation = getIntervalDates();
+        }else {
+            this.dateInformation = getHistoricalWeeks();
+        }
+        regression = new SimpleLinearRegression(x1Interval,yInterval, x1HistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation);
+        this.report = regression.regressionInformation();
+    }
+
+    public Covid19Report(double[] x1Interval, double[] x2Interval, double[] yInterval, double[] x1HistoricalPoints, double[] x2HistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, String typeOfDate) {
+        this.x1Interval = x1Interval;
+        this.x2Interval = x2Interval;
+        this.yInterval = yInterval;
+        this.x1HistoricalPoints = x1HistoricalPoints;
+        this.x2HistoricalPoints = x2HistoricalPoints;
+        this.yHistoricalPoints = yHistoricalPoints;
+        this.confidenceLevel = confidenceLevel;
+        this.significanceLevel = significanceLevel;
+        if (typeOfDate.equals("Day")){
+            this.dateInformation = getIntervalDates();
+        }else {
+            this.dateInformation = getHistoricalWeeks();
+        }
+        regression = new MultipleLinearRegression(x1Interval, x2Interval, yInterval, confidenceLevel, significanceLevel,  dateInformation, yHistoricalPoints, x1HistoricalPoints, x2HistoricalPoints);
+        this.report = regression.regressionInformation();
     }
 
     /**
@@ -90,7 +105,7 @@ public class Covid19Report {
                 dateInformation.add(formatter.format(dateAux));
                 validDays++;
             }
-        } while (validDays<historicalPoints);
+        } while (validDays<yHistoricalPoints.length);
 
         return dateInformation;
     }
@@ -107,8 +122,8 @@ public class Covid19Report {
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         Date date = new Date(currentDay.getTime());
         date.setHours(date.getHours() - (day*24-48));
-        date.setHours(date.getHours() - 7 * 24 * historicalPoints);
-        for (int i = 0; i < historicalPoints; i++) {
+        date.setHours(date.getHours() - 7 * 24 * yHistoricalPoints.length);
+        for (int i = 0; i < yHistoricalPoints.length; i++) {
             calendar.setTime(date);
             Date dateEnd = new Date(date.getTime());
             dateEnd.setHours(dateEnd.getHours() + 5 * 24);
@@ -120,6 +135,6 @@ public class Covid19Report {
     }
 
     public void sendReportNhs() {
-        Report2NHS.writeUsingFileWriter(nhsReport);
+        Report2NHS.writeUsingFileWriter(report);
     }
 }

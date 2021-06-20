@@ -1,8 +1,11 @@
 package app;
+import app.interfaces.RegressionModel;
 import org.apache.commons.math3.distribution.FDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
 
-public class MultipleLinearRegression {
+import java.util.List;
+
+public class MultipleLinearRegression implements RegressionModel {
 
     private final double[][] matrixX;
     private final double[][] matrixXTXInverse;
@@ -12,7 +15,7 @@ public class MultipleLinearRegression {
     private final double[] matrixB;
     private final double[] cjj;
     private final double[][] matrixHypotheses;
-    private  String[] historicalPoints;
+    private  List<String> historicalPoints;
     private  double[] historicalPointsY;
     private  double[] historicalPointsX1;
     private  double[] historicalPointsX2;
@@ -27,7 +30,7 @@ public class MultipleLinearRegression {
      * @param x2
      * @param y
      */
-    public MultipleLinearRegression(double[] x1, double[] x2, double[] y, double trustLevel, double significanceLevel, String[] historicalPoints, double[] historicalPointsY, double[] historicalPointsX1, double[] historicalPointsX2) {
+    public MultipleLinearRegression(double[] x1, double[] x2, double[] y, double trustLevel, double significanceLevel, List<String> historicalPoints, double[] historicalPointsY, double[] historicalPointsX1, double[] historicalPointsX2) {
         if (x1.length!=y.length){
             throw new IllegalArgumentException();
         }
@@ -88,21 +91,21 @@ public class MultipleLinearRegression {
         return matrixTransposed;
 
     }
-    public double regressionLine(double x1, double x2){
+    private double regressionLine(double x1, double x2){
         return matrixB[0]+matrixB[1]*x1+matrixB[2]*x2;
 
     }
 
-    public double[][] matrixXXT(double[][] matrixX, double[][] matrixXTransposed) {
+    private double[][] matrixXXT(double[][] matrixX, double[][] matrixXTransposed) {
         return multiplyTwoArraysBi(matrixX, matrixXTransposed);
     }
 
-    public double[] matrixXTY(double[][] matrixXTransposed, double[] y) {
+    private double[] matrixXTY(double[][] matrixXTransposed, double[] y) {
         return multiplyBiArrayWithArray(matrixXTransposed, y);
 
     }
 
-    public static double[][] invert(double a[][]) {
+    private static double[][] invert(double a[][]) {
         int n = a.length;
         double x[][] = new double[n][n];
         double b[][] = new double[n][n];
@@ -136,7 +139,7 @@ public class MultipleLinearRegression {
 
     // Method to carry out the partial-pivoting Gaussian
     // elimination.  Here index[] stores pivoting order.
-    public static void gaussian(double a[][], int index[]) {
+    public static void gaussian(double matrix[][], int index[]) {
         int n = index.length;
         double c[] = new double[n];
 
@@ -148,7 +151,7 @@ public class MultipleLinearRegression {
         for (int i = 0; i < n; ++i) {
             double c1 = 0;
             for (int j = 0; j < n; ++j) {
-                double c0 = Math.abs(a[i][j]);
+                double c0 = Math.abs(matrix[i][j]);
                 if (c0 > c1) c1 = c0;
             }
             c[i] = c1;
@@ -159,7 +162,7 @@ public class MultipleLinearRegression {
         for (int j = 0; j < n - 1; ++j) {
             double pi1 = 0;
             for (int i = j; i < n; ++i) {
-                double pi0 = Math.abs(a[index[i]][j]);
+                double pi0 = Math.abs(matrix[index[i]][j]);
                 pi0 /= c[index[i]];
                 if (pi0 > pi1) {
                     pi1 = pi0;
@@ -172,14 +175,14 @@ public class MultipleLinearRegression {
             index[j] = index[k];
             index[k] = itmp;
             for (int i = j + 1; i < n; ++i) {
-                double pj = a[index[i]][j] / a[index[j]][j];
+                double pj = matrix[index[i]][j] / matrix[index[j]][j];
 
                 // Record pivoting ratios below the diagonal
-                a[index[i]][j] = pj;
+                matrix[index[i]][j] = pj;
 
                 // Modify other elements accordingly
                 for (int l = j + 1; l < n; ++l)
-                    a[index[i]][l] -= pj * a[index[j]][l];
+                    matrix[index[i]][l] -= pj * matrix[index[j]][l];
             }
         }
     }
@@ -197,7 +200,7 @@ public class MultipleLinearRegression {
         return som;
     }
 
-    public double sqr() {
+    private double sqr() {
         double som=0;
         for (int i=0; i<matrixB.length; i++){
             som+=matrixB[i]*matrixXTY[i];
@@ -206,7 +209,7 @@ public class MultipleLinearRegression {
 
     }
 
-    public double sqe() {
+    private double sqe() {
         double som=0;
         for (int i=0; i<matrixB.length; i++){
             som+=matrixB[i]*matrixXTY[i];
@@ -215,15 +218,15 @@ public class MultipleLinearRegression {
 
     }
 
-    public double rSquare() {
+    private double rSquare() {
         return sqr() / sqt();
     }
 
-    public double rSquareAdjusted() {
+    private double rSquareAdjusted() {
         return (1-(((double)(matrixY.length-1)/(matrixY.length-matrixX[0].length))*(1- rSquare())));
     }
 
-    public double standardDeviation() {
+    private double standardDeviation() {
         return sqe() / (matrixY.length - matrixX[0].length);
     }
 
@@ -254,7 +257,7 @@ public class MultipleLinearRegression {
     private double yHat(int index){
         return matrixB[0]+matrixB[1]*historicalPointsX1[index]+matrixB[2]*historicalPointsX2[index];
     }
-    public double[][] multiplyTwoArraysBi(double[][] xt, double[][] x){
+    private double[][] multiplyTwoArraysBi(double[][] xt, double[][] x){
         double[][] temp = new double[xt.length][x[0].length];
         for (int i = 0; i < xt.length; i++) {
             for (int j = 0; j < x[0].length; j++) {
@@ -266,7 +269,7 @@ public class MultipleLinearRegression {
         }
         return temp;
     }
-    public double[] multiplyBiArrayWithArray(double[][] x, double[]y){
+    private double[] multiplyBiArrayWithArray(double[][] x, double[]y){
         double[] temp=new double[x.length];
         int result=-1;
         for (double[] doubles : x) {
@@ -278,7 +281,7 @@ public class MultipleLinearRegression {
         }
         return temp;
     }
-    public double[] multiplyBiArrayWithArray(double[] x, double[][]y){
+    private double[] multiplyBiArrayWithArray(double[] x, double[][]y){
         double[] temp=new double[y.length];
         int result=-1;
         for (double[] doubles : y) {
@@ -291,7 +294,7 @@ public class MultipleLinearRegression {
         return temp;
     }
 
-    public double[][] confidenceInterval(){
+    private double[][] confidenceInterval(){
         double[][] breaks = new double[historicalPointsY.length][2];
 
         for (int i=0; i< historicalPointsY.length; i++){
@@ -300,23 +303,23 @@ public class MultipleLinearRegression {
         }
         return breaks;
     }
-    public double mqr(){
+    private double mqr(){
         return sqr()/(double) (matrixX[0].length-1);
     }
-    public double mqe(){
+    private double mqe(){
         return sqe()/(double) (matrixY.length-matrixX[0].length);
     }
-    public double testStatistics(){
+    private double testStatistics(){
         return mqr()/mqe();
     }
 
-    public double fDistribution(){
+    private double fDistribution(){
         FDistribution fd= new FDistribution(matrixX[0].length-1,matrixY.length-matrixX[0].length);
         double alphaFD= significanceLevel;
         return fd.inverseCumulativeProbability(1- alphaFD);
     }
 
-    public String  decision(){
+    private String  decision(){
         StringBuilder stringBuilder = new StringBuilder();
         if (testStatistics()>fDistribution()){
             stringBuilder.append(String.format("Decision: (f0 = %.2f) > (f%.2f(%d, %d) = %.2f)\n", f0, significanceLevel,matrixX[0].length-1, matrixY.length-1,fDistribution()));
@@ -329,7 +332,7 @@ public class MultipleLinearRegression {
         return stringBuilder.toString();
     }
 
-    public double[][] hypothesisTest(double significanceLevel){
+    private double[][] hypothesisTest(double significanceLevel){
         double[][] matrix = new double[3][2];
         double tAlpha;
         tAlpha = tStudent();
@@ -340,7 +343,7 @@ public class MultipleLinearRegression {
         return matrix;
     }
 
-    public String  hypothesisTestText(int index ){
+    private String hypothesisTestText(int index ){
         String result;
         double[][] matrix = hypothesisTest(significanceLevel);
         if (Math.abs(matrix[index][1])<=matrix[index][0]){
@@ -395,7 +398,7 @@ public class MultipleLinearRegression {
         stringBuilder.append(String.format("\n"));
         stringBuilder.append(String.format("Date                    |          Number of OBSERVED positive cases          |          Number of ESTIMATED positive cases           |          %.1f%% intervals             \n", trustLevel*100));
         for (int i=0; i<historicalPointsY.length; i++){
-            stringBuilder.append(String.format("%s              |                       %.2f                          |                       %.2f                           |          ] %.2f; %.2f [             \n", historicalPoints[i], historicalPointsY[i], regressionLine(historicalPointsX1[i], historicalPointsX2[i]), confidenceInterval[i][0], confidenceInterval[i][1]));
+            stringBuilder.append(String.format("%s              |                       %.2f                          |                       %.2f                           |          ] %.2f; %.2f [             \n", historicalPoints.get(i), regressionLine(historicalPointsX1[i], historicalPointsX2[i]), confidenceInterval[i][0], confidenceInterval[i][1]));
         }
 
 
@@ -403,4 +406,8 @@ public class MultipleLinearRegression {
         return stringBuilder.toString();
     }
 
+    @Override
+    public String regressionInformation() {
+        return toString();
+    }
 }

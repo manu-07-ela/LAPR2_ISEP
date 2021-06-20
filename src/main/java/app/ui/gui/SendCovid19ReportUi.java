@@ -4,6 +4,7 @@ import app.Serialization;
 import app.controller.App;
 import app.controller.SendCovid19ReportController;
 import app.ui.console.AuthUI;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -51,16 +52,16 @@ public class SendCovid19ReportUi {
     private DatePicker endDate;
 
     @FXML
-    private ComboBox<String> independentVariable;
+    private ComboBox independentVariable;
 
     @FXML
     private Button closePlatform;
 
     @FXML
-    private ComboBox<String> regressionModel;
+    private ComboBox regressionModel;
 
     @FXML
-    private ComboBox<String> typeOfData;
+    private ComboBox typeOfData;
 
     @FXML
     private DatePicker initialDate;
@@ -75,22 +76,22 @@ public class SendCovid19ReportUi {
 
     public void setLabelUI (Stage stageSendCovid19Report) throws IOException {
         this.stage = stageSendCovid19Report;
-        loadChoiseBox();
+        loadChoiceBox();
     }
 
     /**
-     * Load choise box.
+     * Load choice box.
      */
-    public void loadChoiseBox() {
+    public void loadChoiceBox() {
         for (int i = 0; i < sendCovid19ReportController.getAvailableTypesOfData().size(); i++) {
             typeOfData.getItems().add(sendCovid19ReportController.getAvailableTypesOfData().get(i));
         }
         for (int i = 0; i< sendCovid19ReportController.getAvailableRegressionModels().size(); i++){
             regressionModel.getItems().add(sendCovid19ReportController.getAvailableRegressionModels().get(i));
         }
-        for (int i = 0; i< sendCovid19ReportController.getAvailableRegressionModels().size(); i++){
-            independentVariable.getItems().add(sendCovid19ReportController.getAvailableIndependentVariable().get(i));
-        }
+
+
+
     }
 
     @FXML
@@ -104,7 +105,9 @@ public class SendCovid19ReportUi {
             Date initial = formatter.parse(initialAux);
             Date end = formatter.parse(endAux);
             Date current = formatter.parse(currentAux);
-            sendCovid19ReportController.sendCovid19Report(initial,end,current,Integer.parseInt(String.valueOf(txtHistoricalPoints)),typeOfData.getValue(),regressionModel.getValue(),independentVariable.getValue(),Double.parseDouble(String.valueOf(txtSignificanceLevel)),Double.parseDouble(String.valueOf(txtConfidenceLevel)));
+            System.out.println(txtHistoricalPoints.getText());
+            sendCovid19ReportController.sendCovid19Report(initial,end,current,Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(),regressionModel.getValue().toString(),independentVariable.getValue().toString(),Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -136,7 +139,15 @@ public class SendCovid19ReportUi {
             ex.printStackTrace();
         }
         stage.close();
-
     }
 
+    public void onActionRegressionModel(ActionEvent actionEvent) {
+        if(regressionModel.getValue().toString().equals("Simple Linear")){
+            for (int i=0;i<sendCovid19ReportController.getAvailableIndependentVariable().size(); i++){
+                independentVariable.getItems().add(sendCovid19ReportController.getAvailableIndependentVariable().get(i));
+            }
+        }else{
+            independentVariable.setDisable(true);
+        }
+    }
 }
