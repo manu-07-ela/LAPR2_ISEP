@@ -10,21 +10,18 @@ import app.domain.model.users.Client;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.text.ParseException;
+import java.util.*;
 
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
 public class App implements Serializable {
-
     private Company company;
     private AuthFacade authFacade;
 
@@ -74,7 +71,7 @@ public class App implements Serializable {
         }
         catch(IOException ex)
         {
-
+            ex.printStackTrace();
         }
         return props;
     }
@@ -134,6 +131,7 @@ public class App implements Serializable {
         ClinicalAnalysisLaboratory lab2 = new ClinicalAnalysisLaboratory("Clinical laboratoryy", "Rua 203", "12312312313", "1234567891", "001WA",company.getTestTypeStore().getTestTypeList());
         this.company.getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(lab);
         this.company.getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(lab2);
+
 
 
     }

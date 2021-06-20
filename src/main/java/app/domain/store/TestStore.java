@@ -1,19 +1,14 @@
 package app.domain.store;
 
 import app.domain.model.attributes.NhsCode;
-
-
 import app.domain.model.laboratories.ClinicalAnalysisLaboratory;
 import app.mappers.dto.ClientDTO;
 import org.apache.commons.lang3.StringUtils;
-
-
 import app.domain.model.testrelated.Sample;
 import app.domain.model.testrelated.Test;
 import app.domain.model.testrelated.TestParameter;
 import app.domain.model.testrelated.TestType;
 import app.domain.model.users.Client;
-
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -342,7 +337,6 @@ public class TestStore implements Serializable {
                 calendar.setTime(t.getSamplesAddDate());
                 int validationDay = calendar.get(Calendar.DAY_OF_YEAR);
                 int validationYear = calendar.get(Calendar.YEAR);
-                System.out.println(t.getTestType().getReferenceAdapter());
                 if ((((t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate)) || (initialDay == validationDay && initialYear == validationYear) || (endDay == validationDay && endYear == validationYear)) )&& t.getTestType().getReferenceAdapter().equals("CovidReferenceValues1API")) {
                     intervalTestList.add(t);
                 }
@@ -364,7 +358,6 @@ public class TestStore implements Serializable {
         List<Double> auxiliar = new ArrayList<>();
 
         List<Test> tests = getCovidTestsLstByInterval(initialDate,endDate);
-        System.out.println(tests);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(initialDate);
 

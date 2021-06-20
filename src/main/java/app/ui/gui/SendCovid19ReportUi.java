@@ -90,8 +90,6 @@ public class SendCovid19ReportUi {
             regressionModel.getItems().add(sendCovid19ReportController.getAvailableRegressionModels().get(i));
         }
 
-
-
     }
 
     @FXML
@@ -106,7 +104,29 @@ public class SendCovid19ReportUi {
             Date end = formatter.parse(endAux);
             Date current = formatter.parse(currentAux);
             System.out.println(txtHistoricalPoints.getText());
-            sendCovid19ReportController.sendCovid19Report(initial,end,current,Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(),regressionModel.getValue().toString(),independentVariable.getValue().toString(),Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));
+            if (regressionModel.getValue().toString().equals("Simple Linear")){
+                sendCovid19ReportController.sendCovid19ReportSimple(initial,end,current,Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(), independentVariable.getValue().toString(),Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));
+            }else{
+                sendCovid19ReportController.sendCovid19ReportMultiple(initial, end, current, Integer.parseInt(txtHistoricalPoints.getText()),typeOfData.getValue().toString(), Double.parseDouble(txtSignificanceLevel.getText()),Double.parseDouble(txtConfidenceLevel.getText()));
+            }
+            try {
+                Stage stageAdminUi = new Stage();
+                stageAdminUi.initStyle(StageStyle.UNDECORATED);
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AdminUi.fxml"));
+                Parent root;
+
+                root = loader.load();
+
+                Scene scene = new Scene(root);
+
+                stageAdminUi.setScene(scene);
+                AdmUi adminUi = loader.getController();
+                stageAdminUi.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            logout.getScene().getWindow().hide();
 
         } catch (ParseException e) {
             e.printStackTrace();

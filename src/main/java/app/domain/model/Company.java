@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.controller.SendAutomaticallyCovid19ReportController;
 import app.domain.model.laboratories.ChemicalLaboratory;
 import app.domain.model.testrelated.Covid19Report;
 import app.domain.model.testrelated.Overview;
@@ -11,13 +12,9 @@ import app.domain.store.TestTypeStore;
 import app.domain.store.*;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
-
 import java.io.Serializable;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -99,7 +96,10 @@ public class Company implements Serializable {
      *
      */
     private final List<String> availableIndependentVariables = new ArrayList(Arrays.asList("Mean Age", "Tests Performed"));
-
+    /**
+     *
+     */
+    private final SendAutomaticallyCovid19ReportController sendAutomaticallyCovid19ReportController;
 
     /**
      * Creates an instance of Company
@@ -120,6 +120,8 @@ public class Company implements Serializable {
         this.clientStore = new ClientStore();
         this.testStore = new TestStore();
         this.chemicalLaboratory = new ChemicalLaboratory("Chemical Laboratory", "Oxford Street", "23145623781", "7293817263");
+        this.sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
+        setTask();
     }
 
     /**
@@ -236,16 +238,35 @@ public class Company implements Serializable {
         return availableIndependentVariables;
     }
 
-    public void createCovid19ReportSimple(double[] xInterval, double[] yInterval, double[] xHistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, String typeOfData){
-        new Covid19Report(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay, typeOfData).sendReportNhs();
+    public Covid19Report createCovid19ReportSimple(double[] xInterval, double[] yInterval, double[] xHistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, String typeOfData){
+        return new Covid19Report(xInterval,yInterval,xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay, typeOfData);
 
     }
-    public void createCovid19ReportMultiple(double[] x1Interval, double[] x2Interval, double[] yInterval, double[] x1HistoricalPoints, double[] x2HistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, String typeOfData){
-        new Covid19Report(x1Interval, x2Interval, yInterval, x1HistoricalPoints, x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, typeOfData).sendReportNhs();
-
+    public Covid19Report createCovid19ReportMultiple(double[] x1Interval, double[] x2Interval, double[] yInterval, double[] x1HistoricalPoints, double[] x2HistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, Date currentDay, String typeOfData){
+        return new Covid19Report(x1Interval, x2Interval, yInterval, x1HistoricalPoints, x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData);
     }
-
+    public void sendCovid19Report(String report){
+        Covid19Report.sendReportNhs(report);
+    }
     public Overview createOverview(Date initialDate, Date endDate, List<Test> testList) throws ParseException {
         return new Overview(initialDate,endDate,testList);
+    }
+
+    private void setTask(){
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            final SendAutomaticallyCovid19ReportController sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
+            @Override
+            public void run() {
+                try {
+                    System.out.println("OLA");
+                    sendAutomaticallyCovid19ReportController.readFromConfigurationFile();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        timer.scheduleAtFixedRate(timerTask, 0,5000);
+
     }
 }

@@ -147,23 +147,23 @@ As the Report is to be automatically sent very early in the morning, do you wish
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * 
+ * Company
+ * Covid19Report
 
-Other software classes (i.e. Pure Fabrication) identified: 
+Other software classes (i.e. Pure Fabrication) identified:
 
- * 
+ * NhsAdapter
+
 
 
 ## 3.2. Sequence Diagram (SD)
 
-**Alternative 1**
 
 ![US19_SD](US19_SD.svg)
 
 
 ## 3.3. Class Diagram (CD)
 
-**From alternative 1**
 
 ![US19_CD](US19_CD.svg)
 

@@ -4,7 +4,7 @@ autonumber
 
 
 participant ":Company" as Comp
-participant "task : OperationTask" as Task
+participant "task : TimerTask" as Task
 participant ":Timer" as Timer
 
 

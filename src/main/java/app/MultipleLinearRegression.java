@@ -218,7 +218,7 @@ public class MultipleLinearRegression implements RegressionModel {
 
     }
 
-    private double rSquare() {
+    public double rSquare() {
         return sqr() / sqt();
     }
 
@@ -398,7 +398,7 @@ public class MultipleLinearRegression implements RegressionModel {
         stringBuilder.append(String.format("\n"));
         stringBuilder.append(String.format("Date                    |          Number of OBSERVED positive cases          |          Number of ESTIMATED positive cases           |          %.1f%% intervals             \n", trustLevel*100));
         for (int i=0; i<historicalPointsY.length; i++){
-            stringBuilder.append(String.format("%s              |                       %.2f                          |                       %.2f                           |          ] %.2f; %.2f [             \n", historicalPoints.get(i), regressionLine(historicalPointsX1[i], historicalPointsX2[i]), confidenceInterval[i][0], confidenceInterval[i][1]));
+            stringBuilder.append(String.format("%s              |                       %.2f                          |                       %.2f                           |          ] %.2f; %.2f [             \n", historicalPoints.get(i), historicalPointsY[i], regressionLine(historicalPointsX1[i], historicalPointsX2[i]), confidenceInterval[i][0], confidenceInterval[i][1]));
         }
 
 
@@ -409,5 +409,10 @@ public class MultipleLinearRegression implements RegressionModel {
     @Override
     public String regressionInformation() {
         return toString();
+    }
+
+    @Override
+    public double r2() {
+        return r2();
     }
 }
