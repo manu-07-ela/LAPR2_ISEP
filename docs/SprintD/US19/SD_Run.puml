@@ -3,7 +3,7 @@
 
 autonumber
 
-participant "task : OperationTask" as Task
+participant "task : TImerTask" as Task
 participant ":Company" as Comp
 
 

@@ -3,8 +3,12 @@ package app.domain;
 import app.controller.App;
 import app.domain.model.Company;
 import app.domain.model.testrelated.Covid19Report;
+import app.domain.shared.Constants;
 import app.domain.store.TestStore;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,9 +29,9 @@ public class SendAutomaticallyCovid19Report {
      */
     private TestStore tStore;
 
-    public SendAutomaticallyCovid19Report(){
-        this.app=App.getInstance();
-        this.company=app.getCompany();
+    public SendAutomaticallyCovid19Report(Company company){
+        this.company = company;
+        tStore = company.getTestStore();
     }
 
     public Covid19Report createCovid19ReportSimple(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String independentVariable, double significanceLevel, double confidenceLevel) throws ParseException {
@@ -71,14 +75,30 @@ public class SendAutomaticallyCovid19Report {
 
     public void readFromConfigurationFile() throws ParseException {
         Covid19Report covid19ReportTestDay, covid19ReportAgeDay, covid19ReportMultipleDay, covidReportWeeks;
-        Properties props = App.getInstance().getProps();
+        Properties props = new Properties();
+
+        // Add default properties and values
+        props.setProperty(Constants.PARAMS_COMPANY_DESIGNATION, "Many Labs");
+
+
+        // Read configured values
+        try
+        {
+            InputStream in = new FileInputStream(Constants.PARAMS_FILENAME);
+            props.load(in);
+            in.close();
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
         String classAux = props.getProperty("Company.Regression.Class");
         String date = props.getProperty("Company.DateInterval");
         String[] dates = date.split("-");
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date initialDate = format.parse(dates[0]);
         Date endDate = format.parse(dates[1]);
-        Date currentDate = format.parse(String.valueOf(new Date()));
+        Date currentDate = format.parse(format.format(new Date()));
         int historicalPoints = Integer.parseInt(props.getProperty("Company.HistoricalPoints"));
         Double confidenceLevel = Double.parseDouble(props.getProperty("Company.ConfidenceLevel"));
         Double significanceLevel = Double.parseDouble(props.getProperty("Company.SignificanceLevel"));

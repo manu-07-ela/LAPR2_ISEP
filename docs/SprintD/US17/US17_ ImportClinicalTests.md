@@ -103,22 +103,29 @@ To facilitate overall analysis, the application should also display statistics a
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Step 1  		 | ... interacting with the actor?                                 | ImportFileUI                  | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
 |                | ... coordinating the US?                                        | ImportFileController          | **Controller**                                                                                                                                                                                         |
-| Step 2  		 | ...                                                             |                               |                                                                                                                                                                                                        |
-| Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 4  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 2  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 3  		 | ... choosing the file                                           | ImportFileUI                  | IE: Is responsible for user interactions.                                                                                                                                                              |
+| Step 4  		 | ... knowing the tests that have already been registered in the system?| TestStore               | IE: Knows all the tests.                                                                                                                                                                               |
+|                | ... knowing the clients that have already been registered in the system?| ClientStore           | IE: Knows all the clients                                                                                                                                                                              |
+|                | ... knowing the TestStore?                                      | Company                       | IE: The company knows the TestStore to which it is delegating some tasks.                                                                                                                              |
+|                | ... knowing the ClientStore?                                    | Company                       | IE: The company knows the ClientStore to which it is delegating some tasks.                                                                                                                            |
 | Step 5         |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 6  		 | ... shows clients created successfully?                         | ImportFileUI                  | IE: Is responsible for user interactions.                                                                                                                                                              |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * 
+ * Company
+ * Test
+ * Client
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
  * ImportFileUI
  * ImportFileController
+ * TestStore
+ * ClientStore
 
 ## 3.2. Sequence Diagram (SD)
 

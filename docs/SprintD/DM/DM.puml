@@ -145,6 +145,9 @@ class EmailLogin{
 class OrganizationRole{
 }
 
+class Overview{
+}
+
 Company "1"---------------"1..*" Laboratory : has >
 Company "1"---"1..*" Employee : employ >
 Company "1"---"1..*" OrganizationRole : comprehends >
@@ -153,7 +156,7 @@ Company "1"---"1..*" ParameterCategory : adopts >
 Company "1"---"1..*" Test : performs >
 Company "1"--------------"1..*" TestType : conducts >
 Company "1"---"1" ExternalApi : resort to >
-Company "1"---"1" ExternalModule : resort to >
+Overview "1"---"1" ExternalModule : resort to >
 Company "1"---"1" NhsApi : resort to >
 
 Employee "*"---"1" OrganizationRole : play >

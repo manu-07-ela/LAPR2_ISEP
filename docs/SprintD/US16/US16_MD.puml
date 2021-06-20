@@ -8,6 +8,10 @@ class Company{
 -designation
 }
 
+class ExternalModule{
+
+}
+
 class Overview{
 }
 
@@ -39,7 +43,7 @@ Company "1"---"1..*" Employee : employ >
 Test "1..*"---"1" Client : associated a >
 Test "*"---"1" Employee : registered by >
 Overview "*"--"1" Employee : requested by >
-
+Overview "1"---"1" ExternalModule : resort to >
 
 
 @enduml
