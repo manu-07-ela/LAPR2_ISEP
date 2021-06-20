@@ -36,6 +36,11 @@ public class ChemicalLaboratory extends Laboratory implements Serializable {
         return sampleList;
     }
 
+    /**
+     * Compare an Object with other.
+     * @param o An Object we want to compare
+     * @return True if the object contains one sapme equal to one of the sapmes of the other. Otherwise, it return false.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

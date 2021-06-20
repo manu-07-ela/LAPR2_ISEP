@@ -89,17 +89,17 @@ public class TestStore implements Serializable {
    }
 
     /**
-     *
-     * @param cl
-     * @param nhsCode
-     * @param testType
-     * @param testParameterList
-     * @param lab
-     * @param samplesAddDate
-     * @param chemicalAnalysisDate
-     * @param LabCoordDate
-     * @param createdAt
-     * @return
+     * Create a test through a csv file
+     * @param cl the client associated with the test
+     * @param nhsCode the nhs code of the test
+     * @param testType the test type associated with the test
+     * @param testParameterList the list of parameters associated with the test
+     * @param lab the ClinicalAnalysisLaboratory associated with the test
+     * @param samplesAddDate the samples registered date associated with the test
+     * @param chemicalAnalysisDate the chemical analysis date associated with the test
+     * @param LabCoordDate the Lab Coordinator date associated with the test
+     * @param createdAt the medical report date associated with the test
+     * @return the test created
      */
     public Test createTestByCsvFile(Client cl, NhsCode nhsCode, TestType testType, List<TestParameter> testParameterList,ClinicalAnalysisLaboratory lab,Date samplesAddDate,Date chemicalAnalysisDate,Date LabCoordDate,Date createdAt){
         Test test = new Test(cl, nhsCode, testType, testParameterList, lab, generateInternalCode(testList.size()), samplesAddDate, chemicalAnalysisDate, LabCoordDate, createdAt);
@@ -274,6 +274,11 @@ public class TestStore implements Serializable {
         return test;
     }
 
+    /**
+     * Orders the clients tests by registration date
+     * @param tList List of tests
+     * @return List of tests
+     */
     public List<Test> orderClientTestsByRegistrationDate(List<Test> tList){
         List<Date> date = new ArrayList<>();
         List<Test> test = new ArrayList<>();
@@ -297,6 +302,12 @@ public class TestStore implements Serializable {
             return null;
     }
 
+    /**
+     * Gets the interval test list
+     * @param initialDate the initial date
+     * @param endDate the end date
+     * @return the interval test list
+     */
     public List<Test> getIntervalTestList(Date initialDate, Date endDate){
         List<Test> intervalTestList = new ArrayList();
         for (Test t: testList) {
@@ -311,6 +322,12 @@ public class TestStore implements Serializable {
         return intervalTestList;
     }
 
+    /**
+     * Get covid tests by date interval
+     * @param initialDate the initial date
+     * @param endDate the end date
+     * @return covid tests by date interval
+     */
     public List<Test> getCovidTestsLstByInterval(Date initialDate, Date endDate){
         List<Test> intervalTestList = new ArrayList();
         Calendar calendar = Calendar.getInstance();
@@ -335,6 +352,12 @@ public class TestStore implements Serializable {
     }
 
 
+    /**
+     * Gets the number of Positive Covid tests for a day
+     * @param initialDate the initial date
+     * @param endDate the end date
+     * @return the number of Positive Covid tests for a day
+     */
     public double[] getNumberOfPositiveCovidTestsForDayInInterval(Date initialDate, Date endDate){
         System.out.println(initialDate.toString());
         System.out.println(endDate.toString());
@@ -383,6 +406,12 @@ public class TestStore implements Serializable {
 
     }
 
+    /**
+     * Gets the number of Positive Covid Tests For Day Historical Points
+     * @param currentDay the date of the current day
+     * @param historicalPoints the number of historical points
+     * @return the number of Positive Covid Tests For Day Historical Points
+     */
     public double[] getNumberOfPositiveCovidTestsForDayHistoricalPoints(Date currentDay, int historicalPoints){
 
 
@@ -409,6 +438,12 @@ public class TestStore implements Serializable {
 
     }
 
+    /**
+     * Gets the number of Tests Performed for a day in a interval
+     * @param initialDate the initial date
+     * @param endDate the end date
+     * @return the number of Tests Performed for a day in a interval
+     */
     public double[] getNumberOfTestsPerformedForDayInInterval(Date initialDate, Date endDate){
 
         List<Double> auxiliar = new ArrayList<>();
@@ -453,7 +488,12 @@ public class TestStore implements Serializable {
 
     }
 
-
+    /**
+     * Gets the number of Tests Performed for a day by historical points
+     * @param currentDay the date of the current day
+     * @param historicalPoints the number of historical points
+     * @return the number of Tests Performed for a day by historical points
+     */
     public double[] getNumberOfTestsPerformedForDayHistoricalPoints(Date currentDay, int historicalPoints){
 
 
@@ -481,7 +521,13 @@ public class TestStore implements Serializable {
     }
 
 
-
+    /**
+     * Gets Mean Age For a Day in a interval
+     * @param initialDate the initial date
+     * @param endDate the end date
+     * @return Mean Age For a Day in a interval
+     * @throws ParseException
+     */
     public double[] getMeanAgeForDayInInterval(Date initialDate, Date endDate) throws ParseException {
 
         List<Double> auxiliar = new ArrayList<>();
@@ -533,7 +579,13 @@ public class TestStore implements Serializable {
 
     }
 
-
+    /**
+     * Gets Mean Age For a Day by historical Points
+     * @param currentDay the date of the current day
+     * @param historicalPoints the number of historical points
+     * @return Mean Age For a Day by historical Points
+     * @throws ParseException
+     */
     public double[] getMeanAgeForDayHistoricalPoints(Date currentDay, int historicalPoints) throws ParseException {
 
 
@@ -560,6 +612,12 @@ public class TestStore implements Serializable {
 
     }
 
+    /**
+     * Gets the number of Tests Performed for a week by historical points
+     * @param currentDay the date of the current day
+     * @param historicalPoints the number of historical points
+     * @return the number of Tests Performed for a week by historical points
+     */
     public double[] getNumberOfTestsPerformedForWeekHistoricalPoints(Date currentDay, int historicalPoints){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(currentDay);
@@ -584,6 +642,12 @@ public class TestStore implements Serializable {
         return numberOfTests;
     }
 
+    /**
+     * Gets the number of Positive Covid Tests Performed for a week by historical points
+     * @param currentDay the date of the current day
+     * @param historicalPoints the number of historical points
+     * @return the number of Positive Covid Tests Performed for a week by historical points
+     */
     public double[] getNumberOfPositiveCovidTestsForWeekHistoricalPoints(Date currentDay, int historicalPoints) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(currentDay);
@@ -608,6 +672,12 @@ public class TestStore implements Serializable {
         return numberOfPositives;
     }
 
+    /**
+     * Gets the Mean Age for a Week by historical Points
+     * @param currentDay the date of the current day
+     * @param historicalPoints the number of historical points
+     * @return the Mean Age for a Week by historical Points
+     */
     public double[] getMeanAgeForWeekHistoricalPoints(Date currentDay, int historicalPoints) throws ParseException {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(currentDay);

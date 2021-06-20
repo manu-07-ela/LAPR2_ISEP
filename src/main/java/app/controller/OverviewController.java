@@ -73,16 +73,25 @@ public class OverviewController {
         return overview.getNumberOfClients();
     }
 
+    /**
+     * Gets the number of tests in the system
+     * @return the number of tests in the system
+     */
     public int getNumberTestsSystem(){
         return testStore.getTestList().size();
     }
 
+    /**
+     * Gets the number of the clients in the system
+     * @return the number of the clients in the system
+     */
     public int getNumberClientsSystem(){
         return clientStore.getClientList().size();
     }
 
     /**
-     *
+     * Gets the date of the clients
+     * @return the date of the clients
      */
     public List<Date> getDates(){
         return overview.getDates();
@@ -135,10 +144,21 @@ public class OverviewController {
         return overview.getSubsequenceWithMaximumSum(algorithm);
     }
 
+    /**
+     * Sets an algorithm
+     * @param algorithm A algorithm
+     * @throws ClassNotFoundException
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
     public void sendAlgorithm(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         overview.setAlgorithm(algorithm);
     }
 
+    /**
+     * Gets the Period Sub Sequence
+     * @return the Period Sub Sequence
+     */
     public String[] getPeriodSubSequenceMaxSum(){
         return overview.getPeriodSubSequenceMaxSum();
     }

@@ -10,6 +10,7 @@ class ImportFileController
 
 package domain{
 class FileReader
+class Company
 package store{
 class ClientStore
 class ClinicalAnalysisLaboratoryStore
@@ -19,7 +20,7 @@ package model{
 class ClinicalAnalysisLaboratory
 class Client
 class Test
-class Company
+
 }
 }
 
@@ -107,8 +108,8 @@ FileReader ...> ClientStore
 FileReader ...> TestStore
 FileReader ...> ClinicalAnalysisLaboratoryStore
 Company "1" --> "1" ClientStore : uses
-Company "1" --> "1" ClinicalAnalysisLaboratoryStore : uses
-Company "1" --> "1" TestStore : uses
+Company "1" -> "1" ClinicalAnalysisLaboratoryStore : uses
+Company "1" -> "1" TestStore : uses
 ClientStore "1" -> "*" Client : knows
 ClinicalAnalysisLaboratoryStore "1" -> "*" ClinicalAnalysisLaboratory : knows
 TestStore "1" -> "*" Test : registers the
