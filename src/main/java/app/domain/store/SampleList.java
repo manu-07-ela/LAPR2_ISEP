@@ -72,6 +72,11 @@ public class SampleList implements Serializable {
         return samples;
     }
 
+    /**
+     * Compare the sample with the other object provided.
+     * @param o Object we want to compare with the sample.
+     * @return true if the received object represents another sample equivalent to the sample. Otherwise, it returns false.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

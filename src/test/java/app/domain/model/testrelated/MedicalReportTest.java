@@ -5,6 +5,8 @@ import app.domain.model.testrelated.MedicalReport;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Date;
+
 public class MedicalReportTest {
 
     @Test(expected = IllegalArgumentException.class)
@@ -46,6 +48,12 @@ public class MedicalReportTest {
         Assert.assertEquals(dia,md.getDiagnosis());
     }
 
+    @Test
+    public void getCreatedAt() {
+        MedicalReport md = new MedicalReport("lallalalalla");
+        Date date = md.getCreatedAt();
+        Assert.assertEquals(date,md.getCreatedAt());
+    }
 
 }
 

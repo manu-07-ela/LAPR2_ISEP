@@ -81,6 +81,11 @@ public class EmployeeStore implements Serializable {
         return employees;
     }
 
+    /**
+     * Compare the employee with the other object provided.
+     * @param o Object we want to compare with the employee.
+     * @return true if the received object represents another employee equivalent to the employee. Otherwise, it returns false.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

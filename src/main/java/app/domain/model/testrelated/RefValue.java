@@ -67,6 +67,11 @@ public class RefValue implements Serializable {
         return maxValue;
     }
 
+    /**
+     * Compare the parameter category with the other object provided.
+     * @param o Object we want to compare with the parameter category.
+     * @return true if the received object represents another ref value equivalent to the ref value. Otherwise, it returns false.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

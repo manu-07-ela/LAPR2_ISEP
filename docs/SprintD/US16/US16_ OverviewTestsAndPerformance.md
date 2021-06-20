@@ -2,15 +2,11 @@
 
 ## 1. Requirements Engineering
 
-*In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.*
-
 ### 1.1. User Story Description
 
 *As a laboratory coordinator, I want to have an overview of all the tests performed by Many Labs and analyse the overall performance of the company*
 
 ### 1.2. Customer Specifications and Clarifications 
-
-*Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
 
 **From the specifications document:**
 
@@ -88,19 +84,6 @@ Please consider the requirements introduced at the beginning of Sprint D. The la
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8963) You should only identify the time interval where there was a delay in the response (the maximum subsequence).
 
-> **Question:** Regarding your answer: "The laboratory coordinator should be able to check the number of clients, the number of tests waiting for results, the number of tests waiting for diagnosis and the total number of tests processed in the laboratory in each day, week, month and year. Moreover, the laboratory coordinator should be able to check the contiguous subsequence with maximum sum."
->
-> **Question:** Displaying information in each day, week, month and year is it only specific for total number of tests processed in the Laboratory or it is also necessary for number of clients, number of tests waiting for results and waiting for diagnosis? This information should be an all time analysis or should be filtered by the two dates defined by the coordinator? Or the two dates defined by the coordinator is only necessary to check the contiguous subsequence with maximum sum?
-> 
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9134)
-> 
-> **Question:**  How the information should appear to the coordinator? Should he select what he wants to analyse or all the information should appear at once? (for example: option 1: show information about clients, 2 information about number of tests waiting for results, etc.)
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9134)
-
-> **Question:** In what way is the application supposed to show data such as the number of clients, tests waiting for results and tests waiting for diagnosis? Is it supposed to only show the current number for the moment the information is being consulted (ex: Number of Clients at the moment: X), or is it supposed to graphically show the information over a selected time period (day, week, month, year), such as the total number of tests processed in the laboratory?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9133)
 
 > **Question:** When you say tests waiting results are you referring to tests with samples collected but not analyzed yet? If so, and considering the csv file does not have an explicit date for when the sample is collected, which date should we use?
 >
@@ -116,67 +99,60 @@ I asked these statistics for a given interval that should be selected by the use
 > **Question:** What are the statistics that require a graph, could you specify, please.
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9204) In a previous post I asked: "The laboratory coordinator should be able to check the number of clients, the number of tests waiting for results, the number of tests waiting for diagnosis and the total number of tests processed (tests validated) in the laboratory in each day, week, month and year. The system should show these statistics for a given interval that should be selected/defined by the user".
-The application should present these statistics using four graphs/charts, one for each time resolution (day, week, month and year).
+The application should present these statistics using four graphs/charts, one for each time resolution (day, week, month and year). Moreover, the application should also show to the laboratory coordinator the total number of clients and the total number of validated tests that exist in the system. There is no need to show these information using a graph/chart.
+
 
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
 
-* **AC1:** The client tests must be shown ordered from the most recent to the oldest one. 
-* **AC2:** The test results are shown only after the client has selected a test.
+* **AC1:** While evaluating the performance the laboratory
+  coordinator should have the ability to dynamically select the algorithm to be
+  applied from the ones available on the system (the benchmark algorithm provided
+  in moodle and the brute-force algorithm to be developed). Support for easily
+  adding other similar algorithms is required.
+  
+* **AC2:** 
+
+* **AC3:**
+
+* **AC4:** 
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
-
 ### 1.5 Input and Output Data
-
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
 **Input Data:**
 
 * Typed data:
 
+    * Period to analyze - start date and end date
     
 * Selected data:
-    * Period to analyze - start date and end date
+  
     * Algorithm
 
 **Output Data:**
 
-* Number of clients
-* Number of tests waiting for results
-* Number of tests waiting for diagnosis
+* Number of clients in the scope
+* Number of clients in the system
+* Number of tests waiting for results per day, week, month and year
+* Number of tests waiting for diagnosis per day, week, month and year
 * Total Number of tests processed in the laboratory in each day, week, month and year
-* Statistics and Graphs
+* Least effective interval (Sub sequence with maximum sum)
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
-*Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
-
 ![US16_SSD](US16_SSD.svg)
-
-
-### 1.7 Other Relevant Remarks
-
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
-
-To facilitate overall analysis, the application should also display statistics and graphs.
-
 
 ## 2. OO Analysis
 
-### 2.1. Relevant Domain Model Excerpt 
-*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
+### 2.1. Relevant Domain Model Excerpt
 
 ![US16_MD](US16_MD.svg)
 
 ### 2.2. Other Remarks
-
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
-
-
 
 ## 3. Design - User Story Realization 
 
@@ -186,11 +162,11 @@ To facilitate overall analysis, the application should also display statistics a
 
 | Interaction ID | Question: Which class is responsible for...                     | Answer                        | Justification (with patterns)                                                                                                                                                                          |
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Step 1  		 | ... interacting with the actor?                                 | WriteMedicalReportUI          | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
-|                | ... coordinating the US?                                        | WriteMedicalReportController  | **Controller**                                                                                                                                                                                         |
+| Step 1  		 | ... interacting with the actor?                                 | OverviewTestUI                | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
+|                | ... coordinating the US?                                        | OverviewController            | **Controller**                                                                                                                                                                                         |
 | Step 2  		 | ... knowing the tests that are waiting for the medical report?  | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
 |                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
-|                | ... transferring business data in DTO?                          | TestMapper                    | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
+|                | ... knowing the ClientStore?                                    | Company                       | **IE**: The company knows the ClientStore to which it is delegating some tasks.                                                                                                                          |
 | Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
 | Step 4  		 | ... knowing the parameters analyzed and the respective data?    | Test                          | **IE**: The test knows its own results.                                                                                                                                                                |
 |                | ... transferring business data in DTO?                          | TestParameterMapper           | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
@@ -200,7 +176,7 @@ To facilitate overall analysis, the application should also display statistics a
 |                | ... instantiating a new Medical Report?                         | Test                          | **Creator (R1)**                                                                                                                                                                                       |
 |        		 | ... validating all data (local validation)?                     | MedicalReport                 | **IE**: Owns its data.                                                                                                                                                                                 |
 |        		 | ... saving the creation time?                                   | MedicalReport                 | **IE**: The medical report knows when it was created.                                                                                                                                                  |
-| Step 8  		 | ... informing operation success?                                | WriteMedicalReportUI          | **IE**: Is responsible for user interactions.                                                                                                                                                          |
+| Step 8  		 | ... informing operation success?                                | OverviewTestUI                | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 
@@ -210,7 +186,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * OverviewUI  
+ * OverviewTestUI
  * OverviewController
 
 ## 3.2. Sequence Diagram (SD)

@@ -137,6 +137,10 @@ public class TestParameter implements Serializable {
         return tparamresult.getRefValue().getMetric();
     }
 
+    /**
+     * Textual description of Test Parameter.
+     * @return Information about the characteristics of the Test Parameter.
+     */
     @Override
     public String toString() {
         return "TestParameter{" +

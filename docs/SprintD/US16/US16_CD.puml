@@ -21,6 +21,13 @@ package model{
 class Company{
 +getTestStore()
 }
+class Test{
+-client
+-nhscode
+-testParameterList
+-stateOfTest
+-internalCode
+}
 class Overview{
 +getNumberOfClients()
 +getNumberOfTestsWaitingForResults()
@@ -46,6 +53,7 @@ class TestMapper{
 
 
 package dto{
+class TestDto
 }
 
 package interfaces{
@@ -56,14 +64,16 @@ interface SubsequenceWithMaximumSum{
 
 
 OverviewUI ..> OverviewController
+OverviewUI ..> TestDto
 
 OverviewController ..> TestMapper
 OverviewController ..> TestStore
 OverviewController ..> Company
 OverviewController ..> Test
+OverviewController ..> Overview
 
-Company -> Test
-Company -> TestStore
+Company "1" --> "1" TestStore : uses
+TestStore "1" --> "*" Test : knows
 Company..|>SubsequenceWithMaximumSum
 
 TestMapper ..> TestDto

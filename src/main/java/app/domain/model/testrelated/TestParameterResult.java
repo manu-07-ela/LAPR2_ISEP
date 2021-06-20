@@ -113,7 +113,7 @@ public class TestParameterResult implements Serializable {
      *  Validation of the result
      * @param result The result
      */
-    private void resultValidation(String result){
+    public void resultValidation(String result){
         if (StringUtils.isBlank(result)){
             throw  new IllegalArgumentException("Result must be a number and cannot be blank");
         }
@@ -123,7 +123,7 @@ public class TestParameterResult implements Serializable {
      * Validation of the metric
      * @param metric the metric
      */
-    private void metricValidation(String metric){
+    public void metricValidation(String metric){
         if (StringUtils.isBlank(metric) ){
             throw  new IllegalArgumentException("Metric cannot be blank");
         }

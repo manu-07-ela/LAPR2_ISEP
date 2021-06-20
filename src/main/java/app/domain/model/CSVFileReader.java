@@ -18,8 +18,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Represents the controller used to register a client
+ * @author José Pessoa <1201007@isep.ipp.pt>
+ */
 public class CSVFileReader {
-
 
     /**
      * Represents a instance of company
@@ -29,6 +32,10 @@ public class CSVFileReader {
      * Represents an instance of client
      */
     private Client cl;
+    /**
+     * Represents an instance of Clinical Analysis Laboratory
+     */
+    private ClinicalAnalysisLaboratory lab;
     /**
      * Represents an instance of the client store
      */
@@ -78,10 +85,17 @@ public class CSVFileReader {
      */
     private final RecordSampleController samplesctrl;
 
+    /**
+     * Constructs an instance of {@code CSVFileReader}
+     */
     public CSVFileReader(){
         this(App.getInstance().getCompany());
     }
 
+    /**
+     * Constructs an instance of {@code CSVFileReader} receiving a company
+     * @param company The company
+     */
     public CSVFileReader(Company company){
         clientList = new ArrayList<>();
         this.company = App.getInstance().getCompany();
@@ -93,6 +107,7 @@ public class CSVFileReader {
         this.pmStore = company.getParameterStore();
         this.calStore = company.getClinicalAnalysisLaboratoryStore();
         this.cl = null;
+        this.lab = null;
         this.samples=null;
         this.tpr=null;
         this.mr=null;
@@ -100,7 +115,11 @@ public class CSVFileReader {
     }
 
 
-
+    /**
+     * Reads a file receiving a file as a parameter
+     * @param file
+     * @throws IOException
+     */
     public void read(File file) throws IOException {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
@@ -114,8 +133,9 @@ public class CSVFileReader {
         List<String> allParametersStringList=new ArrayList<>();
         List<String> validParametersStringList=new ArrayList<>();
         List<Integer> parametersNumbList=new ArrayList<>();
+        List<Integer> parameterNumbTestValid= new ArrayList<>();
         date=fillParametersString(tempArr,parametersNumbList,allParametersStringList);
-        parametersNumbList=fillValidParametersString(allParametersStringList,validParametersStringList,parametersNumbList);
+        fillValidParametersString(allParametersStringList,validParametersStringList,parametersNumbList,parameterNumbTestValid);
 
             while((line = br.readLine()) != null) {
                 tempArr = line.split(delimiter);
@@ -130,8 +150,9 @@ public class CSVFileReader {
                         clientList.add(cl);
                         clStore.saveClient(cl, clAuthFacade);
                         NhsCode nhsCode = new NhsCode(tempArr[1]);
-                        if(calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2])!=null) {
-                            createTest(cl, nhsCode, ttStore.getTestTypeByDescription(tempArr[11]), calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]), validParametersStringList, parametersNumbList, tempArr, date);
+                        lab = calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]);
+                        if(lab!=null) {
+                            createTest(cl, nhsCode, ttStore.getTestTypeByDescription(tempArr[11]), lab, validParametersStringList, parametersNumbList, tempArr, date);
                         }else{
                             System.out.printf("Error in line %d : This laboratory doesn´t exist\n", i);
                         }
@@ -142,6 +163,23 @@ public class CSVFileReader {
             br.close();
     }
 
+    /**
+     * Creates a Test
+     * @param cl a Client
+     * @param nhscode The Client's National Healthcare Service code
+     * @param testType the test type
+     * @param lab the Clinical Analysis Laboratory
+     * @param parametersString A list of parameterID
+     * @param parametersIndextest a list of where the parameters are located
+     * @param tempArr a String Array
+     * @param date where the dates are located
+     * @throws IllegalAccessException
+     * @throws ClassNotFoundException
+     * @throws InstantiationException
+     * @throws ParseException
+     * @throws IOException
+     * @throws BarcodeException
+     */
     private void createTest(Client cl, NhsCode nhscode, TestType testType,ClinicalAnalysisLaboratory lab, List<String> parametersString,List<Integer> parametersIndextest,String[] tempArr,int date) throws IllegalAccessException, ClassNotFoundException, InstantiationException, ParseException, IOException, BarcodeException {
         generateDate(tempArr,date);
         List<String> test = new ArrayList<>();
@@ -168,6 +206,13 @@ public class CSVFileReader {
         }
     }
 
+    /**
+     * Fills a List with parameterID's
+     * @param tempArr a String Array
+     * @param parametersNumb a List of where the parameters are located
+     * @param allParametersString a list with all parameters ID's
+     * @return
+     */
     private int fillParametersString(String[] tempArr, List<Integer> parametersNumb, List<String> allParametersString){
         for (int n=1; n<tempArr.length;n++){
 
@@ -185,9 +230,15 @@ public class CSVFileReader {
         return 0;
     }
 
-    private List<Integer> fillValidParametersString(List<String> parameterstest, List<String> pmList,List<Integer> parameterNumbTest) {
+    /**
+     * Fills a List with valid parameterID's
+     * @param parameterstest a List of valid parameters
+     * @param pmList a List of parameters
+     * @param parameterNumbTest a List of where the parameters are located
+     * @param parameterNumbTestValid a List of where the valid parameters are located
+     */
+    private void fillValidParametersString(List<String> parameterstest, List<String> pmList,List<Integer> parameterNumbTest,List<Integer> parameterNumbTestValid) {
         int j = 0;
-        List<Integer> parameterNumbTestValid= new ArrayList<>();
         while (j < parameterstest.size()) {
             if (!(null == pmStore.getParameterByCode(parameterstest.get(j)))) {
                 if(!parameterstest.get(j).equalsIgnoreCase("NA")){
@@ -198,10 +249,14 @@ public class CSVFileReader {
             }
             j++;
         }
-        return parameterNumbTestValid;
 
     }
 
+    /**
+     * Converts a list of parameterID's into a list of parameters
+     * @param parameter a parameter ID's list
+     * @param pmList a parameters list
+     */
     private void convertStringIntoParameter(List<String> parameter, List<Parameter> pmList){
         Parameter pm;
         int j=0;
@@ -212,6 +267,11 @@ public class CSVFileReader {
         }
     }
 
+    /**
+     * Converts a list of parameters into a list of Test parameters
+     * @param pmList a parameters list
+     * @param tpList a Test parameters list
+     */
     private void convertParameterIntoTestParameter(List<Parameter> pmList, List<TestParameter> tpList){
         TestParameter tp;
         for(Parameter pm : pmList){
@@ -220,6 +280,12 @@ public class CSVFileReader {
         }
     }
 
+    /**
+     * Generates all the data
+     * @param tempArr a String Array
+     * @param n Where the data is located
+     * @throws ParseException
+     */
     private void generateDate(String[] tempArr,int n) throws ParseException {
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy HH:mm");
         samples=formatter.parse(tempArr[n]);
@@ -228,10 +294,22 @@ public class CSVFileReader {
         lcv=formatter.parse(tempArr[n+3]);
     }
 
+    /**
+     * Gets a Clients List
+     * @return a Clients List
+     */
     public List<Client> getClientsList(){
         return clientList;
     }
 
+    /**
+     * Generates a Barcode and associates a Barcode to a test
+     * @param t a test
+     * @throws IOException
+     * @throws InstantiationException
+     * @throws BarcodeException
+     * @throws IllegalAccessException
+     */
     public void createBarcode(Test t) throws IOException, InstantiationException, BarcodeException, IllegalAccessException {
         Sample sample;
         try {

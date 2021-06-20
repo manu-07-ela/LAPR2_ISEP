@@ -1,5 +1,7 @@
 package app.ui.gui;
 
+import app.Serialization;
+import app.controller.App;
 import app.ui.console.AuthUI;
 import app.ui.console.functionalities.*;
 import javafx.fxml.FXML;
@@ -55,6 +57,7 @@ public class AdmUi {
 
     @FXML
     void exitClick() {
+        Serialization.saveApp(App.getInstance(), "SavedData.data");
         System.exit(0);
     }
 
@@ -85,7 +88,8 @@ public class AdmUi {
 
     @FXML
     void registerEmployeeClick() {
-        new RegisterEmployeeUI();
+        RegisterEmployeeUI testTypeUi = new RegisterEmployeeUI();
+        testTypeUi.run();
     }
 
     @FXML

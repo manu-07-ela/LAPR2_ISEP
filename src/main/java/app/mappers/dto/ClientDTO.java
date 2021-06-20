@@ -169,7 +169,10 @@ public class ClientDTO {
         return address;
     }
 
-
+    /**
+     * A string with the information of a client
+     * @return A string with the information of a client
+     */
     @Override
     public String toString() {
         return "Client Data \n" +
