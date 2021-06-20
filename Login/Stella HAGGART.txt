@@ -1,2 +1,32 @@
 ID: StellaHAGGART2155@gmail.com
+<<<<<<< HEAD
 PASSWORD: ral0K5deHD
+=======
+PASSWORD: zu4kAQtcj7
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: hP47HELpFd
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: 8HDTgu65As
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: MBrRZn0Vcc
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: Vg4LUkVPkI
+ID: StellaHAGGART2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: JfjU8fcYAa
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: 1OWLlZpLsh
+=======
+PASSWORD: RBZoY4Q3ko
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: 7TjgbcgNqE
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: wRgZp3xGa8
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: XUtUWy5QrI
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: gv1cmuipmZ
+ID: StellaHAGGART2155@gmail.com
+PASSWORD: IaBB5sJ2T9
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

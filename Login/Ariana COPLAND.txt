@@ -1,2 +1,32 @@
 ID: ArianaCOPLAND2155@gmail.com
+<<<<<<< HEAD
 PASSWORD: 1V242dbVNg
+=======
+PASSWORD: 8ZkXKDSlX2
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: NMGdNlAvsU
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: GmsLH6uVzv
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: akdgXfLJTE
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: ODPvDggJVr
+ID: ArianaCOPLAND2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: glsEDPPTPs
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: GmVADz6uPt
+=======
+PASSWORD: prhI8PS8HD
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: FgNxxY03dw
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: BBxRyUPmLj
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: 7xnecrMpy8
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: 7Hculq0q5I
+ID: ArianaCOPLAND2155@gmail.com
+PASSWORD: zl4erHqqSG
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

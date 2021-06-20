@@ -1,2 +1,32 @@
 ID: MaiaDURKIN2155@hotmail.com
+<<<<<<< HEAD
 PASSWORD: e6OvdLXTZH
+=======
+PASSWORD: jTXIuA8W1U
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: CHnMxLSyMz
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: l3hl6aiPxx
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: TMzhQACQk2
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: pkwBggQBPD
+ID: MaiaDURKIN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: 5DdRYXOHpJ
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: UXZP8YBMPn
+=======
+PASSWORD: NqlqNNSecX
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: q4SXzpsqSJ
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: 7YuKb5eJVw
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: RVxerDRLqr
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: qEmsHFUjV6
+ID: MaiaDURKIN2155@hotmail.com
+PASSWORD: CoKByVT431
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,2 +1,32 @@
 ID: StellaREDMOND2155@gmail.com
+<<<<<<< HEAD
 PASSWORD: uDekWB5Kcq
+=======
+PASSWORD: wSd7SG4JJ7
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: NPhq00WZcI
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: fssjmRUBnd
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: 4BxnkwehkS
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: nbJBJAvbyn
+ID: StellaREDMOND2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: dJl45UfHY8
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: KN3Q9n7eI6
+=======
+PASSWORD: cd4j9ZwnEZ
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: Gw7u2TnWe0
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: 67Oq4yCwLI
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: RkuUQ1J1qO
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: uGLu4MBB9B
+ID: StellaREDMOND2155@gmail.com
+PASSWORD: rYe8vWSRWE
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

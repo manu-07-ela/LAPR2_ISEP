@@ -1,2 +1,32 @@
 ID: AlexisDALGARNO2155@gmail.com
+<<<<<<< HEAD
 PASSWORD: ud4O4uioxn
+=======
+PASSWORD: 66Ad9JHZnJ
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: tsKsF54Hds
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: McH5G8FvAS
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: JGmIvBIPpG
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: mDZmx2xzu1
+ID: AlexisDALGARNO2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: loEhUGZRy0
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: WcJXsQilM3
+=======
+PASSWORD: rWv0ZKgpUp
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: LAO4wwXTtb
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: aWoXuxocYA
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: sZkZzb6CV0
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: rnXKI2saEd
+ID: AlexisDALGARNO2155@gmail.com
+PASSWORD: 4fRK1ctoa1
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

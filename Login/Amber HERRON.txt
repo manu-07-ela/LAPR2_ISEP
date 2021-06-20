@@ -1,2 +1,32 @@
 ID: AmberHERRON2155@gmail.com
+<<<<<<< HEAD
 PASSWORD: lcQNHJWgsX
+=======
+PASSWORD: 0FXi1wDiZR
+ID: AmberHERRON2155@gmail.com
+PASSWORD: 4gSvbIQPoa
+ID: AmberHERRON2155@gmail.com
+PASSWORD: xy04qxcnGU
+ID: AmberHERRON2155@gmail.com
+PASSWORD: 4tiOjiFZrE
+ID: AmberHERRON2155@gmail.com
+PASSWORD: 9t943gEX0I
+ID: AmberHERRON2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: KleJ6xRWRJ
+ID: AmberHERRON2155@gmail.com
+PASSWORD: ZprY7qWyv2
+=======
+PASSWORD: Kjefrzrj5b
+ID: AmberHERRON2155@gmail.com
+PASSWORD: 7kd68F6oEo
+ID: AmberHERRON2155@gmail.com
+PASSWORD: NpXvjZ6iVs
+ID: AmberHERRON2155@gmail.com
+PASSWORD: eeO8ewwL7Z
+ID: AmberHERRON2155@gmail.com
+PASSWORD: q4VHk8SYdV
+ID: AmberHERRON2155@gmail.com
+PASSWORD: eYpzG82XoJ
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

@@ -1,2 +1,32 @@
 ID: SophiaSAMPSON2155@gmail.com
+<<<<<<< HEAD
 PASSWORD: gWP61hgxwJ
+=======
+PASSWORD: GTSnBa9ulR
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: j7Rvh6p2Mo
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: NAJzz8lqmM
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: juVnZlOdG6
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: 99GmaEhjWK
+ID: SophiaSAMPSON2155@gmail.com
+<<<<<<< HEAD
+PASSWORD: SGBjQP6PPG
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: WtEYKGTUQb
+=======
+PASSWORD: yaY7XxvxBQ
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: pjztSM9Mmo
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: IpGBOQDGYy
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: ps9cENlNpF
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: QIpnC06kq2
+ID: SophiaSAMPSON2155@gmail.com
+PASSWORD: 3v3sTS16pA
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f

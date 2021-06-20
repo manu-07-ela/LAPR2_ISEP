@@ -51,7 +51,15 @@
    <center>
       <VBox prefHeight="469.0" prefWidth="945.0" BorderPane.alignment="CENTER">
          <children>
+<<<<<<< HEAD
             <LineChart fx:id="performanceChart" prefHeight="236.0" prefWidth="1070.0" style="-fx-legend-visible: false;">
+=======
+<<<<<<< HEAD
+            <LineChart fx:id="performanceChart" prefHeight="496.0" prefWidth="945.0">
+=======
+            <LineChart fx:id="performanceChart" prefHeight="264.0" prefWidth="1070.0">
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f
               <xAxis>
                 <CategoryAxis label="Interval Times" prefHeight="28.0" prefWidth="5218.0" side="BOTTOM" fx:id="x" />
               </xAxis>
@@ -62,10 +70,20 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </LineChart>
-            <ScrollPane prefHeight="287.0" prefWidth="1070.0">
+            <HBox prefHeight="23.0" prefWidth="1070.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="291.0" text="Subsequence With Maximum Sum:" textAlignment="CENTER" textFill="#1a7180" />
+                  <TextField fx:id="txtSubsequence" prefHeight="27.0" prefWidth="780.0" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-width: 0px 0px 2px 0px;" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </HBox>
+            <ScrollPane prefHeight="240.0" prefWidth="976.0">
                <content>
-                  <VBox>
+                  <HBox prefHeight="216.0" prefWidth="1686.0">
                      <children>
+<<<<<<< HEAD
                         <HBox prefHeight="29.0" prefWidth="1686.0">
                            <children>
                               <Label alignment="CENTER" prefHeight="27.0" prefWidth="291.0" text="Subsequence With Maximum Sum:" textAlignment="CENTER" textFill="#1a7180" />
@@ -114,8 +132,36 @@
                               </LineChart>
                            </children>
                         </HBox>
+=======
+                        <LineChart prefHeight="211.0" prefWidth="483.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                        <Pane prefHeight="211.0" prefWidth="54.0" />
+                        <LineChart>
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                        <Pane prefHeight="211.0" prefWidth="44.0" />
+                        <LineChart>
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f
                      </children>
-                  </VBox>
+                  </HBox>
                </content>
             </ScrollPane>
          </children>

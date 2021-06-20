@@ -1,12 +1,14 @@
 package app.controller;
 
 import app.Serialization;
+<<<<<<< HEAD
 import app.domain.model.testrelated.Overview;
 import app.domain.model.testrelated.Test;
+=======
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
@@ -16,12 +18,16 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 import java.net.URL;
+<<<<<<< HEAD
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+=======
+import java.util.Arrays;
+import java.util.List;
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f
 
 public class EvaluatePerformanceController{
 

@@ -1,2 +1,32 @@
 ID: RileyRUTHVEN2155@hotmail.com
+<<<<<<< HEAD
 PASSWORD: 2s8npGlsos
+=======
+PASSWORD: VHjN1Ci8SP
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: SJpZIyta9D
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: wMgLNsS8JE
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: qbmKck2UrE
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: Nga6cwbhwf
+ID: RileyRUTHVEN2155@hotmail.com
+<<<<<<< HEAD
+PASSWORD: s5onX4uc85
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: U2aAs5YM9M
+=======
+PASSWORD: wRE81q1hq8
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: omsMvX7FxT
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: IteKsKwsIs
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: R4qJ20kjXW
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: 2TvNAeq7nO
+ID: RileyRUTHVEN2155@hotmail.com
+PASSWORD: aJrXrvvCmm
+>>>>>>> 19b8df10a023c6719f62201a9d803e6723ce5bc6
+>>>>>>> 765ee53c1c38cbb26cd733fbc45019ec094ed72f
