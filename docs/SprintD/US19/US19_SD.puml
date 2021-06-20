@@ -11,19 +11,18 @@ participant ":Timer" as Timer
 -> Comp : scheduleOperation(delay,interval)
 activate Comp
 
-Comp -> Task** : create(ListOfTestsValidatedWithininterval)
+Comp -> Task** : create()
 Comp -> Timer** : create()
 Comp -> Timer : schedule(task,delay,interval)
 activate Timer
-deactivate Timer
 Timer -> Task : run()
+deactivate Timer
 ref over Task
 SD_Run
 end ref
-activate Timer
 activate Task
 deactivate Task
-deactivate Timer
+
 deactivate Comp
 
 

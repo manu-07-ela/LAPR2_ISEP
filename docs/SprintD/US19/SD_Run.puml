@@ -3,14 +3,38 @@
 
 autonumber
 
-participant ":Timer" as Timer
 participant "task : OperationTask" as Task
 participant ":Company" as Comp
 
 
-Timer -> Task : run()
+--> Task : run()
 activate Task
-Task -> Comp :
+
+Task -> Comp : setTask()
+deactivate Task
+activate Comp
+Comp --> ": SendAutomaticallyCovid19Report"** : create()
+
+
+": SendAutomaticallyCovid19Report"->": SendAutomaticallyCovid19Report" : readFromConfigurationFile()
+activate ": SendAutomaticallyCovid19Report"
+alt if it's the simple regression model
+": SendAutomaticallyCovid19Report"->Comp : createCovid19ReportSimple()
+activate Comp
+deactivate Comp
+else it's the multiple regression model
+": SendAutomaticallyCovid19Report"->Comp : createCovid19ReportMultiple()
+activate Comp
+deactivate Comp
+deactivate ": SendAutomaticallyCovid19Report"
+end
+
+
+Comp-->"covid19Report : Covid19Report"** : create()
+activate Comp
+deactivate Comp
+Comp->Comp : sendCovid19Report(covid19Report)
+
 deactivate Task
 
 @enduml
