@@ -19,7 +19,7 @@ link Company to Covid19Report--><path codeLine="71" d="M409,625.02 C409,659.89 4
 link Company to TestStore--><path codeLine="72" d="M786.35,566.5 C806.29,566.5 826.02,566.5 845.24,566.5 " fill="none" id="Company-to-TestStore" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="850.65,566.5,841.65,562.5,845.65,566.5,841.65,570.5,850.65,566.5" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="804.5" y="559.9951">uses</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="794.086" y="563.8344">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="836.1409" y="563.7435">1</text><!--MD5=[b845843cb17016f6a8b81b5b15531d2b]
 link Company to NhsApi--><path codeLine="73" d="M609.38,625.07 C672.56,646.37 741.59,673 802,704 C824.14,715.36 846.92,730.87 865.58,744.76 " fill="none" id="Company-to-NhsApi" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="869.74,747.88,864.94,739.28,865.74,744.88,860.14,745.68,869.74,747.88" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4a61c339467a9989dbbcbe3c60ad577b]
 link Covid19Report to SimpleLinearRegression--><path codeLine="74" d="M384.65,817.29 C372.88,835.32 359,856.58 348.17,873.17 " fill="none" id="Covid19Report-to-SimpleLinearRegression" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="345.2,877.72,353.4785,872.3846,347.9405,873.5379,346.7872,867.9999,345.2,877.72" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[40f36e420f5f47f8f547b1a818fad87c]
-link Covid19Report to MultipleLinearRegression--><path codeLine="75" d="M448.76,817.29 C468.3,835.63 491.42,857.31 509.23,874.02 " fill="none" id="Covid19Report-to-MultipleLinearRegression" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="513.18,877.72,509.3677,868.6389,509.539,874.2932,503.8847,874.4645,513.18,877.72" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e38ca21d0f87795623573bfe3493b13e]
+link Covid19Report to MultipleLinearRegression--><path codeLine="75" d="M448.76,817.29 C468.3,835.63 491.42,857.31 509.23,874.02 " fill="none" id="Covid19Report-to-MultipleLinearRegression" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="513.18,877.72,509.3677,868.6389,509.539,874.2932,503.8847,874.4645,513.18,877.72" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e8b6660165c2bb8b39f961f64b879635]
 @startuml
 'https://plantuml.com/class-diagram
 
@@ -179,10 +179,10 @@ Covid19Report ..> MultipleLinearRegression
 
 @enduml
 
-PlantUML version 1.2021.00(Sun Jan 10 10:25:05 GMT 2021)
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
 (GPL source distribution)
 Java Runtime: OpenJDK Runtime Environment
-JVM: OpenJDK 64-Bit Server VM
+JVM: Dynamic Code Evolution 64-Bit Server VM
 Default Encoding: Cp1252
 Language: pt
 Country: PT

@@ -10,6 +10,7 @@ participant ": TestStore" as store
 participant "report: Covid19Report" as report
 participant ":SimpleLinearRegression" as sRegression
 participant ":MultipleLinearRegression" as mRegression
+participant ": NhsApi" as Api
 
 activate ADMIN
 ADMIN -> UI : Initiates the process of sending a Covid-19 Report to NHS.
@@ -163,6 +164,11 @@ end
 report --> mRegression** : create(xInterval,yInterval, xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation)
 deactivate report
 end
+deactivate comp
+CTRL -> comp: sendCovid19Report()
+activate comp
+comp -> Api : sendCovid19Report()
+
 deactivate comp
 deactivate CTRL
 
