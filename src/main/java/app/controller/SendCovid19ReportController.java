@@ -4,7 +4,6 @@ import app.domain.model.Company;
 import app.domain.model.testrelated.Covid19Report;
 import app.domain.model.testrelated.Test;
 import app.domain.store.TestStore;
-
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
@@ -82,36 +81,18 @@ public class SendCovid19ReportController {
         double[] yHistoricalPoints;
         double[] yInterval;
         this.tStore = company.getTestStore();
-<<<<<<< HEAD
-        if (regressionModel.equals("Simple Linear")){
-            if (independentVariable.equals("Tests Performed")){
-                yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-                yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-                x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
-                x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
-            }else{
-                yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-                yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-                x1Interval = tStore.getMeanAgeForDayInInterval(initialDate,endDate);
-                x1HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay,historicalPoints);
-            }
-            this.company.createCovid19ReportSimple(x1Interval,yInterval,x1HistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,typeOfData);
-        }else {
-=======
-
-        if (independentVariable.equals("Tests Performed")){
->>>>>>> 59bd188a23ee6719043d8f9444e1c89b74871176
-            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-            x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
-            x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
-        }else{
-            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-            x1Interval = tStore.getMeanAgeForDayInInterval(initialDate,endDate);
-            x1HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay,historicalPoints);
+        if (independentVariable.equals("Tests Performed")) {
+            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate);
+            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay, historicalPoints);
+            x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate, endDate);
+            x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay, historicalPoints);
+        } else {
+            yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate);
+            yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay, historicalPoints);
+            x1Interval = tStore.getMeanAgeForDayInInterval(initialDate, endDate);
+            x1HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay, historicalPoints);
         }
-        Covid19Report covid19Report = this.company.createCovid19ReportSimple(x1Interval,yInterval,x1HistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,typeOfData);
+        Covid19Report covid19Report = this.company.createCovid19ReportSimple(x1Interval, yInterval, x1HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData);
         company.sendCovid19Report(covid19Report.getReport());
         return covid19Report;
 
@@ -125,17 +106,15 @@ public class SendCovid19ReportController {
         double[] yHistoricalPoints;
         double[] yInterval;
         this.tStore = company.getTestStore();
-        yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate,endDate);
-        yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay,historicalPoints);
-        x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate,endDate);
-        x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay,historicalPoints);
+        yInterval = tStore.getNumberOfPositiveCovidTestsForDayInInterval(initialDate, endDate);
+        yHistoricalPoints = tStore.getNumberOfPositiveCovidTestsForDayHistoricalPoints(currentDay, historicalPoints);
+        x1Interval = tStore.getNumberOfTestsPerformedForDayInInterval(initialDate, endDate);
+        x1HistoricalPoints = tStore.getNumberOfTestsPerformedForDayHistoricalPoints(currentDay, historicalPoints);
         x2Interval = tStore.getMeanAgeForDayInInterval(initialDate, endDate);
         x2HistoricalPoints = tStore.getMeanAgeForDayHistoricalPoints(currentDay, historicalPoints);
-        Covid19Report covid19Report= this.company.createCovid19ReportMultiple(x1Interval,x2Interval,yInterval,x1HistoricalPoints,x2HistoricalPoints, yHistoricalPoints,confidenceLevel,significanceLevel,currentDay,typeOfData);
+        Covid19Report covid19Report = this.company.createCovid19ReportMultiple(x1Interval, x2Interval, yInterval, x1HistoricalPoints, x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, typeOfData);
         company.sendCovid19Report(covid19Report.getReport());
+
         return covid19Report;
     }
-
-
-
 }

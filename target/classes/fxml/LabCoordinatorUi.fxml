@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#1a7180, #239ba1);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.LabCoordinatorUi">
+   <top>
+      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="74.0" prefWidth="493.0">
+               <children>
+                  <Label text="Laboratory Coordinator Menu" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="223.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="validateWork" alignment="CENTER" onMouseClicked="#validateWorkClick" prefHeight="176.0" prefWidth="154.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+               <children>
+                  <Label text="Validate">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="the work performed">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="69.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/checked.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="50.0" top="40.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+            <VBox fx:id="viewTests" alignment="CENTER" onMouseClicked="#viewTestsClick" prefHeight="176.0" prefWidth="154.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+               <children>
+                  <Label text="View">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="all tests">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="72.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/teste-medico.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="20.0" top="40.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+            <VBox fx:id="importTest" alignment="CENTER" onMouseClicked="#importTestClick" prefHeight="176.0" prefWidth="154.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);">
+               <children>
+                  <Label text="Import">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="clinical tests ">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="72.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/cloud-storage.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="50.0" left="20.0" top="40.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+         <children>
+            <Button fx:id="exit" mnemonicParsing="false" onMouseClicked="#exitClick" prefHeight="39.0" prefWidth="71.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Exit" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="logout" mnemonicParsing="false" onMouseClicked="#logoutClick" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0);" text="Logout" textFill="#1a7180">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

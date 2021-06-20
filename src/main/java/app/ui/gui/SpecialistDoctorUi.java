@@ -49,7 +49,7 @@ public class SpecialistDoctorUi {
 
             Parent root;
 
-            root = FXMLLoader.load(getClass().getResource("/fxml/LoginUi.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/LoginUi.fxml"));
 
             Scene scene = new Scene(root);
 

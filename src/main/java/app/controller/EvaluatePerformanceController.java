@@ -1,12 +1,9 @@
 package app.controller;
 
 import app.Serialization;
-import app.domain.model.testrelated.Overview;
-import app.domain.model.testrelated.Test;
 import app.ui.console.AuthUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
@@ -18,7 +15,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -160,7 +156,7 @@ public class EvaluatePerformanceController{
 
             Parent root;
 
-            root = FXMLLoader.load(getClass().getResource("/fxml/LoginUi.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/LoginUi.fxml"));
 
             Scene scene = new Scene(root);
 

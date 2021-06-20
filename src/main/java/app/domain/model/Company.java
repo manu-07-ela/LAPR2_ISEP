@@ -121,7 +121,7 @@ public class Company implements Serializable {
         this.testStore = new TestStore();
         this.chemicalLaboratory = new ChemicalLaboratory("Chemical Laboratory", "Oxford Street", "23145623781", "7293817263");
         this.sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
-        setTask();
+        //setTask();
     }
 
     /**
@@ -252,7 +252,7 @@ public class Company implements Serializable {
         return new Overview(initialDate,endDate,testList);
     }
 
-    private void setTask(){
+    /*private void setTask(){
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             final SendAutomaticallyCovid19ReportController sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
@@ -268,5 +268,5 @@ public class Company implements Serializable {
         };
         timer.scheduleAtFixedRate(timerTask, 0,5000);
 
-    }
+    }*/
 }
