@@ -39,6 +39,8 @@ public class Overview {
 
     private String algorithm;
 
+    private SimpleDateFormat formatter;
+
     private List<Date> dates;
 
     /**
@@ -62,6 +64,7 @@ public class Overview {
         getSequenceTestWaitingForResults();
         getSequenceTestValidated();
         getSequenceAux();
+        formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     }
 
@@ -72,8 +75,6 @@ public class Overview {
 
     public void getIntervalDays() throws ParseException {
         dates = new ArrayList<>();
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         String date= formatter.format(initialDate);
 
@@ -99,8 +100,6 @@ public class Overview {
     }
 
     public void getNumberOfTestsProcessedDay() throws ParseException {
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         String date= formatter.format(initialDate);
 
@@ -150,8 +149,6 @@ public class Overview {
 
     private void getTestsWaitingForDiagnosisDay() throws ParseException {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-
         String date= formatter.format(initialDate);
 
         Date date1= formatter.parse(date);
@@ -188,7 +185,6 @@ public class Overview {
 
     private void getTestWaitingForResultsDay() throws ParseException {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         String date= formatter.format(initialDate);
 
