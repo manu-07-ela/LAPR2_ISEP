@@ -15,15 +15,35 @@ public class TestParameterResultTest {
     @Test (expected = IllegalArgumentException.class)
     public void  resultValidation1() {
         RefValue ref = new RefValue("metric1",30.0,50.0);
-        TestParameterResult tr = new TestParameterResult(ref," ","metric");
+        TestParameterResult tr = new TestParameterResult(ref,"45","metric");
 
+        tr.resultValidation("   ");
+    }
+
+    @Test
+    public void  resultValidation2() {
+        RefValue ref = new RefValue("metric1",30.0,50.0);
+        TestParameterResult tr = new TestParameterResult(ref,"45","metric");
+
+        tr.resultValidation("34");
     }
 
 
     @Test (expected = IllegalArgumentException.class)
     public void  metricValidation1() {
         RefValue ref = new RefValue("metric1",30.0,50.0);
-        TestParameterResult tr = new TestParameterResult(ref,"45","     ");
+        TestParameterResult tr = new TestParameterResult(ref,"45","metric");
+
+        tr.metricValidation("      ");
+
+    }
+
+    @Test
+    public void  metricValidation2() {
+        RefValue ref = new RefValue("metric1",30.0,50.0);
+        TestParameterResult tr = new TestParameterResult(ref,"45","metric");
+
+        tr.metricValidation("mg");
 
     }
 
@@ -64,6 +84,15 @@ public class TestParameterResultTest {
         TestParameterResult tr = new TestParameterResult(ref,"45","metric");
 
         Assert.assertEquals(ref,tr.getRefValue());
+    }
+
+    @Test
+    public void getChemicalAnalysisDate() {
+        RefValue ref = new RefValue("metric1",30.0,50.0);
+        Date chemicalDate = new Date("17/05/2021  10:07:00");
+        TestParameterResult tr = new TestParameterResult(ref,"45","metric",chemicalDate);
+
+        Assert.assertEquals(chemicalDate,tr.getChemicalAnalysisDate());
     }
 
 }
