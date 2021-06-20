@@ -5,15 +5,18 @@ package ui {
 class ViewResultsUI{}
 }
 
+package Auth{
+class UserSession{
++getUserId()
+}
+}
+
 
 package Controller{
 class App{
 +getInstance()
 +getCurrentUserSession()
 +getCompany()
-}
-class UserSession{
-+getUserId()
 }
 class ViewResultsController{
 +getTestList()
@@ -125,6 +128,8 @@ Test "1" ---"1..*" TestParameter : requests analysis of >
 ViewResultsUI ..> ViewResultsController
 ViewResultsUI ..> TestResultDto
 
+App ..> UserSession
+
 ViewResultsController ..> TestMapper
 ViewResultsController ..> TestResultsMapper
 ViewResultsController ..> TestParameterMapper
@@ -135,9 +140,12 @@ ViewResultsController ..> TestStore
 ViewResultsController ..> ClientStore
 ViewResultsController ..> Company
 ViewResultsController ..> Test
-ViewResultsController ..> TestParameter
-ViewResultsController ..> MedicalReport
-ViewResultsController ..> Client
+ViewResultsController ...> TestParameter
+ViewResultsController ...> MedicalReport
+ViewResultsController ...> Client
+ViewResultsController ...> UserSession
+ViewResultsController ...> App
+
 
 Company -> Test
 Company -> TestStore
