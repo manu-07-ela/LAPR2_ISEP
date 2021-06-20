@@ -137,6 +137,20 @@ Other software classes (i.e. Pure Fabrication) identified:
     Client cl= new Client("José David Teixeira Pessoa Pessoa Pessoa","1234567891234567","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");
     }
 
+**Test 2:** To import tests of any laboratory, it is required that a laboratory having the given Lab_ID exists in the system - AC2.
+
+    @Test
+    public void laboratoryValidation(){
+        Company company = new Company("Many Labs");
+        ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Clinical laboratory", "Rua 20", "12312312312", "1234567890", "1234s",company.getTestTypeStore().getTestTypeList());
+        String s1 ="working";
+        String s2 ="Not working";
+        if(lab!=null){
+            s2="working";
+        }
+        Assert.assertEquals(s1,s2);
+    }
+
 # 5. Construction (Implementation)
 
 ## Class ImportFileController
