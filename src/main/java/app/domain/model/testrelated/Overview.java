@@ -60,7 +60,7 @@ public class Overview {
         sequenceTestWaitingForResults = new ArrayList();
         sequenceTestWaitingForDiagnosis = new ArrayList<>();
         getSequenceTestWaitingForResults();
-        getSequenceTestWaitingForDiagnosis();
+        getSequenceTestValidated();
         getSequenceAux();
 
     }
@@ -295,7 +295,7 @@ public class Overview {
         intervalDates.add(endDate);
     }
 
-    public void getSequenceTestWaitingForDiagnosis()  {
+    public void getSequenceTestValidated()  {
 
 
         Date date1 = new Date(initialDate.getTime());

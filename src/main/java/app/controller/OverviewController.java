@@ -60,7 +60,6 @@ public class OverviewController {
      */
     public void getIntervalTestList(Date initialDate, Date endDate) throws ParseException {
         this.testStore=company.getTestStore();
-        this.clientStore=company.getClientStore();
         List<Test> testList = testStore.getIntervalTestList(initialDate, endDate);
         this.overview=company.createOverview(initialDate,endDate,testList);
     }
@@ -86,6 +85,7 @@ public class OverviewController {
      * @return the number of the clients in the system
      */
     public int getNumberClientsSystem(){
+        this.clientStore=company.getClientStore();
         return clientStore.getClientList().size();
     }
 

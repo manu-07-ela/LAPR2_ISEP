@@ -148,7 +148,6 @@ public class OverviewTestUi {
         loadChoiseBox();
     }
 
-
     /**
      * Load choise box.
      */
