@@ -106,6 +106,7 @@ public class Company implements Serializable {
      * @param designation Company's designation
      */
     public Company(String designation) {
+        System.out.println("OLA");
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
@@ -120,11 +121,24 @@ public class Company implements Serializable {
         this.clientStore = new ClientStore();
         this.testStore = new TestStore();
         this.chemicalLaboratory = new ChemicalLaboratory("Chemical Laboratory", "Oxford Street", "23145623781", "7293817263");
-
-        this.sendAutomaticallyCovid19Report = new SendAutomaticallyCovid19Report();
-
-
-        //setTask();
+        this.sendAutomaticallyCovid19Report = new SendAutomaticallyCovid19Report(this);
+        System.out.println("OLA1");
+        Timer timer = new Timer();
+        Date current = new Date();
+        current.setHours(17);
+        current.setMinutes(59);
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("ola");
+                try {
+                    sendAutomaticallyCovid19Report.readFromConfigurationFile();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        timer.schedule(timerTask, current, 1000*2);
     }
 
     /**
@@ -255,25 +269,24 @@ public class Company implements Serializable {
         return new Overview(initialDate,endDate,testList);
     }
 
-    /*private void setTask(){
+    private void setTask(){
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
-            //final SendAutomaticallyCovid19ReportController sendAutomaticallyCovid19ReportController = new SendAutomaticallyCovid19ReportController();
             @Override
             public void run() {
-                /*
-                try {
-                    System.out.println("OLA");
-                    sendAutomaticallyCovid19ReportController.readFromConfigurationFile();
+                System.out.println("OLA");
+                /*try {
+
+                    //sendAutomaticallyCovid19ReportController.readFromConfigurationFile();
                 } catch (ParseException e) {
                     e.printStackTrace();
-                }
+                }*/
 
-                 */
-                //System.out.println("OLA");
-            //}
-       // };
-        //timer.scheduleAtFixedRate(timerTask, 0,5000);
 
-    //}
+                System.out.println("OLA");
+            }
+       };
+        timer.schedule(timerTask, 0,5000);
+
+    }
 }
