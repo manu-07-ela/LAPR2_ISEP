@@ -5,6 +5,7 @@ import app.domain.model.testrelated.Covid19Report;
 import app.domain.model.testrelated.Test;
 import app.domain.store.TestStore;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -75,7 +76,7 @@ public class SendCovid19ReportController {
     }
 
 
-    public Covid19Report sendCovid19ReportSimple(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String independentVariable, double significanceLevel, double confidenceLevel) throws ParseException {
+    public Covid19Report sendCovid19Report(Date initialDate, Date endDate, Date currentDay, int historicalPoints, String typeOfData, String independentVariable, double significanceLevel, double confidenceLevel) throws ParseException {
         double[] x1HistoricalPoints;
         double[] x1Interval;
         double[] yHistoricalPoints;
@@ -117,4 +118,9 @@ public class SendCovid19ReportController {
 
         return covid19Report;
     }
+
 }
+
+
+
+

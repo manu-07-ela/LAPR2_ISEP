@@ -74,7 +74,7 @@ public class TestsUi implements Initializable {
 
             Parent root;
 
-            root = FXMLLoader.load(getClass().getResource("/LoginUi.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/fxml/LoginUi.fxml"));
 
             Scene scene = new Scene(root);
 
