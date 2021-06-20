@@ -103,7 +103,7 @@ To facilitate overall analysis, the application should also display statistics a
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Step 1  		 | ... interacting with the actor?                                 | ImportFileUI                  | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
 |                | ... coordinating the US?                                        | ImportFileController          | **Controller**                                                                                                                                                                                         |
-| Step 2  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 2  		 | ...                                                             |                               |                                                                                                                                                                                                        |
 | Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
 | Step 4  		 |                                                                 |                               |                                                                                                                                                                                                        |
 | Step 5         |                                                                 |                               |                                                                                                                                                                                                        |
@@ -129,8 +129,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 ![US17_CD](US17_CD.svg)
 
 # 4. Tests
-**Test 1:** Check that it is not possible to create an instance of National Healthcare Service code without 12 digits - AC3.
 
+**Test 1:** If the file contains invalid data, that data should not be load into the system. An exception should be thrown - AC1.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void clientValidation(){
+    Client cl= new Client("José David Teixeira Pessoa Pessoa Pessoa","1234567891234567","1234567891","12/12/1995","1231231231","12345678900","pessoa@gmail.com","Avenida da República");
+    }
 
 # 5. Construction (Implementation)
 
