@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.Ref;
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
@@ -140,4 +141,31 @@ public class TestParameterTest {
         Assert.assertEquals("metric1",tpm.getRefValueMetric());
 
     }
+
+    @Test
+    public void addResultWithDate1() {
+        ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
+        Parameter p = new Parameter("HB000","test","method", pc);
+        TestParameter tpm = new TestParameter(p);
+        RefValue ref = new RefValue("metric1",30.0,50.0);
+        Date chemicalDate = new Date("17/05/2021  10:07:00");
+
+        boolean verificacao = tpm.addResultWithDate(ref,"45","metric",chemicalDate);
+
+        Assert.assertTrue(verificacao);
+    }
+
+    @Test
+    public void addResultWithDate2() {
+        ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
+        Parameter p = new Parameter("HB000","test","method", pc);
+        TestParameter tpm = new TestParameter(p);
+        RefValue ref = new RefValue("metric1",30.0,50.0);
+        Date chemicalDate = new Date("17/05/2021  10:07:00");
+
+        boolean verificacao = tpm.addResultWithDate(ref,"   ","",chemicalDate);
+
+        Assert.assertFalse(verificacao);
+    }
+
 }

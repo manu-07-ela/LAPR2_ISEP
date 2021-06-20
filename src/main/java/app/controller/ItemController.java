@@ -97,7 +97,7 @@ public class ItemController {
      */
     @FXML
     void selectTestIn() {
-        selectTest.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0), -fx-font-weight: bold, -fx-font-size: 14");
+        selectTest.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0); -fx-font-weight: bold; -fx-font-size: 14");
         selectTest.setTextFill(Paint.valueOf("#239ba1"));
     }
 
@@ -106,7 +106,7 @@ public class ItemController {
      */
     @FXML
     void selectTestOut() {
-        selectTest.setStyle("-fx-background-color: #239ba1;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0), -fx-font-weight: bold, -fx-font-size: 14");
+        selectTest.setStyle("-fx-background-color: #239ba1;-fx-background-radius: 15px; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 , 10.0); -fx-font-weight: bold; -fx-font-size: 14");
         selectTest.setTextFill(Paint.valueOf("#ffffff"));
 
     }

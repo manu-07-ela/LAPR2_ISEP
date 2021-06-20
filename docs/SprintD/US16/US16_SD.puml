@@ -6,7 +6,7 @@ actor "Administrator" as ADMIN
 participant ": OverviewTestUi" as UI
 participant ": OverviewController" as CTRL
 participant ": Company" as COMP
-participant ": Overview" as OVERVIEW
+participant "overview : Overview" as OVERVIEW
 participant ": TestStore" as TS
 participant ": ClientStore" as CS
 participant ": TestMapper" as tMAPPER
@@ -26,20 +26,44 @@ activate CTRL
 CTRL -> COMP : testStore = getTestStore()
 activate COMP
 deactivate COMP
-CTRL -> COMP : clientStore = getClientStore()
-activate COMP
-deactivate COMP
 CTRL -> TS : testList = getIntervalTestList(initialDate,endDate)
 activate TS
 deactivate TS
 CTRL -> COMP : createOverview()
 activate COMP
 COMP --> OVERVIEW** : create(initialDate,endDate, testList)
+OVERVIEW -> OVERVIEW: getAssociatedClients()
+activate OVERVIEW
+deactivate OVERVIEW
+OVERVIEW -> OVERVIEW: getTestsWaitingForResultsDay()
+activate OVERVIEW
+deactivate OVERVIEW
+OVERVIEW -> OVERVIEW: getTestsWaitingForDiagnosisDay()
+activate OVERVIEW
+deactivate OVERVIEW
+OVERVIEW -> OVERVIEW: getNumberOfTestsPrcossedDay()
+activate OVERVIEW
+deactivate OVERVIEW
+OVERVIEW -> OVERVIEW: getIntervalDates()
+activate OVERVIEW
+deactivate OVERVIEW
+OVERVIEW -> OVERVIEW: getSequenceTestWaitingForResults()
+activate OVERVIEW
+deactivate OVERVIEW
+OVERVIEW -> OVERVIEW: getSequenceTestValidated()
+activate OVERVIEW
+deactivate OVERVIEW
+OVERVIEW -> OVERVIEW: getSequenceAux()
+activate OVERVIEW
+deactivate OVERVIEW
+
+COMP --> CTRL : overview
 deactivate COMP
 deactivate CTRL
 
-deactivate CTRL
 UI -> CTRL : getNumberOfClients()
+
+
 activate CTRL
 CTRL -> OVERVIEW : getNumberOfClients()
 activate OVERVIEW
@@ -48,36 +72,45 @@ deactivate CTRL
 
 UI -> CTRL : getNumberTestsSystem()
 activate CTRL
-CTRL -> OVERVIEW : getNumberTestsSystem()
-activate OVERVIEW
-deactivate OVERVIEW
+CTRL -> TS: getNumberTestsSystem()
+activate TS
+deactivate TS
 deactivate CTRL
 
 UI -> CTRL : getNumberClientsSystem()
 activate CTRL
-CTRL -> OVERVIEW : getNumberOfTestsWaitingForDiagnosis()
-activate OVERVIEW
-deactivate OVERVIEW
+CTRL -> COMP : clientStore=getClientStore()
+activate COMP
+deactivate COMP
+CTRL -> CS : getNumberOfClientsInTheSystem()
+activate CS
+deactivate CS
+
 deactivate CTRL
 
 UI -> CTRL : getNumberOfTestsWaitingForResults()
 activate CTRL
-CTRL -> OVERVIEW : getTotalNumberOfTestsProcessed()
+CTRL -> OVERVIEW : getNumberOfTestsWaitingForResults()
 activate OVERVIEW
 deactivate OVERVIEW
 deactivate CTRL
 
 UI -> CTRL : getNumberOfTestsWaitingForDiagnosis()
 activate CTRL
+CTRL -> OVERVIEW : getNumberOfTestsWaitingForDiagnosis()
+activate OVERVIEW
+deactivate OVERVIEW
 deactivate CTRL
 
 UI -> CTRL : getTotalNumberOfTestsProcessed()
 activate CTRL
+CTRL -> OVERVIEW : getTotalNumberOfTestsProcessed()
+activate OVERVIEW
+deactivate OVERVIEW
 deactivate CTRL
 
-UI --> ADMIN : Shows successfully the relative information
+UI --> ADMIN : Shows successfully the relative information ( number of clients, number of tests \n in the system and number of clients in the system)
 deactivate UI
-alt select option to evaluate performance
 ADMIN -> UI : Asks to evaluate performance
 activate UI
 UI -> CTRL : getAvailableAlgorithms()
@@ -93,12 +126,7 @@ deactivate UI
 
 ADMIN -> UI : Selects the algorithm and asks for the least effective time
 activate UI
-UI -> CTRL : getDates()
-activate CTRL
-deactivate CTRL
-UI -> CTRL : getIntervalDates()
-activate CTRL
-deactivate CTRL
+
 UI -> CTRL : getSubsequenceWithMaximumSum()
 activate CTRL
 CTRL -> OVERVIEW : getSubsequenceWithMaximumSum()
@@ -114,11 +142,24 @@ deactivate CTRL
 
 UI -> CTRL : getPeriodSubSequenceWithMaximumSum()
 activate CTRL
+CTRL -> OVERVIEW : getPeriodSubSequenceWithMaximumSum()
+activate OVERVIEW
+OVERVIEW -> OVERVIEW : periodSubSequenceMaxSum(subSequence, sequence)
+activate OVERVIEW
+OVERVIEW --> CTRL : periodSubSequenceMaxSum
+deactivate OVERVIEW
+deactivate OVERVIEW
+CTRL --> UI : periodSubSequenceMaxSum
 deactivate CTRL
 
-UI --> ADMIN : Shows successfully the least effective time
+UI -> UI : loadLineCharts()
+activate UI
 deactivate UI
-end
+
+
+UI --> ADMIN : Shows successfully the least effective time and statics per day, week, month and year
+deactivate UI
+
 deactivate ADMIN
 
 @enduml

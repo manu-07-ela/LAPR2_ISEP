@@ -14,7 +14,7 @@ activate ":System"
 
 ":System" --> User : Shows successfully the relative information
 deactivate ":System"
-alt select option to evaluate performance
+
 User -> ":System" : Asks to evaluate performance
 activate ":System"
 ":System" --> User : Shows available algorithms
@@ -22,9 +22,9 @@ deactivate ":System"
 
 User -> ":System" : Selects the algorithm and asks for the least effective time
 activate ":System"
-":System" --> User : Shows successfully the least effective time and Statistics
+":System" --> User :Shows successfully the least effective\n time and statics per day, week, month and year
 deactivate ":System"
-end
+
 deactivate User
 
 @enduml
