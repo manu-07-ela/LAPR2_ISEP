@@ -27,8 +27,10 @@ public class App implements Serializable {
 
     private App()
     {
+
         Properties props = getProperties();
         this.company = new Company(props.getProperty(Constants.PARAMS_COMPANY_DESIGNATION));
+        System.out.println(company);
         this.authFacade = this.company.getAuthFacade();
         bootstrap();
     }
@@ -81,6 +83,7 @@ public class App implements Serializable {
 
     private void bootstrap()
     {
+        System.out.println("Olaaaaaaaaa");
         this.authFacade.addUserRole(Constants.ROLE_ADMIN,Constants.ROLE_ADMIN);
         this.authFacade.addUserRole(Constants.ROLE_RECP,Constants.ROLE_RECP);
         this.authFacade.addUserRole(Constants.ROLE_MED_LAB_TEC,Constants.ROLE_MED_LAB_TEC);
