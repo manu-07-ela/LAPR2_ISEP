@@ -326,7 +326,8 @@ public class TestStore implements Serializable {
                 calendar.setTime(t.getSamplesAddDate());
                 int validationDay = calendar.get(Calendar.DAY_OF_YEAR);
                 int validationYear = calendar.get(Calendar.YEAR);
-                if (((t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate)) || (initialDay == validationDay && initialYear == validationYear) || (endDay == validationDay && endYear == validationYear)) && t.getTestType().getReferenceAdapter().equals("CovidReferenceValues1API")) {
+                System.out.println(t.getTestType().getReferenceAdapter());
+                if ((((t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate)) || (initialDay == validationDay && initialYear == validationYear) || (endDay == validationDay && endYear == validationYear)) )&& t.getTestType().getReferenceAdapter().equals("CovidReferenceValues1API")) {
                     intervalTestList.add(t);
                 }
             }
@@ -336,11 +337,12 @@ public class TestStore implements Serializable {
 
 
     public double[] getNumberOfPositiveCovidTestsForDayInInterval(Date initialDate, Date endDate){
-
+        System.out.println(initialDate.toString());
+        System.out.println(endDate.toString());
         List<Double> auxiliar = new ArrayList<>();
 
         List<Test> tests = getCovidTestsLstByInterval(initialDate,endDate);
-
+        System.out.println(tests);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(initialDate);
 
@@ -362,7 +364,7 @@ public class TestStore implements Serializable {
                     int sampleYear = calendar.get(Calendar.YEAR);
                     if(day == sampleDay && year == sampleYear) {
                         if (tests.get(i).getTestParameterList().get(0).getParameterId().equals("IgGAN")) {
-                            if (Double.parseDouble(tests.get(i).getTestParameterList().get(0).getParamResult().getResult()) > 1.4) {
+                            if (Double.parseDouble(tests.get(i).getTestParameterList().get(0).getParamResult().getResult().replace(",", ".")) > 1.4) {
                                 temp++;
                             }
                         }
@@ -377,7 +379,7 @@ public class TestStore implements Serializable {
         for(int j = 0; j<auxiliar.size(); j++){
             positives[j]=auxiliar.get(j);
         }
-
+        System.out.println(Arrays.toString(positives));
         return positives;
 
     }
