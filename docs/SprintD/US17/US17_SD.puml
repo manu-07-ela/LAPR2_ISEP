@@ -9,14 +9,19 @@ participant ": FileReader" as reader
 participant "Company" as COMP
 participant "clientStr: ClientStore" as clientStr
 participant "client : Client" as Client
+participant "labStr: ClinicalAnalaysisLaboratoryStore" as labStr
+participant "lab : Clinical Analysis Laboratory" as Lab
 participant ":AuthFacade" as AF
 participant "testStr: TestStore" as testStr
 participant "test : Test" as Test
+participant "testList : List<Test>"
 participant "allParametersStringList : List<String>"
 participant "validParametersStringList : List<String>"
 participant "parametersNumbList : List<Integer>"
+participant "parametersNumbValidList : List<Integer>"
 participant "pmList : List<Parameter>"
 participant "tpList : List<TestParameter>"
+participant "dateList : List<String>"
 
 
 activate ADMIN
@@ -43,16 +48,10 @@ deactivate reader
 reader -> reader : lineContent = split()
 activate reader
 deactivate reader
-reader -> reader : fillParametersString(tempArr,parametersNumbList,allParametersStringList);
+reader -> reader : fillParametersString(lineContent,parametersNumbList,allParametersStringList);
 activate reader
 deactivate reader
-reader -> reader : validParametersStringList= fillValidParametersString(allParametersStringList,validParametersStringList);
-activate reader
-deactivate reader
-reader -> reader : pmList=convertStringIntoParameter(validParametersStringList,pmList);
-activate reader
-deactivate reader
-reader -> reader : tpList=convertParameterIntoTestParameter(pmList,tpList);
+reader -> reader : fillValidParametersString(allParametersStringList,validParametersStringList,parametersNumbList,parameterNumbTestValid);
 activate reader
 deactivate reader
 
@@ -66,12 +65,13 @@ deactivate reader
 reader -> COMP : clientStr = getClientStore()
 activate COMP
 deactivate COMP
-reader -> clientStr : getClientbytin(lineContent[5])
+reader -> clientStr : client = getClientbytin(lineContent[5])
 activate clientStr
-clientStr --> reader : client
 deactivate clientStr
+alt client = null
 reader --> Client**:  create(lineContent[8], lineContent[3], lineContent[4], lineContent[6], lineContent[5], lineContent[7], lineContent[9],lineContent[10])
 reader -> clientStr : saveClient(client)
+
 activate clientStr
 clientStr -> clientStr: validateClient(cl)
 activate clientStr
@@ -90,16 +90,38 @@ activate AF
 deactivate AF
 deactivate clientStr
 deactivate clientStr
+end
+reader -> COMP : labStr = getClinicalAnalysisLaboratoryStore()
+activate COMP
+deactivate COMP
+reader -> labStr : lab = getClinicalAnalysisLaboratory(lineContent[2])
+activate labStr
+deactivate labStr
+alt lab != null
 reader -> COMP : testStr = getTestStore()
 activate COMP
 deactivate COMP
-reader -> testStr : test = createTest(client,nhsCode,testType,testParameterList,lab)
+reader -> reader : test = createTest(client,lineContent[1],lineContent[11],lab,validParametersStringList, parametersNumbList, lineContent)
+activate reader
+reader -> reader : generateDate(lineContent,dateList)
+activate reader
+deactivate reader
+reader -> reader : convertStringIntoParameter(validParametersStringList,pmList);
+activate reader
+deactivate reader
+reader -> reader : convertParameterIntoTestParameter(pmList,tpList)
+activate reader
+deactivate reader
+reader -> testStr : test = createTestByCsvFile(client,lineContent[1],lineContent[11],tpList,lab,dateList)
+deactivate reader
 activate testStr
-testStr -> testStr: internalcode = generateInternalCode(t)
+
+testStr -> testStr: internalcode = generateInternalCode(testList)
 activate testStr
 deactivate testStr
-testStr --> Test**: create(client,nhsCode,testType,testParameterList,lab,internalcode)
+testStr --> Test**: create(client,lineContent[1],lineContent[11],tpList,lab,internalcode,dateList)
 deactivate testStr
+end
 reader -> testStr : saveTest(test)
 activate testStr
 
@@ -116,8 +138,6 @@ deactivate CTRL
 
 UI --> ADMIN : Informs the operation sucess.
 deactivate UI
-
-
 
 deactivate ADMIN
 

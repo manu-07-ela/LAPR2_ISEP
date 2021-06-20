@@ -1,72 +1,116 @@
 @startuml
-skinparam classAttributeIconSize 0
 
-class ApplicationPOT
-{
-  +static getInstance()
-  +getCurrentSession()
+package ui{
+class ImportFileUI
 }
 
-class UserSession
-{
-  +getUserEmail()
+package controller{
+class ImportFileController
 }
 
-class Task {
-  -String reference
-  -String designation
-  -String informalDescription
-  -String technicalDescription
-  -Integer duration
-  -Double cost
-  +Task(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
+package domain{
+class FileReader
+package store{
+class ClientStore
+class ClinicalAnalysisLaboratoryStore
+class TestStore
+}
+package model{
+class ClinicalAnalysisLaboratory
+class Client
+class Test
+class Company
+}
 }
 
-class Category {
-  -String id
-  -String description
+class TestStore{
++createTestByCsvFile(client,nhscode,testType,tpList,lab,dateList)
++saveTest(test)
+-validateTest(test)
+-addTest(test)
 }
 
-class Organization {
-  -String name
-  -String VatNumber
-  -String website
-  -String phone
-  -String email
-  +Organization(name, VatNumber, webSite, phone, email, postalAddress, manager)
-  +createTask(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
-  +saveTask(task)
-  -addTask(task)
-  -validateTask(task)
+class Test{
+-client
+-nhscode
+-testParameterList
+-stateOfTest
+-internalCode
++setSamplesAddDate(samplesAddDate)
++setStateOfTest(stateOfTest)
++addTestResultWithDate(parameterID,result,metric,chemicalAnalysisDate)
 }
 
-class Platform {
-  -String designation
-  +getCategories()
-  +getCategoryById(catId)
-  +getOrganizationByUserEmail(email)
+class ClinicalAnalysisLaboratoryStore{
++getClinicalAnalysisLaboratory(labId)
 }
 
-class CreateTaskController {
-  +getCategories()
-  +createTask(ref,designation,informalDesc,technicalDesc,duration,cost,categoryId)
-  +saveTask()
+class ClinicalAnalysisLaboratory{
+-laboratoryId
+-listOfTestTypes
++getClinicalAnalysisLaboratoryByLabId(labId)
 }
 
-class CreateTaskUI {
+class ClientStore{
++getClientbytin(tin)
++saveClient(client)
++addUserWithRole(name,email,pwd)
+-validateClient(client)
+-addClient(client)
+-generatelogin(client)
 
 }
 
-CreateTaskUI ..> CreateTaskController
-CreateTaskController ..> Platform
-CreateTaskController ..> Category
-CreateTaskController ..> Task
-CreateTaskController ..> Organization
-CreateTaskController ..> ApplicationPOT
-CreateTaskController ..> UserSession
-Task "*" -> "1" Category : classified in
-Platform "1" --> "*" Category : defines
-Organization "1" --> "*" Task : owns
+class Client{
+-citizencardnumber
+  -nhs
+  -date
+  -sex
+  -tin
+  -phonenumber
+  -email
+  -name
+}
 
+class Company{
+-String designation
++getTestStore()
++getClientStore()
++getClinicalAnalysisLaboratoryStore()
+}
+
+class FileReader {
++read(file)
+-createTest(client,nhscode,testType,lab,validParametersStringList, parametersNumbList, lineContent)
+-fillParametersString(lineContent,parametersNumbList,allParametersStringList)
+-fillValidParametersString(allParametersStringList,validParametersStringList,parametersNumbList,parameterNumbTestValid)
+-convertStringIntoParameter(validParametersStringList,pmList)
+-convertParameterIntoTestParameter(pmList,tpList)
+-generateDate(lineContent,dateList)
+}
+
+class ImportFileController {
++loadfile(filesList)
+}
+
+class ImportFileUI {
+
+}
+
+ImportFileUI ..> ImportFileController
+ImportFileController ..> FileReader
+FileReader ..> Client
+FileReader ..> Test
+FileReader ..> ClinicalAnalysisLaboratory
+FileReader ..> Company
+FileReader ...> ClientStore
+FileReader ...> TestStore
+FileReader ...> ClinicalAnalysisLaboratoryStore
+Company "1" --> "1" ClientStore : uses
+Company "1" --> "1" ClinicalAnalysisLaboratoryStore : uses
+Company "1" --> "1" TestStore : uses
+ClientStore "1" -> "*" Client : knows
+ClinicalAnalysisLaboratoryStore "1" -> "*" ClinicalAnalysisLaboratory : knows
+TestStore "1" -> "*" Test : registers the
 
 @enduml

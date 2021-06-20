@@ -15,7 +15,9 @@
 
 **From the specifications document:**
 
->
+>In case of a new client, the receptionist registers the client in the application. To register a client, the receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number, birth date, sex, Tax Identification number (TIF), phone number, e-mail and name.
+
+> Once there, a receptionist asks the client’s citizen card number, the lab order (which contains the type of test and parameters to be measured), and registers in the application the test to be performed to that client.
 
 **From the client clarifications:**
 
@@ -45,25 +47,29 @@
 >
 >What I say in this message is valid for the laboratories and for other entities that appear in the CSV files.
 
+> **Question:** Should we write some kind of report or should we just leave the report field empty and simply add the date?
+> 
+> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9204#p12186) Leave empty and simply add the date.
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
 
 * **AC1:** If the file contains invalid data, that data should not be load into the system. An exception should be thrown.
+* **AC2:** To import tests of any laboratory, it is required that a laboratory having the given Lab_ID exists in the system.
+* **AC3:** If the API does not have reference values for the given parameter, than the reference values should not be presented to the application user.
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
+To import tests of any laboratory, it is required that a laboratory having the given Lab_ID exists in the system.
 
 ### 1.5 Input and Output Data
 
 **Input Data:**
 
 * Typed data:
-    * File's Path
     
 * Selected data:
-    * 
+    * File(s)
     
 **Output Data:**
 
@@ -72,17 +78,11 @@
 
 ### 1.6. System Sequence Diagram (SSD)
 
-*Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
-
 ![US17_SSD](US17_SSD.svg)
-
 
 ### 1.7 Other Relevant Remarks
 
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
-
 To facilitate overall analysis, the application should also display statistics and graphs.
-
 
 ## 2. OO Analysis
 
@@ -92,10 +92,6 @@ To facilitate overall analysis, the application should also display statistics a
 ![US17_MD](US17_MD.svg)
 
 ### 2.2. Other Remarks
-
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
-
-
 
 ## 3. Design - User Story Realization 
 
@@ -126,39 +122,96 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## 3.2. Sequence Diagram (SD)
 
-*In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
-
 ![US17_SD](US17_SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
-*In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
-
 ![US17_CD](US17_CD.svg)
 
-# 4. Tests 
-*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
+# 4. Tests
+**Test 1:** Check that it is not possible to create an instance of National Healthcare Service code without 12 digits - AC3.
 
-**_DO NOT COPY ALL DEVELOPED TESTS HERE_**
-
-**Test 1:** 
-
-*It is also recommended to organize this content by subsections.* 
 
 # 5. Construction (Implementation)
 
-*In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
+## Class ImportFileController
+      /**
+      * Initialize the instance variable
+      */
+      public ImportFileController(){
+      this.fileread= new CSVFileReader();
+      }
+      
+          /**
+           * Calls the FileReader method to read from the file
+           * @param files the list of file we need to read
+           * @throws IOException if we have problems to open or close the file
+           */
+          public void loadFile(List<File> files) throws IOException {
+              for (File f : files){
+                  fileread.read(f);
+              }
+      
+          }
 
-*It is also recommended to organize this content by subsections.* 
+## Class CSVFileReader
+
+        /**
+        * Reads a file receiving a file as a parameter
+        * @param file
+        * @throws IOException
+        */
+        public void read(File file) throws IOException {
+        FileReader fr = new FileReader(file);
+        BufferedReader br = new BufferedReader(fr);
+        String line = "";
+        String delimiter = ";";
+        int i=1;
+        int date=0;
+        String[] tempArr;
+        line = br.readLine();
+        tempArr = line.split(delimiter);
+        List<String> allParametersStringList=new ArrayList<>();
+        List<String> validParametersStringList=new ArrayList<>();
+        List<Integer> parametersNumbList=new ArrayList<>();
+        List<Integer> parameterNumbTestValid= new ArrayList<>();
+        date=fillParametersString(tempArr,parametersNumbList,allParametersStringList);
+        fillValidParametersString(allParametersStringList,validParametersStringList,parametersNumbList,parameterNumbTestValid);
+        
+                    while((line = br.readLine()) != null) {
+                        tempArr = line.split(delimiter);
+                        i++;
+                        cl= clStore.getClientbytin(tempArr[5]);
+                            try {
+                                if(cl==null) {
+                                cl = new Client(tempArr[8], tempArr[3], tempArr[4], tempArr[6], tempArr[5], tempArr[7], tempArr[9],tempArr[10]);
+                                }else{
+                                    System.out.printf("Error in line %d : That client alredy exists in the system\n", i);
+                                }
+                                clientList.add(cl);
+                                clStore.saveClient(cl, clAuthFacade);
+                                NhsCode nhsCode = new NhsCode(tempArr[1]);
+                                lab = calStore.getClinicalAnalysisLaboratoryByLabId(tempArr[2]);
+                                if(lab!=null) {
+                                    createTest(cl, nhsCode, ttStore.getTestTypeByDescription(tempArr[11]), lab, validParametersStringList, parametersNumbList, tempArr, date);
+                                }else{
+                                    System.out.printf("Error in line %d : This laboratory doesn´t exist\n", i);
+                                }
+                                } catch (IllegalArgumentException | IllegalAccessException | ClassNotFoundException | InstantiationException | ParseException | BarcodeException e) {
+                                System.err.printf("Error in line %d : %s%n", i, e.getMessage());
+                            }
+                    }
+                    br.close();
+            }
+
 
 # 6. Integration and Demo 
 
-*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
-
+To get this User Story in the system, instead of getting information from the UI, we had to go get it from a file
 
 # 7. Observations
 
-*In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
+None
 
 
 
