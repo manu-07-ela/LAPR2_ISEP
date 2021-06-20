@@ -100,6 +100,7 @@ public class Overview {
     }
 
     public void getNumberOfTestsProcessedDay() throws ParseException {
+        formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         String date= formatter.format(initialDate);
 
@@ -148,6 +149,7 @@ public class Overview {
     }
 
     private void getTestsWaitingForDiagnosisDay() throws ParseException {
+        formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         String date= formatter.format(initialDate);
 
@@ -184,6 +186,7 @@ public class Overview {
     }
 
     private void getTestWaitingForResultsDay() throws ParseException {
+        formatter = new SimpleDateFormat("dd/MM/yyyy");
 
 
         String date= formatter.format(initialDate);
