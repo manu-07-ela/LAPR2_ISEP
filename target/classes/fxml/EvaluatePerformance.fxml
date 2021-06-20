@@ -51,7 +51,7 @@
    <center>
       <VBox prefHeight="469.0" prefWidth="945.0" BorderPane.alignment="CENTER">
          <children>
-            <LineChart fx:id="performanceChart" prefHeight="264.0" prefWidth="1070.0">
+            <LineChart fx:id="performanceChart" prefHeight="236.0" prefWidth="1070.0" style="-fx-legend-visible: false;">
               <xAxis>
                 <CategoryAxis label="Interval Times" prefHeight="28.0" prefWidth="5218.0" side="BOTTOM" fx:id="x" />
               </xAxis>
@@ -66,18 +66,18 @@
                <content>
                   <VBox>
                      <children>
-                        <HBox prefHeight="23.0" prefWidth="1070.0">
+                        <HBox prefHeight="29.0" prefWidth="1686.0">
                            <children>
                               <Label alignment="CENTER" prefHeight="27.0" prefWidth="291.0" text="Subsequence With Maximum Sum:" textAlignment="CENTER" textFill="#1a7180" />
-                              <TextField fx:id="txtSubsequence" prefHeight="41.0" prefWidth="1186.0" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-width: 0px 0px 2px 0px;" />
+                              <TextField fx:id="txtSubsequence" prefHeight="24.0" prefWidth="1350.0" style="-fx-background-color: transparent; -fx-border-color: #1a7180; -fx-border-width: 0px 0px 2px 0px;" />
                            </children>
                            <padding>
                               <Insets bottom="5.0" />
                            </padding>
                         </HBox>
-                        <HBox prefHeight="216.0" prefWidth="1686.0">
+                        <HBox prefHeight="216.0" prefWidth="2283.0">
                            <children>
-                              <LineChart prefHeight="211.0" prefWidth="483.0">
+                              <LineChart fx:id="dayChart" prefHeight="211.0" prefWidth="483.0" title="Tests Per Day">
                                 <xAxis>
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>
@@ -86,7 +86,7 @@
                                 </yAxis>
                               </LineChart>
                               <Pane prefHeight="211.0" prefWidth="54.0" />
-                              <LineChart>
+                              <LineChart fx:id="weekChart" title="Tests Per Week">
                                  <xAxis>
                                     <CategoryAxis side="BOTTOM" />
                                  </xAxis>
@@ -94,8 +94,17 @@
                                     <NumberAxis side="LEFT" />
                                  </yAxis>
                               </LineChart>
-                              <Pane prefHeight="211.0" prefWidth="44.0" />
-                              <LineChart>
+                              <Pane prefHeight="216.0" prefWidth="64.0" />
+                              <LineChart fx:id="monthChart" title="Tests Per Month">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                              <Pane prefHeight="216.0" prefWidth="89.0" />
+                              <LineChart fx:id="yearChart" title="Test Per Year">
                                  <xAxis>
                                     <CategoryAxis side="BOTTOM" />
                                  </xAxis>

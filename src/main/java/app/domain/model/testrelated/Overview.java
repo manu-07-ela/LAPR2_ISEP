@@ -8,17 +8,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static app.domain.model.testrelated.Test.StateOfTest.*;
 
 public class Overview {
 
     private Integer numberOfClients;
-
-    private Integer numberOfTestWaitingForResults;
-
-    private Integer numberOfTestsWaitingForDiagnosis;
-
-    private Integer totalNumberOfTestsProcessed;
 
     private List<Integer> sequenceTestWaitingForResults;
 
@@ -28,9 +21,11 @@ public class Overview {
 
     private List<Test> testList;
 
-    private List<Test> testWaitingForResults;
+    private List<Integer> testWaitingForResults;
 
-    private List<Test> testsWaitingForDiagnosis;
+    private List<Integer> testsWaitingForDiagnosis;
+
+    private List<Integer> testProcessed;
 
     private Date initialDate;
 
@@ -38,7 +33,7 @@ public class Overview {
 
     private static int[] sequence;
 
-    private List<String> dates;
+    private List<Date> dates;
 
     /**
      *
@@ -52,11 +47,10 @@ public class Overview {
         this.testList=testList;
         getAssociatedClients();
         this.numberOfClients=clientList.size();
-        getTestWaitingForResults();
-        this.numberOfTestWaitingForResults=testWaitingForResults.size();
-        getTestsWaitingForDiagnosis();
-        this.numberOfTestsWaitingForDiagnosis=testsWaitingForDiagnosis.size();
-        this.totalNumberOfTestsProcessed=testList.size();
+        getTestWaitingForResultsDay();
+        getTestsWaitingForDiagnosisDay();
+        getNumberOfTestsProcessedDay();
+        getIntervalDays();
         sequenceTestWaitingForResults = new ArrayList();
         sequenceTestWaitingForDiagnosis = new ArrayList<>();
         getSequenceTestWaitingForResults();
@@ -64,7 +58,72 @@ public class Overview {
         getSequenceAux();
     }
 
-    public void getNumberOfTestsProcessed(){
+    public void getIntervalDays() throws ParseException {
+        dates = new ArrayList<>();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        String date= formatter.format(initialDate);
+
+        Date date1= formatter.parse(date);
+
+        date= formatter.format(endDate);
+
+        Date endDate = formatter.parse(date);
+
+        do {
+
+            if(date1.getDay()!=0) {
+                dates.add(date1);
+            }
+            date1 = new Date(date1.getTime());
+            date1.setDate(date1.getDate()+1);
+
+        }while (date1.before(endDate));
+
+        dates.add(endDate);
+
+
+    }
+
+    public void getNumberOfTestsProcessedDay() throws ParseException {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        String date= formatter.format(initialDate);
+
+        Date date1= formatter.parse(date);
+
+        date= formatter.format(endDate);
+
+        Date endDate = formatter.parse(date);
+
+        testProcessed = new ArrayList();
+
+        do {
+            int aux = 0;
+            if(date1.getDay()!=0) {
+                for (Test t : testList) {
+                    if (t.getLabValidationDate() != null) {
+
+                        date= formatter.format(t.getLabValidationDate());
+
+                        Date temp = formatter.parse(date);
+                        if (temp.equals(date1)) {
+                            aux++;
+                        }
+                    }
+                }
+                testProcessed.add(aux);
+            }
+
+            date1.setDate(date1.getDate() + 1);
+
+        }while (date1.before(endDate));
+
+        System.out.println(testProcessed.size());
+        System.out.println(testProcessed);
+
 
     }
 
@@ -77,22 +136,79 @@ public class Overview {
         }
     }
 
-    private void getTestWaitingForResults(){
-        testWaitingForResults = new ArrayList();
-        for (Test t: testList) {
-            if (t.getStateOfTest() == samplesCollected) {
-                testWaitingForResults.add(t);
+    private void getTestsWaitingForDiagnosisDay() throws ParseException {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        String date= formatter.format(initialDate);
+
+        Date date1= formatter.parse(date);
+
+        date= formatter.format(endDate);
+
+        Date endDate = formatter.parse(date);
+
+        testsWaitingForDiagnosis = new ArrayList();
+
+        do {
+            int aux = 0;
+            if(date1.getDay()!=0) {
+                for (Test t : testList) {
+
+                    if (t.getChemicalAnalysisDate().get(t.getChemicalAnalysisDate().size() - 1) != null) {
+
+                        date= formatter.format(t.getChemicalAnalysisDate().get(t.getChemicalAnalysisDate().size() - 1));
+
+                        Date temp = formatter.parse(date);
+                        if (temp.equals(date1)) {
+                            aux++;
+                        }
+                    }
+                }
+
+                testsWaitingForDiagnosis.add(aux);
             }
-        }
+
+            date1.setDate(date1.getDate() + 1);
+
+        }while (date1.before(endDate));
     }
 
-    private void getTestsWaitingForDiagnosis(){
-        testsWaitingForDiagnosis = new ArrayList();
-        for (Test t: testList) {
-            if (t.getStateOfTest() == samplesAnalyzed) {
-                testsWaitingForDiagnosis.add(t);
+    private void getTestWaitingForResultsDay() throws ParseException {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        String date= formatter.format(initialDate);
+
+        Date date1= formatter.parse(date);
+
+        date= formatter.format(endDate);
+
+        Date endDate = formatter.parse(date);
+
+        testWaitingForResults = new ArrayList();
+
+        do {
+            int aux = 0;
+
+            if(date1.getDay()!=0) {
+                for (Test t : testList) {
+                    if (t.getSamplesAddDate() != null) {
+
+                        date= formatter.format(t.getSamplesAddDate());
+
+                        Date temp = formatter.parse(date);
+                        if (temp.equals(date1)) {
+                            aux++;
+                        }
+                    }
+                }
+                testWaitingForResults.add(aux);
             }
-        }
+
+            date1.setDate(date1.getDate() + 1);
+
+        }while (date1.before(endDate));
     }
 
     public Integer getNumberOfClients() {
@@ -103,30 +219,28 @@ public class Overview {
         return sequence;
     }
 
-    public List<String> getDates() {
+    public List<Date> getDates() {
         return dates;
-    }
-
-    public Integer getNumberOfTestWaitingForResults(){
-        return numberOfTestWaitingForResults;
-    }
-
-    public Integer getNumberOfTestsWaitingForDiagnosis() {
-        return numberOfTestsWaitingForDiagnosis;
-    }
-
-    public Integer getTotalNumberOfTestsProcessed() {
-        return totalNumberOfTestsProcessed;
     }
 
     public List<String> getAvailableAlgorithms(){
         return availableAlgorithms;
     }
 
-    public void getSequenceTestWaitingForResults()  {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    public List<Integer> getTestProcessed() {
+        return testProcessed;
+    }
 
-        dates= new ArrayList<>();
+    public List<Integer> getTestsWaitingForDiagnosis() {
+        return testsWaitingForDiagnosis;
+    }
+
+    public List<Integer> getTestWaitingForResults() {
+        return testWaitingForResults;
+    }
+
+    public void getSequenceTestWaitingForResults()  {
+
         Date date1 = new Date(initialDate.getTime());
         Date date2 ;
 
@@ -147,7 +261,7 @@ public class Overview {
                 }
 
                 sequenceTestWaitingForResults.add(aux);
-                dates.add(String.format("%s - %s", dateFormat.format(date1), dateFormat.format(date2)));
+
                 date2.setMinutes(date2.getMinutes() + 1);
                 date1 = new Date(date2.getTime());
 
