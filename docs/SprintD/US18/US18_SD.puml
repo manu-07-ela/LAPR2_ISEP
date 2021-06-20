@@ -119,6 +119,7 @@ CTRL -> comp : createCovid19Report(xInterval, yInterval, xHistoricalPoints, yHis
 activate comp
 comp --> report** :create(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
 alt typeOfDate ="Day"
+activate report
 report -> report : getIntervalDates()
 activate report
 deactivate report
@@ -128,7 +129,9 @@ activate report
 deactivate report
 end
 report --> sRegression** : create(xInterval,yInterval, xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation)
+deactivate report
 deactivate comp
+
 else
 
 CTRL -> store : x1Interval =getNumberOfTestsPerformedForDayInInterval(initialDate,endDate)
@@ -147,6 +150,7 @@ deactivate store
 CTRL -> comp : createCovid19Report(xInterval, yInterval, xHistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
 activate comp
 comp --> report :create(x1Interval, x2Interval,yInterval, x1HistoricalPoints,x2HistoricalPoints, yHistoricalPoints, confidenceLevel, significanceLevel, currentDay, historicalPoints,typeData)
+activate report
 alt typeOfDate ="Day"
 report -> report : getIntervalDates()
 activate report
@@ -157,6 +161,7 @@ activate report
 deactivate report
 end
 report --> mRegression** : create(xInterval,yInterval, xHistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation)
+deactivate report
 end
 deactivate comp
 deactivate CTRL
