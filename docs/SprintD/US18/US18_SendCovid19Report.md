@@ -202,10 +202,8 @@ When the time resolution is a week, please consider only complete weeks.
 |        		 | ... send the Covid-19 Report?                                   | NHS API                       | **IE**: Knows how to do it.                                                                                                                                               |
 | Step 20  		 | ... informing operation success?                                | SendCovid19ReportUI           | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
-
-
-
 ### Systematization ##
+
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
