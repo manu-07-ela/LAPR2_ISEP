@@ -179,20 +179,34 @@ When the time resolution is a week, please consider only complete weeks.
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Step 1  		 | ... interacting with the actor?                                 | SendCovid19ReportUI           | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
 |                | ... coordinating the US?                                        | SendCovid19ReportController   | **Controller**                                                                                                                                                                                         |
-| Step 2  		 | ... knowing available types of Data?                            | Company                       | **IE**: Knows the available types of data (day or week).                                                                                                                                               |
-| Step 3  		 | ... knowing available regression models?                        | Company                       | **IE**: Knows the available regression models.                                                                                                                                               |
-| Step 4  		 | ... knowing available regression models?                        | Company                       | **IE**: Knows the available regression models.                                                                                                                                               |
+| Step  2       		 |                          |                  |
+| Step 3       		 |                          |                  |
+| Step 4  		 | ... knowing available types of Data?                            | Company                       | **IE**: Knows the available types of data (day or week).                                                                                                                                               |
+| Step 5       		 |                          |                  |
+| Step 6       		 |                          |                  |
+| Step 7       		 |                          |                  |
+| Step 8       		 |                          |                  |
+| Step 9       		 |                          |                  |
+| Step 10  		 | ... knowing available regression models?                        | Company                       | **IE**: Knows the available regression models.                                                                                                                                               |
+| Step 11       		 |                          |                  |
+| Step 12  		 | ... knowing available regression models?                        | Company                       | **IE**: Knows the available regression models.                                                                                                                                               |
 |                | ... knowing available independent variables?                    | Company                       | **IE**: Knows the available independent variables.                                                                                                                                                          |
-| Step 5         | ... saving the typed data?                                      |                               | **IE**: Owns its data.                                                                                                                                                                                 |
+| Step 13       		 |                          |                  |
+| Step 15       		 |                          |                  |
+| Step 16       		 |                          |                  |
+| Step 17       		 |                          |                  |
+| Step 18       		 |                          |                  |
+| Step 19       		 |                          |                  |
+|                | ... saving the typed data?                                      | Covid19Report                              | **IE**: Owns its data.                                                                                                                                                                                 |
 |                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
 |                | ... knowing the number of covid Tests in any interval?          | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
-| Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 7         | ... instantiating a Covid-19 Report?                            | Company                       | **Creator (R1)**                                                                                                                                                                                       |
+|                | ... instantiating a Covid-19 Report?                            | Company                       | **Creator** The company knows the Covid19Reports                                                                                                                                                                                    |
 |        		 | ... generating historical points dates?                         | Covid19Report                 | **IE**: Owns its data.                                                                                                                                                                                 |
-| Step 8  		 | ... sending to NHS covid-19 report?                             | NhsApi                        | **IE**: The medical report knows when it was created.                                                                                                                                                  |
-| Step 9  		 | ... informing operation success?                                | SendCovid19ReportUI           | **IE**: Is responsible for user interactions.                                                                                                                                                          |
+|       		 | ... sending to NHS covid-19 report?                             | NhsApi                        | **IE**: It is responsable for sending the report                                                                                                                                                  |
+| Step 20  		 | ... informing operation success?                                | SendCovid19ReportUI           | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
+|        		 |                          |                  |
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 

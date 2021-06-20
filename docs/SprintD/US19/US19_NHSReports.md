@@ -127,9 +127,10 @@ As the Report is to be automatically sent very early in the morning, do you wish
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1  		     |	... who has the responsability of scheduling the operation? | Company   |  IE: The company knows the task to be created           |
-| 			  		 |	... coordinating the US? | TimerTask |                             |
-| 			  		 |	... instantiating a new Task? | Company   | IE: THe comapny knows the task to be operated   |
+| 			  		 |	... coordinating the US? | TimerTask | Controller                            |
+| 			  		 |	... instantiating a new Task? | Company   | IE: The company knows the task to be operated   |
 | 			  		 | ...  instantiating a new Report to be sent?  | Company  | IE: The company knows all the reports made.  |
+|        		     | ...  sending the Report                          | NHSAdapter                 | IE: The NHSADapter knows to who the report should be sent
 
 ### Systematization ##
 
