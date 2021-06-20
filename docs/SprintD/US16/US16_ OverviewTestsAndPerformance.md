@@ -2,15 +2,11 @@
 
 ## 1. Requirements Engineering
 
-*In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.*
-
 ### 1.1. User Story Description
 
 *As a laboratory coordinator, I want to have an overview of all the tests performed by Many Labs and analyse the overall performance of the company*
 
 ### 1.2. Customer Specifications and Clarifications 
-
-*Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
 
 **From the specifications document:**
 
@@ -88,19 +84,6 @@ Please consider the requirements introduced at the beginning of Sprint D. The la
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=8963) You should only identify the time interval where there was a delay in the response (the maximum subsequence).
 
-> **Question:** Regarding your answer: "The laboratory coordinator should be able to check the number of clients, the number of tests waiting for results, the number of tests waiting for diagnosis and the total number of tests processed in the laboratory in each day, week, month and year. Moreover, the laboratory coordinator should be able to check the contiguous subsequence with maximum sum."
->
-> **Question:** Displaying information in each day, week, month and year is it only specific for total number of tests processed in the Laboratory or it is also necessary for number of clients, number of tests waiting for results and waiting for diagnosis? This information should be an all time analysis or should be filtered by the two dates defined by the coordinator? Or the two dates defined by the coordinator is only necessary to check the contiguous subsequence with maximum sum?
-> 
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9134)
-> 
-> **Question:**  How the information should appear to the coordinator? Should he select what he wants to analyse or all the information should appear at once? (for example: option 1: show information about clients, 2 information about number of tests waiting for results, etc.)
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9134)
-
-> **Question:** In what way is the application supposed to show data such as the number of clients, tests waiting for results and tests waiting for diagnosis? Is it supposed to only show the current number for the moment the information is being consulted (ex: Number of Clients at the moment: X), or is it supposed to graphically show the information over a selected time period (day, week, month, year), such as the total number of tests processed in the laboratory?
->
-> [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9133)
 
 > **Question:** When you say tests waiting results are you referring to tests with samples collected but not analyzed yet? If so, and considering the csv file does not have an explicit date for when the sample is collected, which date should we use?
 >
@@ -116,7 +99,8 @@ I asked these statistics for a given interval that should be selected by the use
 > **Question:** What are the statistics that require a graph, could you specify, please.
 >
 > [**Awnser:**](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=9204) In a previous post I asked: "The laboratory coordinator should be able to check the number of clients, the number of tests waiting for results, the number of tests waiting for diagnosis and the total number of tests processed (tests validated) in the laboratory in each day, week, month and year. The system should show these statistics for a given interval that should be selected/defined by the user".
-The application should present these statistics using four graphs/charts, one for each time resolution (day, week, month and year).
+The application should present these statistics using four graphs/charts, one for each time resolution (day, week, month and year). Moreover, the application should also show to the laboratory coordinator the total number of clients and the total number of validated tests that exist in the system. There is no need to show these information using a graph/chart.
+
 
 ### 1.3. Acceptance Criteria
 
@@ -127,13 +111,16 @@ The application should present these statistics using four graphs/charts, one fo
   applied from the ones available on the system (the benchmark algorithm provided
   in moodle and the brute-force algorithm to be developed). Support for easily
   adding other similar algorithms is required.
+  
+* **AC2:** 
+
+* **AC3:**
+
+* **AC4:** 
+
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
-
 ### 1.5 Input and Output Data
-
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
 **Input Data:**
 
@@ -142,6 +129,7 @@ The application should present these statistics using four graphs/charts, one fo
     * Period to analyze - start date and end date
     
 * Selected data:
+  
     * Algorithm
 
 **Output Data:**
@@ -156,30 +144,15 @@ The application should present these statistics using four graphs/charts, one fo
 
 ### 1.6. System Sequence Diagram (SSD)
 
-*Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
-
 ![US16_SSD](US16_SSD.svg)
-
-
-### 1.7 Other Relevant Remarks
-
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
-
-To facilitate overall analysis, the application should also display statistics and graphs.
-
 
 ## 2. OO Analysis
 
-### 2.1. Relevant Domain Model Excerpt 
-*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
+### 2.1. Relevant Domain Model Excerpt
 
 ![US16_MD](US16_MD.svg)
 
 ### 2.2. Other Remarks
-
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
-
-
 
 ## 3. Design - User Story Realization 
 
