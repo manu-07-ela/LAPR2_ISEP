@@ -2,11 +2,10 @@ package app.domain.model;
 
 import app.domain.model.laboratories.ChemicalLaboratory;
 import app.domain.model.testrelated.Covid19Report;
-<<<<<<< HEAD
-=======
+
 import app.domain.model.testrelated.Overview;
 import app.domain.model.testrelated.Test;
->>>>>>> d976f7819385cc776b813786356503f8c1d4c1d8
+
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;

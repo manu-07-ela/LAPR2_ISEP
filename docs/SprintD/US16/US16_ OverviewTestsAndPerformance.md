@@ -122,9 +122,11 @@ The application should present these statistics using four graphs/charts, one fo
 
 *Insert here the client acceptance criteria.*
 
-* **AC1:** The client tests must be shown ordered from the most recent to the oldest one. 
-* **AC2:** The test results are shown only after the client has selected a test.
-
+* **AC1:** While evaluating the performance the laboratory
+  coordinator should have the ability to dynamically select the algorithm to be
+  applied from the ones available on the system (the benchmark algorithm provided
+  in moodle and the brute-force algorithm to be developed). Support for easily
+  adding other similar algorithms is required.
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
@@ -137,18 +139,19 @@ The application should present these statistics using four graphs/charts, one fo
 
 * Typed data:
 
+    * Period to analyze - start date and end date
     
 * Selected data:
-    * Period to analyze - start date and end date
     * Algorithm
 
 **Output Data:**
 
-* Number of clients
-* Number of tests waiting for results
-* Number of tests waiting for diagnosis
+* Number of clients in the scope
+* Number of clients in the system
+* Number of tests waiting for results per day, week, month and year
+* Number of tests waiting for diagnosis per day, week, month and year
 * Total Number of tests processed in the laboratory in each day, week, month and year
-* Statistics and Graphs
+* Least effective interval (Sub sequence with maximum sum)
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
