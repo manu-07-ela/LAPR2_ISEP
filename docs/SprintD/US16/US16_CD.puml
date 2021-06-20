@@ -17,6 +17,14 @@ class OverviewController{
 }
 }
 
+package adapter{
+class BenchmarkAdapter{
+}
+
+class BruteForceAdapter{
+}
+}
+
 package model{
 class Company{
 +getTestStore()
@@ -27,6 +35,8 @@ class Test{
 -testParameterList
 -stateOfTest
 -internalCode
+}
+class Client{
 }
 class Overview{
 +getNumberOfClients()
@@ -44,17 +54,10 @@ package store{
 class TestStore{
 +getIntervalTestList(initialDate,endDate)
 }
-}
-
-package mappers{
-class TestMapper{
+class ClientStore{
 }
 }
 
-
-package dto{
-class TestDto
-}
 
 package interfaces{
 interface SubsequenceWithMaximumSum{
@@ -64,22 +67,20 @@ interface SubsequenceWithMaximumSum{
 
 
 OverviewUI ..> OverviewController
-OverviewUI ..> TestDto
 
-OverviewController ..> TestMapper
 OverviewController ..> TestStore
+OverviewController ..> ClientStore
 OverviewController ..> Company
 OverviewController ..> Test
 OverviewController ..> Overview
 
-Company "1" --> "1" TestStore : uses
+Company "1" ----> "1" TestStore : uses
 TestStore "1" --> "*" Test : knows
-Company..|>SubsequenceWithMaximumSum
+ClientStore "1" --> "*" Client : knows
 
-TestMapper ..> TestDto
-TestMapper ..> Test
+Overview "*" -->"1"  SubsequenceWithMaximumSum : makes use of
 
-
-
+BenchmarkAdapter..|>SubsequenceWithMaximumSum
+BruteForceAdapter..|>SubsequenceWithMaximumSum
 
 @enduml
