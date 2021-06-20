@@ -112,13 +112,17 @@ The application should present these statistics using four graphs/charts, one fo
   in moodle and the brute-force algorithm to be developed). Support for easily
   adding other similar algorithms is required.
   
-* **AC2:** 
+* **AC2:** The laboratory coordinator should introduce two dates, the interval to find the contiguous subsequence with maximum sum.
 
-* **AC3:**
+* **AC3:** The laboratory coordinator should be able to check the number of clients, the number of tests waiting for results, the number of tests waiting for diagnosis and the total number of tests processed in the laboratory in each day, week, month and year. Moreover, the laboratory coordinator should be able to check the contiguous subsequence with maximum sum.
 
-* **AC4:** 
+* **AC4:** Sunday is not a working day. All the other days of the week are working days.
+
+* **AC5:** A working day is from 8h00 to 20h00.
 
 ### 1.4. Found out Dependencies
+
+* There are no found out dependencies.
 
 ### 1.5 Input and Output Data
 
@@ -164,26 +168,31 @@ The application should present these statistics using four graphs/charts, one fo
 |:-------------  |:--------------------------------------------------------------- |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Step 1  		 | ... interacting with the actor?                                 | OverviewTestUI                | **Pure Fabrication**: There is no justification for assigning this responsibility to any existing class in the Domain Model.                                                                           |
 |                | ... coordinating the US?                                        | OverviewController            | **Controller**                                                                                                                                                                                         |
-| Step 2  		 | ... knowing the tests that are waiting for the medical report?  | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
+| Step 2  		 |                                                                 |                               |                                                                                                                                                                                                        |
+| Step 3         | ... saving the typed data?                                      | Overview                      | **IE**: Owns its data.                                                                                                                                                                                 |
+|                | ... instantiating a new Overview?                               | Company                       | **Creator (R1)**                                                                                                                                                                                       |
+|                | ... knowing the tests that meet some date in that range?        | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
 |                | ... knowing the TestStore?                                      | Company                       | **IE**: The company knows the TestStore to which it is delegating some tasks.                                                                                                                          |
-|                | ... knowing the ClientStore?                                    | Company                       | **IE**: The company knows the ClientStore to which it is delegating some tasks.                                                                                                                          |
-| Step 3  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 3         | ... saving the typed data?                                      | MedicalReport                 | **IE**: Owns its data.                                                                                                                                                                                 |
-| Step 4  		 | ... knowing the parameters analyzed and the respective data?    | Test                          | **IE**: The test knows its own results.                                                                                                                                                                |
-|                | ... transferring business data in DTO?                          | TestParameterMapper           | **DTO**: In order for the UI not to have direct access to business objects, it is best to choose to use a DTO.                                                                                         |
-| Step 5         | ... saving the typed data?                                      | MedicalReport                 | **IE**: Owns its data.                                                                                                                                                                                 |
+|                | ... knowing the total number of clients in the system?          | ClientStore                   | **IE**: Knows all the clients.                                                                                                                                                                         |
+|                | ... knowing the ClientStore?                                    | Company                       | **IE**: The company knows the ClientStore to which it is delegating some tasks.                                                                                                                        |
+|                | ... knowing the total number of tests in the system?            | TestStore                     | **IE**: Knows all the tests.                                                                                                                                                                           |
+| Step 4  		 | ... show the information to the user?                           | OverviewTestUI                | **IE**: Is responsible for user interactions.                                                                                                                                                          |
+| Step 5         | ... knowing the available algorithms?                           | Overview                      | **IE**: knows through which algorithms it can get the information it needs                                                                                                                             |
 | Step 6  		 |                                                                 |                               |                                                                                                                                                                                                        |
-| Step 7         | ... validating all data (global validation)?                    | Test                          | **IE**: Know if already have a medical report.                                                                                                                                                         |
-|                | ... instantiating a new Medical Report?                         | Test                          | **Creator (R1)**                                                                                                                                                                                       |
-|        		 | ... validating all data (local validation)?                     | MedicalReport                 | **IE**: Owns its data.                                                                                                                                                                                 |
-|        		 | ... saving the creation time?                                   | MedicalReport                 | **IE**: The medical report knows when it was created.                                                                                                                                                  |
+| Step 7         | ... get the subsequence with maximum sum?                       | Overview                      | **IE**: Has the necessary information                                                                                                                                                                  |
+|                | ... knowing the tests waiting for result by day, week, month and year?| Overview                      | **IE**: Owns its data.                                                                                                                                                                           |
+|                | ... knowing the tests waiting for diagnosis by day, week, month and year?| Overview                      | **IE**: Owns its data.                                                                                                                                                                        |
+|                | ... knowing the tests performed by day, week, month and year?   | Overview                      | **IE**: Owns its data.                                                                                                                                                                                 |
 | Step 8  		 | ... informing operation success?                                | OverviewTestUI                | **IE**: Is responsible for user interactions.                                                                                                                                                          |
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * 
+ * Overview
+ * Company
+ * TestStore
+ * ClientStore
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
@@ -205,9 +214,139 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
 
-**_DO NOT COPY ALL DEVELOPED TESTS HERE_**
 
-**Test 1:** 
+        @Test
+        public void getAvailableAlgorithms() throws ParseException {
+           /* Company company = new Company("efwgtrt");
+            List<TestParameter> listaDeParametros = new ArrayList<>();
+            ParameterCategory pc = new ParameterCategory("12A4D","Covid-19");
+            List<ParameterCategory> listPC = new ArrayList();
+            listPC.add(pc);
+            Parameter p = new Parameter("HB000","test","method", pc);
+            Parameter p2 = new Parameter("PLT00","test","method", pc);
+            TestParameterDTO temDto2 = new TestParameterDTO("frefrfe","PLT00");
+            List<TestParameterDTO> listaDeParametrosDTO = new ArrayList<>();
+            listaDeParametrosDTO.add(temDto2);
+            TestParameter tpm1 = new TestParameter(p);
+            TestParameter tpm2 = new TestParameter(p2);
+            // listaDeParametros.add(tpm1);
+            listaDeParametros.add(tpm2);
+            Client la = new Client("freferf","1234567890123456","1234567890","12/09/2001","female","1234567890","12345678901","erferfregergerergreg@gmail.com","Rua das cavalas");
+            TestType tt = new TestType("12345","test","collecting",listPC,"ExternalModule3API");
+            NhsCode nhs = new NhsCode("123456789012");
+            List<TestType> ttlist = new ArrayList<>();
+            ttlist.add(tt);
+            ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+            app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(la,nhs,tt,listaDeParametros,lab,"123123123123");
+            List<app.domain.model.testrelated.Test> testList = new ArrayList<>();
+            testList.add(test);
+    
+            Date initialDate = new Date("15/05/2021");
+            Date endDate = new Date("30/05/2021");
+    
+            Overview overview = new Overview(initialDate,endDate,testList);
+    
+            List<String> availableAlgorithms = new ArrayList(Arrays.asList("Benchmark", "BruteForce"));
+    
+            Assert.assertEquals(availableAlgorithms,overview.getAvailableAlgorithms());
+    
+    
+            */
+        }
+    
+        @Test
+        public void getIntervalDays() throws ParseException {
+            /*Company company = new Company("Many Labs");
+            ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+            Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+            List<ParameterCategory> list=new ArrayList();
+            list.add(pc1);
+            Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
+            NhsCode nhs = new NhsCode("123456789012");
+            TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+            RefValue rv = new RefValue("mg",10,20);
+            TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
+            TestParameter tp = new TestParameter(p1,tpr);
+            List<TestParameter> tpList = new ArrayList<>();
+            tpList.add(tp);
+            List<TestType> ttlist = new ArrayList<>();
+            ttlist.add(tt);
+            ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+            app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"128123123123", new Date("18/05/2021  10:07:00"), new Date("19/05/2021  10:07:00"),new Date("20/05/2021  10:07:00"),new Date("16/05/2021  10:07:00") );
+            app.domain.model.testrelated.Test test2 = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"128123123123", new Date("18/05/2021  10:07:00"), new Date("19/05/2021  10:07:00"),new Date("20/05/2021  10:07:00"),new Date("16/05/2021  10:07:00") );
+            app.domain.model.testrelated.Test test3 = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"128123123123", new Date("18/05/2021  10:07:00"), new Date("19/05/2021  10:07:00"),new Date("20/05/2021  10:07:00"),new Date("16/05/2021  10:07:00") );
+    
+    
+           Date initialDate = new Date("14/05/2021  10:07:00");
+           Date endDate = new Date ("25/05/2021  10:07:00");
+    
+    
+    
+    
+           List<app.domain.model.testrelated.Test> testList = new ArrayList<>();
+           testList.add(test);
+           testList.add(test2);
+           testList.add(test3);
+    
+           Overview overview = new Overview (initialDate,endDate,testList);
+           overview.getIntervalDays();
+    
+           List<Date> dateList = new ArrayList<>();
+    
+            dateList = overview.getDates();
+    
+            Assert.assertEquals(dateList,overview.getDates());
+    
+             */
+    
+        }
+    
+        @Test
+        public void getAssociatedClients() throws ParseException {
+            /*
+            Company company = new Company("Many Labs");
+            ParameterCategory pc1 = new ParameterCategory("HM000","Hemogram");
+            Parameter p1 = new Parameter("HB000","HB","Hemoglobin",pc1);
+            List<ParameterCategory> list=new ArrayList();
+            list.add(pc1);
+            Client client = new Client("Rita","1231231231231231","1231231231","26/11/2002","1231231231","12345678900","rita@gmail.com","Avenida da República");
+            NhsCode nhs = new NhsCode("123456789012");
+            TestType tt = new TestType("BL000","blood","syringe",list,"ExternalModule2API");
+            RefValue rv = new RefValue("mg",10,20);
+            TestParameterResult tpr = new TestParameterResult(rv,"15","mg");
+            TestParameter tp = new TestParameter(p1,tpr);
+            List<TestParameter> tpList = new ArrayList<>();
+            tpList.add(tp);
+            List<TestType> ttlist = new ArrayList<>();
+            ttlist.add(tt);
+            ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("Chemical","1234","12312312312","1231231231","12345",ttlist);
+            app.domain.model.testrelated.Test test = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"128123123123", new Date("18/05/2021  10:07:00"), new Date("19/05/2021  10:07:00"),new Date("20/05/2021  10:07:00"),new Date("16/05/2021  10:07:00") );
+            app.domain.model.testrelated.Test test2 = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"128123123123", new Date("18/05/2021  10:07:00"), new Date("19/05/2021  10:07:00"),new Date("20/05/2021  10:07:00"),new Date("16/05/2021  10:07:00") );
+            app.domain.model.testrelated.Test test3 = new app.domain.model.testrelated.Test(client,nhs,tt,tpList,lab,"128123123123", new Date("18/05/2021  10:07:00"), new Date("19/05/2021  10:07:00"),new Date("20/05/2021  10:07:00"),new Date("16/05/2021  10:07:00") );
+    
+    
+            Date initialDate = new Date("14/05/2021  10:07:00");
+            Date endDate = new Date ("25/05/2021  10:07:00");
+    
+    
+            List<app.domain.model.testrelated.Test> testList = new ArrayList<>();
+            testList.add(test);
+            testList.add(test2);
+            testList.add(test3);
+    
+            Overview overview = new Overview (initialDate,endDate,testList);
+    
+    
+            List<Client> clList = new ArrayList<>();
+            clList.add(client);
+            int sizeexpected = clList.size();
+            int sizeresult = overview.getNumberOfClients();
+    
+            Assert.assertEquals(sizeexpected,sizeresult);
+    
+             */
+        }
+
 
 *It is also recommended to organize this content by subsections.* 
 
@@ -215,7 +354,184 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
 
-*It is also recommended to organize this content by subsections.* 
+* Class OverviewController
+
+
+
+    package app.controller;
+    
+    import app.domain.model.Company;
+    import app.domain.model.testrelated.Overview;
+    import app.domain.model.testrelated.Test;
+    import app.domain.store.ClientStore;
+    import app.domain.store.TestStore;
+    import java.text.ParseException;
+    import java.util.Date;
+    import java.util.List;
+    
+    public class OverviewController {
+    
+        /**
+         * Represents an instance of app.
+         */
+        private App app;
+    
+        /**
+         * Represents a instance of company.
+         */
+        private Company company;
+    
+        /**
+         * Represents an instance of the test store.
+         */
+        private TestStore testStore;
+    
+        /**
+         * Represents an instance of the client store.
+         */
+        private ClientStore clientStore;
+        /**
+         * Represents an instance of Overview
+         */
+        private Overview overview;
+    
+        /**
+         * Constructs an instance of {@code OverviewController}.
+         */
+        public OverviewController(){
+            this.app=App.getInstance();
+            this.company=app.getCompany();
+        }
+    
+        /**
+         * Constructs an instance of {@code OverviewController} receiving a company.
+         * @param company The company.
+         */
+        public OverviewController(Company company) {
+            this.app=App.getInstance();
+            this.company =company;
+        }
+    
+        /**
+         * Process data from the date range
+         * @param initialDate the initial date of the interval
+         * @param endDate the end date of the interval
+         * @throws ParseException if the conversion of dates does not go well
+         */
+        public void getIntervalTestList(Date initialDate, Date endDate) throws ParseException {
+            this.testStore=company.getTestStore();
+            List<Test> testList = testStore.getIntervalTestList(initialDate, endDate);
+            this.overview=company.createOverview(initialDate,endDate,testList);
+        }
+    
+        /**
+         * Get the number of clients in the system
+         * @return the number of clients in the system
+         */
+        public int getNumberOfClients(){
+            return overview.getNumberOfClients();
+        }
+    
+        /**
+         * Gets the number of tests in the system
+         * @return the number of tests in the system
+         */
+        public int getNumberTestsSystem(){
+            return testStore.getTestList().size();
+        }
+    
+        /**
+         * Gets the number of the clients in the system
+         * @return the number of the clients in the system
+         */
+        public int getNumberClientsSystem(){
+            this.clientStore=company.getClientStore();
+            return clientStore.getClientList().size();
+        }
+    
+        /**
+         * Gets the date of the clients
+         * @return the date of the clients
+         */
+        public List<Date> getDates(){
+            return overview.getDates();
+        }
+    
+        /**
+         * Get the number of tests waiting for results in the system
+         * @return the number of tests waiting for results in the system
+         */
+        public List<Integer>  getNumberOfTestsWaitingForResults(){
+            return overview.getTestWaitingForResults();
+        }
+    
+        public List<Date> getIntervalDates(){
+            return overview.getIntervalDates();
+        }
+        /**
+         * Get the number of tests waiting for diagnosis in the system
+         * @return the number of tests waiting for diagnosis in the system
+         */
+        public List<Integer>  getNumberOfTestsWaitingForDiagnosis(){
+            return overview.getTestsWaitingForDiagnosis();
+        }
+    
+        /**
+         * Get the number of tests processed in the system
+         * @return the number of tests processed in the system
+         */
+        public List<Integer> getTotalNumberOfTestsProcessed(){
+            return overview.getTestProcessed();
+        }
+    
+        /**
+         * The list of available algorithms in the system
+         * @return the list of algorithms
+         */
+        public List<String> getAvailableAlgorithms(){
+            return overview.getAvailableAlgorithms();
+        }
+    
+        /**
+         * Get the maximum subsequence of a interval
+         * @param algorithm algorithm to be used for calculation of the maximum subsequence
+         * @return the subsequence maximum
+         * @throws ClassNotFoundException if it is not possible to instantiate the desired class
+         * @throws IllegalAccessException if the object we intend to create it's not  correctly
+         * @throws InstantiationException if we can't instantiate an object
+         */
+        public int[] getSubsequenceWithMaximumSum(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+            return overview.getSubsequenceWithMaximumSum(algorithm);
+        }
+    
+        /**
+         * Sets an algorithm
+         * @param algorithm A algorithm
+         * @throws ClassNotFoundException
+         * @throws IllegalAccessException
+         * @throws InstantiationException
+         */
+        public void sendAlgorithm(String algorithm) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+            overview.setAlgorithm(algorithm);
+        }
+    
+        /**
+         * Gets the Period Sub Sequence
+         * @return the Period Sub Sequence
+         */
+        public String[] getPeriodSubSequenceMaxSum(){
+            return overview.getPeriodSubSequenceMaxSum();
+        }
+    
+        /**
+         * Get the sequence
+         * @return the sequence
+         */
+        public int[] getSequence(){
+            return overview.getSequence();
+        }
+    
+    }
 
 # 6. Integration and Demo 
 

@@ -306,11 +306,9 @@ public class TestStore implements Serializable {
     public List<Test> getIntervalTestList(Date initialDate, Date endDate){
         List<Test> intervalTestList = new ArrayList();
         for (Test t: testList) {
-            System.out.println(t.getSamplesAddDate());
             if(t.getSamplesAddDate()!=null) {
                 if ((t.getSamplesAddDate().after(initialDate) && t.getSamplesAddDate().before(endDate)) || (t.getCreatedAt().after(initialDate) && t.getCreatedAt().before(endDate)) || (t.getLabValidationDate().after(initialDate) && t.getLabValidationDate().before(endDate)) || (t.getChemicalAnalysisDate().get(t.getChemicalAnalysisDate().size() - 1).after(initialDate) && t.getChemicalAnalysisDate().get(t.getChemicalAnalysisDate().size() - 1).before(endDate))) {
                     intervalTestList.add(t);
-                    System.out.println(t.getSamplesAddDate());
                 }
             }
         }
@@ -353,8 +351,6 @@ public class TestStore implements Serializable {
      * @return the number of Positive Covid tests for a day
      */
     public double[] getNumberOfPositiveCovidTestsForDayInInterval(Date initialDate, Date endDate){
-        System.out.println(initialDate.toString());
-        System.out.println(endDate.toString());
         List<Double> auxiliar = new ArrayList<>();
 
         List<Test> tests = getCovidTestsLstByInterval(initialDate,endDate);
@@ -394,7 +390,6 @@ public class TestStore implements Serializable {
         for(int j = 0; j<auxiliar.size(); j++){
             positives[j]=auxiliar.get(j);
         }
-        System.out.println(Arrays.toString(positives));
         return positives;
 
     }
