@@ -70,8 +70,10 @@ public class Covid19Report {
         regression = new SimpleLinearRegression(x1Interval,yInterval, x1HistoricalPoints,yHistoricalPoints,confidenceLevel,significanceLevel,dateInformation);
         this.report = regression.regressionInformation();
     }
-
-    public Covid19Report(double[] x1Interval, double[] x2Interval, double[] yInterval, double[] x1HistoricalPoints, double[] x2HistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel, String typeOfDate) {
+    public double r2(){
+        return regression.r2();
+    }
+    public Covid19Report(double[] x1Interval, double[] x2Interval, double[] yInterval, double[] x1HistoricalPoints, double[] x2HistoricalPoints, double[] yHistoricalPoints, double confidenceLevel, double significanceLevel,Date currentDay, String typeOfDate) {
         this.x1Interval = x1Interval;
         this.x2Interval = x2Interval;
         this.yInterval = yInterval;
@@ -80,6 +82,7 @@ public class Covid19Report {
         this.yHistoricalPoints = yHistoricalPoints;
         this.confidenceLevel = confidenceLevel;
         this.significanceLevel = significanceLevel;
+        this.currentDay=currentDay;
         if (typeOfDate.equals("Day")){
             this.dateInformation = getIntervalDates();
         }else {
@@ -134,7 +137,11 @@ public class Covid19Report {
         return dateInformation;
     }
 
-    public void sendReportNhs() {
+    public static void sendReportNhs(String report) {
         Report2NHS.writeUsingFileWriter(report);
+    }
+
+    public String getReport(){
+        return report;
     }
 }

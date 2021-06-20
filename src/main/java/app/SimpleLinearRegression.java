@@ -318,4 +318,9 @@ public class SimpleLinearRegression implements RegressionModel {
     public String regressionInformation() {
         return toString();
     }
+
+    @Override
+    public double r2() {
+        return r2();
+    }
 }

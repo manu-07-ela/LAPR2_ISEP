@@ -1,36 +1,40 @@
 ----------* The regression model fitted using data from the interval *----------
-y = 1,33x + -2,26
+y = 0,12x + -1,49
 
 ----------* Other statistics *----------
-R^2 = 0,924
-R^2 adjusted = 0,912
-R = 0,961
+R^2 = 0,021
+R^2 adjusted = -0,142
+R = 0,145
 
 ----------* Significance model with Anova *----------
                      Sum of squares          Degrees of freedom          Root mean          Test statistic f 
- Regression        |     20,22           |             1            |      20,22        |          73,44        
- Error             |     1,65           |             6            |      0,28        |                       
- Total             |     21,87           |             7            |                  |                       
+ Regression        |     0,46           |             1            |      0,46        |          0,13        
+ Error             |     21,41           |             6            |      3,57        |                       
+ Total             |     21,88           |             7            |                  |                       
 
-Decision: (f0 = 73,44) > (f0,05(1, 6) = 5,99)
-Reject H0, the model is significant
+Decision: (f0 = 0,13) <= (f0,05(1, 6) = 5,99)
+Don't reject H0, the model is not significant
 
 ----------* Hypothesis tests for regression coefficients *----------
 H0: b = 0
 H1: b != 0 
-t observed = 8,57 
-Rejects H0
+t observed = 0,36 
+Don't reject H0
 
 H0: a = 0
 H1: a != 0 
-t observed = -3,31 
-Rejects H0
+t observed = -0,11 
+Don't reject H0
 
 ----------* Prediction values *----------
 
-Date                    |          Number of OBSERVED positive cases          |          Number of ESTIMATED positive cases           |          95,0% intervals
-29/05/2021              |                       1,00                          |                       -0,93                           |          ] -2,77; 0,90 [             
-28/05/2021              |                       1,00                          |                       -0,93                           |          ] -2,77; 0,90 [             
-27/05/2021              |                       1,00                          |                       1,72                            |          ] 0,28; 3,16 [
-26/05/2021              |                       0,00                          |                       -2,26                           |          ] -4,37; -0,15 [             
-25/05/2021              |                       0,00                          |                       0,39                            |          ] -1,22; 2,00 [
+Date                    |          Number of OBSERVED positive cases          |          Number of ESTIMATED positive cases           |          95,0% intervals             
+29/03/2021 - 03/04/2021              |                       3,00                          |                       1,75                           |          ] -10,37; 13,87 [             
+05/04/2021 - 10/04/2021              |                       1,00                          |                       2,09                           |          ] -7,97; 12,14 [             
+12/04/2021 - 17/04/2021              |                       3,00                          |                       1,81                           |          ] -9,89; 13,52 [             
+19/04/2021 - 24/04/2021              |                       1,00                          |                       1,47                           |          ] -12,40; 15,34 [             
+26/04/2021 - 01/05/2021              |                       1,00                          |                       1,84                           |          ] -9,71; 13,39 [             
+03/05/2021 - 08/05/2021              |                       1,00                          |                       2,09                           |          ] -7,97; 12,14 [             
+10/05/2021 - 15/05/2021              |                       1,00                          |                       1,76                           |          ] -10,30; 13,82 [             
+17/05/2021 - 22/05/2021              |                       0,00                          |                       -1,49                           |          ] -34,98; 32,00 [             
+24/05/2021 - 29/05/2021              |                       0,00                          |                       1,22                           |          ] -14,23; 16,68 [             
